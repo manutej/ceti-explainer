@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hierarchical Sheaf Memory – Applied CT + MAKER GraphWiki</title>
+<script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+<style>
+  body { margin: 0; font-family: system-ui, -apple-system, sans-serif; background: #0f1115; color: #e6e6e6; }
+  #header { padding: 16px 24px; background: #1a1d24; border-bottom: 1px solid #2a2e38; }
+  h1 { margin: 0 0 4px 0; font-size: 1.4rem; font-weight: 600; }
+  .sub { color: #9aa3b2; font-size: 0.9rem; }
+  #mynetwork { width: 100vw; height: calc(100vh - 90px); }
+  .legend { position: absolute; bottom: 20px; left: 20px; background: #1a1d24cc; padding: 12px 16px; border-radius: 8px; font-size: 0.85rem; border: 1px solid #2a2e38; }
+  .legend-item { display: flex; align-items: center; margin: 4px 0; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; }
+</style>
+</head>
+<body>
+<div id="header">
+  <h1>Hierarchical Sheaf Memory – Research GraphWiki</h1>
+  <div class="sub">Applied Category Theory in AI + Agentic Orchestration (MAKER) &nbsp;|&nbsp; Clusters = local sheaves &nbsp;|&nbsp; Cross edges = meta-gluing</div>
+</div>
+<div id="mynetwork"></div>
+<div class="legend">
+  <div class="legend-item"><div class="dot" style="background:#4e79a7"></div> Foundations (Sheaves / Laplacian / Harmonic)</div>
+  <div class="legend-item"><div class="dot" style="background:#e15759"></div> Reliability & Orchestration (MAKER / MDAP)</div>
+  <div class="legend-item"><div class="dot" style="background:#59a14f"></div> Multi-Agent Planning & Coordination</div>
+  <div class="legend-item"><div class="dot" style="background:#f28e2b"></div> Applications (Memory / Orchestration)</div>
+</div>
+<script>
+const nodes = new vis.DataSet([
+  {id: "CellularSheaf", label: "Cellular Sheaf", group: "Foundations"},
+  {id: "SheafLaplacian", label: "Sheaf Laplacian", group: "Foundations"},
+  {id: "DirichletEnergy", label: "Dirichlet Energy", group: "Foundations"},
+  {id: "HarmonicExtension", label: "Harmonic Extension", group: "Foundations"},
+  {id: "KnowledgeSheaves", label: "Knowledge Sheaves", group: "Foundations"},
+  {id: "RestrictionMaps", label: "Restriction Maps", group: "Foundations"},
+  {id: "MAKER", label: "MAKER", group: "Reliability", font: {size: 16, bold: true}},
+  {id: "MDAP", label: "MDAP", group: "Reliability"},
+  {id: "MaximalAgenticDecomposition", label: "Maximal Agentic\nDecomposition", group: "Reliability"},
+  {id: "FirstToAheadByKVoting", label: "First-to-ahead-by-K\nVoting", group: "Reliability"},
+  {id: "RedFlagging", label: "Red-Flagging", group: "Reliability"},
+  {id: "Microagents", label: "Microagents", group: "Reliability"},
+  {id: "SheafTheoreticPlanning", label: "Sheaf-Theoretic\nPlanning", group: "Planning"},
+  {id: "CartanTopos", label: "Cartan-Topos", group: "Planning"},
+  {id: "GameSheaf", label: "Game Sheaf", group: "Planning"},
+  {id: "SheafADMM", label: "Sheaf-ADMM", group: "Planning"},
+  {id: "MultiAgentCoordination", label: "Multi-Agent\nCoordination", group: "Planning"},
+  {id: "AgenticOrchestration", label: "Agentic\nOrchestration", group: "Applications"},
+  {id: "LongHorizonReliability", label: "Long-Horizon\nReliability", group: "Applications"},
+  {id: "PersistentMemory", label: "Persistent Memory", group: "Applications"},
+  {id: "HybridSymbolicNumerical", label: "Hybrid Symbolic\n+ Numerical", group: "Applications"},
+  {id: "NewSheafAgentPaper", label: "New Sheaf-Agent\nPaper (demo)", group: "Planning", shape: "diamond"}
+]);
+
+const edges = new vis.DataSet([
+  {from: "CellularSheaf", to: "SheafLaplacian", label: "defines", arrows: "to"},
+  {from: "SheafLaplacian", to: "DirichletEnergy", label: "defines", arrows: "to"},
+  {from: "DirichletEnergy", to: "HarmonicExtension", label: "enables", arrows: "to"},
+  {from: "KnowledgeSheaves", to: "CellularSheaf", label: "is_a", arrows: "to"},
+  {from: "RestrictionMaps", to: "CellularSheaf", label: "defines", arrows: "to"},
+  {from: "MAKER", to: "MaximalAgenticDecomposition", label: "uses", arrows: "to"},
+  {from: "MAKER", to: "FirstToAheadByKVoting", label: "uses", arrows: "to"},
+  {from: "MAKER", to: "RedFlagging", label: "uses", arrows: "to"},
+  {from: "MaximalAgenticDecomposition", to: "Microagents", label: "enables", arrows: "to"},
+  {from: "MDAP", to: "MAKER", label: "is_a", arrows: "to"},
+  {from: "SheafTheoreticPlanning", to: "CellularSheaf", label: "uses", arrows: "to"},
+  {from: "CartanTopos", to: "SheafTheoreticPlanning", label: "extends", arrows: "to"},
+  {from: "GameSheaf", to: "CellularSheaf", label: "extends", arrows: "to"},
+  {from: "SheafADMM", to: "CellularSheaf", label: "uses", arrows: "to"},
+  {from: "SheafADMM", to: "MultiAgentCoordination", label: "applied_to", arrows: "to"},
+  {from: "HarmonicExtension", to: "MAKER", label: "complements", arrows: "to", color: {color: "#f1c40f"}, width: 3},
+  {from: "CellularSheaf", to: "PersistentMemory", label: "enables", arrows: "to"},
+  {from: "MAKER", to: "LongHorizonReliability", label: "enables", arrows: "to"},
+  {from: "PersistentMemory", to: "AgenticOrchestration", label: "enables", arrows: "to"},
+  {from: "HybridSymbolicNumerical", to: "PersistentMemory", label: "is_a", arrows: "to"},
+  {from: "SheafTheoreticPlanning", to: "AgenticOrchestration", label: "applied_to", arrows: "to"},
+  {from: "NewSheafAgentPaper", to: "SheafTheoreticPlanning", label: "extends", arrows: "to", dashes: true},
+  {from: "NewSheafAgentPaper", to: "MAKER", label: "complements", arrows: "to", dashes: true, color: {color: "#f1c40f"}}
+]);
+
+const container = document.getElementById("mynetwork");
+const data = { nodes, edges };
+const options = {
+  nodes: {
+    shape: "dot",
+    size: 22,
+    font: { color: "#e6e6e6", size: 13, face: "system-ui" },
+    borderWidth: 2,
+    shadow: true
+  },
+  edges: {
+    font: { color: "#9aa3b2", size: 11, strokeWidth: 0, align: "middle" },
+    color: { color: "#5c677a", highlight: "#7a8ba3" },
+    smooth: { type: "continuous" }
+  },
+  groups: {
+    Foundations: { color: { background: "#4e79a7", border: "#3a5f8a" } },
+    Reliability: { color: { background: "#e15759", border: "#b83e40" } },
+    Planning: { color: { background: "#59a14f", border: "#3f7a38" } },
+    Applications: { color: { background: "#f28e2b", border: "#c46e15" } }
+  },
+  physics: {
+    forceAtlas2Based: { gravitationalConstant: -60, centralGravity: 0.01, springLength: 120, springConstant: 0.08 },
+    solver: "forceAtlas2Based",
+    stabilization: { iterations: 150 }
+  },
+  interaction: { hover: true, tooltipDelay: 100 }
+};
+new vis.Network(container, data, options);
+</script>
+</body>
+</html>
