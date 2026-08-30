@@ -1,0 +1,40 @@
+# Skills inventory — manutej/ceti-explainer
+
+Source of truth is the live user skill tree at `~/.grok/skills/`.
+This repo mirrors that tree. Update both, then push. Do not keep a second contract.
+
+Command: `/sheaf-run course`
+
+Tagline: Glue what the dual-loop conserves.
+
+## Product skills
+
+| Path | Role | Notes |
+|---|---|---|
+| `skills/ceti-explainer/` | Tailor / Commit | Full SVG episode engine (`SKILL.md`, `LONGFORM.md`, `assets/`, `reference/`) plus film occupancy in `COURSE-E0.md` |
+| `skills/ceti-research/` | Propose | Conserved storyboard slots. Persist media immediately. |
+| `skills/ceti-brand/` | Palette / surfaces | Cream / vermillion / ink. No purple gradients. No emoji headings. |
+| `skills/noether-harness/` | Dual-loop runtime | Full dual-loop skill + `references/SHEAF-ACV.md` |
+
+## Sheaf family (ACV occupants)
+
+| Path | Vertex / job |
+|---|---|---|
+| `skills/sheaf-kernel/` | L C O P V incidence, exact CSP Phi |
+| `skills/sheaf-localize/` | Restrict to named cover |
+| `skills/sheaf-preserve/` | Palette, motif family, no lookbook copy |
+| `skills/sheaf-glue/` | Phi on shared fields (motif AND claim AND duration) |
+| `skills/sheaf-repair/` | Discrete restriction / quotient. Zero weight. |
+| `skills/sheaf-harness/` | Stage map + `/sheaf-run` command |
+
+## Contracts that must not drift
+
+- `skills/ceti-explainer/COURSE-E0.md` — 2-minute product, 5-minute seam, persist-on-generate
+- `skills/noether-harness/references/SHEAF-ACV.md` — ACV is exact Phi; relative H1 ranks only
+- `EXPERIMENT-E0.md` — 2-minute commit, 5-minute mux abstain
+- `REQUIREMENTS.md` — locked product contract
+
+## Quality bar
+
+Lookbook quality is a bar, not a corpus. Cream `#FAF7F2` · vermillion `#D94F30` · ink `#2C2A28`.
+Unique signature visual. WCAG AA. `prefers-reduced-motion`. No fabricated facts.

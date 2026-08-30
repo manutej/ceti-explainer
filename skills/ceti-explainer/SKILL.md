@@ -11,6 +11,8 @@ description: >
 
 # ceti-explainer
 
+**Course occupancy (E0).** When the brief is a short-course film (2-minute lecture, optional 5-minute seam test) rather than a deterministic SVG episode, occupy Tailor/Commit of noether-harness. ceti-research proposes the atlas. Command: `/sheaf-run course`. See COURSE-E0.md. Persist every generated asset immediately.
+
 The **product skill**. `ceti-research` proposes. This skill tailors stills,
 motion, narration, and a single-file HTML page until Φ holds, then commits.
 

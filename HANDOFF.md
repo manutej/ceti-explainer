@@ -13,7 +13,9 @@
 2. Do not copy ceti-lookbook sentences. Palette and WOW bar only.
 3. Episode 2 (Honest translators) only after episode 1 quality is accepted.
 4. If a CETI GitHub org appears, transfer this repo; do not fork a second source of truth.
-5. Persist generated media immediately. Generator stores drop paths (Localization failure).
+5. Keep live `~/.grok/skills/` and `skills/` in this repo in lockstep; update both, then push.
+6. Persist generated media immediately. Generator stores drop paths (Localization failure).
+7. Merge remaining engine assets (`LONGFORM.md`, `assets/`, `reference/`) after the `SKILL.md` stub is replaced.
 
 ## Command
 
