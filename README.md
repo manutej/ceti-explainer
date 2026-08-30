@@ -48,11 +48,19 @@ Lookbook quality is a **bar**, not a corpus to copy. No text overlap with [ceti-
 ## Repo layout
 
 ```
-skills/           ceti-* · noether-harness · sheaf-*
-notebooks/        lookbook-grade HTML
-EXPERIMENT-E0.md  occupancy, Φ, what Meta refused
-REQUIREMENTS.md   locked product contract
+skills/ceti-explainer/   full animated-explainer skill (engine, gate, longform)
+                         + COURSE-E0.md film occupancy
+skills/ceti-research/    Propose occupant — conserved storyboard slots
+skills/ceti-brand/       cream / vermillion / ink contract
+skills/noether-harness/  full dual-loop skill + SHEAF-ACV occupancy
+skills/sheaf-*/          capability-sheaf family (kernel → glue ⇄ repair)
+notebooks/               lookbook-grade HTML + field notebooks
+EXPERIMENT-E0.md         occupancy, Φ, what Meta refused
+REQUIREMENTS.md          locked product contract
 ```
+
+Skills in this repo are the versions to load. The live user skill tree
+and this folder must stay in sync — update both, then push.
 
 ## Org note
 

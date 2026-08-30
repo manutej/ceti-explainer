@@ -2,7 +2,7 @@
 
 ## State
 
-- Skills written: `ceti-research`, `ceti-explainer`, `noether-harness`, sheaf-* family, `sheaf-harness`.
+- Skills written: live `ceti-explainer` (engine + COURSE-E0), live `noether-harness` (THEORY + SHEAF-ACV), `ceti-research`, `ceti-brand`, sheaf-* family, `sheaf-harness`.
 - Studio app: Lab occupancy graph, Course player (2-min film), Notes (lookbook HTML).
 - GitHub: `https://github.com/manutej/ceti-explainer` (public). CETI org not available on this account.
 - 2-minute episode committed. 5-minute mux abstained; stills conserved.
