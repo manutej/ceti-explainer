@@ -1,0 +1,33 @@
+/* Helio — an alternate brand theme (cool slate-blue + electric-blue + teal).
+   Proves the explainer re-skins from a token swap alone. Build with:
+     python3 assets/build.py ep.js "Title" --brand "Helio" --theme themes/example-helio.css
+   Uses system font stacks so it works offline with no @import. */
+:root {
+  /* grounds */
+  --ex-ground:    #0B1020;
+  --ex-ground-2:  #070A15;
+  --ex-ground-hi: #121A33;
+  --ex-panel-hi:  #111A2E;
+  --ex-panel-lo:  #0C1322;
+
+  /* ink + structure */
+  --ex-ink:   #EAF0FF;
+  --ex-dim:   #8A96B4;
+  --ex-line:  rgba(234, 240, 255, 0.12);
+  --ex-panel: #161F36;
+  --ex-cell:  #1B2742;
+  --ex-bar:   rgba(234, 240, 255, 0.20);
+
+  /* accents */
+  --ex-accent:      #5B8CFF;   /* electric blue — the lead */
+  --ex-accent-fill: rgba(91, 140, 255, 0.16);
+  --ex-accent-glow: rgba(91, 140, 255, 0.38);
+  --ex-accent2:     #36C6B0;   /* teal — secondary */
+  --ex-support:     #B07CFF;   /* violet — tertiary */
+  --ex-peach:       #F2A65A;   /* warn / "without" */
+
+  /* type — system stacks (no webfont load needed) */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-sans:    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", "Cascadia Mono", Menlo, monospace;
+}

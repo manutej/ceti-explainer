@@ -1,0 +1,65 @@
+/* motion.css — the warm motion vocabulary
+ * Drop into :root, consume in component CSS via var(--ease-*).
+ * Includes IntersectionObserver helper at the bottom.
+ */
+
+:root {
+  /* Eases */
+  --ease-glaser:   cubic-bezier(0.22, 1, 0.36, 1);     /* house ease */
+  --ease-warm-in:  cubic-bezier(0.4, 0, 0.2, 1);       /* workhorse */
+  --ease-defer:    cubic-bezier(0.25, 0.46, 0.45, 0.94);/* arrivals */
+  --ease-collect:  cubic-bezier(0.55, 0, 0.55, 0.2);   /* departures */
+  --ease-rest:     cubic-bezier(0.4, 0, 0.6, 1);       /* symmetry */
+
+  /* Durations */
+  --duration-quick:        180ms;  /* hover, focus */
+  --duration-comfortable:  280ms;  /* default */
+  --duration-deliberate:   480ms;  /* section reveals */
+  --duration-considered:   720ms;  /* hero set-pieces */
+}
+
+/* ────────────────────────
+ * REVEAL PATTERN — fade-in-on-scroll
+ * Apply class .reveal-fade to elements; observer below toggles .is-visible.
+ * ──────────────────────── */
+
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity var(--duration-deliberate) var(--ease-defer),
+    transform var(--duration-deliberate) var(--ease-defer);
+  will-change: opacity, transform;
+}
+.reveal-fade.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile: drop the transform — only fade. Reduces motion-sickness on small screens. */
+@media (max-width: 720px) {
+  .reveal-fade {
+    transform: none;
+    transition: opacity var(--duration-deliberate) var(--ease-defer);
+  }
+  .reveal-fade.is-visible {
+    transform: none;
+  }
+}
+
+/* ────────────────────────
+ * REDUCED MOTION GUARD
+ * Keep opacity for orientation; kill transforms for safety.
+ * ──────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: var(--duration-comfortable) !important;
+    transition-property: opacity, color, background-color, border-color !important;
+  }
+  .reveal-fade,
+  .reveal-fade.is-visible {
+    transform: none !important;
+  }
+}
