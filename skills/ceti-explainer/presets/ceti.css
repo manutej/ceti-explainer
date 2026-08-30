@@ -1,0 +1,12 @@
+/* Preset: CETI — deep editorial dark, copper lead (the default look).
+   This restates the built-in default explicitly, so `--preset ceti` is a no-op
+   you can name for clarity. Colors only; the 3-font type system is locked. */
+:root {
+  --ex-ground:#0E1014; --ex-ground-2:#0B0D11; --ex-ground-hi:#14181F;
+  --ex-panel-hi:#12161D; --ex-panel-lo:#0F1217;
+  --ex-ink:#F5EFE3; --ex-dim:#A39A89;
+  --ex-line:rgba(245,239,227,0.13); --ex-line-2:rgba(245,239,227,0.07);
+  --ex-panel:#171B23; --ex-cell:#1C212B; --ex-bar:rgba(245,239,227,0.22);
+  --ex-accent:#CE9A6A; --ex-accent-fill:rgba(206,154,106,0.15); --ex-accent-glow:rgba(206,154,106,0.35);
+  --ex-accent2:#8FA985; --ex-support:#6E8CA8; --ex-peach:#D88B5C;
+}

@@ -1,0 +1,30 @@
+/* Preset: Owala — soft warm palette grounded on deep berry/plum (a "warm night"
+   read of the Owala system). Built from owala-soft values mapped to --ex-*
+   roles. Colors only; the locked 3-font type system keeps layouts metric-stable.
+   Build:  python3 assets/build.py ep.js "Title" --preset owala
+   Owala hexes are approximations from product photography, not brand specs. */
+:root {
+  /* grounds — deep plum/aubergine, warm */
+  --ex-ground:    #1E1426;   /* cosmic-plum, darkened */
+  --ex-ground-2:  #160E1C;
+  --ex-ground-hi: #281A30;
+  --ex-panel-hi:  #241730;
+  --ex-panel-lo:  #1A1222;
+
+  /* ink + structure — cream on plum */
+  --ex-ink:   #FAF7F2;       /* owala paper */
+  --ex-dim:   #B7A6B4;       /* muted mauve-tan */
+  --ex-line:  rgba(250, 247, 242, 0.13);
+  --ex-line-2:rgba(250, 247, 242, 0.07);
+  --ex-panel: #2A1F37;
+  --ex-cell:  #342743;
+  --ex-bar:   rgba(250, 247, 242, 0.20);
+
+  /* accents — dusty rose lead, teal + lavender support */
+  --ex-accent:      #E79AAE;  /* rose-quartz, saturated — the lead */
+  --ex-accent-fill: rgba(231, 154, 174, 0.16);
+  --ex-accent-glow: rgba(231, 154, 174, 0.38);
+  --ex-accent2:     #4FB3A4;  /* tropical-tide (teal) */
+  --ex-support:     #9B8AB8;  /* hint-of-grape (lavender) */
+  --ex-peach:       #F2C14E;  /* citrus-squeeze */
+}
