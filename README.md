@@ -4,13 +4,29 @@ Short-course explainers for sheaves, operads, and cohomology — for people who 
 
 **Episode 01 · Local truths, global maps** is the first of five. This repo keeps the skills, the harness, the field notebooks, and the experiment log.
 
-Live studio: the CETI Explainer app (Lab occupancy graph, Course player, Notes).
+Public repo: https://github.com/manutej/ceti-explainer
+
+There is no hosted studio yet. The product you can run today is a self-contained HTML episode built from `skills/ceti-explainer/`.
 
 ## Tagline
 
 > Glue what the dual-loop conserves.
 
 Command: `/sheaf-run course`
+
+## Run an episode
+
+Needs Node 18+ and Python 3. No npm install. Full steps: [RUN.md](./RUN.md).
+
+```bash
+git clone https://github.com/manutej/ceti-explainer.git
+cd ceti-explainer/skills/ceti-explainer
+cp assets/_episode-template.js my-episode.js
+node assets/gate.mjs my-episode.js
+python3 assets/build.py my-episode.js "Title"
+```
+
+Gold standard: `reference/self-attention.js`. Film occupancy: `COURSE-E0.md`.
 
 ## Experiment E0
 
@@ -48,11 +64,11 @@ Lookbook quality is a **bar**, not a corpus to copy. No text overlap with [ceti-
 ## Repo layout
 
 ```
-skills/ceti-explainer/   full animated-explainer skill (engine, gate, longform)
-                         + COURSE-E0.md film occupancy
+RUN.md                   clone → gate → build
+skills/ceti-explainer/   SVG episode engine + COURSE-E0.md film occupancy
 skills/ceti-research/    Propose occupant — conserved storyboard slots
 skills/ceti-brand/       cream / vermillion / ink contract
-skills/noether-harness/  full dual-loop skill + SHEAF-ACV occupancy
+skills/noether-harness/  dual-loop skill + SHEAF-ACV occupancy
 skills/sheaf-*/          capability-sheaf family (kernel → glue ⇄ repair)
 notebooks/               lookbook-grade HTML + field notebooks
 EXPERIMENT-E0.md         occupancy, Φ, what Meta refused
