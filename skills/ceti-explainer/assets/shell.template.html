@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>__TITLE__</title>
+  <style>
+__TOKENS_CSS__
+__PRESET_OVERRIDE__
+__THEME_OVERRIDE__
+__MOTION_CSS__
+
+:root {
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #FAF7F2;
+  color: #2C2A28;
+  font-family: var(--font-sans);
+}
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+}
+.ex-shell {
+  display: grid;
+  gap: 24px;
+}
+.ex-masthead {
+  display: grid;
+  gap: 10px;
+}
+.ex-brand,
+.ex-tag,
+.ex-caption-head,
+.ex-controls label,
+.ex-chapters button,
+.ex-meta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.ex-brand { color: #D94F30; }
+.ex-eyebrow { color: #7A7067; }
+.ex-title {
+  margin: 0;
+  font: italic 300 clamp(2rem, 4vw, 3.4rem)/1.05 var(--font-display);
+}
+.ex-lede,
+.ex-synthesis {
+  margin: 0;
+  max-width: 68ch;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.ex-player {
+  border: 1px solid rgba(44, 42, 40, 0.14);
+  border-radius: 28px;
+  background: #FFFDFC;
+  box-shadow: 0 24px 70px rgba(44, 42, 40, 0.08);
+  overflow: hidden;
+}
+.ex-stage-wrap {
+  padding: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,0));
+}
+[data-ex-stage] {
+  width: 100%;
+  aspect-ratio: 1000 / 464;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--ex-ground);
+  box-shadow: inset 0 0 0 1px rgba(245,239,227,.08);
+}
+[data-ex-stage] svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.ex-body {
+  display: grid;
+  gap: 20px;
+  padding: 0 24px 24px;
+}
+.ex-caption {
+  display: grid;
+  gap: 8px;
+}
+.ex-caption-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #7A7067;
+}
+[data-ex-caption] {
+  min-height: 2.8em;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.ex-transport {
+  display: grid;
+  gap: 14px;
+}
+.ex-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.ex-controls button,
+.ex-controls select,
+.ex-chapters button {
+  border: 1px solid rgba(44, 42, 40, 0.16);
+  border-radius: 999px;
+  background: #FFFDFC;
+  color: inherit;
+  padding: 10px 14px;
+  font: inherit;
+}
+.ex-controls button { cursor: pointer; }
+.ex-rail {
+  position: relative;
+  height: 32px;
+}
+.ex-rail-track,
+.ex-rail-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 6px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+}
+.ex-rail-track { background: rgba(44, 42, 40, 0.12); }
+.ex-rail-progress { right: auto; width: 0; background: #D94F30; }
+.ex-rail-handle {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #D94F30;
+  border: 2px solid #FFFDFC;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 1px 6px rgba(44, 42, 40, 0.18);
+}
+.ex-ticks {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.ex-tick {
+  position: absolute;
+  top: 7px;
+  width: 1px;
+  height: 18px;
+  background: rgba(44, 42, 40, 0.2);
+}
+[data-ex-scrub] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.ex-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #7A7067;
+}
+[data-ex-chapters] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+[data-ex-chapters] button {
+  cursor: pointer;
+  padding: 8px 12px;
+}
+.ex-tweaks {
+  display: grid;
+  gap: 12px;
+  padding: 20px 24px 0;
+  border-top: 1px solid rgba(44, 42, 40, 0.1);
+}
+.ex-tweaks-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.ex-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.ex-note {
+  margin: 0;
+  color: #7A7067;
+  font-size: 0.95rem;
+}
+.ex-closing {
+  display: grid;
+  gap: 8px;
+}
+.ex-synth-title {
+  margin: 0;
+  color: #D94F30;
+  font: italic 300 1.6rem/1.15 var(--font-display);
+}
+@media (max-width: 760px) {
+  main { padding: 28px 16px 40px; }
+  .ex-stage-wrap, .ex-body, .ex-tweaks { padding-left: 16px; padding-right: 16px; }
+  .ex-controls, .ex-meta, .ex-caption-head { align-items: flex-start; }
+  .ex-meta, .ex-caption-head { flex-direction: column; }
+}
+  </style>
+</head>
+<body>
+  <main>
+    <section class="ex-shell" data-ex-root>
+      <header class="ex-masthead">
+        <div class="ex-brand">__BRAND__</div>
+        <div class="ex-eyebrow" data-ex-eyebrow>Animated explainer</div>
+        <h1 class="ex-title" data-ex-title>__TITLE__</h1>
+        <p class="ex-lede" data-ex-lede></p>
+        <div class="ex-tag" data-ex-tag></div>
+      </header>
+
+      <section class="ex-player" aria-label="Explainer player">
+        <div class="ex-stage-wrap">
+          <div data-ex-stage></div>
+        </div>
+
+        <div class="ex-body">
+          <section class="ex-caption" aria-live="polite">
+            <div class="ex-caption-head">
+              <span data-ex-beatlabel></span>
+              <span data-ex-beatindex></span>
+            </div>
+            <p data-ex-caption></p>
+          </section>
+
+          <section class="ex-transport">
+            <div class="ex-controls">
+              <button type="button" data-ex-prev>Prev beat</button>
+              <button type="button" data-ex-play aria-pressed="false">Play</button>
+              <button type="button" data-ex-next>Next beat</button>
+            </div>
+            <div class="ex-rail">
+              <div class="ex-rail-track"></div>
+              <div class="ex-rail-progress" data-ex-progress></div>
+              <div class="ex-rail-handle" data-ex-handle></div>
+              <div class="ex-ticks" data-ex-ticks></div>
+              <input type="range" data-ex-scrub aria-label="Scrub through the episode">
+            </div>
+            <div class="ex-meta">
+              <span><span data-ex-time>0:00</span> / <span data-ex-duration>0:00</span></span>
+              <span>Keys: space, k, arrows, shift+arrows, home/end, 1–9</span>
+            </div>
+            <div data-ex-chapters aria-label="Episode chapters"></div>
+          </section>
+
+          <section class="ex-tweaks" aria-label="Tweaks panel">
+            <div class="ex-tweaks-grid">
+              <label class="ex-toggle"><input type="checkbox" data-ex-detail checked> Math/detail</label>
+              <label>Speed
+                <select data-ex-speed>
+                  <option value="0.75">0.75×</option>
+                  <option value="1" selected>1×</option>
+                  <option value="1.25">1.25×</option>
+                  <option value="1.5">1.5×</option>
+                </select>
+              </label>
+            </div>
+            <p class="ex-note" data-ex-rm-note hidden></p>
+          </section>
+        </div>
+      </section>
+
+      <section class="ex-closing">
+        <h2 class="ex-synth-title" data-ex-synth-title>Takeaway</h2>
+        <p class="ex-synthesis" data-ex-synthesis></p>
+      </section>
+    </section>
+  </main>
+
+  <script>__ENGINE_JS__</script>
+  <script>__EPISODE_JS__</script>
+  <script>
+    (function () {
+      if (!window.CetiExplainer || !window.EXPLAINER) return;
+      window.CetiExplainer.create({
+        root: document.querySelector('[data-ex-root]'),
+        content: window.EXPLAINER,
+        storageKey: window.EXPLAINER.meta && window.EXPLAINER.meta.id ? 'ceti-explainer:' + window.EXPLAINER.meta.id : 'ceti-explainer',
+        autoplay: true
+      });
+    })();
+  </script>
+</body>
+</html>
