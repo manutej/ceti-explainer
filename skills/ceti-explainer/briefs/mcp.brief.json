@@ -1,0 +1,96 @@
+{
+  "$schema": "./brief.schema.json",
+  "format": "episode",
+  "id": "mcp",
+  "title": "Model Context Protocol",
+  "eyebrow": "AI Systems · 02",
+  "tag": "JSON-RPC 2.0 · tools · M+N not M×N",
+  "lede": "One protocol between every app and every tool. Watch a single request cross the <em>channel</em> and come back with live data.",
+  "audience": {
+    "who": "developers wiring an AI app to real tools for the first time",
+    "leaves_knowing": "build the server once and every MCP host can use it; M + N beats M × N"
+  },
+  "archetype": "process",
+  "critique_of_obvious": "The usual picture is a logo cloud with arrows. It shows that things connect and never shows a message, so nobody learns what actually crosses the wire.",
+  "mechanism": "An AI app is sealed off from your tools and data. MCP standardizes the connection: a host runs one client per connection, and each client speaks JSON-RPC 2.0 to an MCP server over stdio or HTTP. A server exposes tools, resources, and prompts; after an initialize handshake the client lists what the server offers and the model can call a tool, whose result flows back into context.",
+  "anchor": {
+    "what": "host/client box on the left, server with its tools on the right, one JSON-RPC channel between them",
+    "motif": "two boxes and a wire",
+    "zone": "anchor"
+  },
+  "worked_example": {
+    "inputs": {
+      "task": "What's the weather in Tokyo?",
+      "call": { "jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": { "name": "get_weather", "arguments": { "city": "Tokyo" } } },
+      "result": { "jsonrpc": "2.0", "id": 1, "result": { "content": [ { "type": "text", "text": "Tokyo: 18°C, clear" } ] } },
+      "M": 5,
+      "N": 20
+    },
+    "derivation": "Bespoke integrations = M × N; with a shared protocol = M + N. Reduction factor = (M × N) / (M + N). Payloads are JSON.stringify'd from the objects above so they cannot drift.",
+    "expected": {
+      "bespoke": 100,
+      "shared": 25,
+      "reduction": 4,
+      "call_method": "tools/call",
+      "result_text": "Tokyo: 18°C, clear"
+    }
+  },
+  "detail_band": "payload",
+  "beats": [
+    { "id": "wall", "label": "The wall", "dur": 3.8, "region": "anchor",
+      "caption": "The app is boxed off from your tools and your data. It can talk, but it cannot act.",
+      "idea": "An AI app has no native access to external tools.",
+      "focal_motion": "host box and server box land; a wall rises between them",
+      "claims": ["primitives"] },
+    { "id": "mxn", "label": "M × N glue", "dur": 4.8, "region": "working",
+      "caption": "Wire five apps to twenty tools by hand and you own a hundred connectors that never stop growing.",
+      "idea": "Bespoke integration cost is multiplicative.",
+      "focal_motion": "a 5 × 20 grid of connector dots fills in, one row at a time",
+      "claims": ["mplusn"] },
+    { "id": "protocol", "label": "One protocol", "dur": 4.8, "region": "working",
+      "caption": "Put one shared protocol on the wire and the count collapses: twenty-five, not a hundred.",
+      "idea": "A shared protocol makes integration cost additive.",
+      "focal_motion": "the grid folds into a single row plus a single column",
+      "claims": ["mplusn"] },
+    { "id": "handshake", "label": "Handshake", "dur": 4.6, "region": "detail",
+      "caption": "Initialize first. Client and server trade capabilities so each knows what the other can do.",
+      "idea": "A capability handshake opens the session.",
+      "focal_motion": "an initialize packet crosses the channel and a capabilities packet returns",
+      "claims": ["lifecycle"] },
+    { "id": "discover", "label": "Discover", "dur": 4.6, "region": "detail",
+      "caption": "tools/list. The server advertises what it offers; here, one tool that takes a city name.",
+      "idea": "The client discovers the server's tools by listing them.",
+      "focal_motion": "the tools/list packet crosses; get_weather(city) appears on the server side",
+      "claims": ["lifecycle", "primitives"] },
+    { "id": "call", "label": "Call a tool", "dur": 5.4, "region": "detail",
+      "caption": "The model asks for the weather. The client sends tools/call with the real arguments. The server runs it.",
+      "idea": "A tool call is a JSON-RPC request with named arguments.",
+      "focal_motion": "the tools/call payload crosses the channel; the server pulses as it executes",
+      "claims": ["lifecycle"] },
+    { "id": "result", "label": "Result returns", "dur": 5.0, "region": "detail",
+      "caption": "The result flows back as context. The model answers from live data, not from memory.",
+      "idea": "Results return over the same channel into the model's context.",
+      "focal_motion": "the result payload crosses back and lands in the host's context box",
+      "claims": ["lifecycle"] },
+    { "id": "why", "label": "Why it matters", "dur": 5.8, "region": "working",
+      "caption": "Build the server once. Every host that speaks the protocol can call it. M plus N, not M times N.",
+      "idea": "Shared contracts stop integration from being combinatorial.",
+      "focal_motion": "the row-plus-column re-lights beside the two boxes; the wire glows",
+      "claims": ["mplusn"],
+      "reuses": ["protocol", "wall"] }
+  ],
+  "aha": "Before MCP, every app wired itself to every tool by hand, M × N glue that never stopped growing. MCP makes the contract shared: a tool speaks the protocol once and every host can call it. Integration stops being combinatorial.",
+  "refs": [
+    { "title": "Model Context Protocol specification", "url": "https://modelcontextprotocol.io/specification" },
+    { "title": "JSON-RPC 2.0 Specification", "url": "https://www.jsonrpc.org/specification" }
+  ],
+  "conserved": {
+    "motif": "two boxes and a wire",
+    "claims": [
+      { "id": "primitives", "text": "An MCP server exposes tools, resources, and prompts.", "ref": 0 },
+      { "id": "lifecycle", "text": "A session begins with an initialize handshake, then list and call messages, all as JSON-RPC 2.0.", "ref": 1 },
+      { "id": "mplusn", "text": "With a shared protocol the number of integrations is M + N rather than M × N.", "ref": 0 }
+    ],
+    "duration_s": 38.8
+  }
+}

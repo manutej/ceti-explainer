@@ -89,14 +89,14 @@ Then build, and **render-validate every step** (gate + snapshots). Don't accumul
 - **End the module with `window.EXPLAINER = <module>;`**
 
 ### MUST NOT
-- No `setTimeout` / `setInterval` / CSS-keyframe sequencing to drive the animation. The clock is the only driver.
-- No scroll-, IntersectionObserver-, or hover-triggered animation state.
-- No new colors or gradients (beyond the ground wash), no emoji, no AI-slop.
-- No hype words ("unlock", "supercharge", "revolutionize", "powerful", "seamless", "game-changing").
-- No SVG text below 11px.
-- No `ex.pulse` for two scenes that share a region — use `ex.seg`.
-- Don't introduce brand-new layout in the final beat — reuse the anchor you already built (see "The last beat" below).
-- Don't fake the chrome with raw HTML — the shell already provides it.
+- ❌ No `setTimeout` / `setInterval` / CSS-keyframe sequencing to drive the animation. The clock is the only driver.
+- ❌ No scroll-, IntersectionObserver-, or hover-triggered animation state.
+- ❌ No new colors or gradients (beyond the ground wash), no emoji, no AI-slop.
+- ❌ No hype words ("unlock", "supercharge", "revolutionize", "powerful", "seamless", "game-changing").
+- ❌ No SVG text below 11px.
+- ❌ No `ex.pulse` for two scenes that share a region — use `ex.seg`.
+- ❌ Don't introduce brand-new layout in the final beat — reuse the anchor you already built (see "The last beat" below).
+- ❌ Don't fake the chrome with raw HTML — the shell already provides it.
 
 ---
 
@@ -137,39 +137,192 @@ ex.seg(t, a, b, fade=0.4)           fades CONTAINED in-window — same-region cr
 ex.fit(textNode, maxWidth, min=9)   shrink an SVG <text> to fit maxWidth (call in build)
 ex.fmt(seconds)             ex.cubicBezier(x1,y1,x2,y2)
 ```
+Patterns:
+```js
+const B = D.beats;
+setO(D.node, ex.ramp(t, B.b2.start + 0.3, 0.5));               // fade a thing in
+// Same region, consecutive scenes → ex.seg (fades stay INSIDE the window, so
+// scenes hand off through a brief empty gap; never two half-lit = no mush):
+setO(D.sceneA, ex.seg(t, B.b3.start + 0.2, B.b4.end, 0.4) * detailOn);
+setO(D.sceneB, ex.seg(t, B.b5.start + 0.2, B.b6.end, 0.4) * detailOn);
+// ex.pulse is only for a lone element with empty space around it, never for
+// two scenes competing for the same region.
+```
 
 ---
 
-## Visual grammar
+## Visual grammar (the look that makes it land)
 
-- **viewBox `0 0 1000 464`.** Three horizontal zones: Anchor (top, y≈34–200), Working zone (middle, one scene at a time), Lower-third (y≈300–460) gated by `flags.math`.
-- **Show the mechanism as motion**, not as a static labeled picture.
-- **One focal animation per beat.** Max ~3 focal points. Whitespace ≥ ~30%.
+- **viewBox `0 0 1000 464`.** Three horizontal zones, always:
+  - **Anchor (top, y≈34–200):** the element that *persists* across every beat — the token row, the document set, the request packet. Continuity is the pedagogy; the viewer never loses the thread.
+  - **Working zone (middle):** scenes that **cross-fade** via `ex.pulse`. Only ONE scene visible at a time. This is where the current step happens.
+  - **Lower-third (y≈300–460):** the worked arithmetic / formula. Gate its opacity by `flags.math`.
+- **Show the mechanism as motion**, not as a static labeled picture: a value *flows* into a cell; a bar *grows* from a score; a number *morphs* from raw → scaled → percentage; the winning element *brightens* while the rest *dim*. Motion carries meaning — never decorative.
+- **One focal animation per beat.** Max ~3 focal points. Secondaries fade; they never compete. Whitespace ≥ ~30%.
 
-### Preventing overlaps
-Three layers, all required:
-1. Three zones, fixed y-bands. One block = one `<g>`. Same-region scenes use `ex.seg`. Fade an anchor device out before a panel lands where it sits. Wrap variable text in `ex.fit`.
-2. Gate enforcement: `window.__LAYOUT` (§15d block overlap), `window.__REGIONS` + `ex.seg` (§15b), `ex.fit` + tag width (§15a).
-3. Browser overlap auditor after any font/brand change.
+### Preventing overlaps — the general solution (READ THIS)
+Overlapping text/diagram blocks are the #1 failure mode in diagrammatic animation. Don't fix them one-by-one — make them structurally impossible and **machine-enforced**. Three layers, all required:
 
-Token roles only. Default fonts: Fraunces 300 italic, DM Sans, Space Mono. Presets change colors only.
+**1 — Prevent by construction.**
+- **Three zones, fixed y-bands.** Every block lives in exactly one:
 
-See `LONGFORM.md` for the feature-cut format. See `COURSE-E0.md` for film occupancy. Command: `/sheaf-run course`.
+  | Zone | y-band | holds |
+  |------|--------|-------|
+  | Anchor | ~34–124 | the one persistent element (token row / shelf / host+server graph) |
+  | Working | ~130–292 | the current scene — ONE visible at a time, cross-faded with `ex.seg` |
+  | Detail | ~300–456 | the worked math / payload / trace, gated by `flags.math` |
+
+- **One block = one `<g>`.** A "block" is anything that shouldn't be overlapped by another: a panel, a scene, an anchor item (pill/chip), the traveling packet. Put its content *inside* that group; nesting is fine, siblings colliding is not.
+- **A persistent anchor must clear every scene it coexists with.** If an anchor device (e.g. a query pill) would sit where a later panel renders, **fade it out as that panel arrives** (the gold standard fades its "QUERY" tag at the softmax beat) — don't park it in the gap between zones. Don't restate the same content in two visible places.
+- **Auto-fit / wrap text** so it never exceeds its box: wrap every variable or long `<text>` in `ex.fit(node, maxWidth)`. Never place something at `x = chars × pixels` (font-specific); read `node.getComputedTextLength()` at render time instead (guarded for the gate).
+- **Reserve a lane for moving elements.** A mover (packet, dot) travels inside a corridor inset from any box by at least its half-width + margin, so it can never land on a box at the ends of its path.
+
+**2 — Enforce automatically (these gate checks must PASS — overlaps can't ship):**
+- **`window.__LAYOUT = () => [block, …]`** — list every top-level block. The gate's **§15d** computes each block's *real* bounding box (walking `<g>` translates + opacity) on every frame and **fails the build if two visible blocks overlap**. This is the durable fix: a regression is caught, not eyeballed.
+- **`window.__REGIONS = () => ({region:[scene,…]})`** + **`ex.seg`** — gate **§15b** fails if >1 scene is lit per region at any instant (paused-frame mush).
+- **`ex.fit`** + tag width (**§15a**) — text can't overflow its box or ellipsize.
+
+**3 — Verify font-accurately (when a browser is available).** Run the browser overlap auditor (`reference/audit-overlaps.js`, see HANDOFF) — it uses real `getBBox()` so it catches font-metric collisions between *any* elements, not just declared blocks. Use it after any font/brand change.
+
+**If the gate flags an overlap (§15d):** re-place the block, **fade one of the two out** as the other arrives, or move it to a different zone. Then re-gate. Never ship an overlap.
+- **Type:** mono (`var(--font-mono)`) for numbers, ids, eyebrows; sans for words; ≥ 11px. The H1 is Fraunces italic (handled by the shell).
+- **One saturated accent per scene** (copper by default). Use sage / slate / peach for secondary actors, sparingly.
+
+### Tokens (reference roles, never raw hex)
+```
+--ex-ground #0E1014   --ex-panel #171B23   --ex-cell #1C212B
+--ex-ink #F5EFE3      --ex-dim #A39A89      --ex-line rgba(245,239,227,.13)
+--ex-accent #CE9A6A (copper, lead)   --ex-accent-fill / --ex-accent-glow
+--ex-accent2 #8FA985 (sage)   --ex-support #6E8CA8 (slate)   --ex-peach #D88B5C
+```
+Fonts: **Fraunces 300 italic** (display) · **DM Sans** (body/UI) · **Space Mono** (mono/eyebrows).
+
+### Type gotcha — fonts change text width (read this)
+Layouts are positioned in fixed SVG coordinates, but **text width depends on the font**. Swap in a brand font with wider metrics and labels can overflow their boxes or collide. Two defenses, use both:
+
+1. **Default fonts are locked + bundled.** Out of the box you get pixel-clean layouts; presets change *colors only*.
+2. **Auto-fit any variable or long text.** In `build()`, wrap every text that could vary (captions inside panels, worked arithmetic, payloads/JSON, definitions, anything whose content isn't a fixed short token) with `ex.fit(node, maxWidth)`. It measures the *rendered* width at runtime and shrinks the font until it fits — so even a wider brand font stays inside its box. Never compute an x-offset from `chars × pixels` (that magic number is font-specific); if you must place something after text, read `node.getComputedTextLength()` at render time (guard for the Node gate, which can't measure).
+
+If a brand insists on custom fonts: add their `<link>`/`@font-face`, name them in `--font-*`, then **re-run the browser QA** — `ex.fit` will catch overflows but check collisions between separate elements yourself.
+
+### Brand / theming — this is not welded to CETI
+The CETI palette + fonts above are just the **default**. Because every diagram references *role tokens* (`--ex-*`, `--font-*`) and never raw hex, any company re-skins it without touching diagram code. Two built-in **preset palettes** ship: `ceti` (deep editorial dark, default) and `owala` (warm plum + dusty rose). Layer a brand theme on top:
+```
+python3 assets/build.py ep.js "Title" --preset owala                       # built-in palette
+python3 assets/build.py ep.js "Title" --brand "Acme Labs" --theme acme.css  # custom brand
+python3 assets/build.py ep.js "Title" --preset owala --theme acme.css       # preset + tweaks
+```
+A theme/preset is a `:root { … }` block overriding the 12 color roles (injected after the base; `--theme` wins over `--preset`). See `presets/`, `themes/README.md`, and the alternate brand `themes/example-helio.css`. Keep WCAG AA on new pairs (the `wcag-contrast` skill audits a palette). For fonts, see the type gotcha above.
+
+---
+
+## The detail band (math is only ONE kind)
+
+The lower-third is the **"show your work" band**. Worked math is the canonical case, but the same slot carries whatever evidence the concept needs. Pick what fits the topic:
+
+- **Worked math** — derive the figures on screen (softmax, a dot product, an average). `q·k = 1.30 + 0.80 + 0.25 + 0.35 = 2.70 → ÷√dₖ = 1.35`.
+- **Real payload / code** — show the actual message or snippet, `JSON.stringify`'d so it can't drift (e.g. a JSON-RPC request/response, a SQL query, a config).
+- **A worked trace** — a few rows of real state as a value moves through (stack frames, a packet's headers, a token stream).
+- **A count / comparison** — a derived figure that lands the point (`M × N = 100` vs `M + N = 25`, before/after).
+- **Key terms** — 2–3 labelled definitions when the idea is vocabulary, not numbers.
+
+Whichever you pick: **derive it in code, don't assert it.** A sharp viewer must not catch an inconsistency, and `__AUDIT()` must catch it first if they could. Be honest about abstraction (if a scatter is a 2-D projection of 768-d space, say so). Put real sizes / names / versions in `meta.tag` and the band.
+
+## Archetypes — choose the motion that fits the concept
+
+Not every explainer is a derivation. Match the anchor + working-zone motion + detail band to the kind of process:
+
+| Archetype | Anchor (persists) | Working-zone motion | Detail band |
+|-----------|-------------------|---------------------|-------------|
+| **Derivation** (attention, RAG scoring) | the inputs (token row, doc shelf) | values flow → scores → bars → result | the worked arithmetic |
+| **Process / pipeline** (MCP, OAuth, deploy, a request) | the endpoints + the channel between | one packet travels the channel per stage | the real payload at each step |
+| **Code / call trace** | the code block or call stack | the active line / frame highlights as it steps | variable values / output |
+| **State machine** (TCP, a lifecycle) | the state graph (nodes + edges) | the current node lights; the taken edge animates | the triggering event / guard |
+| **Transformation** (parse, compile, ETL) | source shape on the left | structure morphs A → B | the rule applied this step |
+| **Comparison** (with/without, naive/optimized) | the two columns | the same input runs down both | the metric that differs |
+
+The contract (one clock, build-once, 8 beats, anchor + cross-faded scenes + detail band, `seg` for same-region) is **identical across archetypes** — only what you draw changes. `self-attention.js` is a Derivation; the MCP example is a Process. Both use the exact same engine and shell.
+
+---
+
+## Voice & copy (CETI)
+
+Warm, not cheerful. Confident, not loud. A little dry. Short sentences, aggressive verbs, cut every word that can be cut. **"You"**, not "users". Sentence-case headings. **One italic-emphasis word** per title/synthesis. No emoji, no hype. Concrete beats grandiose ("re-reads the whole sentence" > "powerful attention mechanism"). Captions are the *spoken* idea — one plain sentence per beat; the diagram does the showing.
+
+---
+
+## The content brief (write this before any code)
+
+A good episode starts from a tight brief. Capture, for the concept:
+
+- **Mechanism** — how it actually works, in 2–4 sentences of plain mechanism (no hand-waving).
+- **Worked example** — a concrete instance with **real numbers** you can derive on screen. This is the spine of the diagram.
+- **Anchor visual** — the one persistent element (what sits at the top the whole time).
+- **8 beats** — each adds exactly one idea. Beat 1 = introduce the anchor; beat 8 = "Why it matters". For each: a ≤18-char label and a ≤118-char caption.
+- **The aha** — the single durable line the viewer leaves with → becomes `meta.synthesis`.
+- **Refs** — real sources for the numbers and claims.
+
+`reference/self-attention.js` is a complete worked instance of all of the above. Read it.
+
+---
+
+## The quality gate (run before every ship)
+
+`node assets/gate.mjs <ep-id>.js` loads the engine + your module under a DOM shim, runs `build()` once and `render(t)` across the **whole timeline** (catching crashes, undefined nodes, NaN attributes), and asserts the contract: `window.EXPLAINER` exists; exactly 8 beats; 35–45s; last beat is "Why it matters"; captions ≤118 chars; labels ≤20; `setMath`/`setDetail` present; `meta.tag` width-safe (**§15a** — char + estimated-px, keep ≤ ~38); `meta.id` kebab-case; an `<svg>` mounted. **§15b:** if you expose `window.__REGIONS`, it sweeps every frame and fails if more than one scene is lit per region (the paused-frame mush check). **§15d:** if you expose `window.__LAYOUT` (your top-level blocks), it computes each block's real bbox every frame and fails on any visible-block overlap (the general anti-collision gate). It also calls `window.__AUDIT()` and fails on a consistency mismatch.
+
+**Every assertion must PASS before you build and ship.** Eyeballing doesn't scale; the gate is how the bar holds.
+
+### Visual QA without a browser (catch collisions)
+The gate proves the code runs; it can't see overlaps. Snapshot real frames:
+```
+node assets/snapshot.mjs <ep-id>.js <t-seconds> out.svg   # faithful single frame
+# then rasterize to eyeball:  convert -density 200 out.svg -resize 1500x out.png
+```
+It prunes invisible (faded) nodes, so you see exactly what's on screen at time `t`. Snapshot the **middle of every beat** (e.g. each `beats[i].start + dur/2`) and check: nothing overlaps, each panel's content sits inside it, only one working-zone scene shows, the lower-third stays below y≈302. Fix any collision, re-gate, re-snapshot.
+
+A browser-only check even snapshots can't do: open the built HTML, confirm autoplay → end → replay, scrub to any point shows a complete frame, the four Tweaks work, and the diagram + caption + controls fit one laptop viewport.
+
+## The last beat — where it always falls apart (devil in the details)
+
+The final beat ("Why it matters") is the most-failed section: scenes get bolted on, the detail band collides with a lingering working scene, the synthesis doesn't land. Discipline:
+
+- **Reuse, don't invent.** Beat 8 should resolve elements already on screen (re-light the anchor, show the before/after the diagram earned) — not introduce a brand-new layout under time pressure.
+- **One thing fades as one thing arrives.** Snapshot the **7→8 boundary**, not just the middle of 8 — that transition is where two scenes double-expose.
+- **Land the aha.** The caption is the spoken payoff; `meta.synthesis` is the durable 2–4 sentence version. They should agree and be concrete.
+- **End-state legibility.** At `t = duration` the frame must be a clean, complete summary (reduced-motion users may only ever see it paused).
+
+## Failure-mode log (§15c) — every bug we've hit, and the guardrail that now blocks it
+
+| Symptom | Root cause | Guardrail |
+|---------|-----------|-----------|
+| Frozen "double-exposure" mush mid-scrub (two detail scenes stacked) | `pulse()` fades spill *outside* the window, so adjacent same-region scenes overlap | **`ex.seg`** (fades contained in-window) + gate **§15b** region sweep via `__REGIONS` |
+| A persistent label/pill sits on top of a panel that appears later | anchor element parked where a working panel later renders | **§15d** block-overlap gate (`__LAYOUT`) fails the build on any visible-block collision; fade the anchor as the panel arrives / move to another zone |
+| Two text/diagram blocks overlap under a different brand font | layout tuned to one font's metrics; no automated spatial check | `ex.fit` (width) + **§15d** real-bbox overlap gate + the browser `getBBox` auditor for font-accurate sibling checks |
+| `tag` shows an ellipsis | char-count check passed but rendered width didn't | gate **§15a** width estimate; keep `meta.tag` ≤ ~38 chars |
+| Worked number contradicts the diagram | a derived value was hand-typed | derive in code + assert in `window.__AUDIT()` (gate calls it) |
+| `render()` crashes when scrubbed to a point | a node referenced before `build()` created it | build-once / mutate-only; gate sweeps the whole timeline |
+| Last beat looks broken | new layout introduced in beat 8 | reuse the anchor; snapshot the 7→8 boundary (see above) |
+| Looks great on your screen, breaks on another | raw hex / fixed brand assumptions | role tokens only; theme-swappable; AA-checked
+
+---
 
 ## Files in this skill
 
-- `assets/engine.js` — deterministic clock + player (reuse unchanged).
-- `assets/ceti-tokens.css`, `assets/ceti-motion.css` — token + motion layer.
-- `assets/shell.template.html` — self-contained shell.
+- `assets/engine.js` — the deterministic clock + player (reuse unchanged).
+- `assets/ceti-tokens.css`, `assets/ceti-motion.css` — the token + motion layer.
+- `assets/shell.template.html` — the self-contained shell (vanilla Tweaks, no React).
 - `assets/_episode-template.js` — copy this to start a new episode.
 - `assets/build.py` — inline everything into one `.html`.
-- `assets/gate.mjs` — quality gate (§15a tag, §15b region, §15d block-overlap).
-- `assets/snapshot.mjs` — headless single-frame snapshot.
-- `assets/audit-overlaps.js` — browser overlap auditor.
-- `presets/` — `ceti.css`, `owala.css`.
-- `themes/` — theming README + `example-helio.css`.
-- `briefs/` — `BRIEF-rag.md`, `BRIEF-mcp.md`.
-- `reference/` — gold-standard modules: `self-attention.js`, `oauth.js`, `tcp.js`, `binary-search.js`.
-- `LONGFORM.md` — feature-cut format.
-- `COURSE-E0.md` — film / short-course occupancy.
-- `HANDOFF.md` — operational guide.
+- `assets/gate.mjs` — the automated quality gate (§15a tag, §15b region, §15d block-overlap, math invariant).
+- `assets/snapshot.mjs` — headless single-frame snapshot for visual QA (no browser).
+- `assets/audit-overlaps.js` — browser overlap auditor (font-accurate; run via console/Chrome).
+- `presets/` — built-in palettes: `ceti.css` (default), `owala.css`.
+- `themes/` — `README.md` (how to re-skin) + `example-helio.css` (a complete alternate brand).
+- `briefs/` — worked content briefs (`BRIEF-rag.md`, `BRIEF-mcp.md`).
+- `reference/` — gold-standard modules across archetypes: `self-attention.js` (derivation, **read first**), `oauth.js` (process), `tcp.js` (state machine), `binary-search.js` (code/trace).
+- `gallery/gallery.png` — visual catalog of the reference set.
+- `reference/SPEC-original.md` — the original production spec (deeper background).
+- `LONGFORM.md` — the feature-cut format (~2 min, 7 movements, archetypes A1–A7, speed chips, brand bookends).
+- `reference/longform/feature-cut-v2.js` — gold-standard long-format engine + scenes ("Generative AI, explained simply", 110s).
+- `reference/longform/feature-cut-v2.html` — the shipped self-contained artifact (shell + tokens + chrome).
+- `HANDOFF.md` — the operational guide (build, QA, theming, keybindings, troubleshooting).

@@ -1,0 +1,34 @@
+/* Preset: CETI Course — the short-course surface (REQUIREMENTS.md).
+   Cream ground, ink type, vermillion lead. Colors only; fonts stay locked.
+   Build:  python3 assets/build.py ep.js "Title" --preset ceti-course
+
+   Contrast on cream #FAF7F2 (WCAG, computed):
+     ink #2C2A28       13.4:1   any text
+     dim #6A655F        5.4:1   any text
+     vermillion #D94F30 3.8:1   graphics, strokes, bars, large/bold text only —
+                                small accent text must use --ex-ink
+     sage #3F6B5B       5.7:1   any text
+     slate #3E5F7E      6.3:1   any text
+     peach #9C4F22      5.5:1   any text                                        */
+:root {
+  --ex-ground:    #FAF7F2;
+  --ex-ground-2:  #F3EEE6;
+  --ex-ground-hi: #FFFFFF;
+  --ex-panel-hi:  #FFFDFA;
+  --ex-panel-lo:  #EDE6DB;
+
+  --ex-ink:   #2C2A28;
+  --ex-dim:   #6A655F;
+  --ex-line:  rgba(44, 42, 40, 0.16);
+  --ex-line-2:rgba(44, 42, 40, 0.08);
+  --ex-panel: #F3EEE6;
+  --ex-cell:  #FFFDFA;
+  --ex-bar:   rgba(44, 42, 40, 0.18);
+
+  --ex-accent:      #D94F30;
+  --ex-accent-fill: rgba(217, 79, 48, 0.12);
+  --ex-accent-glow: rgba(217, 79, 48, 0.30);
+  --ex-accent2:     #3F6B5B;
+  --ex-support:     #3E5F7E;
+  --ex-peach:       #9C4F22;
+}

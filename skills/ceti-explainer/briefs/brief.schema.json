@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ceti-explainer/brief.schema.json",
+  "title": "CETI explainer brief",
+  "description": "The typed input slot of META-PROMPT.md. One brief = one episode. Machine-checked by assets/brief-gate.mjs (no external validator needed); this schema is the documented type.",
+  "type": "object",
+  "required": ["format", "id", "title", "eyebrow", "tag", "audience", "archetype", "critique_of_obvious", "mechanism", "anchor", "worked_example", "detail_band", "beats", "aha", "lede", "refs", "conserved"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "format": { "enum": ["episode", "feature"], "description": "episode = 8 beats ~40s (SKILL.md). feature = 7 movements ~110s (LONGFORM.md)." },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "title": { "type": "string", "minLength": 3 },
+    "eyebrow": { "type": "string", "description": "mono kicker, e.g. 'AI Systems · 01'" },
+    "tag": { "type": "string", "maxLength": 48, "description": "≤38 chars to be safe. Real names / sizes / year." },
+    "lede": { "type": "string", "description": "HTML allowed. One <em> word." },
+    "synth_title": { "type": "string", "description": "HTML allowed. Defaults to 'What this <em>really</em> is'." },
+    "audience": {
+      "type": "object", "required": ["who", "leaves_knowing"], "additionalProperties": false,
+      "properties": { "who": { "type": "string" }, "leaves_knowing": { "type": "string", "description": "the ONE thing; this is beat 8" } }
+    },
+    "archetype": { "enum": ["derivation", "process", "code", "state", "transformation", "comparison"] },
+    "critique_of_obvious": { "type": "string", "description": "the naive static version and why it fails" },
+    "mechanism": { "type": "string", "description": "2–4 sentences of plain mechanism" },
+    "anchor": {
+      "type": "object", "required": ["what", "motif"], "additionalProperties": false,
+      "properties": {
+        "what": { "type": "string", "description": "the one element that persists across all beats" },
+        "motif": { "type": "string", "description": "visual family; must equal conserved.motif" },
+        "zone": { "const": "anchor" }
+      }
+    },
+    "worked_example": {
+      "type": "object", "required": ["inputs", "derivation", "expected"], "additionalProperties": false,
+      "properties": {
+        "inputs": { "type": "object", "minProperties": 1, "description": "raw values — copied verbatim into the module as const INPUTS" },
+        "derivation": { "type": "string", "minLength": 20, "description": "the rule in words/formula; the author implements it as DERIVED = f(INPUTS)" },
+        "expected": { "type": "object", "minProperties": 1, "description": "figures __AUDIT asserts against DERIVED. Never displayed." },
+        "abstraction_note": { "type": "string", "description": "e.g. '4-D projection of a 1536-D space'" }
+      }
+    },
+    "detail_band": { "enum": ["worked_math", "payload", "trace", "count", "terms"] },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object", "required": ["id", "label", "dur", "caption", "idea", "focal_motion", "region"], "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "label": { "type": "string", "maxLength": 20 },
+          "dur": { "type": "number", "minimum": 2, "maximum": 8 },
+          "caption": { "type": "string", "maxLength": 118 },
+          "idea": { "type": "string", "description": "exactly one idea" },
+          "focal_motion": { "type": "string", "description": "the ONE thing that moves" },
+          "region": { "enum": ["anchor", "working", "detail"] },
+          "claims": { "type": "array", "items": { "type": "string" } },
+          "reuses": { "type": "array", "items": { "type": "string" }, "description": "beat 8 only: earlier beat ids it re-lights" }
+        }
+      }
+    },
+    "movements": {
+      "type": "array", "description": "feature format only: 7 movements cast to archetypes A1–A7",
+      "items": {
+        "type": "object", "required": ["id", "archetype", "window", "job", "payoff"], "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "archetype": { "pattern": "^A[1-9]$" },
+          "window": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+          "job": { "type": "string" }, "payoff": { "type": "string" },
+          "slots": { "type": "object" }
+        }
+      }
+    },
+    "captions": { "type": "array", "items": { "type": "string", "maxLength": 90 }, "description": "feature format only: 15–20 lines" },
+    "aha": { "type": "string", "minLength": 40, "description": "becomes meta.synthesis" },
+    "refs": {
+      "type": "array", "minItems": 1,
+      "items": { "type": "object", "required": ["title"], "properties": { "title": { "type": "string" }, "url": { "type": "string" }, "year": { "type": "integer" } } }
+    },
+    "conserved": {
+      "type": "object", "required": ["motif", "claims", "duration_s"], "additionalProperties": false,
+      "description": "the sheaf-glue Φ fields: motif ∧ claims ∧ duration",
+      "properties": {
+        "motif": { "type": "string" },
+        "claims": {
+          "type": "array", "minItems": 1,
+          "items": { "type": "object", "required": ["id", "text", "ref"], "properties": { "id": { "pattern": "^[a-z0-9-]+$" }, "text": { "type": "string" }, "ref": { "type": "integer", "minimum": 0 } } }
+        },
+        "duration_s": { "type": "number" }
+      }
+    }
+  }
+}
