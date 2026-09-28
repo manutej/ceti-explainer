@@ -3,6 +3,8 @@
 | File | Role |
 |---|---|
 | `engine.js` | Deterministic clock + player. Do not edit. |
+| `brief-gate.mjs` | `node brief-gate.mjs <brief.json>` — must print PASS; prints the Φ ledger |
+| `scaffold.mjs` | `node scaffold.mjs <brief.json> -o <id>.js` — brief → module skeleton |
 | `gate.mjs` | `node gate.mjs <episode.js>` — must print PASS |
 | `snapshot.mjs` | Headless SVG frame at time t |
 | `build.py` | Inline tokens + motion + engine + module into one HTML |

@@ -1,0 +1,230 @@
+{
+  "$schema": "./brief.schema.json",
+  "format": "episode",
+  "id": "local-truths",
+  "title": "Local truths, global maps",
+  "eyebrow": "CETI Course · 01",
+  "tag": "Sheaf gluing · Čech H¹ · 3 patches",
+  "lede": "Three honest maps of one road. Watch them <em>glue</em> into a single map, and watch one metre of disagreement refuse to.",
+  "synth_title": "What a sheaf <em>really</em> is",
+  "audience": {
+    "who": "engineers and designers who have never opened a topology book",
+    "leaves_knowing": "local truths glue into a global one exactly when they agree on every overlap; the leftover when they do not has a name and a number"
+  },
+  "archetype": "transformation",
+  "critique_of_obvious": "The textbook picture is a blob with smaller blobs inside it and arrows labelled with Greek letters. It never shows a number disagreeing, so the viewer never feels why gluing can fail.",
+  "mechanism": "A sheaf assigns to every patch of a space the data that is true there, together with restriction maps that shrink data from a patch to any smaller patch inside it. Two patches that overlap can be compared by restricting both to the overlap. If a family of local data agrees on every overlap, the sheaf axiom says it glues to one global datum, uniquely. When the patches wrap around a loop, the offsets on the overlaps can sum to something non-zero, and then no global datum exists: that sum is the first cohomology class, the leftover disagreement.",
+  "anchor": {
+    "what": "one loop road unrolled across the top, with three surveyors' map patches A, B, C laid over it and corners p, q, r marked",
+    "motif": "cartographer's table",
+    "zone": "anchor"
+  },
+  "worked_example": {
+    "inputs": {
+      "corners": [
+        "r",
+        "p",
+        "q"
+      ],
+      "true_elevation_m": {
+        "r": 9,
+        "p": 12,
+        "q": 20
+      },
+      "datum_offset_m": {
+        "A": 0,
+        "B": 3,
+        "C": 5
+      },
+      "readings_m": {
+        "A": {
+          "r": 9,
+          "p": 12
+        },
+        "B": {
+          "p": 15,
+          "q": 23
+        },
+        "C": {
+          "q": 25,
+          "r": 14
+        }
+      },
+      "misread": {
+        "map": "A",
+        "corner": "r",
+        "reading_m": 10
+      }
+    },
+    "derivation": "On each overlap the offset is g_XY = X(corner) − Y(corner): g_AB at p, g_BC at q, g_CA at r. Around the loop the cocycle sum is g_AB + g_BC + g_CA. If it is 0, shifts s_A = 0, s_B = g_AB, s_C = g_AB + g_BC glue the readings into one elevation map (reading + shift = true elevation at every corner). Replace A(r) by the misread value and recompute: the sum is the leftover in metres, and no re-choice of shifts changes it because any coboundary sums to 0.",
+    "expected": {
+      "g_AB": -3,
+      "g_BC": -2,
+      "g_CA": 5,
+      "cocycle_sum": 0,
+      "shifts": {
+        "A": 0,
+        "B": -3,
+        "C": -5
+      },
+      "glued_m": {
+        "r": 9,
+        "p": 12,
+        "q": 20
+      },
+      "broken_g_CA": 4,
+      "broken_sum": -1,
+      "leftover_m": 1
+    },
+    "abstraction_note": "The elevation profile between corners is drawn as a smooth curve through the three true elevations; only the corner readings are data."
+  },
+  "detail_band": "worked_math",
+  "beats": [
+    {
+      "id": "city",
+      "label": "One road, 3 maps",
+      "dur": 4.0,
+      "region": "anchor",
+      "caption": "One road loops around a city. Three surveyors each map their own arc of it, and nobody maps the whole loop.",
+      "idea": "A space is covered by overlapping patches, each with its own local data.",
+      "focal_motion": "the road draws on left to right; patches A, B, C land over their arcs in turn",
+      "claims": [
+        "local-honest"
+      ]
+    },
+    {
+      "id": "local",
+      "label": "Local truths",
+      "dur": 4.8,
+      "region": "working",
+      "caption": "Each map is honest on its own arc: A reads corner p at 12 m, B reads the same corner at 15 m.",
+      "idea": "Local data can be true on its own patch and still differ from a neighbour's.",
+      "focal_motion": "each map's elevation profile draws on beneath its patch, at its own datum height",
+      "claims": [
+        "local-honest"
+      ]
+    },
+    {
+      "id": "overlaps",
+      "label": "Overlaps",
+      "dur": 4.6,
+      "region": "working",
+      "caption": "Where two maps cover the same street they can be compared. That shared stretch is the overlap.",
+      "idea": "Only on an overlap can two patches be compared.",
+      "focal_motion": "the three overlap columns highlight in turn on the road and on the profile",
+      "claims": [
+        "local-honest"
+      ]
+    },
+    {
+      "id": "restrict",
+      "label": "Restriction",
+      "dur": 5.0,
+      "region": "detail",
+      "caption": "Restrict both maps to the overlap and the disagreement is a constant: B sits exactly 3 m above A.",
+      "idea": "Restricting to an overlap exposes the offset between two patches.",
+      "focal_motion": "the readings table in the detail band resolves into three offsets, one per overlap",
+      "claims": [
+        "local-honest",
+        "glue-iff-agree"
+      ]
+    },
+    {
+      "id": "loop",
+      "label": "Around the loop",
+      "dur": 5.2,
+      "region": "detail",
+      "caption": "Walk the offsets around the loop and add them up: −3, −2, +5. The total is zero.",
+      "idea": "The offsets around a loop sum to a single number.",
+      "focal_motion": "a vermillion thread travels the loop and the three offsets sum in the detail band",
+      "claims": [
+        "cocycle-sum"
+      ]
+    },
+    {
+      "id": "glue",
+      "label": "Glue",
+      "dur": 5.4,
+      "region": "working",
+      "caption": "Zero means the maps glue. Shift B down 3 and C down 5 and one elevation map covers the whole loop.",
+      "idea": "Agreement on every overlap yields one unique global datum.",
+      "focal_motion": "the B and C profile segments slide down onto A's datum and the three become one line",
+      "claims": [
+        "glue-iff-agree",
+        "cocycle-sum"
+      ]
+    },
+    {
+      "id": "leftover",
+      "label": "The leftover",
+      "dur": 5.6,
+      "region": "working",
+      "caption": "Misread one corner by a metre and the total is −1. No choice of datums removes it: that leftover is the obstruction.",
+      "idea": "A non-zero loop sum is an obstruction no re-choice of local data can remove.",
+      "focal_motion": "A's end at r lifts by 1 m; the loop no longer closes and a vermillion gap bracket marks the leftover",
+      "claims": [
+        "cocycle-sum"
+      ]
+    },
+    {
+      "id": "why",
+      "label": "Why it matters",
+      "dur": 5.6,
+      "region": "working",
+      "caption": "An agent's retrieve, edit, test and commit are patches on one codebase. They glue, or the harness fails at the seam.",
+      "idea": "Agent steps are local sections; a harness is the gluing test.",
+      "focal_motion": "the glued profile re-lights and the three map labels take their agent-step names",
+      "claims": [
+        "agent-patches",
+        "glue-iff-agree"
+      ],
+      "reuses": [
+        "city",
+        "glue",
+        "leftover"
+      ]
+    }
+  ],
+  "aha": "A sheaf is a rule for what counts as true on a patch, plus a promise: local truths that agree wherever they overlap glue into one global truth, uniquely. When they do not, the disagreement is not noise. It is a number with a name, and it tells you where the seam is. Agents, maps, and codebases all live under that rule.",
+  "refs": [
+    {
+      "title": "Mac Lane & Moerdijk, Sheaves in Geometry and Logic, ch. II (sheaves and the gluing axiom)",
+      "year": 1992
+    },
+    {
+      "title": "Bott & Tu, Differential Forms in Algebraic Topology, §10 (Čech cohomology of a good cover)",
+      "year": 1982
+    },
+    {
+      "title": "Batruin, Capability Sheaves for Compositional Agent-Harness Repair",
+      "year": 2026,
+      "url": "https://arxiv.org/abs/2608.13228"
+    }
+  ],
+  "conserved": {
+    "motif": "cartographer's table",
+    "claims": [
+      {
+        "id": "local-honest",
+        "text": "A section over a patch is data true on that patch, and restriction to any smaller patch is well defined.",
+        "ref": 0
+      },
+      {
+        "id": "glue-iff-agree",
+        "text": "Sections that agree on every pairwise overlap glue to a unique global section (the sheaf axiom).",
+        "ref": 0
+      },
+      {
+        "id": "cocycle-sum",
+        "text": "For a three-patch cover of a circle with constant offsets, a global section exists iff the offsets sum to zero; the sum represents the class in H¹.",
+        "ref": 1
+      },
+      {
+        "id": "agent-patches",
+        "text": "An agent's tool steps can be modelled as local sections over a shared codebase, with the harness checking whether they glue.",
+        "ref": 2
+      }
+    ],
+    "duration_s": 40.2
+  }
+}

@@ -29,6 +29,8 @@ You are building one episode: a single animated diagram that teaches one technic
 
 > Read this top to bottom once. Then read `reference/self-attention.js` in full — it is the bar. Then build.
 
+**Typed contract.** `META-PROMPT.md` is this file as a functor: typed slots, the brief→module map, every rule paired with the program that checks it, and the edit-script refinement loop. Author a brief (`briefs/brief.schema.json`), gate it (`assets/brief-gate.mjs`), scaffold the module (`assets/scaffold.mjs`), then follow the build procedure below.
+
 ---
 
 ## What you produce
@@ -36,9 +38,12 @@ You are building one episode: a single animated diagram that teaches one technic
 A **single self-contained `.html` file** (no external JS, opens straight from disk) containing: the hero (eyebrow / italic title / lede), the player (stage + caption band + transport + scrub + chapter rail + keyboard), the closing synthesis, and a dependency-free Tweaks panel. You write **one file** — the content module — and run a build script that inlines everything else.
 
 ```
-You write:   <ep-id>.js            ← the content module (DATA · BEATS · build · render)
-Build:       python3 assets/build.py <ep-id>.js "<Title>"   →  "<Title>.html"
+You write:   briefs/<ep-id>.brief.json  ← the typed brief (mechanism · worked example · 8 beats · aha · Φ)
+Gate:        node assets/brief-gate.mjs briefs/<ep-id>.brief.json   ←  must print PASS
+Scaffold:    node assets/scaffold.mjs briefs/<ep-id>.brief.json -o <ep-id>.js
+You author:  <ep-id>.js            ← DATA (DERIVED) · anchor · scenes · render
 Verify:      node assets/gate.mjs <ep-id>.js                ←  must print PASS
+Build:       python3 assets/build.py <ep-id>.js "<Title>" [--preset ceti|owala|ceti-course]
 ```
 
 Everything else — the clock, scrub, captions, chapters, keyboard, persistence, Tweaks, all styling — is inherited from `assets/engine.js` + the shell. **Do not reimplement them.**
@@ -314,9 +319,13 @@ The final beat ("Why it matters") is the most-failed section: scenes get bolted 
 - `assets/_episode-template.js` — copy this to start a new episode.
 - `assets/build.py` — inline everything into one `.html`.
 - `assets/gate.mjs` — the automated quality gate (§15a tag, §15b region, §15d block-overlap, math invariant).
+- `assets/brief-gate.mjs` — the brief gate: decides every rule that can be decided before code, prints the Φ ledger.
+- `assets/scaffold.mjs` — brief → module skeleton; `__AUDIT` fails until `DERIVED` exists.
+- `META-PROMPT.md` — the typed contract (slots, functor, binding rules → checks, refinement loop).
+- `briefs/brief.schema.json` — the brief type. `briefs/*.brief.json` — typed instances (`rag`, `mcp`, `sheaf-glue`).
 - `assets/snapshot.mjs` — headless single-frame snapshot for visual QA (no browser).
 - `assets/audit-overlaps.js` — browser overlap auditor (font-accurate; run via console/Chrome).
-- `presets/` — built-in palettes: `ceti.css` (default), `owala.css`.
+- `presets/` — built-in palettes: `ceti.css` (default), `owala.css`, `ceti-course.css` (cream / vermillion / ink, light chrome).
 - `themes/` — `README.md` (how to re-skin) + `example-helio.css` (a complete alternate brand).
 - `briefs/` — worked content briefs (`BRIEF-rag.md`, `BRIEF-mcp.md`).
 - `reference/` — gold-standard modules across archetypes: `self-attention.js` (derivation, **read first**), `oauth.js` (process), `tcp.js` (state machine), `binary-search.js` (code/trace).

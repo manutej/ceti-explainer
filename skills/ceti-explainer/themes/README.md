@@ -32,3 +32,17 @@ Notes:
 - Custom webfonts: add the brand's `<link>`/`@font-face` via your own injection; the theme file can then just name them in `--font-*`. `@import` inside the injected block won't load (CSS ignores `@import` after other rules).
 
 `example-helio.css` is a complete alternate brand (cool slate-blue + electric-blue) you can copy.
+
+## Chrome roles (player furniture)
+
+The shell's own furniture (top bar, caption band, scrub track and ticks,
+Tweaks panel, shadows, the icon colour on the play button) reads these
+roles, with dark defaults that match the CETI preset exactly:
+
+```
+--ex-chrome-bar  --ex-chrome-band  --ex-chrome-track  --ex-chrome-tick
+--ex-chrome-panel  --ex-on-accent  --ex-shadow  --ex-shadow-soft  --ex-frame-hi
+```
+
+A light preset must override them (see `presets/ceti-course.css`), or the
+band and bar stay dark on a light ground.
