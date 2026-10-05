@@ -21,6 +21,13 @@
 5. Persist generated media immediately. Generator stores drop paths (Localization failure).
 6. Keep live `~/.grok/skills/` and `skills/` in this repo in lockstep.
 
+## Parallel handoff — Jev eval lane
+
+`HANDOFF-JEV-EVAL.md` hands the Jev (TypeSafe AI) evaluation lane to an incoming
+collaborator: per-frame interview questions for episodes, question review, slide
+heuristics, and the process around evaluating CETI-generated content. It depends on
+`JEV-works` and on engine assets this repo does not yet carry — see its §0.
+
 ## Command
 
 ```
