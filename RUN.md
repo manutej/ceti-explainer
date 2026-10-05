@@ -31,6 +31,10 @@ Other references: `oauth.js` (process), `tcp.js` (state machine),
 `assets/ceti-tokens.css` · `assets/ceti-motion.css` · `assets/build.py` ·
 `assets/_episode-template.js`
 
+All present as of the engine-assets commit. Also `assets/snapshot.mjs`
+(`node assets/snapshot.mjs <episode.js> <t> out.svg`) for a headless frame at any
+time t — used by `eval/frame-items.mjs`. All four references gate PASS.
+
 Course-film occupancy is separate: see `COURSE-E0.md`.
 Command: `/sheaf-run course`
 

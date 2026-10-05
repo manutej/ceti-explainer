@@ -24,22 +24,29 @@ pick workstream W1 — the others depend on its items file.
 
 ---
 
-## 0 · Blocker to clear first
+## 0 · The toolchain is in this branch, and it runs
 
-`RUN.md` promises that cloning this repo gets you a working engine, and lists what must be
-present. **Seven of those files are not in the repo.** Present: `audit-overlaps.js`,
-`build.py`, `ceti-motion.css`. Missing: `engine.js`, `gate.mjs`, `snapshot.mjs`,
-`shell.template.html`, `ceti-tokens.css`, `_episode-template.js`, and all of
-`reference/` (`self-attention.js`, `oauth.js`, `tcp.js`, `binary-search.js`).
+`RUN.md` promises that cloning this repo gets you a working engine. Until this branch that
+was false — seven listed assets and all of `reference/` were missing. They are now here:
+`engine.js`, `gate.mjs`, `snapshot.mjs`, `shell.template.html`, `ceti-tokens.css`,
+`_episode-template.js`, and the four reference episodes.
 
-They exist in the live skill tree, and the whole of W1 depends on `snapshot.mjs`, so
-**ask Manu to push `skills/ceti-explainer/assets/` and `reference/` before you start.**
-Until then, work against the live tree, not the clone.
+Verified from a clean clone of this branch on 2026-10-05, Node v22.23.2, Python 3:
 
-Everything in W1 below was tested on 2026-10-05 against the live tree at
-`~/.claude/skills/synced/*/ceti-explainer` with Node v22.23.2.
+```
+node assets/gate.mjs reference/self-attention.js   PASS · 38.6s · 8 beats · 214 nodes
+node assets/gate.mjs reference/oauth.js            PASS · 39.2s · 8 beats · 155 nodes
+node assets/gate.mjs reference/tcp.js              PASS · 37.4s · 8 beats · 146 nodes
+node assets/gate.mjs reference/binary-search.js    PASS · 40.4s · 8 beats · 129 nodes
+python3 assets/build.py reference/self-attention.js "Self-attention"
+                                                   77 KB self-contained HTML
+node assets/snapshot.mjs reference/self-attention.js 20 /tmp/t.svg
+                                                   t=20.0s · beat 5 "Softmax"
+node ../../eval/frame-items.mjs reference/self-attention.js /tmp/sa.items.json
+                                                   8 frame items
+```
 
----
+Run them from `skills/ceti-explainer/`. Nothing to install.
 
 ## 1 · Reading order
 
@@ -117,60 +124,17 @@ pixels will come back confident and useless — `LESSONS.md` L5. [measured]
 
 The grid should be the episode's own clock, not an arbitrary sample rate: one frame per
 beat midpoint gives 8 items per episode and every item sits inside a single beat, so no
-item straddles a transition. Script below extracts exactly that. Tested 2026-10-05 against
-`reference/self-attention.js`: 8 beats → 8 items, beat 8 correctly `"Why it matters"`.
+item straddles a transition. That is what **`eval/frame-items.mjs`** does — shipped in this
+branch, with `eval/README.md` beside it.
 
-```js
-/* frame-items.mjs — turn an episode into one Jev item per frame.
-   Usage: node frame-items.mjs <episode.js> <out.items.json> [samplesPerBeat=1]
-   Run from the skill root; needs assets/snapshot.mjs beside it. */
-import fs from "node:fs";
-import path from "node:path";
-import { execFileSync } from "node:child_process";
-
-const [, , epPath, outPath, perBeatArg] = process.argv;
-if (!epPath || !outPath) {
-  console.error("usage: node frame-items.mjs <episode.js> <out.items.json> [samplesPerBeat]");
-  process.exit(1);
-}
-const perBeat = Math.max(1, Number(perBeatArg ?? 1));
-const SKILL = path.resolve(path.dirname(epPath), "..");
-const SNAP = path.join(SKILL, "assets", "snapshot.mjs");
-if (!fs.existsSync(SNAP)) { console.error(`missing ${SNAP} — engine assets are not here`); process.exit(2); }
-
-const src = fs.readFileSync(epPath, "utf8");
-const beats = [];
-{
-  const re = /\{\s*id:\s*["']([^"']+)["'][^}]*?label:\s*["']([^"']+)["'][^}]*?dur:\s*([\d.]+)[^}]*?caption:\s*(["'`])([\s\S]*?)\4/g;
-  let m, t = 0;
-  while ((m = re.exec(src))) {
-    const dur = Number(m[3]);
-    beats.push({ id: m[1], label: m[2], caption: m[5].replace(/\s+/g, " ").trim(), start: t, end: t + dur });
-    t += dur;
-  }
-}
-if (!beats.length) { console.error("no beats parsed — check the module's beats array shape"); process.exit(3); }
-
-const textOf = (svg) =>
-  [...svg.matchAll(/<text[^>]*>([^<]*)<\/text>/g)].map((m) => m[1].trim()).filter(Boolean);
-
-const items = [];
-const tmp = path.join(process.env.TMPDIR ?? "/tmp", `frame-${process.pid}.svg`);
-for (const b of beats) {
-  for (let k = 0; k < perBeat; k++) {
-    const t = +(b.start + ((k + 0.5) * (b.end - b.start)) / perBeat).toFixed(2);
-    execFileSync(process.execPath, [SNAP, epPath, String(t), tmp], { stdio: "pipe" });
-    const svg = fs.readFileSync(tmp, "utf8");
-    items.push({
-      id: `${path.basename(epPath, ".js")}@t${t}`,
-      state: { t, beatIndex: beats.indexOf(b) + 1, beatLabel: b.label, caption: b.caption, visibleText: textOf(svg) },
-    });
-  }
-}
-fs.rmSync(tmp, { force: true });
-fs.writeFileSync(outPath, JSON.stringify(items, null, 2));
-console.log(`wrote ${items.length} frame items (${beats.length} beats × ${perBeat}) → ${outPath}`);
+```bash
+cd skills/ceti-explainer
+node ../../eval/frame-items.mjs reference/self-attention.js /tmp/sa.items.json      # 8 items
+node ../../eval/frame-items.mjs reference/self-attention.js /tmp/sa.items.json 3    # 24 items
 ```
+
+Each item is `{ id, state: { t, beatIndex, beatLabel, caption, visibleText } }`, which is
+`itemsFile`-shaped for `JEV-works/kit/run.ts`. Verified against all four references.
 
 A real extracted item, so you can see what Jev would actually read:
 
@@ -250,6 +214,47 @@ Two cautions specific to this corpus:
 - **`privacyScan` runs before any call** and refuses emails, phone numbers and keys in any
   state bound for the API. Client-named frames and slides will trip it. That is correct
   behaviour, not an obstacle to route around.
+
+### 3.4 The real corpus — 30 deployed CCAF episodes
+
+The four references are a *fit* corpus for instrument design: four archetypes, 32 frames.
+The corpus that actually matters is **CCAF Animated Explainers**, deployed and public:
+
+**<https://ccaf-explainers.vercel.app/>** — 30 episodes, 5 modules, 40s each, 8 beats each,
+~20 min total runtime. **240 frames.** Verified live 2026-10-05 (index HTTP 200; spot-checked
+`1-1-agentic-loops` and `5-6-information-provenance`, both HTTP 200, ~339 KB, no auth wall —
+so your colleague can open any episode directly).
+
+| Module | Episodes | Share of exam |
+|---|---|---|
+| 1 · Agentic Architecture | 7 | 27% |
+| 2 · Tool Design & MCP | 5 | 18% |
+| 3 · Claude Code Configuration | 6 | 20% |
+| 4 · Prompt Engineering | 6 | — |
+| 5 · Context Management | 6 | 15% |
+
+Source material: `claudecertificationguide.com/learn`. The stated pipeline is
+*research → documentation → 8-beat storyboard → animated SVG episode → gate + render
+verification → publish*, and every episode claims the layout gate plus a headless
+zero-console-error check. **That claim is exactly what W1 exists to test independently** —
+a passing layout gate says nothing about whether beat 5 teaches what its caption promises.
+
+Two assets you will want, both local on Manu's machine at
+`~/Downloads/CCAFall30explainers/`:
+
+- `storyboards/` — **30 `.md` 8-beat storyboards.** The cheapest corpus in this whole
+  handoff: pure text, no rendering, no snapshot step. Caption-level and beat-sequence
+  questions can be measured here *before* you spend anything on frames. Start here.
+- `explainers/` — the 30 built `.html` files.
+
+**One known snag, scoped as your first task.** `frame-items.mjs` needs an episode *module*
+(`.js`); the CCAF episodes exist as built HTML with the module inlined. I confirmed they
+come from this same engine — `window.EXPLAINER = (function () {`, plus `__REGIONS`,
+`__LAYOUT`, `__AUDIT` and `data-ex-stage` all present — but a one-pass regex extraction of a
+runnable module from the HTML did **not** work, because the inlined script boundary is not
+clean. So either ask Manu for the 30 source modules (far preferable — they must exist, the
+pipeline built from them) or write the extractor properly. Do not burn a day on the regex;
+ask first.
 
 ---
 
@@ -466,21 +471,27 @@ set every time you rewrite it.
 
 ## 8 · Suggested first sequence
 
-1. Get the engine assets pushed (§0). Nothing in W1 runs without `snapshot.mjs`.
-2. Run `frame-items.mjs` on all four references — `self-attention.js` (derivation),
-   `oauth.js` (process), `tcp.js` (state machine), `binary-search.js` (code/trace). Four
-   archetypes, 32 items. That is your fit corpus, and the archetype spread is the point.
-3. **Declare splits before any run** — fit vs test, in the spec. The runner refuses
-   overlapping holdouts by id *and* by normalised text, which is the unit the model reads.
-   Decide the split before you have seen a single answer.
-4. Run the six seed questions through `meta.question-quality` (W2) and fix what it rejects.
-5. `node kit/run.ts … --dry-run`, read the call count, then run live. Read the label-free
-   quality verdicts first — JEV-SAFE / MARGINAL / MOVE-TO-CODE / NO-INFORMATION — before
-   you look at any aggregate.
-6. Interview Manu with `operadic-interview` for the real rubric (§4.1), and compare the
+1. **Read §1, then §2.1.** The literal / deterministic / requires-reasoning split is the
+   decision you will get wrong most expensively.
+2. **Start on the 30 storyboards, not the frames.** `~/Downloads/CCAFall30explainers/storyboards/`
+   is 30 markdown 8-beat briefs — no rendering, no snapshots, immediate. Measure the
+   caption-level and beat-sequence questions there first.
+3. **Build the instrument against the four references.** `node ../../eval/frame-items.mjs`
+   on `self-attention.js` (derivation), `oauth.js` (process), `tcp.js` (state machine),
+   `binary-search.js` (code/trace) — four archetypes, 32 items. The archetype spread is the
+   point: a question that only works on derivations is not a frame question.
+4. **Declare splits before any run** — fit vs test, in the spec. The runner refuses
+   overlapping holdouts by id *and* by normalised text, the unit the model reads. Decide the
+   split before you have seen a single answer.
+5. **Run the seed questions through `meta.question-quality`** (§4) and fix what it rejects.
+6. `node kit/run.ts … --dry-run`, read the call count, then run live. Read the label-free
+   verdicts first — JEV-SAFE / MARGINAL / MOVE-TO-CODE / NO-INFORMATION — before you look at
+   any aggregate.
+7. **Then the 240 CCAF frames** (§3.4), once the module-source question is resolved.
+8. **Interview Manu with `operadic-interview`** for the real rubric (§4.1), and compare the
    composed rubric against the collapsed one. Report the gaps as findings.
-7. Only then write the slide heuristics (W3), reusing `bank.course-qa` as the base.
-8. Append every failure to §7 with its source, and attach it to the file it governs.
+9. Only then the slide heuristics (W3), reusing `bank.course-qa` as the base.
+10. Append every failure to §7 with its source, and attach it to the file it governs.
 
 ## 9 · Open questions for Manu
 
@@ -488,8 +499,11 @@ set every time you rewrite it.
    `meta`, or alongside the eval spec? It has to live somewhere for scores to be comparable.
 2. Which decks are the real slide corpus — `hcsc-summit-library`, `pursuit-path-courseware`,
    both? They carry client material, which interacts with `privacyScan`.
-3. Should the engine assets be pushed here, or should this repo point at the live skill tree
-   as source of truth? `SKILLS.md` says the live tree is canonical and this repo mirrors it;
-   `RUN.md` promises a self-contained clone. Those two contracts currently disagree, and
-   §0 is the consequence.
-4. Is the retrieval-practice idea (§6.3) worth a spike, or out of scope?
+3. Where are the **30 CCAF episode source modules**? The built HTML is in
+   `~/Downloads/CCAFall30explainers/explainers/`, but §3.4 needs the `.js` modules and
+   recovering them from the HTML is not clean. This is the one thing blocking the 240-frame
+   corpus.
+4. This branch pushes the engine assets here, which makes `RUN.md` true. But `SKILLS.md`
+   still says the live tree at `~/.grok/skills/` is canonical and this repo mirrors it — so
+   who wins on the next divergence? Worth settling now that two copies exist.
+5. Is the retrieval-practice idea (§6.3) worth a spike, or out of scope?

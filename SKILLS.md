@@ -33,6 +33,12 @@ Tagline: Glue what the dual-loop conserves.
 | `skills/sheaf-repair/` | Discrete restriction / quotient. Zero weight. |
 | `skills/sheaf-harness/` | Stage map + `/sheaf-run` command |
 
+## Evaluation
+
+| Path | Role | Notes |
+|---|---|---|
+| `eval/frame-items.mjs` | Frame corpus | One Jev item per beat midpoint, from the episode's own clock. See `HANDOFF-JEV-EVAL.md` |
+
 ## Contracts that must not drift
 
 - `skills/ceti-explainer/COURSE-E0.md` — 2-minute product, 5-minute seam, persist-on-generate
