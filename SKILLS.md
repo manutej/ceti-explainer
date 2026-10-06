@@ -16,6 +16,12 @@ Tagline: Glue what the dual-loop conserves.
 | `skills/ceti-brand/` | Palette / surfaces | Cream / vermillion / ink. No purple gradients. No emoji headings. |
 | `skills/noether-harness/` | Dual-loop runtime | Full μ→λ→· skill + `references/SHEAF-ACV.md` |
 
+## Instruments
+
+| Path | Role | Notes |
+|---|---|---|
+| `skills/operadic-interview/` | Typed question tree | N-level interview instrument: every node is an askable question, answers compose upward, composed-vs-collapsed disagreement is the finding. `scripts/treelint.py` must PASS on every generation AND regeneration |
+
 ## Sheaf family (ACV occupants)
 
 | Path | Vertex / job |
@@ -27,12 +33,19 @@ Tagline: Glue what the dual-loop conserves.
 | `skills/sheaf-repair/` | Discrete restriction / quotient. Zero weight. |
 | `skills/sheaf-harness/` | Stage map + `/sheaf-run` command |
 
+## Evaluation
+
+| Path | Role | Notes |
+|---|---|---|
+| `eval/frame-items.mjs` | Frame corpus | One Jev item per beat midpoint, from the episode's own clock. See `HANDOFF-JEV-EVAL.md` |
+
 ## Contracts that must not drift
 
 - `skills/ceti-explainer/COURSE-E0.md` — 2-minute product, 5-minute seam, persist-on-generate
 - `skills/noether-harness/references/SHEAF-ACV.md` — ACV is exact Φ; H¹ ranks only
 - `EXPERIMENT-E0.md` — 2-minute commit, 5-minute mux abstain
 - `REQUIREMENTS.md` — locked product contract
+- `skills/operadic-interview/SKILL.md` — `node.askable`: every node is a question, never a category header
 
 ## Quality bar
 

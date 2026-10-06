@@ -18,10 +18,10 @@
   --duration-considered:   720ms;  /* hero set-pieces */
 }
 
-/* ────────────────────────
+/* ────────────────────────────────────────
  * REVEAL PATTERN — fade-in-on-scroll
  * Apply class .reveal-fade to elements; observer below toggles .is-visible.
- * ──────────────────────── */
+ * ──────────────────────────────────────── */
 
 .reveal-fade {
   opacity: 0;
@@ -47,10 +47,10 @@
   }
 }
 
-/* ────────────────────────
+/* ────────────────────────────────────────
  * REDUCED MOTION GUARD
  * Keep opacity for orientation; kill transforms for safety.
- * ──────────────────────── */
+ * ──────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

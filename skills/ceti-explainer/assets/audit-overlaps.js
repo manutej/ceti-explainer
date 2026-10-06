@@ -1,4 +1,4 @@
-/* ═══════════════════════════════════════════════════════════════════
+/* ════════════════════════════════════════════════════════════════════
    Browser overlap auditor — the font-accurate belt-and-suspenders check.
    --------------------------------------------------------------------
    The gate's §15d uses estimated text widths; THIS runs in a real browser
@@ -14,7 +14,7 @@
    every VISIBLE <text> reports: (a) overflow past the stage edges, and
    (b) pairwise overlap with another visible <text>. Returns a JSON report;
    an empty "issues" array per beat means clean.
-   ────────────────────────────────────────────────────────────────── */
+   ──────────────────────────────────────────────────────────────────── */
 (function () {
   const ctrl = window.__ctrl, svg = document.querySelector("[data-ex-stage] svg");
   if (!ctrl || !svg) return JSON.stringify({ error: "player/svg not found" });
