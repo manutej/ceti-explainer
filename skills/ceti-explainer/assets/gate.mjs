@@ -67,7 +67,7 @@ if (!m) { errs.push("window.EXPLAINER missing (module must end with window.EXPLA
 const b = m.beats || [];
 const dur = b.reduce((a, x) => a + (x.dur || 0), 0);
 if (b.length !== 8) errs.push(`beats=${b.length}, expected 8`);
-if (dur < 33 || dur > 46) errs.push(`duration=${dur.toFixed(1)}s, want 35–45`);
+if (dur < 35 || dur > 45) errs.push(`duration=${dur.toFixed(1)}s, want 35–45`);
 if (b.length && (b[b.length-1].label || "").toLowerCase() !== "why it matters")
   errs.push(`last beat is "${b[b.length-1].label}", expected "Why it matters"`);
 const capMax = Math.max(0, ...b.map(x => (x.caption||"").length));
@@ -101,6 +101,8 @@ if (typeof m.build === "function" && typeof m.render === "function" && b.length 
   catch (e) { errs.push("build() threw: " + e.message); }
   const hasSvg = stage.children.some(c => c.tagName === "svg");
   if (!hasSvg) errs.push("no <svg> mounted on the stage");
+  const mountedSvg = stage.children.find(c => c.tagName === "svg");
+  if (mountedSvg && mountedSvg.children.length === 0) errs.push("mounted <svg> has no children (nothing drawn)");
   const ai = (t) => { for (let i = beats.length-1; i>=0; i--) if (t >= beats[i].start - 1e-4) return i; return 0; };
   try {
     for (let t = 0; t <= dur + 0.001; t += 0.2)
