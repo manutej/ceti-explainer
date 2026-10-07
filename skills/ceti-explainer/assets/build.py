@@ -20,7 +20,7 @@ Re-skin for any brand WITHOUT touching diagram code:
             SKILL.md — keep the locked fonts unless you re-run layout QA.)
 Diagrams reference role tokens only, so swapping preset/theme re-skins everything.
 """
-import sys, os, argparse
+import sys, os, argparse, html, json, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -29,7 +29,7 @@ def read(p):
         return f.read()
 
 def safe_js(s):
-    return s.replace("</script", "<\\/script")
+    return re.sub(r"</(script)", r"<\\/\1", s, flags=re.I)
 
 def main():
     ap = argparse.ArgumentParser()
@@ -50,9 +50,11 @@ def main():
             sys.exit(f"unknown preset '{a.preset}' (looked for {ppath})")
         preset = read(ppath)
 
-    html = (read(os.path.join(HERE, "shell.template.html"))
-        .replace("__TITLE__", a.title)
-        .replace("__BRAND__", a.brand)
+    brand_js = safe_js(json.dumps(a.brand)[1:-1])
+    page = (read(os.path.join(HERE, "shell.template.html"))
+        .replace("__TITLE__", html.escape(a.title))
+        .replace("__BRAND_JS__", brand_js)
+        .replace("__BRAND__", html.escape(a.brand))
         .replace("__PRESET_OVERRIDE__", preset)
         .replace("__THEME_OVERRIDE__", theme)
         .replace("__TOKENS_CSS__", read(os.path.join(HERE, "ceti-tokens.css")))
@@ -61,8 +63,8 @@ def main():
         .replace("__EPISODE_JS__", safe_js(read(a.episode))))
 
     with open(out, "w", encoding="utf-8") as f:
-        f.write(html)
-    kb = len(html.encode("utf-8")) / 1024
+        f.write(page)
+    kb = len(page.encode("utf-8")) / 1024
     tag = f" · brand '{a.brand}'" + (f" · preset {a.preset}" if a.preset else "") + (f" · theme {os.path.basename(a.theme)}" if a.theme else "")
     print(f"✓ wrote {out}  ({kb:.0f} KB, self-contained){tag}")
 

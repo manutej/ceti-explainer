@@ -90,6 +90,8 @@ else {
 }
 
 /* ---- exercise build() + render() across the timeline ---- */
+if (typeof m.build !== "function") errs.push("build() missing or not a function");
+if (typeof m.render !== "function") errs.push("render() missing or not a function");
 if (typeof m.build === "function" && typeof m.render === "function" && b.length === 8) {
   let cursor = 0;
   const beats = b.map((x, i) => { const start = cursor; cursor += x.dur; return { ...x, index: i, start, end: cursor }; });
@@ -195,6 +197,7 @@ function fail() {
   if (warns.length) console.log("warnings:\n- " + warns.join("\n- "));
   process.exit(1);
 }
+if (nodeCount === 0) errs.push("no nodes drawn");
 if (errs.length) fail();
 console.log(`PASS · ${dur.toFixed(1)}s · 8 beats · ${nodeCount} nodes · ${attrSets} attr-sets`);
 if (warns.length) console.log("warnings:\n- " + warns.join("\n- "));
