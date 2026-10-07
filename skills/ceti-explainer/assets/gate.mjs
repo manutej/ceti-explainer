@@ -20,7 +20,7 @@ const epPath = process.argv[2];
 if (!epPath) { console.error("usage: node gate.mjs <episode.js>"); process.exit(1); }
 
 /* ---- minimal SVG-DOM shim ---- */
-let nodeCount = 0, attrSets = 0, badAttr = [];
+let nodeCount = 0, drawnSvg = null, attrSets = 0, badAttr = [];
 function makeNode(tag) {
   nodeCount++;
   const n = {
@@ -40,6 +40,36 @@ function makeNode(tag) {
     querySelector() { return null; }, querySelectorAll() { return []; },
   };
   return n;
+}
+function num(v) { const n = +v; return Number.isFinite(n) ? n : 0; }
+function visibleGeometry(node) {
+  const tag = (node.tagName || "").toLowerCase();
+  const a = node._a || {};
+  if (tag === "rect" || tag === "image") return num(a.width) > 0 && num(a.height) > 0;
+  if (tag === "circle") return num(a.r) > 0;
+  if (tag === "ellipse") return num(a.rx) > 0 && num(a.ry) > 0;
+  if (tag === "line") return num(a.x1) !== num(a.x2) || num(a.y1) !== num(a.y2);
+  if (tag === "path") {
+    const d = String(a.d || "").trim();
+    if (!d) return false;
+    const cmds = d.match(/[MmLlHhVvCcSsQqTtAaZz]/g) || [];
+    for (let i = 1; i < cmds.length; i++) if (cmds[i] !== "M" && cmds[i] !== "m") return true;
+    return cmds.some(c => c === "Z" || c === "z");
+  }
+  if (tag === "polygon" || tag === "polyline") {
+    const parts = String(a.points || "").trim().split(/[\s,]+/).filter(Boolean);
+    const seen = new Set();
+    for (let i = 0; i + 1 < parts.length; i += 2) seen.add(`${parts[i]},${parts[i + 1]}`);
+    return seen.size >= 2;
+  }
+  if (tag === "text") return !!(node.textContent && String(node.textContent).trim());
+  return false;
+}
+function drawsSomething(node) {
+  if (!node) return false;
+  if (visibleGeometry(node)) return true;
+  for (const c of node.children || []) if (drawsSomething(c)) return true;
+  return false;
 }
 const document = {
   createElementNS: (_ns, tag) => makeNode(tag),
@@ -67,7 +97,7 @@ if (!m) { errs.push("window.EXPLAINER missing (module must end with window.EXPLA
 const b = m.beats || [];
 const dur = b.reduce((a, x) => a + (x.dur || 0), 0);
 if (b.length !== 8) errs.push(`beats=${b.length}, expected 8`);
-if (dur < 33 || dur > 46) errs.push(`duration=${dur.toFixed(1)}s, want 35–45`);
+if (dur < 35 || dur > 45) errs.push(`duration=${dur.toFixed(1)}s, want 35–45`);
 if (b.length && (b[b.length-1].label || "").toLowerCase() !== "why it matters")
   errs.push(`last beat is "${b[b.length-1].label}", expected "Why it matters"`);
 const capMax = Math.max(0, ...b.map(x => (x.caption||"").length));
@@ -90,6 +120,8 @@ else {
 }
 
 /* ---- exercise build() + render() across the timeline ---- */
+if (typeof m.build !== "function") errs.push("build() missing or not a function");
+if (typeof m.render !== "function") errs.push("render() missing or not a function");
 if (typeof m.build === "function" && typeof m.render === "function" && b.length === 8) {
   let cursor = 0;
   const beats = b.map((x, i) => { const start = cursor; cursor += x.dur; return { ...x, index: i, start, end: cursor }; });
@@ -99,6 +131,9 @@ if (typeof m.build === "function" && typeof m.render === "function" && b.length 
   catch (e) { errs.push("build() threw: " + e.message); }
   const hasSvg = stage.children.some(c => c.tagName === "svg");
   if (!hasSvg) errs.push("no <svg> mounted on the stage");
+  const mountedSvg = stage.children.find(c => c.tagName === "svg");
+  if (mountedSvg) drawnSvg = mountedSvg;
+  if (mountedSvg && mountedSvg.children.length === 0) errs.push("mounted <svg> has no children (nothing drawn)");
   const ai = (t) => { for (let i = beats.length-1; i>=0; i--) if (t >= beats[i].start - 1e-4) return i; return 0; };
   try {
     for (let t = 0; t <= dur + 0.001; t += 0.2)
@@ -195,6 +230,8 @@ function fail() {
   if (warns.length) console.log("warnings:\n- " + warns.join("\n- "));
   process.exit(1);
 }
+if (drawnSvg && !drawsSomething(drawnSvg)) errs.push("the <svg> draws nothing visible");
+if (nodeCount === 0) errs.push("no nodes drawn");
 if (errs.length) fail();
 console.log(`PASS · ${dur.toFixed(1)}s · 8 beats · ${nodeCount} nodes · ${attrSets} attr-sets`);
 if (warns.length) console.log("warnings:\n- " + warns.join("\n- "));
