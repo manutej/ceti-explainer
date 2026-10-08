@@ -1,0 +1,53 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/data-marks/demo.html",
+ "errors": [],
+ "variants": {
+  "bar-race": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/bar-race-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/bar-race-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/bar-race-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/bar-race-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "line-peak": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/line-peak-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/line-peak-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/line-peak-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/line-peak-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "waffle-bar-dot": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/waffle-bar-dot-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/waffle-bar-dot-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/waffle-bar-dot-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/waffle-bar-dot-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "dumbbell-slope": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/dumbbell-slope-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/dumbbell-slope-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/dumbbell-slope-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/dumbbell-slope-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "area-from-zero": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/area-from-zero-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/area-from-zero-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/area-from-zero-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/area-from-zero-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 6.3,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/data-marks/shots/contact.png"
+}
