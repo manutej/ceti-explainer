@@ -31,3 +31,8 @@ factory/**/shots/
 
 # built standalone pages are always kept, so the source can be refactored against them (DECISIONS D10)
 !**/build/*.html
+
+# arsenal stills: keep only the contact sheet and report
+arsenal/**/shots/*
+!arsenal/**/shots/contact.png
+!arsenal/**/shots/report.json
