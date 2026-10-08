@@ -1,0 +1,145 @@
+# wiki.yaml — manifest and FORM of this wiki instance.
+# This file is part of the conserved apparatus: change lens specs, ontology,
+# thresholds, or rubrics ONLY via a logged RE-BASELINE row.
+
+wiki:
+  name: p5js-explainer-atlas
+  id: p5js-explainer-atlas
+  created: "2026-10-08"
+  tier: L2                  # EXTRACT starts at L2 (SKILL.md §6)
+  parents: []
+  corpus: "research_notes/p5js explainer frontier/B01..B21 (21 branches, 533 source rows -> 416 S-ids)"
+  version_context: "p5.js 2.x current (2.0.0 2025-04-17; latest 2.3.4 2026-09-25; 2.4 on main). Flag 1.x-only / changed-in-2.x."
+
+ontology:
+  types:                    # 13 types (Site added by RE-BASELINE 2026-10-08)
+    - Module                # top-level p5.js reference module (Shape, Color, ...)
+    - Capability            # a reference sub-group / feature area (pointer events, WebGPU renderer)
+    - Construct             # a concrete API function / variable / class (setup(), p5.Vector)
+    - Library               # add-on or third-party JS library
+    - Tool                  # editor, CLI, app, agent skill, non-p5 engine
+    - Technique             # reusable method (flow field, frame-stepped export)
+    - Pattern               # explainer-engine design pattern (one clock, track tween)
+    - Practitioner          # person
+    - Work                  # book, course, artwork, video series, tutorial, paper
+    - Concept               # idea, program, synthesis or hub page
+    - Platform              # runtime / site / organisation / version line
+    - Release               # a p5.js minor/major release
+    - Site                  # a source website or repo-host (C5 per-site provenance pages)
+  relations:                # predicate: [domain, range]  ("*" = any type)
+    is_a: ["*", "*"]
+    part_of: ["*", "*"]
+    related_to: ["*", "*"]
+    uses: ["*", "*"]
+    depends_on: ["*", "*"]
+    enables: ["*", "*"]
+    integrates_with: ["*", "*"]
+    alternative_to: ["*", "*"]
+    supersedes: ["*", "*"]
+    replaced_in_2x: ["*", "*"]
+    introduced_in: ["*", Release]
+    exports_to: ["*", "*"]
+    authored_by: ["*", Practitioner]
+    maintained_by: ["*", "*"]
+    teaches: ["*", "*"]
+    demonstrates: ["*", "*"]
+    conflicts_with: ["*", "*"]
+  hubs:                     # entry points exempt from graph.orphans
+    - index
+    - hub-language-core
+    - hub-motion-rendering
+    - hub-explainer-production
+    - hub-people-community
+    - capability-map
+    - mastery-ladder
+    - explainer-engine-blueprint
+    - video-export-pipeline
+    - frontier-2026
+    - version-2x-migration
+    - open-questions
+
+templates:                  # required body sections (page.contract — not yet machine-gated)
+  default: [Definition, Details, In explainer work, Relations, Sources]
+  Pattern: [Definition, Details, In explainer work, Patterns, Relations, Sources]
+  Technique: [Definition, Details, In explainer work, Patterns, Relations, Sources]
+  Practitioner: [Definition, Details, In explainer work, Relations, Sources]
+  hub: [Definition, Details, Relations, Sources]
+
+budgets:
+  k_repair: 3
+  epsilon_step: 2.0
+  b_task: 10.0
+  reserve_frac: 0.2
+
+lenses:
+  # ---- gating (exact) ----
+  - id: link.integrity
+    family: structural
+    mode: exact
+    measure: wikictl
+    repair_hint: "create target page as typed stub, or retarget/remove link; never delete the linking claim to silence the lens"
+    integrity: true
+  - id: entity.unique
+    family: semantic
+    mode: exact
+    measure: wikictl
+    repair_hint: "merge duplicate pages (alias union) or disambiguate slugs; record which in the ledger"
+    integrity: true
+  - id: sync.index
+    family: structural
+    mode: exact
+    measure: wikictl
+    repair_hint: "regenerate the missing side from the authoritative one; pages are authoritative for prose, index for ids/types"
+    integrity: true
+  - id: prov.coverage
+    family: provenance
+    mode: exact
+    measure: wikictl
+    threshold: 0.9
+    repair_hint: "add the citation or move the claim to a clearly-marked 'Unverified' block; never invent a source"
+    integrity: true
+  # ---- soft ----
+  - id: graph.orphans
+    family: structural
+    mode: soft
+    measure: wikictl
+    weight: 1.0
+    drift_unit: "orphan pages"
+    repair_hint: "link the orphan from the most relevant hub or related page"
+  - id: page.stub-ratio
+    family: resource
+    mode: soft
+    measure: wikictl
+    weight: 0.5
+    drift_unit: "pp of stub-share over ceiling"
+    ceiling: 0.4
+    stub_min_words: 40
+  # ---- shadow (measured/logged, never gate) ----
+  - id: type.valid
+    family: semantic
+    mode: shadow
+    measure: wikictl
+    repair_hint: "fix the type/predicate to one in the ontology; if the ontology is wrong, that is a RE-BASELINE"
+  - id: graph.acyclic-taxonomy
+    family: structural
+    mode: shadow
+    measure: wikictl
+  - id: prov.faithful
+    family: provenance
+    mode: shadow
+    measure: judge
+    rubric: >
+      Sample 5 cited claims per session. For each: quote the exact source span
+      (from the branch file row that carries the mapped B-id), then mark
+      supported / partially-supported / unsupported. Any 'unsupported' is logged
+      to ESCAPES.md.
+
+regression:
+  - q: "How do I export a frame-accurate 4K/60 explainer video from p5.js?"
+    must_mention: [frame-stepped-export, png-sequence-ffmpeg, save-frames]
+  - q: "What replaced preload() in p5.js 2.x?"
+    must_mention: [async-setup, p5js-compatibility]
+  - q: "How should an explainer engine keep time so scrubbing and export agree?"
+    must_mention: [pure-function-of-t, explainer-clock]
+  - q: "What is p5.strands and what can it do as of 2.3?"
+    must_mention: [p5-strands, webgpu-renderer, gpu-instancing]

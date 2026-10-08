@@ -1,0 +1,437 @@
+{"id": "capability-map", "type": "Concept", "title": "Capability map of p5.js 2.x", "aliases": ["p5.js capability map", "relevance matrix", "reference counts", "Foundation module", "Foundation", "JS basics"], "page": "pages/capability-map.md", "cluster": "C1"}
+{"id": "p5js", "type": "Platform", "title": "p5.js", "aliases": ["p5", "p5.js library"], "page": "pages/p5js.md", "cluster": "C1"}
+{"id": "sketch-concept", "type": "Concept", "title": "Sketch (sketching with code)", "aliases": ["Sketch", "sketching with code"], "page": "pages/sketch-concept.md", "cluster": "C1"}
+{"id": "immediate-mode", "type": "Concept", "title": "Immediate-mode drawing", "aliases": ["redraw every frame"], "page": "pages/immediate-mode.md", "cluster": "C1"}
+{"id": "drawing-state", "type": "Concept", "title": "Drawing state", "aliases": ["style state", "render state"], "page": "pages/drawing-state.md", "cluster": "C1"}
+{"id": "global-mode", "type": "Concept", "title": "Global mode", "aliases": ["global mode sketch"], "page": "pages/global-mode.md", "cluster": "C1"}
+{"id": "instance-mode", "type": "Concept", "title": "Instance mode", "aliases": ["new p5(fn, node)", "p5 instance", "p5 constructor", "Instance-mode embed", "instance cleanup"], "page": "pages/instance-mode.md", "cluster": "C1"}
+{"id": "module-structure", "type": "Module", "title": "Structure module", "aliases": ["Structure", "sketch lifecycle"], "page": "pages/module-structure.md", "cluster": "C1"}
+{"id": "module-environment", "type": "Module", "title": "Environment module", "aliases": ["Environment", "sketch environment"], "page": "pages/module-environment.md", "cluster": "C1"}
+{"id": "module-rendering", "type": "Module", "title": "Rendering module", "aliases": ["Rendering", "canvas and offscreen buffers"], "page": "pages/module-rendering.md", "cluster": "C1"}
+{"id": "module-shape", "type": "Module", "title": "Shape module", "aliases": ["Shape"], "page": "pages/module-shape.md", "cluster": "C1"}
+{"id": "module-color", "type": "Module", "title": "Color module", "aliases": ["Color", "Color setting (fill, stroke, background, clip)", "Color/Setting", "fill/stroke/background"], "page": "pages/module-color.md", "cluster": "C1"}
+{"id": "module-typography", "type": "Module", "title": "Typography module", "aliases": ["Typography", "text and fonts"], "page": "pages/module-typography.md", "cluster": "C1"}
+{"id": "module-image", "type": "Module", "title": "Image module", "aliases": ["Image", "Image/Image", "Image/Loading & Displaying", "tint", "p5.Image", "image object", "loadImage()"], "page": "pages/module-image.md", "cluster": "C1"}
+{"id": "module-transform", "type": "Module", "title": "Transform module", "aliases": ["Transform", "matrix stack", "translate/rotate/scale", "transforms", "Model matrix", "Scoped transforms", "Pivot transform"], "page": "pages/module-transform.md", "cluster": "C1"}
+{"id": "module-3d", "type": "Module", "title": "3D module", "aliases": ["3D", "WebGL 3D module", "orbitControl() and debugMode()", "3D/Interaction", "orbitControl", "debugMode()"], "page": "pages/module-3d.md", "cluster": "C2"}
+{"id": "module-math", "type": "Module", "title": "Math module", "aliases": ["Math", "Quaternions (p5.Quat)", "Math/Quaternion", "p5.Quat", "p5.Matrix"], "page": "pages/module-math.md", "cluster": "C1"}
+{"id": "module-io", "type": "Module", "title": "IO module", "aliases": ["IO", "IO/Input", "IO/Table", "p5.Table", "p5.TableRow", "p5.XML", "p5.PrintWriter"], "page": "pages/module-io.md", "cluster": "C1"}
+{"id": "module-events", "type": "Module", "title": "Events module", "aliases": ["Events", "Device motion events", "Events/Acceleration", "device motion"], "page": "pages/module-events.md", "cluster": "C1"}
+{"id": "module-dom", "type": "Module", "title": "DOM module", "aliases": ["DOM", "HTML elements", "p5.File"], "page": "pages/module-dom.md", "cluster": "C1"}
+{"id": "module-data", "type": "Module", "title": "Data module", "aliases": ["Data", "Data/Conversion", "Data/LocalStorage", "Data/Utility Functions", "1.x Dictionary and Array functions (removed)", "p5.TypedDict", "createStringDict", "createNumberDict"], "page": "pages/module-data.md", "cluster": "C1"}
+{"id": "module-constants", "type": "Module", "title": "Constants module", "aliases": ["Constants", "p5 constants"], "page": "pages/module-constants.md", "cluster": "C1"}
+{"id": "setup", "type": "Construct", "title": "setup()", "aliases": ["setup function"], "page": "pages/setup.md", "cluster": "C1"}
+{"id": "draw", "type": "Construct", "title": "draw()", "aliases": ["draw loop", "draw function"], "page": "pages/draw.md", "cluster": "C1"}
+{"id": "preload", "type": "Construct", "title": "preload()", "aliases": ["preload (removed in 2.0)"], "page": "pages/preload.md", "cluster": "C1"}
+{"id": "async-setup", "type": "Construct", "title": "async setup()", "aliases": ["await in setup", "async/await loading", "await loading", "await loadImage", "Awaited asset boot", "2.x asset loading"], "page": "pages/async-setup.md", "cluster": "C1"}
+{"id": "create-canvas", "type": "Construct", "title": "createCanvas()", "aliases": ["main canvas", "P2D renderer", "P2D", "2D renderer"], "page": "pages/create-canvas.md", "cluster": "C1"}
+{"id": "p2dhdr", "type": "Construct", "title": "P2DHDR canvas", "aliases": ["HDR canvas"], "page": "pages/p2dhdr.md", "cluster": "C1"}
+{"id": "push-pop", "type": "Construct", "title": "push() and pop()", "aliases": ["push()", "pop()", "style stack", "state stack"], "page": "pages/push-pop.md", "cluster": "C1"}
+{"id": "shape-2d-primitives", "type": "Capability", "title": "2D primitives", "aliases": ["2d shapes"], "page": "pages/shape-2d-primitives.md", "cluster": "C1"}
+{"id": "shape-attributes", "type": "Capability", "title": "Shape attributes", "aliases": ["Attributes module", "strokeWeight", "rectMode"], "page": "pages/shape-attributes.md", "cluster": "C1"}
+{"id": "shape-curves", "type": "Capability", "title": "Curves (bezier and spline functions)", "aliases": ["Curves (Shape/Curves)", "bezier(), bezierPoint(), bezierTangent()", "bezierPoint", "bezierTangent", "Bezier curve functions", "spline(), splinePoint(), splineTangent(), splineProperty()", "splineProperty()", "splinePoint", "splineTangent", "Catmull-Rom curve functions"], "page": "pages/shape-curves.md", "cluster": "C1"}
+{"id": "shape-custom-shapes", "type": "Capability", "title": "Custom shapes", "aliases": ["beginShape", "endShape", "beginShape / endShape", "beginShape/vertex/endShape", "vertex()", "shape builder", "custom shape", "Custom Shapes and Smooth Curves tutorial", "sparkle stickers tutorial", "Vertex API RFC #6766", "RFC 6766"], "page": "pages/shape-custom-shapes.md", "cluster": "C1"}
+{"id": "bezier-vertex", "type": "Construct", "title": "bezierVertex()", "aliases": ["Curved arrow with Bezier"], "page": "pages/bezier-vertex.md", "cluster": "C1"}
+{"id": "bezier-order", "type": "Construct", "title": "bezierOrder()", "aliases": [], "page": "pages/bezier-order.md", "cluster": "C1"}
+{"id": "spline-vertex", "type": "Construct", "title": "splineVertex()", "aliases": ["Spline path", "Smooth path diagram"], "page": "pages/spline-vertex.md", "cluster": "C1"}
+{"id": "begin-contour", "type": "Construct", "title": "beginContour() / endContour()", "aliases": ["beginContour", "endContour", "holes"], "page": "pages/begin-contour.md", "cluster": "C1"}
+{"id": "vertex-property", "type": "Capability", "title": "vertexProperty()", "aliases": ["custom vertex attributes"], "page": "pages/vertex-property.md", "cluster": "C1"}
+{"id": "curve-api-1x", "type": "Construct", "title": "1.x curve API (removed)", "aliases": ["curveVertex", "curve()", "curvePoint", "curveTangent", "curveTightness"], "page": "pages/curve-api-1x.md", "cluster": "C1"}
+{"id": "shape-3d-primitives", "type": "Capability", "title": "3D primitives", "aliases": ["3d shapes", "curveDetail()", "curve segments"], "page": "pages/shape-3d-primitives.md", "cluster": "C2"}
+{"id": "shape-3d-models", "type": "Capability", "title": "3D models", "aliases": ["loadModel", "model loading"], "page": "pages/shape-3d-models.md", "cluster": "C2"}
+{"id": "p5-svg-main-branch", "type": "Capability", "title": "Native SVG import/export (unreleased)", "aliases": ["Shape/p5.svg", "loadSVG", "createSVG", "p5.ShapeCollection", "Shape/p5.svg (main branch, unreleased)"], "page": "pages/p5-svg-main-branch.md", "cluster": "C1"}
+{"id": "color-mode", "type": "Construct", "title": "colorMode()", "aliases": [], "page": "pages/color-mode.md", "cluster": "C1"}
+{"id": "color-spaces-2x", "type": "Concept", "title": "2.x color spaces (HWB, LAB, LCH, OKLAB, OKLCH)", "aliases": ["OKLCH", "OKLAB", "LAB", "LCH", "HWB", "CIE Lab", "new color spaces", "OKLCH ramp", "Perceptual interpolation"], "page": "pages/color-spaces-2x.md", "cluster": "C1"}
+{"id": "p3-hdr-color", "type": "Construct", "title": "RGBP3 / RGBHDR wide-gamut color", "aliases": ["RGBP3", "RGBHDR", "P3 color space", "Display P3 RGB", "HDR color mode"], "page": "pages/p3-hdr-color.md", "cluster": "C1"}
+{"id": "p5-color", "type": "Construct", "title": "p5.Color", "aliases": ["color object", "Color/Creating & Reading"], "page": "pages/p5-color.md", "cluster": "C1"}
+{"id": "lerp-color", "type": "Construct", "title": "lerpColor()", "aliases": ["paletteLerp"], "page": "pages/lerp-color.md", "cluster": "C1"}
+{"id": "color-contrast", "type": "Capability", "title": "Color contrast checker", "aliases": ["contrast check"], "page": "pages/color-contrast.md", "cluster": "C1"}
+{"id": "blend-mode", "type": "Construct", "title": "blendMode()", "aliases": [], "page": "pages/blend-mode.md", "cluster": "C1"}
+{"id": "erase", "type": "Construct", "title": "erase() / noErase()", "aliases": ["noErase()", "Cutout reveal with erase"], "page": "pages/erase.md", "cluster": "C1"}
+{"id": "load-font", "type": "Construct", "title": "loadFont()", "aliases": ["loadFont (async)", "loadFont (CSS / Google Fonts)", "Google Fonts loading"], "page": "pages/load-font.md", "cluster": "C1"}
+{"id": "p5-font", "type": "Construct", "title": "p5.Font", "aliases": ["font object", "textToPaths()"], "page": "pages/p5-font.md", "cluster": "C1"}
+{"id": "text-to-points", "type": "Construct", "title": "textToPoints()", "aliases": ["p5.Font.textToPoints"], "page": "pages/text-to-points.md", "cluster": "C1"}
+{"id": "text-to-contours", "type": "Construct", "title": "textToContours()", "aliases": ["textContours", "p5.Font.textToContours", "Contour-aware glyph outlines"], "page": "pages/text-to-contours.md", "cluster": "C1"}
+{"id": "text-to-model", "type": "Construct", "title": "textToModel()", "aliases": ["textModel", "3D text", "extruded text"], "page": "pages/text-to-model.md", "cluster": "C1"}
+{"id": "text-weight", "type": "Construct", "title": "textWeight() and variable fonts", "aliases": ["textWeight", "variable fonts", "variable font support", "Weight-animated caption", "p5.variableFont", "opentype.js", "Arthur Cloche", "arthurcloche"], "page": "pages/text-weight.md", "cluster": "C1"}
+{"id": "text-width", "type": "Construct", "title": "textWidth() / fontWidth()", "aliases": ["textWidth", "fontWidth"], "page": "pages/text-width.md", "cluster": "C1"}
+{"id": "p5-woff2", "type": "Library", "title": "p5.woff2 add-on", "aliases": ["woff2 addon"], "page": "pages/p5-woff2.md", "cluster": "C1"}
+{"id": "pixels-array", "type": "Construct", "title": "pixels[] and loadPixels()", "aliases": ["pixels", "loadPixels", "updatePixels", "loadPixels / updatePixels", "set()", "get()", "Image/Pixels", "Density-safe pixel loop"], "page": "pages/pixels-array.md", "cluster": "C2"}
+{"id": "pointer-events", "type": "Capability", "title": "Pointer events (2.x)", "aliases": ["Events/Pointer", "pointer API", "touches", "touch array", "1.x touch events (removed)", "touchStarted", "touchMoved", "touchEnded"], "page": "pages/pointer-events.md", "cluster": "C2"}
+{"id": "mouse-button-object", "type": "Construct", "title": "mouseButton object", "aliases": ["mouseButton", "mouseButton.left"], "page": "pages/mouse-button-object.md", "cluster": "C2"}
+{"id": "events-keyboard", "type": "Capability", "title": "Keyboard events", "aliases": ["keyIsDown", "key polling", "keyCode", "Portable keyboard stepping"], "page": "pages/events-keyboard.md", "cluster": "C2"}
+{"id": "p5-element", "type": "Construct", "title": "p5.Element", "aliases": ["DOM wrapper", "DOM element"], "page": "pages/p5-element.md", "cluster": "C1"}
+{"id": "p5-media-element", "type": "Construct", "title": "p5.MediaElement", "aliases": ["media element", "Video scrubber"], "page": "pages/p5-media-element.md", "cluster": "C1"}
+{"id": "dom-controls", "type": "Capability", "title": "DOM UI controls (createSlider, createSelect, createInput)", "aliases": ["createSlider", "createSelect", "createInput", "changed", "slider", "Slider-driven parameter explainer"], "page": "pages/dom-controls.md", "cluster": "C1"}
+{"id": "dom-media", "type": "Capability", "title": "DOM media (createVideo, createAudio, createCapture)", "aliases": ["createVideo", "createAudio", "createCapture", "webcam capture"], "page": "pages/dom-media.md", "cluster": "C1"}
+{"id": "friendly-error-system", "type": "Capability", "title": "Friendly Error System", "aliases": ["FES", "p5.disableFriendlyErrors", "disableFriendlyErrors"], "page": "pages/friendly-error-system.md", "cluster": "C1"}
+{"id": "describe", "type": "Construct", "title": "describe() and describeElement()", "aliases": ["describeElement()", "Accessible explainer canvas"], "page": "pages/describe.md", "cluster": "C1"}
+{"id": "text-output", "type": "Construct", "title": "textOutput() / gridOutput()", "aliases": ["textOutput", "gridOutput"], "page": "pages/text-output.md", "cluster": "C1"}
+{"id": "access-statement", "type": "Concept", "title": "Access Statement", "aliases": ["p5.js access statement"], "page": "pages/access-statement.md", "cluster": "C1"}
+{"id": "register-addon", "type": "Construct", "title": "p5.registerAddon", "aliases": ["registerAddon", "addon API", "fn (p5.prototype alias)", "_removeSignal", "2.x add-on skeleton", "Dual-version add-on", "registerMethod (1.x)", "p5.prototype.registerMethod"], "page": "pages/register-addon.md", "cluster": "C1"}
+{"id": "lifecycle-hooks", "type": "Concept", "title": "Add-on lifecycle hooks", "aliases": ["lifecycles object", "presetup", "postdraw"], "page": "pages/lifecycle-hooks.md", "cluster": "C1"}
+{"id": "addon-events-api", "type": "Capability", "title": "Add-on Events API", "aliases": ["addon events"], "page": "pages/addon-events-api.md", "cluster": "C1"}
+{"id": "decorators-api", "type": "Capability", "title": "Decorators API", "aliases": ["p5.registerDecoration"], "page": "pages/decorators-api.md", "cluster": "C1"}
+{"id": "p5js-compatibility", "type": "Library", "title": "p5.js-compatibility add-ons", "aliases": ["compatibility add-ons", "compat add-ons", "p5.js compatibility add-on", "preload.js", "shapes.js", "data.js", "events.js", "events.js add-on", "preload.js add-on", "shapes.js add-on", "data.js add-on"], "page": "pages/p5js-compatibility.md", "cluster": "C1"}
+{"id": "p5js-reference", "type": "Tool", "title": "p5.js Reference", "aliases": ["p5js.org/reference"], "page": "pages/p5js-reference.md", "cluster": "C1"}
+{"id": "lerp", "type": "Construct", "title": "lerp()", "aliases": ["linear interpolation"], "page": "pages/lerp.md", "cluster": "C2"}
+{"id": "map-norm-constrain", "type": "Construct", "title": "map(), norm(), constrain()", "aliases": ["map()", "norm()", "constrain()", "remap", "clamp", "Math/Calculation", "dist() / mag()", "Remap with clamp"], "page": "pages/map-norm-constrain.md", "cluster": "C2"}
+{"id": "math-trigonometry", "type": "Capability", "title": "Trigonometry and angleMode", "aliases": ["angleMode", "atan2()", "RADIANS", "DEGREES"], "page": "pages/math-trigonometry.md", "cluster": "C2"}
+{"id": "noise", "type": "Construct", "title": "noise()", "aliases": ["Perlin noise", "value noise", "Math/Noise", "noiseDetail()", "Octave"], "page": "pages/noise.md", "cluster": "C2"}
+{"id": "random", "type": "Construct", "title": "random() and randomGaussian()", "aliases": ["randomGaussian()", "Math/Random"], "page": "pages/random.md", "cluster": "C2"}
+{"id": "random-seed", "type": "Construct", "title": "randomSeed() and noiseSeed()", "aliases": ["randomSeed()", "noiseSeed()", "Numerical Recipes LCG"], "page": "pages/random-seed.md", "cluster": "C2"}
+{"id": "p5-vector", "type": "Construct", "title": "p5.Vector", "aliases": ["createVector()", "vector", "Math/Vector entry points", "p5.Vector.slerp", "p5.Vector.fromAngle", "Polar placement and orbits"], "page": "pages/p5-vector.md", "cluster": "C2"}
+{"id": "easing-functions", "type": "Concept", "title": "Easing functions", "aliases": ["easing", "easing curve", "Easing families", "easings.net", "Deterministic eased tween", "Easing function"], "page": "pages/easing-functions.md", "cluster": "C2"}
+{"id": "oscillation", "type": "Concept", "title": "Oscillation and harmonic motion", "aliases": ["Simple harmonic motion", "SHM", "Angular motion", "Pendulum", "Hooke's law spring", "Sinusoidal oscillation"], "page": "pages/oscillation.md", "cluster": "C2"}
+{"id": "euler-integration", "type": "Technique", "title": "Motion algorithm (Euler integration)", "aliases": ["Motion algorithm", "applyForce", "force accumulation"], "page": "pages/euler-integration.md", "cluster": "C2"}
+{"id": "steering-behaviors", "type": "Technique", "title": "Steering behaviors", "aliases": ["Steering force"], "page": "pages/steering-behaviors.md", "cluster": "C2"}
+{"id": "flow-field", "type": "Technique", "title": "Flow field", "aliases": ["vector field", "angle grid", "Flow-field tracer"], "page": "pages/flow-field.md", "cluster": "C2"}
+{"id": "random-walk", "type": "Technique", "title": "Random walk", "aliases": ["Walker", "Levy flight", "Accept-reject sampling"], "page": "pages/random-walk.md", "cluster": "C2"}
+{"id": "frame-count", "type": "Construct", "title": "frameCount", "aliases": ["frame counter"], "page": "pages/frame-count.md", "cluster": "C2"}
+{"id": "frame-rate", "type": "Construct", "title": "frameRate()", "aliases": ["fps", "setFrameRate"], "page": "pages/frame-rate.md", "cluster": "C2"}
+{"id": "delta-time", "type": "Construct", "title": "deltaTime", "aliases": [], "page": "pages/delta-time.md", "cluster": "C2"}
+{"id": "millis", "type": "Construct", "title": "millis()", "aliases": ["IO/Time & Date"], "page": "pages/millis.md", "cluster": "C2"}
+{"id": "loop-control", "type": "Construct", "title": "noLoop(), loop(), isLooping()", "aliases": ["noLoop()", "loop()", "isLooping()"], "page": "pages/loop-control.md", "cluster": "C2"}
+{"id": "redraw", "type": "Construct", "title": "redraw()", "aliases": ["redraw(n)"], "page": "pages/redraw.md", "cluster": "C2"}
+{"id": "event-driven-redraw", "type": "Pattern", "title": "Event-driven redraw", "aliases": ["on-demand rendering", "GoToLoop", "noLoop/redraw", "Pause offscreen sketches"], "page": "pages/event-driven-redraw.md", "cluster": "C2"}
+{"id": "pure-function-of-t", "type": "Concept", "title": "Pure function of t", "aliases": ["scrubbable animation", "stateless frame", "Frame as a function of time", "Deterministic frame clock", "Pure-function-of-t draw"], "page": "pages/pure-function-of-t.md", "cluster": "C2"}
+{"id": "normalized-time", "type": "Concept", "title": "Normalized time t (playhead)", "aliases": ["playhead", "progress"], "page": "pages/normalized-time.md", "cluster": "C2"}
+{"id": "fixed-timestep", "type": "Concept", "title": "Fixed-timestep rendering", "aliases": ["offline rendering"], "page": "pages/fixed-timestep.md", "cluster": "C2"}
+{"id": "real-time-vs-frame-based", "type": "Concept", "title": "Real-time vs frame-based animation", "aliases": ["wall-clock animation", "Frame-based animation", "time-based animation", "Time vs frame-based choice"], "page": "pages/real-time-vs-frame-based.md", "cluster": "C2"}
+{"id": "loop-phase-animation", "type": "Technique", "title": "Loop-phase animation", "aliases": ["Cyclic time", "periodic phase loop", "loop phase", "Loop-phase plus easing", "loopsin (looping sine)", "looping sine", "Keith Peters", "BIT-101"], "page": "pages/loop-phase-animation.md", "cluster": "C2"}
+{"id": "noise-loop", "type": "Technique", "title": "Seamless noise loop", "aliases": ["Noise-circle loop", "looping noise", "4D noise loop", "Simon Alexander-Adams", "Polyhop"], "page": "pages/noise-loop.md", "cluster": "C2"}
+{"id": "grid-offset-loop", "type": "Technique", "title": "Grid offset loop", "aliases": ["Offset function", "phase offset", "delay field", "Bees and Bombs method"], "page": "pages/grid-offset-loop.md", "cluster": "C2"}
+{"id": "seeded-determinism", "type": "Pattern", "title": "Seeded determinism", "aliases": ["Deterministic seeding", "Deterministic randomness", "Deterministic render", "seeded reproducibility", "Seeded reproducibility for generative frames"], "page": "pages/seeded-determinism.md", "cluster": "C2"}
+{"id": "webgl-mode", "type": "Capability", "title": "WEBGL mode", "aliases": ["WEBGL", "WebGL renderer", "p5.RendererGL", "3D mode", "3D renderer"], "page": "pages/webgl-mode.md", "cluster": "C2"}
+{"id": "webgpu-renderer", "type": "Capability", "title": "WebGPU renderer", "aliases": ["WEBGPU mode", "p5.webgpu.js", "p5.RendererWebGPU", "Opt-in WebGPU with WebGL fallback"], "page": "pages/webgpu-renderer.md", "cluster": "C2"}
+{"id": "webgpu-compute", "type": "Capability", "title": "WebGPU compute shaders", "aliases": ["buildComputeShader", "compute shader", "p5.StorageBuffer", "createStorage"], "page": "pages/webgpu-compute.md", "cluster": "C2"}
+{"id": "world-to-screen", "type": "Capability", "title": "worldToScreen() / screenToWorld()", "aliases": ["worldToScreen", "screenToWorld", "coord conversion"], "page": "pages/world-to-screen.md", "cluster": "C2"}
+{"id": "p5-camera", "type": "Construct", "title": "p5.Camera", "aliases": ["createCamera()", "3D/Camera", "camera object"], "page": "pages/p5-camera.md", "cluster": "C2"}
+{"id": "camera-slerp", "type": "Technique", "title": "Camera slerp", "aliases": ["p5.Camera.slerp", "camera interpolation", "Scripted camera move"], "page": "pages/camera-slerp.md", "cluster": "C2"}
+{"id": "lights-and-materials", "type": "Capability", "title": "Lights and materials", "aliases": ["3D/Lights", "3D/Material", "lighting"], "page": "pages/lights-and-materials.md", "cluster": "C2"}
+{"id": "build-geometry", "type": "Construct", "title": "buildGeometry()", "aliases": ["baked geometry", "p5.Geometry", "beginGeometry/endGeometry replacement", "Bake geometry"], "page": "pages/build-geometry.md", "cluster": "C2"}
+{"id": "p5-graphics", "type": "Construct", "title": "p5.Graphics (createGraphics)", "aliases": ["createGraphics()", "graphics buffer", "offscreen buffer", "p5.Graphics.remove()", "p5.Graphics.reset()"], "page": "pages/p5-graphics.md", "cluster": "C2"}
+{"id": "p5-framebuffer", "type": "Construct", "title": "p5.Framebuffer", "aliases": ["createFramebuffer()", "FBO", "Framebuffer depth texture", "FLOAT framebuffer format", "textureFiltering", "Framebuffer begin()/end()", "Framebuffer antialias option", "Framebuffer density option", "Framebuffer format FLOAT/HALF_FLOAT"], "page": "pages/p5-framebuffer.md", "cluster": "C2"}
+{"id": "ping-pong-feedback", "type": "Technique", "title": "Ping-pong feedback framebuffers", "aliases": ["ping-pong framebuffers", "feedback buffers", "Feedback trails", "Framebuffer ping-pong feedback"], "page": "pages/ping-pong-feedback.md", "cluster": "C2"}
+{"id": "layered-compositing", "type": "Pattern", "title": "Layered compositing", "aliases": ["Layers via graphics buffers", "Offscreen layers", "Freeze static layers", "Framebuffer layer stack"], "page": "pages/layered-compositing.md", "cluster": "C2"}
+{"id": "p5-shader", "type": "Construct", "title": "p5.Shader", "aliases": ["createShader", "loadShader", "shader object", "LYGIA", "LYGIA shader library"], "page": "pages/p5-shader.md", "cluster": "C2"}
+{"id": "shader-hooks", "type": "Concept", "title": "Shader hooks", "aliases": ["modify()", "baseMaterialShader()", "Material hooks", "filterColor hook", "finalColor hook", "inspectHooks()", "strokeShader", "imageShader", "Material hooks (objectInputs, worldInputs, cameraInputs, pixelInputs, combineColors, finalColor)", "material shader hooks"], "page": "pages/shader-hooks.md", "cluster": "C2"}
+{"id": "p5-strands", "type": "Capability", "title": "p5.strands", "aliases": ["strands", "JS shaders", "3D/p5.strands", "shader authoring in JS", "Material tweak with strands", "Strands builder functions", "buildMaterialShader", "buildFilterShader", "buildColorShader", "buildNormalShader", "buildStrokeShader", "p5.env", "generative environment lighting", "p5.warp", "vertex shader domain warping", "3D/p5.strands main-branch additions"], "page": "pages/p5-strands.md", "cluster": "C2"}
+{"id": "gpu-instancing", "type": "Capability", "title": "GPU instancing (instances())", "aliases": ["instances()", "instanceIndex", "instanceID", "Instancing in strands", "Mass-element explainer scenes"], "page": "pages/gpu-instancing.md", "cluster": "C2"}
+{"id": "filter", "type": "Construct", "title": "filter()", "aliases": ["filter presets", "Shader filter for full-frame effects"], "page": "pages/filter.md", "cluster": "C2"}
+{"id": "filter-shaders", "type": "Construct", "title": "Filter shaders", "aliases": ["createFilterShader", "loadFilterShader", "filter shader", "Post-process via filter shader", "Shader instead of pixel loop", "Contact Shadow filter", "Pagurek shadow filter"], "page": "pages/filter-shaders.md", "cluster": "C2"}
+{"id": "lgm-2026-strands-talk", "type": "Work", "title": "LGM 2026 p5.strands talk", "aliases": ["Beginner-Friendly Shader Programming in p5.js v2"], "page": "pages/lgm-2026-strands-talk.md", "cluster": "C2"}
+{"id": "pixel-density", "type": "Construct", "title": "pixelDensity()", "aliases": ["density"], "page": "pages/pixel-density.md", "cluster": "C2"}
+{"id": "antialiasing", "type": "Capability", "title": "Antialiasing (smooth, setAttributes)", "aliases": ["smooth()", "noSmooth()", "smooth() / noSmooth()", "setAttributes()", "WebGL context attributes", "edge smoothing", "MSAA", "Edge quality checklist"], "page": "pages/antialiasing.md", "cluster": "C2"}
+{"id": "hi-res-render", "type": "Pattern", "title": "High-resolution offline render", "aliases": ["Hi-res offline render", "4K render"], "page": "pages/hi-res-render.md", "cluster": "C2"}
+{"id": "performance-profiling", "type": "Technique", "title": "Performance profiling", "aliases": ["Chrome Performance profiler", "Profile first", "Perf budget for animation", "Setup-time caching", "Optimizing sketches tutorial", "How to Optimize Your Sketches"], "page": "pages/performance-profiling.md", "cluster": "C2"}
+{"id": "perf-regressions-2x", "type": "Concept", "title": "2.x performance regressions", "aliases": ["POINTS slowdown", "pixelDensity not inherited"], "page": "pages/perf-regressions-2x.md", "cluster": "C2"}
+{"id": "save-gif", "type": "Construct", "title": "saveGif()", "aliases": ["p5 saveGif"], "page": "pages/save-gif.md", "cluster": "C3"}
+{"id": "save-frames", "type": "Construct", "title": "saveFrames()", "aliases": ["frame download"], "page": "pages/save-frames.md", "cluster": "C3"}
+{"id": "save-canvas", "type": "Construct", "title": "saveCanvas()", "aliases": [], "page": "pages/save-canvas.md", "cluster": "C3"}
+{"id": "frame-stepped-export", "type": "Technique", "title": "Frame-stepped export", "aliases": ["deterministic capture", "Offline stepped export", "Offline frame-by-frame export", "Offline stepped capture", "manual frame mode", "noLoop/redraw manual stepping", "Frame-accurate export"], "page": "pages/frame-stepped-export.md", "cluster": "C3"}
+{"id": "png-sequence-ffmpeg", "type": "Technique", "title": "PNG sequence + ffmpeg", "aliases": ["image-sequence assembly"], "page": "pages/png-sequence-ffmpeg.md", "cluster": "C3"}
+{"id": "electron-ffmpeg-export", "type": "Technique", "title": "Electron + ffmpeg export", "aliases": ["Electron frame export", "Electron export wrapper", "Electron wrapper", "Node bridge export"], "page": "pages/electron-ffmpeg-export.md", "cluster": "C3"}
+{"id": "puppeteer-capture", "type": "Technique", "title": "Puppeteer headless capture", "aliases": ["Headless Chrome capture", "Puppeteer frame capture", "headless Chrome export", "Puppeteer + ffmpeg 4K", "Headless Chrome (Puppeteer) capture"], "page": "pages/puppeteer-capture.md", "cluster": "C3"}
+{"id": "virtual-clock-capture", "type": "Technique", "title": "Virtual-clock capture", "aliases": ["virtual clock", "Virtual-clock capture of an existing time-based sketch"], "page": "pages/virtual-clock-capture.md", "cluster": "C3"}
+{"id": "audio-post-mux", "type": "Pattern", "title": "Audio muxing after render", "aliases": ["Audio after the fact", "audio mux"], "page": "pages/audio-post-mux.md", "cluster": "C3"}
+{"id": "webcodecs", "type": "Platform", "title": "WebCodecs", "aliases": ["VideoEncoder", "WebCodecs in-page encode"], "page": "pages/webcodecs.md", "cluster": "C3"}
+{"id": "mediabunny", "type": "Library", "title": "Mediabunny", "aliases": ["mediabunny.dev", "CanvasSource", "mp4-muxer"], "page": "pages/mediabunny.md", "cluster": "C3"}
+{"id": "ccapture", "type": "Library", "title": "CCapture.js", "aliases": ["TimeWarp", "p5.webm-capture", "enableCapture"], "page": "pages/ccapture.md", "cluster": "C3"}
+{"id": "p5-capture", "type": "Library", "title": "p5.capture", "aliases": ["P5Capture", "tapioca24/p5.capture"], "page": "pages/p5-capture.md", "cluster": "C3"}
+{"id": "p5-record", "type": "Library", "title": "p5.record.js", "aliases": ["Manual-frame recorder"], "page": "pages/p5-record.md", "cluster": "C3"}
+{"id": "p5-save-frames", "type": "Library", "title": "p5.save-frames", "aliases": ["save-frames extension"], "page": "pages/p5-save-frames.md", "cluster": "C3"}
+{"id": "canvas-capture", "type": "Library", "title": "canvas-capture", "aliases": ["amandaghassaei/canvas-capture"], "page": "pages/canvas-capture.md", "cluster": "C3"}
+{"id": "p5-videorecorder", "type": "Library", "title": "p5.videorecorder", "aliases": [], "page": "pages/p5-videorecorder.md", "cluster": "C3"}
+{"id": "p5-create-loop", "type": "Library", "title": "p5.createLoop", "aliases": ["createLoop", "Petey Hayman", "peteyhayman"], "page": "pages/p5-create-loop.md", "cluster": "C3"}
+{"id": "ffmpeg", "type": "Tool", "title": "FFmpeg", "aliases": [], "page": "pages/ffmpeg.md", "cluster": "C3"}
+{"id": "p5-node", "type": "Library", "title": "p5-node", "aliases": ["jsdom"], "page": "pages/p5-node.md", "cluster": "C3"}
+{"id": "butter", "type": "Platform", "title": "Butter for Developers", "aliases": ["Server-side frame rendering", "Butter renderer"], "page": "pages/butter.md", "cluster": "C3"}
+{"id": "canvas-sketch", "type": "Tool", "title": "canvas-sketch", "aliases": ["canvasSketch", "mattdesl/canvas-sketch", "canvas-sketch-cli", "canvas-sketch p5 setting", "canvas-sketch hosts p5", "canvas-sketch p5: true setting", "canvas-sketch-cli --stream"], "page": "pages/canvas-sketch.md", "cluster": "C3"}
+{"id": "explainer-clock", "type": "Pattern", "title": "One clock, three modes", "aliases": ["live/scrub/export clock", "single clock"], "page": "pages/explainer-clock.md", "cluster": "C3"}
+{"id": "track-tween", "type": "Pattern", "title": "Track tween (alpha model)", "aliases": ["Track = pure tween", "Animation (alpha interpolation)", "interpolate(alpha)"], "page": "pages/track-tween.md", "cluster": "C3"}
+{"id": "timeline-builder", "type": "Pattern", "title": "Timeline builder (play/wait/all/stagger)", "aliases": ["Builder with play / wait / all / stagger"], "page": "pages/timeline-builder.md", "cluster": "C3"}
+{"id": "generator-scenes", "type": "Technique", "title": "Generator scenes", "aliases": ["Generator scene", "function*", "yield*", "Generator authoring"], "page": "pages/generator-scenes.md", "cluster": "C3"}
+{"id": "scene-local-time", "type": "Pattern", "title": "Scene-local time", "aliases": ["Remotion Sequence port", "Timeline/scene sequencing"], "page": "pages/scene-local-time.md", "cluster": "C3"}
+{"id": "beats-and-captions", "type": "Pattern", "title": "Beats and captions", "aliases": ["captions from timeline"], "page": "pages/beats-and-captions.md", "cluster": "C3"}
+{"id": "audio-master-clock", "type": "Pattern", "title": "Audio master clock", "aliases": ["voiceover markers", "Audio as master clock"], "page": "pages/audio-master-clock.md", "cluster": "C3"}
+{"id": "arc-length-reveal", "type": "Pattern", "title": "Arc-length path reveal", "aliases": ["Progressive diagram build", "draw-on path reveal"], "page": "pages/arc-length-reveal.md", "cluster": "C2"}
+{"id": "shape-morph", "type": "Pattern", "title": "Shape and text morph", "aliases": ["Vertex-lerp morph", "shape morphing", "Shape morphing by vertex interpolation", "Text to points morph"], "page": "pages/shape-morph.md", "cluster": "C2"}
+{"id": "camera-choreography", "type": "Pattern", "title": "Camera choreography", "aliases": ["keyed camera", "2D keyed camera"], "page": "pages/camera-choreography.md", "cluster": "C2"}
+{"id": "derived-geometry", "type": "Pattern", "title": "Derived geometry (signals-lite)", "aliases": ["signals-lite"], "page": "pages/derived-geometry.md", "cluster": "C3"}
+{"id": "third-party-timeline-driving", "type": "Pattern", "title": "Driving third-party timelines from p5", "aliases": ["Paused GSAP timeline", "Theatre.js values into p5"], "page": "pages/third-party-timeline-driving.md", "cluster": "C3"}
+{"id": "kinetic-typography", "type": "Technique", "title": "Kinetic typography", "aliases": ["Kinetic type from glyph contours", "Kinetic typography in 2.x"], "page": "pages/kinetic-typography.md", "cluster": "C3"}
+{"id": "remotion", "type": "Tool", "title": "Remotion", "aliases": ["remotion.dev", "useCurrentFrame()", "Sequence (Remotion)", "Composition (Remotion)", "interpolate (Remotion)", "useGsapTimeline", "@remotion/gsap", "@remotion/three", "@remotion/lottie", "Business Source License", "BSL"], "page": "pages/remotion.md", "cluster": "C3"}
+{"id": "motion-canvas", "type": "Tool", "title": "Motion Canvas", "aliases": ["motioncanvas.io", "Tomáš Sláma", "slama.dev", "Canvas Commons", "waitUntil", "time events", "Signal", "useRandom", "Latex component (Motion Canvas)", "flow primitives"], "page": "pages/motion-canvas.md", "cluster": "C3"}
+{"id": "revideo", "type": "Tool", "title": "Revideo", "aliases": ["re.video"], "page": "pages/revideo.md", "cluster": "C3"}
+{"id": "manim", "type": "Tool", "title": "Manim", "aliases": ["Manim Community", "manim CE", "manimgl", "3b1b manim", "Manim (3b1b / ManimGL)", "run_time", "rate_func", "lag_ratio", "Updater", "next_section", "Scene", "manim-web", "maloyan/manim-web"], "page": "pages/manim.md", "cluster": "C3"}
+{"id": "manim-js", "type": "Library", "title": "Manim.js", "aliases": ["JazonJiao Manim.js"], "page": "pages/manim-js.md", "cluster": "C3"}
+{"id": "p5-teach", "type": "Library", "title": "p5.teach.js", "aliases": ["Aditya Siddheshwar", "two-ticks"], "page": "pages/p5-teach.md", "cluster": "C3"}
+{"id": "gsap", "type": "Library", "title": "GSAP", "aliases": ["GreenSock", "gsap.timeline"], "page": "pages/gsap.md", "cluster": "C3"}
+{"id": "theatre-js", "type": "Library", "title": "Theatre.js", "aliases": ["@theatre/core", "Theatre.js Sheet Object", "onValuesChange", "attachAudio", "Theatre sequence.position"], "page": "pages/theatre-js.md", "cluster": "C3"}
+{"id": "timeplate", "type": "Library", "title": "JS timeline micro-libraries", "aliases": ["keyframes (mattdesl)", "keytime", "Timeliner", "zz85/timeliner"], "page": "pages/timeplate.md", "cluster": "C3"}
+{"id": "p5-tween", "type": "Library", "title": "p5.tween", "aliases": ["Milchreis/p5.tween"], "page": "pages/p5-tween.md", "cluster": "C3"}
+{"id": "p5-scenemanager", "type": "Library", "title": "p5.SceneManager", "aliases": ["SceneManager"], "page": "pages/p5-scenemanager.md", "cluster": "C3"}
+{"id": "p5-animation-framework", "type": "Library", "title": "p5_animationFramework", "aliases": ["pirelaurent framework", "Scenario / Journey", "Tripod camera", "Terres Rares cyber opera"], "page": "pages/p5-animation-framework.md", "cluster": "C3"}
+{"id": "p5-anims", "type": "Library", "title": "p5.animS", "aliases": ["animS"], "page": "pages/p5-anims.md", "cluster": "C3"}
+{"id": "d3", "type": "Library", "title": "D3", "aliases": ["d3js"], "page": "pages/d3.md", "cluster": "C3"}
+{"id": "three-js", "type": "Library", "title": "three.js", "aliases": ["threejs"], "page": "pages/three-js.md", "cluster": "C3"}
+{"id": "lottie", "type": "Library", "title": "Lottie", "aliases": ["lottie-web", "Bodymovin"], "page": "pages/lottie.md", "cluster": "C3"}
+{"id": "touchdesigner", "type": "Tool", "title": "TouchDesigner", "aliases": ["TD"], "page": "pages/touchdesigner.md", "cluster": "C3"}
+{"id": "openframeworks", "type": "Tool", "title": "openFrameworks", "aliases": ["oF"], "page": "pages/openframeworks.md", "cluster": "C3"}
+{"id": "p5-sound", "type": "Library", "title": "p5.sound", "aliases": ["p5.sound.js", "Tommy Martinez", "p5.SoundFile.addCue", "addCue", "1.x p5.sound extras"], "page": "pages/p5-sound.md", "cluster": "C3"}
+{"id": "tone-js", "type": "Library", "title": "Tone.js", "aliases": ["Tone"], "page": "pages/tone-js.md", "cluster": "C3"}
+{"id": "p5js-libraries-directory", "type": "Platform", "title": "p5.js libraries directory", "aliases": ["p5js.org/libraries"], "page": "pages/p5js-libraries-directory.md", "cluster": "C3"}
+{"id": "p5-brush", "type": "Library", "title": "p5.brush", "aliases": ["p5.brush.js"], "page": "pages/p5-brush.md", "cluster": "C3"}
+{"id": "p5-scribble", "type": "Library", "title": "p5.scribble", "aliases": ["p5.scribble.js", "hand-drawn explainer look"], "page": "pages/p5-scribble.md", "cluster": "C3"}
+{"id": "rough-js", "type": "Library", "title": "rough.js", "aliases": ["roughjs"], "page": "pages/rough-js.md", "cluster": "C3"}
+{"id": "p5-grain", "type": "Library", "title": "p5.grain", "aliases": ["p5grain", "seeded grain finish"], "page": "pages/p5-grain.md", "cluster": "C3"}
+{"id": "p5-fillgradient", "type": "Library", "title": "p5.fillGradient", "aliases": ["fillGradient"], "page": "pages/p5-fillgradient.md", "cluster": "C3"}
+{"id": "p5js-svg", "type": "Library", "title": "p5.js-svg", "aliases": ["p5.SVG", "SVG renderer", "SVG export of finished frames", "p5.plotSvg", "plotSvg"], "page": "pages/p5js-svg.md", "cluster": "C3"}
+{"id": "p5-riso", "type": "Library", "title": "p5.riso", "aliases": [], "page": "pages/p5-riso.md", "cluster": "C3"}
+{"id": "p5-polar", "type": "Library", "title": "p5.Polar", "aliases": [], "page": "pages/p5-polar.md", "cluster": "C3"}
+{"id": "p5-collide2d", "type": "Library", "title": "p5.collide2D", "aliases": ["collide2d"], "page": "pages/p5-collide2d.md", "cluster": "C3"}
+{"id": "matter-js", "type": "Library", "title": "Matter.js", "aliases": ["physics-driven explainer"], "page": "pages/matter-js.md", "cluster": "C3"}
+{"id": "p5play", "type": "Library", "title": "p5play", "aliases": ["p5.play"], "page": "pages/p5play.md", "cluster": "C3"}
+{"id": "q5js", "type": "Library", "title": "q5.js", "aliases": ["q5", "Quinton Ashley"], "page": "pages/q5js.md", "cluster": "C3"}
+{"id": "p5-tree", "type": "Library", "title": "p5.tree", "aliases": ["p5.tree render pipeline"], "page": "pages/p5-tree.md", "cluster": "C3"}
+{"id": "tweakpane", "type": "Library", "title": "Tweakpane", "aliases": ["pane"], "page": "pages/tweakpane.md", "cluster": "C3"}
+{"id": "lil-gui", "type": "Library", "title": "lil-gui", "aliases": [], "page": "pages/lil-gui.md", "cluster": "C3"}
+{"id": "p5-gui", "type": "Library", "title": "p5.gui", "aliases": ["QuickSettings", "bitcraftlab p5.gui"], "page": "pages/p5-gui.md", "cluster": "C3"}
+{"id": "p5js-web-editor", "type": "Platform", "title": "p5.js Web Editor", "aliases": ["editor.p5js.org", "Web Editor"], "page": "pages/p5js-web-editor.md", "cluster": "C3"}
+{"id": "typescript-types", "type": "Capability", "title": "Bundled TypeScript types", "aliases": ["p5.d.ts", "p5/global", "global.d.ts", "@types/p5", "DefinitelyTyped p5"], "page": "pages/typescript-types.md", "cluster": "C3"}
+{"id": "p5-wrapper-react", "type": "Library", "title": "@p5-wrapper/react", "aliases": ["@p5-wrapper/next", "react-p5 successor", "Framework wrapper"], "page": "pages/p5-wrapper-react.md", "cluster": "C3"}
+{"id": "p5i", "type": "Library", "title": "p5i", "aliases": ["antfu/p5i"], "page": "pages/p5i.md", "cluster": "C3"}
+{"id": "vscode-live-server", "type": "Tool", "title": "VS Code workflow", "aliases": ["VS Code + Live Server", "Live Server", "P5 Server extension", "vscode-p5server", "p5.js 2.x Project Generator", "VS Code project generator"], "page": "pages/vscode-live-server.md", "cluster": "C3"}
+{"id": "vite", "type": "Tool", "title": "Vite", "aliases": ["Vite bundler"], "page": "pages/vite.md", "cluster": "C3"}
+{"id": "cdn-version-pinning", "type": "Pattern", "title": "CDN version pinning", "aliases": ["CDN pin", "Pinned CDN script", "VS Code + CDN script tag workflow", "Version-pinned 2.x"], "page": "pages/cdn-version-pinning.md", "cluster": "C3"}
+{"id": "processing-p5-mode", "type": "Tool", "title": "Processing p5.js Mode", "aliases": ["p5.js mode"], "page": "pages/processing-p5-mode.md", "cluster": "C3"}
+{"id": "custom-build-server", "type": "Tool", "title": "Custom build server", "aliases": ["module builds"], "page": "pages/custom-build-server.md", "cluster": "C3"}
+{"id": "index", "type": "Concept", "title": "p5.js Explainer Atlas", "aliases": ["atlas home", "home"], "page": "pages/index.md", "cluster": "C4"}
+{"id": "hub-language-core", "type": "Concept", "title": "Hub: Language and core API", "aliases": ["C1 hub"], "page": "pages/hub-language-core.md", "cluster": "C1"}
+{"id": "hub-motion-rendering", "type": "Concept", "title": "Hub: Motion, timing and rendering", "aliases": ["C2 hub"], "page": "pages/hub-motion-rendering.md", "cluster": "C2"}
+{"id": "hub-explainer-production", "type": "Concept", "title": "Hub: Explainer production", "aliases": ["C3 hub"], "page": "pages/hub-explainer-production.md", "cluster": "C3"}
+{"id": "hub-people-community", "type": "Concept", "title": "Hub: People, works and community", "aliases": ["C4 hub"], "page": "pages/hub-people-community.md", "cluster": "C4"}
+{"id": "mastery-ladder", "type": "Concept", "title": "Mastery ladder", "aliases": ["mastery curriculum", "expert vs novice mental models"], "page": "pages/mastery-ladder.md", "cluster": "C4"}
+{"id": "explainer-engine-blueprint", "type": "Concept", "title": "Explainer engine blueprint", "aliases": ["engine gates", "Blueprint checklist"], "page": "pages/explainer-engine-blueprint.md", "cluster": "C3"}
+{"id": "video-export-pipeline", "type": "Concept", "title": "Video export pipeline", "aliases": ["export decision tree"], "page": "pages/video-export-pipeline.md", "cluster": "C3"}
+{"id": "frontier-2026", "type": "Concept", "title": "Frontier 2026", "aliases": ["p5.js frontier"], "page": "pages/frontier-2026.md", "cluster": "C4"}
+{"id": "version-2x-migration", "type": "Concept", "title": "1.x to 2.x migration", "aliases": ["2.x migration", "migration guide", "Teachers' Guide to p5.js v2", "v2_transition", "v2 transition guide"], "page": "pages/version-2x-migration.md", "cluster": "C1"}
+{"id": "open-questions", "type": "Concept", "title": "Open questions and conflicts", "aliases": ["gaps", "disagreements", "Allison Parrish"], "page": "pages/open-questions.md", "cluster": "C4"}
+{"id": "p5js-2x", "type": "Platform", "title": "p5.js 2.x", "aliases": ["p5 v2", "p5@2", "p5 2.x line", "p5 npm latest dist-tag"], "page": "pages/p5js-2x.md", "cluster": "C4"}
+{"id": "p5js-1x", "type": "Platform", "title": "p5.js 1.x", "aliases": ["p5 v1", "r1", "p5.js v1.x freeze", "1.x freeze"], "page": "pages/p5js-1x.md", "cluster": "C1"}
+{"id": "release-2-0", "type": "Release", "title": "p5.js 2.0", "aliases": ["2.0.0", "v2.0.0"], "page": "pages/release-2-0.md", "cluster": "C1"}
+{"id": "release-2-1", "type": "Release", "title": "p5.js 2.1", "aliases": ["2.1", "v2.1"], "page": "pages/release-2-1.md", "cluster": "C1"}
+{"id": "release-2-2", "type": "Release", "title": "p5.js 2.2", "aliases": ["2.2", "v2.2"], "page": "pages/release-2-2.md", "cluster": "C4"}
+{"id": "release-2-3", "type": "Release", "title": "p5.js 2.3", "aliases": ["2.3", "v2.3.4", "PR preview builds bot"], "page": "pages/release-2-3.md", "cluster": "C4"}
+{"id": "release-2-4", "type": "Release", "title": "p5.js 2.4", "aliases": ["2.4"], "page": "pages/release-2-4.md", "cluster": "C4"}
+{"id": "editor-default-switch", "type": "Concept", "title": "Web Editor default switch to 2.x", "aliases": ["p5.js Web Editor default version", "editor default"], "page": "pages/editor-default-switch.md", "cluster": "C4"}
+{"id": "processing", "type": "Platform", "title": "Processing", "aliases": ["Processing (Java)", "Proce55ing", "PDE", "Design By Numbers", "DBN", "Aesthetics and Computation Group", "ACG"], "page": "pages/processing.md", "cluster": "C4"}
+{"id": "processing-foundation", "type": "Platform", "title": "Processing Foundation", "aliases": ["PF", "Xin Xin", "Roxana Hadad"], "page": "pages/processing-foundation.md", "cluster": "C4"}
+{"id": "p5js-governance", "type": "Concept", "title": "p5.js project leadership", "aliases": ["p5.js leads", "stewards", "Luke Plowden", "Perminder Singh", "Qianqian Ye", "Adam Ferriss"], "page": "pages/p5js-governance.md", "cluster": "C4"}
+{"id": "pf-fellowships", "type": "Concept", "title": "Processing Foundation Fellowships", "aliases": ["Fellowship", "Michael O'Connell", "Gaming Fellowship", "Starter Kit for Teaching Creative Coding with p5.js", "Cultivating Creative Connection with Scratch and p5.js", "Indigemoji", "Pê Cinco"], "page": "pages/pf-fellowships.md", "cluster": "C4"}
+{"id": "oss-microgrants", "type": "Concept", "title": "OSS Microgrants Program", "aliases": ["microgrants"], "page": "pages/oss-microgrants.md", "cluster": "C4"}
+{"id": "processing-community-day", "type": "Concept", "title": "Processing Community Day", "aliases": ["PCD", "Processing Community Day 2026", "Raphaël de Courville", "sableraph"], "page": "pages/processing-community-day.md", "cluster": "C4"}
+{"id": "daniel-shiffman", "type": "Practitioner", "title": "Daniel Shiffman", "aliases": ["Dan Shiffman"], "page": "pages/daniel-shiffman.md", "cluster": "C4"}
+{"id": "lauren-lee-mccarthy", "type": "Practitioner", "title": "Lauren Lee McCarthy", "aliases": ["Lauren McCarthy"], "page": "pages/lauren-lee-mccarthy.md", "cluster": "C4"}
+{"id": "casey-reas", "type": "Practitioner", "title": "Casey Reas", "aliases": ["Reas"], "page": "pages/casey-reas.md", "cluster": "C4"}
+{"id": "ben-fry", "type": "Practitioner", "title": "Ben Fry", "aliases": ["Fry"], "page": "pages/ben-fry.md", "cluster": "C4"}
+{"id": "kit-kuksenok", "type": "Practitioner", "title": "Kit Kuksenok", "aliases": ["ksen0"], "page": "pages/kit-kuksenok.md", "cluster": "C4"}
+{"id": "dave-pagurek", "type": "Practitioner", "title": "Dave Pagurek", "aliases": ["davepagurek"], "page": "pages/dave-pagurek.md", "cluster": "C4"}
+{"id": "kenneth-lim", "type": "Practitioner", "title": "Kenneth Lim", "aliases": ["limzykenneth"], "page": "pages/kenneth-lim.md", "cluster": "C4"}
+{"id": "akshat-patil", "type": "Practitioner", "title": "Akshat Patil", "aliases": ["Akshat"], "page": "pages/akshat-patil.md", "cluster": "C4"}
+{"id": "matt-deslauriers", "type": "Practitioner", "title": "Matt DesLauriers", "aliases": ["mattdesl"], "page": "pages/matt-deslauriers.md", "cluster": "C4"}
+{"id": "patt-vira", "type": "Practitioner", "title": "Patt Vira", "aliases": ["pattvira"], "page": "pages/patt-vira.md", "cluster": "C4"}
+{"id": "barney-codes", "type": "Practitioner", "title": "Barney Codes", "aliases": ["BarneyCodes"], "page": "pages/barney-codes.md", "cluster": "C4"}
+{"id": "tim-rodenbroeker", "type": "Practitioner", "title": "Tim Rodenbröker", "aliases": ["TRCC"], "page": "pages/tim-rodenbroeker.md", "cluster": "C4"}
+{"id": "kazuki-umeda", "type": "Practitioner", "title": "Kazuki Umeda", "aliases": ["Umeda"], "page": "pages/kazuki-umeda.md", "cluster": "C4"}
+{"id": "tapioca24", "type": "Practitioner", "title": "tapioca24", "aliases": ["p5.capture author"], "page": "pages/tapioca24.md", "cluster": "C4"}
+{"id": "etienne-jacob", "type": "Practitioner", "title": "Etienne Jacob", "aliases": ["bleuje"], "page": "pages/etienne-jacob.md", "cluster": "C4"}
+{"id": "dave-whyte", "type": "Practitioner", "title": "Dave Whyte (Bees and Bombs)", "aliases": ["Bees and Bombs", "beesandbombs", "David Whyte"], "page": "pages/dave-whyte.md", "cluster": "C4"}
+{"id": "saskia-freeke", "type": "Practitioner", "title": "Saskia Freeke", "aliases": ["Freeke"], "page": "pages/saskia-freeke.md", "cluster": "C4"}
+{"id": "jazon-jiao", "type": "Practitioner", "title": "Jazon Jiao", "aliases": ["JazonJiao"], "page": "pages/jazon-jiao.md", "cluster": "C4"}
+{"id": "tyler-hobbs", "type": "Practitioner", "title": "Tyler Hobbs", "aliases": ["tylerxhobbs"], "page": "pages/tyler-hobbs.md", "cluster": "C4"}
+{"id": "snowfro", "type": "Practitioner", "title": "Snowfro (Erick Calderon)", "aliases": ["Erick Calderon"], "page": "pages/snowfro.md", "cluster": "C4"}
+{"id": "kjetil-golid", "type": "Practitioner", "title": "Kjetil Golid", "aliases": ["kgolid", "chromotome"], "page": "pages/kjetil-golid.md", "cluster": "C4"}
+{"id": "ben-kovach", "type": "Practitioner", "title": "Ben Kovach", "aliases": ["Kovach", "Edifice", "Edifice by Ben Kovach"], "page": "pages/ben-kovach.md", "cluster": "C4"}
+{"id": "craig-kaplan", "type": "Practitioner", "title": "Craig S. Kaplan", "aliases": ["isohedral", "Spatial hashing", "coordinate hashing"], "page": "pages/craig-kaplan.md", "cluster": "C4"}
+{"id": "zach-lieberman", "type": "Practitioner", "title": "Zach Lieberman", "aliases": ["Lieberman"], "page": "pages/zach-lieberman.md", "cluster": "C4"}
+{"id": "amy-goodchild", "type": "Practitioner", "title": "Amy Goodchild", "aliases": ["Goodchild"], "page": "pages/amy-goodchild.md", "cluster": "C4"}
+{"id": "coding-train", "type": "Platform", "title": "The Coding Train", "aliases": ["thecodingtrain.com", "Coding Train Showcase", "Cafe Car", "Gatsby"], "page": "pages/coding-train.md", "cluster": "C4"}
+{"id": "coding-challenges", "type": "Work", "title": "Coding Challenges", "aliases": ["Coding Challenge", "CC"], "page": "pages/coding-challenges.md", "cluster": "C4"}
+{"id": "coding-challenge-24", "type": "Work", "title": "Coding Challenge 24: Perlin noise flow field", "aliases": ["Perlin Noise Flow Field"], "page": "pages/coding-challenge-24.md", "cluster": "C4"}
+{"id": "coding-challenge-130", "type": "Work", "title": "Coding Challenge 130: Fourier epicycles", "aliases": ["Fourier Transform and Epicycles"], "page": "pages/coding-challenge-130.md", "cluster": "C4"}
+{"id": "coding-train-episode-package", "type": "Pattern", "title": "Coding Train episode package", "aliases": ["Video plus runnable sketch", "explainer distribution"], "page": "pages/coding-train-episode-package.md", "cluster": "C4"}
+{"id": "nature-of-code", "type": "Work", "title": "The Nature of Code", "aliases": ["NOC", "Nature of Code 2024", "Magicbook", "The Nature of Code (2024)"], "page": "pages/nature-of-code.md", "cluster": "C4"}
+{"id": "getting-started-with-p5js", "type": "Work", "title": "Getting Started with p5.js", "aliases": ["Getting Started book"], "page": "pages/getting-started-with-p5js.md", "cluster": "C4"}
+{"id": "generative-design-book", "type": "Work", "title": "Generative Design (p5 edition)", "aliases": ["Generative Gestaltung"], "page": "pages/generative-design-book.md", "cluster": "C4"}
+{"id": "golan-levin-loop-templates", "type": "Tool", "title": "Golan Levin loop templates", "aliases": ["loop templates"], "page": "pages/golan-levin-loop-templates.md", "cluster": "C4"}
+{"id": "genuary", "type": "Concept", "title": "Genuary", "aliases": ["Genuary 2026", "Genuary-style daily constraint", "daily practice"], "page": "pages/genuary.md", "cluster": "C4"}
+{"id": "fidenza", "type": "Work", "title": "Fidenza", "aliases": ["Fidenza by Tyler Hobbs"], "page": "pages/fidenza.md", "cluster": "C4"}
+{"id": "chromie-squiggle", "type": "Work", "title": "Chromie Squiggle", "aliases": ["Squiggle"], "page": "pages/chromie-squiggle.md", "cluster": "C4"}
+{"id": "archetype", "type": "Work", "title": "Archetype", "aliases": ["Archetype by Kjetil Golid"], "page": "pages/archetype.md", "cluster": "C4"}
+{"id": "art-blocks", "type": "Platform", "title": "Art Blocks", "aliases": ["AB", "Art Blocks Dependency Registry", "tokenData.hash", "window.$features", "Hash-seeded deterministic render", "Ringers", "Ringers #29"], "page": "pages/art-blocks.md", "cluster": "C4"}
+{"id": "fxhash", "type": "Platform", "title": "fxhash", "aliases": ["fxrand"], "page": "pages/fxhash.md", "cluster": "C4"}
+{"id": "gorilla-sun", "type": "Platform", "title": "Gorilla Sun", "aliases": ["Ahmad Moussa"], "page": "pages/gorilla-sun.md", "cluster": "C4"}
+{"id": "collision-curve-packing", "type": "Technique", "title": "Collision-checked curve packing", "aliases": ["minimum spacing"], "page": "pages/collision-curve-packing.md", "cluster": "C2"}
+{"id": "probabilistic-palette", "type": "Technique", "title": "Probabilistic palette", "aliases": ["weighted palette", "Weighted choice", "wc()", "Weighted features and palettes"], "page": "pages/probabilistic-palette.md", "cluster": "C2"}
+{"id": "generative-distributions", "type": "Concept", "title": "Distributions for generative variety", "aliases": ["Gaussian distribution", "Power-law distribution", "Pareto"], "page": "pages/generative-distributions.md", "cluster": "C2"}
+{"id": "triangle-subdivision", "type": "Technique", "title": "Self-balancing triangle subdivision", "aliases": ["longest-edge split", "Chaikin's algorithm", "Chaikin curve"], "page": "pages/triangle-subdivision.md", "cluster": "C2"}
+{"id": "resolution-independence", "type": "Concept", "title": "Resolution independence", "aliases": ["relative coordinates", "Resolution-relative geometry"], "page": "pages/resolution-independence.md", "cluster": "C2"}
+{"id": "khan-academy-live-editor", "type": "Platform", "title": "Khan Academy Live Editor", "aliases": ["Computer Programming curriculum editor", "John Resig", "StructuredJS", "Editor-beside-canvas lesson"], "page": "pages/khan-academy-live-editor.md", "cluster": "C4"}
+{"id": "processingjs", "type": "Library", "title": "ProcessingJS", "aliases": ["Processing.js"], "page": "pages/processingjs.md", "cluster": "C4"}
+{"id": "icm-itp", "type": "Work", "title": "Introduction to Computational Media (ITP)", "aliases": ["ICM"], "page": "pages/icm-itp.md", "cluster": "C4"}
+{"id": "nyu-ml-courses", "type": "Work", "title": "NYU ML-for-the-arts courses", "aliases": ["Machine Learning for the Web", "ITP ML4W", "Introduction to Machine Learning for the Arts", "NYU IMA ML"], "page": "pages/nyu-ml-courses.md", "cluster": "C4"}
+{"id": "ml5js", "type": "Library", "title": "ml5.js", "aliases": ["ml5", "ml5-next-gen", "Train-then-deploy ML demo"], "page": "pages/ml5js.md", "cluster": "C3"}
+{"id": "teachable-machine", "type": "Tool", "title": "Teachable Machine", "aliases": ["TM"], "page": "pages/teachable-machine.md", "cluster": "C3"}
+{"id": "dynamic-learning", "type": "Work", "title": "Dynamic Learning", "aliases": ["GSoC 2018 STEM lesson app", "Jithin KS"], "page": "pages/dynamic-learning.md", "cluster": "C4"}
+{"id": "explorable-documents-template", "type": "Work", "title": "Explorable Documents template", "aliases": ["Interactive sandbox template", "interactivesandbox", "explorable documents with p5"], "page": "pages/explorable-documents-template.md", "cluster": "C4"}
+{"id": "siena-physics-demos", "type": "Work", "title": "Siena College physics demos", "aliases": ["Siena physics simulations"], "page": "pages/siena-physics-demos.md", "cluster": "C4"}
+{"id": "everyone-can-code", "type": "Work", "title": "Everyone Can Code", "aliases": ["Niklas Peters curriculum"], "page": "pages/everyone-can-code.md", "cluster": "C4"}
+{"id": "p5js-showcase", "type": "Platform", "title": "p5.js Showcase", "aliases": ["Showcase"], "page": "pages/p5js-showcase.md", "cluster": "C4"}
+{"id": "game-lab", "type": "Platform", "title": "Code.org Game Lab", "aliases": [], "page": "pages/game-lab.md", "cluster": "C4"}
+{"id": "p5-education-research", "type": "Concept", "title": "p5.js education research", "aliases": ["Creative-coding editor features study", "McNutt et al.", "Programming Politics", "Shape Toolbox", "Bezier editing toolbox"], "page": "pages/p5-education-research.md", "cluster": "C4"}
+{"id": "ual-video-exporter-template", "type": "Work", "title": "UAL CCI video exporter template", "aliases": ["Video Exporter Template"], "page": "pages/ual-video-exporter-template.md", "cluster": "C4"}
+{"id": "community-export-pain", "type": "Concept", "title": "Video export as community pain point", "aliases": ["export pain point"], "page": "pages/community-export-pain.md", "cluster": "C4"}
+{"id": "ai-assisted-p5", "type": "Concept", "title": "AI-assisted p5.js authoring", "aliases": ["Constrained LLM prompting", "LLM prompting for p5", "Reflexa", "Reflexa system", "Spellburst", "Spellburst interface", "Critical AI tutorials", "critical AI series", "Chatting with/about Code tutorial", "Sarah Ciston", "Chatting with/about Code"], "page": "pages/ai-assisted-p5.md", "cluster": "C3"}
+{"id": "algorithmic-art-skill", "type": "Tool", "title": "algorithmic-art skill", "aliases": ["Anthropic algorithmic-art"], "page": "pages/algorithmic-art-skill.md", "cluster": "C3"}
+{"id": "hermes-agent-p5js-skill", "type": "Tool", "title": "hermes-agent p5js skill", "aliases": ["p5 creative skill"], "page": "pages/hermes-agent-p5js-skill.md", "cluster": "C3"}
+{"id": "genart-mcp", "type": "Tool", "title": "genart-mcp", "aliases": ["@genart-dev/mcp-server"], "page": "pages/genart-mcp.md", "cluster": "C3"}
+{"id": "llm-explainer-agents", "type": "Concept", "title": "LLM explainer-video agents", "aliases": ["TheoremExplainAgent", "TheoremExplainBench", "PhysicsSolutionAgent", "LLM2Manim"], "page": "pages/llm-explainer-agents.md", "cluster": "C4"}
+{"id": "site-p5js-reference", "type": "Site", "title": "p5.js Reference (source site)", "aliases": ["p5js.org/reference (site)"], "page": "pages/site-p5js-reference.md", "cluster": "C5"}
+{"id": "site-github-processing-p5js", "type": "Site", "title": "GitHub: processing/p5.js (source site)", "aliases": ["github.com/processing/p5.js (site)"], "page": "pages/site-github-processing-p5js.md", "cluster": "C5"}
+{"id": "site-discourse-processing", "type": "Site", "title": "Processing Community Discourse (source site)", "aliases": ["discourse.processing.org (site)"], "page": "pages/site-discourse-processing.md", "cluster": "C5"}
+{"id": "site-processingfoundation", "type": "Site", "title": "Processing Foundation website (source site)", "aliases": ["processingfoundation.org (site)"], "page": "pages/site-processingfoundation.md", "cluster": "C5"}
+{"id": "site-p5js-tutorials", "type": "Site", "title": "p5.js Tutorials (source site)", "aliases": ["p5js.org/tutorials (site)"], "page": "pages/site-p5js-tutorials.md", "cluster": "C5"}
+{"id": "site-thecodingtrain", "type": "Site", "title": "The Coding Train website (source site)", "aliases": ["thecodingtrain.com (site)"], "page": "pages/site-thecodingtrain.md", "cluster": "C5"}
+{"id": "site-p5js-beta-and-v1", "type": "Site", "title": "p5.js beta and v1 mirrors (source site)", "aliases": ["beta.p5js.org and v1.p5js.org (site)"], "page": "pages/site-p5js-beta-and-v1.md", "cluster": "C5"}
+{"id": "site-arxiv", "type": "Site", "title": "arXiv (source site)", "aliases": ["arxiv.org (site)"], "page": "pages/site-arxiv.md", "cluster": "C5"}
+{"id": "site-remotion", "type": "Site", "title": "Remotion docs (source site)", "aliases": ["remotion.dev (site)"], "page": "pages/site-remotion.md", "cluster": "C5"}
+{"id": "site-p5js-about-contribute", "type": "Site", "title": "p5.js About, Contribute and Community pages (source site)", "aliases": ["p5js.org/about and /contribute (site)"], "page": "pages/site-p5js-about-contribute.md", "cluster": "C5"}
+{"id": "site-npm", "type": "Site", "title": "npm registry and npmjs.com (source site)", "aliases": ["npmjs.com (site)"], "page": "pages/site-npm.md", "cluster": "C5"}
+{"id": "site-natureofcode", "type": "Site", "title": "The Nature of Code (source site)", "aliases": ["natureofcode.com (site)"], "page": "pages/site-natureofcode.md", "cluster": "C5"}
+{"id": "site-github-mattdesl-canvas-sketch", "type": "Site", "title": "GitHub: mattdesl/canvas-sketch (source site)", "aliases": ["github.com/mattdesl/canvas-sketch (site)"], "page": "pages/site-github-mattdesl-canvas-sketch.md", "cluster": "C5"}
+{"id": "site-artblocks", "type": "Site", "title": "Art Blocks (source site)", "aliases": ["artblocks.io (site)"], "page": "pages/site-artblocks.md", "cluster": "C5"}
+{"id": "site-hermes-agent-skill-mirrors", "type": "Site", "title": "Hermes-agent p5js skill mirrors (source site)", "aliases": ["download.hermesedi.duckdns.org (site)"], "page": "pages/site-hermes-agent-skill-mirrors.md", "cluster": "C5"}
+{"id": "site-motioncanvas", "type": "Site", "title": "Motion Canvas docs (source site)", "aliases": ["motioncanvas.io (site)"], "page": "pages/site-motioncanvas.md", "cluster": "C5"}
+{"id": "site-tylerxhobbs", "type": "Site", "title": "Tyler Hobbs's website (source site)", "aliases": ["tylerxhobbs.com (site)"], "page": "pages/site-tylerxhobbs.md", "cluster": "C5"}
+{"id": "site-devto", "type": "Site", "title": "DEV Community (dev.to) (source site)", "aliases": ["dev.to (site)"], "page": "pages/site-devto.md", "cluster": "C5"}
+{"id": "site-jsdelivr", "type": "Site", "title": "jsDelivr (source site)", "aliases": ["cdn.jsdelivr.net (site)"], "page": "pages/site-jsdelivr.md", "cluster": "C5"}
+{"id": "site-nyu-itp", "type": "Site", "title": "NYU ITP and related NYU pages (source site)", "aliases": ["idm.engineering.nyu.edu (site)"], "page": "pages/site-nyu-itp.md", "cluster": "C5"}
+{"id": "site-theatrejs", "type": "Site", "title": "Theatre.js docs (source site)", "aliases": ["theatrejs.com (site)"], "page": "pages/site-theatrejs.md", "cluster": "C5"}
+{"id": "site-github-processing-p5js-compatibility", "type": "Site", "title": "GitHub: processing/p5.js-compatibility (source site)", "aliases": ["github.com/processing/p5.js-compatibility (site)"], "page": "pages/site-github-processing-p5js-compatibility.md", "cluster": "C5"}
+{"id": "site-p5js-libraries-examples", "type": "Site", "title": "p5.js Libraries and Examples (source site)", "aliases": ["p5js.org/libraries and /examples (site)"], "page": "pages/site-p5js-libraries-examples.md", "cluster": "C5"}
+{"id": "site-ml5js", "type": "Site", "title": "ml5.js (source site)", "aliases": ["docs.ml5js.org (site)"], "page": "pages/site-ml5js.md", "cluster": "C5"}
+{"id": "site-bleuje", "type": "Site", "title": "bleuje (Etienne Jacob) (source site)", "aliases": ["bleuje.com (site)"], "page": "pages/site-bleuje.md", "cluster": "C5"}
+{"id": "site-manim-community-docs", "type": "Site", "title": "Manim Community docs (source site)", "aliases": ["docs.manim.community (site)"], "page": "pages/site-manim-community-docs.md", "cluster": "C5"}
+{"id": "site-github-processing-p5js-website", "type": "Site", "title": "GitHub: processing/p5.js-website (source site)", "aliases": ["github.com/processing/p5.js-website (site)"], "page": "pages/site-github-processing-p5js-website.md", "cluster": "C5"}
+{"id": "site-davepagurek", "type": "Site", "title": "Dave Pagurek (source site)", "aliases": ["davepagurek.com (site)"], "page": "pages/site-davepagurek.md", "cluster": "C5"}
+{"id": "site-tweakpane", "type": "Site", "title": "Tweakpane docs (source site)", "aliases": ["tweakpane.github.io (site)"], "page": "pages/site-tweakpane.md", "cluster": "C5"}
+{"id": "site-ual-creative-computing", "type": "Site", "title": "UAL Creative Computing Institute wiki (source site)", "aliases": ["lab.arts.ac.uk (site)"], "page": "pages/site-ual-creative-computing.md", "cluster": "C5"}
+{"id": "site-derivative", "type": "Site", "title": "Derivative / TouchDesigner (source site)", "aliases": ["derivative.ca (site)"], "page": "pages/site-derivative.md", "cluster": "C5"}
+{"id": "site-q5js-substack", "type": "Site", "title": "q5.js and p5play newsletter (source site)", "aliases": ["q5js.substack.com (site)"], "page": "pages/site-q5js-substack.md", "cluster": "C5"}
+{"id": "site-github-ml5js-ml5-next-gen", "type": "Site", "title": "GitHub: ml5js/ml5-next-gen (source site)", "aliases": ["github.com/ml5js/ml5-next-gen (site)"], "page": "pages/site-github-ml5js-ml5-next-gen.md", "cluster": "C5"}
+{"id": "site-flowingdata", "type": "Site", "title": "FlowingData (source site)", "aliases": ["flowingdata.com (site)"], "page": "pages/site-flowingdata.md", "cluster": "C5"}
+{"id": "site-freecodecamp", "type": "Site", "title": "freeCodeCamp (source site)", "aliases": ["freecodecamp.org (site)"], "page": "pages/site-freecodecamp.md", "cluster": "C5"}
+{"id": "site-khanacademy", "type": "Site", "title": "Khan Academy (source site)", "aliases": ["support.khanacademy.org (site)"], "page": "pages/site-khanacademy.md", "cluster": "C5"}
+{"id": "site-revideo-docs", "type": "Site", "title": "Revideo docs (source site)", "aliases": ["docs.re.video (site)"], "page": "pages/site-revideo-docs.md", "cluster": "C5"}
+{"id": "site-hacker-news", "type": "Site", "title": "Hacker News (source site)", "aliases": ["hn.svelte.dev (site)"], "page": "pages/site-hacker-news.md", "cluster": "C5"}
+{"id": "site-github-arthurcloche-p5variablefont", "type": "Site", "title": "GitHub: arthurcloche/p5.variableFont (source site)", "aliases": ["github.com/arthurcloche/p5.variableFont (site)"], "page": "pages/site-github-arthurcloche-p5variablefont.md", "cluster": "C5"}
+{"id": "site-c3voc-pretalx", "type": "Site", "title": "Libre Graphics Meeting 2026 program (pretalx) (source site)", "aliases": ["pretalx.c3voc.de (site)"], "page": "pages/site-c3voc-pretalx.md", "cluster": "C5"}
+{"id": "site-newreleases-io", "type": "Site", "title": "newreleases.io (source site)", "aliases": ["newreleases.io (site)"], "page": "pages/site-newreleases-io.md", "cluster": "C5"}
+{"id": "site-easings-net", "type": "Site", "title": "easings.net (source site)", "aliases": ["easings.net (site)"], "page": "pages/site-easings-net.md", "cluster": "C5"}
+{"id": "site-github-ai-easingsnet", "type": "Site", "title": "GitHub: ai/easings.net (source site)", "aliases": ["github.com/ai/easings.net (site)"], "page": "pages/site-github-ai-easingsnet.md", "cluster": "C5"}
+{"id": "site-lil-gui", "type": "Site", "title": "lil-gui (source site)", "aliases": ["lil-gui.georgealways.com (site)"], "page": "pages/site-lil-gui.md", "cluster": "C5"}
+{"id": "site-github-bitcraftlab-p5gui", "type": "Site", "title": "GitHub: bitcraftlab/p5.gui (source site)", "aliases": ["github.com/bitcraftlab/p5.gui (site)"], "page": "pages/site-github-bitcraftlab-p5gui.md", "cluster": "C5"}
+{"id": "site-aatishb", "type": "Site", "title": "Aatish Bhatia (source site)", "aliases": ["aatishb.com (site)"], "page": "pages/site-aatishb.md", "cluster": "C5"}
+{"id": "site-github-blob42-awesome-explorables", "type": "Site", "title": "GitHub: blob42/awesome-explorables (source site)", "aliases": ["github.com/blob42/awesome-explorables (site)"], "page": "pages/site-github-blob42-awesome-explorables.md", "cluster": "C5"}
+{"id": "site-bit101", "type": "Site", "title": "BIT-101 blog (source site)", "aliases": ["bit-101.com (site)"], "page": "pages/site-bit101.md", "cluster": "C5"}
+{"id": "site-github-spite-ccapturejs", "type": "Site", "title": "GitHub: spite/ccapture.js (source site)", "aliases": ["github.com/spite/ccapture.js (site)"], "page": "pages/site-github-spite-ccapturejs.md", "cluster": "C5"}
+{"id": "site-github-peteyhayman-p5createloop", "type": "Site", "title": "GitHub: peteyhayman/p5.createLoop (source site)", "aliases": ["github.com/peteyhayman/p5.createLoop (site)"], "page": "pages/site-github-peteyhayman-p5createloop.md", "cluster": "C5"}
+{"id": "site-github-tapioca24-p5capture", "type": "Site", "title": "GitHub: tapioca24/p5.capture (source site)", "aliases": ["github.com/tapioca24/p5.capture (site)"], "page": "pages/site-github-tapioca24-p5capture.md", "cluster": "C5"}
+{"id": "site-github-vanilagy-mp4-muxer", "type": "Site", "title": "GitHub: Vanilagy/mp4-muxer (source site)", "aliases": ["github.com/Vanilagy/mp4-muxer (site)"], "page": "pages/site-github-vanilagy-mp4-muxer.md", "cluster": "C5"}
+{"id": "site-mediabunny", "type": "Site", "title": "Mediabunny (source site)", "aliases": ["mediabunny.dev (site)"], "page": "pages/site-mediabunny.md", "cluster": "C5"}
+{"id": "site-goodfirstissue", "type": "Site", "title": "goodfirstissue.org (source site)", "aliases": ["goodfirstissue.org (site)"], "page": "pages/site-goodfirstissue.md", "cluster": "C5"}
+{"id": "site-github-amandaghassaei-canvas-capture", "type": "Site", "title": "GitHub: amandaghassaei/canvas-capture (source site)", "aliases": ["github.com/amandaghassaei/canvas-capture (site)"], "page": "pages/site-github-amandaghassaei-canvas-capture.md", "cluster": "C5"}
+{"id": "site-search-listings-no-url", "type": "Site", "title": "Search listings without a URL (source site)", "aliases": ["no-url search listings (site)"], "page": "pages/site-search-listings-no-url.md", "cluster": "C5"}
+{"id": "site-github-acamposuribe-p5brush", "type": "Site", "title": "GitHub: acamposuribe/p5.brush (source site)", "aliases": ["github.com/acamposuribe/p5.brush (site)"], "page": "pages/site-github-acamposuribe-p5brush.md", "cluster": "C5"}
+{"id": "site-github-processing-p5soundjs", "type": "Site", "title": "GitHub: processing/p5.sound.js (source site)", "aliases": ["github.com/processing/p5.sound.js (site)"], "page": "pages/site-github-processing-p5soundjs.md", "cluster": "C5"}
+{"id": "site-github-zenozeng-p5js-svg", "type": "Site", "title": "GitHub: zenozeng/p5.js-svg (source site)", "aliases": ["github.com/zenozeng/p5.js-svg (site)"], "page": "pages/site-github-zenozeng-p5js-svg.md", "cluster": "C5"}
+{"id": "site-github-bmoren-p5collide2d", "type": "Site", "title": "GitHub: bmoren/p5.collide2D (source site)", "aliases": ["github.com/bmoren/p5.collide2D (site)"], "page": "pages/site-github-bmoren-p5collide2d.md", "cluster": "C5"}
+{"id": "site-github-rough-stuff-rough", "type": "Site", "title": "GitHub: rough-stuff/rough (source site)", "aliases": ["github.com/rough-stuff/rough (site)"], "page": "pages/site-github-rough-stuff-rough.md", "cluster": "C5"}
+{"id": "site-github-meezwhite-p5grain", "type": "Site", "title": "GitHub: meezwhite/p5.grain (source site)", "aliases": ["github.com/meezwhite/p5.grain (site)"], "page": "pages/site-github-meezwhite-p5grain.md", "cluster": "C5"}
+{"id": "site-github-generative-light-p5scribblejs", "type": "Site", "title": "GitHub: generative-light/p5.scribble.js (source site)", "aliases": ["github.com/generative-light/p5.scribble.js (site)"], "page": "pages/site-github-generative-light-p5scribblejs.md", "cluster": "C5"}
+{"id": "site-github-alterebro-p5fillgradient", "type": "Site", "title": "GitHub: alterebro/p5.fillGradient (source site)", "aliases": ["github.com/alterebro/p5.fillGradient (site)"], "page": "pages/site-github-alterebro-p5fillgradient.md", "cluster": "C5"}
+{"id": "site-github-milchreis-p5tween", "type": "Site", "title": "GitHub: Milchreis/p5.tween (source site)", "aliases": ["github.com/Milchreis/p5.tween (site)"], "page": "pages/site-github-milchreis-p5tween.md", "cluster": "C5"}
+{"id": "site-wpi-digital-commons", "type": "Site", "title": "WPI Digital Commons (source site)", "aliases": ["digitalcommons.wpi.edu (site)"], "page": "pages/site-wpi-digital-commons.md", "cluster": "C5"}
+{"id": "site-waxy", "type": "Site", "title": "Waxy.org (source site)", "aliases": ["waxy.org (site)"], "page": "pages/site-waxy.md", "cluster": "C5"}
+{"id": "site-youtube-thecodingtrain", "type": "Site", "title": "YouTube: The Coding Train (source site)", "aliases": ["youtube.com/@TheCodingTrain (site)"], "page": "pages/site-youtube-thecodingtrain.md", "cluster": "C5"}
+{"id": "site-thisiscolossal", "type": "Site", "title": "Colossal (source site)", "aliases": ["thisiscolossal.com (site)"], "page": "pages/site-thisiscolossal.md", "cluster": "C5"}
+{"id": "site-ams-blog", "type": "Site", "title": "AMS Blog on Math Blogs (source site)", "aliases": ["blogs.ams.org (site)"], "page": "pages/site-ams-blog.md", "cluster": "C5"}
+{"id": "site-youtube-pattvira", "type": "Site", "title": "YouTube: Patt Vira (source site)", "aliases": ["youtube.com/@pattvira (site)"], "page": "pages/site-youtube-pattvira.md", "cluster": "C5"}
+{"id": "site-youtube-timrodenbroeker", "type": "Site", "title": "YouTube: Tim Rodenbroeker (source site)", "aliases": ["youtube.com/@timrodenbroeker (site)"], "page": "pages/site-youtube-timrodenbroeker.md", "cluster": "C5"}
+{"id": "site-patreon", "type": "Site", "title": "Patreon (Tim Rodenbroeker) (source site)", "aliases": ["patreon.com (site)"], "page": "pages/site-patreon.md", "cluster": "C5"}
+{"id": "site-youtube-barneycodes", "type": "Site", "title": "YouTube: Barney Codes (source site)", "aliases": ["youtube.com/@BarneyCodes (site)"], "page": "pages/site-youtube-barneycodes.md", "cluster": "C5"}
+{"id": "site-smashingmagazine", "type": "Site", "title": "Smashing Magazine (source site)", "aliases": ["shop.smashingmagazine.com (site)"], "page": "pages/site-smashingmagazine.md", "cluster": "C5"}
+{"id": "site-lauren-lee-mccarthy", "type": "Site", "title": "Lauren Lee McCarthy (source site)", "aliases": ["lauren-mccarthy.com (site)"], "page": "pages/site-lauren-lee-mccarthy.md", "cluster": "C5"}
+{"id": "site-youtube-kazukiumeda", "type": "Site", "title": "YouTube: Kazuki Umeda (source site)", "aliases": ["youtube.com/@KazukiUmeda (site)"], "page": "pages/site-youtube-kazukiumeda.md", "cluster": "C5"}
+{"id": "site-dice-insights", "type": "Site", "title": "Dice Insights (source site)", "aliases": ["insights.dice.com (site)"], "page": "pages/site-dice-insights.md", "cluster": "C5"}
+{"id": "site-johnresig", "type": "Site", "title": "John Resig (source site)", "aliases": ["johnresig.com (site)"], "page": "pages/site-johnresig.md", "cluster": "C5"}
+{"id": "site-fisher-digital-commons", "type": "Site", "title": "Fisher Digital Publications (source site)", "aliases": ["fisherpub.sjf.edu (site)"], "page": "pages/site-fisher-digital-commons.md", "cluster": "C5"}
+{"id": "site-github-yining1023-machine-learning-for-the-web", "type": "Site", "title": "GitHub: yining1023/machine-learning-for-the-web (source site)", "aliases": ["github.com/yining1023/machine-learning-for-the-web (site)"], "page": "pages/site-github-yining1023-machine-learning-for-the-web.md", "cluster": "C5"}
+{"id": "site-google-research", "type": "Site", "title": "Google Research (source site)", "aliases": ["research.google (site)"], "page": "pages/site-google-research.md", "cluster": "C5"}
+{"id": "site-creativeapplications", "type": "Site", "title": "CreativeApplications.Net (source site)", "aliases": ["creativeapplications.net (site)"], "page": "pages/site-creativeapplications.md", "cluster": "C5"}
+{"id": "site-aps-archive", "type": "Site", "title": "APS meeting archive (source site)", "aliases": ["archive.aps.org (site)"], "page": "pages/site-aps-archive.md", "cluster": "C5"}
+{"id": "site-code-org-forum", "type": "Site", "title": "Code.org forum (source site)", "aliases": ["forum.code.org (site)"], "page": "pages/site-code-org-forum.md", "cluster": "C5"}
+{"id": "site-codehs", "type": "Site", "title": "CodeHS help center (source site)", "aliases": ["help.codehs.com (site)"], "page": "pages/site-codehs.md", "cluster": "C5"}
+{"id": "site-propublica", "type": "Site", "title": "ProPublica (source site)", "aliases": ["propublica.org (site)"], "page": "pages/site-propublica.md", "cluster": "C5"}
+{"id": "site-pkgpulse", "type": "Site", "title": "PkgPulse (source site)", "aliases": ["pkgpulse.com (site)"], "page": "pages/site-pkgpulse.md", "cluster": "C5"}
+{"id": "site-beginnersinai", "type": "Site", "title": "beginnersinai.org (source site)", "aliases": ["beginnersinai.org (site)"], "page": "pages/site-beginnersinai.md", "cluster": "C5"}
+{"id": "site-github-3b1b-manim", "type": "Site", "title": "GitHub: 3b1b/manim (source site)", "aliases": ["github.com/3b1b/manim (site)"], "page": "pages/site-github-3b1b-manim.md", "cluster": "C5"}
+{"id": "site-github-limzykenneth-p5recordjs", "type": "Site", "title": "GitHub: limzykenneth/p5.record.js (source site)", "aliases": ["github.com/limzykenneth/p5.record.js (site)"], "page": "pages/site-github-limzykenneth-p5recordjs.md", "cluster": "C5"}
+{"id": "site-github-remotion-dev-remotion", "type": "Site", "title": "GitHub: remotion-dev/remotion (source site)", "aliases": ["github.com/remotion-dev/remotion (site)"], "page": "pages/site-github-remotion-dev-remotion.md", "cluster": "C5"}
+{"id": "site-github-abachman-p5webm-capture", "type": "Site", "title": "GitHub: abachman/p5.webm-capture (source site)", "aliases": ["github.com/abachman/p5.webm-capture (site)"], "page": "pages/site-github-abachman-p5webm-capture.md", "cluster": "C5"}
+{"id": "site-codeberg", "type": "Site", "title": "Codeberg (source site)", "aliases": ["codeberg.org (site)"], "page": "pages/site-codeberg.md", "cluster": "C5"}
+{"id": "site-github-p5-wrapper-react", "type": "Site", "title": "GitHub: P5-wrapper/react (source site)", "aliases": ["github.com/P5-wrapper/react (site)"], "page": "pages/site-github-p5-wrapper-react.md", "cluster": "C5"}
+{"id": "site-github-antfu-p5i", "type": "Site", "title": "GitHub: antfu/p5i (source site)", "aliases": ["github.com/antfu/p5i (site)"], "page": "pages/site-github-antfu-p5i.md", "cluster": "C5"}
+{"id": "site-osteele-notes", "type": "Site", "title": "Oliver Steele notes (source site)", "aliases": ["notes.osteele.com (site)"], "page": "pages/site-osteele-notes.md", "cluster": "C5"}
+{"id": "site-brendan-dawes", "type": "Site", "title": "Brendan Dawes blog (source site)", "aliases": ["dev.brendandawes.com (site)"], "page": "pages/site-brendan-dawes.md", "cluster": "C5"}
+{"id": "site-vibeindex", "type": "Site", "title": "vibeindex.ai (source site)", "aliases": ["vibeindex.ai (site)"], "page": "pages/site-vibeindex.md", "cluster": "C5"}
+{"id": "site-glama", "type": "Site", "title": "Glama MCP directory (source site)", "aliases": ["glama.ai (site)"], "page": "pages/site-glama.md", "cluster": "C5"}
+{"id": "site-libregraphicsmeeting", "type": "Site", "title": "Libre Graphics Meeting (source site)", "aliases": ["libregraphicsmeeting.org (site)"], "page": "pages/site-libregraphicsmeeting.md", "cluster": "C5"}
+{"id": "site-chainwire", "type": "Site", "title": "Chainwire (source site)", "aliases": ["chainwire.org (site)"], "page": "pages/site-chainwire.md", "cluster": "C5"}
+{"id": "site-github-mveteanu-p5scenemanager", "type": "Site", "title": "GitHub: mveteanu/p5.scenemanager (source site)", "aliases": ["github.com/mveteanu/p5.scenemanager (site)"], "page": "pages/site-github-mveteanu-p5scenemanager.md", "cluster": "C5"}
+{"id": "site-github-pirelaurent-p5-animationframework", "type": "Site", "title": "GitHub: pirelaurent/p5_animationFramework (source site)", "aliases": ["github.com/pirelaurent/p5_animationFramework (site)"], "page": "pages/site-github-pirelaurent-p5-animationframework.md", "cluster": "C5"}
+{"id": "site-github-mattdesl-keyframes", "type": "Site", "title": "GitHub: mattdesl/keyframes (source site)", "aliases": ["github.com/mattdesl/keyframes (site)"], "page": "pages/site-github-mattdesl-keyframes.md", "cluster": "C5"}
+{"id": "site-github-halfdanj-timeliner", "type": "Site", "title": "GitHub: halfdanj/timeliner (source site)", "aliases": ["github.com/halfdanj/timeliner (site)"], "page": "pages/site-github-halfdanj-timeliner.md", "cluster": "C5"}
+{"id": "site-github-wixette-p5anims", "type": "Site", "title": "GitHub: wixette/p5.animS (source site)", "aliases": ["github.com/wixette/p5.animS (site)"], "page": "pages/site-github-wixette-p5anims.md", "cluster": "C5"}
+{"id": "site-github-calebfoss-p5videorecorder", "type": "Site", "title": "GitHub: calebfoss/p5.videorecorder (source site)", "aliases": ["github.com/calebfoss/p5.videorecorder (site)"], "page": "pages/site-github-calebfoss-p5videorecorder.md", "cluster": "C5"}
+{"id": "site-slama-dev", "type": "Site", "title": "slama.dev (source site)", "aliases": ["slama.dev (site)"], "page": "pages/site-slama-dev.md", "cluster": "C5"}
+{"id": "site-github-jazonjiao-manimjs", "type": "Site", "title": "GitHub: JazonJiao/Manim.js (source site)", "aliases": ["github.com/JazonJiao/Manim.js (site)"], "page": "pages/site-github-jazonjiao-manimjs.md", "cluster": "C5"}
+{"id": "site-gsap", "type": "Site", "title": "GSAP (source site)", "aliases": ["gsap.com (site)"], "page": "pages/site-gsap.md", "cluster": "C5"}
+{"id": "site-webflow", "type": "Site", "title": "Webflow (source site)", "aliases": ["webflow.com (site)"], "page": "pages/site-webflow.md", "cluster": "C5"}
+{"id": "site-makershed", "type": "Site", "title": "Maker Shed (source site)", "aliases": ["makershed.com (site)"], "page": "pages/site-makershed.md", "cluster": "C5"}
+{"id": "site-bocoup", "type": "Site", "title": "Bocoup (source site)", "aliases": ["bocoup.com (site)"], "page": "pages/site-bocoup.md", "cluster": "C5"}
+{"id": "site-lostpixels", "type": "Site", "title": "Lostpixels (source site)", "aliases": ["lostpixels.io (site)"], "page": "pages/site-lostpixels.md", "cluster": "C5"}
+{"id": "site-lacma-unframed", "type": "Site", "title": "LACMA Unframed (source site)", "aliases": ["unframed.lacma.org (site)"], "page": "pages/site-lacma-unframed.md", "cluster": "C5"}
+{"id": "site-nft-now", "type": "Site", "title": "nft now (source site)", "aliases": ["nftnow.com (site)"], "page": "pages/site-nft-now.md", "cluster": "C5"}
+{"id": "site-decrypt", "type": "Site", "title": "Decrypt (source site)", "aliases": ["decrypt.co (site)"], "page": "pages/site-decrypt.md", "cluster": "C5"}
+{"id": "site-gncrypto-news", "type": "Site", "title": "GNcrypto News (source site)", "aliases": ["gncrypto.news (site)"], "page": "pages/site-gncrypto-news.md", "cluster": "C5"}
+{"id": "site-phillips", "type": "Site", "title": "Phillips auction house (source site)", "aliases": ["phillips.com (site)"], "page": "pages/site-phillips.md", "cluster": "C5"}
+{"id": "site-github-nature-of-code-noc-book-2", "type": "Site", "title": "GitHub: nature-of-code/noc-book-2 (source site)", "aliases": ["github.com/nature-of-code/noc-book-2 (site)"], "page": "pages/site-github-nature-of-code-noc-book-2.md", "cluster": "C5"}
+{"id": "site-wikipedia", "type": "Site", "title": "Wikipedia (source site)", "aliases": ["en.wikipedia.org (site)"], "page": "pages/site-wikipedia.md", "cluster": "C5"}
+{"id": "site-isohedral", "type": "Site", "title": "Isohedral (source site)", "aliases": ["isohedral.ca (site)"], "page": "pages/site-isohedral.md", "cluster": "C5"}
+{"id": "site-github-generative-design-code-package-p5js", "type": "Site", "title": "GitHub: generative-design/Code-Package-p5.js (source site)", "aliases": ["github.com/generative-design/Code-Package-p5.js (site)"], "page": "pages/site-github-generative-design-code-package-p5js.md", "cluster": "C5"}
+{"id": "site-superhi", "type": "Site", "title": "SuperHi (source site)", "aliases": ["superhi.com (site)"], "page": "pages/site-superhi.md", "cluster": "C5"}
+{"id": "site-fxhash-substack", "type": "Site", "title": "fxhash Substack (source site)", "aliases": ["fxhash.substack.com (site)"], "page": "pages/site-fxhash-substack.md", "cluster": "C5"}
+{"id": "site-zachlieberman-medium", "type": "Site", "title": "Zach Lieberman on Medium (source site)", "aliases": ["zachlieberman.medium.com (site)"], "page": "pages/site-zachlieberman-medium.md", "cluster": "C5"}
+{"id": "site-gorillasun", "type": "Site", "title": "Gorilla Sun (source site)", "aliases": ["gorillasun.de (site)"], "page": "pages/site-gorillasun.md", "cluster": "C5"}
+{"id": "site-amygoodchild-substack", "type": "Site", "title": "Amy Goodchild Substack (source site)", "aliases": ["amygoodchild.substack.com (site)"], "page": "pages/site-amygoodchild-substack.md", "cluster": "C5"}
+{"id": "site-github-processing-p5js-web-editor", "type": "Site", "title": "GitHub: processing/p5.js-web-editor (source site)", "aliases": ["github.com/processing/p5.js-web-editor (site)"], "page": "pages/site-github-processing-p5js-web-editor.md", "cluster": "C5"}
+{"id": "site-cdnjs", "type": "Site", "title": "cdnjs (source site)", "aliases": ["cdnjs.com (site)"], "page": "pages/site-cdnjs.md", "cluster": "C5"}
+{"id": "site-d3js", "type": "Site", "title": "D3.js (source site)", "aliases": ["d3js.org (site)"], "page": "pages/site-d3js.md", "cluster": "C5"}
+{"id": "site-threejs", "type": "Site", "title": "three.js (source site)", "aliases": ["threejs.org (site)"], "page": "pages/site-threejs.md", "cluster": "C5"}
+{"id": "site-openframeworks", "type": "Site", "title": "openFrameworks (source site)", "aliases": ["openframeworks.cc (site)"], "page": "pages/site-openframeworks.md", "cluster": "C5"}
+{"id": "site-processing-org", "type": "Site", "title": "Processing.org (source site)", "aliases": ["processing.org (site)"], "page": "pages/site-processing-org.md", "cluster": "C5"}
+{"id": "site-lottie", "type": "Site", "title": "Lottie (source site)", "aliases": ["lottie.airbnb.tech (site)"], "page": "pages/site-lottie.md", "cluster": "C5"}
+{"id": "hub-sites", "type": "Concept", "title": "Hub: Source sites", "aliases": ["source sites index", "per-site provenance pages"], "page": "pages/hub-sites.md", "cluster": "C5"}
