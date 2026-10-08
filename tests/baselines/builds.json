@@ -66,9 +66,9 @@
   },
   {
    "page": "factory/films/regression/build/regression.html",
-   "bytes": 1114689,
-   "sha256": "254338240ea53e8ceb4521794b1f7ace24a3007e5df6031ec0578c45d74b6b17",
-   "shipped_bytes": 1114689
+   "bytes": 1114715,
+   "sha256": "aaea715753770f14187c1388ba8eef099fb44d18c9f7e09d4b6e3609ce55859f",
+   "shipped_bytes": 1114715
   },
   {
    "page": "factory/films/sample-size/build/sample-size.html",

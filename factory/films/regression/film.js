@@ -249,8 +249,8 @@ window.FILM_RENDER = {
       const lo = seg(t, 67.6, 68.1);
       if (lo > 0) {
         tx('mo.lh', 'labels', 48, 296, 'HONEST LIMIT', { size: 14, op: lo * 0.85, weight: 500, ls: '0.16em' });
-        tx('mo.l0', 'labels', 48, 330, 'This does not say the manager failed.', { fam: 'disp', size: 30, op: lo });
-        tx('mo.l1', 'labels', 48, 366, 'One quarter cannot tell.', { fam: 'disp', size: 30, op: lo });
+        tx('mo.l0', 'labels', 48, 330, 'These are 100 model pilots, not flight data.', { fam: 'disp', size: 30, op: lo });
+        tx('mo.l1', 'labels', 48, 366, 'And one quarter cannot judge a manager.', { fam: 'disp', size: 30, op: lo });
       }
     }
   },

@@ -12,7 +12,7 @@ when built, its page. Do not edit by hand. The sha256 is the baseline a rebuild 
 | cost-of-delay | The Cost of Waiting | 1:15 | PASS | `85b9c679a37b27259d314cc5d20074c04c130ff6112a6238ea27ec3e7463dda3` (1,112,568 bytes) |
 | goodhart | Eight Is Great | 1:15 | PASS | `7280596d4b9026eb47194ada10f68b4af54fad59047ba96dd81e9848fe5415a5` (1,105,448 bytes) |
 | queues | Busy is not fast | 1:15 | PASS | `4743e73dcfc458458d9b4394251a93ed9c04b9a14db68dda4e55aed4f60d2c0c` (1,108,580 bytes) |
-| regression | The Flight Instructors | 1:15 | PASS | `254338240ea53e8ceb4521794b1f7ace24a3007e5df6031ec0578c45d74b6b17` (1,114,689 bytes) |
+| regression | The Flight Instructors | 1:15 | PASS | `aaea715753770f14187c1388ba8eef099fb44d18c9f7e09d4b6e3609ce55859f` (1,114,715 bytes) |
 | sample-size | Thirty Customers | 1:15 | PASS | `836da6218b26344c2dcbf62ff58605ea68acef637ebe327c8977efed68e68c88` (1,117,559 bytes) |
 | selection | Who chose it | 1:15 | PASS | `83db587cf0374c9e21f650380ced2a8123a5c6ec30a516f3e53725c25fc0b29e` (1,129,864 bytes) |
 | simpsons | Worse Overall | 1:15 | PASS | `47c5b15a276630aae263ad10fe39213e7a5e994cbe4e5a074c80112c3a824b14` (1,109,814 bytes) |

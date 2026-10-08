@@ -2,16 +2,16 @@
   "film": "regression",
   "page": "factory/films/regression/build/regression.html",
   "filmDir": "factory/films/regression",
-  "date": "2026-10-08T10:09:02.468Z",
+  "date": "2026-10-08T10:23:52.410Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 315 ms; stage sd 15s:26.0 37.5s:22.8 60s:25.8",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 232 ms; stage sd 15s:26.0 37.5s:22.8 60s:25.8",
       "data": {
-        "readyMs": 315,
+        "readyMs": 232,
         "stats": [
           {
             "t": 15,
@@ -157,8 +157,8 @@
       "status": "PASS",
       "evidence": "film code 41.2 KB (film.js 18.1, film.json 5.8, claims.json 17.3) < 120 KB; page 1.115 MB < 1.3 MB",
       "data": {
-        "code": 42210,
-        "page": 1114689
+        "code": 42236,
+        "page": 1114715
       }
     },
     {

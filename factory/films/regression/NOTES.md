@@ -5,8 +5,8 @@ factory/topics/regression/ (brief.md, claims.json, beats.md). This folder: film.
 gate.json; build/ is gitignored.
 
 Build: `python3 factory/kit/build.py factory/films/regression` →
-build/regression.html, **1,114,689 bytes, sha256 254338240ea53e8ceb4521794b1f7ace24a3007e5df6031ec0578c45d74b6b17**
-(film code 24,477 bytes in page; film.js 18.5 KB + film.json 6.0 KB + claims.json 17.7 KB = 41.2 KB).
+build/regression.html, **1,114,715 bytes, sha256 aaea715753770f14187c1388ba8eef099fb44d18c9f7e09d4b6e3609ce55859f**
+(film code 24,503 bytes in page; film.js 18.5 KB + film.json 6.0 KB + claims.json 17.7 KB = 41.2 KB).
 
 ## Beats and structures
 HOOK 0–8 (10 regions, two columns, worst one climbs, no digits) · COMMIT 8–16 (commit.at 9, default 3, the
@@ -49,6 +49,11 @@ marks: K.shuffle(0..99, 36). Paper ground seed 17.
 Probe (kit/probe.mjs at 35, 54, 70 s): SVG and pixels re-seek identical; live commit pauses, seals, "none" after 8 s;
 try-it renders. Fix rounds used: 2 (source line overflowing into the title block, equation anchor jump, faint TODAY
 ghosts after the move, block line shortened; then bar row spacing).
+
+## Revision after the blind seat (REVISE: model not named on stage)
+Caption c14 is now "Limit: model pilots, not flight data. A quarter can't tell." (59 chars). The Monday stage
+limit reads "These are 100 model pilots, not flight data." / "And one quarter cannot judge a manager." Nothing
+else changed. Re-gated: VERDICT PASS, same rows as above (G5c WARN unchanged).
 
 ## Additions outside the kit (in film.js, kit untouched)
 A local `tx` wrapper that sets data-role on every film text; canvas marks, ghosts and lines drawn directly on K.ctx;
