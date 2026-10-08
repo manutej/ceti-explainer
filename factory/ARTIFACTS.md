@@ -23,3 +23,7 @@ hashes in tests/baselines/builds.json). Private to the owner until shared from e
 | opera-house (gold standard, 4:29) | The Opera House | https://claude.ai/artifact/5SiQn54jtVH3Qp3ULj75SF |
 
 Gallery: https://claude.ai/artifact/JfpqFssCZJ3QinKwn5RWof
+
+## Arsenal gallery
+
+Contact sheets of every lane and the kit2 brand-by-chrome matrices: https://claude.ai/artifact/J93CprjrRRKfEG5VcKuwyj
