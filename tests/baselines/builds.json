@@ -1,0 +1,26 @@
+{
+ "schema": "ceti-build-baseline/1",
+ "note": "Pages built by tests/proofs.sh at the merge commit. Builds are byte-reproducible (fontTools recalcTimestamp=False). shipped_bytes is the size of the page uploaded with the sources: escapement and grasp differ by the runtime readout word (exact -> expected, already in runtime/dist) and, for grasp, the AM.cam.mix fix; base-rate by the newer feature.template.html.",
+ "runtime_sha256": "cd580e362d4a38c49d7b9d8513f313eaaa2c59923d57260ea13a4b6a316c1f03",
+ "p5_sha256": "bb8b82b97fcbcd5bb2d5475d1b6a3904f3ab4ed01b821134fd8f1e7710fce559",
+ "pages": [
+  {
+   "page": "chromes/escapement/build/escapement-shared.html",
+   "bytes": 1512958,
+   "sha256": "c3d368746ff06681182446011a389719a7d644d7eb302e5c1aed0df8bec12d16",
+   "shipped_bytes": 1512955
+  },
+  {
+   "page": "films/grasp/build/grasp-stitch.html",
+   "bytes": 1457284,
+   "sha256": "63f3d3e3255a11f286391caad50be828322d6366af272d644b3eb02f49ce85a9",
+   "shipped_bytes": 1457165
+  },
+  {
+   "page": "films/base-rate/build/base-rate.p5.html",
+   "bytes": 1491673,
+   "sha256": "62cea1f4d002d1e775843fc15fb19d466a6dbdcd5bc191ecd23f3fdb1f93a973",
+   "shipped_bytes": 1478773
+  }
+ ]
+}
