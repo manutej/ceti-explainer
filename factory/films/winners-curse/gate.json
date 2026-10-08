@@ -1,0 +1,205 @@
+{
+  "film": "winners-curse",
+  "page": "factory/films/winners-curse/build/winners-curse.html",
+  "filmDir": "factory/films/winners-curse",
+  "date": "2026-10-08T10:08:17.876Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 446 ms; stage sd 15s:27.8 37.5s:13.9 60s:27.4",
+      "data": {
+        "readyMs": 446,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 211.5727326871064,
+            "sd": 27.846856192261008
+          },
+          {
+            "t": 37.5,
+            "mean": 215.53227312885156,
+            "sd": 13.937933030300758
+          },
+          {
+            "t": 60,
+            "mean": 210.06201974343298,
+            "sd": 27.37063058929957
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 11 s (want 8–16); film-mode default 10.5"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Winning means you guessed highest, not right.\"; frame at 74 s sd 22.8; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"The count is a constructed teaching object: ten bidders who each bid their raw e\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "6 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "36 claims, 36 with formula, 36 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 14 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "34 visible number(s) not in claims (chrome?): 4 @11s \"4\"; 18 @45s \"18 of 40\"; 35 @45.5s \"35 of 70\"; 70 @45.5s \"35 of 70\"; 45 @46s \"45 of 90\"; 90 @46s \"45 of 90\"",
+      "data": {
+        "unknown": [
+          "4 @11s \"4\"",
+          "18 @45s \"18 of 40\"",
+          "35 @45.5s \"35 of 70\"",
+          "70 @45.5s \"35 of 70\"",
+          "45 @46s \"45 of 90\"",
+          "90 @46s \"45 of 90\"",
+          "9 @46s \"9 of 9\"",
+          "60 @46.5s \"60 of 120\"",
+          "120 @46.5s \"60 of 120\"",
+          "73 @47s \"73 of 150\"",
+          "150 @47s \"73 of 150\"",
+          "15 @47s \"15 of 15\"",
+          "86 @47.5s \"86 of 180\"",
+          "180 @47.5s \"86 of 180\"",
+          "94 @48s \"94 of 200\"",
+          "200 @48s \"94 of 200\"",
+          "20 @48s \"20 of 20\"",
+          "107 @48.5s \"107 of 230\"",
+          "230 @48.5s \"107 of 230\"",
+          "23 @48.5s \"23 of 23\"",
+          "125 @49s \"125 of 260\"",
+          "260 @49s \"125 of 260\"",
+          "26 @49s \"26 of 26\"",
+          "143 @49.5s \"143 of 290\"",
+          "290 @49.5s \"143 of 290\"",
+          "29 @49.5s \"29 of 29\"",
+          "160 @50s \"160 of 320\"",
+          "320 @50s \"160 of 320\"",
+          "32 @50s \"32 of 32\"",
+          "173 @50.5s \"173 of 340\"",
+          "340 @50.5s \"173 of 340\"",
+          "34 @50.5s \"34 of 34\"",
+          "186 @51s \"186 of 370\"",
+          "37 @51s \"37 of 37\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "32 must-read / 54 secondary / 54 chrome text reads at 6 times (no data-role: classed by layer/size); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/winners-curse/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 32,
+          "secondary": 54,
+          "chrome": 54
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 36 s (count.at); first ratio \"+$2.4M · 24 %\" at 61 s (svg)"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 32.2 KB (film.js 13.6, film.json 5.8, claims.json 12.9) < 120 KB; page 1.110 MB < 1.3 MB",
+      "data": {
+        "code": 33013,
+        "page": 1110017
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 10.87, 20.73, 30.6, 40.47, 50.33, 60.2, 75 s → /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/winners-curse/shots"
+    }
+  ]
+}

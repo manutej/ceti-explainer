@@ -1,0 +1,65 @@
+{
+  "id": "winners-curse",
+  "title": "The Winner's Curse",
+  "eyebrow": "CETI · THE 75-SECOND CASE · SEALED BIDS",
+  "lede": "Ten bidders guess the value of the same block. The highest guess wins. Count forty auctions and see who the winner almost always is.",
+  "dur": 75,
+  "seed": 1971,
+  "params": { "V": 10, "N": 10, "E": 0.3, "A": 40, "seed": 1971, "guess": 10.5,
+              "ns_year": 1969, "ns_win": 900, "ns_second": 370,
+              "jar_value": 8.0, "jar_est": 5.13, "jar_winbid": 10.01, "jar_classes": 12, "jar_per_class": 4,
+              "yr_ccc": 1971, "yr_thaler": 1988, "yr_bs": 1983 },
+  "palette": { "paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "muted": "#8E887C", "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277" },
+  "type": { "disp": "Big Shoulders Display", "mono": "IBM Plex Mono" },
+  "fonts": [
+    { "family": "Big Shoulders Display", "weight": 600, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 400, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 500, "style": "normal" }
+  ],
+  "commit": { "at": 11, "title": "WINNER PAYS", "prompt": "On average, what does the winner pay for a block worth $10M? (in $M)", "unit": "$M ON AVERAGE", "default": 10.5, "min": 0, "max": 30, "step": 0.1 },
+  "chapters": [
+    { "id": "hook", "beat": "HOOK", "t0": 0, "t1": 8, "eyebrow": "THE WINNER'S CURSE · SEALED BIDS", "title": "We won the deal" },
+    { "id": "commit", "beat": "COMMIT", "t0": 8, "t1": 16, "eyebrow": "THE WINNER'S CURSE · YOUR GUESS", "title": "Seal a number" },
+    { "id": "case", "beat": "CASE", "t0": 16, "t1": 36, "eyebrow": "1969 · ALASKA NORTH SLOPE · SEALED BIDS", "title": "The North Slope sale" },
+    { "id": "count", "beat": "COUNT", "t0": 36, "t1": 62, "eyebrow": "THE COUNT · FORTY AUCTIONS · TEN BIDDERS EACH", "title": "Who wins?" },
+    { "id": "monday", "beat": "MONDAY", "t0": 62, "t1": 72, "eyebrow": "MONDAY · BEFORE YOU CELEBRATE", "title": "The second bid" }
+  ],
+  "count": { "at": 36 },
+  "captions": [
+    [0.5, 7.6, "We won the deal. So we got a good price. Right?"],
+    [8.2, 11.0, "A block worth $10M. 10 bidders, each off by up to $3M."],
+    [11.0, 15.8, "The highest guess wins and pays it. On average, how much?"],
+    [16.2, 20.0, "1969, Alaska North Slope: oil leases sold by sealed bid."],
+    [20.2, 25.0, "Winning bids: $900M. Next-best bids, same tracts: $370M."],
+    [25.2, 28.8, "Gulf of Mexico leases paid winners less than a credit union."],
+    [29.0, 32.4, "A classroom jar of coins worth $8.00. Average guess: $5.13."],
+    [32.6, 35.8, "Average winning bid: $10.01. The winner lost $2.01."],
+    [38.0, 43.8, "One auction: 10 honest guesses around the truth. 5 high."],
+    [44.0, 51.8, "40 auctions. Mark each winner. Count the ones above $10M."],
+    [52.0, 55.8, "198 of 400 guesses were high. 40 of 40 winners were."],
+    [56.0, 61.8, "The winner paid $12.4M on average for a $10M block."],
+    [62.2, 67.6, "Monday: what was the second bid, and why were we higher?"],
+    [67.8, 71.8, "Limit: real bidders shade bids. These 10 bid their guess."]
+  ],
+  "ledger": [[0.6, "SALE · SEALED BIDS"], [11.2, "YOUR GUESS · SEALED"], [16.6, "CASE · NORTH SLOPE"], [29.2, "CASE · CLASSROOM JAR"], [36.4, "COUNT · FORTY SALES"], [62.4, "MONDAY · THE SECOND BID"]],
+  "brand": { "takeaway": "Winning means you guessed highest, not right." },
+  "sources": [
+    ["CCC71", "Capen, E. C., Clapp, R. V. & Campbell, W. M. (1971). Competitive Bidding in High-Risk Situations. Journal of Petroleum Technology 23(6), 641–653. doi:10.2118/2993-PA"],
+    ["TH88", "Thaler, R. H. (1988). Anomalies: The Winner's Curse. Journal of Economic Perspectives 2(1), 191–202. doi:10.1257/jep.2.1.191 (reports the 1969 North Slope sums: winning bids $900M, second-highest bids $370M)"],
+    ["BS83", "Bazerman, M. H. & Samuelson, W. F. (1983). I Won the Auction But Don't Want the Prize. Journal of Conflict Resolution 27(4), 618–634. doi:10.1177/0022002783027004003 (48 auctions; jars worth $8.00; average estimate $5.13; average winning bid $10.01)"],
+    ["HPB87", "Hendricks, K., Porter, R. H. & Boudreau, B. (1987). Information, Returns, and Bidding Behavior in OCS Auctions: 1954–1969. Journal of Industrial Economics 35(4), 517–542."],
+    ["KL02", "Kagel, J. H. & Levin, D. (2002). Common Value Auctions and the Winner's Curse. Princeton University Press."],
+    ["SIM", "This film: 40 auctions × 10 bidders; estimate = $10M × (1 + 0.3 × (2u − 1)), u from mulberry32(1971); the highest estimate wins and pays it."]
+  ],
+  "honest": [
+    "The count is a constructed teaching object: ten bidders who each bid their raw estimate. Real bidders shade their bids below their estimates, and the curse is a tendency in common-value auctions (an asset worth about the same to everyone, which nobody can value exactly), not a law that every winner overpays.",
+    "The North Slope sums come from Capen, Clapp and Campbell (1971) as Thaler (1988) reports them. Later studies of the same federal lease sales (Hendricks, Porter and Boudreau 1987) dispute how badly the winners did on average. The jar numbers are Bazerman and Samuelson's (1983): $5.13 was the average estimate, not the average bid.",
+    "A deal you value more than others do, because of synergies only you have, is a private-value case. This film says nothing about that."
+  ],
+  "tryit": { "title": "Run your own auctions", "note": "Change the number of bidders or the error; forty fresh auctions are drawn from the seed.", "seek": 61,
+    "inputs": [
+      { "id": "n", "label": "Bidders per auction", "min": 2, "max": 30, "step": 1, "value": 10, "unit": "bidders" },
+      { "id": "e", "label": "Error, either way", "min": 5, "max": 60, "step": 5, "value": 30, "unit": "%" },
+      { "id": "seed", "label": "Seed", "min": 1960, "max": 1990, "step": 1, "value": 1971, "unit": "" }
+    ] }
+}
