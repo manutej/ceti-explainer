@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>reveal demo</title>
+<style>
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url(../../../vendor/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:400;src:url(../../../vendor/fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-weight:600;src:url(../../../vendor/fonts/big-shoulders-display-latin-600-normal.woff2) format("woff2")}
+html,body{margin:0;background:#0F1115}canvas{display:block}
+</style></head><body>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="./pattern.js"></script>
+<script>
+let TOKENS = {"id":"ceti-dark","color":{"bg":"#0F1115","ink":"#EDE8DF","accent":"#E0B27A","accent2":"#B8322A","muted":"#8B8778","line":"rgba(237,232,223,0.18)","panel":"#171A21","chalk":"#F6F3EC"},"type":{"disp":{"family":"Big Shoulders Display","weight":600},"mono":{"family":"IBM Plex Mono","weight":400},"body":{"family":"DM Sans","weight":400}},"texture":"none","tempo":{"ease":"cubic","beat_s":4},"voice":{}};
+const PAT = ARSENAL.patterns.reveal, Q = new URLSearchParams(location.search);
+const cur = { name: null, state: null };
+const info = { variants: PAT.variants.map(v => v.name), dur: 4 };
+let ok; const readyP = new Promise(r => ok = r);
+function render(t, name) {
+  const v = PAT.variants.find(x => x.name === (name || Q.get('variant') || PAT.variants[0].name));
+  if (cur.name !== v.name) { cur.name = v.name; cur.params = Object.assign({}, PAT.params, v.params); cur.state = PAT.setup(window._p, { seed: 7 }, cur.params); }
+  PAT.draw(window._p, t, cur.state, cur.params, TOKENS);
+}
+function setup() {
+  window._p = (typeof p5 !== 'undefined' && p5.instance) || window;
+  createCanvas(960, 540); pixelDensity(2); noLoop();
+  describe('Arc-length draw-on reveal: ' + info.variants.join(', '));
+  window._p = p5.instance;
+  Promise.all([document.fonts.load('13px "IBM Plex Mono"')]).then(async () => {
+    const b = Q.get('brand');
+    if (b) { try { TOKENS = await (await fetch('../../brands/' + b + '.json')).json(); } catch (e) {} }
+    ok(); if (Q.get('t') !== null) render(+Q.get('t'));
+  });
+}
+window.__film = { ready: () => readyP, seek: (t, v) => render(t, v), info };
+</script></body></html>
