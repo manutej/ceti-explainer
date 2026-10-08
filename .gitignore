@@ -28,3 +28,6 @@ __MACOSX/
 !factory/kit/shell.html
 # stills written by probes and gates
 factory/**/shots/
+
+# built standalone pages are always kept, so the source can be refactored against them (DECISIONS D10)
+!**/build/*.html

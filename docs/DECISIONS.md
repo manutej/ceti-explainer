@@ -60,3 +60,9 @@ milestones M1 to M7.
 | # | Decision | Changes |
 |---|----------|---------|
 | D9 | "The Opera House" (Case file 23, the planning fallacy; films/opera-house) is the gold standard for the exec room and the feature tier. It already practises Q3, Q6, Q13 and Q14, its numbers recompute from two fitted parameters and seven sources, and its renderer is a pure function of time and state. | It enters the repo as sources that rebuild byte-identical (proof v). It is the known-good calibration fixture for the exec level: G1 to G5 and G8 must pass it; G6 must flag only its 11 to 12 unit sidebar and honest-limits text; G9 may flag only its between-chapter cards. Its "Tender Set" chrome is the first chrome of the default ink material (M7). The two changes it owes the bar are a CETI brand card after its last image (Q8) and a larger face for the honest-limits lines (G6). The two-minute Grasp cut (plan, commit, wall, where you sit) is the first derivative to build. |
+
+## 2026-10-08 · built pages are kept
+
+| # | Decision | Changes |
+|---|----------|---------|
+| D10 | Every built standalone HTML page is committed next to its sources (build/<id>.html), so a film can always be opened, diffed and refactored against the exact page that shipped. This narrows D8: renders (MP4, WAV, stills) still go to the films repo; the standalone page stays here. | .gitignore keeps **/build/*.html; proofs compare rebuilds to these pages by hash. |
