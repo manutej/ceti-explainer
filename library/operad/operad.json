@@ -1,0 +1,994 @@
+{
+  "name": "atelier-module-operad",
+  "version": "0.1.0",
+  "generated": "node modules/check.mjs --export operad.json (from the registry; do not hand-edit)",
+  "types": {
+    "Params": "engine parameters {N, k, p, c, retry, seed} (+ perStep p[])",
+    "Ensemble": "an AgentLoop instance + its params: twin worlds on common random numbers",
+    "Run": "one run id r with its events in both worlds",
+    "Trace": "a labelled-sketch worked run: {goal, steps:[{j, kind, text}], k, failAt, r}",
+    "Arrangement": "unit rects over time: {kind: grid|rack, world, rects Float32Array(4N), order?}",
+    "Number": "a typed quantity {q, exact, realised, sd, N, source: engine|marks|sketch|given}",
+    "Commit": "a viewer prediction {key, q, unit, N, jump}; its value lives in ctx.state",
+    "Cost": "work the checks added {redone, total, frac} computed from engine flags",
+    "Focus": "a world rect {x, y, w, h} a camera may frame",
+    "Shot": "a camera function t → {x, y, z} (closed form in t)",
+    "Mix": "a transition weight t → [0, 1] (onion-skin / rack focus)",
+    "Evidence": "an evidence-row spec (PEDAGOGY-MAP §5)",
+    "Material": "the one Material a film is drawn in"
+  },
+  "operations": {
+    "agentLoop": {
+      "kind": "pedagogy",
+      "structure": "ENG",
+      "stage": null,
+      "class": "engine",
+      "grade": "—",
+      "layer": "none",
+      "levels": [
+        "glance",
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {},
+      "out": {
+        "ens": "Ensemble"
+      },
+      "arity": 0,
+      "reveals": [],
+      "commits": [],
+      "durDefault": 0,
+      "evidence": null,
+      "doc": "Atelier.AgentLoop twin worlds on common random numbers (runtime engine). Params N, k, p, c, retry; seed = film seed (+ seedOffset)."
+    },
+    "traceOpener": {
+      "kind": "pedagogy",
+      "structure": "CF",
+      "stage": "concrete",
+      "class": "content",
+      "grade": "B",
+      "layer": "stage",
+      "levels": [
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "ens": "Ensemble"
+      },
+      "out": {
+        "trace": "Trace",
+        "run": "Run",
+        "focus": "Focus"
+      },
+      "arity": 1,
+      "reveals": [],
+      "commits": [],
+      "durDefault": 22.019999999999996,
+      "evidence": null,
+      "doc": "One run of “reconcile 40 invoices” framed large: plan → tool call → observe → match; step 7 slips (Acme Corp ≠ ACME Corporation), the check catches it, the retry passes. Labelled sketch. The run is a real engine run chosen by a declared rule (first run whose checked twin passes after a catch at step 7 and whose unchecked twin fails there)."
+    },
+    "concretenessFade": {
+      "kind": "pedagogy",
+      "structure": "CF",
+      "stage": "morph",
+      "class": "content",
+      "grade": "B",
+      "layer": "stage",
+      "levels": [
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "trace": "Trace",
+        "ens": "Ensemble"
+      },
+      "out": {
+        "arr": "Arrangement"
+      },
+      "arity": 2,
+      "reveals": [],
+      "commits": [],
+      "durDefault": 7,
+      "evidence": null,
+      "doc": "Same marks persist: the finished trace stays in place while its N−1 siblings fade in around it (staggered by distance), then every unit resets to blank for the ensemble. Pair with the pullBack camera."
+    },
+    "predictCommitReveal": {
+      "kind": "pedagogy",
+      "structure": "PCR",
+      "stage": null,
+      "class": "content",
+      "grade": "B",
+      "layer": "overlay",
+      "levels": [
+        "glance",
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "ens": "Ensemble"
+      },
+      "out": {
+        "commit": "Commit"
+      },
+      "arity": 1,
+      "reveals": [],
+      "commits": [
+        "survival.{world}@{k}"
+      ],
+      "durDefault": 8,
+      "evidence": {
+        "structure_id": "PCR",
+        "fields": [
+          "t_prompt",
+          "t_commit",
+          "value",
+          "truth",
+          "signed_error",
+          "skipped"
+        ]
+      },
+      "doc": "PROMPT (parameters only, no anchoring number) → COMMIT (runtime commit control; countdown drawn as three material ticks) → the guess mark stays on the count edge where the truth will land (persistent trace). Reveal belongs to truthUnderEvidence, which takes this Commit."
+    },
+    "gridLayout": {
+      "kind": "pedagogy",
+      "structure": "LAY",
+      "stage": null,
+      "class": "scaffold",
+      "grade": "—",
+      "layer": "none",
+      "levels": [
+        "glance",
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "ens": "Ensemble"
+      },
+      "out": {
+        "arr": "Arrangement"
+      },
+      "arity": 1,
+      "reveals": [],
+      "commits": [],
+      "durDefault": 0,
+      "evidence": null,
+      "doc": "Packs N runs of k steps into the material's folded grid (its natural aspect, cell and capacity) — the Arrangement an ensemble lands on when no Trace precedes it."
+    },
+    "ensembleRun": {
+      "kind": "pedagogy",
+      "structure": "ENS",
+      "stage": null,
+      "class": "content",
+      "grade": "B",
+      "layer": "stage",
+      "levels": [
+        "glance",
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "ens": "Ensemble",
+        "arr": "Arrangement",
+        "run": "Run?"
+      },
+      "out": {
+        "arr": "Arrangement",
+        "ens": "Ensemble"
+      },
+      "arity": 2,
+      "reveals": [
+        "count:survival.{world}@step"
+      ],
+      "commits": [],
+      "durDefault": 13.600000000000001,
+      "evidence": null,
+      "doc": "SAMPLE → LAND → STACK: every run advances one step per beat in its own place; a failed run stops at its address and stays (persistent trace). The count is natural frequency (\"still going: 812\"), read from the marks."
+    },
+    "failureAddress": {
+      "kind": "pedagogy",
+      "structure": "ENS",
+      "stage": "address",
+      "class": "scaffold",
+      "grade": "C",
+      "layer": "overlay",
+      "levels": [
+        "glance",
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "ens": "Ensemble",
+        "arr": "Arrangement"
+      },
+      "out": {
+        "focus": "Focus"
+      },
+      "arity": 2,
+      "reveals": [],
+      "commits": [],
+      "durDefault": 5,
+      "evidence": null,
+      "doc": "\"The number has an address\" (AD §2): rings three failed runs at an early, a middle and a late step and names each step, then outputs a Focus on the first for an address zoom."
+    },
+    "truthUnderEvidence": {
+      "kind": "pedagogy",
+      "structure": "ENS",
+      "stage": "overlay",
+      "class": "content",
+      "grade": "B",
+      "layer": "stage",
+      "levels": [
+        "glance",
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "ens": "Ensemble",
+        "arr": "Arrangement",
+        "commit": "Commit?"
+      },
+      "out": {
+        "arr": "Arrangement",
+        "n": "Number"
+      },
+      "arity": 2,
+      "reveals": [
+        "count:survival.{world}@{k}"
+      ],
+      "commits": [],
+      "durDefault": 13,
+      "evidence": null,
+      "doc": "RACK (identity kept, units slide to their survival order: the silhouette is the survival curve — the ruler test) → EXACT (the computed curve p^j drawn over the edge) → BAND (expected ± 2 sd at the count edge) → COUNT (realised beside expected, as marks on the edge) → GAP (the committed guess, still on the edge, and the distance to the truth)."
+    },
+    "contrastingTwins": {
+      "kind": "pedagogy",
+      "structure": "TW",
+      "stage": "diff",
+      "class": "content",
+      "grade": "C",
+      "layer": "stage",
+      "levels": [
+        "glance",
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "ens": "Ensemble",
+        "arr": "Arrangement",
+        "mix": "Mix?"
+      },
+      "out": {
+        "arr": "Arrangement",
+        "n": "Number",
+        "saved": "Number"
+      },
+      "arity": 2,
+      "reveals": [
+        "count:survival.on@{k}",
+        "count:saved@{k}"
+      ],
+      "commits": [],
+      "durDefault": 16,
+      "evidence": null,
+      "doc": "RUN-A stays as a ghost edge (onion skin) → RUN-B on the same draws: every run keeps its place, the check marks appear at the old addresses and saved runs carry on → re-rack by the new survival (identity kept) → exact curve for the checked world, realised beside expected, saved count. No side-by-side panels."
+    },
+    "costOfCheck": {
+      "kind": "pedagogy",
+      "structure": "TW",
+      "stage": "cost",
+      "class": "content",
+      "grade": "C",
+      "layer": "overlay",
+      "levels": [
+        "glance",
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "ens": "Ensemble",
+        "arr": "Arrangement"
+      },
+      "out": {
+        "cost": "Cost",
+        "n": "Number"
+      },
+      "arity": 2,
+      "reveals": [
+        "count:redone@{k}",
+        "percent:redone@{k}"
+      ],
+      "commits": [],
+      "durDefault": 9,
+      "evidence": null,
+      "doc": "Every caught slip is a step done twice: one cost mark per redo at its address (from the engine flags), then the count, then the share of extra work. The check’s own review time is named as not counted (no invented unit)."
+    },
+    "correlatedCaveat": {
+      "kind": "pedagogy",
+      "structure": "HON",
+      "stage": null,
+      "class": "honesty",
+      "grade": "C",
+      "layer": "stage",
+      "levels": [
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {
+        "ens": "Ensemble",
+        "arr": "Arrangement"
+      },
+      "out": {},
+      "arity": 2,
+      "reveals": [],
+      "commits": [],
+      "durDefault": 12,
+      "evidence": null,
+      "doc": "Sketch, labelled: a share ρ of runs read one bad shared source at step s*; they all fail there, and a check that reads the same source passes the mistake. The silhouette grows a cliff at s*. Wording per PEDAGOGY-CRIT §3 C: \"checks that read the same source\"."
+    },
+    "transferQuestion": {
+      "kind": "pedagogy",
+      "structure": "TRF",
+      "stage": null,
+      "class": "content",
+      "grade": "B",
+      "layer": "stage",
+      "levels": [
+        "grasp",
+        "wield",
+        "master"
+      ],
+      "in": {},
+      "out": {
+        "commit": "Commit",
+        "n": "Number"
+      },
+      "arity": 0,
+      "reveals": [
+        "count:transfer@{kFar}"
+      ],
+      "commits": [
+        "transfer@{kFar}"
+      ],
+      "durDefault": 19,
+      "evidence": {
+        "structure_id": "TRF",
+        "fields": [
+          "value",
+          "truth",
+          "signed_error",
+          "lever",
+          "model_consistent"
+        ]
+      },
+      "doc": "NEAR is implicit (the film itself); FAR = a new domain with the same multiplicative structure and no mention of agents (MAP §5: expense approval, 14 sign-offs at 97 %, computed 65.3 %). COMMIT in the material, then a fresh engine draw of the far case lands on its own rack with exact curve and realised beside expected. Live page adds the LEVER choice (logged as model_consistent)."
+    },
+    "workedExampleFade": {
+      "kind": "pedagogy",
+      "structure": "WE",
+      "stage": null,
+      "class": "content",
+      "grade": "A",
+      "layer": "stage",
+      "levels": [
+        "grasp",
+        "wield"
+      ],
+      "in": {
+        "ens": "Ensemble"
+      },
+      "out": {},
+      "arity": 1,
+      "reveals": [],
+      "commits": [],
+      "durDefault": 26,
+      "evidence": null,
+      "doc": "FULL: one run drawn large with the running product written at each step (p, p², … computed). GAP1: a new case (params.case2) with the last product left for the viewer, held, then filled. TWO-GAPS: a third case with the last two left blank, then filled. Procedures, not concepts (MAP §4 conflicts)."
+    },
+    "inverseProblemWield": {
+      "kind": "pedagogy",
+      "structure": "INV",
+      "stage": null,
+      "class": "content",
+      "grade": "C",
+      "layer": "stage",
+      "levels": [
+        "wield",
+        "master"
+      ],
+      "in": {},
+      "out": {
+        "commit": "Commit",
+        "n": "Number"
+      },
+      "arity": 0,
+      "reveals": [
+        "count:inverse@{budget}"
+      ],
+      "commits": [
+        "inverse@{budget}"
+      ],
+      "durDefault": 16,
+      "evidence": {
+        "structure_id": "INV",
+        "fields": [
+          "first_move",
+          "n_moves",
+          "final",
+          "value",
+          "truth",
+          "signed_error"
+        ]
+      },
+      "doc": "GOAL (target count) → PLACE (toggles, budget binds; extras ignored in step order) → FORECAST (commit) → RUN (one seeded draw with per-step p, sketch) → GAP, plus the expected count of the viewer’s placement vs the best placement. Non-degenerate by law: per-step p must vary and budget < k (laws.js INV). Logs first_move, n_moves, final placement, forecast error."
+    },
+    "frameFocus": {
+      "kind": "camera",
+      "structure": "CAM",
+      "class": "camera",
+      "layer": "camera",
+      "in": {
+        "focus": "Focus"
+      },
+      "out": {
+        "shot": "Shot"
+      },
+      "arity": 1,
+      "durDefault": 20,
+      "doc": "Frames a focus rect with margin m (default 1.25), optionally placing it at screen point `screenAt` and drifting in by `drift` (1.0 = none) over the shot."
+    },
+    "pullBack": {
+      "kind": "camera",
+      "structure": "CAM",
+      "class": "camera",
+      "layer": "camera",
+      "in": {
+        "focus": "Focus"
+      },
+      "out": {
+        "shot": "Shot"
+      },
+      "arity": 1,
+      "durDefault": 6,
+      "doc": "Log-space dolly (a pull-back feels linear in log z) from the focus framing to the full stage; the frame centre slides at the rate the extent changes, so the focus never leaves the frame."
+    },
+    "crane": {
+      "kind": "camera",
+      "structure": "CAM",
+      "class": "camera",
+      "layer": "camera",
+      "in": {},
+      "out": {
+        "shot": "Shot"
+      },
+      "arity": 0,
+      "durDefault": 4,
+      "doc": "Minimum-jerk (Flash & Hogan) move between two explicit framings {x, y, z}; log-zoom when z changes."
+    },
+    "addressZoom": {
+      "kind": "camera",
+      "structure": "CAM",
+      "class": "camera",
+      "layer": "camera",
+      "in": {
+        "focus": "Focus"
+      },
+      "out": {
+        "shot": "Shot"
+      },
+      "arity": 1,
+      "durDefault": 5,
+      "doc": "Push in on a focus (a failure address) to zoom z (default: frame it), hold, and return to the identity frame. In 25 %, hold 50 %, out 25 % of the shot."
+    },
+    "rackFocus": {
+      "kind": "camera",
+      "structure": "CAM",
+      "class": "camera",
+      "layer": "camera",
+      "in": {},
+      "out": {
+        "mix": "Mix",
+        "shot": "Shot"
+      },
+      "arity": 0,
+      "durDefault": 2,
+      "doc": "Outputs a weight 0 → 1 (eased) for an onion-skin hand-off between two states of one object (e.g. the unchecked world fading to a ghost as the checked one sharpens). Holds the current framing."
+    }
+  },
+  "materials": {
+    "gear": {
+      "title": "Gear — the escapement plate",
+      "source": [
+        "chromes/escapement/escapement.kit.js",
+        "chromes/escapement/NOTES.md"
+      ],
+      "axis": "x",
+      "cell": {
+        "along": 1,
+        "across": 0.55,
+        "maxAcross": 26
+      },
+      "nRange": [
+        1,
+        300
+      ],
+      "ground": "#12161C",
+      "markRule": {
+        "unit": "one involute rack = one run",
+        "step": "one tooth = one step",
+        "address": "a tooth cut short in peach; the rack stops there",
+        "save": "a sage pawl re-engaged the tooth",
+        "cost": "a sage pawl mark per tooth cut twice"
+      },
+      "nouns": {
+        "unit": "rack",
+        "units": "racks",
+        "step": "tooth",
+        "steps": "teeth",
+        "edge": "stepped ends of the racks",
+        "check": "pawl"
+      }
+    },
+    "isotype": {
+      "title": "Isotype — the ledger in motion",
+      "source": [
+        "chromes/ledger/ledger.kit.js",
+        "chromes/ledger/NOTES.md"
+      ],
+      "axis": "x",
+      "cell": {
+        "along": 1.25,
+        "across": 1,
+        "maxAcross": 30
+      },
+      "nRange": [
+        1,
+        120
+      ],
+      "ground": "#171B23",
+      "markRule": {
+        "unit": "one job slip = one run",
+        "step": "one turn along its ruled line",
+        "address": "the slip stops whole on its turn, struck through in peach",
+        "save": "a dog-ear: a checker looked and the job was redone",
+        "cost": "a slate hourglass per redone turn"
+      },
+      "nouns": {
+        "unit": "job slip",
+        "units": "job slips",
+        "step": "turn",
+        "steps": "turns",
+        "edge": "right-hand edge of the slips",
+        "check": "review"
+      }
+    },
+    "maps": {
+      "title": "Maps — marbling on size-water",
+      "source": [
+        "chromes/marbling/marbling.kit.js",
+        "chromes/marbling/NOTES.md"
+      ],
+      "axis": "x",
+      "cell": {
+        "along": 0.9,
+        "across": 1,
+        "maxAcross": 40
+      },
+      "nRange": [
+        1,
+        120
+      ],
+      "ground": "#D2D4CA",
+      "markRule": {
+        "unit": "one tray strip = one run",
+        "step": "one comb pass = one step",
+        "address": "a peach stray drop at its pass, combed by every later pass",
+        "save": "the sage skimmer lifted the drop",
+        "cost": "a sage skim line per pass redone"
+      },
+      "nouns": {
+        "unit": "tray",
+        "units": "trays",
+        "step": "pass",
+        "steps": "passes",
+        "edge": "edge of the combed pattern",
+        "check": "skimmer"
+      }
+    },
+    "pen": {
+      "title": "Pen — the field notebook",
+      "source": [
+        "chromes/margin/margin.kit.js",
+        "chromes/margin/margin.glyphs.js",
+        "chromes/margin/NOTES.md"
+      ],
+      "axis": "x",
+      "cell": {
+        "along": 1.6,
+        "across": 1,
+        "maxAcross": 22
+      },
+      "nRange": [
+        1,
+        100
+      ],
+      "ground": "#DCE4D6",
+      "markRule": {
+        "unit": "one cursive line of loops = one run",
+        "step": "one loop = one step",
+        "address": "the pen lifts mid-loop; a peach-pencil × at the address",
+        "save": "a doubled loop (the retry) ringed in sage pencil",
+        "cost": "a sage pencil tick per loop written twice"
+      },
+      "nouns": {
+        "unit": "line",
+        "units": "lines",
+        "step": "loop",
+        "steps": "loops",
+        "edge": "ragged margin of the lines",
+        "check": "check"
+      }
+    },
+    "plate": {
+      "title": "Plate — cyanotype light table",
+      "source": [
+        "chromes/exposure/exposure.kit.js",
+        "chromes/exposure/NOTES.md"
+      ],
+      "axis": "x",
+      "cell": {
+        "along": 1,
+        "across": 0.12,
+        "maxAcross": 14
+      },
+      "nRange": [
+        1,
+        4000
+      ],
+      "ground": "#0E2C4F",
+      "markRule": {
+        "unit": "thread of light = one run",
+        "step": "a step = one slit along the thread",
+        "address": "the thread stops; a peach dot at the slit",
+        "save": "the thread jogs (retry later) and a sage bead",
+        "cost": "a sage bead per step exposed twice"
+      },
+      "nouns": {
+        "unit": "thread of light",
+        "units": "threads",
+        "step": "slit",
+        "steps": "slits",
+        "edge": "rim of the plate",
+        "check": "catch"
+      }
+    },
+    "sediment": {
+      "title": "Sediment — the delta survey sheet",
+      "source": [
+        "chromes/delta/delta.kit.js",
+        "chromes/delta/NOTES.md"
+      ],
+      "axis": "x",
+      "cell": {
+        "along": 1,
+        "across": 0.16,
+        "maxAcross": 16
+      },
+      "nRange": [
+        1,
+        4000
+      ],
+      "ground": "#3A2D21",
+      "markRule": {
+        "unit": "one grain carried down its own runnel = one run",
+        "step": "one weir = one step",
+        "address": "the grain settles on the bank at the weir where it failed",
+        "save": "a sage braid round the weir",
+        "cost": "a sage grain per weir crossed twice"
+      },
+      "nouns": {
+        "unit": "runnel",
+        "units": "runnels",
+        "step": "weir",
+        "steps": "weirs",
+        "edge": "bank of settled grains",
+        "check": "braid"
+      }
+    },
+    "stitch": {
+      "title": "Stitch — knitted cloth",
+      "source": [
+        "chromes/run/run.kit.js",
+        "chromes/run/shared.film.js"
+      ],
+      "axis": "y",
+      "cell": {
+        "along": 0.72,
+        "across": 1,
+        "maxAcross": 34
+      },
+      "nRange": [
+        1,
+        2500
+      ],
+      "ground": "#2A231E",
+      "markRule": {
+        "unit": "column = one run",
+        "step": "row = one step",
+        "address": "peach slack loop at the dropped row",
+        "save": "sage stitch, re-knit by the hook",
+        "cost": "a sage bead per row knit twice"
+      },
+      "nouns": {
+        "unit": "column",
+        "units": "columns",
+        "step": "row",
+        "steps": "rows",
+        "edge": "hem",
+        "check": "hook"
+      }
+    }
+  },
+  "materialInterface": {
+    "required": [
+      "id",
+      "source",
+      "axis",
+      "cell",
+      "nRange",
+      "ground",
+      "begin",
+      "units",
+      "mark",
+      "line",
+      "area",
+      "text",
+      "num",
+      "anchor",
+      "end",
+      "voice"
+    ],
+    "signatures": {
+      "begin(p, ctx, t, cam)": "→ surface S (ground drawn; camera {x,y,z})",
+      "units(S, items, t)": "items: [{r, x, y, w, h, k, rows, done, failAt, age, caught[], world, alpha, emph, lost}] — the kernel draws run, steps, address, catches in one batch",
+      "mark(S, kind, x, y, o)": "kind ∈ address | save | cost | guess | truth | realised | expected | tick",
+      "line(S, pts, role, o)": "role ∈ exact | rule | guess | gap | ghost | link",
+      "area(S, top, bot, role, o)": "role ∈ band",
+      "text(S, str, x, y, o)": "role ∈ title | head | text | num | note | sketch (guarded: belief + legibility)",
+      "num(S, Number, x, y, o)": "only AM.Number; formatted by the composer (\"expected …\", never \"exact ±\")",
+      "anchor(rect, j, k)": "→ world point of step j on a unit rect (where address/save/cost marks go)",
+      "end(p, S)": "composite and blit once",
+      "voice": "semantic sound events (step, fail, save, reveal, commit, cost) → runtime voices"
+    }
+  },
+  "composition": {
+    "wiring": "node.in.port = \"srcNode.outPort\"; types must match exactly (a trailing ? marks an optional port)",
+    "layers": {
+      "stage": "one owner at a time; keeps drawing its final state until the next stage beat starts; its words fade after its window",
+      "overlay": "drawn only inside its window",
+      "camera": "latest started shot wins; closed form in t",
+      "none": "build-only (engines)"
+    },
+    "schedule": "at = number | \"node.start+x\" | \"node.end-x\"; default = after the previous stage/overlay beat; cameras default to the previous beat's start",
+    "precedence": [
+      {
+        "id": "P1",
+        "text": "PCR ▷ REVEAL: no number of a committed family is shown before that commit closes",
+        "grade": "B",
+        "hard": true,
+        "src": "PEDAGOGY-MAP §4.1 (L1-F, CRIT-d9)"
+      },
+      {
+        "id": "P2",
+        "text": "ENS ▷ NF ▷ percentage: counts after an ensemble; a percentage only after its count",
+        "grade": "A",
+        "hard": true,
+        "src": "PEDAGOGY-MAP §4.2 (L1-K, L3§3)"
+      },
+      {
+        "id": "P3",
+        "text": "CF: concrete ▷ morph ▷ schematic, never reversed, before the first ensemble",
+        "grade": "B",
+        "hard": true,
+        "src": "PEDAGOGY-MAP §4.3 (L1-C)"
+      },
+      {
+        "id": "P4",
+        "text": "WE: FULL ▷ GAP1 ▷ TWO-GAPS ▷ INV/RET on the same procedure",
+        "grade": "A",
+        "hard": true,
+        "src": "PEDAGOGY-MAP §4.4 (L1-B)"
+      },
+      {
+        "id": "P7",
+        "text": "TW needs an ENS upstream (same seed) and a COST beat drawn as a mark after it",
+        "grade": "C",
+        "hard": true,
+        "src": "PEDAGOGY-MAP §4.7 (CRIT§1)"
+      },
+      {
+        "id": "P9",
+        "text": "CAL requires a PCR",
+        "grade": "C",
+        "hard": true,
+        "src": "PEDAGOGY-MAP §4.9"
+      },
+      {
+        "id": "P10",
+        "text": "TRF is the last content beat and its FAR item carries no cue",
+        "grade": "B",
+        "hard": true,
+        "src": "PEDAGOGY-MAP §4.10 (L4-I11)"
+      },
+      {
+        "id": "P11",
+        "text": "PF only at Wield or above",
+        "grade": "B",
+        "hard": true,
+        "src": "PEDAGOGY-MAP §4.11 (L1-E)"
+      },
+      {
+        "id": "P12",
+        "text": "INV after PCR and TW",
+        "grade": "inf",
+        "hard": false,
+        "src": "PEDAGOGY-MAP §4.12 [inf]"
+      }
+    ],
+    "maxima": {
+      "glance": 2,
+      "grasp": 4,
+      "wield": "3 + 1 priming",
+      "master": 5,
+      "oneEach": [
+        "INV",
+        "PF",
+        "REF",
+        "NAR"
+      ],
+      "pcr": "≤2 on distinct quantities",
+      "grade": "inf (soft; waiver required)"
+    }
+  },
+  "laws": [
+    {
+      "id": "TYPE",
+      "hard": true,
+      "grade": "—",
+      "src": "studio operad §4.1 (typing)",
+      "text": "every input port is wired to an output port of the same type; required ports are wired"
+    },
+    {
+      "id": "SEED",
+      "hard": true,
+      "grade": "C",
+      "src": "AD-v1 §0.2; PEDAGOGY-MAP §4.7",
+      "text": "twin worlds and their ensemble come from the same engine node (same seed, common random numbers)"
+    },
+    {
+      "id": "P1",
+      "hard": true,
+      "grade": "B",
+      "src": "PEDAGOGY-MAP §4.1 (L1-F, CRIT-d9)",
+      "text": "PCR ▷ REVEAL: no number of a committed family is shown before that commit closes"
+    },
+    {
+      "id": "P2",
+      "hard": true,
+      "grade": "A",
+      "src": "PEDAGOGY-MAP §4.2 (L1-K, L3§3)",
+      "text": "ENS ▷ NF ▷ percentage: counts after an ensemble; a percentage only after its count"
+    },
+    {
+      "id": "P3",
+      "hard": true,
+      "grade": "B",
+      "src": "PEDAGOGY-MAP §4.3 (L1-C)",
+      "text": "CF: concrete ▷ morph ▷ schematic, never reversed, before the first ensemble"
+    },
+    {
+      "id": "P4",
+      "hard": true,
+      "grade": "A",
+      "src": "PEDAGOGY-MAP §4.4 (L1-B)",
+      "text": "WE: FULL ▷ GAP1 ▷ TWO-GAPS ▷ INV/RET on the same procedure"
+    },
+    {
+      "id": "P7",
+      "hard": true,
+      "grade": "C",
+      "src": "PEDAGOGY-MAP §4.7 (CRIT§1)",
+      "text": "TW needs an ENS upstream (same seed) and a COST beat drawn as a mark after it"
+    },
+    {
+      "id": "P9",
+      "hard": true,
+      "grade": "C",
+      "src": "PEDAGOGY-MAP §4.9",
+      "text": "CAL requires a PCR"
+    },
+    {
+      "id": "P10",
+      "hard": true,
+      "grade": "B",
+      "src": "PEDAGOGY-MAP §4.10 (L4-I11)",
+      "text": "TRF is the last content beat and its FAR item carries no cue"
+    },
+    {
+      "id": "P11",
+      "hard": true,
+      "grade": "B",
+      "src": "PEDAGOGY-MAP §4.11 (L1-E)",
+      "text": "PF only at Wield or above"
+    },
+    {
+      "id": "P12",
+      "hard": false,
+      "grade": "inf",
+      "src": "PEDAGOGY-MAP §4.12 [inf]",
+      "text": "INV after PCR and TW"
+    },
+    {
+      "id": "MAX",
+      "hard": false,
+      "grade": "inf",
+      "src": "PEDAGOGY-MAP §4 maximums [inf]",
+      "text": "content structures per film: glance ≤2, grasp ≤4, wield ≤3(+1 priming), master ≤5; ≤1 each INV/PF/REF/NAR; PCR ≤2 on distinct quantities"
+    },
+    {
+      "id": "CAP",
+      "hard": true,
+      "grade": "—",
+      "src": "INTERVIEW F7; each kernel's legible N",
+      "text": "the ensemble size N lies inside the material's nRange"
+    },
+    {
+      "id": "INV",
+      "hard": true,
+      "grade": "C",
+      "src": "PEDAGOGY-MAP §2 INV; PEDAGOGY-CRIT defect 10",
+      "text": "an inverse task is non-degenerate: per-step p varies and the budget binds"
+    },
+    {
+      "id": "CLOCK",
+      "hard": true,
+      "when": "static + gate",
+      "grade": "—",
+      "src": "runtime README clock law",
+      "text": "module, material and camera code never reads a clock or an impure RNG"
+    },
+    {
+      "id": "HOUSE",
+      "hard": true,
+      "grade": "—",
+      "src": "JUROR §2 batch test; INTERVIEW F2",
+      "text": "pedagogy and camera modules never draw: every mark goes through the film's one Material"
+    },
+    {
+      "id": "BELIEF",
+      "hard": true,
+      "when": "runtime",
+      "grade": "—",
+      "src": "AD-v1 §1; runtime README",
+      "text": "every result on screen is a typed Number (engine | marks); other digits are declared given or sketch"
+    },
+    {
+      "id": "LEGIBLE",
+      "hard": true,
+      "when": "runtime",
+      "grade": "—",
+      "src": "PEDAGOGY-CRIT §4; REVISE",
+      "text": "must-read text ≥ 14 px; the smallest type never carries a result or an honesty beat"
+    }
+  ]
+}

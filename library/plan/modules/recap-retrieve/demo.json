@@ -1,0 +1,107 @@
+{
+  "demos": [
+    {
+      "meta": {
+        "id": "recap-retrieve-typesafe", "short": "AI · type-safe recap", "demo": true,
+        "title": "recap-retrieve · type-safe AI", "chrome": "dark", "level": "novice", "vo": false,
+        "eyebrow": "Explainer modules · recap-retrieve · 1 of 2",
+        "titleHTML": "Answer it <em>before</em> the film does",
+        "lede": "The last teaching beat of a film: one retrieval question about content from earlier, a pause, the answer read off the film’s own object, a recap in pictures, and a return to the opening case.",
+        "synthTitle": "What the module carries",
+        "synthesis": "The answer is never typed in: it is counted off the persistent object (2,000 × 0.99¹⁰, junction by junction). The recap is three small drawings of earlier frames, not a list. The return re-runs the opening instance, Marisol’s invoice, with the new model applied.",
+        "sources": [["RK06", "Roediger & Karpicke 2006 — test-enhanced learning", "https://doi.org/10.1111/j.1467-9280.2006.01693.x"], ["SB", "films/typesafe — the opening case and the compounding chapter", "../../../films/typesafe/STORYBOARD.md"]]
+      },
+      "type": { "primary": "T4", "secondary": "T1" },
+      "roles": { "answer": "machine", "card": "person", "neutralMark": "neutral", "returnInstance": "allowed" },
+      "po": { "kind": "chain", "id": "runs", "layout": "line", "k": 10, "x0": 120, "x1": 880, "y": 316 },
+      "example": { "runs": 2000, "rate": 0.99, "steps": 10 },
+      "given": { "flags": ["gap", "parts", "instance", "rule", "magnitude"], "contentAt": -40 },
+      "modules": [
+        {
+          "use": "recap-retrieve",
+          "head": { "eyebrow": "RECAP-RETRIEVE · TYPE-SAFE AI", "title": "One question, then the way back", "chapter": "Recap" },
+          "params": {
+            "question": "At 0.99 per step, how many of 2,000 runs arrive after 10 steps?",
+            "answerKind": "number",
+            "model": { "N0": "@example.runs", "r": "@example.rate", "k": "@example.steps" },
+            "recap": [
+              { "glyph": "fan", "line": "the mask closes the off-schema tracks" },
+              { "glyph": "staircase", "line": "errors multiply: 0.95¹⁰ is about 60 %" },
+              { "glyph": "check", "line": "a type checks the shape, not the facts" }
+            ],
+            "returnLines": [
+              { "text": "\"customer\": \"Marisol Ortega\"", "ok": true }, { "text": "\"amount\": 1200.00", "ok": true },
+              { "text": "\"currency\": \"USD\"", "ok": true }, { "text": "\"due\": \"2026-11-15\"", "ok": true }
+            ],
+            "eyebrow": "RETRIEVE · FROM THE COMPOUNDING CHAPTER",
+            "figure": { "rate": "×0.99 AT EVERY STEP", "end": "ARRIVE", "returnEyebrow": "THE OPENING CASE · CONSTRAINED" },
+            "foot": {
+              "ask": "retrieval first: answer before the film does",
+              "answer": "{answer} of 2,000 arrive, {share}: 0.99¹⁰ ≈ 0.904",
+              "recap": "three frames from earlier, as pictures",
+              "return": "Marisol’s invoice again: constrained, every field well-typed"
+            }
+          },
+          "captions": {
+            "ask": "One question about the compounding chapter. Pause and answer it.",
+            "answer": "Count it off the chain: 2,000 at 0.99 per step leaves 1,809.",
+            "hold": "About 90 %: a better rate per step, still compounding.",
+            "recap": "Three things to keep: the mask, the staircase, the shape check.",
+            "return": "And the opening invoice, now constrained: every field well-typed."
+          }
+        }
+      ]
+    },
+    {
+      "meta": {
+        "id": "recap-retrieve-anchoring", "short": "Behavioural · anchoring", "demo": true,
+        "title": "recap-retrieve · anchoring", "chrome": "notebook", "level": "novice", "vo": false,
+        "eyebrow": "Explainer modules · recap-retrieve · 2 of 2",
+        "titleHTML": "Which <em>pile</em> was it?",
+        "lede": "A retrieval question about Kahneman’s wheel of fortune: rigged to stop at 10 or 65, it moved people’s estimates of a fact. The answer is read off the piles; the return puts both piles back side by side.",
+        "synthTitle": "What the module carries",
+        "synthesis": "Asked after a delay, the question forces recall instead of recognition. The answer comes from the persistent object (the pile under the 10), the recap is three small drawings, and the return shows both piles again: same question, same facts, a 20-point difference.",
+        "sources": [["K11", "Kahneman, Thinking, Fast and Slow, ch. 11 (Anchors)", "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow"], ["TK74", "Tversky & Kahneman 1974 — Judgment under Uncertainty", "https://doi.org/10.1126/science.185.4157.1124"]]
+      },
+      "type": { "primary": "T8", "secondary": "T5" },
+      "roles": { "answer": "machine", "card": "person", "neutralMark": "neutral", "returnInstance": "person" },
+      "po": { "kind": "axis", "id": "estimates", "x": { "min": 0, "max": 100, "label": "% OF UN MEMBERS THAT ARE AFRICAN" }, "box": { "x0": 100, "x1": 860, "y0": 232, "y1": 400 } },
+      "example": { "low": { "anchor": 10, "mean": 25, "n": 26, "sd": 6 }, "high": { "anchor": 65, "mean": 45, "n": 26, "sd": 7 }, "asked": 10 },
+      "given": { "flags": ["gap", "parts", "instance", "rule"], "contentAt": -45 },
+      "modules": [
+        {
+          "use": "recap-retrieve",
+          "head": { "eyebrow": "FIELD NOTEBOOK · RECAP-RETRIEVE · KAHNEMAN CH. 11", "title": "Which pile was it?", "chapter": "Recap" },
+          "params": {
+            "question": "The wheel stopped at 10. Which mean did that group give: 25 % or 45 %?",
+            "answerKind": "choice", "options": ["25 %", "45 %"],
+            "model": { "groups": ["@example.low", "@example.high"], "ask": "@example.asked" },
+            "recap": [
+              { "glyph": "wheel", "line": "a number with no meaning came first" },
+              { "glyph": "piles", "line": "the estimates settled near it" },
+              { "glyph": "arrow", "line": "we adjust away from it, and stop too soon" }
+            ],
+            "returnLines": ["Wheel at 10, a mean of 25 %. Wheel at 65, a mean of 45 %.", "Same question, same facts: only the anchor changed."],
+            "returnFigure": true,
+            "eyebrow": "RETRIEVE · FROM THE WHEEL, EARLIER",
+            "figure": { "returnEyebrow": "BOTH GROUPS, SIDE BY SIDE" },
+            "foot": {
+              "ask": "pause and answer · the wheel was a while ago",
+              "answer": "the group that saw 10 guessed {answer} on average",
+              "recap": "three frames from earlier, as pictures",
+              "return": "the anchor moved the average by 20 points"
+            },
+            "notes": ["the dots are an illustrative spread around the published means (Kahneman ch. 11)"]
+          },
+          "captions": {
+            "ask": "Before the recap, one question. Pause and answer it.",
+            "answer": "Read it off the piles: the group that saw 10 said 25 % on average.",
+            "hold": "A meaningless number, and the estimates followed it.",
+            "recap": "Three things to keep: the wheel, the piles, the short adjustment.",
+            "return": "Both groups again: same question, same facts, 20 points apart."
+          }
+        }
+      ]
+    }
+  ]
+}

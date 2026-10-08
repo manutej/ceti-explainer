@@ -1,0 +1,438 @@
+{
+ "demos": [
+  {
+   "meta": {
+    "id": "contrast-schemas",
+    "short": "AI · two schemas",
+    "demo": true,
+    "title": "contrast-split · two schemas",
+    "chrome": "dark",
+    "level": "novice",
+    "vo": false,
+    "eyebrow": "Explainer modules · contrast-split · 1 of 2",
+    "titleHTML": "Same odds, <em>two</em> schemas",
+    "lede": "One junction, one seed, two schemas: the left keeps four currencies, the right keeps two. Only the kept set differs, and USD’s share follows it.",
+    "synthTitle": "What the combinator carries",
+    "synthesis": "Both halves are the same module with exactly one parameter changed (audited). The flip is a continuous wipe over identical marks; the mirror control swaps the halves and no counted number changes.",
+    "sources": [
+     [
+      "SB M3",
+      "films/typesafe — the switchyard throat",
+      "../../../films/typesafe/STORYBOARD.md"
+     ],
+     [
+      "S2/S3",
+      "Outlines · XGrammar — masks precomputed per grammar state",
+      "https://arxiv.org/abs/2411.15100"
+     ]
+    ]
+   },
+   "type": {
+    "primary": "T2",
+    "secondary": "T5"
+   },
+   "roles": {
+    "mass": "neutral",
+    "kept": "machine",
+    "dropped": "neutral",
+    "answer": "allowed",
+    "guess": "person",
+    "gapMark": "error",
+    "closeMark": "remedy",
+    "wrongModel": "person",
+    "tie": "neutral",
+    "principle": "remedy"
+   },
+   "po": {
+    "kind": "track",
+    "id": "junction",
+    "n": 8,
+    "context": "{\"customer\": \"Marisol Ortega\", \"amount\": 1200.00, \"currency\": \""
+   },
+   "example": {
+    "marks": 1000,
+    "draw": 0.55,
+    "bins": [
+     {
+      "id": "USD",
+      "label": "USD",
+      "p": 0.42
+     },
+     {
+      "id": "dollar-sign",
+      "label": "$",
+      "p": 0.18
+     },
+     {
+      "id": "dollars",
+      "label": "dollars",
+      "p": 0.12
+     },
+     {
+      "id": "US",
+      "label": "US",
+      "p": 0.09
+     },
+     {
+      "id": "EUR",
+      "label": "EUR",
+      "p": 0.07
+     },
+     {
+      "id": "usd",
+      "label": "usd",
+      "p": 0.05
+     },
+     {
+      "id": "MXN",
+      "label": "MXN",
+      "p": 0.04
+     },
+     {
+      "id": "quote",
+      "label": "\"",
+      "p": 0.03
+     }
+    ],
+    "keepA": [
+     "USD",
+     "US",
+     "EUR",
+     "MXN"
+    ],
+    "keepB": [
+     "USD",
+     "EUR"
+    ],
+    "unmasked": 0.42
+   },
+   "given": {
+    "flags": [
+     "gap",
+     "parts",
+     "instance"
+    ]
+   },
+   "modules": [
+    {
+     "use": "contrast-split",
+     "head": {
+      "eyebrow": "CONTRAST-SPLIT · CONSTRAINED DECODING",
+      "title": "Same odds, two schemas",
+      "chapter": "Two schemas"
+     },
+     "params": {
+      "vary": {
+       "param": "keep",
+       "b": "@example.keepB",
+       "tagA": "SCHEMA A · USD US EUR MXN",
+       "tagB": "SCHEMA B · USD EUR"
+      },
+      "read": {
+       "fn": "answer",
+       "args": [
+        true
+       ]
+      },
+      "scale": 100,
+      "unit": " %",
+      "box": {
+       "x0": 50,
+       "y0": 110,
+       "x1": 930,
+       "y1": 470
+      },
+      "top": 160,
+      "align": {
+       "at": {
+        "x": 250,
+        "y": 293
+       },
+       "line": "same model, same odds"
+      },
+      "differ": {
+       "at": {
+        "x": 893,
+        "y": 158
+       },
+       "w": 70,
+       "h": 34,
+       "line": "one change, the kept set: USD {left} or {right}"
+      },
+      "principle": {
+       "term": "the kept set is the denominator",
+       "line": "p′ = p ÷ Σ kept"
+      }
+     },
+     "inner": {
+      "use": "mass-reseat",
+      "params": {
+       "variant": "renormalize",
+       "N": "@example.marks",
+       "u": "@example.draw",
+       "focus": "USD",
+       "bins": "@example.bins",
+       "keep": "@example.keepA",
+       "means": "each mark is 1/1,000 of the probability mass",
+       "foot": {
+        "queue": "each mark is 1/1,000 of the model’s odds · illustrative logits",
+        "close": "the schema closes {dropped} tracks · together they held {droppedPct}",
+        "reseat": "their marks ride back through the junction to the {kept} open tracks",
+        "count": "p′ = p ÷ {mass} · ratios kept"
+       },
+       "principle": {
+        "term": "renormalise",
+        "line": "p′ = p ÷ Σ kept"
+       },
+       "control": {
+        "label": "Constrain",
+        "question": "Mask off: which token does the same draw take?",
+        "on": "mask on",
+        "off": "mask off"
+       }
+      }
+     },
+     "captions": {
+      "clone": "Split the junction in two. Same model, same odds, same seed.",
+      "flip": "Change one thing on the right: a stricter schema.",
+      "a.close": "Each schema closes its own tracks.",
+      "a.reseat": "The closed weight re-seats on what each schema keeps.",
+      "a.count": "USD: 0.677 on the left, 0.857 on the right.",
+      "a.hold": "Same odds, different denominators.",
+      "a.name": "Each kept p is divided by its own kept mass.",
+      "align": "What is the same: the model and its odds.",
+      "differ": "What differs: only the kept set.",
+      "name": "The kept set is the denominator."
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "id": "contrast-cities",
+    "short": "Behavioural · two cities",
+    "demo": true,
+    "title": "contrast-split · two cities",
+    "chrome": "notebook",
+    "level": "novice",
+    "vo": false,
+    "eyebrow": "Explainer modules · contrast-split · 2 of 2",
+    "titleHTML": "Two cities, <em>one</em> witness",
+    "lede": "The same witness in two cities: 15 % Blue on the left, half Blue on the right. Only the base rate differs, and the answer moves from 41 % to 80 %.",
+    "synthTitle": "What the combinator carries",
+    "synthesis": "80 % is the right answer only in a city that is half Blue: base-rate neglect is answering as if every city were. City B is hypothetical.",
+    "sources": [
+     [
+      "K16",
+      "Kahneman, Thinking, Fast and Slow, ch. 16 (Causes Trump Statistics)",
+      "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow"
+     ]
+    ]
+   },
+   "type": {
+    "primary": "T5",
+    "secondary": "T8"
+   },
+   "roles": {
+    "blueCab": "shape:filled",
+    "greenCab": "shape:hollow",
+    "mass": "neutral",
+    "dropped": "neutral",
+    "rung": "neutral",
+    "tie": "neutral",
+    "neutralMark": "neutral",
+    "witness": "person",
+    "kept": "person",
+    "evidence": "person",
+    "guess": "person",
+    "wrongModel": "person",
+    "card": "person",
+    "answer": "machine",
+    "gapMark": "error",
+    "closeMark": "remedy",
+    "principle": "remedy",
+    "returnInstance": "remedy"
+   },
+   "po": {
+    "kind": "grid",
+    "id": "city",
+    "n": 1000,
+    "cols": 40,
+    "pitch": 7.5,
+    "x0": 230,
+    "y0": 176,
+    "label": "A cab hit someone at night. A witness says it was Blue."
+   },
+   "example": {
+    "cabs": 1000,
+    "blue": 150,
+    "reliability": 0.8,
+    "lowBase": 0.05,
+    "cityBins": [
+     {
+      "id": "blue-saysBlue",
+      "label": "Blue, called Blue",
+      "short": "Blue",
+      "p": 0.12,
+      "group": "blueCab"
+     },
+     {
+      "id": "blue-saysGreen",
+      "label": "Blue, called Green",
+      "p": 0.03,
+      "group": "blueCab"
+     },
+     {
+      "id": "green-saysBlue",
+      "label": "Green, called Blue",
+      "p": 0.17,
+      "group": "greenCab"
+     },
+     {
+      "id": "green-saysGreen",
+      "label": "Green, called Green",
+      "p": 0.68,
+      "group": "greenCab"
+     }
+    ],
+    "evenBins": [
+     {
+      "id": "blue-saysBlue",
+      "label": "Blue, called Blue",
+      "short": "Blue",
+      "p": 0.4,
+      "group": "blueCab"
+     },
+     {
+      "id": "blue-saysGreen",
+      "label": "Blue, called Green",
+      "p": 0.1,
+      "group": "blueCab"
+     },
+     {
+      "id": "green-saysBlue",
+      "label": "Green, called Blue",
+      "p": 0.1,
+      "group": "greenCab"
+     },
+     {
+      "id": "green-saysGreen",
+      "label": "Green, called Green",
+      "p": 0.4,
+      "group": "greenCab"
+     }
+    ]
+   },
+   "given": {
+    "flags": [
+     "gap",
+     "parts",
+     "instance"
+    ]
+   },
+   "modules": [
+    {
+     "use": "contrast-split",
+     "head": {
+      "eyebrow": "FIELD NOTEBOOK · CONTRAST-SPLIT",
+      "title": "Two cities, one witness",
+      "chapter": "Two cities"
+     },
+     "params": {
+      "vary": {
+       "param": "bins",
+       "b": "@example.evenBins",
+       "tagA": "CITY A · 15 % OF CABS ARE BLUE",
+       "tagB": "CITY B · HALF THE CABS ARE BLUE"
+      },
+      "read": {
+       "fn": "answer",
+       "args": [
+        true
+       ]
+      },
+      "scale": 100,
+      "unit": " %",
+      "pace": 1.4,
+      "startPhase": 1,
+      "box": {
+       "x0": 210,
+       "y0": 140,
+       "x1": 930,
+       "y1": 500
+      },
+      "top": 172,
+      "align": {
+       "at": {
+        "x": 776,
+        "y": 206
+       },
+       "line": "same witness · same count"
+      },
+      "differ": {
+       "at": {
+        "x": 862,
+        "y": 296
+       },
+       "w": 132,
+       "h": 86,
+       "line": "one change, the base rate: {left} or {right}"
+      },
+      "principle": {
+       "term": "base-rate neglect",
+       "line": "answering as if the city were half Blue"
+      },
+      "notes": [
+       "City B is hypothetical: the textbook’s city is 15 % Blue"
+      ]
+     },
+     "inner": {
+      "use": "mass-reseat",
+      "params": {
+       "variant": "condition",
+       "N": "@example.cabs",
+       "focus": "blue-saysBlue",
+       "bins": "@example.cityBins",
+       "keep": [
+        "blue-saysBlue",
+        "green-saysBlue"
+       ],
+       "means": "each mark is one cab",
+       "legend": [
+        {
+         "group": "blueCab",
+         "label": "{n} Blue"
+        },
+        {
+         "group": "greenCab",
+         "label": "{n} Green"
+        }
+       ],
+       "keepLabel": "she would say Blue",
+       "answerLabel": "Blue, given “Blue”",
+       "foot": {
+        "count": "{focusN} of {keptN} called Blue are Blue"
+       },
+       "principle": {
+        "term": "the base rate",
+        "line": "the denominator decides"
+       }
+      }
+     },
+     "captions": {
+      "clone": "Split the city in two. Keep the witness exactly the same.",
+      "flip": "Change one thing on the right: a city where half the cabs are Blue.",
+      "a.close": "Test her on every cab, in both cities at once.",
+      "a.reseat": "Gather every cab she would call Blue.",
+      "a.count": "Left: 120 of 290. Right: 400 of 500.",
+      "a.hold": "Same witness, same 80 %, very different answers.",
+      "a.name": "In each city, the denominator is the cabs she would call Blue.",
+      "align": "What is the same: the witness, and the way we count.",
+      "differ": "What differs: only the base rate. 41 % in one city, 80 % in the other.",
+      "name": "80 % is the right answer only in a city that is half Blue. That is the neglect."
+     }
+    }
+   ]
+  }
+ ]
+}
