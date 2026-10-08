@@ -1,6 +1,6 @@
 #!/bin/sh
 # tests/proofs.sh — the six "builds from the repo" proofs of the merge (MERGE-NOTES.md). Run from anywhere:
-#   sh tests/proofs.sh [i|ii|iii|iv|v|vi|all]   (default all; exit 1 on the first failure)
+#   sh tests/proofs.sh [i|ii|iii|iv|v|vi|vii|all]   (default all; exit 1 on the first failure)
 # Needs: Python 3.10+ with scripts/requirements.txt, Node 18+, a Playwright Chromium (proof i; set PLAYWRIGHT_BROWSERS_PATH).
 set -e
 ROOT=$(cd "$(dirname "$0")/.." && pwd); cd "$ROOT"
@@ -44,5 +44,13 @@ if run vi; then
     grep -E '^ *VERDICT' "$d/build/$id.gate.log" | sed "s/^ */   $id: /"
   done
   python3 factory/tools/catalogue.py --check
+fi
+if run vii; then
+  echo "== (vii) arsenal: brand packs pass contrast; every demo shoots clean with identical re-seek"
+  for b in arsenal/brands/*.json; do [ "$(basename $b)" = schema.json ] && continue; python3 arsenal/tools/brand_check.py "$b" | tail -1; done
+  for d in arsenal/patterns/*/demo.html arsenal/materials/*/demo.html; do
+    node arsenal/tools/shoot.mjs "$d" --out /tmp/arsenal-shoot/$(basename $(dirname $d)) --times 0,0.5 | grep -q '"errors":0' || { echo "FAIL $d"; exit 1; }
+  done
+  echo "arsenal demos: OK"
 fi
 echo "== proofs: OK"
