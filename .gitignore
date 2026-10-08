@@ -1,0 +1,25 @@
+# Build outputs: rebuilt from sources, never committed (the built films live in a separate films repo).
+**/build/
+**/out/*
+!**/out/*.json
+**/_npm/
+node_modules/
+__pycache__/
+*.pyc
+*.mp4
+*.wav
+*.srt
+*.artifact.html
+scratch/
+renders/
+.cetix-cache/
+.DS_Store
+__MACOSX/
+
+# Built pages (<id>.html). Hand-authored pages and fixtures stay tracked.
+*.html
+!notebooks/*.html
+!notebooks/**/*.html
+!tests/fixtures/**
+!skills/**/*.template.html
+!skills/ceti-explainer/reference/longform/*.html

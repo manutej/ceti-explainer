@@ -1,0 +1,8 @@
+{
+  "name": "ceti-explainer-atelier",
+  "version": "0.2.0",
+  "description": "CETI explainer studio: the SVG episode engine, the p5 film tier (Explainer Atelier runtime, eight chromes, the AM module operad and materials), the plan-compiled explainer library, and the p5 studio skills, in one plugin with vendored p5 2.3.4 and fonts.",
+  "author": { "name": "CETI.AI" },
+  "license": "SEE LICENSES",
+  "keywords": ["explainer", "p5", "svg", "animation", "pedagogy"]
+}
