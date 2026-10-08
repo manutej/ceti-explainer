@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/particles-text/demo.html",
+ "errors": [],
+ "variants": {
+  "word-chain": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/word-chain-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/word-chain-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/word-chain-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/word-chain-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "count-1000": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/count-1000-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/count-1000-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/count-1000-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/count-1000-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ring-to-headline": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/ring-to-headline-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/ring-to-headline-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/ring-to-headline-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/ring-to-headline-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "line-outline": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/line-outline-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/line-outline-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/line-outline-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/line-outline-t8.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 5.1,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/particles-text/shots/contact.png"
+}
