@@ -1,0 +1,634 @@
+{
+ "id": "sample-size",
+ "title": "Sample size and margin of error",
+ "params": {
+  "z": 1.96,
+  "p0": 0.5,
+  "n30": 30,
+  "n100": 100,
+  "n1000": 1000,
+  "yesHook": 18,
+  "popN": 1000,
+  "popYes": 500,
+  "popSeed": 36,
+  "seed30": 10227,
+  "seed1000": 14,
+  "nSurveys": 20,
+  "surveys30": [
+   18,
+   11,
+   11,
+   17,
+   18,
+   20,
+   10,
+   16,
+   17,
+   13,
+   14,
+   14,
+   13,
+   18,
+   15,
+   13,
+   15,
+   14,
+   14,
+   15
+  ],
+  "surveys1000": [
+   496,
+   491,
+   518,
+   527,
+   523,
+   514,
+   519,
+   503,
+   499,
+   508,
+   504,
+   474,
+   494,
+   491,
+   500,
+   482,
+   514,
+   488,
+   518,
+   502
+  ],
+  "year": 1936,
+  "mailed": 10000000,
+  "returned": 2376523,
+  "landonD": 1293669,
+  "fdrD": 972897,
+  "gallupN": 50000,
+  "gallupDigestN": 3000,
+  "gallupFDR": 56,
+  "fdrShareAll": 60.8,
+  "defaultGuess": 55
+ },
+ "sources": [
+  {
+   "id": "S1",
+   "cite": "Squire, Peverill (1988). \"Why the 1936 Literary Digest Poll Failed.\" Public Opinion Quarterly 52(1): 125–133. doi:10.1086/269085"
+  },
+  {
+   "id": "S2",
+   "cite": "Lusinchi, Dominic (2012). \"'President' Landon and the 1936 Literary Digest Poll: Were Automobile and Telephone Owners to Blame?\" Social Science History 36(1): 23–54. doi:10.1215/01455532-1461650"
+  },
+  {
+   "id": "S3",
+   "cite": "Lohr, Sharon L. and J. Michael Brick (2017). \"Roosevelt Predicted to Win: Revisiting the 1936 Literary Digest Poll.\" Statistics, Politics and Policy 8(1): 65–84. doi:10.1515/spp-2016-0006"
+  },
+  {
+   "id": "S4",
+   "cite": "Freedman, David, Robert Pisani and Roger Purves (2007). Statistics, 4th ed. New York: W. W. Norton. Ch. 19 (the 1936 table: Digest 43, Gallup 56, sample sizes 2.4 million / 50,000 / 3,000) and Ch. 20–21 (standard error and confidence interval for a percentage, SE = √(p(1−p)/n), 95 % ≈ ±2 SE; 1.96 used here)"
+  },
+  {
+   "id": "S5",
+   "cite": "\"Landon, 1,293,669; Roosevelt, 972,897.\" The Literary Digest, 31 October 1936; reproduced by History Matters, George Mason University, https://historymatters.gmu.edu/d/5168/"
+  },
+  {
+   "id": "S6",
+   "cite": "1936 United States presidential election, official returns: Roosevelt 60.8 %, Landon 36.5 %, electoral votes 523 to 8 (Office of the Clerk, U.S. House of Representatives, Statistics of the Presidential and Congressional Election of November 3, 1936; as summarised in Encyclopaedia Britannica, \"United States presidential election of 1936\"). Gallup final 55.7 % vs 60.8 %: \"The Gallup scorecard,\" Christian Science Monitor, 30 Oct 1980"
+  },
+  {
+   "id": "S7",
+   "cite": "Wilson, Edwin B. (1927). \"Probable Inference, the Law of Succession, and Statistical Inference.\" Journal of the American Statistical Association 22(158): 209–212. doi:10.1080/01621459.1927.10502953"
+  },
+  {
+   "id": "S8",
+   "cite": "Constructed teaching object (this film): a 1,000-customer market with exactly 500 yes, laid out by a mulberry32 shuffle (seed 36); 20 surveys of 30 (seed 10227) and 20 of 1,000 (seed 14), each response an independent draw with replacement from the 1,000 marks. The hook survey (18 of 30) is survey 1 of this draw."
+  }
+ ],
+ "claims": [
+  {
+   "id": "hook.n",
+   "text": "Thirty customers answered the survey",
+   "value": 30,
+   "formula": "n30",
+   "params": [
+    "n30"
+   ],
+   "source": "S8",
+   "where": "HOOK row of 30 marks; caption 2; COMMIT prompt"
+  },
+  {
+   "id": "hook.yes",
+   "text": "Eighteen of the thirty said yes",
+   "value": 18,
+   "formula": "yesHook",
+   "params": [
+    "yesHook"
+   ],
+   "source": "S8",
+   "where": "HOOK tally \"18 of 30\"; caption 2 (\"Eighteen\"); COMMIT prompt; COUNT placement row"
+  },
+  {
+   "id": "hook.pct",
+   "text": "The survey says 60 % want it",
+   "value": 60,
+   "formula": "Math.round(100*yesHook/n30)",
+   "params": [
+    "yesHook",
+    "n30"
+   ],
+   "source": "S8",
+   "where": "HOOK headline \"60 %\"; caption 1; COMMIT prompt"
+  },
+  {
+   "id": "hook.isSurvey1",
+   "text": "The hook survey is survey 1 of the seeded draw (18 of 30)",
+   "value": 18,
+   "formula": "(function(){function mb(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}}var P=[],i,j,s,k,y,x;for(i=0;i<popN;i++)P.push(i<popYes?1:0);var r=mb(popSeed);for(i=popN-1;i>0;i--){j=Math.floor(r()*(i+1));x=P[i];P[i]=P[j];P[j]=x;}function run(seed,n){var q=mb(seed),o=[];for(s=0;s<nSurveys;s++){y=0;for(k=0;k<n;k++)y+=P[Math.floor(q()*popN)];o.push(y);}return o;}return {s30:run(seed30,n30),s1000:run(seed1000,n1000)};})().s30[0]",
+   "params": [
+    "popN",
+    "popYes",
+    "popSeed",
+    "seed30",
+    "seed1000",
+    "nSurveys",
+    "n30",
+    "n1000"
+   ],
+   "source": "S8",
+   "where": "HOOK row order = survey 1 draw order; COUNT survey 1"
+  },
+  {
+   "id": "commit.default",
+   "text": "Film-mode default guess for \"as low as ?\"",
+   "value": 55,
+   "formula": "defaultGuess",
+   "params": [
+    "defaultGuess"
+   ],
+   "source": "S8",
+   "where": "COMMIT box (film mode only); COUNT \"YOU 55 %\" marker in film mode"
+  },
+  {
+   "id": "case.year",
+   "text": "The election year",
+   "value": 1936,
+   "formula": "year",
+   "params": [
+    "year"
+   ],
+   "source": "S5",
+   "where": "caption 4"
+  },
+  {
+   "id": "case.mailed",
+   "text": "The Literary Digest mailed 10,000,000 ballots",
+   "value": 10000000,
+   "formula": "mailed",
+   "params": [
+    "mailed"
+   ],
+   "source": "S3",
+   "where": "CASE bar 1 label \"10,000,000 MAILED\""
+  },
+  {
+   "id": "case.mailedM",
+   "text": "10 million ballots mailed",
+   "value": 10,
+   "formula": "mailed/1e6",
+   "params": [
+    "mailed"
+   ],
+   "source": "S3",
+   "where": "caption 4 (\"10 million\")"
+  },
+  {
+   "id": "case.returned",
+   "text": "2,376,523 ballots came back",
+   "value": 2376523,
+   "formula": "returned",
+   "params": [
+    "returned"
+   ],
+   "source": "S5",
+   "where": "CASE bar 2 label \"2,376,523 RETURNED\""
+  },
+  {
+   "id": "case.returnedM",
+   "text": "About 2.4 million came back",
+   "value": 2.4,
+   "formula": "Math.round(returned/1e5)/10",
+   "params": [
+    "returned"
+   ],
+   "source": "S3",
+   "where": "captions 5 and 7 (\"2.4 million\")"
+  },
+  {
+   "id": "case.oneIn4",
+   "text": "About 1 in 4 ballots came back (23.8 %)",
+   "value": 4,
+   "formula": "Math.round(mailed/returned)",
+   "params": [
+    "mailed",
+    "returned"
+   ],
+   "source": "S3",
+   "where": "CASE bar 2 sub-label \"1 IN 4 CAME BACK\""
+  },
+  {
+   "id": "case.digestLandon",
+   "text": "Digest verdict: Landon 57 % (of Landon + Roosevelt ballots)",
+   "value": 57,
+   "formula": "Math.round(100*landonD/(landonD+fdrD))",
+   "params": [
+    "landonD",
+    "fdrD"
+   ],
+   "source": "S5",
+   "where": "caption 5; rail tick sub-label \"LANDON 57\""
+  },
+  {
+   "id": "case.digestFDR",
+   "text": "Digest: Roosevelt 43 % (same basis)",
+   "value": 43,
+   "formula": "Math.round(100*fdrD/(landonD+fdrD))",
+   "params": [
+    "landonD",
+    "fdrD"
+   ],
+   "source": "S4",
+   "where": "rail tick \"DIGEST 43\""
+  },
+  {
+   "id": "case.gallupN",
+   "text": "Gallup interviewed about 50,000 people (quota sample)",
+   "value": 50000,
+   "formula": "gallupN",
+   "params": [
+    "gallupN"
+   ],
+   "source": "S4",
+   "where": "CASE bar 3 label \"50,000 GALLUP\"; caption 6"
+  },
+  {
+   "id": "case.ratio",
+   "text": "The Digest had about 48 times as many ballots as Gallup",
+   "value": 48,
+   "formula": "Math.round(returned/gallupN)",
+   "params": [
+    "returned",
+    "gallupN"
+   ],
+   "source": "S4",
+   "where": "CASE bar 3 sub-label \"48× FEWER\""
+  },
+  {
+   "id": "case.gallupFDR",
+   "text": "Gallup forecast: Roosevelt 56 %",
+   "value": 56,
+   "formula": "gallupFDR",
+   "params": [
+    "gallupFDR"
+   ],
+   "source": "S4",
+   "where": "rail tick \"GALLUP 56\"; caption 6"
+  },
+  {
+   "id": "case.resultFDR",
+   "text": "Result: Roosevelt 61 % of the popular vote (60.8 %)",
+   "value": 61,
+   "formula": "Math.round(fdrShareAll)",
+   "params": [
+    "fdrShareAll"
+   ],
+   "source": "S6",
+   "where": "rail tick \"RESULT 61\"; caption 7"
+  },
+  {
+   "id": "case.miss",
+   "text": "The Digest missed Roosevelt's share by 18 points (60.8 − 42.9)",
+   "value": 18,
+   "formula": "Math.round(fdrShareAll-100*fdrD/(landonD+fdrD))",
+   "params": [
+    "fdrShareAll",
+    "landonD",
+    "fdrD"
+   ],
+   "source": "S4",
+   "where": "rail bracket \"18 POINTS OFF\"; caption 7"
+  },
+  {
+   "id": "case.moeDigest",
+   "text": "Margin of error at 2,376,523 ballots: ±0.06 points",
+   "value": 0.06,
+   "formula": "Math.round(100*100*z*Math.sqrt(p0*(1-p0)/returned))/100",
+   "params": [
+    "z",
+    "p0",
+    "returned"
+   ],
+   "source": "S4",
+   "where": "rail label \"NOISE ±0.06\"; COUNT ledger row 4"
+  },
+  {
+   "id": "count.popN",
+   "text": "A market of 1,000 customers",
+   "value": 1000,
+   "formula": "popN",
+   "params": [
+    "popN"
+   ],
+   "source": "S8",
+   "where": "COUNT grid label \"1,000 CUSTOMERS\"; row-2 label \"1,000 ASKED\"; caption 12; ledger"
+  },
+  {
+   "id": "count.popYes",
+   "text": "500 yes",
+   "value": 500,
+   "formula": "popYes",
+   "params": [
+    "popYes"
+   ],
+   "source": "S8",
+   "where": "COUNT \"500 YES · 500 NO\"; caption 9"
+  },
+  {
+   "id": "count.popNo",
+   "text": "500 no",
+   "value": 500,
+   "formula": "popN-popYes",
+   "params": [
+    "popN",
+    "popYes"
+   ],
+   "source": "S8",
+   "where": "COUNT \"500 YES · 500 NO\"; caption 9"
+  },
+  {
+   "id": "count.truthCount",
+   "text": "The truth is 15 of 30",
+   "value": 15,
+   "formula": "n30*popYes/popN",
+   "params": [
+    "n30",
+    "popYes",
+    "popN"
+   ],
+   "source": "S8",
+   "where": "rail truth line \"TRUTH 15 OF 30\""
+  },
+  {
+   "id": "count.truthPct",
+   "text": "The truth is 50 %",
+   "value": 50,
+   "formula": "Math.round(100*popYes/popN)",
+   "params": [
+    "popYes",
+    "popN"
+   ],
+   "source": "S8",
+   "where": "rail truth line \"50 %\" after relabel"
+  },
+  {
+   "id": "count.nSurveys",
+   "text": "20 surveys of 30",
+   "value": 20,
+   "formula": "nSurveys",
+   "params": [
+    "nSurveys"
+   ],
+   "source": "S8",
+   "where": "COUNT \"20 SURVEYS\"; \"4 OF 20\""
+  },
+  {
+   "id": "count.surveys30",
+   "text": "The 20 seeded survey results (yes out of 30)",
+   "value": "18,11,11,17,18,20,10,16,17,13,14,14,13,18,15,13,15,14,14,15",
+   "formula": "(function(){function mb(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}}var P=[],i,j,s,k,y,x;for(i=0;i<popN;i++)P.push(i<popYes?1:0);var r=mb(popSeed);for(i=popN-1;i>0;i--){j=Math.floor(r()*(i+1));x=P[i];P[i]=P[j];P[j]=x;}function run(seed,n){var q=mb(seed),o=[];for(s=0;s<nSurveys;s++){y=0;for(k=0;k<n;k++)y+=P[Math.floor(q()*popN)];o.push(y);}return o;}return {s30:run(seed30,n30),s1000:run(seed1000,n1000)};})().s30.join(\",\")",
+   "params": [
+    "popN",
+    "popYes",
+    "popSeed",
+    "seed30",
+    "seed1000",
+    "nSurveys",
+    "n30",
+    "n1000"
+   ],
+   "source": "S8",
+   "where": "COUNT live tally \"k of 30\" for every survey; dot positions on rail"
+  },
+  {
+   "id": "count.min30",
+   "text": "Lowest survey: 10 of 30",
+   "value": 10,
+   "formula": "Math.min.apply(null,surveys30)",
+   "params": [
+    "surveys30"
+   ],
+   "source": "S8",
+   "where": "COUNT bracket label \"10 OF 30\"; caption 11"
+  },
+  {
+   "id": "count.max30",
+   "text": "Highest survey: 20 of 30",
+   "value": 20,
+   "formula": "Math.max.apply(null,surveys30)",
+   "params": [
+    "surveys30"
+   ],
+   "source": "S8",
+   "where": "COUNT bracket label \"20 OF 30\"; caption 11"
+  },
+  {
+   "id": "count.min30pct",
+   "text": "Lowest survey as a share: 33 %",
+   "value": 33,
+   "formula": "Math.round(100*Math.min.apply(null,surveys30)/n30)",
+   "params": [
+    "surveys30",
+    "n30"
+   ],
+   "source": "S8",
+   "where": "rail relabel \"33 %\""
+  },
+  {
+   "id": "count.max30pct",
+   "text": "Highest survey as a share: 67 %",
+   "value": 67,
+   "formula": "Math.round(100*Math.max.apply(null,surveys30)/n30)",
+   "params": [
+    "surveys30",
+    "n30"
+   ],
+   "source": "S8",
+   "where": "rail relabel \"67 %\""
+  },
+  {
+   "id": "count.ge18",
+   "text": "4 of the 20 surveys said 18 or more (60 %+) from a 50 % market",
+   "value": 4,
+   "formula": "surveys30.filter(function(v){return v>=yesHook}).length",
+   "params": [
+    "surveys30",
+    "yesHook"
+   ],
+   "source": "S8",
+   "where": "COUNT label \"4 OF 20 SURVEYS: 18 OR MORE\""
+  },
+  {
+   "id": "count.pge18",
+   "text": "Theory: a 50 % market gives 18+ of 30 in 18 % of surveys (about 1 in 5)",
+   "value": 18,
+   "formula": "(function(){var s=0,c=1,k;for(k=0;k<=n30;k++){if(k>0)c=c*(n30-k+1)/k;if(k>=yesHook)s+=c;}return Math.round(100*s/Math.pow(2,n30));})()",
+   "params": [
+    "n30",
+    "yesHook"
+   ],
+   "source": "S4",
+   "where": "try-it panel and transcript only (not on the stage)"
+  },
+  {
+   "id": "count.moe30",
+   "text": "95 % margin at n = 30: ±18 points",
+   "value": 18,
+   "formula": "Math.round(100*z*Math.sqrt(p0*(1-p0)/n30))",
+   "params": [
+    "z",
+    "p0",
+    "n30"
+   ],
+   "source": "S4",
+   "where": "rail band label \"±18\"; ledger row 1"
+  },
+  {
+   "id": "count.moe100",
+   "text": "95 % margin at n = 100: ±10 points",
+   "value": 10,
+   "formula": "Math.round(100*z*Math.sqrt(p0*(1-p0)/n100))",
+   "params": [
+    "z",
+    "p0",
+    "n100"
+   ],
+   "source": "S4",
+   "where": "ledger row 2"
+  },
+  {
+   "id": "count.moe1000",
+   "text": "95 % margin at n = 1,000: ±3.1 points",
+   "value": 3.1,
+   "formula": "Math.round(1000*z*Math.sqrt(p0*(1-p0)/n1000))/10",
+   "params": [
+    "z",
+    "p0",
+    "n1000"
+   ],
+   "source": "S4",
+   "where": "rail band label \"±3.1\"; ledger row 3"
+  },
+  {
+   "id": "count.surveys1000",
+   "text": "The 20 seeded survey results (yes out of 1,000)",
+   "value": "496,491,518,527,523,514,519,503,499,508,504,474,494,491,500,482,514,488,518,502",
+   "formula": "(function(){function mb(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;}}var P=[],i,j,s,k,y,x;for(i=0;i<popN;i++)P.push(i<popYes?1:0);var r=mb(popSeed);for(i=popN-1;i>0;i--){j=Math.floor(r()*(i+1));x=P[i];P[i]=P[j];P[j]=x;}function run(seed,n){var q=mb(seed),o=[];for(s=0;s<nSurveys;s++){y=0;for(k=0;k<n;k++)y+=P[Math.floor(q()*popN)];o.push(y);}return o;}return {s30:run(seed30,n30),s1000:run(seed1000,n1000)};})().s1000.join(\",\")",
+   "params": [
+    "popN",
+    "popYes",
+    "popSeed",
+    "seed30",
+    "seed1000",
+    "nSurveys",
+    "n30",
+    "n1000"
+   ],
+   "source": "S8",
+   "where": "COUNT second rail row tick positions"
+  },
+  {
+   "id": "count.min1000",
+   "text": "Lowest survey of 1,000: 474",
+   "value": 474,
+   "formula": "Math.min.apply(null,surveys1000)",
+   "params": [
+    "surveys1000"
+   ],
+   "source": "S8",
+   "where": "COUNT label \"474 TO 527 OF 1,000\""
+  },
+  {
+   "id": "count.max1000",
+   "text": "Highest survey of 1,000: 527",
+   "value": 527,
+   "formula": "Math.max.apply(null,surveys1000)",
+   "params": [
+    "surveys1000"
+   ],
+   "source": "S8",
+   "where": "COUNT label \"474 TO 527 OF 1,000\""
+  },
+  {
+   "id": "count.within1000",
+   "text": "Every survey of 1,000 lands within 3 points of 50 %",
+   "value": 3,
+   "formula": "Math.ceil(Math.max(500-Math.min.apply(null,surveys1000),Math.max.apply(null,surveys1000)-500)/10)",
+   "params": [
+    "surveys1000"
+   ],
+   "source": "S8",
+   "where": "caption 12"
+  },
+  {
+   "id": "count.low",
+   "text": "18 of 30: plausible true share as low as 42 % (95 %)",
+   "value": 42,
+   "formula": "Math.round(100*(yesHook/n30-z*Math.sqrt((yesHook/n30)*(1-yesHook/n30)/n30)))",
+   "params": [
+    "yesHook",
+    "n30",
+    "z"
+   ],
+   "source": "S4",
+   "where": "COUNT placement stamp \"AS LOW AS 42 %\"; caption 13; placement bracket"
+  },
+  {
+   "id": "count.lowWilson",
+   "text": "Cross-check: Wilson score interval lower bound also rounds to 42 %",
+   "value": 42,
+   "formula": "(function(){var p=yesHook/n30,n=n30,q=z*z;return Math.round(100*((p+q/(2*n))-z*Math.sqrt(p*(1-p)/n+q/(4*n*n)))/(1+q/n));})()",
+   "params": [
+    "yesHook",
+    "n30",
+    "z"
+   ],
+   "source": "S7",
+   "where": "brief and transcript only (verification)"
+  },
+  {
+   "id": "count.high",
+   "text": "18 of 30: plausible true share as high as 78 % (95 %)",
+   "value": 78,
+   "formula": "Math.round(100*(yesHook/n30+z*Math.sqrt((yesHook/n30)*(1-yesHook/n30)/n30)))",
+   "params": [
+    "yesHook",
+    "n30",
+    "z"
+   ],
+   "source": "S4",
+   "where": "COUNT placement bracket \"42 % TO 78 %\""
+  },
+  {
+   "id": "axis.counts",
+   "text": "Rail tick labels in count mode",
+   "value": "0,10,15,20,30",
+   "source": "S8",
+   "where": "COUNT rail ticks (yes out of 30) before relabel"
+  },
+  {
+   "id": "axis.pct",
+   "text": "Rail tick labels in percent mode",
+   "value": "0,25,50,75,100",
+   "source": "S8",
+   "where": "CASE rail ticks; COUNT rail after relabel"
+  }
+ ]
+}

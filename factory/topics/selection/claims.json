@@ -1,0 +1,437 @@
+{
+ "film": "selection",
+ "params": {
+  "N": 100,
+  "A1": 21,
+  "P1": 3,
+  "N1": 6,
+  "A0": 35,
+  "P0": 7,
+  "N0": 28,
+  "half": 50,
+  "seedPeople": 7,
+  "seedSplit": 90,
+  "guessDefault": 25,
+  "commitSeconds": 8,
+  "studiesProspective": 16,
+  "studiesLower": 15,
+  "rrObs": 0.56,
+  "reviewYear": 1991,
+  "whiYear": 2002,
+  "nHormone": 8506,
+  "nPlacebo": 8102,
+  "chdHormone": 164,
+  "chdPlacebo": 122,
+  "hrCHD": 1.29,
+  "lawlorYear": 2004,
+  "lawlorN": 4286,
+  "splitSeeds": 10000,
+  "swingCover": 90,
+  "rrObsLo": 0.5,
+  "rrObsHi": 0.61,
+  "hrLo": 1.02,
+  "hrHi": 1.63,
+  "hrEalone": 0.91,
+  "eAloneYear": 2004,
+  "hrEarly": 0.76,
+  "earlyYears": 10,
+  "rossouwYear": 2007
+ },
+ "claims": [
+  {
+   "id": "obs-adopters",
+   "text": "30 customers turned the feature on",
+   "value": 30,
+   "formula": "A1+P1+N1",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "HOOK S1 (\"24 of 30\"), caption 1, caption 9, COUNT left block label"
+  },
+  {
+   "id": "obs-adopters-stayed",
+   "text": "24 of the 30 stayed",
+   "value": 24,
+   "formula": "A1+P1",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "HOOK S1, caption 1, caption 9, COUNT left counter"
+  },
+  {
+   "id": "obs-nonadopters",
+   "text": "70 left it off",
+   "value": 70,
+   "formula": "A0+P0+N0",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "HOOK S1 (\"35 of 70\"), caption 1, caption 10, COUNT right block label"
+  },
+  {
+   "id": "obs-nonadopters-stayed",
+   "text": "35 of the 70 stayed",
+   "value": 35,
+   "formula": "A0",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "HOOK S1, caption 1, caption 10, COUNT right counter"
+  },
+  {
+   "id": "obs-rate-on",
+   "text": "80 % retention with the feature on",
+   "value": 80,
+   "formula": "Math.round(100*(A1+P1)/(A1+P1+N1))",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "HOOK S1 headline, caption 3, caption 10, COUNT 45.0 s"
+  },
+  {
+   "id": "obs-rate-off",
+   "text": "50 % retention with it off",
+   "value": 50,
+   "formula": "Math.round(100*A0/(A0+P0+N0))",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "HOOK S1 headline, caption 3, caption 10, COUNT 45.0 s"
+  },
+  {
+   "id": "obs-gap",
+   "text": "a 30-point gap",
+   "value": 30,
+   "formula": "Math.round(100*(A1+P1)/(A1+P1+N1)) - Math.round(100*A0/(A0+P0+N0))",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "caption 3, caption 4, COMMIT question, S2 bar length, COUNT 45.0 s"
+  },
+  {
+   "id": "commit-ticks",
+   "text": "gap bar ticks 0, 10, 20, 30 points",
+   "value": [
+    0,
+    10,
+    20,
+    30
+   ],
+   "formula": "[0,1,2,3].map(k=>k*(Math.round(100*(A1+P1)/(A1+P1+N1)) - Math.round(100*A0/(A0+P0+N0)))/3)",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "COMMIT S2 tick labels; COUNT placement; MONDAY"
+  },
+  {
+   "id": "commit-seconds",
+   "text": "8-second countdown",
+   "value": 8,
+   "formula": "commitSeconds",
+   "source": "factory/FORMAT.md, COMMIT beat (8 s hold)",
+   "where": "COMMIT countdown ring"
+  },
+  {
+   "id": "commit-default",
+   "text": "default guess in film mode: 25 points",
+   "value": 25,
+   "formula": "guessDefault",
+   "source": "film.json defaultGuess (Q13); a stated assumption: most of the gap credited to the feature",
+   "where": "COMMIT box (film mode), COUNT placement marker \"YOUR GUESS 25\""
+  },
+  {
+   "id": "case-review-year",
+   "text": "1991 pooled review",
+   "value": 1991,
+   "formula": "reviewYear",
+   "source": "Stampfer MJ, Colditz GA. Prev Med 1991;20(1):47-63, abstract",
+   "where": "caption 5, CASE eyebrow"
+  },
+  {
+   "id": "case-cohorts",
+   "text": "16 prospective (cohort) studies",
+   "value": 16,
+   "formula": "studiesProspective",
+   "source": "Stampfer MJ, Colditz GA. Prev Med 1991;20(1):47-63, abstract: \"Of 16 prospective studies, 15 found decreased relative risks\"",
+   "where": "caption 5, CASE 16 marks and counter"
+  },
+  {
+   "id": "case-cohorts-lower",
+   "text": "15 of 16 found lower risk among users",
+   "value": 15,
+   "formula": "studiesLower",
+   "source": "Stampfer MJ, Colditz GA. Prev Med 1991;20(1):47-63, abstract",
+   "where": "caption 5, CASE inked marks and counter \"15 of 16\""
+  },
+  {
+   "id": "case-rr-obs",
+   "text": "pooled relative risk 0.56 (95% CI 0.50-0.61), all studies",
+   "value": 0.56,
+   "formula": "rrObs",
+   "source": "Stampfer MJ, Colditz GA. Prev Med 1991;20(1):47-63, abstract: \"all studies taken together yielded a relative risk of 0.56 (95% confidence interval 0.50-0.61)\"",
+   "where": "CASE ruler point and label \"RR 0.56\""
+  },
+  {
+   "id": "case-obs-lower",
+   "text": "44 % lower risk among women who chose HRT",
+   "value": 44,
+   "formula": "Math.round((1-rrObs)*100)",
+   "source": "Stampfer MJ, Colditz GA. Prev Med 1991;20(1):47-63, abstract",
+   "where": "caption 6, CASE ruler label \"44 % lower\""
+  },
+  {
+   "id": "case-whi-year",
+   "text": "2002 randomized trial",
+   "value": 2002,
+   "formula": "whiYear",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, abstract (Design, Results)",
+   "where": "caption 7, CASE eyebrow"
+  },
+  {
+   "id": "case-whi-n",
+   "text": "16,608 women randomized",
+   "value": 16608,
+   "formula": "nHormone+nPlacebo",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, abstract (Design, Results): 16 608 postmenopausal women aged 50-79; 8506 estrogen plus progestin, 8102 placebo",
+   "where": "caption 7, CASE eyebrow"
+  },
+  {
+   "id": "case-whi-n-hormone",
+   "text": "8,506 assigned hormones",
+   "value": 8506,
+   "formula": "nHormone",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, abstract (Design, Results)",
+   "where": "CASE counter \"164 of 8,506\""
+  },
+  {
+   "id": "case-whi-n-placebo",
+   "text": "8,102 assigned placebo",
+   "value": 8102,
+   "formula": "nPlacebo",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, abstract (Design, Results)",
+   "where": "CASE counter \"122 of 8,102\""
+  },
+  {
+   "id": "case-chd-hormone",
+   "text": "164 coronary heart disease events on hormones",
+   "value": 164,
+   "formula": "chdHormone",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, abstract (Design, Results), results (CHD cases 164 vs 122; 286 in all per the abstract)",
+   "where": "caption 7, CASE dot block (164 dots) and counter"
+  },
+  {
+   "id": "case-chd-placebo",
+   "text": "122 coronary heart disease events on placebo",
+   "value": 122,
+   "formula": "chdPlacebo",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, results (CHD cases by arm)",
+   "where": "caption 7, CASE dot block (122 dots) and counter"
+  },
+  {
+   "id": "case-chd-total",
+   "text": "286 CHD cases in all (check, not shown)",
+   "value": 286,
+   "formula": "chdHormone+chdPlacebo",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, abstract (Design, Results): \"CHD (HR, 1.29; 95% CI, 1.02-1.63) with 286 cases\"",
+   "where": "not on screen; consistency check for the two dot blocks"
+  },
+  {
+   "id": "case-hr",
+   "text": "hazard ratio 1.29 (nominal 95% CI 1.02-1.63)",
+   "value": 1.29,
+   "formula": "hrCHD",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, abstract (Design, Results) (Cox model on person-time; the crude ratio (164/8506)/(122/8102) = 1.28 agrees)",
+   "where": "CASE ruler point and label \"HR 1.29\""
+  },
+  {
+   "id": "case-whi-higher",
+   "text": "29 % higher risk on hormones",
+   "value": 29,
+   "formula": "Math.round((hrCHD-1)*100)",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, abstract (Design, Results)",
+   "where": "caption 8, CASE ruler label \"29 % higher\""
+  },
+  {
+   "id": "case-ruler-one",
+   "text": "ruler mark 1.0: no difference",
+   "value": 1,
+   "formula": "1.0",
+   "source": "definition of a ratio of risks",
+   "where": "CASE ruler tick label \"1.0\""
+  },
+  {
+   "id": "case-lawlor-year",
+   "text": "Lawlor, Davey Smith & Ebrahim 2004",
+   "value": 2004,
+   "formula": "lawlorYear",
+   "source": "Lawlor DA, Davey Smith G, Ebrahim S. Am J Public Health 2004;94(12):2149-2154, abstract; and Int J Epidemiol 2004;33(3):464-467",
+   "where": "CASE source line at 33 s; page sources"
+  },
+  {
+   "id": "case-lawlor-n",
+   "text": "4,286 British women aged 60-79: disadvantage across life course, less HRT use",
+   "value": 4286,
+   "formula": "lawlorN",
+   "source": "Lawlor DA, Davey Smith G, Ebrahim S. Am J Public Health 2004;94(12):2149-2154, abstract",
+   "where": "page sources / honest limits only"
+  },
+  {
+   "id": "count-n",
+   "text": "100 customers, 100 marks",
+   "value": 100,
+   "formula": "A1+P1+N1+A0+P0+N0",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "caption 9, caption 11, COUNT grid and counter"
+  },
+  {
+   "id": "count-half",
+   "text": "coin flip: 50 get it, 50 do not",
+   "value": 50,
+   "formula": "half",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "caption 11, caption 12, COUNT random blocks"
+  },
+  {
+   "id": "count-seed",
+   "text": "seeded split: mulberry32 Fisher-Yates, seed 90",
+   "value": 90,
+   "formula": "seedSplit",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data. Seed 90 is the first seed (1..) whose split balances A, P and adopters exactly (28/5/15 per half); stated on screen and in honest limits.",
+   "where": "COUNT chrome \"COIN FLIP · SEED 90\""
+  },
+  {
+   "id": "count-treated-stayed",
+   "text": "33 of 50 stayed with the feature",
+   "value": 33,
+   "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const sh=(arr,s)=>{const r=m(s),a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const tok=[].concat(Array(A1).fill('A1'),Array(P1).fill('P1'),Array(N1).fill('N1'),Array(A0).fill('A0'),Array(P0).fill('P0'),Array(N0).fill('N0'));const ppl=sh(tok,seedPeople);const T=new Set(sh([...Array(N).keys()],seedSplit).slice(0,half));let t=0,c=0;for(let i=0;i<N;i++){const y=ppl[i][0];if(T.has(i))t+=(y!=='N');else c+=(y==='A');}return t;})()",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "caption 12, COUNT left counter"
+  },
+  {
+   "id": "count-control-stayed",
+   "text": "28 of 50 stayed without it",
+   "value": 28,
+   "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const sh=(arr,s)=>{const r=m(s),a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const tok=[].concat(Array(A1).fill('A1'),Array(P1).fill('P1'),Array(N1).fill('N1'),Array(A0).fill('A0'),Array(P0).fill('P0'),Array(N0).fill('N0'));const ppl=sh(tok,seedPeople);const T=new Set(sh([...Array(N).keys()],seedSplit).slice(0,half));let t=0,c=0;for(let i=0;i<N;i++){const y=ppl[i][0];if(T.has(i))t+=(y!=='N');else c+=(y==='A');}return c;})()",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "caption 12, COUNT right counter"
+  },
+  {
+   "id": "count-rate-treated",
+   "text": "66 %",
+   "value": 66,
+   "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const sh=(arr,s)=>{const r=m(s),a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const tok=[].concat(Array(A1).fill('A1'),Array(P1).fill('P1'),Array(N1).fill('N1'),Array(A0).fill('A0'),Array(P0).fill('P0'),Array(N0).fill('N0'));const ppl=sh(tok,seedPeople);const T=new Set(sh([...Array(N).keys()],seedSplit).slice(0,half));let t=0,c=0;for(let i=0;i<N;i++){const y=ppl[i][0];if(T.has(i))t+=(y!=='N');else c+=(y==='A');}return Math.round(100*t/half);})()",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "COUNT 55.6 s"
+  },
+  {
+   "id": "count-rate-control",
+   "text": "56 %",
+   "value": 56,
+   "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const sh=(arr,s)=>{const r=m(s),a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const tok=[].concat(Array(A1).fill('A1'),Array(P1).fill('P1'),Array(N1).fill('N1'),Array(A0).fill('A0'),Array(P0).fill('P0'),Array(N0).fill('N0'));const ppl=sh(tok,seedPeople);const T=new Set(sh([...Array(N).keys()],seedSplit).slice(0,half));let t=0,c=0;for(let i=0;i<N;i++){const y=ppl[i][0];if(T.has(i))t+=(y!=='N');else c+=(y==='A');}return Math.round(100*c/half);})()",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "COUNT 55.6 s"
+  },
+  {
+   "id": "count-effect",
+   "text": "the feature earns 10 points",
+   "value": 10,
+   "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const sh=(arr,s)=>{const r=m(s),a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const tok=[].concat(Array(A1).fill('A1'),Array(P1).fill('P1'),Array(N1).fill('N1'),Array(A0).fill('A0'),Array(P0).fill('P0'),Array(N0).fill('N0'));const ppl=sh(tok,seedPeople);const T=new Set(sh([...Array(N).keys()],seedSplit).slice(0,half));let t=0,c=0;for(let i=0;i<N;i++){const y=ppl[i][0];if(T.has(i))t+=(y!=='N');else c+=(y==='A');}return Math.round(100*t/half)-Math.round(100*c/half);})()",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "caption 12, COUNT 55.6 s, S2 segment \"THE FEATURE · 10\", truth tick"
+  },
+  {
+   "id": "count-effect-true",
+   "text": "true effect 10 points (check: P/N, same for adopters P1/(A1+P1+N1))",
+   "value": 10,
+   "formula": "Math.round(100*(P1+P0)/N) === Math.round(100*P1/(A1+P1+N1)) ? Math.round(100*(P1+P0)/N) : NaN",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "not on screen; proves the seeded split equals the built-in effect"
+  },
+  {
+   "id": "count-selection",
+   "text": "who chose it: 20 points",
+   "value": 20,
+   "formula": "Math.round(100*(A1+P1)/(A1+P1+N1)) - Math.round(100*A0/(A0+P0+N0)) - (()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const sh=(arr,s)=>{const r=m(s),a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const tok=[].concat(Array(A1).fill('A1'),Array(P1).fill('P1'),Array(N1).fill('N1'),Array(A0).fill('A0'),Array(P0).fill('P0'),Array(N0).fill('N0'));const ppl=sh(tok,seedPeople);const T=new Set(sh([...Array(N).keys()],seedSplit).slice(0,half));let t=0,c=0;for(let i=0;i<N;i++){const y=ppl[i][0];if(T.has(i))t+=(y!=='N');else c+=(y==='A');}return Math.round(100*t/half)-Math.round(100*c/half);})()",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data. Also = 100*A1/(A1+P1+N1) - 100*A0/(A0+P0+N0) = 70 - 50.",
+   "where": "COUNT S2 segment \"WHO CHOSE IT · 20\"; MONDAY"
+  },
+  {
+   "id": "limit-swing-lo",
+   "text": "5th percentile of 10,000 seeded 50/50 splits: -6 points",
+   "value": -6,
+   "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const sh=(arr,s)=>{const r=m(s),a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const tok=[].concat(Array(A1).fill('A1'),Array(P1).fill('P1'),Array(N1).fill('N1'),Array(A0).fill('A0'),Array(P0).fill('P0'),Array(N0).fill('N0'));const ppl=sh(tok,seedPeople);const g=[];for(let s=1;s<=10000;s++){const T=new Set(sh([...Array(N).keys()],s).slice(0,half));let t=0,c=0;for(let i=0;i<N;i++){const y=ppl[i][0];if(T.has(i))t+=(y!=='N');else c+=(y==='A');}g.push((t-c)*100/half);}g.sort((a,b)=>a-b);return g[Math.ceil(0.05*10000)-1];})()",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "page honest limits only"
+  },
+  {
+   "id": "limit-swing-hi",
+   "text": "95th percentile of 10,000 seeded 50/50 splits: 26 points",
+   "value": 26,
+   "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const sh=(arr,s)=>{const r=m(s),a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};const tok=[].concat(Array(A1).fill('A1'),Array(P1).fill('P1'),Array(N1).fill('N1'),Array(A0).fill('A0'),Array(P0).fill('P0'),Array(N0).fill('N0'));const ppl=sh(tok,seedPeople);const g=[];for(let s=1;s<=10000;s++){const T=new Set(sh([...Array(N).keys()],s).slice(0,half));let t=0,c=0;for(let i=0;i<N;i++){const y=ppl[i][0];if(T.has(i))t+=(y!=='N');else c+=(y==='A');}g.push((t-c)*100/half);}g.sort((a,b)=>a-b);return g[Math.ceil(0.95*10000)-1];})()",
+   "source": "Teaching object: 100 constructed customers, potential outcomes declared in params (A = stays either way, P = stays only with the feature, N = leaves either way; suffix 1 = turned the feature on). Not data.",
+   "where": "page honest limits only"
+  },
+  {
+   "id": "limit-swing-seeds",
+   "text": "10,000 seeded splits",
+   "value": 10000,
+   "formula": "splitSeeds",
+   "source": "Teaching object; seeds 1 to 10,000, same shuffle as count-seed",
+   "where": "page honest limits"
+  },
+  {
+   "id": "limit-swing-cover",
+   "text": "90 % of splits land between -6 and +26",
+   "value": 90,
+   "formula": "swingCover",
+   "source": "Teaching object; the band between the 5th (limit-swing-lo) and 95th (limit-swing-hi) percentiles",
+   "where": "page honest limits"
+  },
+  {
+   "id": "case-rr-obs-ci",
+   "text": "95 % CI 0.50 to 0.61",
+   "value": [
+    0.5,
+    0.61
+   ],
+   "formula": "[rrObsLo,rrObsHi]",
+   "source": "Stampfer MJ, Colditz GA. Prev Med 1991;20(1):47-63, abstract",
+   "where": "page sources / transcript"
+  },
+  {
+   "id": "case-hr-ci",
+   "text": "nominal 95 % CI 1.02 to 1.63",
+   "value": [
+    1.02,
+    1.63
+   ],
+   "formula": "[hrLo,hrHi]",
+   "source": "Writing Group for the Women's Health Initiative Investigators. JAMA 2002;288(3):321-333, abstract",
+   "where": "page sources / transcript"
+  },
+  {
+   "id": "limit-ealone-hr",
+   "text": "2004 estrogen-alone WHI trial: CHD HR 0.91 (95 % CI 0.75-1.12)",
+   "value": 0.91,
+   "formula": "hrEalone",
+   "source": "Women's Health Initiative Steering Committee. JAMA 2004;291(14):1701-1712, abstract",
+   "where": "page honest limits"
+  },
+  {
+   "id": "limit-ealone-year",
+   "text": "2004",
+   "value": 2004,
+   "formula": "eAloneYear",
+   "source": "Women's Health Initiative Steering Committee. JAMA 2004;291(14):1701-1712, abstract",
+   "where": "page honest limits"
+  },
+  {
+   "id": "limit-timing-hr",
+   "text": "within 10 years of menopause: CHD HR 0.76 (95 % CI 0.50-1.16), not significant",
+   "value": 0.76,
+   "formula": "hrEarly",
+   "source": "Rossouw JE, Prentice RL, Manson JE, et al. JAMA 2007;297(13):1465-1477, abstract",
+   "where": "page honest limits"
+  },
+  {
+   "id": "limit-timing-years",
+   "text": "10 years since menopause",
+   "value": 10,
+   "formula": "earlyYears",
+   "source": "Rossouw JE, Prentice RL, Manson JE, et al. JAMA 2007;297(13):1465-1477, abstract",
+   "where": "page honest limits"
+  },
+  {
+   "id": "limit-timing-year",
+   "text": "Rossouw 2007",
+   "value": 2007,
+   "formula": "rossouwYear",
+   "source": "Rossouw JE, Prentice RL, Manson JE, et al. JAMA 2007;297(13):1465-1477, abstract",
+   "where": "page honest limits"
+  }
+ ]
+}

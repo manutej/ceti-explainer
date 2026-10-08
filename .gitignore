@@ -23,3 +23,6 @@ __MACOSX/
 !tests/fixtures/**
 !skills/**/*.template.html
 !skills/ceti-explainer/reference/longform/*.html
+
+# factory kit shell is a template, not a built page
+!factory/kit/shell.html
