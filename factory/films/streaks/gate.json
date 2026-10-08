@@ -1,0 +1,217 @@
+{
+  "film": "streaks",
+  "page": "factory/films/streaks/build/streaks.html",
+  "filmDir": "factory/films/streaks",
+  "date": "2026-10-08T10:08:51.585Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 370 ms; stage sd 15s:19.7 37.5s:17.5 60s:42.5",
+      "data": {
+        "readyMs": 370,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 214.15661484374883,
+            "sd": 19.7460493929501
+          },
+          {
+            "t": 37.5,
+            "mean": 215.27723695987444,
+            "sd": 17.484106824003742
+          },
+          {
+            "t": 60,
+            "mean": 203.446421749614,
+            "sd": 42.481834458413175
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 11 s (want 8–16); film-mode default 4"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Chance makes streaks. Ask what a coin would have done.\"; frame at 74 s sd 23.6; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Chance makes streaks; that does not prove the hot hand is a myth. Miller and San\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "5 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "54 claims, 49 with formula, 49 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 14 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "46 visible number(s) not in claims (chrome?): 32 @21.5s \"32\"; 55 @22s \"55\"; 78 @22.5s \"78\"; 17 @49.5s \"17\"; 20 @49.5s \"20\"; 14 @49.5s \"14\"",
+      "data": {
+        "unknown": [
+          "32 @21.5s \"32\"",
+          "55 @22s \"55\"",
+          "78 @22.5s \"78\"",
+          "17 @49.5s \"17\"",
+          "20 @49.5s \"20\"",
+          "14 @49.5s \"14\"",
+          "72 @49.5s \"72\"",
+          "30 @50s \"30\"",
+          "52 @50s \"52\"",
+          "196 @50s \"196\"",
+          "48 @50.5s \"48\"",
+          "92 @50.5s \"92\"",
+          "77 @50.5s \"77\"",
+          "320 @50.5s \"320\"",
+          "16 @51s \"16\"",
+          "71 @51s \"71\"",
+          "127 @51s \"127\"",
+          "108 @51s \"108\"",
+          "64 @51s \"64\"",
+          "34 @51s \"34\"",
+          "15 @51s \"15\"",
+          "444 @51s \"444\"",
+          "89 @51.5s \"89\"",
+          "139 @51.5s \"139\"",
+          "85 @51.5s \"85\"",
+          "18 @51.5s \"18\"",
+          "567 @51.5s \"567\"",
+          "26 @52s \"26\"",
+          "111 @52s \"111\"",
+          "189 @52s \"189\"",
+          "169 @52s \"169\"",
+          "19 @52s \"19\"",
+          "691 @52s \"691\"",
+          "29 @52.5s \"29\"",
+          "132 @52.5s \"132\"",
+          "218 @52.5s \"218\"",
+          "123 @52.5s \"123\"",
+          "65 @52.5s \"65\"",
+          "24 @52.5s \"24\"",
+          "815 @52.5s \"815\"",
+          "146 @53s \"146\"",
+          "251 @53s \"251\"",
+          "228 @53s \"228\"",
+          "138 @53s \"138\"",
+          "31 @53s \"31\"",
+          "939 @53s \"939\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "53 must-read / 38 secondary / 6 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/streaks/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 53,
+          "secondary": 38,
+          "chrome": 6
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 36 s (count.at); first ratio \"54 %\" at 59.5 s (svg)"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 49.4 KB (film.js 15.3, film.json 5.6, claims.json 28.4) < 120 KB; page 1.112 MB < 1.3 MB",
+      "data": {
+        "code": 50594,
+        "page": 1111705
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 10.87, 20.73, 30.6, 40.47, 50.33, 60.2, 75 s → /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/streaks/shots"
+    }
+  ]
+}
