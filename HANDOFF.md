@@ -1,37 +1,91 @@
-# HANDOFF — CETI Explainer E0
+# HANDOFF · ceti-explainer · branch feature/explainer-atelier · 2026-10-08
 
-## State
+Read this first on a cold start. Ten minutes gets you from a fresh clone to a built, gated film.
 
-- Live skill tree restored as source of truth:
-  - `ceti-explainer` — full episode engine (`COURSE-E0.md` occupancy now in `contrib/`)
-  - `noether-harness` — full dual-loop skill + `references/SHEAF-ACV.md`
-  - `ceti-research` — Propose occupant, persist-on-generate
-  - `ceti-brand` — cream / vermillion / ink
-  - `sheaf-*` family lives in this repo (`skills/sheaf-*`); load from here
-- GitHub: `https://github.com/manutej/ceti-explainer` (public). CETI org not available.
-- 2-minute episode committed. 5-minute mux abstained; stills conserved.
-- Repo README claims engine + gate + longform; those assets belong under `skills/ceti-explainer/`.
+## 1. Cold start (five commands)
 
-## Next agent
-
-1. Read `REQUIREMENTS.md`, `contrib/EXPERIMENT-E0.md`, `contrib/SKILLS.md`.
-2. Do not copy ceti-lookbook sentences. Palette and WOW bar only.
-3. Episode 2 (Honest translators) only after episode 1 quality is accepted.
-4. If a CETI GitHub org appears, transfer this repo; do not fork a second source of truth.
-5. Persist generated media immediately. Generator stores drop paths (Localization failure).
-6. Keep live `~/.grok/skills/` and `skills/` in this repo in lockstep.
-
-## Parallel handoff — Jev eval lane
-
-`HANDOFF-JEV-EVAL.md` hands the Jev (TypeSafe AI) evaluation lane to an incoming
-collaborator: per-frame interview questions for episodes, question review, slide
-heuristics, and the process around evaluating CETI-generated content. It depends on
-`JEV-works` and on engine assets this repo does not yet carry — see its §0.
-
-## Command
-
+```sh
+git clone https://github.com/manutej/ceti-explainer && cd ceti-explainer && git checkout feature/explainer-atelier
+pip install -r scripts/requirements.txt          # playwright==1.56.0 (Chromium 1194), fontTools, brotli, Pillow
+sh scripts/doctor.sh                              # tools, vendor hashes, kit and kit2 builds, brand packs
+sh tests/proofs.sh all                            # seven proofs: every film and demo rebuilds and gates (≈10 min)
+python3 factory/kit2/build.py factory/films/goodhart --brand ceti-marketing --chrome memo && node factory/tools/gate.mjs factory/films/goodhart/build/goodhart.ceti-marketing.memo.html --film factory/films/goodhart --kit factory/kit2
 ```
-/sheaf-run course
-```
+Needs Node 18+, Python 3.10+, ffmpeg, and a Playwright Chromium. The repo's tools import Playwright from
+/opt/node-tools/node_modules/playwright (edit the import line in factory/tools/*.mjs and arsenal/tools/*.mjs if yours lives elsewhere).
+Everything is vendored: p5 2.3.4 by hash, 36 font files, no runtime fetches, no Google Fonts.
 
-Tagline: Glue what the dual-loop conserves.
+## 2. What this repo is
+
+A Claude Code plugin (root is the plugin root; see .claude-plugin/plugin.json) that turns a topic into a short,
+true, silent, captioned explainer film on a pure clock, and ships it as a standalone HTML page. Three layers:
+
+| layer | where | what |
+|---|---|---|
+| the factory | factory/ | FORMAT.md (the 75-second case), kit and kit2 (build), tools (gate, catalogue, new_topic, repo_topic), topics/ and films/ (15 shipped films + the showcase), chromes/, README, SHIP.md, SEATS.md, CATALOGUE.md |
+| the arsenal | arsenal/ | 24 pattern and material lanes, the timeline and generator cores, structures, 22 brand packs with a contrast checker and a tweak tool, the shoot/sweep/export tools, the design-system bundle |
+| the record | docs/ | DECISIONS.md (D1–D10, Q1–Q15: binding), study/ (readers, consults, BLUEPRINT.md, phase-zero proof) |
+
+Older material kept and still building: the Atelier runtime and eight chromes under runtime/ and chromes/, the
+System 1 plan library under library/, the SVG episode engine under skills/ceti-explainer, films/opera-house (the
+exec-room gold standard, D9), references/ (doctrine, tells, atlas, research), contrib/ (not shipped).
+
+## 3. How a film is made (the pipeline)
+
+1. EXPLORE: `python3 factory/tools/new_topic.py <id> "<title>"`, or from a repository
+   `python3 factory/tools/repo_topic.py <path> --id <id>` (every number a verifiable claim). Fill brief.md, claims.json,
+   beats.md under factory/topics/<id>/.
+2. BUILD: write factory/films/<id>/{film.json, film.js, claims.json}. film.js exposes
+   `window.FILM_RENDER = { setup(p, kit), render(t, state, kit) }`; the kit owns captions, the sealed commit, the brand card
+   and the hooks. Build with kit2: `python3 factory/kit2/build.py factory/films/<id> --brand <pack> --chrome <tender-set|ledger|memo|none> [--material ink|pencil|chalk|…]`.
+   Time with arsenal/core/timeline.js, lay counts out with arsenal/structures, reveal with arsenal/patterns/reveal, etc.
+   (copy a lane's pattern.js into the film's lib/; the kit does not load the arsenal yet).
+3. GATE: `node factory/tools/gate.mjs <page> --film factory/films/<id> --kit factory/kit2 --json factory/films/<id>/gate.json --shots <dir>`.
+   Rows G1–G10: load, purity, clock scan, format, claims, legibility, counts-first, size, tics, axes (exec level = ink only).
+   Look at the eight stills once. Two fix rounds at most, then ship with the warnings written in NOTES.md.
+4. SEAT: a blind evaluator reads stills, captions and claims (never the code) and writes seat.json (SHIP / REVISE / VETO).
+5. SHIP: `python3 factory/tools/catalogue.py`, add the page hash to tests/baselines/builds.json, commit the sources AND the
+   built page (D10), publish the page as an artifact.
+
+## 4. Brands and design systems
+
+- A brand is a token pack (arsenal/brands/<id>.json; schema in schema.json): colour roles (bg, ink, accent, accent2,
+  muted, line, panel, chalk), type roles (disp, mono, body → vendored faces), texture, tempo, voice. Modules read roles,
+  never hex. `python3 arsenal/tools/brand_check.py <pack>` enforces WCAG contrast and vendored faces.
+- 22 packs ship: four originals, eight generic registers, ten derived from the CETI design system (marketing, four
+  academy palettes light and dark, owala soft). Derive more: `python3 arsenal/tools/tweak.py <pack> --hue 30 --dark …`
+  (recipes in arsenal/tools/TWEAKS.md; 22 twins in arsenal/brands/derived).
+- Proof the axes are real: factory/kit2/PROOF.md rebuilds two films under four brands × four chromes with zero film
+  edits, 32 of 32 gates passing.
+- The Claude Design project "CETI Explainer Arsenal" holds the bundle (brand cards, lane cards, chromes, proof matrices,
+  tokens). Regenerate with `python3 arsenal/tools/ds_bundle.py`; sync from a session with design access.
+
+## 5. The laws (do not change without a dated row in docs/DECISIONS.md)
+
+One clock: every frame is render(t, state), seeds fixed, no Math.random/Date/frameCount in a renderer. Counts before
+ratios. The viewer commits a number before any number is shown. Every digit on screen is a claim with a formula or a
+source. Silent, captions carry it. One honest-limits line. The CETI card is the last frame. Exec level is ink and clean.
+
+## 6. Where things are published
+
+factory/ARTIFACTS.md: the fifteen films, the Opera House, the film gallery, the arsenal gallery. The Design canvas with
+the blueprint: https://claude.ai/artifact/B1gL55RNtMpo9fp44gWyZG. All private until shared.
+
+## 7. Open issues (honest list)
+
+- The kit does not load arsenal modules; films copy pattern.js into lib/. Next: a loader and a film.json `uses` list.
+- Film text is still positioned in absolute 960-basis coordinates tuned to a condensed display face; brand switches
+  stay legible by scaling, not by reflow (factory/kit2/PROOF.md lists the bindings).
+- Four Atelier chromes (bunraku, delta, ledger, marbling) need fontsource faces to rebuild; the studio scripts named
+  in skills/p5-explainer are not written (factory/SHIP.md, MERGE-NOTES.md).
+- Arsenal lanes were mostly shot under one pack; arsenal/SWEEP.md records which lanes truly read token roles.
+- The two cohort experiments (film versus static, commit on versus off) are deferred (Q12): the quality bar is a
+  design claim until they run.
+- Two stray files written by an agent at the container root (/results.prev.json, /x/) could not be removed by the
+  orchestrator's safety check; they are scratch and safe to delete.
+
+## 8. Routing that worked
+
+Haiku reads and catalogues; Sonnet explores, consults and builds pattern lanes cheaply; Opus builds films, kits and
+tools; Fable directs, evaluates blind and ships. One brief per wave, one contract per module, one gate run plus at
+most two fix rounds, ship with warnings written down. Commit per lane as it lands.
