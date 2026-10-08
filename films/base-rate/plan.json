@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "id": "base-rate", "title": "Base-rate neglect", "chrome": "notebook", "level": "novice", "vo": false,
+    "eyebrow": "Explainer modules · film · Kahneman ch. 16",
+    "titleHTML": "Which cab <em>was</em> it?",
+    "lede": "Kahneman’s cab problem, composed only from library modules: a ladder of parts, a prediction you commit to, a wrong model that runs first, a count that corrects it, two cities side by side, and one question to bring it back.",
+    "synthTitle": "What the film teaches",
+    "synthesis": "The witness’s 80 % is the chance she names a colour correctly, not the chance the cab is Blue. Count every cab she would call Blue — 120 Blue and 170 Green — and the Blue ones are 41 % of them. The base rate picks the denominator; ignoring it means answering as if the city were half Blue.",
+    "sources": [["K16", "Kahneman, Thinking, Fast and Slow, ch. 16 (Causes Trump Statistics) — the cab problem; the most common answer is 80 %, the correct answer 41 %", "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow"],
+                ["TK82", "Tversky & Kahneman 1982 — Evidential impact of base rates", "https://doi.org/10.1017/CBO9780511809477.011"],
+                ["GH95", "Gigerenzer & Hoffrage 1995 — natural frequencies make Bayes countable", "https://doi.org/10.1037/0033-295X.102.4.684"]]
+  },
+  "type": { "primary": "T5", "secondary": "T8" }, "archetype": "A2",
+  "aha": "the denominator decides",
+  "misconception": { "text": "the witness is 80 % reliable, so it is 80 % Blue", "runnable": true },
+  "roles": {
+    "blueCab": "shape:filled", "greenCab": "shape:hollow", "mass": "neutral", "dropped": "neutral", "rung": "neutral", "tie": "neutral", "neutralMark": "neutral",
+    "witness": "person", "kept": "person", "evidence": "person", "guess": "person", "wrongModel": "person", "card": "person",
+    "answer": "machine", "gapMark": "error", "closeMark": "remedy", "principle": "remedy", "returnInstance": "remedy"
+  },
+  "po": { "kind": "grid", "id": "city", "n": 1000, "cols": 40, "pitch": 7.5, "x0": 230, "y0": 176, "label": "A cab hit someone at night. A witness says it was Blue." },
+  "example": {
+    "cabs": 1000, "blue": 150, "reliability": 0.8, "lowBase": 0.05,
+    "cityBins": [
+      { "id": "blue-saysBlue", "label": "Blue, called Blue", "short": "Blue", "p": 0.12, "group": "blueCab" },
+      { "id": "blue-saysGreen", "label": "Blue, called Green", "p": 0.03, "group": "blueCab" },
+      { "id": "green-saysBlue", "label": "Green, called Blue", "p": 0.17, "group": "greenCab" },
+      { "id": "green-saysGreen", "label": "Green, called Green", "p": 0.68, "group": "greenCab" }
+    ],
+    "evenBins": [
+      { "id": "blue-saysBlue", "label": "Blue, called Blue", "short": "Blue", "p": 0.40, "group": "blueCab" },
+      { "id": "blue-saysGreen", "label": "Blue, called Green", "p": 0.10, "group": "blueCab" },
+      { "id": "green-saysBlue", "label": "Green, called Blue", "p": 0.10, "group": "greenCab" },
+      { "id": "green-saysGreen", "label": "Green, called Green", "p": 0.40, "group": "greenCab" }
+    ]
+  },
+  "given": { "flags": ["gap"] },
+  "modules": [
+    {
+      "use": "ladder-build",
+      "head": { "eyebrow": "FIELD NOTEBOOK · KAHNEMAN CH. 16", "title": "Which cab was it?", "chapter": "The city and the witness" },
+      "params": {
+        "rung0": { "part": "city", "label": "the city", "kind": "city", "note": "" },
+        "rungs": [
+          { "part": "witness", "label": "+ the witness", "kind": "witness", "note": "" },
+          { "part": "both ways", "label": "+ both ways", "kind": "both", "note": "" }
+        ],
+        "emergent": { "term": "two sources", "kind": "two-sources", "label": "one “Blue”, two possible sources", "dur": 5 },
+        "model": { "N": "@example.cabs", "blue": "@example.blue", "reliability": "@example.reliability" },
+        "principle": { "term": "reliability", "line": "right 80 % of the time, either colour" },
+        "returnLine": "One city, one witness, one “Blue”. Which cab was it?",
+        "ladder": { "bottom": "THE CASE", "top": "THE PARTS" },
+        "figure": { "x": 600, "strip": "THE WITNESS · 100 NIGHT TESTS" },
+        "foot": {
+          "rung0": "each dot is one cab: {blue} Blue, {green} Green",
+          "rung1": "the court tested her at night: right {right} times in 100",
+          "rung2": "her mistakes go both ways: {wrongTen} in 10 of each colour named wrong",
+          "integrate": "so a “Blue” has two sources: a Blue cab seen right, or a Green cab seen wrong",
+          "return": "back to the case, with its parts named"
+        }
+      },
+      "captions": {
+        "rung0": "A city of 1,000 cabs: 150 Blue, 850 Green. One of them hit someone at night.",
+        "rung1": "A witness says Blue. Tested at night, she names the colour right 80 times in 100.",
+        "rung2": "Her errors go both ways: shown a Green cab, she says Blue 2 times in 10.",
+        "integrate": "So a “Blue” can come from a Blue cab seen right, or a Green cab seen wrong.",
+        "hold": "Two parts: how many of each cab, and how often she is right.",
+        "name": "Her reliability: right 80 % of the time, whichever colour she is shown.",
+        "return": "Back to the case. Which cab was it?"
+      }
+    },
+    {
+      "use": "commit-predict-reveal",
+      "head": { "eyebrow": "01 · PREDICT, THEN COUNT", "title": "Trust the witness?", "chapter": "The trap" },
+      "params": {
+        "question": "The witness says Blue. What is the chance the cab was Blue?",
+        "range": [0, 100], "unit": " %",
+        "card": { "x": 570, "y": 196, "w": 350 },
+        "filmDefault": { "value": 80, "label": "most common answer", "short": "common answer ", "src": "Kahneman ch. 16" },
+        "countdown": 4, "tolerance": 5
+      },
+      "inner": {
+        "use": "trap-and-correct",
+        "params": {
+          "wrong": { "name": "trust the witness", "steelman": "She is right 80 % of the time, so it is 80 % Blue.", "works": "Blue and Green cabs are equally common.", "says": "@example.reliability" },
+          "observed": { "line": "But it never looked at the city: 850 of the 1,000 cabs are Green.", "box": { "x": 218, "y": 164, "w": 316, "h": 204 } },
+          "read": { "fn": "answer", "args": [true], "scale": 100 },
+          "fresh": { "label": "if she said “Green”", "read": { "fn": "counts", "ratio": { "top": [3], "of": [1, 3] }, "scale": 100 }, "line": "count: {top} of {of}" },
+          "meter": { "x0": 560, "x1": 860, "y": 420, "min": 0, "max": 100 },
+          "card": { "x": 570, "y": 196, "w": 350 }
+        },
+        "right": {
+          "use": "mass-reseat",
+          "params": {
+            "variant": "condition", "N": "@example.cabs", "focus": "blue-saysBlue", "bins": "@example.cityBins",
+            "keep": ["blue-saysBlue", "green-saysBlue"],
+            "means": "each mark is one cab",
+            "legend": [{ "group": "blueCab", "label": "{n} Blue cabs" }, { "group": "greenCab", "label": "{n} Green cabs" }],
+            "keepLabel": "ringed · she would say Blue", "answerLabel": "Blue, given “Blue”",
+            "foot": {
+              "queue": "each dot is one cab · only {groupPct} of the city’s cabs are Blue",
+              "close": "test her on every cab: 150 × 0.8 = {n:blue-saysBlue} Blue · 850 × 0.2 = {n:green-saysBlue} Green",
+              "reseat": "the other {droppedN} stay, faint: still in the city, no longer in the question",
+              "count": "Bayes, counted: {focusN} ÷ ({focusN} + {n:green-saysBlue}) = {answer}",
+              "countOff": "no witness: the answer is the base rate, {groupN} of {N}"
+            },
+            "principle": { "term": "the base rate", "line": "the denominator decides" },
+            "control": { "label": "Use the witness", "question": "Without the witness, what is the chance the cab was Blue?", "on": "witness on", "off": "no witness" },
+            "notes": ["the 80 % reliability is the textbook’s, tested at night"]
+          }
+        }
+      },
+      "captions": {
+        "in.r.queue": "The same city, one dot per cab. Only 15 % of them are Blue.",
+        "ask": "Before anything is counted: the witness says Blue. What is the chance it was?",
+        "commit": "Pause and guess. Hold your number; the film will count it out.",
+        "in.steelman": "The obvious answer, fairly put: she is right 80 % of the time.",
+        "in.run-wrong": "Run that model and it says 80 %, with confidence.",
+        "in.break": "But it never looked at the city: 850 of the 1,000 cabs are Green.",
+        "in.break-hold": "The witness is the same. The question is which cabs she could be describing.",
+        "in.r.close": "Test her on every cab. 120 Blue and 170 Green cabs would be called Blue.",
+        "in.r.reseat": "Only those 290 are still in question. The rest stay, faint, on the page.",
+        "in.r.count": "Count the Blue ones among them: 120 of 290. About 41 %, not 80 %.",
+        "gap": "Most of us land near 80. The count says 41: a gap of about 40 points.",
+        "in.r.hold": "Most cabs she would call Blue are Green: there are so many more of them.",
+        "in.r.name": "The base rate decides: the evidence only picks the denominator.",
+        "in.fruitful": "The count also answers a fresh case: if she said Green, 680 of 710, 96 %."
+      }
+    },
+    {
+      "use": "contrast-split",
+      "head": { "eyebrow": "02 · ONE DIFFERENCE", "title": "Two cities, one witness", "chapter": "Two cities" },
+      "params": {
+        "vary": { "param": "bins", "b": "@example.evenBins", "tagA": "CITY A · 15 % OF CABS ARE BLUE", "tagB": "CITY B · HALF THE CABS ARE BLUE" },
+        "read": { "fn": "answer", "args": [true] }, "scale": 100, "unit": " %",
+        "pace": 1.4, "startPhase": 1,
+        "box": { "x0": 210, "y0": 140, "x1": 930, "y1": 500 }, "top": 172,
+        "align": { "at": { "x": 776, "y": 206 }, "line": "same witness · same count" },
+        "differ": { "at": { "x": 862, "y": 296 }, "w": 132, "h": 86, "line": "one change, the base rate: {left} or {right}" },
+        "principle": { "term": "base-rate neglect", "line": "answering as if the city were half Blue" },
+        "notes": ["City B is hypothetical: the textbook’s city is 15 % Blue"]
+      },
+      "inner": {
+        "use": "mass-reseat",
+        "params": {
+          "variant": "condition", "N": "@example.cabs", "focus": "blue-saysBlue", "bins": "@example.cityBins",
+          "keep": ["blue-saysBlue", "green-saysBlue"],
+          "means": "each mark is one cab",
+          "legend": [{ "group": "blueCab", "label": "{n} Blue" }, { "group": "greenCab", "label": "{n} Green" }],
+          "keepLabel": "she would say Blue", "answerLabel": "Blue, given “Blue”",
+          "foot": { "count": "{focusN} of {keptN} called Blue are Blue" },
+          "principle": { "term": "the base rate", "line": "the denominator decides" }
+        }
+      },
+      "captions": {
+        "clone": "Split the city in two. Keep the witness exactly the same.",
+        "flip": "Change one thing on the right: a city where half the cabs are Blue.",
+        "a.close": "Test her on every cab, in both cities at once.",
+        "a.reseat": "Gather every cab she would call Blue.",
+        "a.count": "Left: 120 of 290. Right: 400 of 500.",
+        "a.hold": "Same witness, same 80 %, very different answers.",
+        "a.name": "In each city, the denominator is the cabs she would call Blue.",
+        "align": "What is the same: the witness, and the way we count.",
+        "differ": "What differs: only the base rate. 41 % in one city, 80 % in the other.",
+        "name": "80 % is the right answer only in a city that is half Blue. That is the neglect."
+      }
+    },
+    {
+      "use": "recap-retrieve",
+      "head": { "eyebrow": "03 · RETRIEVE", "title": "One more city", "chapter": "Recap" },
+      "params": {
+        "question": "Same witness, but only 5 % of cabs are Blue. Chance a “Blue” call is right?",
+        "answerKind": "number",
+        "model": { "N": "@example.cabs", "base": "@example.lowBase", "reliability": "@example.reliability" },
+        "contentT": 63,
+        "recap": [
+          { "glyph": "grid", "line": "count the city first: the base rate" },
+          { "glyph": "outline", "line": "ring every cab she would call Blue" },
+          { "glyph": "block", "line": "answer inside that block: 120 of 290" }
+        ],
+        "returnLines": ["A witness says the cab was Blue.", { "text": "Chance it was Blue: 41 %, not 80 %", "ok": true }, "First ask: how many of each are out there?"],
+        "eyebrow": "RETRIEVE · FROM THE COUNT, EARLIER",
+        "figure": { "city": "A NEW CITY", "returnEyebrow": "THE OPENING CASE, AGAIN" },
+        "foot": {
+          "ask": "pause and answer · the counting was a while ago",
+          "answer": "Bayes, counted: the rarer Blue cabs are, the less a “Blue” means",
+          "recap": "three frames from earlier, as pictures",
+          "return": "before you trust the witness, count the city"
+        }
+      },
+      "captions": {
+        "ask": "One question from the count. Only 5 % of cabs are Blue. Pause and answer.",
+        "answer": "Count it: 40 Blue cabs called Blue, 190 Green cabs called Blue. 40 of 230.",
+        "hold": "About 17 %. The rarer the Blue cabs, the less a “Blue” means.",
+        "recap": "Three things to keep: count the city, ring the calls, answer inside the block.",
+        "return": "The opening case again: 41 %, not 80 %. First ask how many of each are out there."
+      }
+    }
+  ]
+}

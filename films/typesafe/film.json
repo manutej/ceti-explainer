@@ -1,0 +1,26 @@
+{
+  "film": "typesafe",
+  "title": "Type-safe AI",
+  "format": "feature",
+  "description": "How a model is made to keep its promises: schemas, constrained decoding, retries, typed composition \u2014 and where types stop.",
+  "fps": 30,
+  "seed": 7,
+  "w": 1920,
+  "h": 1080,
+  "preset": "ceti",
+  "data": "data.js",
+  "scenes": "scenes.js",
+  "layers": [
+    "layers/ground.js",
+    "layers/whale.js",
+    "layers/contract.js",
+    "layers/yard.js",
+    "layers/runs.js",
+    "layers/pour.js",
+    "layers/moire.js"
+  ],
+  "artifactTitles": {
+    "p5": "Type-safe AI",
+    "svg": "Type-safe AI Classic Cut"
+  }
+}
