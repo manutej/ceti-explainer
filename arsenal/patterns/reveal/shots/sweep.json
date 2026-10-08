@@ -1,0 +1,712 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/reveal/demo.html",
+ "t": 2,
+ "variant": "diagram",
+ "brands": {
+  "blueprint": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#0B2A5B",
+     "dist": 0
+    },
+    {
+     "px": "#0B2A5B",
+     "dist": 0
+    },
+    {
+     "px": "#0B2A5B",
+     "dist": 0
+    },
+    {
+     "px": "#0B2A5B",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#0B2A5B",
+   "status": "applied"
+  },
+  "ceti-boardwalk-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#1C1821",
+     "dist": 0
+    },
+    {
+     "px": "#1C1821",
+     "dist": 0
+    },
+    {
+     "px": "#1C1821",
+     "dist": 0
+    },
+    {
+     "px": "#1C1821",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#1C1821",
+   "status": "applied"
+  },
+  "ceti-boardwalk-light": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#F6F0DF",
+     "dist": 0
+    },
+    {
+     "px": "#F6F0DF",
+     "dist": 0
+    },
+    {
+     "px": "#F6F0DF",
+     "dist": 0
+    },
+    {
+     "px": "#F6F0DF",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#F6F0DF",
+   "status": "applied"
+  },
+  "ceti-coastal-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#161C1D",
+     "dist": 0
+    },
+    {
+     "px": "#161C1D",
+     "dist": 0
+    },
+    {
+     "px": "#161C1D",
+     "dist": 0
+    },
+    {
+     "px": "#161C1D",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#161C1D",
+   "status": "applied"
+  },
+  "ceti-coastal-light": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#EFECE1",
+     "dist": 0
+    },
+    {
+     "px": "#EFECE1",
+     "dist": 0
+    },
+    {
+     "px": "#EFECE1",
+     "dist": 0
+    },
+    {
+     "px": "#EFECE1",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#EFECE1",
+   "status": "applied"
+  },
+  "ceti-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#0F1115",
+     "dist": 0
+    },
+    {
+     "px": "#0F1115",
+     "dist": 0
+    },
+    {
+     "px": "#0F1115",
+     "dist": 0
+    },
+    {
+     "px": "#0F1115",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#0F1115",
+   "status": "applied"
+  },
+  "ceti-greenhouse-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#13140F",
+     "dist": 0
+    },
+    {
+     "px": "#13140F",
+     "dist": 0
+    },
+    {
+     "px": "#13140F",
+     "dist": 0
+    },
+    {
+     "px": "#13140F",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#13140F",
+   "status": "applied"
+  },
+  "ceti-greenhouse-light": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#EFEBE1",
+     "dist": 0
+    },
+    {
+     "px": "#EFEBE1",
+     "dist": 0
+    },
+    {
+     "px": "#EFEBE1",
+     "dist": 0
+    },
+    {
+     "px": "#EFEBE1",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#EFEBE1",
+   "status": "applied"
+  },
+  "ceti-marketing": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#1A1F2E",
+     "dist": 0
+    },
+    {
+     "px": "#1A1F2E",
+     "dist": 0
+    },
+    {
+     "px": "#1A1F2E",
+     "dist": 0
+    },
+    {
+     "px": "#1A1F2E",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#1A1F2E",
+   "status": "applied"
+  },
+  "ceti-neosage-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#131118",
+     "dist": 0
+    },
+    {
+     "px": "#131118",
+     "dist": 0
+    },
+    {
+     "px": "#131118",
+     "dist": 0
+    },
+    {
+     "px": "#131118",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#131118",
+   "status": "applied"
+  },
+  "ceti-neosage-light": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#F5F4EF",
+     "dist": 0
+    },
+    {
+     "px": "#F5F4EF",
+     "dist": 0
+    },
+    {
+     "px": "#F5F4EF",
+     "dist": 0
+    },
+    {
+     "px": "#F5F4EF",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#F5F4EF",
+   "status": "applied"
+  },
+  "ceti-owala-soft": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#F4E4D2",
+     "dist": 0
+    },
+    {
+     "px": "#F4E4D2",
+     "dist": 0
+    },
+    {
+     "px": "#F4E4D2",
+     "dist": 0
+    },
+    {
+     "px": "#F4E4D2",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#F4E4D2",
+   "status": "applied"
+  },
+  "editorial-serif": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#F6F0E2",
+     "dist": 0
+    },
+    {
+     "px": "#F6F0E2",
+     "dist": 0
+    },
+    {
+     "px": "#F6F0E2",
+     "dist": 0
+    },
+    {
+     "px": "#F6F0E2",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#F6F0E2",
+   "status": "applied"
+  },
+  "high-vis": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#0C0C0C",
+     "dist": 0
+    },
+    {
+     "px": "#0C0C0C",
+     "dist": 0
+    },
+    {
+     "px": "#0C0C0C",
+     "dist": 0
+    },
+    {
+     "px": "#0C0C0C",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#0C0C0C",
+   "status": "applied"
+  },
+  "midnight-ink": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#0F1A33",
+     "dist": 0
+    },
+    {
+     "px": "#0F1A33",
+     "dist": 0
+    },
+    {
+     "px": "#0F1A33",
+     "dist": 0
+    },
+    {
+     "px": "#0F1A33",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#0F1A33",
+   "status": "applied"
+  },
+  "neon-lab": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#07080C",
+     "dist": 0
+    },
+    {
+     "px": "#07080C",
+     "dist": 0
+    },
+    {
+     "px": "#07080C",
+     "dist": 0
+    },
+    {
+     "px": "#07080C",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#07080C",
+   "status": "applied"
+  },
+  "newsprint": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#D9D5CC",
+     "dist": 0
+    },
+    {
+     "px": "#D9D5CC",
+     "dist": 0
+    },
+    {
+     "px": "#D9D5CC",
+     "dist": 0
+    },
+    {
+     "px": "#D9D5CC",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#D9D5CC",
+   "status": "applied"
+  },
+  "pastel-pop": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#FFF4EC",
+     "dist": 0
+    },
+    {
+     "px": "#FFF4EC",
+     "dist": 0
+    },
+    {
+     "px": "#FFF4EC",
+     "dist": 0
+    },
+    {
+     "px": "#FFF4EC",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#FFF4EC",
+   "status": "applied"
+  },
+  "swiss-grid": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#FFFFFF",
+     "dist": 0
+    },
+    {
+     "px": "#FFFFFF",
+     "dist": 0
+    },
+    {
+     "px": "#FFFFFF",
+     "dist": 0
+    },
+    {
+     "px": "#FFFFFF",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#FFFFFF",
+   "status": "applied"
+  },
+  "tender-set": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#E8DCC2",
+     "dist": 0
+    },
+    {
+     "px": "#E8DCC2",
+     "dist": 0
+    },
+    {
+     "px": "#E8DCC2",
+     "dist": 0
+    },
+    {
+     "px": "#E8DCC2",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#E8DCC2",
+   "status": "applied"
+  },
+  "terminal": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#0A0D0A",
+     "dist": 0
+    },
+    {
+     "px": "#0A0D0A",
+     "dist": 0
+    },
+    {
+     "px": "#0A0D0A",
+     "dist": 0
+    },
+    {
+     "px": "#0A0D0A",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#0A0D0A",
+   "status": "applied"
+  },
+  "warm-lab": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "fetch-shim(1)"
+   ],
+   "ok": true,
+   "film_brand": null,
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 0,
+   "samples": [
+    {
+     "px": "#EBDCC3",
+     "dist": 0
+    },
+    {
+     "px": "#EBDCC3",
+     "dist": 0
+    },
+    {
+     "px": "#EBDCC3",
+     "dist": 0
+    },
+    {
+     "px": "#EBDCC3",
+     "dist": 0
+    }
+   ],
+   "pack_bg": "#EBDCC3",
+   "status": "applied"
+  }
+ },
+ "sheet": "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/sweep.png"
+}

@@ -1,0 +1,712 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/transitions/demo.html",
+ "t": 6,
+ "variant": "four-scenes",
+ "brands": {
+  "blueprint": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "blueprint",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 4.1,
+   "samples": [
+    {
+     "px": "#10357A",
+     "dist": 33.3
+    },
+    {
+     "px": "#10357A",
+     "dist": 33.3
+    },
+    {
+     "px": "#0B2B5F",
+     "dist": 4.1
+    },
+    {
+     "px": "#0B2B5F",
+     "dist": 4.1
+    }
+   ],
+   "pack_bg": "#0B2A5B",
+   "status": "applied"
+  },
+  "ceti-boardwalk-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-boardwalk-dark",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 2.4,
+   "samples": [
+    {
+     "px": "#282235",
+     "dist": 25.4
+    },
+    {
+     "px": "#282235",
+     "dist": 25.4
+    },
+    {
+     "px": "#1D1923",
+     "dist": 2.4
+    },
+    {
+     "px": "#1D1923",
+     "dist": 2.4
+    }
+   ],
+   "pack_bg": "#1C1821",
+   "status": "applied"
+  },
+  "ceti-boardwalk-light": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-boardwalk-light",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3,
+   "samples": [
+    {
+     "px": "#EDE4CF",
+     "dist": 21.9
+    },
+    {
+     "px": "#EDE4CF",
+     "dist": 21.9
+    },
+    {
+     "px": "#F5EEDD",
+     "dist": 3
+    },
+    {
+     "px": "#F5EEDD",
+     "dist": 3
+    }
+   ],
+   "pack_bg": "#F6F0DF",
+   "status": "applied"
+  },
+  "ceti-coastal-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-coastal-dark",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3.3,
+   "samples": [
+    {
+     "px": "#1C2831",
+     "dist": 24.1
+    },
+    {
+     "px": "#1C2831",
+     "dist": 24.1
+    },
+    {
+     "px": "#171D20",
+     "dist": 3.3
+    },
+    {
+     "px": "#171D20",
+     "dist": 3.3
+    }
+   ],
+   "pack_bg": "#161C1D",
+   "status": "applied"
+  },
+  "ceti-coastal-light": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-coastal-light",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3,
+   "samples": [
+    {
+     "px": "#E2DED0",
+     "dist": 25.6
+    },
+    {
+     "px": "#E2DED0",
+     "dist": 25.6
+    },
+    {
+     "px": "#EDEBDF",
+     "dist": 3
+    },
+    {
+     "px": "#EDEBDF",
+     "dist": 3
+    }
+   ],
+   "pack_bg": "#EFECE1",
+   "status": "applied"
+  },
+  "ceti-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-dark",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 1.7,
+   "samples": [
+    {
+     "px": "#171A21",
+     "dist": 17
+    },
+    {
+     "px": "#171A21",
+     "dist": 17
+    },
+    {
+     "px": "#101216",
+     "dist": 1.7
+    },
+    {
+     "px": "#101216",
+     "dist": 1.7
+    }
+   ],
+   "pack_bg": "#0F1115",
+   "status": "applied"
+  },
+  "ceti-greenhouse-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-greenhouse-dark",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 2.4,
+   "samples": [
+    {
+     "px": "#212419",
+     "dist": 23.5
+    },
+    {
+     "px": "#212419",
+     "dist": 23.5
+    },
+    {
+     "px": "#141610",
+     "dist": 2.4
+    },
+    {
+     "px": "#141610",
+     "dist": 2.4
+    }
+   ],
+   "pack_bg": "#13140F",
+   "status": "applied"
+  },
+  "ceti-greenhouse-light": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-greenhouse-light",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3.5,
+   "samples": [
+    {
+     "px": "#E1DCD0",
+     "dist": 26.6
+    },
+    {
+     "px": "#E1DCD0",
+     "dist": 26.6
+    },
+    {
+     "px": "#EDE9DF",
+     "dist": 3.5
+    },
+    {
+     "px": "#EDE9DF",
+     "dist": 3.5
+    }
+   ],
+   "pack_bg": "#EFEBE1",
+   "status": "applied"
+  },
+  "ceti-marketing": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-marketing",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3.5,
+   "samples": [
+    {
+     "px": "#0F1320",
+     "dist": 21.5
+    },
+    {
+     "px": "#0F1320",
+     "dist": 21.5
+    },
+    {
+     "px": "#181D2C",
+     "dist": 3.5
+    },
+    {
+     "px": "#181D2C",
+     "dist": 3.5
+    }
+   ],
+   "pack_bg": "#1A1F2E",
+   "status": "applied"
+  },
+  "ceti-neosage-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-neosage-dark",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 2.4,
+   "samples": [
+    {
+     "px": "#1F1B27",
+     "dist": 21.7
+    },
+    {
+     "px": "#1F1B27",
+     "dist": 21.7
+    },
+    {
+     "px": "#14121A",
+     "dist": 2.4
+    },
+    {
+     "px": "#14121A",
+     "dist": 2.4
+    }
+   ],
+   "pack_bg": "#131118",
+   "status": "applied"
+  },
+  "ceti-neosage-light": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-neosage-light",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3,
+   "samples": [
+    {
+     "px": "#EBE9E0",
+     "dist": 21.1
+    },
+    {
+     "px": "#EBE9E0",
+     "dist": 21.1
+    },
+    {
+     "px": "#F3F3ED",
+     "dist": 3
+    },
+    {
+     "px": "#F3F3ED",
+     "dist": 3
+    }
+   ],
+   "pack_bg": "#F5F4EF",
+   "status": "applied"
+  },
+  "ceti-owala-soft": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-owala-soft",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3.3,
+   "samples": [
+    {
+     "px": "#E8D9C0",
+     "dist": 24.3
+    },
+    {
+     "px": "#E8D9C0",
+     "dist": 24.3
+    },
+    {
+     "px": "#F3E3CF",
+     "dist": 3.3
+    },
+    {
+     "px": "#F3E3CF",
+     "dist": 3.3
+    }
+   ],
+   "pack_bg": "#F4E4D2",
+   "status": "applied"
+  },
+  "editorial-serif": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "editorial-serif",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 4.1,
+   "samples": [
+    {
+     "px": "#EBE2CE",
+     "dist": 26.8
+    },
+    {
+     "px": "#EBE2CE",
+     "dist": 26.8
+    },
+    {
+     "px": "#F4EEDF",
+     "dist": 4.1
+    },
+    {
+     "px": "#F4EEDF",
+     "dist": 4.1
+    }
+   ],
+   "pack_bg": "#F6F0E2",
+   "status": "applied"
+  },
+  "high-vis": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "high-vis",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 1.7,
+   "samples": [
+    {
+     "px": "#1A1A18",
+     "dist": 23.2
+    },
+    {
+     "px": "#1A1A18",
+     "dist": 23.2
+    },
+    {
+     "px": "#0D0D0D",
+     "dist": 1.7
+    },
+    {
+     "px": "#0D0D0D",
+     "dist": 1.7
+    }
+   ],
+   "pack_bg": "#0C0C0C",
+   "status": "applied"
+  },
+  "midnight-ink": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "midnight-ink",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3.3,
+   "samples": [
+    {
+     "px": "#16254A",
+     "dist": 26.4
+    },
+    {
+     "px": "#16254A",
+     "dist": 26.4
+    },
+    {
+     "px": "#101B36",
+     "dist": 3.3
+    },
+    {
+     "px": "#101B36",
+     "dist": 3.3
+    }
+   ],
+   "pack_bg": "#0F1A33",
+   "status": "applied"
+  },
+  "neon-lab": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "neon-lab",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 1.7,
+   "samples": [
+    {
+     "px": "#0E1119",
+     "dist": 17.3
+    },
+    {
+     "px": "#0E1119",
+     "dist": 17.3
+    },
+    {
+     "px": "#08090D",
+     "dist": 1.7
+    },
+    {
+     "px": "#08090D",
+     "dist": 1.7
+    }
+   ],
+   "pack_bg": "#07080C",
+   "status": "applied"
+  },
+  "newsprint": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "newsprint",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3.5,
+   "samples": [
+    {
+     "px": "#CBC6BB",
+     "dist": 26.6
+    },
+    {
+     "px": "#CBC6BB",
+     "dist": 26.6
+    },
+    {
+     "px": "#D7D3CA",
+     "dist": 3.5
+    },
+    {
+     "px": "#D7D3CA",
+     "dist": 3.5
+    }
+   ],
+   "pack_bg": "#D9D5CC",
+   "status": "applied"
+  },
+  "pastel-pop": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "pastel-pop",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3.6,
+   "samples": [
+    {
+     "px": "#FFE3D6",
+     "dist": 27.8
+    },
+    {
+     "px": "#FFE3D6",
+     "dist": 27.8
+    },
+    {
+     "px": "#FFF2E9",
+     "dist": 3.6
+    },
+    {
+     "px": "#FFF2E9",
+     "dist": 3.6
+    }
+   ],
+   "pack_bg": "#FFF4EC",
+   "status": "applied"
+  },
+  "swiss-grid": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "swiss-grid",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3.5,
+   "samples": [
+    {
+     "px": "#F2F2F2",
+     "dist": 22.5
+    },
+    {
+     "px": "#F2F2F2",
+     "dist": 22.5
+    },
+    {
+     "px": "#FDFDFD",
+     "dist": 3.5
+    },
+    {
+     "px": "#FDFDFD",
+     "dist": 3.5
+    }
+   ],
+   "pack_bg": "#FFFFFF",
+   "status": "applied"
+  },
+  "tender-set": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "tender-set",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 6.2,
+   "samples": [
+    {
+     "px": "#F5EEDF",
+     "dist": 36.5
+    },
+    {
+     "px": "#F5EEDF",
+     "dist": 36.5
+    },
+    {
+     "px": "#EADFC7",
+     "dist": 6.2
+    },
+    {
+     "px": "#EADFC7",
+     "dist": 6.2
+    }
+   ],
+   "pack_bg": "#E8DCC2",
+   "status": "applied"
+  },
+  "terminal": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "terminal",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 1.7,
+   "samples": [
+    {
+     "px": "#111712",
+     "dist": 14.6
+    },
+    {
+     "px": "#111712",
+     "dist": 14.6
+    },
+    {
+     "px": "#0B0E0B",
+     "dist": 1.7
+    },
+    {
+     "px": "#0B0E0B",
+     "dist": 1.7
+    }
+   ],
+   "pack_bg": "#0A0D0A",
+   "status": "applied"
+  },
+  "warm-lab": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "warm-lab",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 3.7,
+   "samples": [
+    {
+     "px": "#DFCDAF",
+     "dist": 27.7
+    },
+    {
+     "px": "#DFCDAF",
+     "dist": 27.7
+    },
+    {
+     "px": "#EADAC0",
+     "dist": 3.7
+    },
+    {
+     "px": "#EADAC0",
+     "dist": 3.7
+    }
+   ],
+   "pack_bg": "#EBDCC3",
+   "status": "applied"
+  }
+ },
+ "sheet": "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/sweep.png"
+}
