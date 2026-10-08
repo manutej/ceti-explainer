@@ -55,7 +55,7 @@ silent, captions carry it. Brand midnight-ink, chrome none, material ink.
 | G1 load | PASS | 0 errors film and live; ready 364 ms |
 | G2a/b purity | PASS | canvas and SVG identical on re-seek; A→B = B→A |
 | G3 clock scan | PASS | film.js (with the inlined arsenal), kit2.js, player.js clean |
-| **G4a duration** | **FAIL** | 100 s material + 3 s brand; the gate wants 60–75 s. The brief for this film asked for 90–110 s, so this is by design; the gate has no feature-length mode. |
+| G4a duration | PASS | 100 s material + 3 s brand; film.json declares `format: "feature"` (90–120 s), added to the gate on 2026-10-08. |
 | G4b–G4f | PASS | five beats in order; commit 10 s, default 9; brand card visible; honest line; 9 sources |
 | G5a/b/c claims | PASS | 55 of 55 formulas recompute; every caption digit and every visible SVG digit is a claim |
 | G6 legibility | PASS | all text tagged by data-role; must-read ≥ 28, secondary ≥ 14; phone 390 no overflow |
