@@ -1,5 +1,7 @@
 # Selection into treatment · beat sheet (film id `selection`)
 
+> Built as factory/films/selection (see its NOTES.md): the kit contract moved the geometry into x 48-664, y 104-400, the commit to 10.5 s, and the HOOK/CASE ratios to natural frequencies (80 per 100, 56 per 100, 129 per 100) for G7. The film.json captions are the current text.
+
 Total 75.0 s: material 0.0 to 72.0, CETI brand card 72.0 to 75.0. Stage 960 × 540 units. Every digit is a
 claim id in claims.json (in brackets below). Ink on paper; one accent ink (pencil red) reserved for the
 viewer's guess. Faces: numbers in IBM Plex Mono 500; words in DM Sans; eyebrows Plex Mono 400 caps.

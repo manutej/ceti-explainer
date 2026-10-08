@@ -1,0 +1,58 @@
+{
+  "id": "selection",
+  "title": "Who chose it",
+  "eyebrow": "CETI · Selection into treatment",
+  "lede": "Customers who turned the feature on stayed at 80 % against 50 %. Before you credit the feature, look at who chose it: one real reversal in medicine, then the same 100 customers counted twice, as they chose and by coin flip.",
+  "dur": 75,
+  "seed": 23,
+  "palette": { "paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "muted": "#8E887C", "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277" },
+  "type": { "disp": "Big Shoulders Display", "mono": "IBM Plex Mono", "sans": "DM Sans" },
+  "fonts": [
+    { "family": "Big Shoulders Display", "weight": 600, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 400, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 500, "style": "normal" },
+    { "family": "DM Sans", "weight": 400, "style": "normal" }
+  ],
+  "params": {"N":100,"A1":21,"P1":3,"N1":6,"A0":35,"P0":7,"N0":28,"half":50,"seedPeople":7,"seedSplit":90,"guessDefault":25,"commitSeconds":8,"studiesProspective":16,"studiesLower":15,"rrObs":0.56,"reviewYear":1991,"whiYear":2002,"nHormone":8506,"nPlacebo":8102,"chdHormone":164,"chdPlacebo":122,"hrCHD":1.29,"lawlorYear":2004,"lawlorN":4286,"splitSeeds":10000,"swingCover":90,"rrObsLo":0.5,"rrObsHi":0.61,"hrLo":1.02,"hrHi":1.63,"hrEalone":0.91,"eAloneYear":2004,"hrEarly":0.76,"earlyYears":10,"rossouwYear":2007},
+  "commit": { "at": 10.5, "title": "YOUR NUMBER", "prompt": "Of the 30-point gap, how many points is the feature? (0 to 30)", "unit": "of 30 points", "default": 25, "min": 0, "max": 30, "step": 1 },
+  "count": { "at": 36 },
+  "chapters": [
+    { "id": "hook", "beat": "HOOK", "t0": 0, "t1": 8, "eyebrow": "SELECTION · THE HOOK", "title": "The feature works" },
+    { "id": "commit", "beat": "COMMIT", "t0": 8, "t1": 16, "eyebrow": "SELECTION · YOUR NUMBER", "title": "How much is the feature?" },
+    { "id": "case", "beat": "CASE", "t0": 16, "t1": 36, "eyebrow": "SELECTION · THE CASE", "title": "Hormones and the heart" },
+    { "id": "count", "beat": "COUNT", "t0": 36, "t1": 62, "eyebrow": "SELECTION · THE COUNT", "title": "The same hundred, twice" },
+    { "id": "monday", "beat": "MONDAY", "t0": 62, "t1": 72, "eyebrow": "SELECTION · MONDAY", "title": "One question" }
+  ],
+  "captions": [
+    [0.6, 4.2, "Feature on: 24 of 30 stayed. Feature off: 35 of 70."],
+    [4.4, 7.9, "The deck says the feature clearly drives retention."],
+    [8.2, 10.4, "Per 100 customers: 80 stay against 50. A gap of 30."],
+    [10.6, 15.9, "How many of those 30 did the feature earn?"],
+    [16.3, 20.6, "1991 review: 15 of 16 cohorts found less heart disease."],
+    [20.8, 25.6, "Hormone users: 56 heart events for every 100 in non-users."],
+    [25.8, 30.8, "2002 trial, 16,608 women by lot: 164 events against 122."],
+    [31.0, 35.8, "129 per 100 on placebo. Those who chose it were better off."],
+    [36.3, 41.8, "100 customers. 30 chose the feature; 24 of them stayed."],
+    [42.0, 46.8, "Of the 70 who did not, 35 stayed: 80 % against 50 %."],
+    [47.2, 52.6, "Same 100, split by coin flip: 50 get it, 50 do not."],
+    [53.0, 61.8, "33 of 50 against 28 of 50: the feature earns 10 points."],
+    [62.3, 67.0, "Who chose it, and would they have stayed anyway?"],
+    [67.2, 71.8, "HRT was not all selection: when women started may matter."]
+  ],
+  "ledger": [[1.0, "REV A · RETENTION REVIEW"], [15.0, "REV B · GUESS SEALED"], [16.5, "REV C · HRT · 1991 TO 2002"], [36.5, "REV D · AS THEY CHOSE"], [49.5, "REV E · COIN FLIP · SEED 90"], [58.6, "REV F · GUESS PLACED"]],
+  "brand": { "takeaway": "Who chose it is not what it did.", "at": 72 },
+  "sources": [
+    ["WHI02", "Writing Group for the Women's Health Initiative Investigators. Risks and benefits of estrogen plus progestin in healthy postmenopausal women: principal results from the Women's Health Initiative randomized controlled trial. JAMA. 2002;288(3):321-333. doi:10.1001/jama.288.3.321"],
+    ["SC91", "Stampfer MJ, Colditz GA. Estrogen replacement therapy and coronary heart disease: a quantitative assessment of the epidemiologic evidence. Prev Med. 1991;20(1):47-63. PMID 1826173."],
+    ["LDE04a", "Lawlor DA, Davey Smith G, Ebrahim S. Commentary: The hormone replacement-coronary heart disease conundrum: is this the death of observational epidemiology? Int J Epidemiol. 2004;33(3):464-467. doi:10.1093/ije/dyh124"],
+    ["LDE04b", "Lawlor DA, Davey Smith G, Ebrahim S. Socioeconomic position and hormone replacement therapy use: explaining the discrepancy in evidence from observational and randomized controlled trials. Am J Public Health. 2004;94(12):2149-2154. doi:10.2105/ajph.94.12.2149"],
+    ["ROS07", "Rossouw JE, Prentice RL, Manson JE, et al. Postmenopausal hormone therapy and risk of cardiovascular disease by age and years since menopause. JAMA. 2007;297(13):1465-1477. PMID 17405972."],
+    ["WHI04", "Women's Health Initiative Steering Committee. Effects of conjugated equine estrogen in postmenopausal women with hysterectomy. JAMA. 2004;291(14):1701-1712. doi:10.1001/jama.291.14.1701"],
+    ["TEACH", "Teaching object (this film's claims.json params): 100 constructed customers with fixed outcomes; people laid out by a mulberry32 Fisher-Yates shuffle, seed 7; coin flip seed 90. Not data."]
+  ],
+  "honest": [
+    "The 100 customers are a teaching set, not data. Seed 90 was picked because its coin flip comes out exactly even; across 10,000 seeds, 90 % of 50/50 splits of these 100 land between -6 and +26 points. A real holdout needs far more than 100 customers.",
+    "The 1991 studies were mostly of estrogen alone; the 2002 trial arm was estrogen plus progestin. The 2004 estrogen-alone trial also found no heart benefit (HR 0.91).",
+    "HRT was not all selection: in later WHI analyses, women within 10 years of menopause had HR 0.76, not significant (Rossouw 2007). Per-100 readings of RR 0.56 and HR 1.29 treat each ratio as events per 100 in the comparison group."
+  ]
+}
