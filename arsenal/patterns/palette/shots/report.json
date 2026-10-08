@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/palette/demo.html",
+ "errors": [],
+ "variants": {
+  "ceti-dark": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-dark-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-dark-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-dark-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-dark-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "neon-lab": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/neon-lab-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/neon-lab-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/neon-lab-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/neon-lab-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "swiss-grid": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/swiss-grid-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/swiss-grid-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/swiss-grid-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/swiss-grid-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "tender-set": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/tender-set-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/tender-set-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/tender-set-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/tender-set-t4.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 9.4,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/palette/shots/contact.png"
+}
