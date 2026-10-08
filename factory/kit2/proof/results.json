@@ -1,0 +1,1358 @@
+{
+ "brands": [
+  "ceti-dark",
+  "tender-set",
+  "swiss-grid",
+  "neon-lab"
+ ],
+ "cells": [
+  {
+   "brand": "ceti-dark",
+   "build": "ok",
+   "bytes": 1192962,
+   "chrome": "tender-set",
+   "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.ceti-dark.tender-set",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.ceti-dark.tender-set.html",
+   "sha256": "944907244bcb",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "ceti-dark",
+   "build": "ok",
+   "bytes": 1192613,
+   "chrome": "ledger",
+   "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.ceti-dark.ledger",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.ceti-dark.ledger.html",
+   "sha256": "090f31ed9fdf",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "ceti-dark",
+   "build": "ok",
+   "bytes": 1192460,
+   "chrome": "memo",
+   "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.ceti-dark.memo",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.ceti-dark.memo.html",
+   "sha256": "1539ff01fa74",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "ceti-dark",
+   "build": "ok",
+   "bytes": 1179865,
+   "chrome": "none",
+   "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.ceti-dark.none",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.ceti-dark.none.html",
+   "sha256": "d3f6d46a0e12",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "tender-set",
+   "build": "ok",
+   "bytes": 1154911,
+   "chrome": "tender-set",
+   "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.tender-set.tender-set",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.tender-set.tender-set.html",
+   "sha256": "42a66d599dc2",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "tender-set",
+   "build": "ok",
+   "bytes": 1154562,
+   "chrome": "ledger",
+   "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.tender-set.ledger",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.tender-set.ledger.html",
+   "sha256": "9158c804abcf",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "tender-set",
+   "build": "ok",
+   "bytes": 1154409,
+   "chrome": "memo",
+   "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.tender-set.memo",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.tender-set.memo.html",
+   "sha256": "b91d26d9c20e",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "tender-set",
+   "build": "ok",
+   "bytes": 1141814,
+   "chrome": "none",
+   "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.tender-set.none",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.tender-set.none.html",
+   "sha256": "8eafc5d631cd",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "swiss-grid",
+   "build": "ok",
+   "bytes": 1148816,
+   "chrome": "tender-set",
+   "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.swiss-grid.tender-set",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.swiss-grid.tender-set.html",
+   "sha256": "e48911b8d927",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "swiss-grid",
+   "build": "ok",
+   "bytes": 1148467,
+   "chrome": "ledger",
+   "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.swiss-grid.ledger",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.swiss-grid.ledger.html",
+   "sha256": "88ca9b365f32",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "swiss-grid",
+   "build": "ok",
+   "bytes": 1148314,
+   "chrome": "memo",
+   "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.swiss-grid.memo",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.swiss-grid.memo.html",
+   "sha256": "801d975e884d",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "swiss-grid",
+   "build": "ok",
+   "bytes": 1135719,
+   "chrome": "none",
+   "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.swiss-grid.none",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.swiss-grid.none.html",
+   "sha256": "4dc17075e1c1",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "neon-lab",
+   "build": "ok",
+   "bytes": 1220762,
+   "chrome": "tender-set",
+   "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.neon-lab.tender-set",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.neon-lab.tender-set.html",
+   "sha256": "aefb95a85055",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "neon-lab",
+   "build": "ok",
+   "bytes": 1220413,
+   "chrome": "ledger",
+   "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.neon-lab.ledger",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.neon-lab.ledger.html",
+   "sha256": "1bb75f4a4a97",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "neon-lab",
+   "build": "ok",
+   "bytes": 1220260,
+   "chrome": "memo",
+   "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.neon-lab.memo",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.neon-lab.memo.html",
+   "sha256": "631436166d51",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "neon-lab",
+   "build": "ok",
+   "bytes": 1207665,
+   "chrome": "none",
+   "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
+   "film": "survivorship",
+   "gate": {
+    "fails": [],
+    "g5c": "every visible SVG number is a claim value",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "PASS",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "survivorship.neon-lab.none",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.neon-lab.none.html",
+   "sha256": "ce10f60a5310",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "ceti-dark",
+   "build": "ok",
+   "bytes": 1190896,
+   "chrome": "tender-set",
+   "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.ceti-dark.tender-set",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.ceti-dark.tender-set.html",
+   "sha256": "97f82056f568",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "ceti-dark",
+   "build": "ok",
+   "bytes": 1190547,
+   "chrome": "ledger",
+   "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.ceti-dark.ledger",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.ceti-dark.ledger.html",
+   "sha256": "bffa3786d0ff",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "ceti-dark",
+   "build": "ok",
+   "bytes": 1190394,
+   "chrome": "memo",
+   "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.ceti-dark.memo",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.ceti-dark.memo.html",
+   "sha256": "e650d56b7ae6",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "ceti-dark",
+   "build": "ok",
+   "bytes": 1177799,
+   "chrome": "none",
+   "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.ceti-dark.none",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.ceti-dark.none.html",
+   "sha256": "9154d1370dad",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "tender-set",
+   "build": "ok",
+   "bytes": 1152845,
+   "chrome": "tender-set",
+   "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.tender-set.tender-set",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.tender-set.html",
+   "sha256": "a230602104fc",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "tender-set",
+   "build": "ok",
+   "bytes": 1152496,
+   "chrome": "ledger",
+   "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.tender-set.ledger",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.ledger.html",
+   "sha256": "45707f60ccff",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "tender-set",
+   "build": "ok",
+   "bytes": 1152343,
+   "chrome": "memo",
+   "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.tender-set.memo",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.memo.html",
+   "sha256": "d3c0ae2e07f0",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "tender-set",
+   "build": "ok",
+   "bytes": 1139748,
+   "chrome": "none",
+   "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.tender-set.none",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.none.html",
+   "sha256": "e8fdaabba7df",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "swiss-grid",
+   "build": "ok",
+   "bytes": 1146750,
+   "chrome": "tender-set",
+   "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.swiss-grid.tender-set",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.swiss-grid.tender-set.html",
+   "sha256": "3568be23ce73",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "swiss-grid",
+   "build": "ok",
+   "bytes": 1146401,
+   "chrome": "ledger",
+   "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.swiss-grid.ledger",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.swiss-grid.ledger.html",
+   "sha256": "0a561250e9b3",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "swiss-grid",
+   "build": "ok",
+   "bytes": 1146248,
+   "chrome": "memo",
+   "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.swiss-grid.memo",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.swiss-grid.memo.html",
+   "sha256": "821655211225",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "swiss-grid",
+   "build": "ok",
+   "bytes": 1133653,
+   "chrome": "none",
+   "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.swiss-grid.none",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.swiss-grid.none.html",
+   "sha256": "d7407b9cb183",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "neon-lab",
+   "build": "ok",
+   "bytes": 1218696,
+   "chrome": "tender-set",
+   "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.neon-lab.tender-set",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.tender-set.html",
+   "sha256": "6832703a3158",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "neon-lab",
+   "build": "ok",
+   "bytes": 1218347,
+   "chrome": "ledger",
+   "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.neon-lab.ledger",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.ledger.html",
+   "sha256": "143ac1d2d230",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "neon-lab",
+   "build": "ok",
+   "bytes": 1218194,
+   "chrome": "memo",
+   "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.neon-lab.memo",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.memo.html",
+   "sha256": "0d185a8eb887",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  },
+  {
+   "brand": "neon-lab",
+   "build": "ok",
+   "bytes": 1205599,
+   "chrome": "none",
+   "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
+   "film": "goodhart",
+   "gate": {
+    "fails": [],
+    "g5c": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+    "pass": true,
+    "rows": {
+     "G1": "PASS",
+     "G2a": "PASS",
+     "G2b": "PASS",
+     "G3": "PASS",
+     "G4a": "PASS",
+     "G4b": "PASS",
+     "G4c": "PASS",
+     "G4d": "PASS",
+     "G4e": "PASS",
+     "G4f": "PASS",
+     "G5a": "PASS",
+     "G5b": "PASS",
+     "G5c": "WARN",
+     "G6": "PASS",
+     "G7": "PASS",
+     "G8": "PASS",
+     "G9": "PASS"
+    }
+   },
+   "name": "goodhart.neon-lab.none",
+   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.none.html",
+   "sha256": "9b81ec42f095",
+   "stills": {
+    "errs": [],
+    "pure": true
+   },
+   "t_brand": 74,
+   "t_count": 55
+  }
+ ],
+ "chromes": [
+  "tender-set",
+  "ledger",
+  "memo",
+  "none"
+ ],
+ "films": [
+  "survivorship",
+  "goodhart"
+ ],
+ "material": "ink",
+ "sources_after": {
+  "goodhart": {
+   "claims.json": "487786fd4a92968f",
+   "film.js": "8cacac3b8a3e63f7",
+   "film.json": "4c0b38ad10bab864"
+  },
+  "survivorship": {
+   "claims.json": "0f766629aeb8bc1d",
+   "film.js": "867d01ca8d8c09a0",
+   "film.json": "6d735f5d5f98d52a"
+  }
+ },
+ "sources_before": {
+  "goodhart": {
+   "claims.json": "487786fd4a92968f",
+   "film.js": "8cacac3b8a3e63f7",
+   "film.json": "4c0b38ad10bab864"
+  },
+  "survivorship": {
+   "claims.json": "0f766629aeb8bc1d",
+   "film.js": "867d01ca8d8c09a0",
+   "film.json": "6d735f5d5f98d52a"
+  }
+ },
+ "sources_unchanged": true
+}

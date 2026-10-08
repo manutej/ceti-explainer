@@ -1,0 +1,164 @@
+{
+  "film": "survivorship",
+  "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.swiss-grid.memo.html",
+  "filmDir": "/home/user/ceti-explainer/factory/films/survivorship",
+  "date": "2026-10-08T14:41:27.621Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 441 ms; stage sd 15s:58.1 37.5s:32.7 60s:38.1",
+      "data": {
+        "readyMs": 441,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 236.8064402777777,
+            "sd": 58.14110384091072
+          },
+          {
+            "t": 37.5,
+            "mean": 248.91827102623452,
+            "sd": 32.68901196554076
+          },
+          {
+            "t": 60,
+            "mean": 243.99816140046312,
+            "sd": 38.07200177928247
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit2.js, player.js (player: rAF/Date/perf allowed), materials.js, memo.js",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 10.5 s (want 8–16); film-mode default 10"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"The data you have is the data that survived.\"; frame at 74 s sd 22.0; takeaway text not found in SVG text (may be canvas)"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Wald's 400 planes are the worked example in Part I of his 1943 memo, not a comba\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "5 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "24 claims, 24 with formula, 24 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 14 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "PASS",
+      "evidence": "every visible SVG number is a claim value",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "30 must-read / 22 secondary / 36 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 30,
+          "secondary": 22,
+          "chrome": 36
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 36 s (count.at); first ratio \"1 in 4\" at 54.5 s (svg)"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 23.4 KB (film.js 11.7, film.json 5.2, claims.json 6.6) < 120 KB; page 1.148 MB < 1.3 MB",
+      "data": {
+        "code": 23990,
+        "page": 1148314
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+
+GATE goodhart  goodhart.ceti-dark.tender-set.chalk.html  (film dir factory/films/goodhart)
+  G1 load                        PASS  film errors 0; live errors 0; charset utf-8; ready 249 ms; stage sd 15s:41.1 37.5s:34.4 60s:34.4
+  G2a purity · canvas            PASS  1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)
+  G2b purity · SVG               PASS  1 svg; re-seek identical; order identical (2 pairs)
+  G3 clock scan                  PASS  clean: film.js, kit2.js, player.js (player: rAF/Date/perf allowed), materials.js, tender-set.js
+  G4a format · duration          PASS  total 75 s; material 72 s (want 60–75) + brand 3 s; total ≤ 78
+  G4b format · five beats        PASS  order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16 C36 M62
+  G4c format · commit time       PASS  commit at 11 s (want 8–16); film-mode default 100
+  G4d format · brand card        PASS  takeaway "When a measure becomes a target, it stops measuring."; frame at 74 s sd 24.3; takeaway text visible in SVG
+  G4e format · honest line       PASS  "The 3.5 million is the bank's own review estimate of potentially unauthorised ac"
+  G4f format · sources           PASS  6 sources (want ≥ 3)
+  G5a claims · formulas          PASS  17 claims, 14 with formula, 14 recompute
+  G5b claims · caption digits    PASS  every number in 14 captions is a claim value or render
+  G5c claims · on-screen digits  WARN  11 visible number(s) not in claims (chrome?): 40 @36s "40"; 160 @36.5s "160"; 280 @37s "280"; 520 @38s "520"; 640 @38.5s "640"; 760 @39s "760"
+  G6 legibility                  PASS  23 must-read / 13 secondary / 62 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390
+  G7 counts first                PASS  count at 36 s (count.at); first ratio "≈ 2 IN 100" at 54.5 s (svg)
+  G8 size                        PASS  film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.191 MB < 1.3 MB
+  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring
+  VERDICT                        PASS
+
