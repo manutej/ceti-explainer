@@ -81,6 +81,11 @@ function make(cfg) {
       free: 'marks, labels: the film sets its count on layout.rows (baseline(i)), inside layout.safe.',
     },
 
+    /* contentBox(tokens, mode): where this chrome lets a film draw (960 basis). mode 'kit' (a film authored on kit's
+       sheet): the PARTICULARS field between the TALLY and AUDIT columns, under the column heads (124) and above the
+       caption rules (475): heads, margin tally and AUDIT slot stay whole. mode 'native': layout.safe. tokens unused. */
+    contentBox(tokens, mode) { return mode === 'native' ? Object.assign({}, LAYOUT.safe) : { x0: 120, y0: 128, x1: 824, y1: 448, align: 'center' }; },
+
     ground(p, seed = 1494) {
       const g = p.createGraphics(960, 540); g.pixelDensity(2);
       const gc = g.drawingContext;

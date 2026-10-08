@@ -5,7 +5,7 @@
    node factory/tools/gate.mjs <built-page.html> --film <film-dir>
         [--json out.json] [--shots dir] [--kit file.js ...] [--quick]
 
-   Rows G1..G9 (see factory/tools/README.md). Each row is PASS, FAIL, WARN
+   Rows G1..G10 (see factory/tools/README.md). Each row is PASS, FAIL, WARN
    or SKIP with evidence. Exit 1 if any row FAILs (WARN and SKIP do not).
    Hook contract (films/opera-house/page.js): ?film=1 strips the page to the
    bare 1920x1080 stage; window.__film {ready, seek, only, info};
@@ -162,7 +162,7 @@ if (bootErr) {
   await finish();
 }
 
-info = await pg.evaluate(() => { const i = window.__film.info || {}; return { id: i.id, dur: +(i.dur ?? i.duration ?? window.__ctrl?.duration), FILM: window.FILM || null }; });
+info = await pg.evaluate(() => { const i = window.__film.info || {}; return { id: i.id, dur: +(i.dur ?? i.duration ?? window.__ctrl?.duration), FILM: window.FILM || null, axes: i.axes || null }; });
 if (!film) film = info.FILM || {};
 if (film.__error) { row('G4', 'format', 'FAIL', 'film.json does not parse: ' + film.__error); film = info.FILM || {}; }
 const DUR = +(info.dur || film.dur || film.duration);
@@ -456,6 +456,32 @@ else {
   row('G9', 'tics', st, `${nCards} full-screen card(s) (${cardCh} chapters with card:true${legacy ? ', ' + legacy + ' in film.cards' : ''}; want ≤ 2); ${ringNote}`);
 }
 
+/* ═════════════ G10 axes (DECISIONS Q6: exec renders in ink, no sketch texture) ═════════════
+   Axes come from the page: window.__film.info.axes (kit2: brand, chrome, material, texture as rendered,
+   texture_declared, level), else the <meta name="kit2" content="brand=… material=… texture=… level=…"> tag (texture
+   there is the pack's declared one, taken as rendered). Level: film.json level, else axes.level, else 'exec'. */
+{
+  let ax = info.axes, via = 'window.__film.info.axes';
+  if (!ax) {
+    const m = /<meta\s+name=["']kit2["']\s+content=["']([^"']*)["']/i.exec(html);
+    if (m) { ax = Object.fromEntries(m[1].split(/\s+/).filter(Boolean).map(kv => kv.split('='))); via = 'meta kit2'; }
+  }
+  const EXEC_MAT = ['ink'], EXEC_TEX = ['none', 'paper'];
+  if (!ax) row('G10', 'axes', 'SKIP', 'the page declares no axes (no __film.info.axes, no meta kit2): a factory/kit page, ink by construction');
+  else {
+    const level = String(film.level ?? ax.level ?? 'exec'), mat = String(ax.material || 'ink'), tex = String(ax.texture || 'none');
+    const decl = String(ax.texture_declared || tex);
+    const ids = `brand ${ax.brand || '?'}, chrome ${ax.chrome || '?'}, material ${mat}, texture ${tex}${decl !== tex ? ' (declared ' + decl + ')' : ''}; level ${level}${film.level ? '' : ' (default)'}; via ${via}`;
+    const bad = [];
+    if (level === 'exec' && !EXEC_MAT.includes(mat)) bad.push(`material ${mat} at the exec level (want ink)`);
+    if (level === 'exec' && !EXEC_TEX.includes(tex)) bad.push(`texture ${tex} rendered at the exec level (want none or paper)`);
+    const dropped = level === 'exec' && !EXEC_TEX.includes(decl) && EXEC_TEX.includes(tex);
+    row('G10', 'axes', bad.length ? 'FAIL' : dropped ? 'WARN' : 'PASS',
+      (bad.length ? bad.join('; ') + '; ' : dropped ? `the brand's ${decl} texture is drawn flat at the exec level; ` : '') + ids,
+      { axes: ax, level, bad });
+  }
+}
+
 /* ═════════════ stills ═════════════ */
 if (opt.shots) {
   fs.mkdirSync(opt.shots, { recursive: true });
@@ -473,7 +499,7 @@ await finish();
 
 async function finish() {
   try { await browser.close(); } catch (e) { /* ignore */ }
-  const order = (r) => { const m = /^G(\d)/.exec(r.id); return m ? +m[1] : 99; };
+  const order = (r) => { const m = /^G(\d+)/.exec(r.id); return m ? +m[1] : 99; };
   rows.sort((a, b) => order(a) - order(b) || a.id.localeCompare(b.id));
   const hard = rows.filter(r => r.status === 'FAIL');
   const verdict = hard.length ? 'FAIL' : 'PASS';

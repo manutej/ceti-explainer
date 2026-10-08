@@ -1,4 +1,4 @@
-// shoot.mjs <demo.html> [--out dir] [--times 0,0.33,0.67,1]: render every variant at fractions of its duration,
+// shoot.mjs <demo.html> [--out dir] [--times 0,0.33,0.67,1] [--query brand=swiss-grid]: render every variant at fractions of its duration,
 // check re-seek purity on the canvas, write stills, a contact sheet (via Pillow if available) and report.json.
 import { chromium } from '/opt/node-tools/node_modules/playwright/index.mjs';
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -7,11 +7,12 @@ import { execSync } from 'node:child_process';
 const args = process.argv.slice(2); const html = resolve(args[0]);
 const out = resolve(args.includes('--out') ? args[args.indexOf('--out') + 1] : dirname(html) + '/shots');
 const fr = (args.includes('--times') ? args[args.indexOf('--times') + 1] : '0,0.33,0.67,1').split(',').map(Number);
+const qs = args.includes('--query') ? '?' + args[args.indexOf('--query') + 1].replace(/^\?/, '') : '';   // e.g. brand=swiss-grid
 mkdirSync(out, { recursive: true });
 const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' });
 const pg = await b.newPage({ viewport: { width: 960, height: 540 }, deviceScaleFactor: 2 });
 const errs = []; pg.on('console', m => m.type() === 'error' && errs.push(m.text())); pg.on('pageerror', e => errs.push(String(e)));
-await pg.goto('file://' + html, { waitUntil: 'load' });
+await pg.goto('file://' + html + qs, { waitUntil: 'load' });
 await pg.evaluate(() => window.__film.ready());
 const info = await pg.evaluate(() => window.__film.info);
 const variants = info.variants || ['default']; const dur = info.dur || 4;

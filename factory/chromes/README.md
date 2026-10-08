@@ -47,6 +47,10 @@ reads. The memo's pencil wobble is an integer hash.
 - `id`, `palette {bg, ink, accent, muted, line, panel, chalk}`, `fonts` (families) and `faces` (lock files).
 - `type`: the CSS family strings the chrome passes as `fam`.
 - `layout`: `safe` is the film's drawing area. The ledger also has `rows`, and the memo has `margin`.
+- `contentBox(tokens, mode)` returns `{x0, y0, x1, y1, align}` (960 basis): where a film may draw. `mode 'kit'`
+  is for a film authored on factory/kit's sheet (kit2 scales its film box, x 40–938 × y 96–410, into this box,
+  never cropping); `'native'` returns `layout.safe`. `tokens` is the brand pack (the three shipped chromes do not
+  need it). tender-set: the film box itself; memo: 48–924 × 166–444, `align: 'start'`; ledger: 120–824 × 128–448.
 - `roles`: the layers each function draws into. Chromes use `chrome`, `cap`, `card` and `top`, and the
   ledger and tender-set also use `field`. `marks` and `labels` are left to the film.
 - `ground(p, seed)` returns a 960 by 540 p5.Graphics at density 2. It leaves `p.noiseSeed(seed)` set, so

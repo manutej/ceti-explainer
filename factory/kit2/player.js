@@ -24,7 +24,8 @@ window.__film = {
     if (v) v.style.visibility = groups.includes('svg') ? '' : 'hidden';
     stage.style.background = groups.includes('bg') ? '' : 'transparent'; },
   info: { id: F.id, title: F.title, dur: DUR, chapters: F.chapters || [], cards: F.cards || [], captions: F.captions || [],
-          commit: F.commit || null, brand: F.brand ? { at: K.brandAt(), takeaway: F.brand.takeaway } : null }
+          commit: F.commit || null, brand: F.brand ? { at: K.brandAt(), takeaway: F.brand.takeaway } : null,
+          axes: K.AXES || null }
 };
 window.addEventListener('error', (e) => { window.__error = String(e.message || e); });
 if (FILM_MODE) { mounted.then(() => K.render(0, S)); return; }

@@ -4,7 +4,7 @@ All tools use the page hook `window.__film = { ready(), seek(t, variant?), info:
 draw inside `seek`; time is set, never observed). Playwright comes from `/opt/node-tools`, Chromium from `/opt/pw-browsers`.
 
 ## shoot.mjs  (verify a demo)
-`node arsenal/tools/shoot.mjs <demo.html> [--out dir] [--times 0,0.33,0.67,1]`
+`node arsenal/tools/shoot.mjs <demo.html> [--out dir] [--times 0,0.33,0.67,1] [--query brand=<id>]` (`--query` is appended to the page URL, e.g. to shoot a demo under another pack)
 Renders every variant at fractions of `info.dur`, checks re-seek purity (canvas `toDataURL` identical after seeking
 away and back), writes stills, `contact.png` (needs Pillow) and `report.json`. Exit 1 on any console error.
 

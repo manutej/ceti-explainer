@@ -8,6 +8,8 @@
 --chrome    factory/kit2/chromes/<ID>.js, else factory/chromes/<ID>.js; 'none' = no furniture. Default tender-set.
 --material  an id in ARSENAL.materials from arsenal/materials/drawn/materials.js when that file exists, else from
             factory/kit2/materials/basic.js (ink, pencil). Default ink.
+film.json `level`: 'exec' (default) | 'manager' | 'engineer'. It reaches kit2 inside FILM and is published with the
+            built axes as window.__film.info.axes (gate row G10 reads it).
 --out       default <film-dir>/build/<id>.<brand>.<chrome>.html (+ .<material> when not ink); relative paths
             resolve against <film-dir>.
 
@@ -23,6 +25,8 @@ ROOT = os.path.abspath(os.path.join(KIT2, "..", ".."))
 VENDOR = os.path.join(ROOT, "vendor")
 P5 = "p5-2.3.4.min.js"
 DRAWN = os.path.join(ROOT, "arsenal", "materials", "drawn", "materials.js")
+LEVELS = ("exec", "manager", "engineer")   # film.json "level" (DECISIONS Q6); default exec
+EXEC_TEXTURES = ("none", "paper")
 REQUIRED = ["id", "title", "eyebrow", "lede", "dur", "commit", "chapters", "captions", "brand", "sources", "honest"]
 FILM_PAL = {"paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "muted": "#8E887C",
             "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277"}
@@ -262,6 +266,9 @@ def main():
     claims = json.loads(read(cp))
     if isinstance(claims, dict):   # SHIP defect 3: one shape. The array is canonical; the object form is accepted.
         print("note: claims.json is the object form {film, claims}; the canonical shape is a bare array")
+    level = film.get("level", "exec")
+    if level not in LEVELS:
+        die("film.json level %r is not one of %s" % (level, ", ".join(LEVELS)))
     pack = load_pack(brand_arg, film)
     R = roles(pack)
     fonts, faces = faces_for(pack, film, brand_arg)
@@ -280,7 +287,7 @@ def main():
         "{{TITLE}}": html.escape(film["title"]),
         "{{EYEBROW}}": html.escape(film["eyebrow"]),
         "{{LEDE}}": html.escape(film["lede"]),
-        "{{LOOK}}": "brand=%s chrome=%s material=%s" % (bid, cid, mid),
+        "{{LOOK}}": "brand=%s chrome=%s material=%s texture=%s level=%s" % (bid, cid, mid, pack.get("texture", "none"), level),
         "{{P5}}": p5_script(),
         "{{FILM}}": "<script>window.FILM = " + raw.replace("</", "<\\/") + ";</script>",
         "{{KIT2}}": "\n".join(kit2_scripts),
@@ -309,6 +316,10 @@ def main():
     print("contrast on paper: ink %.1f  muted %.1f  accent %.1f  onDark/dark %.1f%s" % (
         contrast(R["ink"], R["paper"]), contrast(R["muted"], R["paper"]), contrast(R["accent"], R["paper"]),
         contrast(R["onDark"], R["dark"]), ("  WARN under 4.5: " + ", ".join(low)) if low else ""))
+    if level == "exec" and mid != "ink":
+        print("note: level exec with material %s: gate G10 will FAIL (DECISIONS Q6: exec renders in ink)" % mid)
+    if level == "exec" and pack.get("texture", "none") not in EXEC_TEXTURES:
+        print("note: level exec: the pack's texture %s is not drawn (kit2 draws it flat; G10 WARNs)" % pack.get("texture"))
     if len(data) > 1300000:
         print("WARNING: page over the 1.3 MB budget")
     if code > 120000:

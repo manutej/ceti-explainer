@@ -2,31 +2,31 @@
   "film": "goodhart",
   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.memo.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/goodhart",
-  "date": "2026-10-08T14:42:20.139Z",
+  "date": "2026-10-08T15:32:50.573Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 395 ms; stage sd 15s:41.6 37.5s:44.1 60s:37.5",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 417 ms; stage sd 15s:42.6 37.5s:42.3 60s:38.4",
       "data": {
-        "readyMs": 395,
+        "readyMs": 417,
         "stats": [
           {
             "t": 15,
-            "mean": 17.67685303820046,
-            "sd": 41.64089039371641
+            "mean": 18.29792023534421,
+            "sd": 42.615478945289105
           },
           {
             "t": 37.5,
-            "mean": 19.448069280485743,
-            "sd": 44.14348407556874
+            "mean": 19.08690362654912,
+            "sd": 42.2564713794287
           },
           {
             "t": 60,
-            "mean": 21.430112663972974,
-            "sd": 37.489266740824576
+            "mean": 20.72748919753634,
+            "sd": 38.36709396841296
           }
         ],
         "filmErrs": [],
@@ -139,14 +139,14 @@
       "id": "G6",
       "name": "legibility",
       "status": "PASS",
-      "evidence": "21 must-read / 8 secondary / 36 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
+      "evidence": "21 must-read / 8 secondary / 72 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
       "data": {
         "fails": [],
         "warns": [],
         "counts": {
           "must-read": 21,
           "secondary": 8,
-          "chrome": 36
+          "chrome": 72
         }
       }
     },
@@ -160,10 +160,10 @@
       "id": "G8",
       "name": "size",
       "status": "PASS",
-      "evidence": "film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.218 MB < 1.3 MB",
+      "evidence": "film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.223 MB < 1.3 MB",
       "data": {
         "code": 18448,
-        "page": 1218194
+        "page": 1223065
       }
     },
     {
@@ -171,6 +171,33 @@
       "name": "tics",
       "status": "PASS",
       "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "WARN",
+      "evidence": "the brand's grain texture is drawn flat at the exec level; brand neon-lab, chrome memo, material ink, texture none (declared grain); level exec (default); via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "neon-lab",
+          "chrome": "memo",
+          "material": "ink",
+          "texture": "none",
+          "texture_declared": "grain",
+          "level": "exec",
+          "box": {
+            "x0": 48,
+            "y0": 166,
+            "x1": 924,
+            "y1": 444,
+            "s": 0.8854,
+            "ox": 12.58,
+            "oy": 81
+          }
+        },
+        "level": "exec",
+        "bad": []
+      }
     }
   ]
 }

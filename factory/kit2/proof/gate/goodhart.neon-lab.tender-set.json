@@ -2,31 +2,31 @@
   "film": "goodhart",
   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.tender-set.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/goodhart",
-  "date": "2026-10-08T14:42:19.616Z",
+  "date": "2026-10-08T15:32:49.957Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 385 ms; stage sd 15s:43.7 37.5s:46.4 60s:40.1",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 332 ms; stage sd 15s:43.7 37.5s:46.5 60s:40.1",
       "data": {
-        "readyMs": 385,
+        "readyMs": 332,
         "stats": [
           {
             "t": 15,
-            "mean": 18.339158497305334,
-            "sd": 43.712710420349886
+            "mean": 18.313962866518327,
+            "sd": 43.71570224188311
           },
           {
             "t": 37.5,
-            "mean": 20.470998369992003,
-            "sd": 46.44689742633222
+            "mean": 20.44500316358772,
+            "sd": 46.452028696083296
           },
           {
             "t": 60,
-            "mean": 22.40644928627251,
-            "sd": 40.062230726792485
+            "mean": 22.38032004244538,
+            "sd": 40.06720562373249
           }
         ],
         "filmErrs": [],
@@ -160,10 +160,10 @@
       "id": "G8",
       "name": "size",
       "status": "PASS",
-      "evidence": "film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.219 MB < 1.3 MB",
+      "evidence": "film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.223 MB < 1.3 MB",
       "data": {
         "code": 18448,
-        "page": 1218696
+        "page": 1223449
       }
     },
     {
@@ -171,6 +171,33 @@
       "name": "tics",
       "status": "PASS",
       "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "WARN",
+      "evidence": "the brand's grain texture is drawn flat at the exec level; brand neon-lab, chrome tender-set, material ink, texture none (declared grain); level exec (default); via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "neon-lab",
+          "chrome": "tender-set",
+          "material": "ink",
+          "texture": "none",
+          "texture_declared": "grain",
+          "level": "exec",
+          "box": {
+            "x0": 40,
+            "y0": 96,
+            "x1": 938,
+            "y1": 410,
+            "s": 1,
+            "ox": 0,
+            "oy": 0
+          }
+        },
+        "level": "exec",
+        "bad": []
+      }
     }
   ]
 }

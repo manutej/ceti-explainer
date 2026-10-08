@@ -5,6 +5,7 @@ written for kit runs unchanged (PROOF.md: 2 films × 4 brands × 4 chromes, 32 o
 factory/kit is untouched and the shipped films still build against it.
 
     python3 factory/kit2/build.py <film-dir> [--brand ID|film] [--chrome ID|none] [--material ID] [--out PATH]
+    # film.json may carry "level": "exec" (default) | "manager" | "engineer" (DECISIONS Q6; gate row G10)
     # -> <film-dir>/build/<id>.<brand>.<chrome>[.<material>].html, prints bytes, sha256, faces, role contrast
 
 | file | role |
@@ -58,13 +59,31 @@ the brand card then use kit2's plain ones.
   the module defines it, else kit2's adapter for tender-set, ledger and memo, else a pass-through.
 - The chrome draws through a facade kit: every chrome text gets a `data-role` (chrome/field layer →
   `chrome`; cap → `must-read`; card/top → `must-read` at ≥ 28 units, else `secondary`); stamps → `secondary`.
-- Window: furniture in the chrome and field layers is cut out of the film's box (x 40–672, y 96–410, and the
-  default commit box during the COMMIT chapter): straight rules are split around it, any other element that
-  would intersect it is not drawn. Pure: a function of t.
+- Content box: a chrome may expose `contentBox(brandPack, mode)` → `{x0, y0, x1, y1, align}` (960 basis). kit2
+  asks for mode `'kit'` (a film authored on kit's sheet; `'native'` = `layout.safe` for a film drawn against the
+  chrome) and lays the film's box (content plus commit column, x 40–938, y 96–410) inside it with one uniform
+  scale `s = min(1, box / film box)`: fit, never crop, never enlarge; flush left/top for `align: 'start'`, else
+  centred. The SVG layers `marks` and `labels` get `translate(ox oy) scale(s)`, the canvas the same matrix for
+  `FILM_RENDER.render`, `K.commitGeom` the mapped geometry (the player's overlay). Captions, cards, roll, brand
+  card and chrome stay on the 960 sheet. Film text keeps the floors: rendered size = max(min(size, floor),
+  size·s), floor 28/14/12 by the authored size. Boxes: tender-set = the film box (identity), memo 48–924 ×
+  166–444 start (s 0.885; RE:, TO/FROM/DATE/FILE and the head stay whole), ledger 120–824 × 128–448 centred
+  (s 0.784; TALLY/PARTICULARS/AUDIT heads, margin and AUDIT slot stay whole). `KIT2.box: false` turns it off.
+- Window: furniture in the chrome and field layers is cut out of the (mapped) film boxes (content, and the
+  commit box during the COMMIT chapter): straight rules are split around it, any other element that would
+  intersect it is not drawn. Pure: a function of t.
 - Captions are drawn by kit2 in the chrome's `layout.cap` geometry and face (`chrome.capFam`, else
   tender-set mono, ledger disp, memo body).
 - Ground: pack `texture: 'paper'` with a chrome → the chrome's own stock, re-coloured; otherwise a flat bg
   (plus kit's paper blotch when `paper` and chrome `none`), then the material's texture.
+
+**Level and axes.** film.json `level` (`exec` default, `manager`, `engineer`; build.py refuses anything else). At
+`exec` a pack texture other than `none`/`paper` (neon-lab's `grain`) is drawn flat and the drop is recorded; the
+material is never overridden (`--material chalk` on an exec film builds, build.py prints a note, the gate FAILs
+it). kit2 publishes `K.AXES = {brand, chrome, material, texture (as rendered), texture_declared, level, box}`;
+player.js exposes it as `window.__film.info.axes`; the shell's `<meta name="kit2">` carries brand, chrome,
+material, texture and level. Gate row G10 reads them (factory/tools/README.md). `KIT2.levelGuard: false` keeps
+the declared texture (then G10 FAILs an exec page with grain).
 
 **Material.** Any module in `ARSENAL.materials[id]` with the arsenal/materials/drawn interface
 `mark(p, kind, x, y, w, h, state, tokens)` and `texture(p, box, tokens)`. build.py loads
@@ -110,9 +129,10 @@ title block and caption sit a few units lower than kit's built-in sheet). A new 
 ## What still binds a film to a look
 
 - Coordinates. Films draw at fixed positions on kit's sheet (`GX = 48`, `RX = 56`, `CX = 482`, commit box
-  700,150). kit2 cuts chrome furniture out of that box; it does not move the film into a chrome's
-  `layout.safe`. The memo loses its RE: title, FROM and FILE lines; the ledger loses its column heads and
-  ruling inside the box. A film that wants a chrome's own layout must read `K.CHROME.layout` (new films).
+  700,150). kit2 now scales that whole film box into the chrome's `contentBox` (memo ×0.885, ledger ×0.784), so
+  the chrome keeps its furniture; but text held at its floor grows relative to the scaled geometry (a 14-unit
+  label in the ledger is 1.28× its authored proportion), and a film cannot use the memo's margin headline or the
+  ledger's ruled rows. A film that wants a chrome's own layout reads `K.CHROME.layout` (new films).
 - Display-face metrics. Positions assume Big Shoulders' advance; wider faces are set smaller (measured
   ratio, floors 28/14/12). At the floors a wide face can still collide; none did in the 32 cells.
 - Colours in film data. survivorship's `you: #2D5DA8` is a hex, not a role: kit2 lifts its text to 4.5:1,

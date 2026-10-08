@@ -23,7 +23,7 @@
 
 ## Fonts and WOFF2 (WARN)
 - `loadFont` in p5 2.3.4 rejects WOFF2 ("only TTF, OTF and WOFF"), verified. The p5.woff2 add-on is not vendored.
-- Fallback taken: the vendored WOFF2 files were converted with fontTools to TTF into `fonts/*.ttf` (six faces covering the four brand packs) and inlined as data URLs in `fonts/fonts.js`. Reason: `fetch` of a file path is blocked on file://, so path loading fails there. Under http a plain `.ttf` path works too.
+- Fallback taken: the vendored WOFF2 files were converted with fontTools to TTF into `arsenal/fonts/*.ttf` (six faces covering the four brand packs) and inlined as data URLs in `arsenal/fonts/fonts.js` (shared; moved from this folder). Reason: `fetch` of a file path is blocked on file://, so path loading fails there. Under http a plain `.ttf` path works too.
 - No variable font is vendored (no fvar in any of them), so `textWeight` is not used. Weight is simulated with a stroke outset on the fill (a faux-bold, so counters close slightly and the readout says SIMULATED). Swap in `textWeight()` once a variable face is vendored; contours at varied weight is undocumented [[text-weight]].
 - `texture` is ignored; the material lane owns it.
 

@@ -96,6 +96,12 @@ function make(cfg) {
       free: 'field, marks, labels: left to the film; draw inside layout.safe. The headline number is chrome-owned (opts.headline).',
     },
 
+    /* contentBox(tokens, mode): where this chrome lets a film draw (960 basis). mode 'kit' (a film authored on kit's
+       sheet): the text column plus the margin, under the letterhead's double rule (154) and above the caption rule (450),
+       set flush left like memo text; the RE:, TO/FROM/DATE/FILE lines and the head stay whole. The margin's pencil rule
+       is cut where the film's commit column lands. mode 'native': layout.safe. tokens: the brand pack (unused). */
+    contentBox(tokens, mode) { return mode === 'native' ? Object.assign({}, LAYOUT.safe) : { x0: 48, y0: 166, x1: 924, y1: 444, align: 'start' }; },
+
     ground(p, seed = 1010) {
       const g = p.createGraphics(960, 540); g.pixelDensity(2);
       const gc = g.drawingContext;

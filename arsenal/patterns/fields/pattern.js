@@ -14,6 +14,19 @@ window.ARSENAL = window.ARSENAL || { patterns: {}, structures: {}, materials: {}
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     };
   }
+  // WCAG contrast of two token colours (#hex or rgba over bg): breath and drift scale their alpha by it per pack
+  function rgbOf(s, over) {
+    s = String(s).trim(); let m = s.match(/^#([0-9a-f]{6})/i), c;
+    if (m) { const n = parseInt(m[1], 16); c = [n >> 16 & 255, n >> 8 & 255, n & 255, 1]; }
+    else { m = s.match(/^rgba?\(([^)]+)\)/i); const q = m ? m[1].split(',').map(parseFloat) : [128, 128, 128, 1]; c = [q[0], q[1], q[2], q[3] != null ? q[3] : 1]; }
+    if (c[3] < 1 && over) { const b = rgbOf(over); c = [0, 1, 2].map(i => c[i] * c[3] + b[i] * (1 - c[3])).concat(1); }
+    return c;
+  }
+  function lumOf(s) { return rgbOf(s).slice(0, 3).map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0); }
+  function contrastOf(a, b) { const x = lumOf(a), y = lumOf(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); }
+  // alpha gain so a role reads about as strongly on every pack: weak contrast -> more alpha (1..2.2)
+  const gainFor = (col, bg, want) => clamp(want / contrastOf(col, bg), 1, 2.2);
+
   // stateless hash -> [0,1) for per-entity draws that survive any seek order
   function hrand(seed, i, k, j) {
     return mulberry32((seed ^ Math.imul(i + 1, 0x9E3779B1) ^ Math.imul(k + 1, 0x85EBCA6B) ^ Math.imul(j + 1, 0xC2B2AE35)) | 0)();
@@ -113,9 +126,9 @@ window.ARSENAL = window.ARSENAL || { patterns: {}, structures: {}, materials: {}
     // gridwave
     spacing: 24, waveLen: 300, warp: 0.35, lift: 8, dot: 2.4,
     // drift
-    count: 230, trail: 26, speed: 70, dt: 1 / 30, loopR: 0.9, driftFs: 0.0024, penW: 1.6,
+    count: 230, trail: 40, speed: 70, dt: 1 / 30, loopR: 0.9, driftFs: 0.0024, penW: 2.0,
     // breath
-    tick: 19, jitter: 6, tickLen: 9,
+    tick: 19, jitter: 6, tickLen: 13, swell: 0.85, breathW: 1.4,
     mode: 'streamlines'
   };
 
@@ -220,20 +233,26 @@ window.ARSENAL = window.ARSENAL || { patterns: {}, structures: {}, materials: {}
       }
 
       else if (mode === 'breath') {
-        const n4 = st.n4, L = params.tickLen;
-        ctx.strokeStyle = c.muted; ctx.lineWidth = 1;
-        // three alpha tiers keep it to three strokes
+        // one coherent swell: phase travels out from the lattice centre, so the field visibly inhales and exhales
+        const n4 = st.n4, L = params.tickLen, sw = clamp(params.swell * amp, 0, 1), R = Math.hypot(W, H) / 2;
         const tiers = [[], [], []];
         for (let k = 0; k < st.n; k++) {
           const x = st.bx[k], y = st.by[k];
           const a = loopField(n4, x, y, theta, 0.7, 0.0028) * Math.PI;
-          const b = 0.5 + 0.5 * Math.sin(TAU * (ph + st.bph[k] * 0.35 + 0.0004 * x));
-          const len = L * (0.45 + 0.55 * b), ca = Math.cos(a) * len / 2, sa = Math.sin(a) * len / 2;
+          const d = Math.hypot(x - W / 2, y - H / 2) / R;
+          const b = 0.5 + 0.5 * Math.sin(TAU * (ph - 0.75 * d + 0.08 * st.bph[k]));
+          const len = L * (1 - sw + sw * b), ca = Math.cos(a) * len / 2, sa = Math.sin(a) * len / 2;
           tiers[Math.min(2, Math.floor(b * 3))].push(x - ca, y - sa, x + ca, y + sa);
         }
-        const alphas = [0.14, 0.26, 0.42];
+        // exhale tiers in muted, the inhale crest in ink; alpha gained per pack so the swell reads on dark and light grounds
+        // thin strokes on a dark ground lose more to antialiasing than on paper: a dark-ground boost (x1.7, wider pen)
+        const dk = lumOf(c.bg) < 0.18, boost = dk ? 1.7 : 1;
+        const gm = gainFor(c.muted, c.bg, 6) * boost, gi = gainFor(c.ink, c.bg, 12) * boost;
+        const tierStyle = [[c.muted, 0.22 * gm], [c.muted, 0.5 * gm], [c.ink, 0.62 * gi]];
+        ctx.lineWidth = params.breathW * (dk ? 1.3 : 1);
         for (let tI = 0; tI < 3; tI++) {
-          ctx.globalAlpha = clamp(alphas[tI] * amp, 0, 1); ctx.beginPath();
+          ctx.strokeStyle = tierStyle[tI][0];
+          ctx.globalAlpha = clamp(tierStyle[tI][1] * (0.35 + 0.65 * amp), 0, 1); ctx.beginPath();
           const s = tiers[tI];
           for (let i = 0; i < s.length; i += 4) { ctx.moveTo(s[i], s[i + 1]); ctx.lineTo(s[i + 2], s[i + 3]); }
           ctx.stroke();
@@ -288,8 +307,9 @@ window.ARSENAL = window.ARSENAL || { patterns: {}, structures: {}, materials: {}
       heads.push(px, py, env);
     }
     ctx.strokeStyle = c.ink;
+    const g = gainFor(c.ink, c.bg, 12);   // per-pack contrast gain: trails read on ceti-dark and on white alike
     for (let tI = 0; tI < tiers; tI++) {
-      ctx.globalAlpha = clamp(prm.amp * (0.12 + 0.55 * (tI + 1) / tiers), 0, 1);
+      ctx.globalAlpha = clamp(g * prm.amp * (0.2 + 0.7 * (tI + 1) / tiers), 0, 1);
       ctx.lineWidth = prm.penW * (0.45 + 0.55 * (tI + 1) / tiers);
       ctx.beginPath(); const s = buf[tI];
       for (let i = 0; i < s.length; i += 4) { ctx.moveTo(s[i], s[i + 1]); ctx.lineTo(s[i + 2], s[i + 3]); }
@@ -298,7 +318,7 @@ window.ARSENAL = window.ARSENAL || { patterns: {}, structures: {}, materials: {}
     ctx.fillStyle = c.accent;
     for (let i = 0; i < heads.length; i += 3) {
       ctx.globalAlpha = clamp(prm.amp * heads[i + 2], 0, 1);
-      ctx.beginPath(); ctx.arc(heads[i], heads[i + 1], prm.penW * 1.15, 0, TAU); ctx.fill();
+      ctx.beginPath(); ctx.arc(heads[i], heads[i + 1], prm.penW * 1.4, 0, TAU); ctx.fill();
     }
   }
 })();

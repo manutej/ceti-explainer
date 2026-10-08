@@ -1,0 +1,493 @@
+{
+ "topic": "ceti-explainer-self",
+ "repo": "/home/user/ceti-explainer",
+ "head": "88a28046260c2bc6715bd710359699d9a2b4af9b",
+ "window": {
+  "days": 7,
+  "since": "2026-10-02T00:00:00+00:00",
+  "until": "2026-10-08T15:34:55+00:00"
+ },
+ "note": "source git|tree|readme|manifest: run `recompute` (read-only), compare to `expect`; derived|input: evaluate `formula` over `params` (Math.round/floor in scope). All pinned to `head` and the window.",
+ "params": {
+  "window_days": 7,
+  "commits_window": 86,
+  "days_active": 3,
+  "busiest_day_commits": 83,
+  "authors_window": 2,
+  "ins_window": 163780,
+  "del_window": 2244,
+  "largest_window_lines": 29938,
+  "top_file_commits": 6,
+  "commits_all": 98,
+  "authors_all": 4,
+  "first_ts": 1787554153,
+  "head_ts": 1791473672,
+  "days_with_commits_all": 6,
+  "ins_all": 166159,
+  "del_all": 2356,
+  "files_all": 1346,
+  "files_own": 1266,
+  "lines_all": 163803,
+  "lines_own": 130539,
+  "wall_scale": 200,
+  "top_dirs": 22,
+  "code_languages": 5,
+  "lang_top_lines": 37428,
+  "test_files": 10,
+  "test_fns_javascript": 4,
+  "doc_files": 702,
+  "readme_headings": 15,
+  "deps_2": 4
+ },
+ "claims": [
+  {
+   "id": "window-days",
+   "text": "the window: 7 UTC calendar days, 2026-10-02 to 2026-10-08 (until 2026-10-08T15:34:55+00:00)",
+   "value": 7,
+   "source": "git",
+   "formula": "window_days",
+   "recompute": "echo 7  # --days; since 2026-10-02T00:00:00+00:00, until 2026-10-08T15:34:55+00:00",
+   "expect": "7",
+   "where": "COMMIT question; COUNT timeline (one column per day)"
+  },
+  {
+   "id": "commits-window",
+   "text": "commits in the window (merges included)",
+   "value": 86,
+   "source": "git",
+   "formula": "commits_window",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer rev-list --count --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 88a28046260c2bc6715bd710359699d9a2b4af9b",
+   "expect": "86",
+   "renders": [
+    "86"
+   ],
+   "where": "COUNT: one mark per commit; COMMIT answer"
+  },
+  {
+   "id": "days-active",
+   "text": "days in the window with at least one commit",
+   "value": 3,
+   "source": "git",
+   "formula": "days_active",
+   "recompute": "TZ=UTC git -c core.quotePath=false -C /home/user/ceti-explainer log --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 --format=%cd --date=format-local:%Y-%m-%d 88a28046260c2bc6715bd710359699d9a2b4af9b | LC_ALL=C sort -u | wc -l",
+   "expect": "3",
+   "where": "COUNT: columns with marks"
+  },
+  {
+   "id": "timeline",
+   "text": "commits per UTC day in the window (zeros are days with none)",
+   "value": [
+    [
+     "2026-10-02",
+     0
+    ],
+    [
+     "2026-10-03",
+     0
+    ],
+    [
+     "2026-10-04",
+     0
+    ],
+    [
+     "2026-10-05",
+     2
+    ],
+    [
+     "2026-10-06",
+     1
+    ],
+    [
+     "2026-10-07",
+     0
+    ],
+    [
+     "2026-10-08",
+     83
+    ]
+   ],
+   "source": "git",
+   "recompute": "TZ=UTC git -c core.quotePath=false -C /home/user/ceti-explainer log --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 --format=%cd --date=format-local:%Y-%m-%d 88a28046260c2bc6715bd710359699d9a2b4af9b | LC_ALL=C sort | uniq -c",
+   "expect": "2 2026-10-05\n1 2026-10-06\n83 2026-10-08",
+   "note": "recompute prints only the days with commits; the other days in the window are 0",
+   "where": "COUNT: the timeline of marks"
+  },
+  {
+   "id": "busiest-day",
+   "text": "the busiest day in the window: 2026-10-08",
+   "value": 83,
+   "source": "git",
+   "formula": "busiest_day_commits",
+   "recompute": "TZ=UTC git -c core.quotePath=false -C /home/user/ceti-explainer log --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 --format=%cd --date=format-local:%Y-%m-%d 88a28046260c2bc6715bd710359699d9a2b4af9b | LC_ALL=C sort | uniq -c | LC_ALL=C sort -k1,1nr | head -1 | awk '{print $1}'",
+   "expect": "83",
+   "where": "COUNT: the tallest column"
+  },
+  {
+   "id": "authors-window",
+   "text": "distinct authors (name and email) in the window",
+   "value": 2,
+   "source": "git",
+   "formula": "authors_window",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 --format='%aN <%aE>' 88a28046260c2bc6715bd710359699d9a2b4af9b | LC_ALL=C sort -u | wc -l",
+   "expect": "2",
+   "where": "CASE or facts only"
+  },
+  {
+   "id": "ins-window",
+   "text": "lines inserted in the window (merges excluded)",
+   "value": 163780,
+   "source": "git",
+   "formula": "ins_window",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log --no-renames --no-ext-diff --no-textconv --numstat --format= --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 --no-merges 88a28046260c2bc6715bd710359699d9a2b4af9b | awk '$1 ~ /^[0-9]+$/ {s+=$1} END {print s+0}'",
+   "expect": "163780",
+   "where": "CASE: the change"
+  },
+  {
+   "id": "del-window",
+   "text": "lines deleted in the window (merges excluded)",
+   "value": 2244,
+   "source": "git",
+   "formula": "del_window",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log --no-renames --no-ext-diff --no-textconv --numstat --format= --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 --no-merges 88a28046260c2bc6715bd710359699d9a2b4af9b | awk '$2 ~ /^[0-9]+$/ {s+=$2} END {print s+0}'",
+   "expect": "2244",
+   "where": "CASE: the change"
+  },
+  {
+   "id": "net-window",
+   "text": "net lines added in the window",
+   "value": 161536,
+   "source": "derived",
+   "formula": "ins_window - del_window",
+   "recompute": "python3 factory/tools/repo_topic.py --check factory/topics/ceti-explainer-self/claims.json --only net-window",
+   "where": "CASE"
+  },
+  {
+   "id": "largest-window",
+   "text": "the largest commit in the window, 6c71a20 \"Keep every built standalone page in the repo (D10)\": lines changed (inserted + deleted)",
+   "value": 29938,
+   "source": "git",
+   "formula": "largest_window_lines",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 --no-merges --no-renames --no-ext-diff --no-textconv --numstat --format=@%H 88a28046260c2bc6715bd710359699d9a2b4af9b | awk '/^@/ {c=$0; next} $1 ~ /^[0-9]+$/ {t[c]+=$1+$2} END {for (k in t) if (t[k]>m) m=t[k]; print m+0}'",
+   "expect": "29938",
+   "where": "CASE: the biggest single change"
+  },
+  {
+   "id": "top-files",
+   "text": "the most-touched files in the window (commits touching each, merges excluded)",
+   "value": [
+    [
+     ".gitignore",
+     6
+    ],
+    [
+     "tests/baselines/builds.json",
+     4
+    ],
+    [
+     "tests/proofs.sh",
+     4
+    ]
+   ],
+   "source": "git",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 --no-merges --no-renames --name-only --format= 88a28046260c2bc6715bd710359699d9a2b4af9b | grep -v '^$' | LC_ALL=C sort | uniq -c | LC_ALL=C sort -k1,1nr -k2 | head -3",
+   "expect": "6 .gitignore\n4 tests/baselines/builds.json\n4 tests/proofs.sh",
+   "where": "CASE: what the week was about"
+  },
+  {
+   "id": "top-file-commits",
+   "text": "commits that touched the most-touched file, .gitignore",
+   "value": 6,
+   "source": "git",
+   "formula": "top_file_commits",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer rev-list --count --full-history --no-merges --since=2026-10-02T00:00:00+00:00 --until=2026-10-08T15:34:55+00:00 88a28046260c2bc6715bd710359699d9a2b4af9b -- .gitignore",
+   "expect": "6",
+   "where": "CASE caption"
+  },
+  {
+   "id": "commits-all",
+   "text": "commits reachable from 88a2804 (all time)",
+   "value": 98,
+   "source": "git",
+   "formula": "commits_all",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer rev-list --count 88a28046260c2bc6715bd710359699d9a2b4af9b",
+   "expect": "98",
+   "where": "COUNT or MONDAY context"
+  },
+  {
+   "id": "authors-all",
+   "text": "distinct authors, all time",
+   "value": 4,
+   "source": "git",
+   "formula": "authors_all",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log --format='%aN <%aE>' 88a28046260c2bc6715bd710359699d9a2b4af9b | LC_ALL=C sort -u | wc -l",
+   "expect": "4",
+   "where": "facts"
+  },
+  {
+   "id": "first-day",
+   "text": "the first commit's UTC date",
+   "value": "2026-08-24",
+   "source": "git",
+   "recompute": "TZ=UTC git -c core.quotePath=false -C /home/user/ceti-explainer log --format=%cd --date=format-local:%Y-%m-%d 88a28046260c2bc6715bd710359699d9a2b4af9b | LC_ALL=C sort | head -1",
+   "expect": "2026-08-24",
+   "where": "HOOK or CASE context"
+  },
+  {
+   "id": "first-ts",
+   "text": "the first commit's time (unix seconds)",
+   "value": 1787554153,
+   "source": "git",
+   "formula": "first_ts",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log --format=%ct 88a28046260c2bc6715bd710359699d9a2b4af9b | LC_ALL=C sort -n | head -1",
+   "expect": "1787554153",
+   "where": "input to age-days"
+  },
+  {
+   "id": "head-ts",
+   "text": "the pinned commit's time (unix seconds), 2026-10-08T15:34:32+00:00",
+   "value": 1791473672,
+   "source": "git",
+   "formula": "head_ts",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log -1 --format=%ct 88a28046260c2bc6715bd710359699d9a2b4af9b",
+   "expect": "1791473672",
+   "where": "input to age-days"
+  },
+  {
+   "id": "age-days",
+   "text": "days from the first commit to the pinned commit",
+   "value": 45,
+   "source": "derived",
+   "formula": "Math.floor((head_ts - first_ts) / 86400)",
+   "recompute": "python3 factory/tools/repo_topic.py --check factory/topics/ceti-explainer-self/claims.json --only age-days",
+   "where": "CASE context"
+  },
+  {
+   "id": "days-with-commits",
+   "text": "distinct UTC days with a commit, all time",
+   "value": 6,
+   "source": "git",
+   "formula": "days_with_commits_all",
+   "recompute": "TZ=UTC git -c core.quotePath=false -C /home/user/ceti-explainer log --format=%cd --date=format-local:%Y-%m-%d 88a28046260c2bc6715bd710359699d9a2b4af9b | LC_ALL=C sort -u | wc -l",
+   "expect": "6",
+   "where": "facts"
+  },
+  {
+   "id": "ins-all",
+   "text": "lines inserted, all time (merges excluded)",
+   "value": 166159,
+   "source": "git",
+   "formula": "ins_all",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log --no-renames --no-ext-diff --no-textconv --numstat --format= --no-merges 88a28046260c2bc6715bd710359699d9a2b4af9b | awk '$1 ~ /^[0-9]+$/ {s+=$1} END {print s+0}'",
+   "expect": "166159",
+   "where": "facts"
+  },
+  {
+   "id": "del-all",
+   "text": "lines deleted, all time (merges excluded)",
+   "value": 2356,
+   "source": "git",
+   "formula": "del_all",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer log --no-renames --no-ext-diff --no-textconv --numstat --format= --no-merges 88a28046260c2bc6715bd710359699d9a2b4af9b | awk '$2 ~ /^[0-9]+$/ {s+=$2} END {print s+0}'",
+   "expect": "2356",
+   "where": "facts"
+  },
+  {
+   "id": "files",
+   "text": "files tracked at 88a2804 (all, incl. vendored and generated)",
+   "value": 1346,
+   "source": "tree",
+   "formula": "files_all",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer ls-tree -r 88a28046260c2bc6715bd710359699d9a2b4af9b | awk -F'\\t' '{split($1, m, \" \"); if (m[2] == \"blob\") print $2}' | wc -l",
+   "expect": "1346",
+   "where": "facts"
+  },
+  {
+   "id": "files-own",
+   "text": "files tracked, without vendored or generated paths",
+   "value": 1266,
+   "source": "tree",
+   "formula": "files_own",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer ls-tree -r 88a28046260c2bc6715bd710359699d9a2b4af9b | awk -F'\\t' '{split($1, m, \" \"); if (m[2] == \"blob\") print $2}' | grep -vE '(^|/)(vendor|node_modules|dist|build|third_party)/|(^|/)[^/]*\\.egg-info/|\\.min\\.(js|css)$|(^|/)(package-lock\\.json|yarn\\.lock|pnpm-lock\\.yaml|Cargo\\.lock|poetry\\.lock|Gemfile\\.lock|composer\\.lock)$' | wc -l",
+   "expect": "1266",
+   "renders": [
+    "1,266"
+   ],
+   "where": "COUNT: the tree, one cell per file"
+  },
+  {
+   "id": "lines",
+   "text": "text lines in tracked files (all)",
+   "value": 163803,
+   "source": "tree",
+   "formula": "lines_all",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer ls-tree -r 88a28046260c2bc6715bd710359699d9a2b4af9b | awk -F'\\t' '{split($1, m, \" \"); if (m[2] == \"blob\") print $2}' | tr '\\n' '\\0' | xargs -0 -r git -c core.quotePath=false --literal-pathspecs -C /home/user/ceti-explainer grep -I -c -e '' 88a28046260c2bc6715bd710359699d9a2b4af9b -- | awk -F: '{s+=$NF} END {print s+0}'",
+   "expect": "163803",
+   "where": "facts"
+  },
+  {
+   "id": "lines-own",
+   "text": "text lines without vendored or generated paths",
+   "value": 130539,
+   "source": "tree",
+   "formula": "lines_own",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer ls-tree -r 88a28046260c2bc6715bd710359699d9a2b4af9b | awk -F'\\t' '{split($1, m, \" \"); if (m[2] == \"blob\") print $2}' | grep -vE '(^|/)(vendor|node_modules|dist|build|third_party)/|(^|/)[^/]*\\.egg-info/|\\.min\\.(js|css)$|(^|/)(package-lock\\.json|yarn\\.lock|pnpm-lock\\.yaml|Cargo\\.lock|poetry\\.lock|Gemfile\\.lock|composer\\.lock)$' | tr '\\n' '\\0' | xargs -0 -r git -c core.quotePath=false --literal-pathspecs -C /home/user/ceti-explainer grep -I -c -e '' 88a28046260c2bc6715bd710359699d9a2b4af9b -- | awk -F: '{s+=$NF} END {print s+0}'",
+   "expect": "130539",
+   "renders": [
+    "130,539"
+   ],
+   "where": "COUNT: the wall"
+  },
+  {
+   "id": "wall-scale",
+   "text": "lines per mark on the wall (smallest 1-2-5 step that keeps the wall at or under 1,000 marks)",
+   "value": 200,
+   "source": "derived",
+   "formula": "wall_scale",
+   "recompute": "echo 200  # chosen by wall_scale(lines_own)",
+   "expect": "200",
+   "renders": [
+    "200"
+   ],
+   "where": "COUNT: the wall's legend"
+  },
+  {
+   "id": "wall-marks",
+   "text": "marks on the wall",
+   "value": 653,
+   "source": "derived",
+   "formula": "Math.round(lines_own / wall_scale)",
+   "recompute": "python3 factory/tools/repo_topic.py --check factory/topics/ceti-explainer-self/claims.json --only wall-marks",
+   "renders": [
+    "653"
+   ],
+   "where": "COUNT: the wall"
+  },
+  {
+   "id": "top-dirs",
+   "text": "top-level folders (and root) holding own files",
+   "value": 22,
+   "source": "tree",
+   "formula": "top_dirs",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer ls-tree -r 88a28046260c2bc6715bd710359699d9a2b4af9b | awk -F'\\t' '{split($1, m, \" \"); if (m[2] == \"blob\") print $2}' | grep -vE '(^|/)(vendor|node_modules|dist|build|third_party)/|(^|/)[^/]*\\.egg-info/|\\.min\\.(js|css)$|(^|/)(package-lock\\.json|yarn\\.lock|pnpm-lock\\.yaml|Cargo\\.lock|poetry\\.lock|Gemfile\\.lock|composer\\.lock)$' | awk -F/ '{print (NF>1 ? $1\"/\" : $1)}' | LC_ALL=C sort -u | wc -l",
+   "expect": "22",
+   "where": "COUNT: the tree's branches"
+  },
+  {
+   "id": "code-languages",
+   "text": "programming languages with own files (by extension)",
+   "value": 5,
+   "source": "tree",
+   "formula": "code_languages",
+   "recompute": "echo 5  # extension map in repo_topic.py LANG; see facts.json tree.languages",
+   "expect": "5",
+   "note": "JavaScript, Python, HTML, CSS, Shell",
+   "where": "facts"
+  },
+  {
+   "id": "lang-top-lines",
+   "text": "own lines in JavaScript, the largest programming language",
+   "value": 37428,
+   "source": "tree",
+   "formula": "lang_top_lines",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer ls-tree -r 88a28046260c2bc6715bd710359699d9a2b4af9b | awk -F'\\t' '{split($1, m, \" \"); if (m[2] == \"blob\") print $2}' | grep -vE '(^|/)(vendor|node_modules|dist|build|third_party)/|(^|/)[^/]*\\.egg-info/|\\.min\\.(js|css)$|(^|/)(package-lock\\.json|yarn\\.lock|pnpm-lock\\.yaml|Cargo\\.lock|poetry\\.lock|Gemfile\\.lock|composer\\.lock)$' | grep -E '\\.(cjs|js|jsx|mjs)$' | tr '\\n' '\\0' | xargs -0 -r git -c core.quotePath=false --literal-pathspecs -C /home/user/ceti-explainer grep -I -c -e '' 88a28046260c2bc6715bd710359699d9a2b4af9b -- | awk -F: '{s+=$NF} END {print s+0}'",
+   "expect": "37428",
+   "where": "CASE or COUNT"
+  },
+  {
+   "id": "test-files",
+   "text": "test files by path (code files under tests/, test_*.py, *.test.js and the like)",
+   "value": 10,
+   "source": "tree",
+   "formula": "test_files",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer ls-tree -r 88a28046260c2bc6715bd710359699d9a2b4af9b | awk -F'\\t' '{split($1, m, \" \"); if (m[2] == \"blob\") print $2}' | grep -cE '(^|/)(tests?|__tests__|specs?)/.*\\.(py|js|mjs|cjs|ts|tsx|jsx|go|rs|rb|java|kt|sh|php|cs|swift|c|cc|cpp)$|(^|/)test_[^/]*\\.py$|_test\\.(py|go)$|\\.(test|spec)\\.(js|mjs|cjs|ts|tsx|jsx)$|(^|/)test\\.(js|mjs|py)$|_spec\\.rb$|(^|/)[^/]*Tests?\\.(java|kt|cs|swift)$'",
+   "expect": "10",
+   "renders": [
+    "10"
+   ],
+   "where": "CASE: what it tests"
+  },
+  {
+   "id": "test-fns-javascript",
+   "text": "javascript test functions found by reading the test files (not run)",
+   "value": 4,
+   "source": "tree",
+   "formula": "test_fns_javascript",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer ls-tree -r 88a28046260c2bc6715bd710359699d9a2b4af9b | awk -F'\\t' '{split($1, m, \" \"); if (m[2] == \"blob\") print $2}' | grep -E '(^|/)(tests?|__tests__|specs?)/.*\\.(py|js|mjs|cjs|ts|tsx|jsx|go|rs|rb|java|kt|sh|php|cs|swift|c|cc|cpp)$|(^|/)test_[^/]*\\.py$|_test\\.(py|go)$|\\.(test|spec)\\.(js|mjs|cjs|ts|tsx|jsx)$|(^|/)test\\.(js|mjs|py)$|_spec\\.rb$|(^|/)[^/]*Tests?\\.(java|kt|cs|swift)$' | grep -E '\\.(js|mjs|cjs|ts|tsx|jsx)$' | tr '\\n' '\\0' | xargs -0 -r git -c core.quotePath=false --literal-pathspecs -C /home/user/ceti-explainer grep -c -E '^[[:space:]]*(test|it)(\\.(only|skip|todo))?[[:space:]]*\\(' 88a28046260c2bc6715bd710359699d9a2b4af9b -- | awk -F: '{s+=$NF} END {print s+0}'",
+   "expect": "4",
+   "where": "CASE: what it tests"
+  },
+  {
+   "id": "test-fns",
+   "text": "test functions found by reading, all languages (none executed)",
+   "value": 4,
+   "source": "derived",
+   "formula": "test_fns_javascript",
+   "recompute": "python3 factory/tools/repo_topic.py --check factory/topics/ceti-explainer-self/claims.json --only test-fns",
+   "renders": [
+    "4"
+   ],
+   "where": "CASE: what it tests"
+  },
+  {
+   "id": "doc-files",
+   "text": "documentation files (md, rst, adoc, txt) without vendored paths",
+   "value": 702,
+   "source": "tree",
+   "formula": "doc_files",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer ls-tree -r 88a28046260c2bc6715bd710359699d9a2b4af9b | awk -F'\\t' '{split($1, m, \" \"); if (m[2] == \"blob\") print $2}' | grep -vE '(^|/)(vendor|node_modules|dist|build|third_party)/|(^|/)[^/]*\\.egg-info/|\\.min\\.(js|css)$|(^|/)(package-lock\\.json|yarn\\.lock|pnpm-lock\\.yaml|Cargo\\.lock|poetry\\.lock|Gemfile\\.lock|composer\\.lock)$' | grep -cE '\\.(md|markdown|rst|adoc|txt)$'",
+   "expect": "702",
+   "where": "facts"
+  },
+  {
+   "id": "readme-quote",
+   "text": "what it is, in the README's own words (15 words; README.md lines 3 to 3)",
+   "value": "Short-course explainers for sheaves, operads, and cohomology — for people who do not live in journals.",
+   "source": "readme",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer cat-file -p 88a28046260c2bc6715bd710359699d9a2b4af9b:README.md | sed -n '3,3p'",
+   "expect": "Short-course explainers for sheaves, operads, and cohomology — for people who do not live in journals.",
+   "check": "contains_md",
+   "note": "check: the README text at those lines, markdown stripped, contains the quote (… marks a cut)",
+   "where": "HOOK; CASE"
+  },
+  {
+   "id": "readme-headings",
+   "text": "headings in README.md",
+   "value": 15,
+   "source": "readme",
+   "formula": "readme_headings",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer cat-file -p 88a28046260c2bc6715bd710359699d9a2b4af9b:README.md | grep -cE '^#{1,6}[[:space:]]'",
+   "expect": "15",
+   "note": "counts fenced-code lines that start with # too, as the Python reader does",
+   "where": "facts"
+  },
+  {
+   "id": "deps-2",
+   "text": "direct runtime dependencies declared in scripts/requirements.txt",
+   "value": 4,
+   "source": "manifest",
+   "formula": "deps_2",
+   "recompute": "git -c core.quotePath=false -C /home/user/ceti-explainer cat-file -p 88a28046260c2bc6715bd710359699d9a2b4af9b:scripts/requirements.txt | grep -cvE '^[[:space:]]*(#|-|$)'",
+   "expect": "4",
+   "note": "playwright>=1.45,<2, fonttools>=4.50, brotli>=1.1, Pillow>=10",
+   "where": "CASE: what it depends on"
+  },
+  {
+   "id": "deps-total",
+   "text": "direct runtime dependencies across manifests",
+   "value": 4,
+   "source": "derived",
+   "formula": "deps_2",
+   "recompute": "python3 factory/tools/repo_topic.py --check factory/topics/ceti-explainer-self/claims.json --only deps-total",
+   "where": "CASE: what it depends on"
+  },
+  {
+   "id": "commit-default",
+   "text": "the film-mode guess (commit.default): one commit a day; the viewer's number, not a fact",
+   "value": 7,
+   "source": "input",
+   "formula": "window_days",
+   "recompute": "python3 factory/tools/repo_topic.py --check factory/topics/ceti-explainer-self/claims.json --only commit-default",
+   "where": "COMMIT (film mode types it)"
+  }
+ ]
+}

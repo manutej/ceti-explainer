@@ -1,5 +1,5 @@
 /* morph-type: shape morph and kinetic typography from glyph contours (p5 2.x textToContours).
-   Pure function of t. Token roles only. Fonts arrive as data URLs (fonts/fonts.js) so loadFont works on file://. */
+   Pure function of t. Token roles only. Fonts arrive as data URLs (arsenal/fonts/fonts.js) so loadFont works on file://. */
 (function () {
   window.ARSENAL = window.ARSENAL || { patterns: {}, structures: {}, materials: {}, brands: {} };
 

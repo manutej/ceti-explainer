@@ -15,7 +15,7 @@ through the hook contract of films/opera-house/page.js: `?film=1` gives the bare
   requestAnimationFrame, Date and performance.now (the play loop and the commit timer); nothing else may.
 - `--quick` samples the text timeline every 1 s instead of every 0.5 s.
 
-Prints a table, exits 1 if any row is FAIL. WARN and SKIP never fail the film. A row SKIPs when the film
+Rows sort numerically (G10 after G9). Prints a table, exits 1 if any row is FAIL. WARN and SKIP never fail the film. A row SKIPs when the film
 folder lacks the data it needs (legacy schema), and says why. Runtime: about 10 to 20 s.
 
 ## Rows
@@ -39,6 +39,7 @@ folder lacks the data it needs (legacy schema), and says why. Runtime: about 10 
 | G7 counts first | first time a percentage, "N in M" or "N out of M" appears in visible SVG text or a caption, vs `count.at` (else the COUNT chapter t0) | a ratio appears before the count (SKIP if neither is declared) |
 | G8 size | film.js + film.json + claims.json; the built page | ≥ 120 KB; ≥ 1.3 MB |
 | G9 tics | full-screen cards: chapters with `card: true` plus every entry of `film.cards`; countdown ring: `T`/`timings` keys or `device` values matching ring/countdown | more than 2 cards (WARN: a ring outside the COMMIT window) |
+| G10 axes | the page's declared axes: `window.__film.info.axes` (kit2 writes `{brand, chrome, material, texture, texture_declared, level, box}`), else `<meta name="kit2" content="brand=… material=… texture=… level=…">`; level = film.json `level`, else axes.level, else `exec` | level `exec` (DECISIONS Q6) and material ≠ `ink`, or a rendered texture other than `none`/`paper` (WARN: the brand declares grain/halftone and kit2 drew it flat; SKIP: no axes, a factory/kit page) |
 
 Help the gate by tagging text with `data-role` on the element or a parent group (the kit's text helpers
 should do this): `must-read` for headline numbers, the count, captions and the commit box; `secondary` for
@@ -53,6 +54,7 @@ labels; `chrome` for eyebrows, ledgers, axis ticks. Results never go in chrome.
       "count":  { "at": 38 },          // when the count structure is first drawn
       "brand":  { "takeaway": "Ask how the last thousand went.", "at": 72 },   // or "dur": 3
       "honest": "The wall is a constructed teaching object, not a dataset.",
+      "level": "exec",                 // exec (default) | manager | engineer: G10 holds exec to ink, texture none/paper
       "captions": [ [t0, t1, "text"], ... ],           // or {t0, t1, text}
       "sources": [ ["BGR94", "Buehler, Griffin & Ross (1994) ..."], ... ] }
 

@@ -186,10 +186,16 @@ function guardFill(f) {
   for (let k = 0; k <= 10 && contrast(out, C.paper) < 4.5; k++) out = toHex([0, 1, 2].map(i => a[i] + (b[i] - a[i]) * k / 10));
   return (GUARD[f] = out);
 }
+function filmSize(layer, fam, size) {   // display-face compensation, then the content-box counter-scale (floors kept)
+  const fs = fitSize(fam, size);
+  if (!MAPPED || MAP.s >= 1 || !FILM_LAYERS.has(layer)) return fs;
+  const floor = size >= 28 ? 28 : size >= 14 ? 14 : 12;
+  return +(Math.max(Math.min(size, floor), fs * MAP.s) / MAP.s).toFixed(2);
+}
 function tx(key, layer, x, y, s, o = {}) {
   const fam = o.fam || 'mono';
   const tr = o.rot ? `rotate(${o.rot} ${(+x).toFixed(1)} ${(+y).toFixed(1)})` : (o.tr || null);
-  return E(key, 'text', layer, { x: f2(x), y: f2(y), 'font-family': famOf(fam), 'font-size': fitSize(fam, o.size || 14), fill: guardFill(o.fill) || C.ink,
+  return E(key, 'text', layer, { x: f2(x), y: f2(y), 'font-family': famOf(fam), 'font-size': filmSize(layer, fam, o.size || 14), fill: guardFill(o.fill) || C.ink,
     'text-anchor': o.anchor || 'start', 'letter-spacing': o.ls != null ? o.ls : 0, opacity: opv(o),
     'font-weight': o.weight || wOf(fam), transform: tr, 'data-role': o.role || null, 'data-kit': o.kit || null }, String(s));
 }
@@ -276,9 +282,30 @@ if (CHROME_ID !== 'none') {
    around them, any other chrome element that would intersect them is not drawn. Pure: depends on t only.
    CONF.window === false turns it off (a film drawn against chrome.layout.safe does not need it). */
 const WIN_CONTENT = { x0: 40, y0: 96, x1: 672, y1: 410 }, WIN_COMMIT = { x0: 692, y0: 142, x1: 938, y1: 308 };
+/* CONTENT-BOX NEGOTIATION. A kit-authored film owns FILM_BOX (its content box plus the commit column, 960 basis).
+   The chrome says where a film may draw: chrome.contentBox(brandPack, 'kit') → {x0, y0, x1, y1, align}. kit2 lays the
+   film inside it: one uniform scale s = min(1, box/FILM_BOX) (fit, never crop, never enlarge), placed flush left/top
+   (align 'start') or centred. The film's SVG layers 'marks' and 'labels' get transform="translate(ox oy) scale(s)",
+   the canvas gets the same matrix for FILM_RENDER.render; captions, cards, roll, brand card and chrome stay on the
+   960 sheet. Film text keeps the legibility floors: rendered size = max(min(size, floor), size·s), floor 28/14/12 by
+   the authored size (counter-scaled inside the group). The window (chrome furniture cut out) is the mapped boxes.
+   A chrome without contentBox, chrome 'none', CONF.window === false or CONF.box === false → identity. */
+const FILM_BOX = { x0: 40, y0: 96, x1: 938, y1: 410 };
+const CBOX = CHROME && typeof CHROME.contentBox === 'function' && CONF.window !== false && CONF.box !== false ? CHROME.contentBox(PACK, 'kit') : null;
+const MAP = (() => {
+  if (!CBOX) return { s: 1, ox: 0, oy: 0 };
+  const fw = FILM_BOX.x1 - FILM_BOX.x0, fh = FILM_BOX.y1 - FILM_BOX.y0, bw = CBOX.x1 - CBOX.x0, bh = CBOX.y1 - CBOX.y0;
+  const s = +Math.min(1, bw / fw, bh / fh).toFixed(4), st = CBOX.align === 'start';
+  const left = st ? CBOX.x0 : CBOX.x0 + (bw - fw * s) / 2, top = st ? CBOX.y0 : CBOX.y0 + (bh - fh * s) / 2;
+  return { s, ox: +(left - FILM_BOX.x0 * s).toFixed(2), oy: +(top - FILM_BOX.y0 * s).toFixed(2) };
+})();
+const MAPPED = MAP.s !== 1 || MAP.ox !== 0 || MAP.oy !== 0;
+const FILM_LAYERS = new Set(['marks', 'labels']);
+const mapBox = (b) => MAPPED ? { x0: b.x0 * MAP.s + MAP.ox, y0: b.y0 * MAP.s + MAP.oy, x1: b.x1 * MAP.s + MAP.ox, y1: b.y1 * MAP.s + MAP.oy } : b;
+const WIN_C = mapBox(WIN_CONTENT), WIN_K = mapBox(WIN_COMMIT);
 const commitCh = (FILM.chapters || []).find(c => /commit/i.test(String(c.beat || c.id || '')));
 let curT = 0;
-const winBoxes = () => CONF.window === false ? [] : (commitCh && curT >= commitCh.t0 - 1 && curT < commitCh.t1 + 0.6 ? [WIN_CONTENT, WIN_COMMIT] : [WIN_CONTENT]);
+const winBoxes = () => CONF.window === false ? [] : (commitCh && curT >= commitCh.t0 - 1 && curT < commitCh.t1 + 0.6 ? [WIN_C, WIN_K] : [WIN_C]);
 const hits = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
 const windowed = (layer) => layer === 'chrome' || layer === 'field';
 const famAdv = (fam) => ADV[fam] || ADV_FAM[String(fam).replace(/^'([^']+)'.*$/, '$1')] || 0.55;
@@ -339,13 +366,15 @@ function capStyle() {
 }
 /* fromKit: the kit's sheet options → this chrome's frame options. A chrome may define its own
    fromKit(kitOpts, t, ch) and that wins; otherwise these adapters, by id, else a pass-through. */
+const fitWords = (s, n) => { s = String(s || '').trim(); if (s.length <= n) return s; const c = s.slice(0, n + 1); const i = c.lastIndexOf(' '); return (i > 0 ? c.slice(0, i) : s.slice(0, n)).replace(/[\s·,;:–-]+$/, ''); };
 const latestRow = (lg, t) => { const r = (lg && lg.rows || []).filter(x => t >= x[0]); return r.length ? r[r.length - 1][1] : ''; };
 const ADAPT = {
   'tender-set': (o) => ({ marks: o.marks, ledger: o.ledger || false, block: o.block || false, slot: o.block && o.block.slot ? { label: o.block.slot } : null }),
   ledger: (o, t) => ({ folio: String(latestRow(o.ledger, t)).slice(0, 40), slot: o.block && o.block.slot ? { label: o.block.slot } : null }),
-  memo: (o, t) => {
-    const b = o.block || {};
-    return { fields: { to: (b.lines || [])[0] || '', from: (b.lines || [])[1] || '', file: b.title || FILM.title || '', date: String(latestRow(o.ledger, t)).slice(0, 22) } };
+  memo: (o, t) => {   // fields are cut on a word boundary to the width each field has (TO/FROM 114–548, DATE/FILE 626–912)
+    const b = o.block || {}, L = b.lines || [], n = (w) => Math.floor(w / (14 * ADV.mono));
+    return { fields: { to: fitWords(L.join(' '), n(434)), from: fitWords(FILM.eyebrow || 'CETI CASE DESK', n(434)),
+      file: fitWords(b.title || FILM.title || '', n(286)), date: fitWords(latestRow(o.ledger, t), n(286)) } };
   },
 };
 function chrome(t, chapter, opts = {}) {
@@ -411,7 +440,7 @@ function commitBox(t, s, o = {}) {
   const cm = FILM.commit || {}, A = o.at != null ? o.at : cm.at;
   const x = o.x != null ? o.x : 700, y = o.y != null ? o.y : 150, w = o.w || 230, h = o.h || 150;
   const seal = o.seal != null ? o.seal : A + 4.5, out = o.out != null ? o.out : Infinity;
-  K.commitGeom = commitGeom = { x, y, w, h };
+  K.commitGeom = commitGeom = MAPPED ? { x: x * MAP.s + MAP.ox, y: y * MAP.s + MAP.oy, w: w * MAP.s, h: h * MAP.s } : { x, y, w, h };   // screen geometry for the player overlay
   const op = seg(t, A - 1, A - 0.2) * (1 - seg(t, out, out + 0.5));
   if (op <= 0) return { op: 0, sealed: t >= seal };
   rc('cb.o', 'marks', x, y, w, h, { stroke: C.ink, w: 1.4, dash: '6 4', op, fill: C.chalk, fo: 0.45 });
@@ -449,8 +478,16 @@ const MAT_ID = CONF.material || 'ink';
 const MAT = (AR.materials || {})[MAT_ID] || null;
 if (!MAT && MAT_ID !== 'ink') throw new Error('KIT2: material ' + MAT_ID + ' is not registered in ARSENAL.materials');
 // materials read the pack's own schema roles (chalk = text on panel), not the kit's derived ones
+/* LEVEL (DECISIONS Q6): film.json `level` ('exec' default | 'manager' | 'engineer'). At the exec level the brand's
+   texture is rendered only when it is 'none' or 'paper'; a 'grain'/'halftone' pack is drawn flat and the drop is
+   recorded (axes.texture vs axes.texture_declared; the gate's G10 WARNs on it). The MATERIAL is never overridden:
+   it is an explicit build choice, and G10 FAILs an exec film that is not in ink. CONF.levelGuard === false turns the
+   texture drop off (then G10 FAILs a grain exec page). */
+const LEVEL = FILM.level || CONF.level || 'exec';
+const EXEC_TEX = ['none', 'paper'], TEX_DECL = PACK.texture || 'none';
+const TEX = LEVEL === 'exec' && CONF.levelGuard !== false && EXEC_TEX.indexOf(TEX_DECL) < 0 ? 'none' : TEX_DECL;
 const TOK = { id: PACK.id, color: Object.assign({}, PACK.color || {}, { bg: C.paper, ink: C.ink, accent: C.accent, accent2: C.soft, muted: C.muted, line: C.line, panel: C.panel }),
-  type: TP, texture: PACK.texture || 'none' };
+  type: TP, texture: TEX };
 function ghash(a, b, c, d) { let n = (Math.round(a * 4) * 73856093) ^ (Math.round(b * 4) * 19349663) ^ (Math.round(c * 4) * 83492791) ^ (Math.round(d * 4) * 2654435761); n = Math.imul(n ^ (n >>> 15), 0x85EBCA6B); return (n ^ (n >>> 13)) >>> 0; }
 const ROLE_OF = {}; [['ink', 'ink'], ['accent', 'accent'], ['soft', 'accent2'], ['muted', 'muted'], ['line', 'line']].forEach(([k, r]) => { if (!ROLE_OF[C[k]]) ROLE_OF[C[k]] = r; });
 // the colour the film set → {role, tok, a}: a pack role when it is one (so a material's own role mapping applies),
@@ -501,7 +538,7 @@ function paperBlotch(p, gc, seed) {
   if (lo.remove) lo.remove();
 }
 function makeGround(p, seed = SEED) {
-  const tex = PACK.texture || 'none';
+  const tex = TEX;
   let g;
   if (tex === 'paper' && CHROME && CHROME.ground) g = CHROME.ground(p, seed);
   else {
@@ -543,7 +580,9 @@ function mount(stageEl) {
   svg = document.createElementNS(NS, 'svg');
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.setAttribute('class', 'ex-svg');
   svg.innerHTML = `<defs><linearGradient id="kit-curl" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="0.7" stop-color="${C.dark}" stop-opacity="0.28"/><stop offset="1" stop-color="${C.paper}" stop-opacity="0.9"/></linearGradient></defs>`;
-  LAYERS.forEach(k => { const g = document.createElementNS(NS, 'g'); g.setAttribute('data-layer', k); svg.appendChild(g); L[k] = g; });
+  LAYERS.forEach(k => { const g = document.createElementNS(NS, 'g'); g.setAttribute('data-layer', k);
+    if (MAPPED && FILM_LAYERS.has(k)) g.setAttribute('transform', `translate(${MAP.ox} ${MAP.oy}) scale(${MAP.s})`);
+    svg.appendChild(g); L[k] = g; });
   stageEl.appendChild(svg);
   K.svg = svg;
   new p5((p) => {
@@ -571,6 +610,7 @@ function render(t, s) {
   const R = FR_(), bAt = brandAt(), auto = R.brand !== false && bAt != null;
   const tm = auto && t >= bAt ? bAt - 1e-3 : t;
   ctx.save();
+  if (MAPPED) ctx.setTransform(d * MAP.s, 0, 0, d * MAP.s, d * MAP.ox, d * MAP.oy);   // the film's canvas in the chrome's content box
   if (R.render) R.render(tm, s || state, K);
   ctx.restore();
   if (R.captions !== false) caption(tm);
@@ -588,6 +628,10 @@ const K = window.KIT = {
   mount, render, ready: () => readyP, get t() { return lastT; }, poolSize: () => POOL.size,
   p: null, ctx: null, ground: null, svg: null, commitGeom: null,
   // kit2: what was injected, and the role tools
-  KIT2: { brand: PACK.id, chrome: CHROME_ID, material: MAT_ID }, BRAND: PACK, ROLES: C, CHROME, MATERIAL: MAT, contrast, resolveRoles, ADV,
+  KIT2: { brand: PACK.id, chrome: CHROME_ID, material: MAT_ID },
+  // the axes this page was built on (player.js publishes them as window.__film.info.axes; gate G10 reads them)
+  AXES: { brand: PACK.id, chrome: CHROME_ID, material: MAT_ID, texture: TEX, texture_declared: TEX_DECL, level: LEVEL,
+    box: CBOX ? { x0: CBOX.x0, y0: CBOX.y0, x1: CBOX.x1, y1: CBOX.y1, s: MAP.s, ox: MAP.ox, oy: MAP.oy } : null },
+  BRAND: PACK, ROLES: C, CHROME, MATERIAL: MAT, contrast, resolveRoles, ADV,
 };
 })();

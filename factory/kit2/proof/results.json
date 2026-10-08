@@ -39,6 +39,7 @@
    },
    "name": "survivorship.ceti-dark.tender-set",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.ceti-dark.tender-set.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "944907244bcb",
    "stills": {
     "errs": [],
@@ -80,6 +81,7 @@
    },
    "name": "survivorship.ceti-dark.ledger",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.ceti-dark.ledger.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "090f31ed9fdf",
    "stills": {
     "errs": [],
@@ -121,6 +123,7 @@
    },
    "name": "survivorship.ceti-dark.memo",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.ceti-dark.memo.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "1539ff01fa74",
    "stills": {
     "errs": [],
@@ -162,6 +165,7 @@
    },
    "name": "survivorship.ceti-dark.none",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.ceti-dark.none.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "d3f6d46a0e12",
    "stills": {
     "errs": [],
@@ -203,6 +207,7 @@
    },
    "name": "survivorship.tender-set.tender-set",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.tender-set.tender-set.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "42a66d599dc2",
    "stills": {
     "errs": [],
@@ -244,6 +249,7 @@
    },
    "name": "survivorship.tender-set.ledger",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.tender-set.ledger.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "9158c804abcf",
    "stills": {
     "errs": [],
@@ -285,6 +291,7 @@
    },
    "name": "survivorship.tender-set.memo",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.tender-set.memo.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "b91d26d9c20e",
    "stills": {
     "errs": [],
@@ -326,6 +333,7 @@
    },
    "name": "survivorship.tender-set.none",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.tender-set.none.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "8eafc5d631cd",
    "stills": {
     "errs": [],
@@ -367,6 +375,7 @@
    },
    "name": "survivorship.swiss-grid.tender-set",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.swiss-grid.tender-set.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "e48911b8d927",
    "stills": {
     "errs": [],
@@ -408,6 +417,7 @@
    },
    "name": "survivorship.swiss-grid.ledger",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.swiss-grid.ledger.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "88ca9b365f32",
    "stills": {
     "errs": [],
@@ -449,6 +459,7 @@
    },
    "name": "survivorship.swiss-grid.memo",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.swiss-grid.memo.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "801d975e884d",
    "stills": {
     "errs": [],
@@ -490,6 +501,7 @@
    },
    "name": "survivorship.swiss-grid.none",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.swiss-grid.none.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "4dc17075e1c1",
    "stills": {
     "errs": [],
@@ -531,6 +543,7 @@
    },
    "name": "survivorship.neon-lab.tender-set",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.neon-lab.tender-set.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "aefb95a85055",
    "stills": {
     "errs": [],
@@ -572,6 +585,7 @@
    },
    "name": "survivorship.neon-lab.ledger",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.neon-lab.ledger.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "1bb75f4a4a97",
    "stills": {
     "errs": [],
@@ -613,6 +627,7 @@
    },
    "name": "survivorship.neon-lab.memo",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.neon-lab.memo.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "631436166d51",
    "stills": {
     "errs": [],
@@ -654,6 +669,7 @@
    },
    "name": "survivorship.neon-lab.none",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/survivorship.neon-lab.none.html",
+   "run": "previous run (before content-box negotiation and G10; not re-run)",
    "sha256": "ce10f60a5310",
    "stills": {
     "errs": [],
@@ -665,7 +681,7 @@
   {
    "brand": "ceti-dark",
    "build": "ok",
-   "bytes": 1190896,
+   "bytes": 1195648,
    "chrome": "tender-set",
    "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
    "film": "goodhart",
@@ -675,6 +691,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -695,7 +712,8 @@
    },
    "name": "goodhart.ceti-dark.tender-set",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.ceti-dark.tender-set.html",
-   "sha256": "97f82056f568",
+   "run": "content-box negotiation + G10",
+   "sha256": "ebbe893b48dc",
    "stills": {
     "errs": [],
     "pure": true
@@ -706,7 +724,7 @@
   {
    "brand": "ceti-dark",
    "build": "ok",
-   "bytes": 1190547,
+   "bytes": 1195297,
    "chrome": "ledger",
    "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
    "film": "goodhart",
@@ -716,6 +734,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -736,7 +755,8 @@
    },
    "name": "goodhart.ceti-dark.ledger",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.ceti-dark.ledger.html",
-   "sha256": "bffa3786d0ff",
+   "run": "content-box negotiation + G10",
+   "sha256": "a81ed5bda755",
    "stills": {
     "errs": [],
     "pure": true
@@ -747,7 +767,7 @@
   {
    "brand": "ceti-dark",
    "build": "ok",
-   "bytes": 1190394,
+   "bytes": 1195264,
    "chrome": "memo",
    "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
    "film": "goodhart",
@@ -757,6 +777,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -777,7 +798,8 @@
    },
    "name": "goodhart.ceti-dark.memo",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.ceti-dark.memo.html",
-   "sha256": "e650d56b7ae6",
+   "run": "content-box negotiation + G10",
+   "sha256": "ddc5362bf04b",
    "stills": {
     "errs": [],
     "pure": true
@@ -788,7 +810,7 @@
   {
    "brand": "ceti-dark",
    "build": "ok",
-   "bytes": 1177799,
+   "bytes": 1182041,
    "chrome": "none",
    "contrast": "contrast on paper: ink 15.5  muted 5.3  accent 9.7  onDark/dark 17.1",
    "film": "goodhart",
@@ -798,6 +820,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -818,7 +841,8 @@
    },
    "name": "goodhart.ceti-dark.none",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.ceti-dark.none.html",
-   "sha256": "9154d1370dad",
+   "run": "content-box negotiation + G10",
+   "sha256": "1dca217839db",
    "stills": {
     "errs": [],
     "pure": true
@@ -829,7 +853,7 @@
   {
    "brand": "tender-set",
    "build": "ok",
-   "bytes": 1152845,
+   "bytes": 1157598,
    "chrome": "tender-set",
    "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
    "film": "goodhart",
@@ -839,6 +863,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -859,7 +884,8 @@
    },
    "name": "goodhart.tender-set.tender-set",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.tender-set.html",
-   "sha256": "a230602104fc",
+   "run": "content-box negotiation + G10",
+   "sha256": "41c066fab3e9",
    "stills": {
     "errs": [],
     "pure": true
@@ -870,7 +896,7 @@
   {
    "brand": "tender-set",
    "build": "ok",
-   "bytes": 1152496,
+   "bytes": 1157247,
    "chrome": "ledger",
    "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
    "film": "goodhart",
@@ -880,6 +906,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -900,7 +927,8 @@
    },
    "name": "goodhart.tender-set.ledger",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.ledger.html",
-   "sha256": "45707f60ccff",
+   "run": "content-box negotiation + G10",
+   "sha256": "a5932b731fe9",
    "stills": {
     "errs": [],
     "pure": true
@@ -911,7 +939,7 @@
   {
    "brand": "tender-set",
    "build": "ok",
-   "bytes": 1152343,
+   "bytes": 1157214,
    "chrome": "memo",
    "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
    "film": "goodhart",
@@ -921,6 +949,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -941,7 +970,8 @@
    },
    "name": "goodhart.tender-set.memo",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.memo.html",
-   "sha256": "d3c0ae2e07f0",
+   "run": "content-box negotiation + G10",
+   "sha256": "da94927c1d10",
    "stills": {
     "errs": [],
     "pure": true
@@ -952,7 +982,7 @@
   {
    "brand": "tender-set",
    "build": "ok",
-   "bytes": 1139748,
+   "bytes": 1143991,
    "chrome": "none",
    "contrast": "contrast on paper: ink 8.5  muted 3.9  accent 3.6  onDark/dark 8.5  WARN under 4.5: muted, accent",
    "film": "goodhart",
@@ -962,6 +992,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -982,7 +1013,8 @@
    },
    "name": "goodhart.tender-set.none",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.none.html",
-   "sha256": "e8fdaabba7df",
+   "run": "content-box negotiation + G10",
+   "sha256": "af0f38a77211",
    "stills": {
     "errs": [],
     "pure": true
@@ -993,7 +1025,7 @@
   {
    "brand": "swiss-grid",
    "build": "ok",
-   "bytes": 1146750,
+   "bytes": 1151502,
    "chrome": "tender-set",
    "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
    "film": "goodhart",
@@ -1003,6 +1035,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -1023,7 +1056,8 @@
    },
    "name": "goodhart.swiss-grid.tender-set",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.swiss-grid.tender-set.html",
-   "sha256": "3568be23ce73",
+   "run": "content-box negotiation + G10",
+   "sha256": "99c56a51aec7",
    "stills": {
     "errs": [],
     "pure": true
@@ -1034,7 +1068,7 @@
   {
    "brand": "swiss-grid",
    "build": "ok",
-   "bytes": 1146401,
+   "bytes": 1151151,
    "chrome": "ledger",
    "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
    "film": "goodhart",
@@ -1044,6 +1078,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -1064,7 +1099,8 @@
    },
    "name": "goodhart.swiss-grid.ledger",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.swiss-grid.ledger.html",
-   "sha256": "0a561250e9b3",
+   "run": "content-box negotiation + G10",
+   "sha256": "e301d91e09a2",
    "stills": {
     "errs": [],
     "pure": true
@@ -1075,7 +1111,7 @@
   {
    "brand": "swiss-grid",
    "build": "ok",
-   "bytes": 1146248,
+   "bytes": 1151118,
    "chrome": "memo",
    "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
    "film": "goodhart",
@@ -1085,6 +1121,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -1105,7 +1142,8 @@
    },
    "name": "goodhart.swiss-grid.memo",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.swiss-grid.memo.html",
-   "sha256": "821655211225",
+   "run": "content-box negotiation + G10",
+   "sha256": "dcac5f882c6b",
    "stills": {
     "errs": [],
     "pure": true
@@ -1116,7 +1154,7 @@
   {
    "brand": "swiss-grid",
    "build": "ok",
-   "bytes": 1133653,
+   "bytes": 1137895,
    "chrome": "none",
    "contrast": "contrast on paper: ink 18.9  muted 5.3  accent 4.3  onDark/dark 18.9  WARN under 4.5: accent",
    "film": "goodhart",
@@ -1126,6 +1164,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "PASS",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -1146,7 +1185,8 @@
    },
    "name": "goodhart.swiss-grid.none",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.swiss-grid.none.html",
-   "sha256": "d7407b9cb183",
+   "run": "content-box negotiation + G10",
+   "sha256": "a33c291de976",
    "stills": {
     "errs": [],
     "pure": true
@@ -1157,7 +1197,7 @@
   {
    "brand": "neon-lab",
    "build": "ok",
-   "bytes": 1218696,
+   "bytes": 1223449,
    "chrome": "tender-set",
    "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
    "film": "goodhart",
@@ -1167,6 +1207,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "WARN",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -1187,7 +1228,8 @@
    },
    "name": "goodhart.neon-lab.tender-set",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.tender-set.html",
-   "sha256": "6832703a3158",
+   "run": "content-box negotiation + G10",
+   "sha256": "b7aa18e22c3d",
    "stills": {
     "errs": [],
     "pure": true
@@ -1198,7 +1240,7 @@
   {
    "brand": "neon-lab",
    "build": "ok",
-   "bytes": 1218347,
+   "bytes": 1223098,
    "chrome": "ledger",
    "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
    "film": "goodhart",
@@ -1208,6 +1250,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "WARN",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -1228,7 +1271,8 @@
    },
    "name": "goodhart.neon-lab.ledger",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.ledger.html",
-   "sha256": "143ac1d2d230",
+   "run": "content-box negotiation + G10",
+   "sha256": "993a1268cabe",
    "stills": {
     "errs": [],
     "pure": true
@@ -1239,7 +1283,7 @@
   {
    "brand": "neon-lab",
    "build": "ok",
-   "bytes": 1218194,
+   "bytes": 1223065,
    "chrome": "memo",
    "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
    "film": "goodhart",
@@ -1249,6 +1293,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "WARN",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -1269,7 +1314,8 @@
    },
    "name": "goodhart.neon-lab.memo",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.memo.html",
-   "sha256": "0d185a8eb887",
+   "run": "content-box negotiation + G10",
+   "sha256": "59014360a1de",
    "stills": {
     "errs": [],
     "pure": true
@@ -1280,7 +1326,7 @@
   {
    "brand": "neon-lab",
    "build": "ok",
-   "bytes": 1205599,
+   "bytes": 1209842,
    "chrome": "none",
    "contrast": "contrast on paper: ink 17.6  muted 5.5  accent 14.3  onDark/dark 20.0",
    "film": "goodhart",
@@ -1290,6 +1336,7 @@
     "pass": true,
     "rows": {
      "G1": "PASS",
+     "G10": "WARN",
      "G2a": "PASS",
      "G2b": "PASS",
      "G3": "PASS",
@@ -1310,7 +1357,8 @@
    },
    "name": "goodhart.neon-lab.none",
    "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.neon-lab.none.html",
-   "sha256": "9b81ec42f095",
+   "run": "content-box negotiation + G10",
+   "sha256": "717e88941877",
    "stills": {
     "errs": [],
     "pure": true

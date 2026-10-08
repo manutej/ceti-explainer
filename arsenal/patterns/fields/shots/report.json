@@ -39,6 +39,6 @@
    "purity": "identical"
   }
  },
- "ms_per_frame": 13,
+ "ms_per_frame": 9.8,
  "contact": "/home/user/ceti-explainer/arsenal/patterns/fields/shots/contact.png"
 }

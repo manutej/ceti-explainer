@@ -80,6 +80,11 @@ function make(cfg) {
     },
 
     /* the paper: deterministic for a given seed. Leaves p.noiseSeed(seed) set; the caller reseeds after. */
+    /* contentBox(tokens, mode): where this chrome lets a film draw (960 basis). mode 'kit': a film authored on
+       factory/kit's sheet (content 48–664 plus the commit column, film box 40–938 × 96–410); the tender-set IS that
+       sheet, so the box is the film box itself (identity). mode 'native': layout.safe. tokens: the brand pack (unused). */
+    contentBox(tokens, mode) { return mode === 'native' ? Object.assign({}, LAYOUT.safe) : { x0: 40, y0: 96, x1: 938, y1: 410, align: 'center' }; },
+
     ground(p, seed = 1959) {
       const g = p.createGraphics(960, 540); g.pixelDensity(2);
       const gc = g.drawingContext;

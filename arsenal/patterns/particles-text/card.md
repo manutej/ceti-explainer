@@ -22,7 +22,7 @@
 [[text-to-points]] S32 S357 · [[seeded-determinism]] S72 S128 S374 · [[easing-functions]] S80 S81 · [[text-to-contours]] S334 · [[load-font]] S33 · [[kinetic-typography]] S46.
 
 ## Fonts (WARN)
-Reuses `../morph-type/fonts/fonts.js` (TTF data URLs; p5 2.3.4 `loadFont` rejects WOFF2). The demo loads it by relative path, so the pattern depends on that folder. Setup is async (fonts); await it before seeking.
+Reuses `arsenal/fonts/fonts.js` (shared; loaded as `../../fonts/fonts.js`) (TTF data URLs; p5 2.3.4 `loadFont` rejects WOFF2). The demo loads it by relative path, so the pattern depends on that folder. Setup is async (fonts); await it before seeking.
 
 ## Pitfalls
 - Fill sampling is a jittered hex grid thinned by stride: letters with thin strokes look lacy below about 1,500 particles; raise `n` or use `sample: 'outline'`.

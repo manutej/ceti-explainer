@@ -2,16 +2,16 @@
   "film": "goodhart",
   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.ceti-dark.tender-set.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/goodhart",
-  "date": "2026-10-08T14:41:46.959Z",
+  "date": "2026-10-08T15:32:26.498Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 368 ms; stage sd 15s:42.0 37.5s:44.3 60s:37.7",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 626 ms; stage sd 15s:42.0 37.5s:44.3 60s:37.7",
       "data": {
-        "readyMs": 368,
+        "readyMs": 626,
         "stats": [
           {
             "t": 15,
@@ -160,10 +160,10 @@
       "id": "G8",
       "name": "size",
       "status": "PASS",
-      "evidence": "film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.191 MB < 1.3 MB",
+      "evidence": "film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.196 MB < 1.3 MB",
       "data": {
         "code": 18448,
-        "page": 1190896
+        "page": 1195648
       }
     },
     {
@@ -171,6 +171,33 @@
       "name": "tics",
       "status": "PASS",
       "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand ceti-dark, chrome tender-set, material ink, texture none; level exec (default); via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "ceti-dark",
+          "chrome": "tender-set",
+          "material": "ink",
+          "texture": "none",
+          "texture_declared": "none",
+          "level": "exec",
+          "box": {
+            "x0": 40,
+            "y0": 96,
+            "x1": 938,
+            "y1": 410,
+            "s": 1,
+            "ox": 0,
+            "oy": 0
+          }
+        },
+        "level": "exec",
+        "bad": []
+      }
     }
   ]
 }

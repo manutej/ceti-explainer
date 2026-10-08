@@ -3,12 +3,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
 <script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
 <script src="./pattern.js"></script>
 </head><body>
 <script>
-const BRANDS = {"ceti-dark": {"id": "ceti-dark", "name": "CETI dark", "color": {"bg": "#0F1115", "ink": "#EDE8DF", "accent": "#E0B27A", "accent2": "#B8322A", "muted": "#8B8778", "line": "rgba(237,232,223,0.18)", "panel": "#171A21", "chalk": "#F6F3EC"}, "type": {"disp": {"family": "Big Shoulders Display", "weight": 600}, "mono": {"family": "IBM Plex Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400}}, "texture": "none", "tempo": {"ease": "cubic", "beat_s": 4}, "voice": {"register": "typeset numbers, few words", "end_card": "CETI"}}, "neon-lab": {"id": "neon-lab", "name": "Neon lab (dark, luminous)", "color": {"bg": "#07080C", "ink": "#E8F1FF", "accent": "#3DF5C3", "accent2": "#FF4FA3", "muted": "#7C86A2", "line": "rgba(232,241,255,0.16)", "panel": "#0E1119", "chalk": "#FFFFFF"}, "type": {"disp": {"family": "Sofia Sans Extra Condensed", "weight": 700}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400}}, "texture": "grain", "tempo": {"ease": "expo", "beat_s": 3}, "voice": {"register": "glow on black, thin rules", "end_card": "CETI"}}, "swiss-grid": {"id": "swiss-grid", "name": "Swiss grid (clean, high contrast)", "color": {"bg": "#FFFFFF", "ink": "#111111", "accent": "#E63312", "accent2": "#1F4FB8", "muted": "#6B6B6B", "line": "rgba(17,17,17,0.2)", "panel": "#F2F2F2", "chalk": "#FFFFFF"}, "type": {"disp": {"family": "Jost", "weight": 600}, "mono": {"family": "Red Hat Mono", "weight": 400}, "body": {"family": "Jost", "weight": 400}}, "texture": "none", "tempo": {"ease": "expo", "beat_s": 3}, "voice": {"register": "grid, flush left, one accent", "end_card": "CETI"}}, "tender-set": {"id": "tender-set", "name": "Tender set (the Opera House sheet)", "color": {"bg": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "accent2": "#B9A277", "muted": "#8E887C", "line": "rgba(30,58,92,0.25)", "panel": "#F5EEDF", "chalk": "#F2ECDD"}, "type": {"disp": {"family": "Big Shoulders Display", "weight": 600}, "mono": {"family": "IBM Plex Mono", "weight": 400}, "body": {"family": "IBM Plex Mono", "weight": 400}}, "texture": "paper", "tempo": {"ease": "cubic", "beat_s": 4}, "voice": {"register": "drafting sheet, revisions ledger", "end_card": "CETI"}}};
 const q = new URLSearchParams(location.search);
-const tokens = BRANDS[q.get('brand')] || BRANDS['ceti-dark'];
+const tokens = ARSENAL.brands[q.get('brand')] || ARSENAL.brands['ceti-dark'];   // packs.js inlined by <script>, select with ?brand=
+document.body.style.background = tokens.color.bg;
 const pat = ARSENAL.patterns.fields, DUR = 6, SEED = 7;
 const cache = {};
 let cur = null, resolveReady; const readyP = new Promise(r => resolveReady = r);
@@ -26,7 +27,7 @@ new p5(p => {
 });
 window.__film = {
   ready: () => readyP,
-  info: { variants: pat.variants.map(v => v.name), dur: DUR, seed: SEED },
+  info: { variants: pat.variants.map(v => v.name), dur: DUR, seed: SEED, brand: tokens.id },
   last: null,
   seek(t, v) {
     v = v || pat.variants[0].name;

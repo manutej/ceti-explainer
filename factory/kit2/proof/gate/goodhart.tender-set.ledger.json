@@ -2,31 +2,31 @@
   "film": "goodhart",
   "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.ledger.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/goodhart",
-  "date": "2026-10-08T14:41:58.704Z",
+  "date": "2026-10-08T15:32:34.662Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 977 ms; stage sd 15s:30.8 37.5s:31.8 60s:27.3",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 675 ms; stage sd 15s:28.0 37.5s:26.8 60s:24.7",
       "data": {
-        "readyMs": 977,
+        "readyMs": 675,
         "stats": [
           {
             "t": 15,
-            "mean": 209.95372382329575,
-            "sd": 30.841408603968578
+            "mean": 210.53064477237075,
+            "sd": 27.99899741540369
           },
           {
             "t": 37.5,
-            "mean": 208.21093662229404,
-            "sd": 31.78242220242818
+            "mean": 209.9985367766134,
+            "sd": 26.817978989149985
           },
           {
             "t": 60,
-            "mean": 206.79564651813268,
-            "sd": 27.308261354054444
+            "mean": 208.9504943672809,
+            "sd": 24.69824020779101
           }
         ],
         "filmErrs": [],
@@ -139,14 +139,14 @@
       "id": "G6",
       "name": "legibility",
       "status": "PASS",
-      "evidence": "23 must-read / 13 secondary / 24 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
+      "evidence": "23 must-read / 13 secondary / 36 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
       "data": {
         "fails": [],
         "warns": [],
         "counts": {
           "must-read": 23,
           "secondary": 13,
-          "chrome": 24
+          "chrome": 36
         }
       }
     },
@@ -160,10 +160,10 @@
       "id": "G8",
       "name": "size",
       "status": "PASS",
-      "evidence": "film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.152 MB < 1.3 MB",
+      "evidence": "film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.157 MB < 1.3 MB",
       "data": {
         "code": 18448,
-        "page": 1152496
+        "page": 1157247
       }
     },
     {
@@ -171,6 +171,33 @@
       "name": "tics",
       "status": "PASS",
       "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand tender-set, chrome ledger, material ink, texture paper; level exec (default); via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "tender-set",
+          "chrome": "ledger",
+          "material": "ink",
+          "texture": "paper",
+          "texture_declared": "paper",
+          "level": "exec",
+          "box": {
+            "x0": 120,
+            "y0": 128,
+            "x1": 824,
+            "y1": 448,
+            "s": 0.784,
+            "ox": 88.62,
+            "oy": 89.65
+          }
+        },
+        "level": "exec",
+        "bad": []
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 /* particles-text: words, numerals and shapes assembled from particles. Pure function of t.
    Stages (text via textToPoints / textToContours, or @ring @line @scatter @grid) are sampled to N points in setup;
    each particle follows a quadratic path stage -> stage with an eased arrival and a per-particle delay from a
-   stagger field (x | dist | noise | rand). Token roles only. Fonts: shared TTF data URLs from morph-type/fonts/fonts.js. */
+   stagger field (x | dist | noise | rand). Token roles only. Fonts: shared TTF data URLs from arsenal/fonts/fonts.js. */
 (function () {
   window.ARSENAL = window.ARSENAL || { patterns: {}, structures: {}, materials: {}, brands: {} };
 
