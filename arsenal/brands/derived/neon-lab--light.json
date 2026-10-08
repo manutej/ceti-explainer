@@ -1,0 +1,13 @@
+{ "id": "neon-lab--light", "name": "Neon lab (dark, luminous) [light]",
+  "color": {
+    "bg": "#EAEDF3",
+    "ink": "#181E28",
+    "accent": "#005944",
+    "accent2": "#C80276",
+    "muted": "#626C87",
+    "line": "rgba(24,30,40,0.16)",
+    "panel": "#FAFBFF",
+    "chalk": "#262526" },
+  "type": { "disp": {"family": "Sofia Sans Extra Condensed", "weight": 700}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400} },
+  "texture": "grain", "tempo": {"ease": "expo", "beat_s": 3},
+  "voice": {"register": "glow on black, thin rules", "end_card": "CETI", "derived": {"from": "neon-lab", "transforms": ["light"]}} }

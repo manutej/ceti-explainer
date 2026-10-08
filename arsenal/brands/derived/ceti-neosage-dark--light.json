@@ -1,0 +1,13 @@
+{ "id": "ceti-neosage-dark--light", "name": "CETI neosage dark [light]",
+  "color": {
+    "bg": "#EEEBF6",
+    "ink": "#1E1E1A",
+    "accent": "#5A4B72",
+    "accent2": "#734E00",
+    "muted": "#5A5365",
+    "line": "rgba(30,30,26,0.3)",
+    "panel": "#DFDAEA",
+    "chalk": "#141410" },
+  "type": { "disp": {"family": "Fraunces", "weight": 300, "style": "italic"}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400} },
+  "texture": "none", "tempo": {"ease": "expo", "beat_s": 4},
+  "voice": {"register": "Academy neosage dark: sage and plum on paper, a notebook that argues gently", "end_card": "CETI", "derived": {"from": "ceti-neosage-dark", "transforms": ["light"]}} }

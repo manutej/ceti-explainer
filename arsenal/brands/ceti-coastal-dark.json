@@ -1,0 +1,7 @@
+{ "id": "ceti-coastal-dark",
+  "name": "CETI coastal dark",
+  "color": {"bg": "#161C1D", "ink": "#F2F8F7", "accent": "#B0F2E2", "accent2": "#9BCEF3", "muted": "#BBD3CF", "line": "rgba(124,222,198,0.3)", "panel": "#1C2831", "chalk": "#F2F8F7"},
+  "type": {"disp": {"family": "Fraunces", "weight": 300, "style": "italic"}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400}},
+  "texture": "none",
+  "tempo": {"ease": "expo", "beat_s": 4},
+  "voice": {"register": "Academy coastal dark: a quiet coast, teal water and warm sand", "end_card": "CETI"} }

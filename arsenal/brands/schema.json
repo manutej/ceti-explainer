@@ -29,8 +29,9 @@
     }
   },
   "properties": {
-    "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "File name stem: arsenal/brands/<id>.json" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-{1,2}[a-z0-9]+)*$", "description": "File name stem: arsenal/brands/<id>.json. A double hyphen marks a derived pack (<base>--<transforms>, arsenal/tools/tweak.py)." },
     "name": { "type": "string", "minLength": 1 },
+    "notes": { "type": "array", "items": { "type": "string" }, "description": "Optional provenance: every deliberate departure from a source palette (e.g. a lightness nudge to reach a contrast gate)." },
     "color": {
       "type": "object",
       "description": "Colour roles. bg: the ground. ink: body and numerals on bg (>= 4.5:1). accent: the one live colour (>= 3:1 on bg). accent2: the second voice (the 'wrong' or 'other' colour). muted: secondary text and rules on bg (>= 3:1). line: hairlines (alpha allowed). panel: raised surface. chalk: highest-emphasis text ON panel (>= 4.5:1 on panel); same polarity as bg, so on a light pack chalk is darker than ink.",

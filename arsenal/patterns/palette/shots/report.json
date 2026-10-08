@@ -37,8 +37,170 @@
     "/home/user/ceti-explainer/arsenal/patterns/palette/shots/tender-set-t4.00.png"
    ],
    "purity": "identical"
+  },
+  "editorial-serif": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/editorial-serif-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/editorial-serif-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/editorial-serif-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/editorial-serif-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "terminal": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/terminal-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/terminal-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/terminal-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/terminal-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "newsprint": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/newsprint-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/newsprint-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/newsprint-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/newsprint-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "midnight-ink": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/midnight-ink-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/midnight-ink-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/midnight-ink-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/midnight-ink-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "pastel-pop": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/pastel-pop-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/pastel-pop-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/pastel-pop-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/pastel-pop-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "blueprint": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/blueprint-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/blueprint-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/blueprint-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/blueprint-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "warm-lab": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/warm-lab-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/warm-lab-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/warm-lab-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/warm-lab-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "high-vis": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/high-vis-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/high-vis-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/high-vis-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/high-vis-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-marketing": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-marketing-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-marketing-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-marketing-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-marketing-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-boardwalk-light": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-boardwalk-light-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-boardwalk-light-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-boardwalk-light-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-boardwalk-light-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-boardwalk-dark": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-boardwalk-dark-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-boardwalk-dark-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-boardwalk-dark-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-boardwalk-dark-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-coastal-light": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-coastal-light-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-coastal-light-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-coastal-light-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-coastal-light-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-coastal-dark": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-coastal-dark-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-coastal-dark-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-coastal-dark-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-coastal-dark-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-greenhouse-light": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-greenhouse-light-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-greenhouse-light-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-greenhouse-light-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-greenhouse-light-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-greenhouse-dark": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-greenhouse-dark-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-greenhouse-dark-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-greenhouse-dark-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-greenhouse-dark-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-neosage-light": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-neosage-light-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-neosage-light-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-neosage-light-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-neosage-light-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-neosage-dark": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-neosage-dark-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-neosage-dark-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-neosage-dark-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-neosage-dark-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ceti-owala-soft": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-owala-soft-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-owala-soft-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-owala-soft-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/palette/shots/ceti-owala-soft-t4.00.png"
+   ],
+   "purity": "identical"
   }
  },
- "ms_per_frame": 9.4,
+ "ms_per_frame": 6.2,
  "contact": "/home/user/ceti-explainer/arsenal/patterns/palette/shots/contact.png"
 }

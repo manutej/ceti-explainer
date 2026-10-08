@@ -170,12 +170,13 @@
     txt('type  disp / mono / body', mx[2] + 16, my + mh - 14, 'mono', 10, c.muted);
   }
 
+  /* variants are built from every pack in ARSENAL.brands, so load brands/packs.js before this file */
   const P = { chips: 32, jitter: 0.18, brand: null };
   ARSENAL.patterns['palette'] = {
     id: 'palette', atlas: ['color-spaces-2x', 'color-mode', 'lerp-color', 'color-contrast', 'probabilistic-palette', 'generative-distributions', 'p3-hdr-color'],
     renderer: 'p2d',
     params: P,
-    variants: ['ceti-dark', 'neon-lab', 'swiss-grid', 'tender-set'].map(b => ({ name: b, params: Object.assign({}, P, { brand: b }) })),
+    variants: Object.keys(ARSENAL.brands).map(b => ({ name: b, params: Object.assign({}, P, { brand: b }) })),
     setup, draw,
   };
 })();

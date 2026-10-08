@@ -1,0 +1,13 @@
+{ "id": "ceti-boardwalk-light--dark", "name": "CETI boardwalk light [dark]",
+  "color": {
+    "bg": "#100D06",
+    "ink": "#DCD0C4",
+    "accent": "#8C60CF",
+    "accent2": "#C6523B",
+    "muted": "#8B796A",
+    "line": "rgba(220,208,196,1)",
+    "panel": "#1A1405",
+    "chalk": "#DDD1C5" },
+  "type": { "disp": {"family": "Fraunces", "weight": 300, "style": "italic"}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400} },
+  "texture": "none", "tempo": {"ease": "expo", "beat_s": 4},
+  "voice": {"register": "Academy boardwalk light: a lakeside boardwalk at dusk, soft violet and ember", "end_card": "CETI", "derived": {"from": "ceti-boardwalk-light", "transforms": ["dark"]}} }

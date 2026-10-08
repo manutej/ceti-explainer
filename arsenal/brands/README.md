@@ -17,9 +17,24 @@ Schema: `schema.json`. Each pack is `<id>.json`; `packs.js` is generated from th
 | blueprint | a drafting sheet: dimensions, callouts and notes, exact and unadorned | #0B2A5B | #F2F7FF | #4FE3F5 | IBM Plex Mono 400; IBM Plex Mono 500 | grain | quad 3.5s |
 | warm-lab | a friendly researcher at the bench: curious, concrete, show the sample | #EBDCC3 | #3B2618 | #D94F3A | DM Mono 400; DM Sans 400; DM Sans 600 | paper | cubic 4s |
 | high-vis | a site warning sign: imperative, capitalised, one instruction per beat | #0C0C0C | #F4F4F0 | #FFD500 | Barlow Semi Condensed 500; Sofia Sans Extra Condensed 700; Space Mono 400 | halftone | expo 2.5s |
+| ceti-marketing | cetiai.co: deep-sea ground, paper ink, a copper lead and a peach spark; few words, slow | #1A1F2E | #F5EFE3 | #A67756 | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
+| ceti-boardwalk-light | Academy boardwalk light: a lakeside boardwalk at dusk, soft violet and ember | #F6F0DF | #2A2118 | #7B4EBC | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
+| ceti-boardwalk-dark | Academy boardwalk dark: a lakeside boardwalk at dusk, soft violet and ember | #1C1821 | #FBF7EE | #E6D8FD | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
+| ceti-coastal-light | Academy coastal light: a quiet coast, teal water and warm sand | #EFECE1 | #211C17 | #339780 | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
+| ceti-coastal-dark | Academy coastal dark: a quiet coast, teal water and warm sand | #161C1D | #F2F8F7 | #B0F2E2 | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
+| ceti-greenhouse-light | Academy greenhouse light: a greenhouse in low sun, moss and clay | #EFEBE1 | #1D170C | #5C7231 | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
+| ceti-greenhouse-dark | Academy greenhouse dark: a greenhouse in low sun, moss and clay | #13140F | #F7F2E8 | #CCF1A7 | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
+| ceti-neosage-light | Academy neosage light: sage and plum on paper, a notebook that argues gently | #F5F4EF | #211817 | #59348D | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
+| ceti-neosage-dark | Academy neosage dark: sage and plum on paper, a notebook that argues gently | #131118 | #F8F7F2 | #DFCEFD | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
+| ceti-owala-soft | Owala soft: warm cream, one deep ink, berry as the live colour, a tide of teal for the other voice | #F4E4D2 | #1A1612 | #7A2E4A | Fraunces 300 it; Space Mono 400; DM Sans 400 | none | expo 4s |
 
 Faces are limited to what `vendor/fonts.lock.json` ships, so some roles use a weight or style the lock offers
 (Fraunces and Cormorant Garamond exist only as italics).
+
+The ten `ceti-*` packs besides ceti-dark are derived from Manu's CETI design system (marketing hex; Academy HSL rows converted
+to hex; Owala soft hex). Roles: accent=primary-edge, accent2=accent-edge, muted=muted-foreground, line=border (with its
+alpha as rgba), panel=card, chalk=terminal-fg. Ease `glaser` (0.22,1,0.36,1) is mapped to `expo`. Where a source colour
+misses a gate its lightness is nudged minimally and recorded in the pack's optional `notes` array (schema.json).
 
 ## Add a pack
 1. Copy a pack to `arsenal/brands/<id>.json` (id is lowercase-hyphen and must equal the file name). Fill all eight
@@ -29,4 +44,4 @@ Faces are limited to what `vendor/fonts.lock.json` ships, so some roles use a we
    accent/bg 3.0, muted/bg 3.0. `chalk` is highest-emphasis text on `panel`: darker than ink on a light pack.
 4. Regenerate the bundle (pass every pack, in the order you want):
    `python3 arsenal/tools/brand_check.py arsenal/brands/*.json --emit-js arsenal/brands/packs.js`
-5. Palette demo: its variants list is hard-coded in `arsenal/patterns/palette/pattern.js`; add the id there to see it.
+5. Palette demo: its variants are built from every pack in `packs.js`, so step 4 is all it takes.
