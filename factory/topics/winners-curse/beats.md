@@ -27,7 +27,7 @@ Brand card (72 to 75 s) is the format's fixed ending, not a structure.
 | # | in | out | text |
 |---|---|---|---|
 | 1 | 0.5 | 7.6 | We won the deal. So we got a good price. Right? |
-| 2 | 8.2 | 11.9 | A block worth $10M. 10 bidders, each off by up to ±30 %. |
+| 2 | 8.2 | 11.0 | A block worth $10M. 10 bidders, each off by up to $3M. (film: no % before the count, G7) |
 | 3 | 12.0 | 15.8 | The highest guess wins and pays it. On average, how much? |
 | 4 | 16.2 | 20.0 | 1969, Alaska North Slope: oil leases sold by sealed bid. |
 | 5 | 20.2 | 25.0 | Winning bids: $900M. Next-best bids, same tracts: $370M. |
