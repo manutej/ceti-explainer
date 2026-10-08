@@ -104,28 +104,28 @@ tallies. Every counter value is floor() of a linear ramp, so re-seeking gives id
    post-shift positions 0..72 skipping 32, 33, 34; the first u of them get a 1-unit paper-white top notch
    (y 200 to 204) as they are counted. Label at (480, 352), 28 units mono: "UNTOUCHED u" [untouched,
    running]; ends "UNTOUCHED 70".
-8. **52.0 done rule.** Vertical 1.5-unit ink rule at x(73) = 673.2, y 180 to 300. Label above at (673.2,
-   168), centred... the counter already says "73 HOURS"; move the counter to sit on this rule: counter
-   text becomes "DONE · HOUR 73" [newTotal], 28 units, right-aligned at (900, 168) → keep at (900, 168) to
-   avoid collision with the ratio; the rule itself carries no text.
+8. **52.0 done rule.** Vertical 1.5-unit ink rule at x(73) = 673.2, y 180 to 300; the rule carries no
+   text. The counter at (900, 168) changes from "73 HOURS" to "DONE · HOUR 73" [newTotal].
 9. **54.0–55.0 the commit placed (pins on the same row).** Pins are 1-unit vertical lines y 180 to 380 with
    a label below at y 404 (28 units mono) and a 14-unit chrome word above the label at y 382:
    - PROMISE pin at x(10) = 144 [promiseHour]: chrome "PROMISE", label "10× · HOUR 10" [claim10x].
    - YOU pin at x(clamp(100 ÷ g, 1, 100)) with g = state.guess (film default 4 → x(25) = 270 [guessHour,
      defaultGuess]): chrome "YOU", label "g× · HOUR round(100 ÷ g)". Accent ink.
    - TRUTH: the done rule at x(73) gets chrome "TRUE" and label "1.37× · HOUR 73" [speedup, newTotal].
-   - Collision rule: if |x_you − x_promise| < 120 or |x_you − x_true| < 120, drop the YOU label to y 440
-     and its chrome to y 420 (the pin extends to y 418). If g ≤ 1, pin at x(100) with label "g× · NO
+   - Labels are centred on their pin, clamped so the text box stays inside x 40 to 920.
+   - Collision rule: if the YOU label's text box overlaps the PROMISE or TRUE label's box (28-unit mono
+     ≈ 16.8 units per character, plus 12 units padding), drop the YOU label to y 444 and its chrome to
+     y 424 (the pin extends to y 426). The film default (4×, x 270) does collide with PROMISE, so the
+     film shows YOU on the lower line. If g ≤ 1, pin at x(100) with label "g× · NO
      GAIN". If guess is null, draw no YOU pin and set chrome "NO ANSWER" at (60, 382).
    - If |g − 1.37| ≤ 0.05, the YOU label adds "· ON IT" (no extra digits).
 10. **55.0 the ratio (first ratio in the film).** Centred at (480, 110), 40 units mono:
     "100 ÷ 73 = 1.37×" [totalHours, newTotal, speedup]. The UNTOUCHED label fades to 50 %.
-11. **58.2–59.0 instant drafting.** Marks 32, 33, 34 lift and fade like step 4 (0.05 s stagger). Counter
+11. **58.2–59.0 instant drafting.** Marks 32, 33, 34 lift and fade like step 4 (0.6 s each, 0.05 s stagger, done by 58.9). Counter
     becomes "DONE · HOUR 70" [untouched] when the last is half gone.
 12. **59.0–59.8 close up again.** Post-shift marks 35–72 translate x by a further −25.2 (3 × 8.4). The done
     rule and the TRUE pin slide to x(70) = 648; TRUE label becomes "1.43× · HOUR 70" [ceiling, untouched].
-    The "30 → 3" label becomes "30 → 0" (no new digit claim needed beyond draftHours; the 0 is the
-    infinite case) — builder may instead fade the label out to avoid an unclaimed "0".
+    The "30 → 3" label fades out over 58.2–58.6 (no "0" is ever drawn).
 13. **59.8 ceiling ratio.** Ratio text cross-fades (0.3 s) to "100 ÷ 70 = 1.43×" [ceiling]; chrome under
     it, 14 units, centred at (480, 134): "THE CEILING · AMDAHL, 1967" [amdahlYear].
 14. **61.8–62.0 hold.**
