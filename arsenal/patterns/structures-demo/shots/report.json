@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/structures-demo/demo.html",
+ "errors": [],
+ "variants": {
+  "thousand": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/thousand-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/thousand-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/thousand-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/thousand-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "tree60": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/tree60-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/tree60-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/tree60-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/tree60-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "timeline24": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/timeline24-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/timeline24-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/timeline24-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/timeline24-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "scatter-rows": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/scatter-rows-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/scatter-rows-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/scatter-rows-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/scatter-rows-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 15.5,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/structures-demo/shots/contact.png"
+}
