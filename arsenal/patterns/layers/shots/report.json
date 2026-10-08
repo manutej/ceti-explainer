@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/layers/demo.html",
+ "errors": [],
+ "variants": {
+  "spotlight": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/spotlight-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/spotlight-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/spotlight-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/spotlight-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "iris": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/iris-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/iris-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/iris-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/iris-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "wipe": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/wipe-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/wipe-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/wipe-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/wipe-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "comets": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/comets-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/comets-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/comets-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/layers/shots/comets-t8.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 27.8,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/layers/shots/contact.png"
+}
