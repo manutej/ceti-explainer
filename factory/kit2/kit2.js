@@ -462,7 +462,12 @@ function commitBox(t, s, o = {}) {
   if (t >= seal) {
     const k = seg(t, seal, seal + 0.22);
     const lab = sv.answer === 'none' ? 'NO ANSWER' : 'SEALED';
-    stamp('cb.st', 'marks', x + w / 2, y + h - 44, lerp(1.4, 0.9, eout(k)), lab, { op: k * op, h: 50, fs: 28, role: 'secondary' });
+    // beside the number, never over it (review 2026-10-08): the number's half-width from the advance table, the
+    // stamp's from stamp()'s own width rule, both at the landed scale; clamped to the box's right edge
+    const sc = lerp(0.9, 0.62, eout(k)), half = String(shown).length * 56 * ADV.disp / 2;
+    const sw = Math.max(120, lab.length * 28 * ADV.disp + 36) * 0.62;
+    const scx = Math.min(x + w / 2 + half + 8 + sw / 2, x + w - sw / 2 - 6);
+    stamp('cb.st', 'marks', scx, y + h - 44, sc, lab, { op: k * op, h: 50, fs: 28, role: 'secondary' });
   }
   return { op, sealed: t >= seal };
 }

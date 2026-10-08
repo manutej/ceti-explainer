@@ -1,9 +1,9 @@
 {
  "id": "wiring-and-the-whole",
  "title": "The Wiring and the Whole",
- "eyebrow": "CETI · Case · a repo read as a module of systems",
- "lede": "One bet about large codebases, tested four ways in one repo. Seal a number, then count what the repo itself reports, including the review that said no.",
- "dur": 103,
+ "eyebrow": "CETI · Case · a repo read as a few systems and their wiring",
+ "lede": "One bet about big codebases, tested four ways in one repo. Seal a number, then count what the repo itself reports, including the review that said no.",
+ "dur": 115,
  "seed": 469,
  "type": {
   "disp": "Newsreader",
@@ -20,6 +20,7 @@
   "fCrates": 14,
   "fOther": 29,
   "toybank": 16,
+  "tbLines": 79,
   "modules": 5,
   "mAccounts": 4,
   "mSavings": 3,
@@ -28,6 +29,25 @@
   "mShared": 4,
   "checks": 13,
   "checksPass": 13,
+  "thFiles": 12,
+  "thSystems": 3,
+  "thWires": 3,
+  "c1kFiles": 29,
+  "c1kLoc": 1350,
+  "c10kFiles": 41,
+  "c10kLoc": 10270,
+  "slices": 7,
+  "bodies": 60,
+  "matrixLoc": 10663,
+  "hExplicit": 1923,
+  "hFactored": 947,
+  "rustMsRaw": 9.41,
+  "sheafLines": 1445,
+  "openPRs": 3,
+  "pr46": 46,
+  "pr47": 47,
+  "pr48": 48,
+  "tick": 25,
   "sites": 3,
   "wins": 3,
   "s1e": 329,
@@ -56,12 +76,13 @@
   "rawBA": -10.2,
   "artifactPct": 80,
   "shards": 6,
-  "exitCode": 2
+  "exitCode": 2,
+  "pct5": 5
  },
  "commit": {
   "at": 10.0,
   "title": "HOW MANY?",
-  "prompt": "A 16-file toy bank, glued at its interfaces. Of 13 gluing checks, how many pass?",
+  "prompt": "A 16-file toy bank, wired at its plugs. Of 13 wiring checks, how many pass?",
   "unit": "of 13",
   "default": 9,
   "min": 0,
@@ -69,7 +90,7 @@
   "step": 1
  },
  "count": {
-  "at": 40
+  "at": 55
  },
  "chapters": [
   {
@@ -92,142 +113,177 @@
    "id": "case",
    "beat": "CASE",
    "t0": 17,
-   "t1": 40,
-   "eyebrow": "CASE · THE WITNESS",
-   "title": "Files into systems"
+   "t1": 55,
+   "eyebrow": "CASE · HOW IT WORKS",
+   "title": "Plugs, wires, systems"
   },
   {
    "id": "count",
    "beat": "COUNT",
-   "t0": 40,
-   "t1": 92,
+   "t0": 55,
+   "t1": 104,
    "eyebrow": "CASE · THE COUNT",
    "title": "Four experiments, counted"
   },
   {
    "id": "monday",
    "beat": "MONDAY",
-   "t0": 92,
-   "t1": 100,
+   "t0": 104,
+   "t1": 112,
    "eyebrow": "CASE · MONDAY",
-   "title": "What is this a module of?"
+   "title": "Where are the plugs?"
   }
  ],
  "captions": [
   [
    0.4,
    4.4,
-   "The bet: a large codebase is not a pile of files."
+   "The bet: a codebase is not a pile of files."
   ],
   [
    4.6,
    8.8,
-   "It is a module of systems: units known by their interfaces, glued by typed wiring."
+   "It is a few systems that only touch at their plugs."
   ],
   [
    9.2,
    12.8,
-   "Test it small first: a 16-file toy bank, glued at its interfaces by a witness script."
+   "Try it small: a 16-file toy bank, wired at its plugs."
   ],
   [
    13.0,
    16.8,
-   "The witness runs 13 gluing checks. How many pass? Type a number."
+   "A script runs 13 wiring checks. How many pass? Type it."
   ],
   [
    17.3,
-   21.8,
-   "Now the repo itself: 469 files. Sorted by folder, the pile becomes a few parts."
+   20.3,
+   "In theory: 12 files. Each has a plug or two."
   ],
   [
-   22.0,
-   26.8,
-   "One part, witness/, holds the toy bank: 16 Java files."
+   20.5,
+   23.3,
+   "A wire only fits a matching plug."
   ],
   [
-   27.0,
-   31.8,
-   "16 files, 5 systems. Each is known only by its ports; wires glue port to port."
+   23.5,
+   26.1,
+   "Group them: 3 systems, joined by 3 wires."
   ],
   [
-   32.0,
-   35.8,
-   "The witness glues them and checks the algebra: pushouts, maps, a symmetry, a collision."
+   26.3,
+   29.0,
+   "The wiring is small. The whole is big."
   ],
   [
-   36.0,
+   29.3,
+   32.8,
+   "This repo: 469 files. Sort them by folder: a few parts."
+  ],
+  [
+   33.0,
+   35.9,
+   "One part, witness/, holds the toy bank: 16 files."
+  ],
+  [
+   36.3,
    39.8,
-   "13 of 13 pass, including the one that must fire: two Money types that may not glue."
+   "16 files, 5 systems. Wires run plug to plug."
   ],
   [
-   40.3,
-   44.8,
-   "E2: is factored wiring cheaper than spelled-out edges? 3 real Apache Fineract sites."
+   40.0,
+   43.8,
+   "The script wires them up and runs its 13 checks."
   ],
   [
-   45.0,
-   49.8,
-   "One family has 514 handlers. Its shared legend pays for itself by handler 5."
+   44.0,
+   47.9,
+   "13 of 13 pass. One must fail on purpose: two Money types."
   ],
   [
-   50.0,
-   53.8,
-   "The other two break even at 2, against families of 169 and 54. 3 of 3 sites win."
+   48.3,
+   51.8,
+   "Then bigger: 29 files, then 41 files of real bank code."
   ],
   [
-   54.3,
-   58.8,
-   "E3: do models read it? 16 wiring questions, 4 runs per arm. Explicit edges: 60 of 64."
+   52.0,
+   54.9,
+   "Wiring for 514 handlers: 947 tokens, not 1,923. About half."
   ],
   [
-   59.0,
-   62.8,
-   "The factored pack: 61 of 64, on 1,316 tokens instead of 2,089."
+   55.3,
+   59.8,
+   "Is the wiring cheaper? 3 real sites from Apache Fineract."
   ],
   [
-   63.0,
-   67.8,
-   "93.8% against 95.3%, at 63% of the tokens. No comprehension tax at pilot scale."
+   60.0,
+   63.8,
+   "One family has 514 handlers. The legend pays off by 5."
+  ],
+  [
+   64.0,
+   67.9,
+   "The others pay off at 2, in families of 169 and 54. 3 of 3."
   ],
   [
    68.3,
    72.8,
-   "E5: does it hold at depth? 112 questions across 10 depth levels."
+   "Can a model read the wiring? 16 questions, 4 runs per arm."
   ],
   [
    73.0,
-   77.8,
-   "The stronger model read both forms at 100% at every depth. The line stays flat."
+   76.8,
+   "Long form: 60 of 64. Short form: 61 of 64, on 1,316 tokens."
   ],
   [
-   78.0,
-   83.8,
-   "Pooled gap: −3.7 points, inside the 5-point rule. The raw −10.2 was mostly harness error."
+   77.0,
+   80.9,
+   "93.8% vs 95.3%, at 63% of the tokens. No reading tax."
   ],
   [
-   84.3,
-   87.8,
-   "Then the programme graded itself. An independent evaluator read the scale build: no."
+   81.3,
+   85.8,
+   "Does it hold when questions go deep? 112, at 10 depths."
   ],
   [
-   88.0,
-   91.8,
-   "NO-SHIP: one engine crashed on one shard. Fixed, re-run, 6 of 6 shards, then shipped."
+   86.0,
+   89.8,
+   "The stronger model: 100% at every depth, both forms."
   ],
   [
-   92.3,
-   95.8,
-   "Monday, before you paste a whole repo into a model, ask: what is this a module of?"
+   90.0,
+   92.4,
+   "Gap: -3.7 points, inside the 5-point rule."
   ],
   [
-   96.0,
-   99.8,
-   "Honest limits: these are the repo's own reported numbers. One author, not replicated."
+   92.6,
+   94.9,
+   "The raw -10.2 was mostly a harness bug."
+  ],
+  [
+   95.3,
+   99.3,
+   "Then an outside reviewer read the scale build. No."
+  ],
+  [
+   99.5,
+   103.9,
+   "NO-SHIP: one crash on one shard. Fixed, 6 of 6, shipped."
+  ],
+  [
+   104.3,
+   108.3,
+   "Monday, before pasting a whole repo into a model, ask:"
+  ],
+  [
+   108.5,
+   111.9,
+   "Honest limit: the repo's own numbers; one author only."
   ]
  ],
  "brand": {
   "takeaway": "Ship the wiring, not the whole.",
-  "at": 100
+  "at": 112
  },
  "sources": [
   [
@@ -252,30 +308,38 @@
   ],
   [
    "E5",
-   "experiments/e5-depth/E5-RESULTS.md lines 1–47; E5.1-GRADES.json (per-depth strict accuracy, pooled B−A −3.7 at line 347); E5-GRADES.json line 170 (raw −10.2)."
+   "experiments/e5-depth/E5-RESULTS.md lines 1–47; E5.1-GRADES.json pooled per-depth strict accuracy lines 113–163 and pooled B−A −3.7 at line 347; E5-GRADES.json line 170 (raw −10.2)."
   ],
   [
    "EVAL",
    "docs/pulse/evaluations/2026-10-04-s2-s3-scale-independent.md lines 3 and 18 (NO-SHIP; python engine slice-matrix-check exits 2) and 2026-10-04-s2-s3-scale-reshhip.md lines 3 and 12 (SHIP; 6/6)."
   ],
   [
+   "LADDER",
+   "docs/SCALE-PATH.md lines 48–58 (toy → wedge → scale) and PR 46 (branch pr-46) docs/operations/reports/SCALE-REPORT-LATEST.md: metrics lines 26–44 (charter 1k 29 files / 1,350 lines; charter 10k 41 files / 10,270 lines; 7 slices, 60 Java bodies, 10,663 lines; handler tokens 1,923 explicit vs 947 factored, WIN at n = 514), Rust timing line 138 (9.41 ms), corpus honesty line 8."
+  ],
+  [
+   "BRANCHES",
+   "PR 47 (branch pr-47): exports/sheaf/fineract-charter-1k.sheafgraph.json, 1,445 lines (wc -l), and scripts/wiringmap_to_sheaf.py. PR 48 (branch pr-48): LICENSE lines 1–3, MIT. The three PR heads were fetched locally as branches pr-46, pr-47, pr-48."
+  ],
+  [
    "GIT",
-   "git ls-files on the clone at e4ebf58: 469 tracked files, by top folder (experiments 131, fixtures 122, docs 79, scripts 39, preview 37, witness 18, crates 14, other 29); 145 commits. Recorded in facts.json; no repository code was run."
+   "git ls-files at e4ebf58: 469 tracked files by top folder (experiments 131, fixtures 122, docs 79, scripts 39, preview 37, witness 18, crates 14, other 29); 145 commits; the 16 toybank files hold 79 lines (facts.json). No repository code was run."
   ],
   [
    "PAPER",
-   "Libkind, S. & Myers, D. J. Towards a Double Operadic Theory of Systems. arXiv:2505.18329v2 (the repo's background paper)."
+   "Libkind, S. & Myers, D. J. Towards a Double Operadic Theory of Systems. arXiv:2505.18329v2 (the repo's background paper; its words module of systems, gluing, operadic, witness are translated on stage to systems, plugs and wires)."
   ]
  ],
  "honest": [
-  "Every number here is the repo's own report (README, HANDOFF, the results files and grade JSON), produced by one author working with coding agents. None of it has been replicated by anyone else.",
-  "E1 is a 16-file toy and 'demonstrated' is not 'proved' (the repo lists MUST-PROVE 1–5 as open). E2 is token arithmetic on three sites; repo-scale savings are unmeasured. E3 is a pilot: 16 questions, one convention-heavy family, same-author question templates. E5 is one corpus with harness models.",
+  "Every number here is the repo's own report (README, HANDOFF, the results files, the grade JSON and the PR 46 scale report), produced by one author working with coding agents. None of it has been replicated by anyone else.",
+  "The 12-file picture in the theory beat is a teaching drawing, not a measurement. E1 is a 16-file toy and 'demonstrated' is not 'proved' (MUST-PROVE 1–5 are open). E2 is token arithmetic on three sites; repo-scale savings are unmeasured. E3 is a pilot: 16 questions, one convention-heavy family, same-author question templates. E5 is one corpus with harness models. The 41-file 'charter 10k' rung is real Fineract-derived Java from the repo's own experiment corpora, not a full Fineract clone (the report says so).",
   "The 469-file sort is by folder: a picture of this repo, not a measured wiring map of it."
  ],
  "tryit": {
   "title": "Try it",
-  "note": "Break-even for a factored pack: the legend costs F tokens once, then each member saves e − m tokens. n* = F ÷ (e − m), rounded up.",
-  "seek": 52,
+  "note": "Break-even for a packed wiring pack: the legend costs F tokens once, then each member saves e − m tokens. n* = F ÷ (e − m), rounded up.",
+  "seek": 61,
   "inputs": [
    {
     "id": "F",
@@ -288,7 +352,7 @@
    },
    {
     "id": "e",
-    "label": "Explicit per member e",
+    "label": "Spelled out, per member e",
     "min": 1,
     "max": 2000,
     "step": 1,
@@ -297,7 +361,7 @@
    },
    {
     "id": "m",
-    "label": "Factored per member m",
+    "label": "Packed, per member m",
     "min": 0,
     "max": 2000,
     "step": 1,

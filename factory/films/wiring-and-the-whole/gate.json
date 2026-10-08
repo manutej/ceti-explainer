@@ -2,31 +2,31 @@
   "film": "wiring-and-the-whole",
   "page": "factory/films/wiring-and-the-whole/build/wiring-and-the-whole.midnight-ink.none.html",
   "filmDir": "factory/films/wiring-and-the-whole",
-  "date": "2026-10-08T15:43:41.116Z",
+  "date": "2026-10-08T16:30:19.935Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 346 ms; stage sd 20.6s:70.4 51.5s:53.2 82.4s:34.1",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 230 ms; stage sd 23s:34.9 57.5s:34.5 92s:35.2",
       "data": {
-        "readyMs": 346,
+        "readyMs": 230,
         "stats": [
           {
-            "t": 20.6,
-            "mean": 62.18481033951563,
-            "sd": 70.42526870813151
+            "t": 23,
+            "mean": 37.24946003086978,
+            "sd": 34.94311540350808
           },
           {
-            "t": 51.5,
-            "mean": 52.907721614592276,
-            "sd": 53.20459946417228
+            "t": 57.5,
+            "mean": 40.5772093460724,
+            "sd": 34.45701333541346
           },
           {
-            "t": 82.4,
-            "mean": 37.257543856096575,
-            "sd": 34.05725912965381
+            "t": 92,
+            "mean": 38.401984635421705,
+            "sd": 35.20232027505408
           }
         ],
         "filmErrs": [],
@@ -37,7 +37,7 @@
       "id": "G2a",
       "name": "purity · canvas",
       "status": "PASS",
-      "evidence": "1 canvas; re-seek at 10.3, 30.9, 51.5, 72.1, 92.7 identical; order A→B = B→A (2 pairs)"
+      "evidence": "1 canvas; re-seek at 11.5, 34.5, 57.5, 80.5, 103.5 identical; order A→B = B→A (2 pairs)"
     },
     {
       "id": "G2b",
@@ -63,13 +63,13 @@
       "id": "G4a",
       "name": "format · duration",
       "status": "PASS",
-      "evidence": "total 103 s; material 100 s (want 90–120, format feature) + brand 3 s; total ≤ 123"
+      "evidence": "total 115 s; material 112 s (want 90–120, format feature) + brand 3 s; total ≤ 123"
     },
     {
       "id": "G4b",
       "name": "format · five beats",
       "status": "PASS",
-      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C9 C17 C40 M92"
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C9 C17 C55 M104"
     },
     {
       "id": "G4c",
@@ -81,25 +81,25 @@
       "id": "G4d",
       "name": "format · brand card",
       "status": "PASS",
-      "evidence": "takeaway \"Ship the wiring, not the whole.\"; frame at 102 s sd 22.7; takeaway text visible in SVG"
+      "evidence": "takeaway \"Ship the wiring, not the whole.\"; frame at 114 s sd 22.7; takeaway text visible in SVG"
     },
     {
       "id": "G4e",
       "name": "format · honest line",
       "status": "PASS",
-      "evidence": "\"Every number here is the repo's own report (README, HANDOFF, the results files a\""
+      "evidence": "\"Every number here is the repo's own report (README, HANDOFF, the results files, \""
     },
     {
       "id": "G4f",
       "name": "format · sources",
       "status": "PASS",
-      "evidence": "9 sources (want ≥ 3)"
+      "evidence": "11 sources (want ≥ 3)"
     },
     {
       "id": "G5a",
       "name": "claims · formulas",
       "status": "PASS",
-      "evidence": "55 claims, 55 with formula, 55 recompute",
+      "evidence": "99 claims, 99 with formula, 99 recompute",
       "data": {
         "bad": [],
         "unsourced": []
@@ -109,7 +109,7 @@
       "id": "G5b",
       "name": "claims · caption digits",
       "status": "PASS",
-      "evidence": "every number in 22 captions is a claim value or render",
+      "evidence": "every number in 29 captions is a claim value or render",
       "data": {
         "unknown": []
       }
@@ -127,13 +127,13 @@
       "id": "G6",
       "name": "legibility",
       "status": "PASS",
-      "evidence": "22 must-read / 21 secondary / 12 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/wiring/shots/phone-390.png",
+      "evidence": "15 must-read / 27 secondary / 12 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot /tmp/claude-0/-home-user/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/wiring2/phone-390.png",
       "data": {
         "fails": [],
         "warns": [],
         "counts": {
-          "must-read": 22,
-          "secondary": 21,
+          "must-read": 15,
+          "secondary": 27,
           "chrome": 12
         }
       }
@@ -142,16 +142,16 @@
       "id": "G7",
       "name": "counts first",
       "status": "PASS",
-      "evidence": "count at 40 s (count.at); first ratio \"93.8% against 95.3%, at 63% of the token\" at 63 s (caption)"
+      "evidence": "count at 55 s (count.at); first ratio \"93.8% vs 95.3%, at 63% of the tokens. No\" at 77 s (caption)"
     },
     {
       "id": "G8",
       "name": "size",
       "status": "PASS",
-      "evidence": "film code 96.3 KB (film.js 79.1, film.json 7.6, claims.json 9.6) < 120 KB; page 1.240 MB < 1.3 MB",
+      "evidence": "film code 118.9 KB (film.js 93.3, film.json 9.1, claims.json 16.5) < 120 KB; page 1.257 MB < 1.3 MB",
       "data": {
-        "code": 98653,
-        "page": 1240373
+        "code": 121707,
+        "page": 1256849
       }
     },
     {
@@ -183,7 +183,7 @@
       "id": "SHOTS",
       "name": "stills",
       "status": "INFO",
-      "evidence": "8 stills at 1, 14.6, 28.2, 41.8, 55.4, 69, 82.6, 103 s → /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/wiring/shots"
+      "evidence": "8 stills at 1, 16.2, 31.4, 46.6, 61.8, 77, 92.2, 115 s → /tmp/claude-0/-home-user/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/wiring2"
     }
   ]
 }

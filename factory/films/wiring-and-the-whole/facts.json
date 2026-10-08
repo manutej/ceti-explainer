@@ -72,5 +72,13 @@
   "report": 1,
   "savings": 3,
   "shared": 4
- }
+ },
+ "toybank_lines": 79,
+ "toybank_lines_by": "cat witness/toybank/*/*.java | wc -l",
+ "pr_branches_local": [
+  "pr-46",
+  "pr-47",
+  "pr-48"
+ ],
+ "github_branch_count": "not verified (GitHub API not reachable from this session; coordinator reported 53)"
 }
