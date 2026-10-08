@@ -1,0 +1,298 @@
+{
+ "film": "brooks",
+ "params": {
+  "n0": 5,
+  "n1": 10,
+  "n2": 20,
+  "commitHold": 8,
+  "osYear": 1964,
+  "osFrom": 1963,
+  "osTo": 1966,
+  "osPeak": 1000,
+  "osManYears": 5000,
+  "bookYear": 1975,
+  "bookChapter": 2,
+  "mmPeople": 3,
+  "mmMonths": 4,
+  "milestoneDue": 1,
+  "milestoneMet": 2,
+  "mmAdded": 2,
+  "trainers": 1,
+  "trainMonths": 1
+ },
+ "claims": [
+  {
+   "id": "os360_name",
+   "text": "OS/360 (the system's name, not a quantity)",
+   "value": 360,
+   "source": "MMM75 Preface (Operating System/360)",
+   "renders": [
+    "OS/360"
+   ],
+   "where": "captions 5 and 13; CASE ledger; COUNT 58-62 s; title block"
+  },
+  {
+   "id": "hook_people",
+   "text": "5 people",
+   "value": 5,
+   "formula": "n0",
+   "source": "Scenario stated as such in the hook (\"we doubled the team\"); count rule n(n-1)/2 from MMM75 Ch. 2.",
+   "where": "HOOK 1.0-8.0 s: 5 marks on the ring; PEOPLE counter; caption 2 (\"Five\" as a word)"
+  },
+  {
+   "id": "hook_paths",
+   "text": "10 paths",
+   "value": 10,
+   "formula": "n0*(n0-1)/2",
+   "source": "MMM75 Ch. 2: \"the effort increases as n(n-1)/2\"",
+   "where": "HOOK 2.0-8.0 s: 10 lines and PATHS counter; caption 2; COUNT 36-40 s counter; brand card"
+  },
+  {
+   "id": "commit_people",
+   "text": "10 people",
+   "value": 10,
+   "formula": "2*n0",
+   "source": "Scenario: the team doubled (hook line).",
+   "where": "COMMIT 8-16 s prompt \"10 PEOPLE. HOW MANY PATHS?\"; COUNT PEOPLE counter 40-54 s; brand card"
+  },
+  {
+   "id": "commit_hold",
+   "text": "live page holds the commit for 8 s",
+   "value": 8,
+   "formula": "commitHold",
+   "source": "FORMAT: live page holds 8 s; film mode shows a timed countdown (DECISIONS Q13).",
+   "where": "live page commit timer (player), not drawn in the SVG"
+  },
+  {
+   "id": "default_guess",
+   "text": "Your guess: 20",
+   "value": 20,
+   "formula": "2*(n0*(n0-1)/2)",
+   "source": "FORMAT: film mode uses a default guess from film.json; 20 is the linear answer (double the team, double the 10 paths). A film choice, not a data claim.",
+   "where": "COMMIT 15.0-16.0 s typed value and SEALED stamp; COUNT 48-51 s \"YOUR GUESS 20\" and red bracket over ticks 1-20"
+  },
+  {
+   "id": "os_year",
+   "text": "1964",
+   "value": 1964,
+   "formula": "osYear",
+   "source": "MMM75 Preface: \"When in 1964 I became manager of Operating System/360\"",
+   "where": "CASE 16-23.5 s ledger line; caption 5"
+  },
+  {
+   "id": "os_peak",
+   "text": "over 1,000 people",
+   "value": 1000,
+   "formula": "osPeak",
+   "source": "MMM75 Ch. 3 The Surgical Team: \"At the peak over 1000 people were working on it\"",
+   "where": "CASE 16-23.5 s ledger; caption 5 (\"1,000+\"); caption 13; COUNT 58-62 s verdict slot"
+  },
+  {
+   "id": "os_from",
+   "text": "1963",
+   "value": 1963,
+   "formula": "osFrom",
+   "source": "MMM75 Ch. 3: \"From 1963 through 1966 probably 5000 man-years\"",
+   "where": "CASE 16-23.5 s ledger line"
+  },
+  {
+   "id": "os_to",
+   "text": "1966",
+   "value": 1966,
+   "formula": "osTo",
+   "source": "MMM75 Ch. 3",
+   "where": "CASE 16-23.5 s ledger line"
+  },
+  {
+   "id": "os_manyears",
+   "text": "about 5,000 man-years",
+   "value": 5000,
+   "formula": "osManYears",
+   "source": "MMM75 Ch. 3 (\"probably 5000 man-years\"); shown as \"about\"",
+   "where": "CASE 16-23.5 s ledger line"
+  },
+  {
+   "id": "book_year",
+   "text": "The Mythical Man-Month, 1975",
+   "value": 1975,
+   "formula": "bookYear",
+   "source": "MMM75 title page (Addison-Wesley, 1975)",
+   "where": "CASE 16-36 s ledger and grid eyebrows"
+  },
+  {
+   "id": "book_chapter",
+   "text": "Ch. 2",
+   "value": 2,
+   "formula": "bookChapter",
+   "source": "MMM75 Ch. 2 \"The Mythical Man-Month\"",
+   "where": "CASE 23.5-36 s grid eyebrow \"WORKED EXAMPLE · CH. 2\""
+  },
+  {
+   "id": "mm_total",
+   "text": "12 man-months",
+   "value": 12,
+   "formula": "mmPeople*mmMonths",
+   "source": "MMM75 Ch. 2: \"a task is estimated at 12 man-months and assigned to three men for four months\"",
+   "where": "CASE 23.5-36 s grid (12 cells) and label; caption 6"
+  },
+  {
+   "id": "mm_people",
+   "text": "3 people",
+   "value": 3,
+   "formula": "mmPeople",
+   "source": "MMM75 Ch. 2 (three men)",
+   "where": "CASE grid rows and label; caption 6"
+  },
+  {
+   "id": "mm_months",
+   "text": "4 months",
+   "value": 4,
+   "formula": "mmMonths",
+   "source": "MMM75 Ch. 2 (four months, a milepost at the end of each)",
+   "where": "CASE grid columns and label; caption 6"
+  },
+  {
+   "id": "milestone_due",
+   "text": "due month 1",
+   "value": 1,
+   "formula": "milestoneDue",
+   "source": "MMM75 Ch. 2: mileposts \"scheduled to fall at the end of each month\"",
+   "where": "CASE 26.8-29.6 s grid marker; caption 7"
+  },
+  {
+   "id": "milestone_met",
+   "text": "met at month 2",
+   "value": 2,
+   "formula": "milestoneMet",
+   "source": "MMM75 Ch. 2: \"the first milepost is not reached until two months have elapsed\"",
+   "where": "CASE 26.8-29.6 s grid marker; caption 7"
+  },
+  {
+   "id": "mm_remaining_m2",
+   "text": "9 man-months left",
+   "value": 9,
+   "formula": "mmPeople*mmMonths - (mmPeople*mmMonths)/mmMonths",
+   "source": "MMM75 Ch. 2: \"9 man-months of effort remain, and two months\"",
+   "where": "CASE 27.5-29.6 s label over the unfinished cells"
+  },
+  {
+   "id": "mm_added",
+   "text": "Add 2 people",
+   "value": 2,
+   "formula": "mmAdded",
+   "source": "MMM75 Ch. 2: \"Add 2 men to the 3 assigned\"",
+   "where": "CASE 29.8-32.8 s two new grid rows; caption 8"
+  },
+  {
+   "id": "mm_team",
+   "text": "5 people",
+   "value": 5,
+   "formula": "mmPeople+mmAdded",
+   "source": "MMM75 Ch. 2: \"5 trained people and one month are available\"",
+   "where": "CASE 33.0-36.0 s grid label"
+  },
+  {
+   "id": "mm_training",
+   "text": "Training eats 3 man-months",
+   "value": 3,
+   "formula": "(mmAdded+trainers)*trainMonths",
+   "source": "MMM75 Ch. 2: \"If this takes a month, 3 man-months will have been devoted to work not in the original estimate\"",
+   "where": "CASE 29.8-32.8 s three hatched cells in month 3; caption 8"
+  },
+  {
+   "id": "mm_left_m3",
+   "text": "over 7 man-months left",
+   "value": 7,
+   "formula": "(mmPeople*mmMonths - (mmPeople*mmMonths)/mmMonths) - (mmPeople-trainers)*trainMonths",
+   "source": "MMM75 Ch. 2: \"substantially more than 7 man-months of effort remain\"",
+   "where": "CASE 33.0-36.0 s label; caption 9"
+  },
+  {
+   "id": "mm_months_left",
+   "text": "1 month to go",
+   "value": 1,
+   "formula": "mmMonths - (milestoneMet+trainMonths)",
+   "source": "MMM75 Ch. 2: \"...and one month are available\"",
+   "where": "CASE 33.0-36.0 s label beside month 4"
+  },
+  {
+   "id": "month3",
+   "text": "Month 3",
+   "value": 3,
+   "formula": "milestoneMet+trainMonths",
+   "source": "MMM75 Ch. 2: \"at the end of the third month\"",
+   "where": "caption 9"
+  },
+  {
+   "id": "count_new_paths",
+   "text": "35 new paths",
+   "value": 35,
+   "formula": "n1*(n1-1)/2 - n0*(n0-1)/2",
+   "source": "Arithmetic on MMM75 Ch. 2 n(n-1)/2: 5+6+7+8+9",
+   "where": "COUNT 40-48 s: 35 lines drawn one by one; counter runs 11..45"
+  },
+  {
+   "id": "count_paths_10",
+   "text": "45 paths",
+   "value": 45,
+   "formula": "n1*(n1-1)/2",
+   "source": "MMM75 Ch. 2 n(n-1)/2 at n = 10",
+   "where": "COUNT 48-54 s PATHS counter, 45 tally ticks, caption 11; brand card"
+  },
+  {
+   "id": "ratio_people",
+   "text": "x2 people (10 / 5)",
+   "value": 2,
+   "formula": "n1/n0",
+   "source": "Arithmetic on the scenario",
+   "where": "COUNT 51-54 s verdict slot, with \"10 ÷ 5\" beneath; caption 12 (\"Twice\")"
+  },
+  {
+   "id": "ratio_paths",
+   "text": "x4.5 paths (45 / 10)",
+   "value": 4.5,
+   "formula": "(n1*(n1-1)/2)/(n0*(n0-1)/2)",
+   "source": "Arithmetic on MMM75 Ch. 2 n(n-1)/2",
+   "where": "COUNT 51-54 s verdict slot, with \"45 ÷ 10\" beneath; caption 12 (\"four and a half\")"
+  },
+  {
+   "id": "count_people_20",
+   "text": "20 people",
+   "value": 20,
+   "formula": "n2",
+   "source": "Scenario extension (double again)",
+   "where": "COUNT 54-62 s PEOPLE counter; caption 13"
+  },
+  {
+   "id": "count_paths_20",
+   "text": "190 paths",
+   "value": 190,
+   "formula": "n2*(n2-1)/2",
+   "source": "MMM75 Ch. 2 n(n-1)/2 at n = 20",
+   "where": "COUNT 54-62 s PATHS counter, 190 tally ticks, caption 13; held through MONDAY"
+  },
+  {
+   "id": "count_new_paths_20",
+   "text": "145 more paths",
+   "value": 145,
+   "formula": "n2*(n2-1)/2 - n1*(n1-1)/2",
+   "source": "Arithmetic: 10+11+...+19",
+   "where": "COUNT 54-58 s (lines only; counter runs 46..190; no label)"
+  },
+  {
+   "id": "os_pairs",
+   "text": "1,000 people: 499,500 possible paths",
+   "value": 499500,
+   "formula": "osPeak*(osPeak-1)/2",
+   "source": "Our arithmetic: n(n-1)/2 (MMM75 Ch. 2) at Brooks's OS/360 peak of 1,000 (MMM75 Ch. 3). Possible pairs, not measured traffic.",
+   "where": "COUNT 58-62 s verdict slot"
+  },
+  {
+   "id": "film_countdown",
+   "text": "film-mode countdown ring 4, 3, 2, 1",
+   "value": 4,
+   "source": "factory/kit/kit.js commitBox (4-s ring before the seal at commit.at + 4.5)",
+   "where": "COMMIT 9.5-13.5 s, commit box ring"
+  }
+ ]
+}

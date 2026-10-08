@@ -1,0 +1,262 @@
+{
+ "id": "brooks",
+ "title": "Brooks' Law",
+ "eyebrow": "The 75-second case · adding people to a late project",
+ "lede": "We're behind, so we doubled the team. Fred Brooks ran IBM's OS/360 and wrote down why that so often makes the date worse: every pair of people is a path that must stay in sync, and the paths grow much faster than the team.",
+ "dur": 75,
+ "seed": 31,
+ "params": {
+  "n0": 5,
+  "n1": 10,
+  "n2": 20,
+  "commitHold": 8,
+  "osYear": 1964,
+  "osFrom": 1963,
+  "osTo": 1966,
+  "osPeak": 1000,
+  "osManYears": 5000,
+  "bookYear": 1975,
+  "bookChapter": 2,
+  "mmPeople": 3,
+  "mmMonths": 4,
+  "milestoneDue": 1,
+  "milestoneMet": 2,
+  "mmAdded": 2,
+  "trainers": 1,
+  "trainMonths": 1
+ },
+ "palette": {
+  "paper": "#E8DCC2",
+  "ink": "#1E3A5C",
+  "accent": "#C8452E",
+  "muted": "#8E887C",
+  "chalk": "#F2ECDD",
+  "dark": "#0A0D12",
+  "soft": "#B9A277"
+ },
+ "type": {
+  "disp": "Big Shoulders Display",
+  "mono": "IBM Plex Mono"
+ },
+ "fonts": [
+  {
+   "family": "Big Shoulders Display",
+   "weight": 600,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 400,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 500,
+   "style": "normal"
+  }
+ ],
+ "commit": {
+  "at": 9.5,
+  "title": "YOUR GUESS",
+  "prompt": "Ten people. How many communication paths?",
+  "unit": "paths",
+  "default": 20,
+  "min": 0,
+  "max": 999,
+  "step": 1
+ },
+ "count": {
+  "at": 36
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 8,
+   "eyebrow": "BROOKS' LAW · THE HOOK",
+   "title": "We doubled the team"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 8,
+   "t1": 16,
+   "eyebrow": "BROOKS' LAW · YOUR NUMBER",
+   "title": "Seal a number"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 16,
+   "t1": 36,
+   "eyebrow": "BROOKS' LAW · THE CASE · THE MYTHICAL MAN-MONTH, 1975",
+   "title": "OS/360, by its manager"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 36,
+   "t1": 62,
+   "eyebrow": "BROOKS' LAW · THE COUNT",
+   "title": "Count the paths"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 62,
+   "t1": 72,
+   "eyebrow": "BROOKS' LAW · MONDAY",
+   "title": "Before you add people"
+  }
+ ],
+ "caseB": {
+  "t0": 23.5,
+  "eyebrow": "BROOKS' LAW · THE CASE · HIS WORKED EXAMPLE, CH. 2",
+  "title": "Add two people"
+ },
+ "captions": [
+  [
+   0.4,
+   3.9,
+   "“We’re behind, so we doubled the team.”"
+  ],
+  [
+   4.1,
+   7.8,
+   "Five people. Every pair must stay in sync: 10 paths."
+  ],
+  [
+   8.1,
+   11.8,
+   "Double it to ten people. How many paths now?"
+  ],
+  [
+   12.0,
+   15.8,
+   "Commit to a number before the count."
+  ],
+  [
+   16.2,
+   23.2,
+   "1964: Fred Brooks runs IBM's OS/360. Peak: 1,000+ people."
+  ],
+  [
+   23.6,
+   26.6,
+   "His own arithmetic: 12 man-months, 3 people, 4 months."
+  ],
+  [
+   26.8,
+   29.6,
+   "First milestone: due in month 1, met in month 2."
+  ],
+  [
+   29.8,
+   32.8,
+   "Add 2 people. Training eats 3 man-months."
+  ],
+  [
+   33.0,
+   36.0,
+   "Month 3: over 7 man-months left. Just as late."
+  ],
+  [
+   36.3,
+   44.8,
+   "Each new person needs a path to everyone already there."
+  ],
+  [
+   45.0,
+   50.8,
+   "Ten people: 45 paths. Here is your guess."
+  ],
+  [
+   51.0,
+   54.4,
+   "Twice the people. Four and a half times the paths."
+  ],
+  [
+   54.6,
+   61.8,
+   "Twenty people: 190 paths. OS/360 had over 1,000."
+  ],
+  [
+   62.2,
+   71.6,
+   "Monday: before you add people, ask who trains them."
+  ]
+ ],
+ "ledger": [
+  [
+   1.0,
+   "REV A · 5 PEOPLE · 10 PATHS"
+  ],
+  [
+   14.2,
+   "REV B · GUESS SEALED"
+  ],
+  [
+   16.6,
+   "REV C · OS/360, 1964"
+  ],
+  [
+   23.8,
+   "REV D · 12 MAN-MONTHS"
+  ],
+  [
+   44.5,
+   "REV E · 10 PEOPLE · 45 PATHS"
+  ],
+  [
+   58.2,
+   "REV F · 20 PEOPLE · 190 PATHS"
+  ]
+ ],
+ "monday": {
+  "q": "Before you add people: who trains them, and how does the work split again?",
+  "honest": "Paths count possible pairs, not meetings. Early, splittable work can take more people."
+ },
+ "brand": {
+  "takeaway": "Double the team: 10 paths become 45."
+ },
+ "sources": [
+  [
+   "MMM75",
+   "Brooks, Frederick P., Jr. The Mythical Man-Month: Essays on Software Engineering. Reading, MA: Addison-Wesley, 1975. ISBN 0-201-00650-2. Preface (OS/360 from 1964); Ch. 2 (n(n−1)/2, Brooks's Law, the 12 man-month example, Figs. 2.5–2.8); Ch. 3 (OS/360: over 1,000 people at the peak; about 5,000 man-years, 1963–1966)."
+  ],
+  [
+   "MMM95",
+   "Brooks, Frederick P., Jr. The Mythical Man-Month, Anniversary Edition. Reading, MA: Addison-Wesley, 1995. ISBN 0-201-83595-9. Ch. 19, The Mythical Man-Month after 20 Years."
+  ],
+  [
+   "AHM91",
+   "Abdel-Hamid, Tarek K., and Stuart E. Madnick. Software Project Dynamics: An Integrated Approach. Englewood Cliffs, NJ: Prentice Hall, 1991. ISBN 0-13-822040-9."
+  ],
+  [
+   "MCC99",
+   "McConnell, Steve. “Brooks' Law Repealed?” IEEE Software 16, no. 6 (November/December 1999)."
+  ]
+ ],
+ "honest": [
+  "Paths count possible pairs, not meetings. Real teams have structure, and Brooks himself called the law an outrageous oversimplification (1975), and in 1995 still “the best zeroth-order approximation to the truth”.",
+  "The 12 man-month grid is Brooks's own worked example from Chapter 2, not measured OS/360 data. The book gives OS/360's scale (over 1,000 people at the peak, about 5,000 man-years) but no figures for people added and months slipped; the film does not claim any.",
+  "Simulations (Abdel-Hamid and Madnick 1991) and McConnell (1999) find the law bites hardest late in a project with tightly coupled work; people added early, or to work that splits cleanly, can shorten it. 499,500 is our arithmetic on Brooks's peak figure: possible pairs among 1,000 people."
+ ],
+ "tryit": {
+  "title": "Try it",
+  "note": "Pick a team size; the paths follow n(n−1)/2.",
+  "seek": 61,
+  "inputs": [
+   {
+    "id": "n",
+    "label": "People on the team",
+    "min": 2,
+    "max": 60,
+    "step": 1,
+    "value": 10,
+    "unit": "people"
+   }
+  ]
+ }
+}

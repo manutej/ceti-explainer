@@ -1,0 +1,364 @@
+{
+ "film": "cost-of-delay",
+ "params": {
+  "codA": 200,
+  "durA": 3,
+  "codB": 100,
+  "durB": 1,
+  "codC": 50,
+  "durC": 2,
+  "unit": 50,
+  "guess": 500,
+  "mHours": 82,
+  "mWeeks": 46,
+  "mWait": 38,
+  "mWeekly": 200000,
+  "mEstimate": 8000000,
+  "mPortfolio": 100000000,
+  "mAvgDays": 150,
+  "mOverYearPct": 24
+ },
+ "claims": [
+  {
+   "id": "codA",
+   "text": "A: £200k a month",
+   "value": 200,
+   "formula": "codA",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "HOOK board label A; COUNT board label A; CD3 label",
+   "renders": [
+    "£200k/mo"
+   ]
+  },
+  {
+   "id": "durA",
+   "text": "A: 3 months of work",
+   "value": 3,
+   "formula": "durA",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "HOOK board label A; bar A length; CD3 label"
+  },
+  {
+   "id": "codB",
+   "text": "B: £100k a month",
+   "value": 100,
+   "formula": "codB",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "HOOK board label B; COUNT; CD3 label",
+   "renders": [
+    "£100k/mo"
+   ]
+  },
+  {
+   "id": "durB",
+   "text": "B: 1 month of work",
+   "value": 1,
+   "formula": "durB",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "HOOK board label B; bar B length; CD3 label"
+  },
+  {
+   "id": "codC",
+   "text": "C: £50k a month",
+   "value": 50,
+   "formula": "codC",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "HOOK board label C; COUNT; CD3 label",
+   "renders": [
+    "£50k/mo"
+   ]
+  },
+  {
+   "id": "durC",
+   "text": "C: 2 months of work",
+   "value": 2,
+   "formula": "durC",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "HOOK board label C; bar C length; CD3 label"
+  },
+  {
+   "id": "horizon",
+   "text": "six months (month columns 1 to 6)",
+   "value": 6,
+   "formula": "durA + durB + durC",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "board column heads 1..6 (HOOK, COUNT)"
+  },
+  {
+   "id": "unit",
+   "text": "one mark = £50k not yet earned, per month",
+   "value": 50,
+   "formula": "unit",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT legend; caption 8",
+   "renders": [
+    "£50k"
+   ]
+  },
+  {
+   "id": "marksA",
+   "text": "A drops 4 marks a month until it ships",
+   "value": 4,
+   "formula": "codA / unit",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT geometry (A-tone marks per column)"
+  },
+  {
+   "id": "marksB",
+   "text": "B drops 2 marks a month until it ships",
+   "value": 2,
+   "formula": "codB / unit",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT geometry (B-tone marks per column)"
+  },
+  {
+   "id": "marksC",
+   "text": "C drops 1 mark a month until it ships",
+   "value": 1,
+   "formula": "codC / unit",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT geometry (C-tone marks per column)"
+  },
+  {
+   "id": "month1",
+   "text": "month 1 under any order: 7 marks",
+   "value": 7,
+   "formula": "(codA + codB + codC) / unit",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT first column of every order (geometry)"
+  },
+  {
+   "id": "marksBig",
+   "text": "biggest first: 29 marks",
+   "value": 29,
+   "formula": "(codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)) / unit",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT counter; caption 9; tally row 1"
+  },
+  {
+   "id": "costBig",
+   "text": "biggest first: £1.45M (£1,450k)",
+   "value": 1450,
+   "formula": "codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT total under counter; caption 9; tally row 1 label",
+   "renders": [
+    "£1.45M",
+    "£1,450k"
+   ]
+  },
+  {
+   "id": "marksCheap",
+   "text": "cheapest first: 29 marks",
+   "value": 29,
+   "formula": "(codB*durB + codC*(durB+durC) + codA*(durB+durC+durA)) / unit",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT counter; caption 10; tally row 2"
+  },
+  {
+   "id": "costCheap",
+   "text": "cheapest first: the same £1.45M",
+   "value": 1450,
+   "formula": "codB*durB + codC*(durB+durC) + codA*(durB+durC+durA)",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT total; caption 10; tally row 2 label",
+   "renders": [
+    "£1.45M",
+    "£1,450k"
+   ]
+  },
+  {
+   "id": "marksCD3",
+   "text": "reordered by CD3: 24 marks",
+   "value": 24,
+   "formula": "(codB*durB + codA*(durB+durA) + codC*(durB+durA+durC)) / unit",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT counter; caption 11; tally row 3"
+  },
+  {
+   "id": "costCD3",
+   "text": "reordered by CD3: £1.2M (£1,200k)",
+   "value": 1200,
+   "formula": "codB*durB + codA*(durB+durA) + codC*(durB+durA+durC)",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "COUNT total; caption 11; tally row 3 label",
+   "renders": [
+    "£1.2M",
+    "£1,200k"
+   ]
+  },
+  {
+   "id": "savedMarks",
+   "text": "5 marks fewer",
+   "value": 5,
+   "formula": "((codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)) - (codB*durB + codA*(durB+durA) + codC*(durB+durA+durC))) / unit",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "tally row 3: bracket over the 5 empty slots"
+  },
+  {
+   "id": "saved",
+   "text": "£250k saved by the order alone",
+   "value": 250,
+   "formula": "(codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)) - (codB*durB + codA*(durB+durA) + codC*(durB+durA+durC))",
+   "source": "T: declared teaching object (topics/cost-of-delay/brief.md)",
+   "where": "tally row 3 bracket label",
+   "renders": [
+    "£250k"
+   ]
+  },
+  {
+   "id": "cd3A",
+   "text": "A: 200 ÷ 3 = 67 a month per month of work",
+   "value": 67,
+   "formula": "Math.round(codA / durA)",
+   "source": "S1",
+   "where": "COUNT end, CD3 label on bar A (exact 66.7, shown rounded)"
+  },
+  {
+   "id": "cd3B",
+   "text": "B: 100 ÷ 1 = 100",
+   "value": 100,
+   "formula": "codB / durB",
+   "source": "S1",
+   "where": "COUNT end, CD3 label on bar B"
+  },
+  {
+   "id": "cd3C",
+   "text": "C: 50 ÷ 2 = 25",
+   "value": 25,
+   "formula": "codC / durC",
+   "source": "S1",
+   "where": "COUNT end, CD3 label on bar C"
+  },
+  {
+   "id": "guess",
+   "text": "YOU: £500k (film-mode default; the live page shows the viewer's own number)",
+   "value": 500,
+   "formula": "guess",
+   "source": "D: film.json commit.default, a stand-in answer, not data",
+   "where": "COMMIT box (film mode typed value); COUNT pin on tally row 1",
+   "renders": [
+    "£500k"
+   ]
+  },
+  {
+   "id": "guessMarks",
+   "text": "your number as marks: 10",
+   "value": 10,
+   "formula": "guess / unit",
+   "source": "D: film.json commit.default, a stand-in answer, not data",
+   "where": "COUNT pin position on tally row 1 (geometry, x = guess ÷ 50 slots)"
+  },
+  {
+   "id": "guessGap",
+   "text": "£950k more than you said",
+   "value": 950,
+   "formula": "(codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)) - guess",
+   "source": "D: film.json commit.default, a stand-in answer, not data",
+   "where": "COUNT bracket between pin and mark 29 (sign-aware: 'more than' / 'less than' you said)",
+   "renders": [
+    "£950k"
+   ]
+  },
+  {
+   "id": "mHours",
+   "text": "one feature, 82 hours of work",
+   "value": 82,
+   "formula": "mHours",
+   "source": "S3",
+   "where": "CASE caption 4; strip annotation"
+  },
+  {
+   "id": "mWeeks",
+   "text": "46 weeks idea to launch",
+   "value": 46,
+   "formula": "mWeeks",
+   "source": "S3",
+   "where": "CASE caption 5; 46 week cells on the strip"
+  },
+  {
+   "id": "mWait",
+   "text": "38 weeks waiting in queues (38 marks)",
+   "value": 38,
+   "formula": "mWait",
+   "source": "S3",
+   "where": "CASE caption 5 and 7; 38 marked cells; counter"
+  },
+  {
+   "id": "mOther",
+   "text": "the other 8 weeks (unmarked cells)",
+   "value": 8,
+   "formula": "mWeeks - mWait",
+   "source": "S3",
+   "where": "CASE strip geometry only, no figure typeset"
+  },
+  {
+   "id": "mWeekly",
+   "text": "over $200,000 a week ($200k per mark)",
+   "value": 200000,
+   "formula": "mWeekly",
+   "source": "S3",
+   "where": "CASE caption 6 and 7; mark legend",
+   "renders": [
+    "$200,000",
+    "$200k"
+   ]
+  },
+  {
+   "id": "mLost",
+   "text": "38 × $200k = $7.6M",
+   "value": 7600000,
+   "formula": "mWait * mWeekly",
+   "source": "S3",
+   "where": "CASE caption 7; strip total",
+   "renders": [
+    "$7.6M"
+   ]
+  },
+  {
+   "id": "mEstimate",
+   "text": "their estimate: nearly $8M",
+   "value": 8000000,
+   "formula": "mEstimate",
+   "source": "S3",
+   "where": "CASE caption 7; strip total, second line",
+   "renders": [
+    "$8M"
+   ]
+  },
+  {
+   "id": "mPortfolio",
+   "text": "portfolio about $100M",
+   "value": 100000000,
+   "formula": "mPortfolio",
+   "source": "S2",
+   "where": "CASE eyebrow (chrome, 12 to 14 units; optional)",
+   "renders": [
+    "$100M"
+   ]
+  },
+  {
+   "id": "mAvgDays",
+   "text": "150 days on average, idea to value (before Oct 2010)",
+   "value": 150,
+   "formula": "mAvgDays",
+   "source": "S4",
+   "where": "sources panel / transcript only (not on stage)"
+  },
+  {
+   "id": "mOverYear",
+   "text": "24 % of requirements took over a year",
+   "value": 24,
+   "formula": "mOverYearPct",
+   "source": "S4",
+   "where": "sources panel / transcript only (not on stage)"
+  },
+  {
+   "id": "year",
+   "text": "Agile 2013",
+   "value": 2013,
+   "source": "S2",
+   "where": "CASE eyebrow source tag; sources panel"
+  }
+ ]
+}
