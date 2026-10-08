@@ -57,8 +57,8 @@ Run them from `skills/ceti-explainer/`. Nothing to install.
 | 3 | `JEV-works/LESSONS.md` | 22+ lessons as happened / why / rule. **The anti-pattern registry you inherit** |
 | 4 | `JEV-works/kit/README.md` | The runner. One JSON spec in, a measured report out |
 | 5 | `skills/ceti-explainer/SKILL.md` | The 8-beat contract and the MUST NOT list. The craft bar |
-| 6 | `skills/operadic-interview/SKILL.md` | The question instrument. Just uploaded alongside this handoff |
-| 7 | `REQUIREMENTS.md`, `EXPERIMENT-E0.md`, `SKILLS.md` | The product contract and this repo's inventory |
+| 6 | `contrib/operadic-interview/SKILL.md` | The question instrument. Just uploaded alongside this handoff |
+| 7 | `REQUIREMENTS.md`, `contrib/EXPERIMENT-E0.md`, `contrib/SKILLS.md` | The product contract and this repo's inventory |
 
 **The one thing to internalise before writing any question** — from `LESSONS.md`, and it
 is the reason this lane exists:
@@ -447,7 +447,7 @@ it must not assume they are clean either, since the gate is only run if someone 
   with it every per-frame guarantee this handoff relies on.
 - Hype words: unlock, supercharge, revolutionize, powerful, seamless, game-changing.
 
-### 7.3 Instrument-decay anti-pattern [measured — `skills/operadic-interview/SKILL.md`]
+### 7.3 Instrument-decay anti-pattern [measured — `contrib/operadic-interview/SKILL.md`]
 
 **Question-ness is not conserved across regeneration.** The skill's founding escape was
 exactly this: a regenerated tree whose mid-level nodes had decayed from questions into

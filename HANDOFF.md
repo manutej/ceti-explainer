@@ -3,7 +3,7 @@
 ## State
 
 - Live skill tree restored as source of truth:
-  - `ceti-explainer` — full episode engine + `COURSE-E0.md` occupancy
+  - `ceti-explainer` — full episode engine (`COURSE-E0.md` occupancy now in `contrib/`)
   - `noether-harness` — full dual-loop skill + `references/SHEAF-ACV.md`
   - `ceti-research` — Propose occupant, persist-on-generate
   - `ceti-brand` — cream / vermillion / ink
@@ -14,7 +14,7 @@
 
 ## Next agent
 
-1. Read `REQUIREMENTS.md`, `EXPERIMENT-E0.md`, `SKILLS.md`.
+1. Read `REQUIREMENTS.md`, `contrib/EXPERIMENT-E0.md`, `contrib/SKILLS.md`.
 2. Do not copy ceti-lookbook sentences. Palette and WOW bar only.
 3. Episode 2 (Honest translators) only after episode 1 quality is accepted.
 4. If a CETI GitHub org appears, transfer this repo; do not fork a second source of truth.

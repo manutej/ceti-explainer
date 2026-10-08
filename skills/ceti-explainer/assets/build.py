@@ -41,7 +41,8 @@ def main():
     ap.add_argument("--theme", default=None, help="CSS file with a :root override block")
     a = ap.parse_args()
 
-    out = a.output or f"{a.title}.html"
+    # default: next to the episode module (RUN.md), not the current directory
+    out = a.output or os.path.join(os.path.dirname(os.path.abspath(a.episode)), f"{a.title}.html")
     theme = read(a.theme) if a.theme else ""
     preset = ""
     if a.preset:

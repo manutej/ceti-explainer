@@ -21,7 +21,7 @@ description: >-
 (2-minute lecture, optional 5-minute seam test) rather than a
 deterministic SVG episode, occupy Tailor/Commit of `noether-harness`.
 `ceti-research` proposes the atlas. Command: `/sheaf-run course`.
-See **`COURSE-E0.md`**. Persist every generated asset immediately.
+See **`${CLAUDE_PLUGIN_ROOT}/contrib/COURSE-E0.md`** (moved to `contrib/`). Persist every generated asset immediately.
 
 **Two formats.** This file specifies the **short episode** (8 beats, ~40s, anchor + working zone + detail band) — the default for one tight mechanism. For a **feature cut** (~1:50–2:15, seven movements, scene archetypes A1–A7, brand-assembly bookends, speed chips, resume) read **`LONGFORM.md`** — choose it when the brief says *video*, *two minutes*, a lay audience, or a topic too broad for one anchor. The deterministic contract below (one clock, build-once, seg-not-pulse, paused == playing, token roles only) binds both formats.
 
@@ -154,7 +154,7 @@ Three layers, all required:
 
 Token roles only. Default fonts: Fraunces 300 italic, DM Sans, Space Mono. Presets change colors only.
 
-See `LONGFORM.md` for the feature-cut format. See `COURSE-E0.md` for film occupancy. Command: `/sheaf-run course`.
+See `LONGFORM.md` for the feature-cut format. See `${CLAUDE_PLUGIN_ROOT}/contrib/COURSE-E0.md` for film occupancy. Command: `/sheaf-run course`.
 
 ## Files in this skill
 
@@ -171,5 +171,5 @@ See `LONGFORM.md` for the feature-cut format. See `COURSE-E0.md` for film occupa
 - `briefs/` — `BRIEF-rag.md`, `BRIEF-mcp.md`.
 - `reference/` — gold-standard modules: `self-attention.js`, `oauth.js`, `tcp.js`, `binary-search.js`.
 - `LONGFORM.md` — feature-cut format.
-- `COURSE-E0.md` — film / short-course occupancy.
+- `${CLAUDE_PLUGIN_ROOT}/contrib/COURSE-E0.md` — film / short-course occupancy (moved to `contrib/`).
 - `HANDOFF.md` — operational guide.
