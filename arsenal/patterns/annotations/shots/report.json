@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/annotations/demo.html",
+ "errors": [],
+ "variants": {
+  "callouts": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/callouts-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/callouts-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/callouts-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/callouts-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "bars": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/bars-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/bars-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/bars-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/bars-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "handmarks": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/handmarks-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/handmarks-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/handmarks-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/handmarks-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "spotlight": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/spotlight-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/spotlight-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/spotlight-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/spotlight-t8.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 6.3,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/annotations/shots/contact.png"
+}
