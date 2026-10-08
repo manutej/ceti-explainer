@@ -1,6 +1,6 @@
 ---
 name: explainer-factory
-description: "Run the CETI explainer factory end to end: turn one management topic into a 75-second exec-room film (the '75-second case': hook, commit, the case, the count, Monday, then the CETI brand card) that passes the gate, in under 30 minutes of agent time. Five steps with fixed files: EXPLORE (factory/topics/<id>/ brief.md, claims.json, beats.md), BUILD (factory/films/<id>/ film.json, film.js on the factory kit, claims.json, NOTES.md; python3 factory/kit/build.py), GATE (node factory/tools/gate.mjs, read the stills, fix, repeat to PASS), SEAT (a blinded packet of stills, claims and captions for an evaluator who did not build), SHIP (catalogue entry, baseline hash, what is committed). Use for /explainer-factory, 'make a 75-second case on <topic>', 'factory film about <concept>', 'new exec explainer', 'run the factory', 'scaffold a topic', 'gate this factory film', 'seat / evaluate this film', 'ship to the catalogue'. Not for the 4:29 feature tier (films/opera-house), the 40 s SVG episode (ceti-explainer) or p5 Atelier chromes (p5-explainer)."
+description: "Run the CETI explainer factory end to end: turn one management topic into a 75-second exec-room film (the '75-second case': hook, commit, the case, the count, Monday, then the CETI brand card) that passes the gate, in under 30 minutes of agent time. Five steps with fixed files: EXPLORE (factory/topics/<id>/ brief.md, claims.json, beats.md; from a concept or from a repository with factory/tools/repo_topic.py), BUILD (factory/films/<id>/ film.json, film.js, claims.json, NOTES.md; python3 factory/kit2/build.py with a brand and a chrome; ADOPT arsenal modules where they earn their place), GATE (node factory/tools/gate.mjs with --kit factory/kit2, rows G1 to G10, read the stills, fix, repeat to PASS), SEAT (a blinded packet of stills, claims and captions for an evaluator who did not build), SHIP (catalogue entry, baseline hash, what is committed). Use for /explainer-factory, 'make a 75-second case on <topic>', 'factory film about <concept>', 'new exec explainer', 'run the factory', 'scaffold a topic', 'gate this factory film', 'seat / evaluate this film', 'ship to the catalogue'. Not for the 4:29 feature tier (films/opera-house), the 40 s SVG episode (ceti-explainer) or p5 Atelier chromes (p5-explainer)."
 ---
 
 > Inherits `${CLAUDE_PLUGIN_ROOT}/references/doctrine.md`. The binding brief is
@@ -14,7 +14,10 @@ All paths below are relative to the plugin root (`${CLAUDE_PLUGIN_ROOT}`; `pytho
 ```
 factory/FORMAT.md                    the format (binding)
 factory/kit/                         shell.html, kit.js, player.js, build.py      API: factory/kit/README.md
+factory/kit2/                        the same API with brand, chrome and material injected; the default build (factory/kit2/README.md)
+arsenal/                             patterns, structures, core, 22 brand packs, tools (arsenal/README.md); see ADOPT below
 factory/tools/new_topic.py           scaffold a topic and a film (this skill's templates, filled)
+factory/tools/repo_topic.py          turn a local git repository into a topic whose every number is a claim
 factory/tools/gate.mjs               the gate; rows and fields: factory/tools/README.md
 factory/tools/catalogue.py           factory/catalogue.json + factory/CATALOGUE.md (schema: factory/catalogue.schema.json)
 factory/topics/<id>/                 brief.md, claims.json, beats.md                 (explorer)
@@ -27,7 +30,7 @@ factory/films/<id>/                  film.json, film.js, claims.json, NOTES.md, 
 |------|-----|-------:|-----------|
 | 0 scaffold | orchestrator | 1 min | `python3 factory/tools/new_topic.py <id> "<Title>"` wrote 7 files |
 | 1 EXPLORE | **Opus** explorer | 8 min | brief, claims and beats filled; every number sourced or derived; ≥ 3 sources |
-| 2 BUILD | **Opus** builder | 12 min | page builds; the builder has looked at its own stills |
+| 2 BUILD | **Opus** builder | 12 min (ADOPT included) | page builds; the builder has looked at its own stills |
 | 3 GATE | the builder | 5 min, ≤ 3 rounds | `VERDICT PASS`; gate.json written |
 | 4 SEAT | **Fable** evaluator who did not build | 3 min | seat.json verdict SHIP (or REVISE with ranked fixes) |
 | 5 SHIP | **Fable** shipper | 1 min | catalogue rebuilt; sha256 in NOTES.md; file list handed to the orchestrator |
@@ -35,7 +38,7 @@ factory/films/<id>/                  film.json, film.js, claims.json, NOTES.md, 
 A film costs under 30 minutes of agent time. Opus explores, synthesises and builds; Fable evaluates and ships;
 the orchestrator commits (no agent runs git). Each agent writes only in its own folder: explorers in
 `factory/topics/<id>/`, builders in `factory/films/<id>/`. Builders use the kit as published: if it lacks
-something, write it in your own film.js and say so in NOTES.md; never patch `factory/kit/`.
+something, write it in your own film.js and say so in NOTES.md; never patch `factory/kit/`, `factory/kit2/` or `arsenal/`.
 Over budget? Cut scope, not checks: drop the spare structure, shorten the case beat, keep the gate.
 
 ## The never list
@@ -62,7 +65,7 @@ Over budget? Cut scope, not checks: drop the spare structure, shorten the case b
 
 ```
 python3 factory/tools/new_topic.py <id> "<Title>"      # kebab-case id; --force to overwrite
-python3 factory/kit/build.py factory/films/<id>        # the scaffold builds and passes the gate as is
+python3 factory/kit2/build.py factory/films/<id>       # the scaffold builds and passes the gate as is
 ```
 
 The scaffold film is a valid 75-second page with TODO text: the sheet, the commit box at 9 s, a placeholder
@@ -70,8 +73,21 @@ per beat, the kit's captions and brand card. Replace, do not start over.
 
 ## 1 · EXPLORE (Opus) → factory/topics/<id>/
 
-Find the one real case and its numbers before anything is drawn. Read primary sources; compute every derived
-number yourself and write the formula. Templates (the scaffold writes them with these headings):
+Find the one real case and its numbers before anything is drawn. Two sources of a topic:
+
+- **From a concept**: read primary sources; compute every derived number yourself and write the formula.
+  Templates below (the scaffold writes them with these headings).
+- **From a repository**: `python3 factory/tools/repo_topic.py <path-to-local-git-repo> --id <id> [--days 7]
+  [--rev HEAD] [--until now|head|<ISO 8601>] [--force]` reads one pinned commit (git log, ls-tree, cat-file, grep;
+  it never runs repository code or a git write) and writes `factory/topics/<id>/` `facts.json`, `claims.json`
+  (every number a claim with a `recompute` command and `expect`, or a `formula`), `brief.md` and `beats.md`
+  (a 90-second draft). It re-checks every claim after writing; `repo_topic.py --check
+  factory/topics/<id>/claims.json [--only <claim-id>]` repeats that. The repo is the case. Then edit the brief and
+  beats to the 75-second format (cut to five beats and at most four structures) and keep only claims the film
+  uses; the repo-topic claims file is `{topic, repo, head, window, params, claims}`, so copy the `claims` array
+  into the film's `claims.json`.
+
+Templates:
 
 **brief.md**
 ```
@@ -120,6 +136,7 @@ Explorer's exit test: could a sceptical CFO check every number from the brief al
 ## 2 · BUILD (Opus) → factory/films/<id>/
 
 Copy the topic's numbers into `film.json.params` and `claims.json` (add `appears_at`), write film.js, build.
+The default build is kit2: the same drawing API as `factory/kit`, with brand, chrome and material injected.
 
 **film.json** (window.FILM; the kit's build.py refuses a file missing any of id, title, eyebrow, lede, dur,
 palette, fonts, commit, chapters, captions, brand, sources, honest):
@@ -127,6 +144,7 @@ palette, fonts, commit, chapters, captions, brand, sources, honest):
 | field | shape | notes |
 |-------|-------|-------|
 | id, title, eyebrow, lede | strings | eyebrow and lede are page text; keep digits out of chapter eyebrows |
+| level | "exec" \| "manager" \| "engineer" | optional, default `exec`. At `exec` the material must be `ink` and the texture `none` or `paper` (G10, DECISIONS Q6); build.py refuses any other value |
 | dur | 75 | material 60 to 75 s plus 3 s brand card; total ≤ 78 (G4a) |
 | seed | int | the kit's seed for ground and noise |
 | palette | {paper, ink, accent, muted, chalk, dark, soft} | hex; role keys fixed by the kit |
@@ -171,21 +189,60 @@ Craft: one focal motion at a time; the count is the hero (marks at true scale, c
 the case shows real units (years, dollars, people), not indices; captions say what the picture shows.
 
 ```
-python3 factory/kit/build.py factory/films/<id>        # → factory/films/<id>/build/<id>.html, prints bytes + sha256
+python3 factory/kit2/build.py factory/films/<id> --brand <id> --chrome <id> [--material <id>]
 ```
+Output: `factory/films/<id>/build/<id>.<brand>.<chrome>[.<material>].html`; it prints bytes, sha256, faces and role
+contrast. `--brand` is an `arsenal/brands/<id>.json` pack or `film` (the default: a pack made from film.json
+`palette/type/fonts`, so the film keeps its own look); `--chrome` is a module in `factory/kit2/chromes/` or
+`factory/chromes/`, or `none`; `--material` is an id in `arsenal/materials/drawn` (ink, pencil, stitch, chalk,
+marker, blueprint). Without flags the build is `<id>.film.tender-set.html`. Pick a pack the film's mood fits and a
+chrome whose content box holds the film (details and what still binds a film to a look: factory/kit2/README.md).
+The legacy `python3 factory/kit/build.py factory/films/<id>` (output `build/<id>.html`) still works; the 15 shipped
+films' baseline hashes are for it.
 Budgets: film code (film.js + film.json + claims.json) < 120 KB; page < 1.3 MB (G8).
 
 **NOTES.md** (the scaffold's stub): what it is (two sentences), the timings table with the structure per
 beat, kit helpers used and anything added locally, the gate history (rounds, what each fixed, which WARN rows
 stand and why), the seat verdict, the page sha256 (the shipper fills it), honest limits of the build.
 
+## ADOPT · reach for the arsenal (optional, inside BUILD)
+
+`arsenal/` holds pure, seeded, brand-token modules with a card each (`arsenal/<lane>/card.md`; index and "what to
+use for what": `arsenal/README.md`). Adopt one only where the beat needs it; the laws do not change. Reach for:
+
+| need in the film | module |
+|---|---|
+| timing without hand-tuned `seg()` tables: tracks, play/wait/all/stagger, scenes with local time | `arsenal/core/timeline.js` (+ `generator.js`; `arsenal/core/MIGRATION.md`) |
+| the count's layout: grid, wall, ring, columns, rows, timeline, tree, scatter, with transitions | `arsenal/structures/structures.js` |
+| drawing a diagram, signature or network on (arc-length draw-on) | `arsenal/patterns/reveal` |
+| a number or word that changes into another (ticker, word-to-word) | `arsenal/patterns/morph-type` |
+| moving the view across a large structure | `arsenal/patterns/camera` |
+| pointing: callouts, bars, hand marks, spotlight | `arsenal/patterns/annotations` |
+| marks that carry data (rows, scatter, bars) | `arsenal/patterns/data-marks` |
+| cutting between scenes (cut, match-cut, zoom-through) | `arsenal/patterns/transitions` |
+
+How: read the module's `card.md` (params, when not to use, pitfalls) and `pattern.js`. The kit does not load the
+arsenal's patterns yet (kit2 loads only the brand, chrome and drawn materials), so copy the `pattern.js` (and
+`core/timeline.js` or `structures.js` if used) into `factory/films/<id>/lib/` and inline it from film.js; say so in
+NOTES.md. A module's `draw(p, t, state, params, tokens)` takes the brand pack (`KIT2.brand`) and reads roles, never
+hex. Keep the film's size budget (G8) and exec level (no shader post, no non-ink material).
+
+**Brand workflow.** (1) Pick a pack: `arsenal/brands/README.md` lists 22 (register, ground, ink, accent, faces),
+and `arsenal/patterns/palette` renders them all. (2) Or derive one: `python3 arsenal/tools/tweak.py <base> --dark`
+(also `--hue <deg>`, `--accent <hex>`, `--contrast <n>`, `--mono`, `--type d/m/b`, `--tempo <x>`, `--texture <name>`;
+recipes: `arsenal/tools/TWEAKS.md`); it runs the contrast check and writes `arsenal/brands/derived/<id>.json` only if
+it passes. (3) Check any pack: `python3 arsenal/tools/brand_check.py arsenal/brands/<id>.json` (WCAG: ink/bg 4.5,
+chalk/panel 4.5, accent/bg 3, muted/bg 3; faces only from `vendor/fonts.lock.json`). (4) Build with
+`--brand <id>`; a derived pack is passed by path (`--brand arsenal/brands/derived/<id>.json`).
+
 ## 3 · GATE (the builder), loop to PASS
 
 ```
-node factory/tools/gate.mjs factory/films/<id>/build/<id>.html --film factory/films/<id> \
+node factory/tools/gate.mjs factory/films/<id>/build/<page>.html --film factory/films/<id> --kit factory/kit2 \
      --json factory/films/<id>/gate.json --shots <scratchpad>/factory/<id>/shots
 ```
-Run it from the plugin root with relative paths (gate.json records them). It prints one row per check and
+`<page>` is the file build.py printed (`<id>.<brand>.<chrome>[.<material>]`). Add `--kit` files for the clock scan
+(a legacy factory/kit page needs none). Run it from the plugin root with relative paths (gate.json records them). It prints one row per check and
 `VERDICT PASS|FAIL`, exits 1 on any FAIL, and writes 8 stills at 1920 × 1080 (`still-N-TTT.Ts.png`) plus
 `phone-390.png`. **Read every still** (Read tool) before deciding you are done: the gate cannot see a
 caption over a mark, a count that lands off-screen, or a beat that reads as a dashboard.
@@ -201,8 +258,10 @@ caption over a mark, a count that lands off-screen, or a beat that reads as a da
 | G7 counts first | move the ratio after the count lands, or move `count.at` to when the count is really drawn |
 | G8 size | cut film code; the page budget is mostly the kit, p5 and fonts |
 | G9 tics | fewer full-screen cards; let structures carry the turn |
+| G10 axes | exec level wants material `ink` and texture `none`/`paper`: rebuild without `--material`, or set `level` to `manager` or `engineer` in film.json if the film is not for the exec room; WARN means kit2 drew a pack's grain/halftone flat |
 
-Between gate runs, the kit's probe is quicker for the live commit (pause, seal, 8 s "no answer") and purity:
+Between gate runs, the kit's probe is quicker for the live commit (pause, seal, 8 s "no answer") and purity
+(`factory/kit2/probe.mjs` for a kit2 page):
 `node factory/kit/probe.mjs $PWD/factory/films/<id>/build/<id>.html <abs-shots-dir> 5,20,45,73`.
 
 WARN rows (G5c chrome digits, phone overflow) do not fail but go into NOTES.md with a reason. Three rounds
@@ -252,7 +311,7 @@ EXPLORE for the claim, then BUILD.
 
 ## 5 · SHIP (Fable)
 
-1. Rebuild from clean sources and gate once more: `python3 factory/kit/build.py factory/films/<id>` then the
+1. Rebuild from clean sources and gate once more: the same `build.py` command as BUILD, then the
    gate command above; it must PASS and gate.json must be fresh.
 2. `python3 factory/tools/catalogue.py`: rewrites `factory/catalogue.json` (id, title, dur, counts of
    chapters, captions, sources and claims, takeaway, gate verdict, page path, bytes and **sha256**) and
@@ -271,6 +330,9 @@ EXPLORE for the claim, then BUILD.
 |------|------|
 | `factory/FORMAT.md` | always; the binding format |
 | `factory/kit/README.md`, `factory/kit/kit.js` header | before writing film.js: helper names, layers, layout |
+| `factory/kit2/README.md`, `factory/kit2/PROOF.md` | the build path: brand, chrome, material, level; what still binds a film to a look |
+| `arsenal/README.md`, `arsenal/<lane>/card.md`, `arsenal/brands/README.md`, `arsenal/tools/TWEAKS.md` | ADOPT: which module, which pack, how to derive one |
+| `factory/tools/repo_topic.py` (docstring, `--help`) | EXPLORE from a repository |
 | `factory/kit/smoke/` | a 20 s film that touches every kit helper; copy its patterns (its claims.json predates the gate's array form: write yours as an array) |
 | `factory/tools/README.md` | the gate rows, the film.json and claims.json fields it reads |
 | `films/opera-house/NOTES.md`, `film.js` | the gold standard: the wall, the sealed commit, counts first |

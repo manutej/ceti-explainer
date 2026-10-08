@@ -104,8 +104,26 @@ references/                  studio doctrine, tells, technique atlas, p5 2.x not
 scripts/                     paths.py, root.mjs, requirements.txt, channels/ (reel, carousel, PDF, video, blog, newsletter)
 vendor/                      p5-2.3.4.min.js (LGPL-2.1), fonts/ (34 files, OFL), fonts.lock.json, SHA256SUMS, LICENSES.md
 tests/                       proofs.sh, node/ (unit tests), baselines/ (gate, check, lint and build JSON)
+factory/                     the 75-second case factory: FORMAT.md, kit/, kit2/ (the default build: brand, chrome, material
+                             injected), tools/ (gate.mjs, catalogue.py, new_topic.py, repo_topic.py: a git repo to a topic),
+                             topics/, films/ (15 shipped), CATALOGUE.md; README: factory/README.md
+arsenal/                     pattern and material library (24 lanes), core/ (timeline, generator), structures/, 22 brand packs
+                             in brands/, tools/ (shoot, export, brand_check, tweak, ds_bundle), ds-bundle/; index: arsenal/README.md
+references/atlas/            the p5 atlas: pages/<slug>.md that the arsenal cards cite
+docs/                        DECISIONS.md (binding: D1 to D10, Q1 to Q15), study/
+scripts/doctor.sh            cold-start check (tools, vendor hashes, kit and kit2 builds, brand contrast)
+[HANDOFF.md](./HANDOFF.md)                   the orchestrator's state-of-the-repo note, written at each hand-off; read it first
 eval/, notebooks/            unchanged
 ```
+
+### Cold start
+
+```bash
+sh scripts/doctor.sh          # tools, vendor hashes, kit and kit2 builds, brand packs
+sh tests/proofs.sh all        # every film and demo rebuilds and gates (about 10 minutes)
+open factory/CATALOGUE.md     # the shipped films; HANDOFF.md (written by the orchestrator) says where things stand
+```
+
 
 Built pages (`build/`, `*.html` outside `notebooks/`), renders and `_npm/` are not committed (see `.gitignore`).
 

@@ -3,7 +3,7 @@
    factory/tools/gate.mjs · the gate for "the 75-second case" films
    --------------------------------------------------------------------
    node factory/tools/gate.mjs <built-page.html> --film <film-dir>
-        [--json out.json] [--shots dir] [--kit file.js ...] [--quick]
+        [--json out.json] [--shots dir] [--kit file.js|dir ...] [--quick]
 
    Rows G1..G10 (see factory/tools/README.md). Each row is PASS, FAIL, WARN
    or SKIP with evidence. Exit 1 if any row FAILs (WARN and SKIP do not).
@@ -36,7 +36,7 @@ for (let i = 0; i < argv.length; i++) {
   else pos.push(a);
 }
 function usage(code) {
-  console.log('usage: node factory/tools/gate.mjs <built-page.html> --film <film-dir> [--json out.json] [--shots dir] [--kit file.js ...]');
+  console.log('usage: node factory/tools/gate.mjs <built-page.html> --film <film-dir> [--json out.json] [--shots dir] [--kit file.js|dir ...]');
   process.exit(code);
 }
 const PAGE = pos[0];
@@ -104,7 +104,13 @@ function clockScan(file, isPlayer) {
 {
   const files = [];
   if (fs.existsSync(filmJsPath)) files.push([filmJsPath, false]);
-  for (const k of opt.kit) if (fs.existsSync(k)) files.push([k, /player/i.test(path.basename(k))]); else row('G3', 'clock scan', 'WARN', `--kit ${k} not found`);
+  const kitFiles = [];
+  for (const k of opt.kit) {
+    if (!fs.existsSync(k)) { row('G3', 'clock scan', 'WARN', `--kit ${k} not found`); continue; }
+    if (fs.statSync(k).isDirectory()) { for (const f of fs.readdirSync(k)) if (/\.js$/.test(f)) kitFiles.push(path.join(k, f)); }
+    else kitFiles.push(k);
+  }
+  for (const k of kitFiles) files.push([k, /player/i.test(path.basename(k))]);
   if (!files.length) row('G3', 'clock scan', 'SKIP', `no film.js in ${FILMDIR}`);
   else {
     const hits = files.flatMap(([f, p]) => clockScan(f, p));

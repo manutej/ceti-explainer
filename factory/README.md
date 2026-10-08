@@ -26,13 +26,27 @@ gold standard it was derived from is `films/opera-house/`.
 
     factory/FORMAT.md                 the brief every agent reads first
     factory/kit/                      shell.html, kit.js, player.js, build.py, probe.mjs, smoke/   (kit builder only)
+    factory/kit2/                     the same API with brand, chrome and material injected; the build path (kit2/README.md)
     factory/tools/gate.mjs            the gate                                                     (gate builder only)
     factory/tools/new_topic.py        scaffold a topic and a film from the skill's templates
+    factory/tools/repo_topic.py       turn a local git repository into a topic whose every number is a claim
     factory/tools/catalogue.py        factory/catalogue.json + factory/CATALOGUE.md (schema factory/catalogue.schema.json)
     factory/topics/<id>/              brief.md, claims.json, beats.md                                (explorer)
     factory/films/<id>/               film.json, film.js, claims.json, NOTES.md, gate.json, seat.json  (builder, seat)
     factory/films/<id>/build/         the page, gitignored; rebuilt from sources by build.py
     factory/SHIP.md                   the ship log: what was verified, what was held, defects for the next kit
+
+## The build path: kit2
+
+    python3 factory/kit2/build.py factory/films/<id> [--brand ID|film] [--chrome ID|none] [--material ID]
+
+kit2 is the default build. It keeps kit's drawing API (a film.js written for kit runs unchanged) and injects the
+look: `--brand` an `arsenal/brands/` pack (default `film`: the film's own palette and faces), `--chrome` a
+`factory/chromes` module or `none`, `--material` an `arsenal/materials/drawn` id. Output
+`build/<id>.<brand>.<chrome>[.<material>].html`; byte-reproducible. film.json may carry `level` (`exec` default,
+`manager`, `engineer`); at `exec` the material is `ink` and the texture `none` or `paper` (gate row G10). The 15 shipped
+films and their baseline hashes below are built with factory/kit (`python3 factory/kit/build.py`) and still build.
+Proof: factory/kit2/PROOF.md (2 films x 4 brands x 4 chromes, 32 of 32 gates PASS, zero film edits).
 
 ## The kit contract (`factory/kit/README.md`)
 
@@ -54,6 +68,7 @@ their own film.js and is noted in NOTES.md; nobody patches the kit mid-batch.
 
     node factory/tools/gate.mjs factory/films/<id>/build/<id>.html --film factory/films/<id> \
       --kit factory/kit/kit.js --kit factory/kit/player.js --json factory/films/<id>/gate.json [--shots dir]
+    # a kit2 page: --kit factory/kit2 (kit2.js, player.js), plus the chrome and material files you want scanned
 
 | row | what it holds the film to |
 |-----|---------------------------|
@@ -66,6 +81,7 @@ their own film.js and is noted in NOTES.md; nobody patches the kit mid-batch.
 | G7 counts first | no percentage or "N in M" before `count.at` |
 | G8 size | film code < 120 KB, page < 1.3 MB |
 | G9 tics | at most 2 full-screen cards; a countdown ring only in the COMMIT window |
+| G10 axes | the page's declared axes (`__film.info.axes` or `<meta name="kit2">`): at level `exec`, material `ink` and texture `none`/`paper`; SKIP on a factory/kit page |
 
 WARN and SKIP never fail a film; any FAIL does. The builder runs the gate up to three rounds, reading the
 stills each time, until `VERDICT PASS`, and keeps the last `gate.json`.
@@ -92,11 +108,17 @@ never `build/`, stills or packets.
 ## Adding a topic
 
     python3 factory/tools/new_topic.py <id> "<Title>"
+    python3 factory/tools/repo_topic.py <path-to-local-git-repo> --id <id> [--days 7] [--rev HEAD]   # a repository as the source
 
 writes the explorer's `brief.md`, `claims.json`, `beats.md` and the builder's `film.json`, `film.js` (a titled
 sheet, the commit box, a placeholder per beat), `claims.json`, `NOTES.md`, so the page builds and gates at once.
 Every placeholder reads TODO; nothing in it is a fact. Then EXPLORE, BUILD, GATE, SEAT, SHIP as in the skill.
 Each concept brings its own fixture: never base rates, the planning fallacy or the AI agent loop.
+
+The repo source reads one pinned commit with read-only git (log, ls-tree, cat-file, grep), never runs repository
+code, and writes `facts.json`, `claims.json` (every number a claim with a `recompute` command and `expect`, or a
+`formula`), `brief.md` and a 90-second `beats.md` to cut down to the 75-second format. It re-runs every claim after
+writing; `repo_topic.py --check factory/topics/<id>/claims.json` repeats it.
 
 ## The routing rule
 

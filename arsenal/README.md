@@ -42,6 +42,27 @@ are in arsenal/INTERVIEW.md; the module contract and brand pack schema are in ar
 - arsenal/tools/shoot.mjs (stills, purity, contact sheet), export.mjs (frame-stepped MP4/GIF, hash-verified), brand_check.py.
 - factory/kit2: the modular kit; PROOF.md shows two films under 4 brands × 4 chromes, 32 of 32 gates passing with zero film edits.
 
+## What to use for what
+
+| need | module |
+|---|---|
+| timing, scenes, captions without hand-tuned seg() tables | core/timeline.js (patterns/timeline), generator.js for authored sequences |
+| lay out a count: grid, wall, ring, columns, rows, tree, scatter | structures/structures.js |
+| draw a diagram, signature or network on | patterns/reveal |
+| a number or word that turns into another | patterns/morph-type (patterns/particles-text for particles) |
+| move the view across a map, timeline or grid | patterns/camera |
+| point at something: callouts, bars, hand marks, spotlight | patterns/annotations |
+| marks that carry data (rows, scatter, bars) | patterns/data-marks; thousands of marks: patterns/mass |
+| cut between scenes | patterns/transitions |
+| a look for the marks: ink, pencil, stitch, chalk, marker, blueprint | materials/drawn (shader looks are a post, not allowed at exec level) |
+| a brand: pick one, derive one, check one | brands/ (22 packs), tools/tweak.py, tools/brand_check.py |
+
+## Design-system bundle
+
+arsenal/ds-bundle is the Claude Design design-system bundle (brand cards, lane cards, chromes, kit2 proof matrices,
+tokens), built by `python3 arsenal/tools/ds_bundle.py`. The Claude Design project "CETI Explainer Arsenal" holds it;
+regenerate the bundle after a pack or lane changes and sync it from a session with design access.
+
 ## Adopting a pattern in a film
 
 1. Pick the axis values in film.json (brand, chrome, material); build with factory/kit2/build.py.
