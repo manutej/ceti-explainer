@@ -108,6 +108,19 @@
    "license_file": "fonts/OFL-barlow.txt"
   },
   {
+   "family": "Big Shoulders Display",
+   "name_table_family": "Big Shoulders Display Thin SemiBold",
+   "file": "big-shoulders-display-latin-600-normal.woff2",
+   "weight": 600,
+   "style": "normal",
+   "format": "woff2",
+   "sha256": "448000586ef3a91726a8de46e2948e7426d693d57a568a188006407d24409845",
+   "usWeightClass": 600,
+   "italic_bit": false,
+   "license": "OFL-1.1",
+   "license_file": "fonts/OFL-big-shoulders-display.txt"
+  },
+  {
    "family": "Cormorant Garamond",
    "name_table_family": "Cormorant Garamond Light Medium",
    "file": "cormorant-garamond-latin-500-italic.woff2",
@@ -232,6 +245,19 @@
    "style": "normal",
    "format": "woff",
    "sha256": "09f018c58556e5801ecc49d5b5275dcff4c73311c2af6b88e31c51d76d076a9d",
+   "usWeightClass": 500,
+   "italic_bit": false,
+   "license": "OFL-1.1",
+   "license_file": "fonts/OFL-ibm-plex-mono.txt"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "name_table_family": "IBM Plex Mono Medium",
+   "file": "ibm-plex-mono-latin-500-normal.woff2",
+   "weight": 500,
+   "style": "normal",
+   "format": "woff2",
+   "sha256": "01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22",
    "usWeightClass": 500,
    "italic_bit": false,
    "license": "OFL-1.1",

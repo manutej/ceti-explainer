@@ -21,6 +21,12 @@
    "bytes": 1491673,
    "sha256": "62cea1f4d002d1e775843fc15fb19d466a6dbdcd5bc191ecd23f3fdb1f93a973",
    "shipped_bytes": 1478773
+  },
+  {
+   "page": "films/opera-house/build/opera-house.html",
+   "bytes": 1127447,
+   "sha256": "0d922218ee203a2a6efe2670669afa6a60ec9f4e880a7a93c76a6c2ae13715f0",
+   "shipped_bytes": 1127447
   }
  ]
 }

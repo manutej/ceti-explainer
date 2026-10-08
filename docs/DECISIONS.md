@@ -54,3 +54,9 @@ milestones M1 to M7.
 - M7: ink is the default material and the only one used at the exec level (Q6, Q11).
 - F1 to F3 stand as planned (Q11). The first new concept after them is ROI and cost of delay (Q7).
 - X is deferred (Q12). Q5 and Q15 stay open.
+
+## 2026-10-08 · the exec-room gold standard
+
+| # | Decision | Changes |
+|---|----------|---------|
+| D9 | "The Opera House" (Case file 23, the planning fallacy; films/opera-house) is the gold standard for the exec room and the feature tier. It already practises Q3, Q6, Q13 and Q14, its numbers recompute from two fitted parameters and seven sources, and its renderer is a pure function of time and state. | It enters the repo as sources that rebuild byte-identical (proof v). It is the known-good calibration fixture for the exec level: G1 to G5 and G8 must pass it; G6 must flag only its 11 to 12 unit sidebar and honest-limits text; G9 may flag only its between-chapter cards. Its "Tender Set" chrome is the first chrome of the default ink material (M7). The two changes it owes the bar are a CETI brand card after its last image (Q8) and a larger face for the honest-limits lines (G6). The two-minute Grasp cut (plan, commit, wall, where you sit) is the first derivative to build. |

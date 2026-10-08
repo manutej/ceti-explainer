@@ -1,6 +1,7 @@
-b932e451728ed1b612c90f3cdd0191453b80c0180efbb77e368ec548abe68702  fonts.lock.json
+6a097e746ceeae362d7eb500ac4e690921fc058b3e474e07ace57f90488def5a  fonts.lock.json
 81a4678c0753aaae34a14dddb2f1b1f39f902a4c7785ced71a8df139a78b97f6  fonts/OFL-alegreya-sans.txt
 4877e0c1b66f0b16cc3ebc4801c4def24c06252f618b9229428b20c7387aa0c0  fonts/OFL-barlow.txt
+bf3b5640d5d1d94a8d057bfa0232c6a405cad28ecaa28a0c17fdf879f5b91842  fonts/OFL-big-shoulders-display.txt
 fe51d0a99f33f4333e1cb6a358a4604db98e1731f12fab060701a79f19a579be  fonts/OFL-cormorant-garamond.txt
 f5898de81851415b71431c1a8ea527c88a4e79caeb23936483428d2e911af40c  fonts/OFL-dm-mono.txt
 87334fd9bb28fb083d83e2423b115acb3461cbba857079a8d7cc7c77b7aefb0e  fonts/OFL-dm-sans.txt
@@ -21,6 +22,7 @@ a2b00a62d17ee0726998b3102fd0a044e98d3b7f00795badef7eacc28a8f5f9b  fonts/barlow-l
 cb76adc8642e8980cd4bdb0e63658aa818696f3289f38400e7154ed3992bbeb6  fonts/barlow-latin-600-normal.woff
 51cfb09823c8f0b62f5fcce62ca7c779039cdc7d077961a25dbe24f49a4190f3  fonts/barlow-semi-condensed-latin-500-normal.woff
 4b949f7e4f39840f7a80d5bd03a043a7ef9fe36e95d490188738695337df2748  fonts/barlow-semi-condensed-latin-600-normal.woff
+448000586ef3a91726a8de46e2948e7426d693d57a568a188006407d24409845  fonts/big-shoulders-display-latin-600-normal.woff2
 4fb55a7a6d564d428061fe12c82c896264bcc8b7f0b52840bf88e0db5b91256f  fonts/cormorant-garamond-latin-500-italic.woff2
 e1896b13b2b1bb112fac2f9571bd6c40e118746e77a4511edbf43fbb41bf3e1e  fonts/dm-mono-latin-400-normal.woff2
 4ab51eb2cd7305d177187908d6397474d4520663f6c6e572feb0a64f4fa80006  fonts/dm-sans-latin-400-normal.woff2
@@ -31,6 +33,7 @@ e1896b13b2b1bb112fac2f9571bd6c40e118746e77a4511edbf43fbb41bf3e1e  fonts/dm-mono-
 328d50b6ece9ca25c46eea3e885ba497f6237f2fb84ef7b92f88e14a1a25e381  fonts/ibm-plex-mono-latin-400-normal.woff
 08949f728dc52d528e69b1667d15c89a5686a4ee9a296ff90983985f99c380f7  fonts/ibm-plex-mono-latin-400-normal.woff2
 09f018c58556e5801ecc49d5b5275dcff4c73311c2af6b88e31c51d76d076a9d  fonts/ibm-plex-mono-latin-500-normal.woff
+01d285447409c8a588692162439a038b8cbd7871309ee20267b0d2d91c6e8e22  fonts/ibm-plex-mono-latin-500-normal.woff2
 456bf5cda9c0b1f1ead43f01b80df5ba5af7cb41d7cbc0543091537c39fb4c89  fonts/ibm-plex-sans-condensed-latin-400-normal.woff2
 3d72a0923c5830358b0a8e25b258aecadbecbf542b6ee9a25f387803e37d56b9  fonts/ibm-plex-sans-condensed-latin-600-normal.woff2
 248300df1647bec49155a5cada1d65f719ae633ef48564d1f19b135a8a5b7f5f  fonts/im-fell-english-latin-400-normal.woff2

@@ -1,6 +1,6 @@
 #!/bin/sh
-# tests/proofs.sh — the four "builds from the repo" proofs of the merge (MERGE-NOTES.md). Run from anywhere:
-#   sh tests/proofs.sh [i|ii|iii|iv|all]      (default all; exit 1 on the first failure)
+# tests/proofs.sh — the five "builds from the repo" proofs of the merge (MERGE-NOTES.md). Run from anywhere:
+#   sh tests/proofs.sh [i|ii|iii|iv|v|all]      (default all; exit 1 on the first failure)
 # Needs: Python 3.10+ with scripts/requirements.txt, Node 18+, a Playwright Chromium (proof i; set PLAYWRIGHT_BROWSERS_PATH).
 set -e
 ROOT=$(cd "$(dirname "$0")/.." && pwd); cd "$ROOT"
@@ -26,5 +26,9 @@ if run iv; then
   node skills/ceti-explainer/assets/gate.mjs skills/ceti-explainer/reference/self-attention.js
   for t in library/plan/modules/*/test.mjs; do node "$t" | tail -1; done
   node --test tests/node/*.test.mjs | grep -E '^# (pass|fail)'
+fi
+if run v; then
+  echo "== (v) opera-house: rebuild byte-identical to the page as uploaded"
+  python3 films/opera-house/build.py --check
 fi
 echo "== proofs: OK"
