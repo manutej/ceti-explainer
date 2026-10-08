@@ -1,0 +1,5 @@
+{ "id": "tender-set", "name": "Tender set (the Opera House sheet)",
+  "color": { "bg": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "accent2": "#B9A277", "muted": "#8E887C", "line": "rgba(30,58,92,0.25)", "panel": "#F5EEDF", "chalk": "#F2ECDD" },
+  "type": { "disp": { "family": "Big Shoulders Display", "weight": 600 }, "mono": { "family": "IBM Plex Mono", "weight": 400 }, "body": { "family": "IBM Plex Mono", "weight": 400 } },
+  "texture": "paper", "tempo": { "ease": "cubic", "beat_s": 4 },
+  "voice": { "register": "drafting sheet, revisions ledger", "end_card": "CETI" } }

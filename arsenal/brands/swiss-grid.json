@@ -1,0 +1,5 @@
+{ "id": "swiss-grid", "name": "Swiss grid (clean, high contrast)",
+  "color": { "bg": "#FFFFFF", "ink": "#111111", "accent": "#E63312", "accent2": "#1F4FB8", "muted": "#6B6B6B", "line": "rgba(17,17,17,0.2)", "panel": "#F2F2F2", "chalk": "#FFFFFF" },
+  "type": { "disp": { "family": "Jost", "weight": 600 }, "mono": { "family": "Red Hat Mono", "weight": 400 }, "body": { "family": "Jost", "weight": 400 } },
+  "texture": "none", "tempo": { "ease": "expo", "beat_s": 3 },
+  "voice": { "register": "grid, flush left, one accent", "end_card": "CETI" } }
