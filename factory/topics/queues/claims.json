@@ -1,0 +1,302 @@
+{
+ "film": "queues",
+ "convention": "Each formula is a JS expression evaluated with vm.runInNewContext(formula, {...params}); bare param names; result must deep-equal value.",
+ "params": {
+  "rhoA": 0.5,
+  "rhoB": 0.9,
+  "rho80": 0.8,
+  "rho85": 0.85,
+  "rho95": 0.95,
+  "seed": 3,
+  "warm": 2000,
+  "n": 100,
+  "defaultGuess": 2,
+  "hoursPerDay": 10,
+  "bedsShown": 100,
+  "bagustYear": 1999,
+  "bagustRisk": 85,
+  "bagustCrisis": 90,
+  "nhsOcc": 92,
+  "nhsYear": 2022
+ },
+ "sources": {
+  "BPP99": "Bagust A, Place M, Posnett JW. Dynamics of bed use in accommodating emergency admissions: stochastic simulation model. BMJ 1999;319(7203):155-158. doi:10.1136/bmj.319.7203.155 (abstract: risks discernible above about 85 % average occupancy; regular bed shortages and periodic bed crises at 90 % or more)",
+  "KH03": "NHS England, Bed Availability and Occupancy (KH03), Quarter 3 2023-24 Statistical Press Notice (Feb 2024): general and acute beds open overnight, average occupancy 92.0 % in Quarter 3 2022/23 (Oct-Dec 2022, revised data)",
+  "KL75": "Kleinrock L. Queueing Systems, Volume 1: Theory. Wiley, 1975. M/M/1: mean wait in queue Wq = rho/(1-rho) x mean service time; by PASTA an arrival finds on average rho/(1-rho) jobs in the system",
+  "KI61": "Kingman JFC. The single server queue in heavy traffic. Proceedings of the Cambridge Philosophical Society 1961;57:902-904 (wait grows as rho/(1-rho), scaled by arrival and service variability)",
+  "RE09": "Reinertsen DG. The Principles of Product Development Flow: Second Generation Lean Product Development. Celeritas, 2009. Ch. 3 'Managing Queues' (from p. 53): queue size against capacity utilization",
+  "SIM": "Seeded simulation in this claim's formula: M/M/1, mulberry32(seed), exponential gaps and job sizes from one stream (common random numbers for both desks), arrivals scaled by 1/rho, mean job size 1, warm-up jobs discarded, then n jobs counted; 'jobs ahead' = jobs in the system (waiting or in service) at the instant of arrival. Seed rule: the first seed from 1 upward whose two counts both land within 10 % of the long-run n x rho/(1-rho)",
+  "FILM": "film.json defaultGuess (decision Q13: the MP4 uses a timed default guess)"
+ },
+ "claims": [
+  {
+   "id": "hook-busy",
+   "text": "90 % busy",
+   "value": 90,
+   "formula": "Math.round(rhoB*100)",
+   "source": "film.json defaultGuess (decision Q13: the MP4 uses a timed default guess)",
+   "where": "HOOK caption 1 and '90 % BUSY' label; COMMIT caption 4 and commit prompt; brand card takeaway",
+   "sourceId": "FILM"
+  },
+  {
+   "id": "hook-hours",
+   "text": "9 of 10 hours inked",
+   "value": 9,
+   "formula": "Math.round(rhoB*hoursPerDay)",
+   "source": "film.json defaultGuess (decision Q13: the MP4 uses a timed default guess)",
+   "where": "HOOK hour strip (9 inked blocks of 10)",
+   "sourceId": "FILM"
+  },
+  {
+   "id": "hook-day",
+   "text": "a day of 10 hours ('IN 10')",
+   "value": 10,
+   "formula": "hoursPerDay",
+   "source": "film.json defaultGuess (decision Q13: the MP4 uses a timed default guess)",
+   "where": "HOOK and COMMIT hour strips (10 blocks); COUNT desk labels 'BUSY 5 IN 10', 'BUSY 9 IN 10'",
+   "sourceId": "FILM"
+  },
+  {
+   "id": "anchor-50",
+   "text": "50 % busy",
+   "value": 50,
+   "formula": "Math.round(rhoA*100)",
+   "source": "film.json defaultGuess (decision Q13: the MP4 uses a timed default guess)",
+   "where": "COMMIT caption 3; second hour strip (5 of 10 inked)",
+   "sourceId": "FILM"
+  },
+  {
+   "id": "anchor-50-hours",
+   "text": "5 of 10 hours inked",
+   "value": 5,
+   "formula": "Math.round(rhoA*hoursPerDay)",
+   "source": "film.json defaultGuess (decision Q13: the MP4 uses a timed default guess)",
+   "where": "COMMIT hour strip",
+   "sourceId": "FILM"
+  },
+  {
+   "id": "anchor-wait-50",
+   "text": "waits about one job's length (1)",
+   "value": 1,
+   "formula": "Math.round((rhoA/(1-rhoA))*10)/10",
+   "source": "Kleinrock L. Queueing Systems, Volume 1: Theory. Wiley, 1975. M/M/1: mean wait in queue Wq = rho/(1-rho) x mean service time; by PASTA an arrival finds on average rho/(1-rho) jobs in the system",
+   "where": "COMMIT caption 3; commit box anchor line",
+   "sourceId": "KL75"
+  },
+  {
+   "id": "commit-default",
+   "text": "YOUR GUESS 2 (film mode)",
+   "value": 2,
+   "formula": "defaultGuess",
+   "source": "film.json defaultGuess (decision Q13: the MP4 uses a timed default guess)",
+   "where": "COMMIT box (film mode); COUNT guess line label",
+   "sourceId": "FILM"
+  },
+  {
+   "id": "case-year",
+   "text": "1999",
+   "value": 1999,
+   "formula": "bagustYear",
+   "source": "Bagust A, Place M, Posnett JW. Dynamics of bed use in accommodating emergency admissions: stochastic simulation model. BMJ 1999;319(7203):155-158. doi:10.1136/bmj.319.7203.155 (abstract: risks discernible above about 85 % average occupancy; regular bed shortages and periodic bed crises at 90 % or more)",
+   "where": "CASE caption 5; eyebrow",
+   "sourceId": "BPP99"
+  },
+  {
+   "id": "case-beds",
+   "text": "100 beds",
+   "value": 100,
+   "formula": "bedsShown",
+   "source": "film.json defaultGuess (decision Q13: the MP4 uses a timed default guess)",
+   "where": "CASE 10 x 10 bed grid; captions 6 to 8 ('of 100')",
+   "sourceId": "FILM"
+  },
+  {
+   "id": "case-85",
+   "text": "85 of 100 beds full: risk shows",
+   "value": 85,
+   "formula": "bagustRisk",
+   "source": "Bagust A, Place M, Posnett JW. Dynamics of bed use in accommodating emergency admissions: stochastic simulation model. BMJ 1999;319(7203):155-158. doi:10.1136/bmj.319.7203.155 (abstract: risks discernible above about 85 % average occupancy; regular bed shortages and periodic bed crises at 90 % or more)",
+   "where": "CASE caption 6; grid fill",
+   "sourceId": "BPP99"
+  },
+  {
+   "id": "case-90",
+   "text": "90 of 100: regular shortages, periodic crises",
+   "value": 90,
+   "formula": "bagustCrisis",
+   "source": "Bagust A, Place M, Posnett JW. Dynamics of bed use in accommodating emergency admissions: stochastic simulation model. BMJ 1999;319(7203):155-158. doi:10.1136/bmj.319.7203.155 (abstract: risks discernible above about 85 % average occupancy; regular bed shortages and periodic bed crises at 90 % or more)",
+   "where": "CASE caption 7; grid fill",
+   "sourceId": "BPP99"
+  },
+  {
+   "id": "case-92",
+   "text": "England ran at 92 of 100 (Oct to Dec 2022)",
+   "value": 92,
+   "formula": "Math.round(nhsOcc)",
+   "source": "NHS England, Bed Availability and Occupancy (KH03), Quarter 3 2023-24 Statistical Press Notice (Feb 2024): general and acute beds open overnight, average occupancy 92.0 % in Quarter 3 2022/23 (Oct-Dec 2022, revised data)",
+   "where": "CASE caption 8; grid fill",
+   "sourceId": "KH03"
+  },
+  {
+   "id": "case-2022",
+   "text": "Oct to Dec 2022",
+   "value": 2022,
+   "formula": "nhsYear",
+   "source": "NHS England, Bed Availability and Occupancy (KH03), Quarter 3 2023-24 Statistical Press Notice (Feb 2024): general and acute beds open overnight, average occupancy 92.0 % in Quarter 3 2022/23 (Oct-Dec 2022, revised data)",
+   "where": "CASE caption 8",
+   "sourceId": "KH03"
+  },
+  {
+   "id": "count-jobs",
+   "text": "100 jobs",
+   "value": 100,
+   "formula": "n",
+   "source": "Seeded simulation in this claim's formula: M/M/1, mulberry32(seed), exponential gaps and job sizes from one stream (common random numbers for both desks), arrivals scaled by 1/rho, mean job size 1, warm-up jobs discarded, then n jobs counted; 'jobs ahead' = jobs in the system (waiting or in service) at the instant of arrival. Seed rule: the first seed from 1 upward whose two counts both land within 10 % of the long-run n x rho/(1-rho)",
+   "where": "COUNT caption 9, 10, 11; 100 columns per desk; '÷ 100'",
+   "sourceId": "SIM"
+  },
+  {
+   "id": "count-running",
+   "text": "running counters 0 … 99 and 0 … 837 during arrivals",
+   "value": [
+    0,
+    837
+   ],
+   "formula": "[0,(function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm)s+=d.length-p;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoB)]",
+   "source": "Seeded simulation in this claim's formula: M/M/1, mulberry32(seed), exponential gaps and job sizes from one stream (common random numbers for both desks), arrivals scaled by 1/rho, mean job size 1, warm-up jobs discarded, then n jobs counted; 'jobs ahead' = jobs in the system (waiting or in service) at the instant of arrival. Seed rule: the first seed from 1 upward whose two counts both land within 10 % of the long-run n x rho/(1-rho)",
+   "where": "COUNT counters 36.0 to 48.0: each shows the partial sum of the per-arrival series in beats.md, from 0 to its final claim",
+   "sourceId": "SIM"
+  },
+  {
+   "id": "count-a-total",
+   "text": "half-busy desk: 99 jobs found ahead",
+   "value": 99,
+   "formula": "(function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm)s+=d.length-p;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoA)",
+   "source": "Seeded simulation in this claim's formula: M/M/1, mulberry32(seed), exponential gaps and job sizes from one stream (common random numbers for both desks), arrivals scaled by 1/rho, mean job size 1, warm-up jobs discarded, then n jobs counted; 'jobs ahead' = jobs in the system (waiting or in service) at the instant of arrival. Seed rule: the first seed from 1 upward whose two counts both land within 10 % of the long-run n x rho/(1-rho)",
+   "where": "COUNT caption 10; desk A counter",
+   "sourceId": "SIM"
+  },
+  {
+   "id": "count-b-total",
+   "text": "nine-tenths desk: 837 jobs found ahead",
+   "value": 837,
+   "formula": "(function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm)s+=d.length-p;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoB)",
+   "source": "Seeded simulation in this claim's formula: M/M/1, mulberry32(seed), exponential gaps and job sizes from one stream (common random numbers for both desks), arrivals scaled by 1/rho, mean job size 1, warm-up jobs discarded, then n jobs counted; 'jobs ahead' = jobs in the system (waiting or in service) at the instant of arrival. Seed rule: the first seed from 1 upward whose two counts both land within 10 % of the long-run n x rho/(1-rho)",
+   "where": "COUNT caption 11; caption 12; desk B counter",
+   "sourceId": "SIM"
+  },
+  {
+   "id": "count-a-each",
+   "text": "99 ÷ 100 ≈ 1 a job",
+   "value": 1,
+   "formula": "Math.round((function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm)s+=d.length-p;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoA)/n)",
+   "source": "Seeded simulation in this claim's formula: M/M/1, mulberry32(seed), exponential gaps and job sizes from one stream (common random numbers for both desks), arrivals scaled by 1/rho, mean job size 1, warm-up jobs discarded, then n jobs counted; 'jobs ahead' = jobs in the system (waiting or in service) at the instant of arrival. Seed rule: the first seed from 1 upward whose two counts both land within 10 % of the long-run n x rho/(1-rho)",
+   "where": "COUNT desk A readout",
+   "sourceId": "SIM"
+  },
+  {
+   "id": "count-b-each",
+   "text": "837 ÷ 100 = 8.4 a job",
+   "value": 8.4,
+   "formula": "Math.round(((function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm)s+=d.length-p;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoB)/n)*10)/10",
+   "source": "Seeded simulation in this claim's formula: M/M/1, mulberry32(seed), exponential gaps and job sizes from one stream (common random numbers for both desks), arrivals scaled by 1/rho, mean job size 1, warm-up jobs discarded, then n jobs counted; 'jobs ahead' = jobs in the system (waiting or in service) at the instant of arrival. Seed rule: the first seed from 1 upward whose two counts both land within 10 % of the long-run n x rho/(1-rho)",
+   "where": "COUNT caption 12; desk B readout and dotted line",
+   "sourceId": "SIM"
+  },
+  {
+   "id": "long-run-90",
+   "text": "long run at 90 %: 9",
+   "value": 9,
+   "formula": "Math.round((rhoB/(1-rhoB))*10)/10",
+   "source": "Kleinrock L. Queueing Systems, Volume 1: Theory. Wiley, 1975. M/M/1: mean wait in queue Wq = rho/(1-rho) x mean service time; by PASTA an arrival finds on average rho/(1-rho) jobs in the system",
+   "where": "COUNT caption 12; 'LONG RUN 9' line; ladder tick; brand card",
+   "sourceId": "KL75"
+  },
+  {
+   "id": "ladder-50",
+   "text": "50 % → 1",
+   "value": 1,
+   "formula": "Math.round((rhoA/(1-rhoA))*10)/10",
+   "source": "Kleinrock L. Queueing Systems, Volume 1: Theory. Wiley, 1975. M/M/1: mean wait in queue Wq = rho/(1-rho) x mean service time; by PASTA an arrival finds on average rho/(1-rho) jobs in the system",
+   "where": "COUNT ladder tick on desk B axis",
+   "sourceId": "KL75"
+  },
+  {
+   "id": "ladder-80",
+   "text": "80 % → 4",
+   "value": 4,
+   "formula": "Math.round((rho80/(1-rho80))*10)/10",
+   "source": "Kleinrock L. Queueing Systems, Volume 1: Theory. Wiley, 1975. M/M/1: mean wait in queue Wq = rho/(1-rho) x mean service time; by PASTA an arrival finds on average rho/(1-rho) jobs in the system",
+   "where": "COUNT ladder tick on desk B axis",
+   "sourceId": "KL75"
+  },
+  {
+   "id": "ladder-95",
+   "text": "95 % → 19",
+   "value": 19,
+   "formula": "Math.round((rho95/(1-rho95))*10)/10",
+   "source": "Kleinrock L. Queueing Systems, Volume 1: Theory. Wiley, 1975. M/M/1: mean wait in queue Wq = rho/(1-rho) x mean service time; by PASTA an arrival finds on average rho/(1-rho) jobs in the system",
+   "where": "COUNT ladder tick on desk B axis",
+   "sourceId": "KL75"
+  },
+  {
+   "id": "ladder-pcts",
+   "text": "ladder labels 50 / 80 / 90 / 95",
+   "value": [
+    50,
+    80,
+    90,
+    95
+   ],
+   "formula": "[rhoA,rho80,rhoB,rho95].map(x=>Math.round(x*100))",
+   "source": "Kleinrock L. Queueing Systems, Volume 1: Theory. Wiley, 1975. M/M/1: mean wait in queue Wq = rho/(1-rho) x mean service time; by PASTA an arrival finds on average rho/(1-rho) jobs in the system",
+   "where": "COUNT ladder tick labels",
+   "sourceId": "KL75"
+  },
+  {
+   "id": "monday-85",
+   "text": "above 85 % busy",
+   "value": 85,
+   "formula": "bagustRisk",
+   "source": "Bagust A, Place M, Posnett JW. Dynamics of bed use in accommodating emergency admissions: stochastic simulation model. BMJ 1999;319(7203):155-158. doi:10.1136/bmj.319.7203.155 (abstract: risks discernible above about 85 % average occupancy; regular bed shortages and periodic bed crises at 90 % or more)",
+   "where": "MONDAY caption 13",
+   "sourceId": "BPP99"
+  },
+  {
+   "id": "limits-steady",
+   "text": "perfectly regular jobs at 90 %: 4.5 (half of 9)",
+   "value": 4.5,
+   "formula": "Math.round((rhoB/(2*(1-rhoB)))*10)/10",
+   "source": "Kingman JFC. The single server queue in heavy traffic. Proceedings of the Cambridge Philosophical Society 1961;57:902-904 (wait grows as rho/(1-rho), scaled by arrival and service variability)",
+   "where": "live page honest-limits panel and transcript only (not on the film stage)",
+   "sourceId": "KI61"
+  },
+  {
+   "id": "limits-85-mult",
+   "text": "one desk at 85 %: about 5.7",
+   "value": 5.7,
+   "formula": "Math.round((rho85/(1-rho85))*10)/10",
+   "source": "Kleinrock L. Queueing Systems, Volume 1: Theory. Wiley, 1975. M/M/1: mean wait in queue Wq = rho/(1-rho) x mean service time; by PASTA an arrival finds on average rho/(1-rho) jobs in the system",
+   "where": "live page try-it panel default readout only",
+   "sourceId": "KL75"
+  },
+  {
+   "id": "count-a-zero",
+   "text": "42 of 100 walked straight in (desk A)",
+   "value": 42,
+   "formula": "(function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm&&d.length-p===0)s++;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoA)",
+   "source": "Seeded simulation in this claim's formula: M/M/1, mulberry32(seed), exponential gaps and job sizes from one stream (common random numbers for both desks), arrivals scaled by 1/rho, mean job size 1, warm-up jobs discarded, then n jobs counted; 'jobs ahead' = jobs in the system (waiting or in service) at the instant of arrival. Seed rule: the first seed from 1 upward whose two counts both land within 10 % of the long-run n x rho/(1-rho)",
+   "where": "optional COUNT chrome; not required on screen",
+   "sourceId": "SIM"
+  },
+  {
+   "id": "count-b-zero",
+   "text": "4 of 100 walked straight in (desk B)",
+   "value": 4,
+   "formula": "(function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm&&d.length-p===0)s++;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoB)",
+   "source": "Seeded simulation in this claim's formula: M/M/1, mulberry32(seed), exponential gaps and job sizes from one stream (common random numbers for both desks), arrivals scaled by 1/rho, mean job size 1, warm-up jobs discarded, then n jobs counted; 'jobs ahead' = jobs in the system (waiting or in service) at the instant of arrival. Seed rule: the first seed from 1 upward whose two counts both land within 10 % of the long-run n x rho/(1-rho)",
+   "where": "optional COUNT chrome; not required on screen",
+   "sourceId": "SIM"
+  }
+ ]
+}
