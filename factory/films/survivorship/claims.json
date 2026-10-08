@@ -1,0 +1,270 @@
+{
+ "film": "survivorship",
+ "params": {
+  "flew": 400,
+  "returned": 380,
+  "unhit": 320,
+  "a0": 0.8,
+  "a1": 0.08,
+  "a2": 0.05,
+  "a3": 0.01,
+  "a4": 0.005,
+  "a5": 0.005,
+  "hit1": 32,
+  "hit2": 20,
+  "hit3": 4,
+  "hit4": 2,
+  "hit5": 2,
+  "per": 100,
+  "guess": 10,
+  "year": 1943
+ },
+ "claims": [
+  {
+   "id": "c-year",
+   "text": "1943",
+   "value": 1943,
+   "formula": "year",
+   "source": "WALD43",
+   "where": "CASE memo title block; caption 5",
+   "renders": [
+    "1943"
+   ]
+  },
+  {
+   "id": "c-flew",
+   "text": "400 planes flew",
+   "value": 400,
+   "formula": "flew",
+   "source": "WALD43",
+   "where": "CASE ledger line 1; caption 6; COUNT grid header '400 FLEW'",
+   "renders": [
+    "400"
+   ]
+  },
+  {
+   "id": "c-returned",
+   "text": "380 came home",
+   "value": 380,
+   "formula": "returned",
+   "source": "WALD43",
+   "where": "CASE ledger line 2; caption 6",
+   "renders": [
+    "380"
+   ]
+  },
+  {
+   "id": "c-returned-check",
+   "text": "380 = 400 x 0.95 (returning share is the sum of a0..a5)",
+   "value": 380,
+   "formula": "Math.round(flew*(a0+a1+a2+a3+a4+a5))",
+   "source": "WALD43",
+   "where": "cross-check only (not on screen)"
+  },
+  {
+   "id": "c-lost",
+   "text": "20 never came home",
+   "value": 20,
+   "formula": "flew-returned",
+   "source": "WALD43",
+   "where": "CASE ledger line 3; caption 7; COUNT bottom row label '20 never came back'; COUNT truth marker",
+   "renders": [
+    "20"
+   ]
+  },
+  {
+   "id": "c-unhit",
+   "text": "320 came home with no holes",
+   "value": 320,
+   "formula": "Math.round(a0*flew)",
+   "source": "WALD43",
+   "where": "COUNT label for rows 1-16; caption 9",
+   "renders": [
+    "320"
+   ]
+  },
+  {
+   "id": "c-holed",
+   "text": "60 came home with holes",
+   "value": 60,
+   "formula": "returned-unhit",
+   "source": "WALD43",
+   "where": "HOOK tally label; CASE ledger; caption 7; COUNT label for rows 17-19; COUNT '0 of 60' survivor line",
+   "renders": [
+    "60"
+   ]
+  },
+  {
+   "id": "c-holed-check",
+   "text": "60 = 32 + 20 + 8",
+   "value": 60,
+   "formula": "hit1+hit2+hit3+hit4+hit5",
+   "source": "WALD43",
+   "where": "cross-check only"
+  },
+  {
+   "id": "c-hit1",
+   "text": "32 with one hole",
+   "value": 32,
+   "formula": "Math.round(a1*flew)",
+   "source": "WALD43",
+   "where": "CASE ledger, holes line",
+   "renders": [
+    "32"
+   ]
+  },
+  {
+   "id": "c-hit2",
+   "text": "20 with two holes",
+   "value": 20,
+   "formula": "Math.round(a2*flew)",
+   "source": "WALD43",
+   "where": "CASE ledger, holes line",
+   "renders": [
+    "20"
+   ]
+  },
+  {
+   "id": "c-hit3to5",
+   "text": "8 with three to five holes",
+   "value": 8,
+   "formula": "returned-unhit-hit1-hit2",
+   "source": "WALD43",
+   "where": "CASE ledger, holes line",
+   "renders": [
+    "8"
+   ]
+  },
+  {
+   "id": "c-minhits3",
+   "text": "3 (lower end of '3 to 5 holes')",
+   "value": 3,
+   "formula": "3",
+   "source": "WALD43",
+   "where": "CASE ledger, holes line ('8 with 3 to 5')"
+  },
+  {
+   "id": "c-maxhits",
+   "text": "at most 5 holes on any plane that came home",
+   "value": 5,
+   "formula": "5",
+   "source": "WALD43",
+   "where": "CASE ledger, holes line ('3 to 5')"
+  },
+  {
+   "id": "c-hittotal",
+   "text": "80 planes were hit (60 home + 20 lost)",
+   "value": 80,
+   "formula": "(returned-unhit)+(flew-returned)",
+   "source": "WALD43",
+   "where": "COUNT bracket '80 HIT'; caption 10",
+   "renders": [
+    "80",
+    "80 hit = 60 + 20"
+   ]
+  },
+  {
+   "id": "c-hittotal-check",
+   "text": "80 = 400 - 320 (every plane that was not hit came home)",
+   "value": 80,
+   "formula": "flew-unhit",
+   "source": "MS84",
+   "where": "cross-check only; the model assumption is in the honest-limits block"
+  },
+  {
+   "id": "c-lostofhit",
+   "text": "20 of 80 hit planes never came back",
+   "value": 20,
+   "formula": "flew-returned",
+   "source": "WALD43",
+   "where": "COUNT truth line 'TRUE 20 of 80'",
+   "renders": [
+    "20 of 80"
+   ]
+  },
+  {
+   "id": "c-ratio",
+   "text": "1 in 4",
+   "value": 4,
+   "formula": "((returned-unhit)+(flew-returned))/(flew-returned)",
+   "source": "WALD43",
+   "where": "COUNT headline '1 in 4' with '20 ÷ 80' beneath (after the count is drawn)",
+   "renders": [
+    "1 in 4",
+    "20 ÷ 80"
+   ]
+  },
+  {
+   "id": "c-per100",
+   "text": "25 in 100 hit planes never came home",
+   "value": 25,
+   "formula": "Math.round(per*(flew-returned)/((returned-unhit)+(flew-returned)))",
+   "source": "WALD43",
+   "where": "COUNT comparison line 'TRUE 25 in 100' against the viewer's guess; try-it panel",
+   "renders": [
+    "25 in 100"
+   ]
+  },
+  {
+   "id": "c-survivorview",
+   "text": "0 of 60: what the survivors' data shows about hit planes lost",
+   "value": 0,
+   "formula": "0*(returned-unhit)",
+   "source": "WALD43",
+   "where": "COUNT survivor line 'THE DATA YOU HAD: 0 of 60 lost'",
+   "renders": [
+    "0 of 60"
+   ]
+  },
+  {
+   "id": "c-per",
+   "text": "out of 100 planes hit (the commit prompt's base)",
+   "value": 100,
+   "formula": "per",
+   "source": "WALD43",
+   "where": "COMMIT prompt; caption 4; COUNT comparison lines",
+   "renders": [
+    "100",
+    "in 100"
+   ]
+  },
+  {
+   "id": "c-guess-default",
+   "text": "film-mode default guess: 10 in 100",
+   "value": 10,
+   "formula": "guess",
+   "source": "film.json commit.default (a declared teaching default, not a fact)",
+   "where": "COMMIT box in film mode; COUNT 'YOU 10 in 100'",
+   "renders": [
+    "10"
+   ]
+  },
+  {
+   "id": "c-guess-cells",
+   "text": "the viewer's guess placed on the 80 hit planes: 8 of 80",
+   "value": 8,
+   "formula": "Math.round(guess*((returned-unhit)+(flew-returned))/per)",
+   "source": "WALD43 (80 hit planes) and the viewer's commit",
+   "where": "COUNT 'YOU 8 of 80' (recomputed live from the committed guess)",
+   "renders": [
+    "8 of 80"
+   ]
+  },
+  {
+   "id": "c-q",
+   "text": "Wald's per-hit survival q = 0.851 (memo's root)",
+   "value": 0.851,
+   "formula": "(function(){var a=[a0,a1,a2,a3,a4,a5];var f=function(q){var s=0;for(var i=0;i<a.length;i++){s+=a[i]/Math.pow(q,i);}return s-1;};var lo=0.5,hi=0.9999;for(var k=0;k<200;k++){var m=(lo+hi)/2;if(f(m)>0){lo=m;}else{hi=m;}}return Math.round(lo*1000)/1000;})()",
+   "source": "WALD43",
+   "where": "try-it panel and sources note only (cross-check that the reconstructed 4 / 2 / 2 split reproduces the memo)"
+  },
+  {
+   "id": "c-p",
+   "text": "about 15 in 100: chance a single hit downs a plane (p = 0.149)",
+   "value": 0.149,
+   "formula": "(function(){var a=[a0,a1,a2,a3,a4,a5];var f=function(q){var s=0;for(var i=0;i<a.length;i++){s+=a[i]/Math.pow(q,i);}return s-1;};var lo=0.5,hi=0.9999;for(var k=0;k<200;k++){var m=(lo+hi)/2;if(f(m)>0){lo=m;}else{hi=m;}}return Math.round((1-lo)*1000)/1000;})()",
+   "source": "WALD43",
+   "where": "try-it panel only"
+  }
+ ]
+}
