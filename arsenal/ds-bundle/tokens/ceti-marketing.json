@@ -1,0 +1,38 @@
+{
+ "id": "ceti-marketing",
+ "name": "CETI marketing",
+ "color": {
+  "bg": "#1A1F2E",
+  "ink": "#F5EFE3",
+  "accent": "#A67756",
+  "accent2": "#D88B5C",
+  "muted": "#B8B0A1",
+  "line": "#2A3142",
+  "panel": "#0F1320",
+  "chalk": "#F5EFE3"
+ },
+ "type": {
+  "disp": {
+   "family": "Fraunces",
+   "weight": 300,
+   "style": "italic"
+  },
+  "mono": {
+   "family": "Space Mono",
+   "weight": 400
+  },
+  "body": {
+   "family": "DM Sans",
+   "weight": 400
+  }
+ },
+ "texture": "none",
+ "tempo": {
+  "ease": "expo",
+  "beat_s": 4
+ },
+ "voice": {
+  "register": "cetiai.co: deep-sea ground, paper ink, a copper lead and a peach spark; few words, slow",
+  "end_card": "CETI"
+ }
+}

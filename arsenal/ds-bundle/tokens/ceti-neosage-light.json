@@ -1,0 +1,38 @@
+{
+ "id": "ceti-neosage-light",
+ "name": "CETI neosage light",
+ "color": {
+  "bg": "#F5F4EF",
+  "ink": "#211817",
+  "accent": "#59348D",
+  "accent2": "#8E5C10",
+  "muted": "#574D42",
+  "line": "rgba(45,29,73,0.18)",
+  "panel": "#EBE9E0",
+  "chalk": "#211817"
+ },
+ "type": {
+  "disp": {
+   "family": "Fraunces",
+   "weight": 300,
+   "style": "italic"
+  },
+  "mono": {
+   "family": "Space Mono",
+   "weight": 400
+  },
+  "body": {
+   "family": "DM Sans",
+   "weight": 400
+  }
+ },
+ "texture": "none",
+ "tempo": {
+  "ease": "expo",
+  "beat_s": 4
+ },
+ "voice": {
+  "register": "Academy neosage light: sage and plum on paper, a notebook that argues gently",
+  "end_card": "CETI"
+ }
+}

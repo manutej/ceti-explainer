@@ -1,0 +1,38 @@
+{
+ "id": "editorial-serif",
+ "name": "Editorial serif (cream, ink, oxblood)",
+ "color": {
+  "bg": "#F6F0E2",
+  "ink": "#1C1A17",
+  "accent": "#8E2A2A",
+  "accent2": "#3E5A6B",
+  "muted": "#6E665A",
+  "line": "rgba(28,26,23,0.18)",
+  "panel": "#EBE2CE",
+  "chalk": "#0E0D0B"
+ },
+ "type": {
+  "disp": {
+   "family": "Fraunces",
+   "weight": 400,
+   "style": "italic"
+  },
+  "mono": {
+   "family": "DM Mono",
+   "weight": 400
+  },
+  "body": {
+   "family": "Newsreader",
+   "weight": 400
+  }
+ },
+ "texture": "paper",
+ "tempo": {
+  "ease": "cubic",
+  "beat_s": 4.5
+ },
+ "voice": {
+  "register": "a long-form magazine essay, unhurried, one red mark in the margin",
+  "end_card": "CETI"
+ }
+}
