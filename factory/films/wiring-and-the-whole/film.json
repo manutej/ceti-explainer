@@ -1,0 +1,319 @@
+{
+ "id": "wiring-and-the-whole",
+ "title": "The Wiring and the Whole",
+ "eyebrow": "CETI · Case · a repo read as a module of systems",
+ "lede": "One bet about large codebases, tested four ways in one repo. Seal a number, then count what the repo itself reports, including the review that said no.",
+ "dur": 103,
+ "seed": 469,
+ "type": {
+  "disp": "Newsreader",
+  "mono": "DM Mono"
+ },
+ "params": {
+  "files": 469,
+  "fExperiments": 131,
+  "fFixtures": 122,
+  "fDocs": 79,
+  "fScripts": 39,
+  "fPreview": 37,
+  "fWitness": 18,
+  "fCrates": 14,
+  "fOther": 29,
+  "toybank": 16,
+  "modules": 5,
+  "mAccounts": 4,
+  "mSavings": 3,
+  "mLoans": 4,
+  "mReport": 1,
+  "mShared": 4,
+  "checks": 13,
+  "checksPass": 13,
+  "sites": 3,
+  "wins": 3,
+  "s1e": 329,
+  "s1m": 216,
+  "s1F": 148,
+  "s1n": 169,
+  "s2e": 326,
+  "s2m": 209,
+  "s2F": 150,
+  "s2n": 54,
+  "s3e": 62,
+  "s3m": 27,
+  "s3F": 152,
+  "s3n": 514,
+  "e3pool": 16,
+  "e3runs": 4,
+  "e3A": 60,
+  "e3B": 61,
+  "tokA": 2089,
+  "tokB": 1316,
+  "e5q": 112,
+  "e5depths": 10,
+  "sonnet": 100,
+  "pooledBA": -3.7,
+  "rule": 5,
+  "rawBA": -10.2,
+  "artifactPct": 80,
+  "shards": 6,
+  "exitCode": 2
+ },
+ "commit": {
+  "at": 10.0,
+  "title": "HOW MANY?",
+  "prompt": "A 16-file toy bank, glued at its interfaces. Of 13 gluing checks, how many pass?",
+  "unit": "of 13",
+  "default": 9,
+  "min": 0,
+  "max": 13,
+  "step": 1
+ },
+ "count": {
+  "at": 40
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 9,
+   "eyebrow": "CASE · THE BET",
+   "title": "Not a pile of files"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 9,
+   "t1": 17,
+   "eyebrow": "CASE · YOUR NUMBER",
+   "title": "Thirteen checks"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 17,
+   "t1": 40,
+   "eyebrow": "CASE · THE WITNESS",
+   "title": "Files into systems"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 40,
+   "t1": 92,
+   "eyebrow": "CASE · THE COUNT",
+   "title": "Four experiments, counted"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 92,
+   "t1": 100,
+   "eyebrow": "CASE · MONDAY",
+   "title": "What is this a module of?"
+  }
+ ],
+ "captions": [
+  [
+   0.4,
+   4.4,
+   "The bet: a large codebase is not a pile of files."
+  ],
+  [
+   4.6,
+   8.8,
+   "It is a module of systems: units known by their interfaces, glued by typed wiring."
+  ],
+  [
+   9.2,
+   12.8,
+   "Test it small first: a 16-file toy bank, glued at its interfaces by a witness script."
+  ],
+  [
+   13.0,
+   16.8,
+   "The witness runs 13 gluing checks. How many pass? Type a number."
+  ],
+  [
+   17.3,
+   21.8,
+   "Now the repo itself: 469 files. Sorted by folder, the pile becomes a few parts."
+  ],
+  [
+   22.0,
+   26.8,
+   "One part, witness/, holds the toy bank: 16 Java files."
+  ],
+  [
+   27.0,
+   31.8,
+   "16 files, 5 systems. Each is known only by its ports; wires glue port to port."
+  ],
+  [
+   32.0,
+   35.8,
+   "The witness glues them and checks the algebra: pushouts, maps, a symmetry, a collision."
+  ],
+  [
+   36.0,
+   39.8,
+   "13 of 13 pass, including the one that must fire: two Money types that may not glue."
+  ],
+  [
+   40.3,
+   44.8,
+   "E2: is factored wiring cheaper than spelled-out edges? 3 real Apache Fineract sites."
+  ],
+  [
+   45.0,
+   49.8,
+   "One family has 514 handlers. Its shared legend pays for itself by handler 5."
+  ],
+  [
+   50.0,
+   53.8,
+   "The other two break even at 2, against families of 169 and 54. 3 of 3 sites win."
+  ],
+  [
+   54.3,
+   58.8,
+   "E3: do models read it? 16 wiring questions, 4 runs per arm. Explicit edges: 60 of 64."
+  ],
+  [
+   59.0,
+   62.8,
+   "The factored pack: 61 of 64, on 1,316 tokens instead of 2,089."
+  ],
+  [
+   63.0,
+   67.8,
+   "93.8% against 95.3%, at 63% of the tokens. No comprehension tax at pilot scale."
+  ],
+  [
+   68.3,
+   72.8,
+   "E5: does it hold at depth? 112 questions across 10 depth levels."
+  ],
+  [
+   73.0,
+   77.8,
+   "The stronger model read both forms at 100% at every depth. The line stays flat."
+  ],
+  [
+   78.0,
+   83.8,
+   "Pooled gap: −3.7 points, inside the 5-point rule. The raw −10.2 was mostly harness error."
+  ],
+  [
+   84.3,
+   87.8,
+   "Then the programme graded itself. An independent evaluator read the scale build: no."
+  ],
+  [
+   88.0,
+   91.8,
+   "NO-SHIP: one engine crashed on one shard. Fixed, re-run, 6 of 6 shards, then shipped."
+  ],
+  [
+   92.3,
+   95.8,
+   "Monday, before you paste a whole repo into a model, ask: what is this a module of?"
+  ],
+  [
+   96.0,
+   99.8,
+   "Honest limits: these are the repo's own reported numbers. One author, not replicated."
+  ]
+ ],
+ "brand": {
+  "takeaway": "Ship the wiring, not the whole.",
+  "at": 100
+ },
+ "sources": [
+  [
+   "README",
+   "manutej/wiring-and-the-whole, README.md @ e4ebf58 (2026-10-04): the bet (line 5), the E1–E5 results table (lines 19–24), the E2 site table (lines 45–49), claims discipline (lines 102–120)."
+  ],
+  [
+   "HANDOFF",
+   "HANDOFF.md §3 'Current state of truth' (lines 36–62): E1 13/13, E2 WIN, E3 pilot B passes, E5/E5.1 B passes at depth."
+  ],
+  [
+   "E1",
+   "witness/WITNESS.json lines 3–17 (13 named checks, all true) and docs/witness/WITNESS-HOW-IT-WORKS.md lines 62–89 (toybank module graph: shared 4, accounts 4, savings 3, loans 4, report 1)."
+  ],
+  [
+   "E2",
+   "experiments/e2-tokens/E2-RESULTS.md lines 15–20: e, m, F and n* = F/(e−m) for three real Apache Fineract sites; cl100k_base tokenizer."
+  ],
+  [
+   "E3",
+   "experiments/e3-ablation/E3-RESULTS.md lines 6–14 and 52; E3-GRADES.json lines 19–90 (per-run accuracy on the 16-question wiring pool, 4 runs per arm)."
+  ],
+  [
+   "E5",
+   "experiments/e5-depth/E5-RESULTS.md lines 1–47; E5.1-GRADES.json (per-depth strict accuracy, pooled B−A −3.7 at line 347); E5-GRADES.json line 170 (raw −10.2)."
+  ],
+  [
+   "EVAL",
+   "docs/pulse/evaluations/2026-10-04-s2-s3-scale-independent.md lines 3 and 18 (NO-SHIP; python engine slice-matrix-check exits 2) and 2026-10-04-s2-s3-scale-reshhip.md lines 3 and 12 (SHIP; 6/6)."
+  ],
+  [
+   "GIT",
+   "git ls-files on the clone at e4ebf58: 469 tracked files, by top folder (experiments 131, fixtures 122, docs 79, scripts 39, preview 37, witness 18, crates 14, other 29); 145 commits. Recorded in facts.json; no repository code was run."
+  ],
+  [
+   "PAPER",
+   "Libkind, S. & Myers, D. J. Towards a Double Operadic Theory of Systems. arXiv:2505.18329v2 (the repo's background paper)."
+  ]
+ ],
+ "honest": [
+  "Every number here is the repo's own report (README, HANDOFF, the results files and grade JSON), produced by one author working with coding agents. None of it has been replicated by anyone else.",
+  "E1 is a 16-file toy and 'demonstrated' is not 'proved' (the repo lists MUST-PROVE 1–5 as open). E2 is token arithmetic on three sites; repo-scale savings are unmeasured. E3 is a pilot: 16 questions, one convention-heavy family, same-author question templates. E5 is one corpus with harness models.",
+  "The 469-file sort is by folder: a picture of this repo, not a measured wiring map of it."
+ ],
+ "tryit": {
+  "title": "Try it",
+  "note": "Break-even for a factored pack: the legend costs F tokens once, then each member saves e − m tokens. n* = F ÷ (e − m), rounded up.",
+  "seek": 52,
+  "inputs": [
+   {
+    "id": "F",
+    "label": "Legend + motif F",
+    "min": 1,
+    "max": 2000,
+    "step": 1,
+    "value": 152,
+    "unit": "tok"
+   },
+   {
+    "id": "e",
+    "label": "Explicit per member e",
+    "min": 1,
+    "max": 2000,
+    "step": 1,
+    "value": 62,
+    "unit": "tok"
+   },
+   {
+    "id": "m",
+    "label": "Factored per member m",
+    "min": 0,
+    "max": 2000,
+    "step": 1,
+    "value": 27,
+    "unit": "tok"
+   },
+   {
+    "id": "n",
+    "label": "Family size",
+    "min": 1,
+    "max": 5000,
+    "step": 1,
+    "value": 514,
+    "unit": "members"
+   }
+  ]
+ },
+ "format": "feature"
+}

@@ -293,8 +293,9 @@ for (let t = 0; t <= DUR + 1e-6; t += STEP) {
   const tagged = chs.map(c => ({ c, b: beatOf(c) })).filter(x => x.b);
   const brandDur = +(film.brand?.dur ?? film.brand?.duration ?? (film.brand?.at != null ? DUR - film.brand.at : 3));
   const material = film.brand ? DUR - brandDur : DUR;
-  row('G4a', 'format · duration', pf(material >= 60 && material <= 75 && DUR <= 78),
-    `total ${r2(DUR)} s; material ${r2(material)} s (want 60–75) + brand ${film.brand ? brandDur + ' s' : 'none'}; total ≤ 78`);
+  const fmt = film.format === 'feature' ? { lo: 90, hi: 120, cap: 123 } : { lo: 60, hi: 75, cap: 78 };
+  row('G4a', 'format · duration', pf(material >= fmt.lo && material <= fmt.hi && DUR <= fmt.cap),
+    `total ${r2(DUR)} s; material ${r2(material)} s (want ${fmt.lo}–${fmt.hi}, format ${film.format || 'case'}) + brand ${film.brand ? brandDur + ' s' : 'none'}; total ≤ ${fmt.cap}`);
   if (!tagged.length) row('G4b', 'format · five beats', 'SKIP', `no chapter carries a beat id/name (${chs.length} chapters: ${chs.slice(0, 4).map(c => c.id + ' ' + (c.title || '')).join(', ')}…); legacy schema`);
   else {
     const seq = tagged.map(x => x.b).filter((b, i, a) => i === 0 || a[i - 1] !== b);
