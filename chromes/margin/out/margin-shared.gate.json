@@ -1,0 +1,56 @@
+{
+  "film": "margin-shared",
+  "pass": true,
+  "rows": [
+    {
+      "check": "LOAD live",
+      "result": "PASS",
+      "detail": "3.9s boot; 0 errors"
+    },
+    {
+      "check": "LAYOUT 400px",
+      "result": "PASS",
+      "detail": "scrollWidth 400 vs 400 at 400 px (1280: 1280/1280)"
+    },
+    {
+      "check": "PURE-REP",
+      "result": "PASS",
+      "detail": "5 t re-seeked identical"
+    },
+    {
+      "check": "PURE-ORD",
+      "result": "PASS",
+      "detail": "A\u2192B == B\u2192A at 5 pairs"
+    },
+    {
+      "check": "CLOCK",
+      "result": "PASS",
+      "detail": "source clean"
+    },
+    {
+      "check": "META",
+      "result": "PASS",
+      "detail": "4 checked rows vs AgentLoop.exact"
+    },
+    {
+      "check": "ENGINE",
+      "result": "PASS",
+      "detail": "selfTest 12 cases, worst |z| 2.39"
+    },
+    {
+      "check": "CAPTIONS",
+      "result": "PASS",
+      "detail": "9 captions, max 86 chars"
+    },
+    {
+      "check": "AUDIO",
+      "result": "PASS",
+      "detail": "476 events \u2192 34.80s WAV, peak 0.18, 9.8s offline"
+    },
+    {
+      "check": "LOAD film",
+      "result": "PASS",
+      "detail": "0 errors \u00b7 p2d 960\u00d7540"
+    }
+  ]
+}
