@@ -23,7 +23,16 @@ Hand-written GLSL ES 1.00 via `createFilterShader` ([[p5-shader]], [[filter-shad
 
 ## Cost (SwiftShader software GL, 1920x1080 backing store)
 See table below; real GPUs are 2 to 3 orders of magnitude cheaper. Taps per pixel: neon 28 (+scene), halftone 8, riso 2 + hash, chalk 5 + noise. Scene redraw in P2D is about 5 ms. Harness `ms_per_frame` (seek only, GPU work queued) was 22 ms.
-COSTTABLE
+
+| look | s/frame, scene + filter + GPU sync (SwiftShader, incl. readback) | taps/px |
+|---|---|---|
+| neon | 2.48 | 28 |
+| halftone | 1.87 | 8 |
+| riso | 1.87 | 2 |
+| chalk | 2.17 | 5 |
+| 2D fallback (any look) | 0.9 | n/a |
+
+The floor (about 1.8 s) is the software rasteriser's texture upload and readback of the 1920x1080 layer, not the shader; looks differ by 0.1 to 0.6 s. A strands `buildFilterShader` probe in headless was inconclusive (my hook body referenced `canvasContent` outside the hook argument and threw), so it was not pursued.
 
 ## Pitfalls
 - Canvas is WEBGL, so p5 `text()` needs a loaded font; this module draws text in the P2D layer with CSS-loaded faces, so the page must load the brand fonts before seek (demo awaits document.fonts).
