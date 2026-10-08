@@ -26,3 +26,5 @@ __MACOSX/
 
 # factory kit shell is a template, not a built page
 !factory/kit/shell.html
+# stills written by probes and gates
+factory/**/shots/
