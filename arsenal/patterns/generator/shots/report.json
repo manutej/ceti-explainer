@@ -1,0 +1,35 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/generator/demo.html",
+ "errors": [],
+ "variants": {
+  "sequence": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/sequence-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/sequence-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/sequence-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/sequence-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "cascade": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/cascade-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/cascade-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/cascade-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/cascade-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "relay": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/relay-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/relay-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/relay-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/generator/shots/relay-t8.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 8.3,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/generator/shots/contact.png"
+}
