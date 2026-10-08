@@ -36,3 +36,7 @@ factory/**/shots/
 arsenal/**/shots/*
 !arsenal/**/shots/contact.png
 !arsenal/**/shots/report.json
+
+# kit2 proof scratch
+factory/kit2/proof/stills/
+factory/kit2/proof/matrix.log
