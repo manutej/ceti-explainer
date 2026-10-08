@@ -1,6 +1,6 @@
 {
  "schema": "ceti-build-baseline/1",
- "note": "Pages built by tests/proofs.sh at the merge commit. Builds are byte-reproducible (fontTools recalcTimestamp=False). shipped_bytes is the size of the page uploaded with the sources: escapement and grasp differ by the runtime readout word (exact -> expected, already in runtime/dist) and, for grasp, the AM.cam.mix fix; base-rate by the newer feature.template.html.",
+ "note": "Pages built by tests/proofs.sh at the merge commit. Builds are byte-reproducible (fontTools recalcTimestamp=False). shipped_bytes is the size of the page uploaded with the sources: escapement and grasp differ by the runtime readout word (exact -> expected, already in runtime/dist) and, for grasp, the AM.cam.mix fix; base-rate by the newer feature.template.html. Factory films (factory/films/<id>/build/<id>.html) are built by factory/kit/build.py and checked by proof (vi); shipped_bytes = bytes since the page is rebuilt from sources, never uploaded.",
  "runtime_sha256": "cd580e362d4a38c49d7b9d8513f313eaaa2c59923d57260ea13a4b6a316c1f03",
  "p5_sha256": "bb8b82b97fcbcd5bb2d5475d1b6a3904f3ab4ed01b821134fd8f1e7710fce559",
  "pages": [
@@ -27,6 +27,96 @@
    "bytes": 1127447,
    "sha256": "0d922218ee203a2a6efe2670669afa6a60ec9f4e880a7a93c76a6c2ae13715f0",
    "shipped_bytes": 1127447
+  },
+  {
+   "page": "factory/films/amdahl/build/amdahl.html",
+   "bytes": 1111964,
+   "sha256": "d400603042adca17557c267b75146fda822ddab5818390b854f1c66ea2dd7613",
+   "shipped_bytes": 1111964
+  },
+  {
+   "page": "factory/films/brooks/build/brooks.html",
+   "bytes": 1111502,
+   "sha256": "be95e706603583f3ce552b13fe5c786bd1480ef0436ebe21c5fc737ae615c45b",
+   "shipped_bytes": 1111502
+  },
+  {
+   "page": "factory/films/correlated-risk/build/correlated-risk.html",
+   "bytes": 1110819,
+   "sha256": "de70c74503bfcdf442fa95c412771b40aa2d92f40339d285858d0b7f33c48433",
+   "shipped_bytes": 1110819
+  },
+  {
+   "page": "factory/films/cost-of-delay/build/cost-of-delay.html",
+   "bytes": 1112568,
+   "sha256": "85b9c679a37b27259d314cc5d20074c04c130ff6112a6238ea27ec3e7463dda3",
+   "shipped_bytes": 1112568
+  },
+  {
+   "page": "factory/films/goodhart/build/goodhart.html",
+   "bytes": 1105448,
+   "sha256": "7280596d4b9026eb47194ada10f68b4af54fad59047ba96dd81e9848fe5415a5",
+   "shipped_bytes": 1105448
+  },
+  {
+   "page": "factory/films/queues/build/queues.html",
+   "bytes": 1108580,
+   "sha256": "4743e73dcfc458458d9b4394251a93ed9c04b9a14db68dda4e55aed4f60d2c0c",
+   "shipped_bytes": 1108580
+  },
+  {
+   "page": "factory/films/regression/build/regression.html",
+   "bytes": 1114689,
+   "sha256": "254338240ea53e8ceb4521794b1f7ace24a3007e5df6031ec0578c45d74b6b17",
+   "shipped_bytes": 1114689
+  },
+  {
+   "page": "factory/films/sample-size/build/sample-size.html",
+   "bytes": 1117559,
+   "sha256": "836da6218b26344c2dcbf62ff58605ea68acef637ebe327c8977efed68e68c88",
+   "shipped_bytes": 1117559
+  },
+  {
+   "page": "factory/films/selection/build/selection.html",
+   "bytes": 1129864,
+   "sha256": "83db587cf0374c9e21f650380ced2a8123a5c6ec30a516f3e53725c25fc0b29e",
+   "shipped_bytes": 1129864
+  },
+  {
+   "page": "factory/films/simpsons/build/simpsons.html",
+   "bytes": 1109814,
+   "sha256": "47c5b15a276630aae263ad10fe39213e7a5e994cbe4e5a074c80112c3a824b14",
+   "shipped_bytes": 1109814
+  },
+  {
+   "page": "factory/films/streaks/build/streaks.html",
+   "bytes": 1111705,
+   "sha256": "7d00abd4032bc3d28d2d5298f4e7b20d8309de9e831a0343a5321abde6ace778",
+   "shipped_bytes": 1111705
+  },
+  {
+   "page": "factory/films/sunk-cost/build/sunk-cost.html",
+   "bytes": 1108495,
+   "sha256": "8552cc4056be00717ee5e5444c8131aae9b3ead330b9ecfe140be65c65c90157",
+   "shipped_bytes": 1108495
+  },
+  {
+   "page": "factory/films/survivorship/build/survivorship.html",
+   "bytes": 1107514,
+   "sha256": "484bccb63f752fb0633425bb61b8ed292d2966f4ac59cd8dd09e23c1e5f991f3",
+   "shipped_bytes": 1107514
+  },
+  {
+   "page": "factory/films/volatility-drag/build/volatility-drag.html",
+   "bytes": 1112917,
+   "sha256": "0f1f544b53a4cd6a875a4cf415a58b9262aa63d122bb93ff562e5f44c5829e08",
+   "shipped_bytes": 1112917
+  },
+  {
+   "page": "factory/films/winners-curse/build/winners-curse.html",
+   "bytes": 1110017,
+   "sha256": "a4fc5a1a53742c5457361bd47c6d4110a4309131184481bdfd5514f7ae5470bf",
+   "shipped_bytes": 1110017
   }
  ]
 }

@@ -1,0 +1,24 @@
+{
+  "id": "queues",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "desk A 99 jobs ahead, desk B 837 (seed 3, 2,000 warm-up, 100 counted)", "status": "ok", "note": "independent rerun of the mulberry32 M/M/1 simulation gives 99 and 837; 42 and 4 walk-ins also match"},
+    {"claim": "ladder 1 / 4 / 9 / 19 at 50 / 80 / 90 / 95 %", "status": "ok", "note": "rho/(1-rho) = 1, 4, 9, 19 (Kleinrock M/M/1); jobs found ahead = mean in system by PASTA"},
+    {"claim": "837 ÷ 100 = 8.4", "status": "ok", "note": "8.37 -> 8.4"},
+    {"claim": "regular work at 90 % waits 4.5", "status": "ok", "note": "9 x (0 + 1)/2 = 4.5 (Kingman, c_a^2 = 0); page only"},
+    {"claim": "Bagust 1999: risk above 85 %, crises at 90 %", "status": "ok", "note": "BMJ 319:155 abstract as cited"},
+    {"claim": "NHS England 92.0 % G&A occupancy, Oct to Dec 2022", "status": "ok", "note": "KH03 Q3 2023/24 notice, revised Q3 2022/23 figure, as cited; not independently fetched"}
+  ],
+  "craft": 4,
+  "originality": 4,
+  "stop": 3,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 60.2, "what": "The viewer's guess (2) is a red line almost on desk B's baseline and the ladder label '1 · 50 %' sits in the same corner; the guess-vs-truth read is crowded at the bottom-left", "severity": "low"},
+    {"t": 60.2, "what": "Ladder percent labels ('90 %', '50 %') are faint grey chrome next to the result numbers 9 and 1", "severity": "low"},
+    {"t": 1.0, "what": "Hook is ten outlined boxes filling; plain, carried by the caption", "severity": "low"},
+    {"t": 10.9, "what": "The 50 % anchor ('a new job waits ≈ 1 job-length') is given before the commit; deliberate and not the answer, but it is a number on screen in the commit window", "severity": "low"}
+  ],
+  "one_line": "Two desks fed the same hundred jobs, with the pile-up counted mark by mark, is the right picture; the numbers reproduce exactly."
+}

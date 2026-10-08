@@ -1,5 +1,381 @@
 {
  "schema": "factory-catalogue/1",
  "generated_by": "factory/tools/catalogue.py",
- "films": []
+ "films": [
+  {
+   "id": "amdahl",
+   "title": "Ten Times Faster",
+   "eyebrow": "CETI · Case · Amdahl's law",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 8,
+   "claims": 26,
+   "takeaway": "The hours you don't speed up set the limit.",
+   "folder": "factory/films/amdahl",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/amdahl/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/amdahl/build/amdahl.html",
+    "bytes": 1111964,
+    "sha256": "d400603042adca17557c267b75146fda822ddab5818390b854f1c66ea2dd7613"
+   }
+  },
+  {
+   "id": "brooks",
+   "title": "Brooks' Law",
+   "eyebrow": "The 75-second case · adding people to a late project",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 4,
+   "claims": 34,
+   "takeaway": "Double the team: 10 paths become 45.",
+   "folder": "factory/films/brooks",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/brooks/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/brooks/build/brooks.html",
+    "bytes": 1111502,
+    "sha256": "be95e706603583f3ce552b13fe5c786bd1480ef0436ebe21c5fc737ae615c45b"
+   }
+  },
+  {
+   "id": "correlated-risk",
+   "title": "Ten Bets, One Bet",
+   "eyebrow": "CETI explainer · correlated risk",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 5,
+   "claims": 33,
+   "takeaway": "Ten bets that fail together are one bet.",
+   "folder": "factory/films/correlated-risk",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/correlated-risk/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/correlated-risk/build/correlated-risk.html",
+    "bytes": 1110819,
+    "sha256": "de70c74503bfcdf442fa95c412771b40aa2d92f40339d285858d0b7f33c48433"
+   }
+  },
+  {
+   "id": "cost-of-delay",
+   "title": "The Cost of Waiting",
+   "eyebrow": "CETI · the 75-second case · cost of delay",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 5,
+   "claims": 37,
+   "takeaway": "Do first what loses the most per month of work.",
+   "folder": "factory/films/cost-of-delay",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/cost-of-delay/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/cost-of-delay/build/cost-of-delay.html",
+    "bytes": 1112568,
+    "sha256": "85b9c679a37b27259d314cc5d20074c04c130ff6112a6238ea27ec3e7463dda3"
+   }
+  },
+  {
+   "id": "goodhart",
+   "title": "Eight Is Great",
+   "eyebrow": "CETI case · Goodhart's law",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 6,
+   "claims": 17,
+   "takeaway": "When a measure becomes a target, it stops measuring.",
+   "folder": "factory/films/goodhart",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/goodhart/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/goodhart/build/goodhart.html",
+    "bytes": 1105448,
+    "sha256": "7280596d4b9026eb47194ada10f68b4af54fad59047ba96dd81e9848fe5415a5"
+   }
+  },
+  {
+   "id": "queues",
+   "title": "Busy is not fast",
+   "eyebrow": "CETI case · utilisation and waiting",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 7,
+   "claims": 32,
+   "takeaway": "Busy is not fast: at 90 %, a job waits nine.",
+   "folder": "factory/films/queues",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/queues/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/queues/build/queues.html",
+    "bytes": 1108580,
+    "sha256": "4743e73dcfc458458d9b4394251a93ed9c04b9a14db68dda4e55aed4f60d2c0c"
+   }
+  },
+  {
+   "id": "regression",
+   "title": "The Flight Instructors",
+   "eyebrow": "Case file · regression to the mean",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 6,
+   "claims": 42,
+   "takeaway": "The extremes drift back on their own. Credit needs a comparison.",
+   "folder": "factory/films/regression",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/regression/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/regression/build/regression.html",
+    "bytes": 1114689,
+    "sha256": "254338240ea53e8ceb4521794b1f7ace24a3007e5df6031ec0578c45d74b6b17"
+   }
+  },
+  {
+   "id": "sample-size",
+   "title": "Thirty Customers",
+   "eyebrow": "CETI · the 75-second case · sample size and margin of error",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 8,
+   "claims": 44,
+   "takeaway": "Noise shrinks with √n. Bias does not shrink at all.",
+   "folder": "factory/films/sample-size",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/sample-size/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/sample-size/build/sample-size.html",
+    "bytes": 1117559,
+    "sha256": "836da6218b26344c2dcbf62ff58605ea68acef637ebe327c8977efed68e68c88"
+   }
+  },
+  {
+   "id": "selection",
+   "title": "Who chose it",
+   "eyebrow": "CETI · Selection into treatment",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 7,
+   "claims": 53,
+   "takeaway": "Who chose it is not what it did.",
+   "folder": "factory/films/selection",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/selection/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/selection/build/selection.html",
+    "bytes": 1129864,
+    "sha256": "83db587cf0374c9e21f650380ced2a8123a5c6ec30a516f3e53725c25fc0b29e"
+   }
+  },
+  {
+   "id": "simpsons",
+   "title": "Worse Overall",
+   "eyebrow": "CETI · the 75-second case · Simpson's paradox",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 6,
+   "claims": 65,
+   "takeaway": "Split by segment before you call it worse.",
+   "folder": "factory/films/simpsons",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/simpsons/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/simpsons/build/simpsons.html",
+    "bytes": 1109814,
+    "sha256": "47c5b15a276630aae263ad10fe39213e7a5e994cbe4e5a074c80112c3a824b14"
+   }
+  },
+  {
+   "id": "streaks",
+   "title": "Three bad months",
+   "eyebrow": "CETI case · streaks in random sequences",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 5,
+   "claims": 54,
+   "takeaway": "Chance makes streaks. Ask what a coin would have done.",
+   "folder": "factory/films/streaks",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/streaks/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/streaks/build/streaks.html",
+    "bytes": 1111705,
+    "sha256": "7d00abd4032bc3d28d2d5298f4e7b20d8309de9e831a0343a5321abde6ace778"
+   }
+  },
+  {
+   "id": "sunk-cost",
+   "title": "The Season Ticket",
+   "eyebrow": "CETI case · the sunk cost fallacy",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 5,
+   "claims": 34,
+   "takeaway": "What's spent is spent. Decide on what's left.",
+   "folder": "factory/films/sunk-cost",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/sunk-cost/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/sunk-cost/build/sunk-cost.html",
+    "bytes": 1108495,
+    "sha256": "8552cc4056be00717ee5e5444c8131aae9b3ead330b9ecfe140be65c65c90157"
+   }
+  },
+  {
+   "id": "survivorship",
+   "title": "The Missing Planes",
+   "eyebrow": "CETI · The 75-second case · Survivorship",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 5,
+   "claims": 24,
+   "takeaway": "The data you have is the data that survived.",
+   "folder": "factory/films/survivorship",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/survivorship/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/survivorship/build/survivorship.html",
+    "bytes": 1107514,
+    "sha256": "484bccb63f752fb0633425bb61b8ed292d2966f4ac59cd8dd09e23c1e5f991f3"
+   }
+  },
+  {
+   "id": "volatility-drag",
+   "title": "The average is not your outcome",
+   "eyebrow": "CETI explainer · volatility drag · 75 seconds",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 6,
+   "claims": 32,
+   "takeaway": "The average is not your outcome.",
+   "folder": "factory/films/volatility-drag",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/volatility-drag/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/volatility-drag/build/volatility-drag.html",
+    "bytes": 1112917,
+    "sha256": "0f1f544b53a4cd6a875a4cf415a58b9262aa63d122bb93ff562e5f44c5829e08"
+   }
+  },
+  {
+   "id": "winners-curse",
+   "title": "The Winner's Curse",
+   "eyebrow": "CETI · THE 75-SECOND CASE · SEALED BIDS",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 6,
+   "claims": 36,
+   "takeaway": "Winning means you guessed highest, not right.",
+   "folder": "factory/films/winners-curse",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/winners-curse/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/winners-curse/build/winners-curse.html",
+    "bytes": 1110017,
+    "sha256": "a4fc5a1a53742c5457361bd47c6d4110a4309131184481bdfd5514f7ae5470bf"
+   }
+  }
+ ]
 }
