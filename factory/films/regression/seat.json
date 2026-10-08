@@ -1,0 +1,23 @@
+{
+  "id": "regression",
+  "verdict": "REVISE",
+  "truth": [
+    {"claim": "8 of top 10 land worse, 2 better; 8 of bottom 10 better; 3 stay top 10", "status": "ok", "note": "all 39 formulas recompute from the frozen skill/luck arrays (seeds 1468/2468); the seed was chosen to match the model's expectations and the brief says so"},
+    {"claim": "best 83 = 65 + 18 -> 59 (luck -6); worst 26 = 32 - 6 -> 37", "status": "ok", "note": "recomputed from the arrays; these are model draws, not flight-school data"},
+    {"claim": "top 10 +19.6 -> +10.4 ('+20 -> +10'); model top tenth +17.5 -> +8.8; model expects 8.4 worse, 3.2 stay", "status": "ok", "note": "phi(1.2816)/0.1 x 10 = 17.55; x r = 8.77; r = 0.5 = 7.07^2 / (2 x 7.07^2)"},
+    {"claim": "sample r = 0.49", "status": "ok", "note": "recomputed 0.4918"},
+    {"claim": "Tversky & Kahneman 1974; Kahneman 2011 ch. 17; Galton 1886: 928 children of 205 couples, slope about 2/3", "status": "ok", "note": "as cited; Galton is page only"}
+  ],
+  "craft": 4,
+  "originality": 3,
+  "stop": 3,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 30.6, "what": "The film never says on stage or in a caption that the 100 pilots and their scores (83 = 65 + 18, 8 of 10, +20 -> +10) are a constructed model. The beat is eyebrowed 'THE CASE · FLIGHT SCHOOL', the numbers sit under 'Kahneman: a landing is skill plus luck', and the on-film honest line ('the manager may help; one quarter cannot tell') is about the hook, not the data. Only the live page's honest block discloses the model. A viewer of the film alone takes model draws for flight-school data. Fix: one honest line on stage and in caption 14, as amdahl does ('a teaching model, not flight-school data'), or an eyebrow 'DECLARED MODEL · 100 PILOTS' on the count", "severity": "high"},
+    {"t": 20.7, "what": "The CASE beat carries no real number at all: the fixture is an anecdote (TK74) and every digit in it is from the model, so the 'one real worked example with real, sourced numbers' beat is missing; Galton's real data stays on the page", "severity": "med"},
+    {"t": 60.2, "what": "The red (top 10) and blue (bottom 10) connector lines cross through the 100-mark TOMORROW column; the picture is busy and the '+20 TODAY / +10 TOMORROW' brackets sit at the edge of it", "severity": "low"},
+    {"t": 1.0, "what": "Hook is five short dashes under two column heads; the stop comes from the caption", "severity": "low"}
+  ],
+  "one_line": "The count is right and the arithmetic holds, but the film passes off a declared model as flight-school data; say on the film that the pilots are a model and it ships."
+}

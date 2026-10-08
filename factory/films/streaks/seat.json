@@ -1,0 +1,22 @@
+{
+  "id": "streaks",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "exact chance of a run of 7+ in 100 fair flips: 54 %", "status": "ok", "note": "independent DP over current run length gives 0.5423; 5+ = 0.9717; <=4 = 0.0283"},
+    {"claim": "1,000 seeded rows: 546 with 7+, 33 at 4 or less, 967 longer than 4; bins 33/158/263/244/150/82/33/23/8/6", "status": "ok", "note": "all 49 formulas recompute from mulberry32(1985); bins sum to 1,000; 244+150+82+33+23+8+6 = 546; expected 542, 28 and 972 from the exact distribution, so the sample is within noise (stated in the honest limits)"},
+    {"claim": "expected longest run 6.98; log2(100) = 6.64", "status": "ok", "note": "transcript only"},
+    {"claim": "GVT 1985: 100 fans, 91 of 100, 61 after a hit / 42 after a miss for a 50 % shooter, 76ers 1980-81", "status": "ok", "note": "Gilovich, Vallone & Tversky 1985 Study 1 and 2 as cited"},
+    {"claim": "Miller & Sanjurjo: 0.46 after three heads in 100 flips", "status": "ok", "note": "page only, sourced"}
+  ],
+  "craft": 5,
+  "originality": 4,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 50.3, "what": "The 1,000 rows arrive as falling dots that read as noise for a few seconds before they stack; the bin labels (84, 68, 44) are mid-count", "severity": "low"},
+    {"t": 60.2, "what": "'YOUR 4 · 33 AT OR BELOW' and '967 RAN LONGER' are stacked above the leftmost bar in two sizes; crowded against '7 OR MORE: 546 OF 1,000'", "severity": "low"},
+    {"t": 30.6, "what": "The fans frame carries a 100-square grid, three bars and three numbers at once; the most structures of any beat", "severity": "low"}
+  ],
+  "one_line": "Ten rows with the longest run boxed, then a thousand stacked into a pile the guess sits on: the best count of the batch, and the exact odds check."
+}
