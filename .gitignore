@@ -1,5 +1,5 @@
 # Build outputs: rebuilt from sources, never committed (the built films live in a separate films repo).
-**/build/
+**/build/*
 **/out/*
 !**/out/*.json
 **/_npm/
