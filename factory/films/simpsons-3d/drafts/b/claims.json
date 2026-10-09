@@ -1,0 +1,402 @@
+[
+ {
+  "id": "year",
+  "text": "Berkeley, fall 1973",
+  "value": 1973,
+  "formula": "year",
+  "source": "Bickel, Hammel & O'Connell 1975, Science 187(4175):398-404",
+  "where": "CASE caption 5 (16.4 s)"
+ },
+ {
+  "id": "depts",
+  "text": "six largest departments; commit range 0 to 6",
+  "value": 6,
+  "formula": "6",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COMMIT box + caption 4; CASE caption 5; COUNT band labels A-F"
+ },
+ {
+  "id": "hold",
+  "text": "8-second commit countdown",
+  "value": 8,
+  "formula": "holdSeconds",
+  "source": "FORMAT.md / DECISIONS Q13",
+  "where": "COMMIT box countdown 8..1 (8.0-16.0 s)"
+ },
+ {
+  "id": "guess",
+  "text": "film-mode default guess: 5 of 6",
+  "value": 5,
+  "formula": "guessDefault",
+  "source": "film.json defaultGuess (assumed typical viewer guess; Q13)",
+  "where": "COMMIT box seal (15.2 s); COUNT guess strip + caption 12"
+ },
+ {
+  "id": "applicants",
+  "text": "4,526 applicants, one mark each",
+  "value": 4526,
+  "formula": "(mA+mB+mC+mD+mE+mF)+(wA+wB+wC+wD+wE+wF)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "CASE caption 5; mark field total"
+ },
+ {
+  "id": "perMark",
+  "text": "one mark = one applicant",
+  "value": 1,
+  "formula": "perMark",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "CASE caption 5"
+ },
+ {
+  "id": "menApplied",
+  "text": "2,691 men applied",
+  "value": 2691,
+  "formula": "(mA+mB+mC+mD+mE+mF)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "CASE column counter (28u), caption 7; COUNT 1,198 ÷ 2,691 line"
+ },
+ {
+  "id": "womenApplied",
+  "text": "1,835 women applied",
+  "value": 1835,
+  "formula": "(wA+wB+wC+wD+wE+wF)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "CASE column counter (28u), caption 7; COUNT 557 ÷ 1,835 line"
+ },
+ {
+  "id": "menAdmitted",
+  "text": "1,198 men admitted",
+  "value": 1198,
+  "formula": "(mAa+mBa+mCa+mDa+mEa+mFa)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "CASE counter + caption 7; COUNT ratio line"
+ },
+ {
+  "id": "womenAdmitted",
+  "text": "557 women admitted",
+  "value": 557,
+  "formula": "(wAa+wBa+wCa+wDa+wEa+wFa)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "CASE counter + caption 7; COUNT ratio line"
+ },
+ {
+  "id": "menRate",
+  "text": "45 % of men admitted (six departments pooled)",
+  "value": 45,
+  "formula": "Math.round(100*(mAa+mBa+mCa+mDa+mEa+mFa)/(mA+mB+mC+mD+mE+mF))",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2 (doc: 44.5 %)",
+  "where": "COUNT header 36.0 s (44u) + caption 9"
+ },
+ {
+  "id": "womenRate",
+  "text": "30 % of women admitted (six departments pooled)",
+  "value": 30,
+  "formula": "Math.round(100*(wAa+wBa+wCa+wDa+wEa+wFa)/(wA+wB+wC+wD+wE+wF))",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2 (doc: 30.4 %)",
+  "where": "COUNT header 36.0 s (44u) + caption 9"
+ },
+ {
+  "id": "mAn",
+  "text": "Dept A: men applied",
+  "value": 825,
+  "formula": "mA",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row A (14u, beneath rate)"
+ },
+ {
+  "id": "mAa",
+  "text": "Dept A: men admitted",
+  "value": 512,
+  "formula": "mAa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row A (14u, beneath rate)"
+ },
+ {
+  "id": "wAn",
+  "text": "Dept A: women applied",
+  "value": 108,
+  "formula": "wA",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row A (14u, beneath rate)"
+ },
+ {
+  "id": "wAa",
+  "text": "Dept A: women admitted",
+  "value": 89,
+  "formula": "wAa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row A (14u, beneath rate)"
+ },
+ {
+  "id": "mAr",
+  "text": "Dept A: % of men admitted",
+  "value": 62,
+  "formula": "Math.round(100*mAa/mA)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row A (20u)"
+ },
+ {
+  "id": "wAr",
+  "text": "Dept A: % of women admitted",
+  "value": 82,
+  "formula": "Math.round(100*wAa/wA)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row A (20u)"
+ },
+ {
+  "id": "mBn",
+  "text": "Dept B: men applied",
+  "value": 560,
+  "formula": "mB",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row B (14u, beneath rate)"
+ },
+ {
+  "id": "mBa",
+  "text": "Dept B: men admitted",
+  "value": 353,
+  "formula": "mBa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row B (14u, beneath rate)"
+ },
+ {
+  "id": "wBn",
+  "text": "Dept B: women applied",
+  "value": 25,
+  "formula": "wB",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row B (14u, beneath rate)"
+ },
+ {
+  "id": "wBa",
+  "text": "Dept B: women admitted",
+  "value": 17,
+  "formula": "wBa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row B (14u, beneath rate)"
+ },
+ {
+  "id": "mBr",
+  "text": "Dept B: % of men admitted",
+  "value": 63,
+  "formula": "Math.round(100*mBa/mB)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row B (20u)"
+ },
+ {
+  "id": "wBr",
+  "text": "Dept B: % of women admitted",
+  "value": 68,
+  "formula": "Math.round(100*wBa/wB)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row B (20u)"
+ },
+ {
+  "id": "mCn",
+  "text": "Dept C: men applied",
+  "value": 325,
+  "formula": "mC",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row C (14u, beneath rate)"
+ },
+ {
+  "id": "mCa",
+  "text": "Dept C: men admitted",
+  "value": 120,
+  "formula": "mCa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row C (14u, beneath rate)"
+ },
+ {
+  "id": "wCn",
+  "text": "Dept C: women applied",
+  "value": 593,
+  "formula": "wC",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row C (14u, beneath rate)"
+ },
+ {
+  "id": "wCa",
+  "text": "Dept C: women admitted",
+  "value": 202,
+  "formula": "wCa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row C (14u, beneath rate)"
+ },
+ {
+  "id": "mCr",
+  "text": "Dept C: % of men admitted",
+  "value": 37,
+  "formula": "Math.round(100*mCa/mC)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row C (20u)"
+ },
+ {
+  "id": "wCr",
+  "text": "Dept C: % of women admitted",
+  "value": 34,
+  "formula": "Math.round(100*wCa/wC)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row C (20u)"
+ },
+ {
+  "id": "mDn",
+  "text": "Dept D: men applied",
+  "value": 417,
+  "formula": "mD",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row D (14u, beneath rate)"
+ },
+ {
+  "id": "mDa",
+  "text": "Dept D: men admitted",
+  "value": 138,
+  "formula": "mDa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row D (14u, beneath rate)"
+ },
+ {
+  "id": "wDn",
+  "text": "Dept D: women applied",
+  "value": 375,
+  "formula": "wD",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row D (14u, beneath rate)"
+ },
+ {
+  "id": "wDa",
+  "text": "Dept D: women admitted",
+  "value": 131,
+  "formula": "wDa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row D (14u, beneath rate)"
+ },
+ {
+  "id": "mDr",
+  "text": "Dept D: % of men admitted",
+  "value": 33,
+  "formula": "Math.round(100*mDa/mD)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row D (20u)"
+ },
+ {
+  "id": "wDr",
+  "text": "Dept D: % of women admitted",
+  "value": 35,
+  "formula": "Math.round(100*wDa/wD)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row D (20u)"
+ },
+ {
+  "id": "mEn",
+  "text": "Dept E: men applied",
+  "value": 191,
+  "formula": "mE",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row E (14u, beneath rate)"
+ },
+ {
+  "id": "mEa",
+  "text": "Dept E: men admitted",
+  "value": 53,
+  "formula": "mEa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row E (14u, beneath rate)"
+ },
+ {
+  "id": "wEn",
+  "text": "Dept E: women applied",
+  "value": 393,
+  "formula": "wE",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row E (14u, beneath rate)"
+ },
+ {
+  "id": "wEa",
+  "text": "Dept E: women admitted",
+  "value": 94,
+  "formula": "wEa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row E (14u, beneath rate)"
+ },
+ {
+  "id": "mEr",
+  "text": "Dept E: % of men admitted",
+  "value": 28,
+  "formula": "Math.round(100*mEa/mE)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row E (20u)"
+ },
+ {
+  "id": "wEr",
+  "text": "Dept E: % of women admitted",
+  "value": 24,
+  "formula": "Math.round(100*wEa/wE)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row E (20u)"
+ },
+ {
+  "id": "mFn",
+  "text": "Dept F: men applied",
+  "value": 373,
+  "formula": "mF",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row F (14u, beneath rate)"
+ },
+ {
+  "id": "mFa",
+  "text": "Dept F: men admitted",
+  "value": 22,
+  "formula": "mFa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row F (14u, beneath rate)"
+ },
+ {
+  "id": "wFn",
+  "text": "Dept F: women applied",
+  "value": 341,
+  "formula": "wF",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row F (14u, beneath rate)"
+ },
+ {
+  "id": "wFa",
+  "text": "Dept F: women admitted",
+  "value": 24,
+  "formula": "wFa",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row F (14u, beneath rate)"
+ },
+ {
+  "id": "mFr",
+  "text": "Dept F: % of men admitted",
+  "value": 6,
+  "formula": "Math.round(100*mFa/mF)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row F (20u)"
+ },
+ {
+  "id": "wFr",
+  "text": "Dept F: % of women admitted",
+  "value": 7,
+  "formula": "Math.round(100*wFa/wF)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger row F (20u)"
+ },
+ {
+  "id": "womenWorse",
+  "text": "women admitted less often in 2 of 6 departments (C, E)",
+  "value": 2,
+  "formula": "(wAa/wA<mAa/mA?1:0)+(wBa/wB<mBa/mB?1:0)+(wCa/wC<mCa/mC?1:0)+(wDa/wD<mDa/mD?1:0)+(wEa/wE<mEa/mE?1:0)+(wFa/wF<mFa/mF?1:0)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT guess strip TRUTH marker + headline \"2 of 6\" (44u) + caption 12"
+ },
+ {
+  "id": "womenBetter",
+  "text": "women admitted more often in 4 of 6 departments (A, B, D, F)",
+  "value": 4,
+  "formula": "(wAa/wA>mAa/mA?1:0)+(wBa/wB>mBa/mB?1:0)+(wCa/wC>mCa/mC?1:0)+(wDa/wD>mDa/mD?1:0)+(wEa/wE>mEa/mE?1:0)+(wFa/wF>mFa/mF?1:0)",
+  "source": "R Core Team, datasets::UCBAdmissions (counts from Bickel et al. 1975); cross-check Freedman, Pisani & Purves, Statistics 4e, 2007, ch. 2",
+  "where": "COUNT ledger \"HIGHER\" column (4 rows WOMEN)"
+ }
+]
