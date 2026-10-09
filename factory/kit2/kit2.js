@@ -18,6 +18,25 @@ const FILM_MODE = /[?&]film=1/.test(location.search);
 const W = 960, H = 540;
 const DUR = FILM.dur || 75;
 const SEED = FILM.seed != null ? FILM.seed : 23;
+/* RENDERER: film.json `renderer` '2d' (default) | 'webgl'. With 'webgl' the film canvas is p.createCanvas(960, 540,
+   p.WEBGL) at pixelDensity 2 (preserveDrawingBuffer on, so toDataURL reads the last frame); the SVG layers (captions,
+   commit box, chrome, cards, brand card, data-role text) still draw on top in screen space on the 960 x 540 sheet.
+   WEBGL origin is the centre: K.world(x, y, z) maps sheet units to it, K.flat(fn) draws in sheet units. */
+const RENDERER = String(FILM.renderer || CONF.renderer || '2d').toLowerCase() === 'webgl' ? 'webgl' : '2d';
+const GL = RENDERER === 'webgl';
+/* KNOBS: film.json `knobs` {name: value} + `knobs_doc` [{name, range: [lo, hi] | options: [...], step?, what}].
+   Every number an evaluator may tune is a knob; film.js reads K.knob(name, fallback) (clamped to the documented
+   range) or K.knobs[name]. apply_findings.py edits film.json knobs only, inside knobs_doc. */
+const KNOBS = Object.freeze(Object.assign({}, FILM.knobs || {}));
+const KNOBS_DOC = Object.freeze((FILM.knobs_doc || []).map(d => Object.freeze(Object.assign({}, d))));
+const KDOC = {}; KNOBS_DOC.forEach(d => { KDOC[d.name] = d; });
+function knob(name, fallback) {
+  let v = Object.prototype.hasOwnProperty.call(KNOBS, name) ? KNOBS[name] : fallback;
+  const d = KDOC[name];
+  if (d && typeof v === 'number' && Array.isArray(d.range) && d.range.length === 2) v = Math.min(d.range[1], Math.max(d.range[0], v));
+  if (d && Array.isArray(d.options) && d.options.indexOf(v) < 0) v = fallback;
+  return v;
+}
 
 /* ══════════ colour: parse, composite, contrast (WCAG 2.x) ══════════ */
 function parseCol(s) {
@@ -556,7 +575,7 @@ function makeGround(p, seed = SEED) {
 }
 // pencil(x1, y1, x2, y2, u, seed, o): a straightedge stroke on the canvas, drawn to fraction u, through the material
 function pencil(x1, y1, x2, y2, u = 1, seed = 0, o = {}) {
-  if (u <= 0 || !K.ctx) return;
+  if (u <= 0 || !K.ctx || GL) return;   // canvas-2D only (a webgl film draws its own lines)
   const raw = K.p.drawingContext;
   if (MAT && MAT.mark) {
     const s = styleTok(o.col || rgba('accent', o.a != null ? o.a : 0.85));
@@ -590,6 +609,7 @@ function mount(stageEl) {
     svg.appendChild(g); L[k] = g; });
   stageEl.appendChild(svg);
   K.svg = svg;
+  if (GL) return mountGL(stageEl);
   new p5((p) => {
     p.setup = () => {
       const cnv = p.createCanvas(W, H); p.pixelDensity(2); p.noLoop();
@@ -606,9 +626,94 @@ function mount(stageEl) {
   });
   return readyP;
 }
+/* ── renderer 'webgl' ──
+   setup (async): createCanvas(960, 540, WEBGL), pixelDensity 2, preserveDrawingBuffer checked (p5 2.3.4 defaults it on;
+   set again if the context says otherwise), K.cam0 = the default camera (1 unit = 1 sheet unit at z = 0), the 3D fonts
+   (film.json fonts3d → K.fonts3d['Family|weight'], loaded from build.py's data URLs), then FILM_RENDER.setup(p, K)
+   (may be async: awaited). Each frame: default camera, identity matrix, no shader, no lights, depth cleared, ground
+   (flat bg, or the ground graphic as an image), FILM_RENDER.render(t, s, K) inside push/pop, then the SVG layers.
+   p5 2.x WEBGL text adds a hidden canvas next to the film canvas: it is parked outside the stage after setup and after
+   every frame, so the stage holds exactly one canvas (the gate's purity row and the player's only() read it). */
+const FLAT_GROUND = TEX !== 'paper' && TEX !== 'grain';
+function parkStray(stageEl) {
+  if (!K.canvas) return;
+  let park = document.getElementById('kit-park');
+  if (!park) { park = document.createElement('div'); park.id = 'kit-park'; park.setAttribute('aria-hidden', 'true'); park.style.display = 'none'; document.body.appendChild(park); }
+  for (const c of [...stageEl.querySelectorAll('canvas')]) if (c !== K.canvas) park.appendChild(c);
+  for (const c of [...document.body.children]) if (c.tagName === 'CANVAS' && c !== K.canvas) park.appendChild(c);
+}
+function mountGL(stageEl) {
+  K.stageEl = stageEl;
+  new p5((p) => {
+    p.setup = async () => {
+      const cnv = await p.createCanvas(W, H, p.WEBGL);
+      let attrs = p.drawingContext.getContextAttributes ? p.drawingContext.getContextAttributes() : null;
+      if (attrs && !attrs.preserveDrawingBuffer) { p.setAttributes('preserveDrawingBuffer', true); attrs = p.drawingContext.getContextAttributes(); }
+      p.pixelDensity(2); p.noLoop();
+      const elt = (p._renderer && p._renderer.canvas) || cnv.elt || cnv;
+      elt.classList.add('ex-canvas');
+      stageEl.insertBefore(elt, svg);
+      K.p = p; K.canvas = elt; K.gl = p.drawingContext; K.ctx = null;
+      K.glAttrs = attrs ? { preserveDrawingBuffer: !!attrs.preserveDrawingBuffer, antialias: !!attrs.antialias } : null;
+      K.cam0 = p.createCamera(); p.setCamera(K.cam0);
+      const FD = window.KIT2_FONTS3D || {};
+      for (const k of Object.keys(FD).sort()) K.fonts3d[k] = await p.loadFont(FD[k]);
+      K.ground = FR_().ground === false || FLAT_GROUND ? null : makeGround(p, SEED);
+      p.noiseSeed(SEED);
+      if (FR_().setup) await FR_().setup(p, K);
+      p.noiseSeed(SEED);
+      p.setCamera(K.cam0);
+      parkStray(stageEl);
+      readyRes(true);
+    };
+    p.draw = () => {};
+  });
+  return readyP;
+}
+function renderGL(tm, s, R) {
+  const p = K.p, gl = K.gl;
+  p.setCamera(K.cam0); p.resetMatrix(); p.resetShader(); p.noLights();
+  p.background(C.paper); gl.clear(gl.DEPTH_BUFFER_BIT);
+  if (K.ground) { p.push(); p.imageMode(p.CORNER); p.image(K.ground, -W / 2, -H / 2, W, H); p.pop(); gl.clear(gl.DEPTH_BUFFER_BIT); }
+  p.push();
+  if (R.render) R.render(tm, s, K);
+  p.pop();
+  p.setCamera(K.cam0);
+  parkStray(K.stageEl);
+}
+// world(x, y, z): sheet units (origin top-left, 960 x 540) → WEBGL coordinates under K.cam0 (origin centre)
+const world = (x, y, z = 0) => [x - W / 2, y - H / 2, z];
+// flat(fn): draw in sheet units on the WEBGL canvas: default camera, identity matrix, depth cleared, origin top-left
+// (and the chrome's content-box map when one applies). Leaves K.cam0 active: set your camera again for more 3D.
+function flat(fn) {
+  const p = K.p; if (!p || !GL) return fn && fn(p);
+  p.push(); p.setCamera(K.cam0); p.resetMatrix(); p.noLights(); K.gl.clear(K.gl.DEPTH_BUFFER_BIT);
+  p.translate(-W / 2, -H / 2);
+  if (MAPPED) { p.translate(MAP.ox, MAP.oy); p.scale(MAP.s); }
+  fn(p);
+  p.pop(); p.setCamera(K.cam0);
+}
+// font3d(role | 'Family|weight'): a loaded p5.Font for WEBGL text/textToModel (pack role first, else any loaded face)
+function font3d(want) {
+  const F3 = K.fonts3d, keys = Object.keys(F3).sort(); if (!keys.length) return null;
+  if (F3[want]) return F3[want];
+  const r = want && TP[want];
+  if (r && r.family) { const k = r.family + '|' + (r.weight || 400); if (F3[k]) return F3[k]; const kk = keys.find(x => x.split('|')[0] === r.family); if (kk) return F3[kk]; }
+  return F3[keys[0]];
+}
+
 function render(t, s) {
-  if (!K.ctx) return;
+  if (!K.p || (!GL && !K.ctx)) return;
   t = clamp(t, 0, DUR - 1e-6); lastT = t; FR++;
+  if (GL) {
+    const R = FR_(), bAt = brandAt(), auto = R.brand !== false && bAt != null;
+    const tm = auto && t >= bAt ? bAt - 1e-3 : t;
+    renderGL(tm, s || state, R);
+    if (R.captions !== false) caption(tm);
+    if (auto && t >= bAt) brandCard(t, bAt, FILM.brand.takeaway);
+    endFrame();
+    return;
+  }
   const ctx = K.p.drawingContext, d = K.p.pixelDensity();
   ctx.setTransform(d, 0, 0, d, 0, 0); ctx.globalAlpha = 1; ctx.clearRect(0, 0, W, H);
   if (K.ground) ctx.drawImage(K.ground.elt, 0, 0, W, H);
@@ -632,10 +737,14 @@ const K = window.KIT = {
   chapterAt, cardAt, capAt, brandAt,
   mount, render, ready: () => readyP, get t() { return lastT; }, poolSize: () => POOL.size,
   p: null, ctx: null, ground: null, svg: null, commitGeom: null,
+  // renderer (2d | webgl) and the webgl helpers; K.gl, K.canvas, K.cam0, K.fonts3d are set in setup
+  RENDERER, GL, gl: null, canvas: null, cam0: null, fonts3d: {}, glAttrs: null, world, flat, font3d,
+  // knobs: film.json knobs (frozen) and knobs_doc; knob(name, fallback) clamps to the documented range
+  knobs: KNOBS, knobs_doc: KNOBS_DOC, knob,
   // kit2: what was injected, and the role tools
   KIT2: { brand: PACK.id, chrome: CHROME_ID, material: MAT_ID },
   // the axes this page was built on (player.js publishes them as window.__film.info.axes; gate G10 reads them)
-  AXES: { brand: PACK.id, chrome: CHROME_ID, material: MAT_ID, texture: TEX, texture_declared: TEX_DECL, level: LEVEL,
+  AXES: { brand: PACK.id, chrome: CHROME_ID, material: MAT_ID, texture: TEX, texture_declared: TEX_DECL, level: LEVEL, renderer: RENDERER,
     box: CBOX ? { x0: CBOX.x0, y0: CBOX.y0, x1: CBOX.x1, y1: CBOX.y1, s: MAP.s, ox: MAP.ox, oy: MAP.oy } : null },
   BRAND: PACK, ROLES: C, CHROME, MATERIAL: MAT, contrast, resolveRoles, ADV,
 };

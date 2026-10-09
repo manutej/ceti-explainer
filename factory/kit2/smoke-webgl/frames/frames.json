@@ -1,0 +1,394 @@
+{
+ "page": "factory/kit2/smoke-webgl/build/smoke-webgl.ceti-boardwalk-dark.none.html",
+ "film": "smoke-webgl",
+ "dur": 13,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-boardwalk-dark",
+ "axes": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "camSwing",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how far the camera swings from the front view to the side (1 = a quarter turn)",
+   "value": 0.8
+  },
+  {
+   "name": "boxGap",
+   "range": [
+    0.5,
+    4
+   ],
+   "step": 0.25,
+   "what": "gap between boxes in world units",
+   "value": 2
+  },
+  {
+   "name": "neonGain",
+   "range": [
+    0,
+    2
+   ],
+   "step": 0.1,
+   "what": "strength of the neon post glow on the reveal (0 = off)",
+   "value": 1
+  },
+  {
+   "name": "neonAt",
+   "range": [
+    5,
+    8
+   ],
+   "step": 0.1,
+   "what": "second at which the neon reveal peaks",
+   "value": 6.2
+  },
+  {
+   "name": "headTurn",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how far the extruded headline turns (1 = a half turn)",
+   "value": 0.5
+  }
+ ],
+ "ms_per_frame": 475,
+ "s_per_frame": 0.475,
+ "purity": {
+  "pass": true,
+  "at": {
+   "2.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "6.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "10.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Front view"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": "120 boxes, seen from the front.",
+   "chapter": {
+    "id": "hook",
+    "title": "Front view"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "120 boxes, seen from the front.",
+   "chapter": {
+    "id": "hook",
+    "title": "Front view"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "120 boxes, seen from the front.",
+   "chapter": {
+    "id": "hook",
+    "title": "Front view"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "120 boxes, seen from the front.",
+   "chapter": {
+    "id": "hook",
+    "title": "Front view"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "120 boxes, seen from the front.",
+   "chapter": {
+    "id": "hook",
+    "title": "Front view"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "120 boxes, seen from the front.",
+   "chapter": {
+    "id": "hook",
+    "title": "Front view"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "120 boxes, seen from the front.",
+   "chapter": {
+    "id": "hook",
+    "title": "Front view"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "The camera swings to the side.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "The camera swings to the side.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "The camera swings to the side.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "The camera swings to the side.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "The camera swings to the side.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "The camera swings to the side.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "The camera swings to the side.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "The camera swings to the side.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "The headline is extruded type.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "The headline is extruded type.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "The headline is extruded type.",
+   "chapter": {
+    "id": "commit",
+    "title": "Side view"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "The headline is extruded type.",
+   "chapter": {
+    "id": "case",
+    "title": "Case"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Monday"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Monday"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Monday"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Monday"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Monday"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Monday"
+   }
+  },
+  {
+   "t": 12.99,
+   "file": "thumbs/t-0012.99.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Monday"
+   }
+  }
+ ]
+}

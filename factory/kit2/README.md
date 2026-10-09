@@ -6,6 +6,8 @@ factory/kit is untouched and the shipped films still build against it.
 
     python3 factory/kit2/build.py <film-dir> [--brand ID|film] [--chrome ID|none] [--material ID] [--out PATH]
     # film.json may carry "level": "exec" (default) | "manager" | "engineer" (DECISIONS Q6; gate row G10)
+    # optional film.json: "renderer": "webgl", "fonts3d", "libs", "knobs" + "knobs_doc", "look" {brand, chrome,
+    # material} (the flag defaults; apply_findings.py records it). A pack face may be italic-only (style honoured).
     # -> <film-dir>/build/<id>.<brand>.<chrome>[.<material>].html, prints bytes, sha256, faces, role contrast
 
 | file | role |
@@ -93,6 +95,60 @@ materials/basic.js. For any material but `ink`, `K.ctx` is a proxy of the p5 Can
 else role `ink` on a token copy carrying that colour; its alpha becomes `state.a`; the seed is an integer
 hash of the geometry, so re-seeks are identical. `K.pencil` → `mark('line')`. `texture()` runs once over the
 ground. Materials get the pack's own roles (chalk = text on panel).
+
+## Renderer webgl (film.json `"renderer": "webgl"`)
+
+kit2 creates the film canvas with `p.createCanvas(960, 540, p.WEBGL)`, pixelDensity 2, the same 960 x 540 basis.
+The SVG layers (captions, commit box, chrome, cards, brand card, eyebrows, every `data-role` text) still draw on top
+in screen space, so G5/G6/G7 read them as before. Material must be `ink` (build.py refuses another: the drawn
+materials are Canvas2D marks); `K.ctx` is null, `K.pencil` is a no-op. Proof: `smoke-webgl/` (gate PASS, below).
+
+- **Coordinates.** WEBGL origin is the centre. `K.cam0` is p5's default camera: at z = 0 one unit = one sheet unit.
+  `K.world(x, y, z)` maps sheet units (origin top-left) to it: `[x - 480, y - 270, z]`. `K.flat(fn)` draws in sheet
+  units (default camera, identity, depth cleared, origin top-left, the chrome's content-box map applied) and leaves
+  `K.cam0` active. To pin SVG text to a 3D point: `const v = p.worldToScreen(p.createVector(x, y, z))` while your
+  camera is set; `v.x, v.y` are sheet units; draw with `K.tx(...)` (role it).
+- **Each frame** kit2 does: `setCamera(K.cam0)`, `resetMatrix()`, `resetShader()`, `noLights()`, `background(paper)`,
+  depth cleared, ground image when the ground is not flat (texture paper/grain), then `FILM_RENDER.render(t, s, K)`
+  inside push/pop, then the SVG. A film sets its own camera every frame (keyed on t), never relies on the last frame.
+- **Setup** may be `async setup(p, K)` (awaited): bake geometry (`buildGeometry`), shaders (`createShader`,
+  `createFilterShader`), framebuffers (`createFramebuffer`; a camera used inside `fb.begin()` must be
+  `fb.createCamera()`, a main-canvas camera draws the scene upside down), `textToModel` headlines.
+- **3D fonts.** WEBGL text and `textToModel` need a loaded TTF. film.json `"fonts3d": ["Big Shoulders Display|600"]`
+  or `[{"key": "...|600", "text": "0123456789,%"}]` (subset with fontTools to those glyphs: 4 KB instead of 43 KB).
+  Keys are those in arsenal/fonts/fonts.js: Big Shoulders Display|600, IBM Plex Mono|400, Sofia Sans Extra
+  Condensed|700, Space Mono|400, Jost|600, Red Hat Mono|400 (no Fraunces: ceti-boardwalk's display face has no 3D
+  cut; use one of these for extruded type). `K.fonts3d[key]` is the p5.Font; `K.font3d('disp')` returns the pack's
+  role face if loaded, else the first loaded face.
+- **Post.** A post pass is the film's: draw into `fb`, `p.image(fb, -480, -270, 960, 540)` under `K.cam0`, then
+  `p.filter(shader)` (smoke-webgl does a 12-tap neon). Software GL cost: about 0.4 s/frame plain, 1.6 s on the
+  filter frames (SwiftShader, 1920 x 1080 backing); keep the filter to the reveal window.
+- **Purity / gate.** preserveDrawingBuffer is on (p5 2.3.4 default; kit2 re-sets it if the context says otherwise;
+  `K.glAttrs` records it), and the kit draws synchronously inside `__film.seek`, so G2a's `canvas.toDataURL()` reads
+  the frame just drawn. p5's hidden WEBGL text canvas is parked outside the stage (`#kit-park`): the stage holds one
+  canvas, `K.canvas`. `window.__film.info.axes.renderer` and `info.renderer` are `'webgl'`; the meta tag carries
+  `renderer=webgl`.
+- **libs.** film.json `"libs": ["lib/scene.js"]` inlines scripts (film dir first, then the repo root, e.g.
+  `arsenal/patterns/webgl-scene/pattern.js`) between kit2.js and film.js; the gate's G3 scans them like film.js.
+
+## Knobs (film.json `knobs` + `knobs_doc`; the evaluator's only numeric lever)
+
+Every number an evaluator may tune is a knob. film.json:
+
+    "knobs": { "camSwing": 0.8, "neonGain": 1.0, "look": "ortho" },
+    "knobs_doc": [
+      { "name": "camSwing", "range": [0, 1], "step": 0.05, "what": "camera swing front to side (1 = quarter turn)" },
+      { "name": "neonGain", "range": [0, 2], "step": 0.1,  "what": "neon glow on the reveal frame (0 = off)" },
+      { "name": "look", "options": ["ortho", "persp"], "what": "projection of the department view" }
+    ]
+
+Rules (build.py refuses otherwise): every knob has exactly one knobs_doc entry with `what` and either `range: [lo, hi]`
+(numbers) or `options: [...]`; every value is inside its range / options; no undocumented knobs. film.js reads
+`K.knob(name, fallback)` (the film.json value, clamped to the documented range; an option outside `options` falls
+back), or `K.knobs[name]` (frozen object), once at load (`const KN = { camSwing: window.KIT.knob('camSwing', 0.8) }`)
+or per frame; never hard-codes a tunable, never writes a knob. Timings an evaluator may move are knobs too (seconds).
+Knobs never carry an on-screen number (those are claims). `window.__film.info.knobs` = `[{name, value, range |
+options, step, what}]`, `info.knobs_doc` = the table. factory/tools/apply_findings.py changes knobs only inside it.
 
 ## Kit defects fixed (factory/SHIP.md)
 

@@ -104,6 +104,12 @@ function clockScan(file, isPlayer) {
 {
   const files = [];
   if (fs.existsSync(filmJsPath)) files.push([filmJsPath, false]);
+  // kit2 film.json libs (inlined between kit2.js and film.js): scanned like film.js
+  const ROOT_ = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
+  for (const rel of (film && Array.isArray(film.libs) ? film.libs : [])) {
+    const hit = [path.join(FILMDIR, rel), path.join(ROOT_, rel)].find(f => fs.existsSync(f));
+    if (hit) files.push([hit, false]); else row('G3', 'clock scan', 'WARN', `film.json libs ${rel} not found`);
+  }
   const kitFiles = [];
   for (const k of opt.kit) {
     if (!fs.existsSync(k)) { row('G3', 'clock scan', 'WARN', `--kit ${k} not found`); continue; }
@@ -293,7 +299,8 @@ for (let t = 0; t <= DUR + 1e-6; t += STEP) {
   const tagged = chs.map(c => ({ c, b: beatOf(c) })).filter(x => x.b);
   const brandDur = +(film.brand?.dur ?? film.brand?.duration ?? (film.brand?.at != null ? DUR - film.brand.at : 3));
   const material = film.brand ? DUR - brandDur : DUR;
-  const fmt = film.format === 'feature' ? { lo: 90, hi: 120, cap: 123 } : { lo: 60, hi: 75, cap: 78 };
+  // format 'smoke' (infrastructure tests only, e.g. factory/kit2/smoke-webgl; never shipped): 5-20 s of material
+  const fmt = film.format === 'feature' ? { lo: 90, hi: 120, cap: 123 } : film.format === 'smoke' ? { lo: 5, hi: 20, cap: 25 } : { lo: 60, hi: 75, cap: 78 };
   row('G4a', 'format · duration', pf(material >= fmt.lo && material <= fmt.hi && DUR <= fmt.cap),
     `total ${r2(DUR)} s; material ${r2(material)} s (want ${fmt.lo}–${fmt.hi}, format ${film.format || 'case'}) + brand ${film.brand ? brandDur + ' s' : 'none'}; total ≤ ${fmt.cap}`);
   if (!tagged.length) row('G4b', 'format · five beats', 'SKIP', `no chapter carries a beat id/name (${chs.length} chapters: ${chs.slice(0, 4).map(c => c.id + ' ' + (c.title || '')).join(', ')}…); legacy schema`);

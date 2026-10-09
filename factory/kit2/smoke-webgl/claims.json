@@ -1,0 +1,5 @@
+[
+ {"id": "rows", "text": "10 rows of boxes", "value": 10, "formula": "rows", "source": "KIT2", "where": "scene construction"},
+ {"id": "cols", "text": "12 boxes per row", "value": 12, "formula": "cols", "source": "KIT2", "where": "scene construction"},
+ {"id": "boxes", "text": "120 boxes", "value": 120, "formula": "rows*cols", "source": "KIT2", "where": "caption 1, headline, pin, commit default"}
+]

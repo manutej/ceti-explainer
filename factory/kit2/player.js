@@ -19,13 +19,17 @@ window.__ctrl = { play, pause, seek, duration: DUR, state: S, setState: (o) => {
 window.__film = {
   ready: async () => { await mounted; if (document.fonts) await document.fonts.ready; K.render(t, S); return true; },
   seek: (x) => { try { return seek(x); } catch (e) { window.__error = String(e); return { t: x, error: String(e) }; } },
-  only: (groups) => { const c = stage.querySelector('canvas'), v = stage.querySelector('svg');
+  only: (groups) => { const c = K.canvas || stage.querySelector('canvas'), v = stage.querySelector('svg');
     if (c) c.style.visibility = groups.includes('figure') || groups.includes('ground') ? '' : 'hidden';
     if (v) v.style.visibility = groups.includes('svg') ? '' : 'hidden';
     stage.style.background = groups.includes('bg') ? '' : 'transparent'; },
   info: { id: F.id, title: F.title, dur: DUR, chapters: F.chapters || [], cards: F.cards || [], captions: F.captions || [],
           commit: F.commit || null, brand: F.brand ? { at: K.brandAt(), takeaway: F.brand.takeaway } : null,
-          axes: K.AXES || null }
+          axes: K.AXES || null, renderer: K.RENDERER || '2d',
+          // knobs: [{name, value, range | options, step, what}] (film.json knobs + knobs_doc); knobs_doc as authored
+          knobs: (K.knobs_doc || []).map(d => Object.assign({}, d, { value: K.knobs ? K.knobs[d.name] : undefined }))
+            .concat(Object.keys(K.knobs || {}).filter(k => !(K.knobs_doc || []).some(d => d.name === k)).map(k => ({ name: k, value: K.knobs[k], undocumented: true }))),
+          knobs_doc: K.knobs_doc || [] }
 };
 window.addEventListener('error', (e) => { window.__error = String(e.message || e); });
 if (FILM_MODE) { mounted.then(() => K.render(0, S)); return; }

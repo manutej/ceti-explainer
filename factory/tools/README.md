@@ -25,8 +25,8 @@ folder lacks the data it needs (legacy schema), and says why. Runtime: about 10 
 | G1 load | film mode and live mode load; console errors and page errors; `<meta charset="utf-8">`; `__film.ready()` time from navigation; stage pixel s.d. at 0.2, 0.5, 0.8 × dur | any error, no charset, ready ≥ 5 s, a blank stage (luminance s.d. < 2) |
 | G2a purity · canvas | `toDataURL` of every stage canvas at 0.1/0.3/0.5/0.7/0.9 × dur, re-seeked after visiting another time; order A→B vs B→A for two pairs | any byte differs |
 | G2b purity · SVG | `innerHTML` of the stage SVG, same seeks, nothing normalised | any byte differs (prints the first differing span) |
-| G3 clock scan | film.js (+ `--kit` files), comments blanked, line numbers kept: Math.random, Date, performance.now, frameCount, millis(), requestAnimationFrame, deltaTime, p.random | any hit |
-| G4a duration | material = dur − brand.dur (else dur − brand.at, else 3) | material outside 60–75 s or total > 78 s |
+| G3 clock scan | film.js (+ `--kit` files, + film.json `libs`), comments blanked, line numbers kept: Math.random, Date, performance.now, frameCount, millis(), requestAnimationFrame, deltaTime, p.random | any hit |
+| G4a duration | material = dur − brand.dur (else dur − brand.at, else 3) | material outside 60–75 s or total > 78 s (`format: feature` 90–120 / 123; `format: smoke`, infrastructure tests only, 5–20 / 25) |
 | G4b five beats | chapters mapped to HOOK, COMMIT, CASE, COUNT, MONDAY by `beat`, `id`, `name` or `title` | wrong order or t0 not ascending (SKIP if no chapter names a beat) |
 | G4c commit time | `commit.at`, else `T.commit`/`T.ask`, else the COMMIT chapter t0 | outside 8–16 s |
 | G4d brand card | `brand.takeaway` non-empty; the frame at dur − 1 is not blank | missing brand, empty takeaway, blank frame |
@@ -39,7 +39,7 @@ folder lacks the data it needs (legacy schema), and says why. Runtime: about 10 
 | G7 counts first | first time a percentage, "N in M" or "N out of M" appears in visible SVG text or a caption, vs `count.at` (else the COUNT chapter t0) | a ratio appears before the count (SKIP if neither is declared) |
 | G8 size | film.js + film.json + claims.json; the built page | ≥ 120 KB; ≥ 1.3 MB |
 | G9 tics | full-screen cards: chapters with `card: true` plus every entry of `film.cards`; countdown ring: `T`/`timings` keys or `device` values matching ring/countdown | more than 2 cards (WARN: a ring outside the COMMIT window) |
-| G10 axes | the page's declared axes: `window.__film.info.axes` (kit2 writes `{brand, chrome, material, texture, texture_declared, level, box}`), else `<meta name="kit2" content="brand=… material=… texture=… level=…">`; level = film.json `level`, else axes.level, else `exec` | level `exec` (DECISIONS Q6) and material ≠ `ink`, or a rendered texture other than `none`/`paper` (WARN: the brand declares grain/halftone and kit2 drew it flat; SKIP: no axes, a factory/kit page) |
+| G10 axes | the page's declared axes: `window.__film.info.axes` (kit2 writes `{brand, chrome, material, texture, texture_declared, level, renderer, box}`), else `<meta name="kit2" content="brand=… material=… texture=… level=…">`; level = film.json `level`, else axes.level, else `exec` | level `exec` (DECISIONS Q6) and material ≠ `ink`, or a rendered texture other than `none`/`paper` (WARN: the brand declares grain/halftone and kit2 drew it flat; SKIP: no axes, a factory/kit page) |
 
 Help the gate by tagging text with `data-role` on the element or a parent group (the kit's text helpers
 should do this): `must-read` for headline numbers, the count, captions and the commit box; `secondary` for
@@ -97,3 +97,15 @@ skip (no beat-named chapters, honest line, claims.json or count.at in its schema
 G1, G2a, G2b, G3, G4d to G4f, G5a, G5b, G7, G8, G9 pass; G4a/G4b/G4c fail by design (a 20 s smoke, no CASE
 or MONDAY, commit at 5 s); G6 flags the 25-unit SEALED stamp, which the size rule takes for must-read; the
 kit should tag text with `data-role` so stamps and chrome are classed by intent, not by size.
+
+## frames.mjs and apply_findings.py (factory/PIPELINE.md stages 2 and 4)
+
+    node factory/tools/frames.mjs <page.html | film-dir> [--every 0.5] [--out dir] [--brand id] [--per-row 12]
+    python3 factory/tools/apply_findings.py <film-dir> <findings.json> [--dry-run] [--every 0.5] [--no-frames]
+
+frames.mjs: 480 x 270 thumbnails (thumbs/t-0012.50.jpg, timestamp burned top-left) every --every s, strips of 12
+(strip-01.png …), frames.json `{s_per_frame, purity, knobs, axes, frames: [{t, file, strip, cell, caption, chapter}]}`;
+exit 1 on a page error or a purity difference at 0.2/0.5/0.8 × dur. apply_findings.py: validates each finding
+(knob in knobs_doc and in range; caption_index exists, ≤ 60 chars, no new number that is not a claim value; chapter
+t0 shift ≤ 2 s keeping beat order; brand/chrome ids exist), applies the valid ones to film.json (+ `look`), writes
+`<findings>.report.json`, rebuilds with kit2, gates (`gate.json`), re-strips (`frames/`); exit 1 if the gate FAILs.
