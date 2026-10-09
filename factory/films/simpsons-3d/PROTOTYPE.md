@@ -33,3 +33,19 @@ neon reveal frames 1.3–1.5 s. Purity identical at three times. Duration 75 s.
   film.js round with a narrow brief.
 - Three drafts cost ≈ 1 M tokens; the select-and-fix loop ≈ 0.25 M. Cheaper drafts (two instead of three) are the
   obvious lever for scale.
+
+# P3 measurements · client brand switch (same film, zero edits)
+
+Rebuilt with `python3 factory/kit2/build.py factory/films/simpsons-3d --brand <pack> --chrome none` under editorial-serif
+(light, serif), swiss-grid (light, grotesk, red/blue) and a tweak.py derivative of ceti-coastal-dark (`--hue 40
+--accent #f2a541`, pack in p3/). Gate `--quick` on each: PASS, same single G5c WARN. Contact sheets at 30, 52 and
+56.5 s in p3/shots-<brand>/contact.png.
+
+| pack | bg | box colours follow roles | rate pins | neon reveal | verdict on the brand |
+|---|---|---|---|---|---|
+| editorial-serif | paper | accent red / accent2 slate, muted unlit | legible | plain black 2 (no glow on paper, by design) | SHIP: reads like a broadsheet chart |
+| swiss-grid | white | red / blue, high contrast | legible | plain black 2 | SHIP: cleanest side view of the three |
+| coastal-dark hue+40 | navy | amber / sky | legible | white glow | SHIP: the tweak derivative is indistinguishable from a hand-made pack |
+
+Film edits: 0. Build time: 4 s per pack. Gate: ~70 s per pack (parallel). The WebGL film honours every token role the
+2D films honour (bg, ink, accent, accent2, muted, line, panel, type disp/mono/body).

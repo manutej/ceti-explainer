@@ -1,0 +1,16 @@
+{
+ "html": "/home/user/ceti-explainer/factory/films/simpsons-3d/build/simpsons-3d.swiss-grid.none.html",
+ "errors": [],
+ "variants": {
+  "default": {
+   "stills": [
+    "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-swiss-grid/default-t30.00.png",
+    "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-swiss-grid/default-t51.98.png",
+    "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-swiss-grid/default-t56.48.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 57,
+ "contact": "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-swiss-grid/contact.png"
+}
