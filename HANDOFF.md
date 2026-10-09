@@ -47,6 +47,14 @@ exec-room gold standard, D9), references/ (doctrine, tells, atlas, research), co
 5. SHIP: `python3 factory/tools/catalogue.py`, add the page hash to tests/baselines/builds.json, commit the sources AND the
    built page (D10), publish the page as an artifact.
 
+At scale (factory/PIPELINE.md, proven on factory/films/simpsons-3d, measurements in its PROTOTYPE.md): three Sonnet
+drafts from one brief, each with every tunable as a knob (`film.json.knobs` + `knobs_doc`, read via `window.KIT.knob`);
+`node factory/tools/frames.mjs <page> --every 0.5 --out <dir>` makes timestamped contact strips; an Opus selector reads
+the strips blind, writes SELECT.md and findings.r1.json; `python3 factory/tools/apply_findings.py <film-dir> <findings>`
+applies knob, caption, chapter, brand and chrome findings to film.json only, then rebuilds, gates and re-strips; two
+rounds, then ship. `film.json.renderer: "webgl"` gives a WEBGL canvas (kit2 README "WebGL"). Films with a `look`
+recorded in film.json are kit2 films; tests/proofs.sh vi builds them with kit2.
+
 ## 4. Brands and design systems
 
 - A brand is a token pack (arsenal/brands/<id>.json; schema in schema.json): colour roles (bg, ink, accent, accent2,
@@ -68,7 +76,7 @@ source. Silent, captions carry it. One honest-limits line. The CETI card is the 
 
 ## 6. Where things are published
 
-factory/ARTIFACTS.md: the fifteen films, the Opera House, the film gallery, the arsenal gallery. The Design canvas with
+factory/ARTIFACTS.md: the fifteen films, the showcase, simpsons-3d (P1), the Opera House, the film gallery, the arsenal gallery. The Design canvas with
 the blueprint: https://claude.ai/artifact/B1gL55RNtMpo9fp44gWyZG. All private until shared.
 
 ## 7. Open issues (honest list)

@@ -98,3 +98,39 @@ findings.r1.json holds 11 findings: 0 block, 5 major, 6 minor. The dry run accep
   impossible to miss. That needs new timing logic, not a knob.
 - claims.json `where` fields still name the old caption contents (e.g. gapE "caption 11"). This is cosmetic and was
   not edited (the evaluator may not touch claims.json).
+
+## Round 2 (evaluator, after round 1 was applied; gate PASS, frames regenerated)
+
+### What round 1 changed in the picture
+- **dv0 45.5**: worked. The stale overall "30" now ends at 45.0 s, and A is called at 45.5 s (strip-08, cells 6-8).
+  Before, the "30" lasted until 46.5 s.
+- **hlMorphDur 0.6, dvStep 1.4**: worked. Each pair now holds 2-3 clean frames, for example "37 34" from 48.5 to
+  50.0 s and "33 35" from 50.0 to 51.0 s (strip-09).
+- **revealT 54.4**: worked. The extruded 2 and the neon land at 54.5-55.5 s, together with caption 10 at 54.2 s.
+  One leftover: at 54.0 s, "6 7" and the incoming 2 are briefly on screen together (strip-10, cell 0). I accepted
+  that as a transition.
+- **Caption 10 ("and ahead in 4")**: worked (54.5-58 s).
+- **Caption 11 (counts)**: half worked. Counts now come before ratios, but at 57 chars the caption wraps to two lines.
+  Its first line rises into the slab bottoms and the A-F letters (strip-11, cells 0-3). That is fixed in round 2.
+- **pinRate 24**: worked. The ledger reads at 480 x 270. Pairs still run together, so slabGap goes up again.
+- **slabGap 22, zoom1 0.80**: the slabs are larger and the comparison reads better, but zoom 0.80 overshot: the
+  letters now sit on the caption line, so round 2 backs it off to 0.83.
+- **platterR 240, elev0 20**: these did little. The front view is more frontal, but the ring arc still crosses the
+  first letters of every caption from 18 to 41 s (strip-04 to strip-07). The fix now uses zoom0.
+
+### findings.r2.json (5 findings: 0 block, 1 major, 4 minor; the dry run accepted all 5)
+- Major: caption 11 becomes "A or B: 1,385 of 2,691 men, 133 of 1,835 women." That is 47 chars, one line.
+- Minor: `zoom1` 0.80 → 0.83, `elev1` 15 → 11, `zoom0` 0.56 → 0.60, `slabGap` 22 → 26.
+- Convergence: 11 findings in round 1, 5 in round 2. Anything left after this round goes to NOTES.md (PIPELINE stop
+  rule).
+
+### Still beyond scope after round 2
+- The empty platter ring stays behind the MONDAY captions (strip-12, 66-72 s). Only fading it out after 62 s fixes
+  that (film.js).
+- The front-view count labels sit on the column tops, and the small "45 %" / "30 %" duplicates appear there at
+  36-40 s (strip-07).
+- The KILLED stamp overprints the full stop of the hook headline (4.5-8 s and 63-72 s).
+- When the call-out pin moves on, the outgoing and incoming pins cross-fade over each other: "WOMEN HIGHERWOMEN
+  HIGHER" at 47.0 s, and the E/F pins at 52.5 s. The pins need a hard cut or an offset (film.js).
+- The round-1 items still stand: a's MEN +3 / MEN +4 pointers, the "count the four" pass, and the claims.json
+  `where` text.

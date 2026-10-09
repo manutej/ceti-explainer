@@ -89,7 +89,7 @@
     34
    ],
    "what": "world units of air between department groups in the side view",
-   "value": 22
+   "value": 26
   },
   {
    "name": "pairGap",
@@ -125,7 +125,7 @@
     32
    ],
    "what": "camera elevation in degrees in the side view",
-   "value": 15
+   "value": 11
   },
   {
    "name": "zoom0",
@@ -134,7 +134,7 @@
     0.9
    ],
    "what": "orthographic extent multiplier for the front view (lower is closer)",
-   "value": 0.56
+   "value": 0.6
   },
   {
    "name": "zoom1",
@@ -143,7 +143,7 @@
     1.2
    ],
    "what": "orthographic extent multiplier for the side view (lower is closer)",
-   "value": 0.8
+   "value": 0.83
   },
   {
    "name": "lookY0",
@@ -494,8 +494,8 @@
    "value": 60.6
   }
  ],
- "ms_per_frame": 219,
- "s_per_frame": 0.219,
+ "ms_per_frame": 212,
+ "s_per_frame": 0.212,
  "purity": {
   "pass": true,
   "at": {
@@ -1833,7 +1833,7 @@
    "file": "thumbs/t-0059.00.jpg",
    "strip": "strip-10.png",
    "cell": 10,
-   "caption": "1,385 of 2,691 men applied to A or B; 133 of 1,835 women.",
+   "caption": "A or B: 1,385 of 2,691 men, 133 of 1,835 women.",
    "chapter": {
     "id": "count",
     "title": "Split by department"
@@ -1844,7 +1844,7 @@
    "file": "thumbs/t-0059.50.jpg",
    "strip": "strip-10.png",
    "cell": 11,
-   "caption": "1,385 of 2,691 men applied to A or B; 133 of 1,835 women.",
+   "caption": "A or B: 1,385 of 2,691 men, 133 of 1,835 women.",
    "chapter": {
     "id": "count",
     "title": "Split by department"
@@ -1855,7 +1855,7 @@
    "file": "thumbs/t-0060.00.jpg",
    "strip": "strip-11.png",
    "cell": 0,
-   "caption": "1,385 of 2,691 men applied to A or B; 133 of 1,835 women.",
+   "caption": "A or B: 1,385 of 2,691 men, 133 of 1,835 women.",
    "chapter": {
     "id": "count",
     "title": "Split by department"
@@ -1866,7 +1866,7 @@
    "file": "thumbs/t-0060.50.jpg",
    "strip": "strip-11.png",
    "cell": 1,
-   "caption": "1,385 of 2,691 men applied to A or B; 133 of 1,835 women.",
+   "caption": "A or B: 1,385 of 2,691 men, 133 of 1,835 women.",
    "chapter": {
     "id": "count",
     "title": "Split by department"
@@ -1877,7 +1877,7 @@
    "file": "thumbs/t-0061.00.jpg",
    "strip": "strip-11.png",
    "cell": 2,
-   "caption": "1,385 of 2,691 men applied to A or B; 133 of 1,835 women.",
+   "caption": "A or B: 1,385 of 2,691 men, 133 of 1,835 women.",
    "chapter": {
     "id": "count",
     "title": "Split by department"
@@ -1888,7 +1888,7 @@
    "file": "thumbs/t-0061.50.jpg",
    "strip": "strip-11.png",
    "cell": 3,
-   "caption": "1,385 of 2,691 men applied to A or B; 133 of 1,835 women.",
+   "caption": "A or B: 1,385 of 2,691 men, 133 of 1,835 women.",
    "chapter": {
     "id": "count",
     "title": "Split by department"

@@ -36,9 +36,19 @@ if run vi; then
   for d in factory/films/*/; do
     id=$(basename "$d")
     [ -f "$d/film.json" ] && [ -f "$d/film.js" ] && [ -f "$d/claims.json" ] || continue
-    python3 factory/kit/build.py "$d" | tail -1
+    look=$(python3 -c "import json,sys;l=json.load(open(sys.argv[1])).get('look');print(l['brand']+' '+l['chrome'] if l else '')" "$d/film.json")
+    if [ -n "$look" ]; then
+      # kit2 film: film.json.look records brand and chrome; page is build/<id>.<brand>.<chrome>.html
+      set -- $look; brand=$1; chrome=$2
+      pack="$brand"; [ -f "$d/brand.$brand.json" ] && pack="$d/brand.$brand.json"   # a film-local pack copy wins
+      python3 factory/kit2/build.py "$d" --brand "$pack" --chrome "$chrome" | tail -1
+      page="$d/build/$id.$brand.$chrome.html"; kitargs="--kit factory/kit2"
+    else
+      python3 factory/kit/build.py "$d" | tail -1
+      page="$d/build/$id.html"; kitargs="--kit factory/kit/kit.js --kit factory/kit/player.js"
+    fi
     [ -f "$d/gate.json" ] || { echo "   $id: no gate.json yet, gate skipped"; continue; }
-    node factory/tools/gate.mjs "$d/build/$id.html" --film "$d" --kit factory/kit/kit.js --kit factory/kit/player.js \
+    node factory/tools/gate.mjs "$page" --film "$d" $kitargs \
       --json "$d/build/$id.gate.json" --quick > "$d/build/$id.gate.log" 2>&1 \
       || { grep -E 'FAIL|VERDICT|Error' "$d/build/$id.gate.log"; echo "   $id: gate FAIL"; exit 1; }
     grep -E '^ *VERDICT' "$d/build/$id.gate.log" | sed "s/^ */   $id: /"

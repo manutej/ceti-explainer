@@ -2,31 +2,31 @@
   "film": "simpsons-3d",
   "page": "/home/user/ceti-explainer/factory/films/simpsons-3d/build/simpsons-3d.ceti-boardwalk-dark.none.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/simpsons-3d",
-  "date": "2026-10-09T22:08:40.286Z",
+  "date": "2026-10-09T22:12:14.461Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 737 ms; stage sd 15s:21.3 37.5s:32.5 60s:34.7",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 812 ms; stage sd 15s:21.3 37.5s:31.9 60s:34.0",
       "data": {
-        "readyMs": 737,
+        "readyMs": 812,
         "stats": [
           {
             "t": 15,
-            "mean": 28.63498104746012,
-            "sd": 21.32609883359108
+            "mean": 28.60810985725951,
+            "sd": 21.347623437208753
           },
           {
             "t": 37.5,
-            "mean": 36.962880999234784,
-            "sd": 32.54190677133946
+            "mean": 36.060915567136014,
+            "sd": 31.901205377063548
           },
           {
             "t": 60,
-            "mean": 39.01136954089936,
-            "sd": 34.728917925663445
+            "mean": 38.78142116127075,
+            "sd": 33.98934936017751
           }
         ],
         "filmErrs": [],
@@ -172,8 +172,8 @@
       "status": "PASS",
       "evidence": "film code 80.2 KB (film.js 54.2, film.json 12.8, claims.json 13.3) < 120 KB; page 1.270 MB < 1.3 MB",
       "data": {
-        "code": 82156,
-        "page": 1269554
+        "code": 82146,
+        "page": 1269544
       }
     },
     {

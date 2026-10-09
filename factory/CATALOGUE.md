@@ -15,9 +15,11 @@ when built, its page. Do not edit by hand. The sha256 is the baseline a rebuild 
 | regression | The Flight Instructors | 1:15 | PASS | `aaea715753770f14187c1388ba8eef099fb44d18c9f7e09d4b6e3609ce55859f` (1,114,715 bytes) |
 | sample-size | Thirty Customers | 1:15 | PASS | `836da6218b26344c2dcbf62ff58605ea68acef637ebe327c8977efed68e68c88` (1,117,559 bytes) |
 | selection | Who chose it | 1:15 | PASS | `83db587cf0374c9e21f650380ced2a8123a5c6ec30a516f3e53725c25fc0b29e` (1,129,864 bytes) |
+| simpsons-3d | Worse Overall, Turned | 1:15 | PASS | `9d5fccdd1dc8072f937582b0c974ed5693093a660bf8e9ecdbf739bdaddfbb60` (1,269,544 bytes) |
 | simpsons | Worse Overall | 1:15 | PASS | `47c5b15a276630aae263ad10fe39213e7a5e994cbe4e5a074c80112c3a824b14` (1,109,814 bytes) |
 | streaks | Three bad months | 1:15 | PASS | `7d00abd4032bc3d28d2d5298f4e7b20d8309de9e831a0343a5321abde6ace778` (1,111,705 bytes) |
 | sunk-cost | The Season Ticket | 1:15 | PASS | `8552cc4056be00717ee5e5444c8131aae9b3ead330b9ecfe140be65c65c90157` (1,108,495 bytes) |
 | survivorship | The Missing Planes | 1:15 | PASS | `484bccb63f752fb0633425bb61b8ed292d2966f4ac59cd8dd09e23c1e5f991f3` (1,107,514 bytes) |
 | volatility-drag | The average is not your outcome | 1:15 | PASS | `0f1f544b53a4cd6a875a4cf415a58b9262aa63d122bb93ff562e5f44c5829e08` (1,112,917 bytes) |
 | winners-curse | The Winner's Curse | 1:15 | PASS | `a4fc5a1a53742c5457361bd47c6d4110a4309131184481bdfd5514f7ae5470bf` (1,110,017 bytes) |
+| wiring-and-the-whole | The Wiring and the Whole | 1:55 | PASS | `874c3957a2e92241a98cc4b206450fc085f88eef2036f4864cdedd7320f8008a` (1,265,027 bytes) |

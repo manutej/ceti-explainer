@@ -228,6 +228,31 @@
    }
   },
   {
+   "id": "simpsons-3d",
+   "title": "Worse Overall, Turned",
+   "eyebrow": "CETI · the 75-second case · Simpson's paradox · the instrument",
+   "dur": 75,
+   "chapters": 5,
+   "captions": 14,
+   "sources": 6,
+   "claims": 65,
+   "takeaway": "Split by segment before you call it worse.",
+   "folder": "factory/films/simpsons-3d",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/simpsons-3d/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/simpsons-3d/build/simpsons-3d.ceti-boardwalk-dark.none.html",
+    "bytes": 1269544,
+    "sha256": "9d5fccdd1dc8072f937582b0c974ed5693093a660bf8e9ecdbf739bdaddfbb60"
+   }
+  },
+  {
    "id": "simpsons",
    "title": "Worse Overall",
    "eyebrow": "CETI · the 75-second case · Simpson's paradox",
@@ -375,6 +400,31 @@
     "path": "factory/films/winners-curse/build/winners-curse.html",
     "bytes": 1110017,
     "sha256": "a4fc5a1a53742c5457361bd47c6d4110a4309131184481bdfd5514f7ae5470bf"
+   }
+  },
+  {
+   "id": "wiring-and-the-whole",
+   "title": "The Wiring and the Whole",
+   "eyebrow": "CETI · Case · a repo read as a few systems and their wiring",
+   "dur": 115,
+   "chapters": 5,
+   "captions": 29,
+   "sources": 11,
+   "claims": 99,
+   "takeaway": "Ship the wiring, not the whole.",
+   "folder": "factory/films/wiring-and-the-whole",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/wiring-and-the-whole/gate.json",
+    "failed_of_total": [
+     0,
+     19
+    ]
+   },
+   "page": {
+    "path": "factory/films/wiring-and-the-whole/build/wiring-and-the-whole.midnight-ink.none.html",
+    "bytes": 1265027,
+    "sha256": "874c3957a2e92241a98cc4b206450fc085f88eef2036f4864cdedd7320f8008a"
    }
   }
  ]

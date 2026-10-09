@@ -11,6 +11,7 @@ hashes in tests/baselines/builds.json). Private to the owner until shared from e
 | queues | Busy is not fast | https://claude.ai/artifact/SvuHFdRi2cZotegU9vZSxd |
 | winners-curse | The Winner's Curse | https://claude.ai/artifact/DT48JhyZ4ngUAhZNz9EW65 |
 | simpsons | Worse Overall | https://claude.ai/artifact/AhJ9CpYVewB8cwZmsQm4Nm |
+| simpsons-3d | Worse Overall, Turned (P1, webgl, three drafts, two evaluator rounds) | https://claude.ai/artifact/QmV53zihBx8Wn3gHnPA4HC |
 | amdahl | Ten Times Faster | https://claude.ai/artifact/5fTRivvv9qeJT2EWK2r9ic |
 | streaks | Three bad months | https://claude.ai/artifact/42cYfY5FiETniDYxg1nZdg |
 | cost-of-delay | The Cost of Waiting | https://claude.ai/artifact/Xa8J7YUfhCfue7945fLq8n |

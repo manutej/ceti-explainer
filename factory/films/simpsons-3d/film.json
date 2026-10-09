@@ -153,7 +153,7 @@
   [
    58.6,
    61.9,
-   "1,385 of 2,691 men applied to A or B; 133 of 1,835 women."
+   "A or B: 1,385 of 2,691 men, 133 of 1,835 women."
   ],
   [
    62.2,
@@ -216,13 +216,13 @@
   "colGap": 4,
   "slabLayers": 20,
   "slabDepth": 4,
-  "slabGap": 22,
+  "slabGap": 26,
   "pairGap": 5,
   "platterR": 240,
   "elev0": 20,
-  "elev1": 15,
-  "zoom0": 0.56,
-  "zoom1": 0.8,
+  "elev1": 11,
+  "zoom0": 0.6,
+  "zoom1": 0.83,
   "lookY0": -96,
   "lookY1": -128,
   "turn0": 40.0,
