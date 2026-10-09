@@ -1,0 +1,697 @@
+{
+ "id": "simpsons-3d",
+ "title": "Worse Overall, Turned",
+ "eyebrow": "CETI · the 75-second case · Simpson's paradox · the instrument",
+ "lede": "A new sales process converts worse overall, so it gets killed. Berkeley, 1973 on a turntable: 4,526 applicants as boxes, men's column taller from the front, six department slabs from the side. Same boxes, different viewpoint.",
+ "dur": 75,
+ "seed": 1973,
+ "params": {
+  "mA": 825,
+  "mAa": 512,
+  "wA": 108,
+  "wAa": 89,
+  "mB": 560,
+  "mBa": 353,
+  "wB": 25,
+  "wBa": 17,
+  "mC": 325,
+  "mCa": 120,
+  "wC": 593,
+  "wCa": 202,
+  "mD": 417,
+  "mDa": 138,
+  "wD": 375,
+  "wDa": 131,
+  "mE": 191,
+  "mEa": 53,
+  "wE": 393,
+  "wEa": 94,
+  "mF": 373,
+  "mFa": 22,
+  "wF": 341,
+  "wFa": 24,
+  "campusMen": 8442,
+  "campusWomen": 4321,
+  "campusMenPct": 44,
+  "campusWomenPct": 35,
+  "guessDefault": 5,
+  "holdSeconds": 8,
+  "year": 1973,
+  "perMark": 1
+ },
+ "commit": {
+  "at": 11.5,
+  "title": "YOUR GUESS",
+  "prompt": "Women got in less often overall. In how many of the 6 departments did they do worse?",
+  "unit": "of 6 departments",
+  "default": 5,
+  "min": 0,
+  "max": 6,
+  "step": 1
+ },
+ "count": {
+  "at": 16.6
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 8,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · THE HOOK",
+   "title": "The review"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 8,
+   "t1": 16.5,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · YOUR NUMBER",
+   "title": "Seal a number"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 16.5,
+   "t1": 36,
+   "eyebrow": "CASE · BERKELEY · FALL 1973",
+   "title": "One mark, one applicant"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 36,
+   "t1": 62,
+   "eyebrow": "CASE · BERKELEY · THE COUNT",
+   "title": "Split by department"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 62,
+   "t1": 72,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · MONDAY",
+   "title": "Before you kill it"
+  }
+ ],
+ "captions": [
+  [
+   0.6,
+   4.2,
+   "Our new sales process converts worse overall."
+  ],
+  [
+   4.4,
+   8.0,
+   "So we killed it. Case closed?"
+  ],
+  [
+   8.2,
+   11.2,
+   "Berkeley, 1973: women got in less often overall."
+  ],
+  [
+   11.3,
+   16.2,
+   "In how many of 6 departments did women do worse?"
+  ],
+  [
+   16.6,
+   24.4,
+   "Fall 1973, six departments: 4,526 applicants."
+  ],
+  [
+   24.6,
+   29.8,
+   "Admitted: 1,198 of 2,691 men, 557 of 1,835 women."
+  ],
+  [
+   30.0,
+   35.8,
+   "Fewer women got in. The headline writes itself."
+  ],
+  [
+   36.2,
+   39.6,
+   "Overall: 45 % of men admitted, 30 % of women."
+  ],
+  [
+   39.8,
+   45.6,
+   "Now turn it. Same boxes, split by department."
+  ],
+  [
+   45.8,
+   53.8,
+   "Same boxes, same rules. Compare each department."
+  ],
+  [
+   54.2,
+   58.4,
+   "Women did worse in 2 of 6, and ahead in 4."
+  ],
+  [
+   58.6,
+   61.9,
+   "1,385 of 2,691 men applied to A or B; 133 of 1,835 women."
+  ],
+  [
+   62.2,
+   66.6,
+   "Monday: did the new process get the same mix of leads?"
+  ],
+  [
+   66.8,
+   71.6,
+   "Splitting explains this gap. It does not prove fairness."
+  ]
+ ],
+ "brand": {
+  "takeaway": "Split by segment before you call it worse."
+ },
+ "sources": [
+  [
+   "BHO75",
+   "Bickel, P. J., Hammel, E. A., & O'Connell, J. W. (1975). Sex bias in graduate admissions: Data from Berkeley. Science, 187(4175), 398–404. doi:10.1126/science.187.4175.398"
+  ],
+  [
+   "RDS",
+   "R Core Team. UCBAdmissions: Student Admissions at UC Berkeley (R datasets package; 4,526 applicants, six largest departments, 1973; counts from Bickel et al. 1975)."
+  ],
+  [
+   "FPP07",
+   "Freedman, D., Pisani, R., & Purves, R. (2007). Statistics (4th ed.), ch. 2 §4: the six largest majors, Berkeley 1973. W. W. Norton."
+  ],
+  [
+   "SIM51",
+   "Simpson, E. H. (1951). The interpretation of interaction in contingency tables. Journal of the Royal Statistical Society, Series B, 13(2), 238–241."
+  ],
+  [
+   "PEA14",
+   "Pearl, J. (2014). Comment: Understanding Simpson's paradox. The American Statistician, 68(1), 8–13. doi:10.1080/00031305.2014.876829"
+  ],
+  [
+   "FMT",
+   "factory/FORMAT.md and docs/DECISIONS.md Q13: the 8-second commit hold and the film-mode default guess (5)."
+  ]
+ ],
+ "honest": [
+  "Splitting explains this gap. It does not prove fairness. The film counts the six largest departments of one year; why women applied mostly to the crowded departments is a question the split cannot answer.",
+  "Campus-wide the gap was about 44 % of 8,442 men against 35 % of 4,321 women (Bickel et al. 1975); pooled over the six departments shown it is 45 % against 30 %.",
+  "A split can mislead too: split on what came before the decision (the department, the segment), not on something the decision caused (Pearl 2014). The sales hook is a situation, not data."
+ ],
+ "renderer": "webgl",
+ "level": "manager",
+ "fonts3d": [
+  {
+   "key": "Space Mono|400",
+   "text": "0123456789 %.,H·"
+  }
+ ],
+ "knobs": {
+  "boxSize": 6.4,
+  "boxGap": 0.8,
+  "colW": 12,
+  "colD": 10,
+  "colGap": 4,
+  "slabLayers": 20,
+  "slabDepth": 4,
+  "slabGap": 22,
+  "pairGap": 5,
+  "platterR": 240,
+  "elev0": 20,
+  "elev1": 15,
+  "zoom0": 0.56,
+  "zoom1": 0.8,
+  "lookY0": -96,
+  "lookY1": -128,
+  "turn0": 40.0,
+  "turn1": 46.0,
+  "turnDeg": 90,
+  "turnEase": "cubic",
+  "idleDeg": 3.0,
+  "split0": 40.3,
+  "split1": 45.4,
+  "splitStagger": 0.55,
+  "splitLift": 22,
+  "arr0": 16.8,
+  "arrSec": 7.0,
+  "lit0": 24.6,
+  "lit1": 26.6,
+  "pinCount": 28,
+  "pinSub": 14,
+  "pinRate": 24,
+  "headSize": 80,
+  "headX": 44,
+  "headY": 16,
+  "hlStart": 36.4,
+  "hlMorph": 38.1,
+  "hlMorphDur": 0.6,
+  "hlStagger": 0.35,
+  "hlEase": "cubic",
+  "dv0": 45.5,
+  "dvStep": 1.4,
+  "revealT": 54.4,
+  "revealDur": 2.6,
+  "neonGain": 0.45,
+  "neonRadius": 18,
+  "neonThr": 0.5,
+  "revealSize": 90,
+  "revealX": 480,
+  "revealY": 104,
+  "mixT": 58.8,
+  "mixPct": 60.6
+ },
+ "knobs_doc": [
+  {
+   "name": "boxSize",
+   "range": [
+    4,
+    9
+   ],
+   "what": "edge of one box in world units; with boxGap sets the pitch, so it scales the whole sculpture"
+  },
+  {
+   "name": "boxGap",
+   "range": [
+    0.3,
+    1.8
+   ],
+   "what": "seam between boxes in world units; larger reads as separate applicants, smaller as a solid bar"
+  },
+  {
+   "name": "colW",
+   "range": [
+    8,
+    16
+   ],
+   "what": "boxes across one pooled column (even); with colD sets the column footprint and so its height",
+   "step": 2
+  },
+  {
+   "name": "colD",
+   "range": [
+    6,
+    14
+   ],
+   "what": "boxes deep in one pooled column (even)",
+   "step": 2
+  },
+  {
+   "name": "colGap",
+   "range": [
+    2,
+    10
+   ],
+   "what": "boxes of air between the men and women columns (even)",
+   "step": 2
+  },
+  {
+   "name": "slabLayers",
+   "range": [
+    14,
+    26
+   ],
+   "what": "layers in a department slab: the height that every slab is normalised to, so lit height reads as a rate"
+  },
+  {
+   "name": "slabDepth",
+   "range": [
+    2,
+    6
+   ],
+   "what": "boxes deep in a department slab (the view axis of the side view)"
+  },
+  {
+   "name": "slabGap",
+   "range": [
+    6,
+    34
+   ],
+   "what": "world units of air between department groups in the side view"
+  },
+  {
+   "name": "pairGap",
+   "range": [
+    2,
+    14
+   ],
+   "what": "world units between the men's slab and the women's slab of one department"
+  },
+  {
+   "name": "platterR",
+   "range": [
+    240,
+    420
+   ],
+   "what": "radius of the turntable platter ring in world units"
+  },
+  {
+   "name": "elev0",
+   "range": [
+    12,
+    42
+   ],
+   "what": "camera elevation in degrees during the front view (higher shows more of the tops)"
+  },
+  {
+   "name": "elev1",
+   "range": [
+    6,
+    32
+   ],
+   "what": "camera elevation in degrees in the side view"
+  },
+  {
+   "name": "zoom0",
+   "range": [
+    0.35,
+    0.9
+   ],
+   "what": "orthographic extent multiplier for the front view (lower is closer)"
+  },
+  {
+   "name": "zoom1",
+   "range": [
+    0.55,
+    1.2
+   ],
+   "what": "orthographic extent multiplier for the side view (lower is closer)"
+  },
+  {
+   "name": "lookY0",
+   "range": [
+    -170,
+    -20
+   ],
+   "what": "world y the camera looks at in the front view (more negative moves the sculpture down the frame)"
+  },
+  {
+   "name": "lookY1",
+   "range": [
+    -170,
+    -20
+   ],
+   "what": "world y the camera looks at in the side view"
+  },
+  {
+   "name": "turn0",
+   "range": [
+    37,
+    43
+   ],
+   "what": "s: the turntable starts to turn"
+  },
+  {
+   "name": "turn1",
+   "range": [
+    43,
+    50
+   ],
+   "what": "s: the turntable arrives at the side view"
+  },
+  {
+   "name": "turnDeg",
+   "range": [
+    60,
+    120
+   ],
+   "what": "degrees the turntable turns between turn0 and turn1"
+  },
+  {
+   "name": "turnEase",
+   "what": "easing of the turn: quad is gentle, expo snaps in the middle",
+   "options": [
+    "linear",
+    "quad",
+    "cubic",
+    "expo",
+    "sine"
+   ]
+  },
+  {
+   "name": "idleDeg",
+   "range": [
+    0,
+    8
+   ],
+   "what": "degrees per second the empty platter drifts while no boxes are shown (HOOK, COMMIT, MONDAY)"
+  },
+  {
+   "name": "split0",
+   "range": [
+    38,
+    44
+   ],
+   "what": "s: the first box leaves the pooled column for its department slab"
+  },
+  {
+   "name": "split1",
+   "range": [
+    43,
+    48
+   ],
+   "what": "s: the last box lands in its slab"
+  },
+  {
+   "name": "splitStagger",
+   "range": [
+    0,
+    0.9
+   ],
+   "what": "how much later each department starts moving (0 = all at once)"
+  },
+  {
+   "name": "splitLift",
+   "range": [
+    0,
+    60
+   ],
+   "what": "world units a box rises mid-flight on its way to the slab"
+  },
+  {
+   "name": "arr0",
+   "range": [
+    16.5,
+    18
+   ],
+   "what": "s: the first box arrives"
+  },
+  {
+   "name": "arrSec",
+   "range": [
+    4,
+    9
+   ],
+   "what": "s the men's column takes to fill with its 2,691 boxes"
+  },
+  {
+   "name": "lit0",
+   "range": [
+    23.5,
+    27
+   ],
+   "what": "s: the admitted boxes start to light, bottom up"
+  },
+  {
+   "name": "lit1",
+   "range": [
+    25,
+    29
+   ],
+   "what": "s: the last admitted box is lit"
+  },
+  {
+   "name": "pinCount",
+   "range": [
+    28,
+    38
+   ],
+   "what": "font size in units of the big count in a pin (must-read, never under 28)"
+  },
+  {
+   "name": "pinSub",
+   "range": [
+    14,
+    20
+   ],
+   "what": "font size in units of the small lines in a pin"
+  },
+  {
+   "name": "pinRate",
+   "range": [
+    20,
+    30
+   ],
+   "what": "font size in units of the department rates beside the slabs"
+  },
+  {
+   "name": "headSize",
+   "range": [
+    60,
+    150
+   ],
+   "what": "px: font size of the morphing headline number"
+  },
+  {
+   "name": "headX",
+   "range": [
+    20,
+    120
+   ],
+   "what": "x of the headline readout's left edge, in sheet units"
+  },
+  {
+   "name": "headY",
+   "range": [
+    16,
+    120
+   ],
+   "what": "y of the headline readout's top edge, in sheet units"
+  },
+  {
+   "name": "hlStart",
+   "range": [
+    36,
+    38
+   ],
+   "what": "s: the headline number first appears"
+  },
+  {
+   "name": "hlMorph",
+   "range": [
+    37,
+    40
+   ],
+   "what": "s: the headline morphs from 45 to 30"
+  },
+  {
+   "name": "hlMorphDur",
+   "range": [
+    0.4,
+    1.6
+   ],
+   "what": "s one headline morph takes"
+  },
+  {
+   "name": "hlStagger",
+   "range": [
+    0,
+    0.8
+   ],
+   "what": "left to right delay inside a headline morph (0 = every glyph at once)"
+  },
+  {
+   "name": "hlEase",
+   "what": "easing of the headline morph",
+   "options": [
+    "linear",
+    "quad",
+    "cubic",
+    "expo",
+    "sine"
+   ]
+  },
+  {
+   "name": "dv0",
+   "range": [
+    45.5,
+    50
+   ],
+   "what": "s: the first department (A) is called out"
+  },
+  {
+   "name": "dvStep",
+   "range": [
+    0.9,
+    2.0
+   ],
+   "what": "s between department call-outs"
+  },
+  {
+   "name": "revealT",
+   "range": [
+    53,
+    58
+   ],
+   "what": "s: the reveal frame (extruded 2 and the neon pass peak here)"
+  },
+  {
+   "name": "revealDur",
+   "range": [
+    1.2,
+    4
+   ],
+   "what": "s over which the reveal numeral turns and the neon pass rises and falls"
+  },
+  {
+   "name": "neonGain",
+   "range": [
+    0,
+    2
+   ],
+   "what": "strength of the neon post pass on the reveal frame (0 = off)"
+  },
+  {
+   "name": "neonRadius",
+   "range": [
+    6,
+    40
+   ],
+   "what": "px reach of the neon glow"
+  },
+  {
+   "name": "neonThr",
+   "range": [
+    0.05,
+    0.8
+   ],
+   "what": "brightness above which a pixel glows"
+  },
+  {
+   "name": "revealSize",
+   "range": [
+    80,
+    240
+   ],
+   "what": "px width of the extruded numeral"
+  },
+  {
+   "name": "revealX",
+   "range": [
+    300,
+    700
+   ],
+   "what": "x of the extruded numeral's centre, in sheet units"
+  },
+  {
+   "name": "revealY",
+   "range": [
+    70,
+    200
+   ],
+   "what": "y of the extruded numeral's centre, in sheet units"
+  },
+  {
+   "name": "mixT",
+   "range": [
+    57,
+    60.5
+   ],
+   "what": "s: A and B are bracketed and the mix numbers appear"
+  },
+  {
+   "name": "mixPct",
+   "range": [
+    59,
+    61.6
+   ],
+   "what": "s: the mix numbers become percentages"
+  }
+ ],
+ "look": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink"
+ }
+}
