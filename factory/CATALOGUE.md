@@ -13,6 +13,8 @@ when built, its page. Do not edit by hand. The sha256 is the baseline a rebuild 
 | cost-of-delay | The Cost of Waiting | 1:15 | PASS | `85b9c679a37b27259d314cc5d20074c04c130ff6112a6238ea27ec3e7463dda3` (1,112,568 bytes) |
 | goodhart | Eight Is Great | 1:15 | PASS | `7280596d4b9026eb47194ada10f68b4af54fad59047ba96dd81e9848fe5415a5` (1,105,448 bytes) |
 | how-a-network-learns | How a Network Learns | 2:03 | PASS | `9fbe415629cca419d274a6e0e93df948871aa7b0af80d6ab920b57f7221d708d` (1,293,129 bytes) |
+| noether-applied | Noether applied | 2:33 | PASS | `c1aadb66ddb14abc059672da75f6187f9f4a712b780c4a200f7f3bc9e47bd261` (1,266,962 bytes) |
+| noether-frontier | Noether at the frontier | 2:33 | PASS | `bd38280649c59553b407a9db50097a029a7c42539bd7ee062093d8c8b66b4f48` (1,263,596 bytes) |
 | noether-symmetry | Noether's symmetry | 2:33 | PASS | `0e370051266d0d0067d38d674e3b7642b762839804b4810ba447947be7aab0a0` (1,250,075 bytes) |
 | one-query | One query | 2:33 | PASS | `5cb037cb569a8941506e8afd8c5c893f6bb9e24ecad20d141c6981f356b43d60` (1,293,898 bytes) |
 | pass-every-time | Pass every time | 2:33 | PASS | `b9407025ff48a44647502ccab421fe941ecca13ff918f3bdbe415c6f26368356` (1,243,700 bytes) |

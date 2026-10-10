@@ -1,0 +1,20 @@
+{
+ "id": "noether-applied",
+ "verdict": "SHIP",
+ "seat": "director, after two tier-1 rounds (knobs, captions) and one tier-2 film.js revision; before/after sheet and strips read at 480x270; commit beat off (D11)",
+ "truth": [
+  {"claim": "two ways of stepping a planet a billion times: the energy-keeper never strays more than 0.007 %; the plain way is 1.9 % off after 10 million steps (about 270 times more) and the planet is thrown out by 65 million steps; the spin number holds to 11 places", "status": "ok", "note": "factory/topics/noether-applied/verlet_vs_rk4.c and recompute.py, A-grade derived; the two steppers share one orbit shell, then sort into a tube and a funnel"},
+  {"claim": "10,000 training states (100 runs x 100 steps): weights travel 0.24, the layer gap moves 0.00095; two networks taught a spring at 200 units and 2,000 steps: energy error 170 (plain) vs 0.38 (energy-keeping), about 450 times", "status": "ok", "note": "Part 1's network data (recompute) and Greydanus et al. 2019 Table 1 read from snippets (grade B); counts before the ratios"},
+  {"claim": "a loop of air stretches and folds while its swirl stays (wall height moves under 0.14 %); one protein chain of 2,180 residues turns and its answer arrows turn with it", "status": "ok", "note": "the loop is a film-local stirred mesh (simulated, tagged); the chain is a seeded stand-in, tagged 'not the real fold'; residue count from the source structure"}
+ ],
+ "craft": 4, "originality": 4, "stop": 4,
+ "legibility_phone": "ok (readouts at or above 16 units; G6 overflow is the kit shell)",
+ "format": {"counts_first": true, "commit_before_number": "n/a (D11)", "brand_card": true, "honest_line": true, "exec_clean": "n/a (level manager)"},
+ "moves_3d": ["two dots on one orbit, then 2,000 snapshots on a column (12-40 s)", "sort by the number that should stay: tube and funnel (42-60 s)", "the network's shells with one run's track (78-96 s)", "the stirred loop craned to a side view: the wall top stays flat (111-125 s)", "the chain turning against its ghost (127-135 s)", "the wide bookend of four pictures (135 s)"],
+ "defects": [
+  {"t": 46, "what": "the keeper pin's leader crosses the foot of the plain stepper's streak", "severity": "low"},
+  {"t": 87, "what": "the followed run is a thin track in a 10,000-dot cloud; it reads because the pin points at it", "severity": "low"},
+  {"t": 130, "what": "the protein chain is a stand-in, said on the tag; a viewer may still take it for the real fold", "severity": "low"}
+ ],
+ "notes": "Primary sources (Greydanus 2019, Du 2018, Jumper 2021) were not opened (egress blocked); re-verify before public use. Part 2 of the series. What it buys a viewer: the same move four times: sort the data by what should stay, and watch which one stays."
+}

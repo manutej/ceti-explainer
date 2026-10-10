@@ -178,6 +178,56 @@
    }
   },
   {
+   "id": "noether-applied",
+   "title": "Noether applied",
+   "eyebrow": "CETI · AI-STORIES · Noether applied · part 2",
+   "dur": 153,
+   "chapters": 4,
+   "captions": 32,
+   "sources": 10,
+   "claims": 29,
+   "takeaway": "Find what stays. Then build so it does.",
+   "folder": "factory/films/noether-applied",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/noether-applied/gate.json",
+    "failed_of_total": [
+     0,
+     19
+    ]
+   },
+   "page": {
+    "path": "factory/films/noether-applied/build/noether-applied.ceti-coastal-dark.none.html",
+    "bytes": 1266962,
+    "sha256": "c1aadb66ddb14abc059672da75f6187f9f4a712b780c4a200f7f3bc9e47bd261"
+   }
+  },
+  {
+   "id": "noether-frontier",
+   "title": "Noether at the frontier",
+   "eyebrow": "CETI · AI-STORIES · Noether at the frontier · part 3",
+   "dur": 153,
+   "chapters": 4,
+   "captions": 33,
+   "sources": 11,
+   "claims": 32,
+   "takeaway": "Ask what stays when the order changes.",
+   "folder": "factory/films/noether-frontier",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/noether-frontier/gate.json",
+    "failed_of_total": [
+     0,
+     19
+    ]
+   },
+   "page": {
+    "path": "factory/films/noether-frontier/build/noether-frontier.ceti-coastal-dark.none.html",
+    "bytes": 1263596,
+    "sha256": "bd38280649c59553b407a9db50097a029a7c42539bd7ee062093d8c8b66b4f48"
+   }
+  },
+  {
    "id": "noether-symmetry",
    "title": "Noether's symmetry",
    "eyebrow": "CETI · AI-STORIES · Noether's symmetry · part 1",
