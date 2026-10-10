@@ -2,7 +2,7 @@
  "id": "smoke-webgl",
  "title": "Smoke: WEBGL renderer",
  "eyebrow": "CETI · kit2 infrastructure test · renderer webgl",
- "lede": "A 10-second infrastructure film: 120 boxes on a WEBGL canvas, a keyed camera swing, an extruded headline and a neon post pass, under the kit's SVG captions, commit box and brand card.",
+ "lede": "A 10-second infrastructure film: 120 boxes on a WEBGL canvas, a keyed camera swing, an extruded headline and a neon post pass, under the kit's SVG captions and brand card; the commit beat is off (D11), so it plays straight through.",
  "format": "smoke",
  "renderer": "webgl",
  "level": "manager",
@@ -18,13 +18,12 @@
   {"name": "neonAt", "range": [5, 8], "step": 0.1, "what": "second at which the neon reveal peaks"},
   {"name": "headTurn", "range": [0, 1], "step": 0.05, "what": "how far the extruded headline turns (1 = a half turn)"}
  ],
- "commit": {"at": 8, "title": "YOUR GUESS", "prompt": "How many boxes?", "unit": "boxes", "default": 120, "min": 0, "max": 1000, "step": 1},
+ "commit": {"enabled": false},
  "count": {"at": 9.4},
  "chapters": [
   {"id": "hook", "beat": "HOOK", "t0": 0, "t1": 4, "eyebrow": "SMOKE · HOOK", "title": "Front view"},
-  {"id": "commit", "beat": "COMMIT", "t0": 4, "t1": 9.4, "eyebrow": "SMOKE · YOUR NUMBER", "title": "Side view"},
-  {"id": "case", "beat": "CASE", "t0": 9.4, "t1": 9.6, "eyebrow": "SMOKE · CASE", "title": "Case"},
-  {"id": "count", "beat": "COUNT", "t0": 9.6, "t1": 9.8, "eyebrow": "SMOKE · COUNT", "title": "Count"},
+  {"id": "case", "beat": "CASE", "t0": 4, "t1": 9.4, "eyebrow": "SMOKE · CASE", "title": "Side view"},
+  {"id": "count", "beat": "COUNT", "t0": 9.4, "t1": 9.8, "eyebrow": "SMOKE · COUNT", "title": "Count"},
   {"id": "monday", "beat": "MONDAY", "t0": 9.8, "t1": 10, "eyebrow": "SMOKE · MONDAY", "title": "Monday"}
  ],
  "captions": [

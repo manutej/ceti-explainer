@@ -66,3 +66,9 @@ milestones M1 to M7.
 | # | Decision | Changes |
 |---|----------|---------|
 | D10 | Every built standalone HTML page is committed next to its sources (build/<id>.html), so a film can always be opened, diffed and refactored against the exact page that shipped. This narrows D8: renders (MP4, WAV, stills) still go to the films repo; the standalone page stays here. | .gitignore keeps **/build/*.html; proofs compare rebuilds to these pages by hash. |
+
+## 2026-10-10 · films are plain videos by default
+
+| # | Decision | Changes |
+|---|----------|---------|
+| D11 | The commit beat is optional and off by default (film.json `commit.enabled`, default false for new films); the law "the viewer commits a number before any number is shown" applies only to films that enable it; counts before ratios, the honest line and the card still bind. | A film with `commit` absent or `commit.enabled: false` plays straight through: kit2 draws no commit box, no countdown ring, no hold, no try-it panel and no film-mode default, and publishes `window.__film.info.commit = {enabled: false}`; build.py does not ask for commit.at/prompt/default and no COMMIT chapter is needed. Gate G4b accepts HOOK → [COMMIT] → CASE → COUNT → MONDAY; G4c passes as "commit disabled (D11)"; G7 keeps counts first. new_topic.py scaffolds four beats (`--commit` restores five). Films whose `commit` object has no `enabled` key (every film shipped before this date) keep the beat; their pages rebuild byte-identical. Narrows Q13 to the films that enable the beat. (D6's "See D11" was written before this row and does not refer to it.) |

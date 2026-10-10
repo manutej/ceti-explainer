@@ -83,7 +83,7 @@ typed meta-prompt with references under skills/atelier-*/references/.
 ## 5. The laws (do not change without a dated row in docs/DECISIONS.md)
 
 One clock: every frame is render(t, state), seeds fixed, no Math.random/Date/frameCount in a renderer. Counts before
-ratios. The viewer commits a number before any number is shown. Every digit on screen is a claim with a formula or a
+ratios. In a film that enables the commit beat (off by default, D11), the viewer commits a number before any number is shown. Every digit on screen is a claim with a formula or a
 source. Silent, captions carry it. One honest-limits line. The CETI card is the last frame. Exec level is ink and clean.
 
 ## 6. Where things are published

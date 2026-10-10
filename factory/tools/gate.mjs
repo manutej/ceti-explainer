@@ -19,6 +19,7 @@ import { chromium } from '/opt/node-tools/node_modules/playwright/index.mjs';
 
 const EXE = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 const BEATS = ['HOOK', 'COMMIT', 'CASE', 'COUNT', 'MONDAY'];
+const BEATS4 = BEATS.filter(b => b !== 'COMMIT');   // D11: the commit beat is optional (HOOK → [COMMIT] → CASE → COUNT → MONDAY)
 const W = 960, H = 540;
 
 /* ── args ── */
@@ -174,10 +175,13 @@ if (bootErr) {
   await finish();
 }
 
-info = await pg.evaluate(() => { const i = window.__film.info || {}; return { id: i.id, dur: +(i.dur ?? i.duration ?? window.__ctrl?.duration), FILM: window.FILM || null, axes: i.axes || null }; });
+info = await pg.evaluate(() => { const i = window.__film.info || {}; return { id: i.id, dur: +(i.dur ?? i.duration ?? window.__ctrl?.duration), FILM: window.FILM || null, axes: i.axes || null, commit: i.commit ?? null }; });
 if (!film) film = info.FILM || {};
 if (film.__error) { row('G4', 'format', 'FAIL', 'film.json does not parse: ' + film.__error); film = info.FILM || {}; }
 const DUR = +(info.dur || film.dur || film.duration);
+// D11: the commit beat is off when film.json has no commit, commit null, or commit.enabled false (an object without
+// "enabled", every film before D11, keeps it). Legacy kit films that carry T.commit/T.ask count as on.
+const COMMIT_OFF = (film.commit == null && film.T?.commit == null && film.T?.ask == null) || film.commit?.enabled === false;
 const CAPS = capList(film);
 
 const stageSel = await pg.evaluate(() => ['#stage', '.ex-stage-frame', '[data-stage]'].find(s => document.querySelector(s)) || 'body');
@@ -303,16 +307,21 @@ for (let t = 0; t <= DUR + 1e-6; t += STEP) {
   const fmt = film.format === 'feature' ? { lo: 90, hi: 120, cap: 123 } : film.format === 'smoke' ? { lo: 5, hi: 20, cap: 25 } : { lo: 60, hi: 75, cap: 78 };
   row('G4a', 'format · duration', pf(material >= fmt.lo && material <= fmt.hi && DUR <= fmt.cap),
     `total ${r2(DUR)} s; material ${r2(material)} s (want ${fmt.lo}–${fmt.hi}, format ${film.format || 'case'}) + brand ${film.brand ? brandDur + ' s' : 'none'}; total ≤ ${fmt.cap}`);
-  if (!tagged.length) row('G4b', 'format · five beats', 'SKIP', `no chapter carries a beat id/name (${chs.length} chapters: ${chs.slice(0, 4).map(c => c.id + ' ' + (c.title || '')).join(', ')}…); legacy schema`);
+  if (!tagged.length) row('G4b', 'format · beats', 'SKIP', `no chapter carries a beat id/name (${chs.length} chapters: ${chs.slice(0, 4).map(c => c.id + ' ' + (c.title || '')).join(', ')}…); legacy schema`);
   else {
     const seq = tagged.map(x => x.b).filter((b, i, a) => i === 0 || a[i - 1] !== b);
-    const okOrder = JSON.stringify(seq) === JSON.stringify(BEATS);
+    const okOrder = JSON.stringify(seq) === JSON.stringify(BEATS) || JSON.stringify(seq) === JSON.stringify(BEATS4);
     const okTime = tagged.every((x, i) => i === 0 || chT0(x.c) >= chT0(tagged[i - 1].c));
-    row('G4b', 'format · five beats', pf(okOrder && okTime), `order ${seq.join(' → ')}${okOrder ? '' : ' (want ' + BEATS.join(' → ') + ')'}; t0 ${tagged.map(x => x.b[0] + chT0(x.c)).join(' ')}${okTime ? '' : ' NOT ascending'}`);
+    row('G4b', 'format · beats', pf(okOrder && okTime), `order ${seq.join(' → ')}${okOrder ? '' : ' (want HOOK → [COMMIT] → CASE → COUNT → MONDAY)'}; t0 ${tagged.map(x => x.b[0] + chT0(x.c)).join(' ')}${okTime ? '' : ' NOT ascending'}` +
+      (COMMIT_OFF && seq.includes('COMMIT') ? '; a COMMIT chapter with the commit disabled (D11: nothing is asked there)' : ''));
   }
   const commitCh = tagged.find(x => x.b === 'COMMIT');
   const commitAt = film.commit?.at ?? film.T?.commit ?? film.T?.ask ?? (commitCh ? chT0(commitCh.c) : null);
-  if (commitAt == null) row('G4c', 'format · commit time', 'SKIP', 'no film.commit.at, T.commit/T.ask or COMMIT chapter');
+  if (COMMIT_OFF) {
+    const pageOn = info.commit != null && info.commit.enabled !== false;
+    row('G4c', 'format · commit time', pageOn ? 'FAIL' : 'PASS', pageOn ? 'commit disabled (D11) in film.json, but the page still carries the beat (info.commit ' + JSON.stringify(info.commit).slice(0, 60) + '): rebuild with factory/kit2/build.py'
+      : 'commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit ' + JSON.stringify(info.commit));
+  } else if (commitAt == null) row('G4c', 'format · commit time', 'SKIP', 'no film.commit.at, T.commit/T.ask or COMMIT chapter');
   else row('G4c', 'format · commit time', pf(commitAt >= 8 && commitAt <= 16), `commit at ${commitAt} s (want 8–16)` + (film.commit?.default != null || film.defaultGuess != null || film.defaultDate != null ? `; film-mode default ${film.commit?.default ?? film.defaultGuess ?? film.defaultDate}` : '; no film-mode default guess'));
   if (!film.brand) row('G4d', 'format · brand card', 'FAIL', 'film.json.brand missing (decision Q8: 3 s CETI card with the one-line takeaway)');
   else {
@@ -457,8 +466,11 @@ else {
   const countAt = film.count?.at ?? (countCh ? chT0(countCh) : null);
   const countSrc = film.count?.at != null ? 'count.at' : 'COUNT chapter t0 (declare film.count.at to be exact)';
   const fs_ = first ? `first ratio "${first.s.slice(0, 40)}" at ${first.t} s (${first.via})` : 'no percentage or ratio found';
-  if (countAt == null) row('G7', 'counts first', 'SKIP', `no film.json.count.at and no COUNT chapter; ${fs_}`);
-  else row('G7', 'counts first', pf(!first || first.t >= countAt), `count at ${countAt} s (${countSrc}); ${fs_}`);
+  // the "nothing from the answer before the seal" half of G7 binds only a film that enables the commit (D11); it is a
+  // design check in the beats (beats.md), not measured here. Counts before ratios binds every film.
+  const offNote = COMMIT_OFF ? '; commit disabled (D11): no seal, counts-before-ratios only' : '';
+  if (countAt == null) row('G7', 'counts first', 'SKIP', `no film.json.count.at and no COUNT chapter; ${fs_}${offNote}`);
+  else row('G7', 'counts first', pf(!first || first.t >= countAt), `count at ${countAt} s (${countSrc}); ${fs_}${offNote}`);
 }
 
 /* ═════════════ G9 tics ═════════════ */

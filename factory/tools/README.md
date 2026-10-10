@@ -27,8 +27,8 @@ folder lacks the data it needs (legacy schema), and says why. Runtime: about 10 
 | G2b purity · SVG | `innerHTML` of the stage SVG, same seeks, nothing normalised | any byte differs (prints the first differing span) |
 | G3 clock scan | film.js (+ `--kit` files, + film.json `libs`), comments blanked, line numbers kept: Math.random, Date, performance.now, frameCount, millis(), requestAnimationFrame, deltaTime, p.random | any hit |
 | G4a duration | material = dur − brand.dur (else dur − brand.at, else 3) | material outside 60–75 s or total > 78 s (`format: feature` 90–120 / 123; `format: smoke`, infrastructure tests only, 5–20 / 25) |
-| G4b five beats | chapters mapped to HOOK, COMMIT, CASE, COUNT, MONDAY by `beat`, `id`, `name` or `title` | wrong order or t0 not ascending (SKIP if no chapter names a beat) |
-| G4c commit time | `commit.at`, else `T.commit`/`T.ask`, else the COMMIT chapter t0 | outside 8–16 s |
+| G4b beats | chapters mapped to HOOK, COMMIT, CASE, COUNT, MONDAY by `beat`, `id`, `name` or `title`; HOOK → [COMMIT] → CASE → COUNT → MONDAY, COMMIT optional (D11) | wrong order or t0 not ascending (SKIP if no chapter names a beat) |
+| G4c commit time | commit off (film.json `commit` absent/null or `commit.enabled: false`, D11): PASS "commit disabled (D11)" when the page's `info.commit` is null or `{enabled: false}`; else `commit.at`, else `T.commit`/`T.ask`, else the COMMIT chapter t0 | off: the page still carries the beat (built before D11); on: outside 8–16 s |
 | G4d brand card | `brand.takeaway` non-empty; the frame at dur − 1 is not blank | missing brand, empty takeaway, blank frame |
 | G4e honest line | `honest` (or `limits`, `honesty`, `honestLimits`), string or array | empty |
 | G4f sources | `sources` | fewer than 3 |
@@ -36,7 +36,7 @@ folder lacks the data it needs (legacy schema), and says why. Runtime: about 10 
 | G5b claims · caption digits | every number in `film.json.captions` (clock times like 0:51 and years 1800–2100 ignored; text inside a claim's `renders` strings removed first) matches a claim value at its printed precision (also value × 100 for shares, value ÷ 1e3 / 1e6 for "k"/"M") | any unknown number |
 | G5c claims · on-screen digits | the same test over every visible SVG text, sampled every 0.5 s | WARN only (chrome numbers such as axis ticks) |
 | G6 legibility | visible SVG `<text>` (display, opacity > 0.3, centre inside 960×540) at 6 times, font size in design units (transforms and viewBox applied); class from the nearest `data-role` (`must-read`, `secondary`, `chrome`), else layer `cap` = must-read, else by size (≥ 22 must-read, ≥ 12.5 secondary, else chrome); phone screenshot at 390 px | must-read < 28, secondary < 14 (WARN: chrome < 12; phone overflow is reported) |
-| G7 counts first | first time a percentage, "N in M" or "N out of M" appears in visible SVG text or a caption, vs `count.at` (else the COUNT chapter t0) | a ratio appears before the count (SKIP if neither is declared) |
+| G7 counts first | first time a percentage, "N in M" or "N out of M" appears in visible SVG text or a caption, vs `count.at` (else the COUNT chapter t0). Counts first binds every film; "nothing from the answer before the seal" binds only a film with the commit on (D11; checked in the beats, not measured here) and the evidence says "commit disabled (D11)" when it is off | a ratio appears before the count (SKIP if neither is declared) |
 | G8 size | film.js + film.json + claims.json; the built page | ≥ 120 KB; ≥ 1.3 MB |
 | G9 tics | full-screen cards: chapters with `card: true` plus every entry of `film.cards`; countdown ring: `T`/`timings` keys or `device` values matching ring/countdown | more than 2 cards (WARN: a ring outside the COMMIT window) |
 | G10 axes | the page's declared axes: `window.__film.info.axes` (kit2 writes `{brand, chrome, material, texture, texture_declared, level, renderer, box}`), else `<meta name="kit2" content="brand=… material=… texture=… level=…">`; level = film.json `level`, else axes.level, else `exec` | level `exec` (DECISIONS Q6) and material ≠ `ink`, or a rendered texture other than `none`/`paper` (WARN: the brand declares grain/halftone and kit2 drew it flat; SKIP: no axes, a factory/kit page) |
@@ -50,7 +50,7 @@ labels; `chrome` for eyebrows, ledgers, axis ticks. Results never go in chrome.
     { "id": "...", "dur": 75,
       "params": { "n": 1000, "mu": 0.2555, "sigma": 0.487, "plan": 12 },     // claims formulas see these
       "chapters": [ { "id": "hook", "beat": "HOOK", "t0": 0, "t1": 8, "card": false }, ... ],
-      "commit": { "at": 9, "default": 13 },
+      "commit": { "at": 9, "default": 13 },   // or absent / { "enabled": false }: the commit beat is off (D11)
       "count":  { "at": 38 },          // when the count structure is first drawn
       "brand":  { "takeaway": "Ask how the last thousand went.", "at": 72 },   // or "dur": 3
       "honest": "The wall is a constructed teaching object, not a dataset.",

@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 """new_topic.py: scaffold a new 75-second case for the explainer factory.
 
-    python3 factory/tools/new_topic.py <id> "<Title>" [--force] [--root DIR]
+    python3 factory/tools/new_topic.py <id> "<Title>" [--commit] [--force] [--root DIR]
+
+By default the film is a plain video (DECISIONS D11): film.json `"commit": {"enabled": false}` and four beats,
+HOOK 0-10 · CASE 10-36 · COUNT 36-62 · MONDAY 62-72. --commit restores the sealed-answer beat: five beats
+(HOOK 0-8 · COMMIT 8-16 · CASE 16-36 · COUNT 36-62 · MONDAY 62-72) and `"commit": {"enabled": true, at, ...}`.
 
 Writes, from the templates below (the same ones skills/explainer-factory/SKILL.md shows inline):
 
-    factory/topics/<id>/brief.md      the explorer's brief: belief, fixture, numbers, count, commit, Monday
+    factory/topics/<id>/brief.md      the explorer's brief: belief, fixture, numbers, count, [commit,] Monday
     factory/topics/<id>/claims.json   every number the film may use, sourced or derived
-    factory/topics/<id>/beats.md      the five beats on the format's clock, captions and structures
+    factory/topics/<id>/beats.md      the four (or five, --commit) beats on the format's clock, captions, structures
     factory/films/<id>/film.json      window.FILM (schema in factory/FORMAT.md and the skill)
     factory/films/<id>/film.js        window.FILM_RENDER = {setup(p, kit), render(t, state, kit)}: a titled
-                                      sheet, the commit box and a placeholder per beat on window.KIT (the kit
+                                      sheet, a placeholder per beat (and the commit box with --commit) on window.KIT (the kit
                                       adds captions and the brand card), so the page builds and gates at once
     factory/films/<id>/claims.json    the on-screen claims, an array (example claims to replace)
     factory/films/<id>/NOTES.md       the builder's notes stub
@@ -29,18 +33,43 @@ except ImportError:  # pragma: no cover
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]{1,47}$")
 
 # The format's clock (factory/FORMAT.md, "the 75-second case"). Material 0 to 72 s, brand card 72 to 75 s.
-# (id, beat as the gate reads it, plain name, window)
-BEATS = [
+# (id, beat as the gate reads it, plain name, window). D11: the commit beat is optional and off by default.
+BEATS5 = [
     ("hook", "HOOK", "The hook", 0, 8),
     ("commit", "COMMIT", "The commit", 8, 16),
     ("case", "CASE", "The case", 16, 36),
     ("count", "COUNT", "The count", 36, 62),
     ("monday", "MONDAY", "Monday", 62, 72),
 ]
+BEATS4 = [
+    ("hook", "HOOK", "The hook", 0, 10),
+    ("case", "CASE", "The case", 10, 36),
+    ("count", "COUNT", "The count", 36, 62),
+    ("monday", "MONDAY", "Monday", 62, 72),
+]
+BEATS = BEATS4       # set by main(): BEATS5 with --commit
+COMMIT = False       # set by main(): True with --commit
+
+
+def win(beat):
+    return next("%g to %g s" % (a, b) for _i, bt, _n, a, b in BEATS if bt == beat)
 DUR = 75
 BRAND_AT = 72.0      # kit draws the CETI card from here (FILM.brand.at); the material's last frame holds under it
-COMMIT_AT = 9.0      # the live page pauses here for 8 s (gate G4c: 8 to 16 s); film mode types commit.default
+COMMIT_AT = 9.0      # --commit only: the live page pauses here for 8 s (gate G4c: 8 to 16 s); film mode types commit.default
 COUNT_AT = 38.0      # the count structure is first drawn (gate G7: no ratio, % or "N in M" before this)
+
+
+def commit_brief():
+    if not COMMIT:
+        return """## The commit
+none (D11: the commit beat is off by default; the film plays straight through. Re-scaffold with --commit
+to ask the viewer for one number.)
+"""
+    return """## The commit (8 to 16 s)
+Question, as the viewer reads it: TODO?
+Unit: TODO · range min TODO to max TODO · film-mode default guess: TODO, because TODO (the typical
+answer people give, sourced if possible). Nothing numeric from the answer is shown before the commit.
+"""
 
 
 def brief_md(fid, title):
@@ -51,13 +80,13 @@ id: `{fid}` · room: exec · format: the 75-second case (factory/FORMAT.md) · e
 ## The belief
 TODO: one sentence a manager would say out loud in a meeting, the thing people believe.
 
-## The everyday situation (HOOK, 0 to 8 s)
+## The everyday situation (HOOK, {win("HOOK")})
 TODO: where a manager meets this, in one or two plain sentences. No jargon, no numbers yet.
 
 ## The mechanism
 TODO: one paragraph. What actually produces the outcome. This is what THE COUNT draws.
 
-## The fixture (THE CASE, 16 to 36 s)
+## The fixture (THE CASE, {win("CASE")})
 TODO: one real worked example with real, sourced numbers. Name, place, year. Never base rates, the
 planning fallacy or the AI agent loop (already done). Each concept brings its own fixture (Q10).
 
@@ -72,11 +101,7 @@ Every number below has an entry in `claims.json` (id in brackets). Derived numbe
 Each mark is one TODO (a project, a trial, a bet, a customer...). n = TODO marks.
 What is counted: TODO. The count lands at TODO of n before any ratio appears (counts first, Q14).
 
-## The commit (8 to 16 s)
-Question, as the viewer reads it: TODO?
-Unit: TODO · range min TODO to max TODO · film-mode default guess: TODO, because TODO (the typical
-answer people give, sourced if possible). Nothing numeric from the answer is shown before the commit.
-
+{commit_brief()}
 ## Monday (62 to 72 s)
 The one question to ask at work: TODO?
 Honest limit (what the case is not): TODO.
@@ -96,13 +121,17 @@ TODO: the tempting versions we are not making, and why (one line each).
 
 def beats_md(fid, title):
     rows = "\n".join(f"| {i + 1} | {beat} | {a} to {b} s | TODO | TODO | TODO |" for i, (_, beat, _n, a, b) in enumerate(BEATS))
+    clock = (f"commit.at {COMMIT_AT:g} s · " if COMMIT else "commit off (D11) · ")
+    sheet = "the belief, the commit box" if COMMIT else "the belief"
+    cap_rows = "\n".join("| %g | %g | %s |" % (c[0], c[1], c[2]) for c in captions())
+    seal = (f"- [ ] Nothing derived from the viewer's answer before the seal (commit.at {COMMIT_AT:g} s + 4.5 s).\n" if COMMIT else "")
     return f"""# {title} · beats
 
 id: `{fid}` · dur {DUR} s = material 0 to {BRAND_AT:g} s + CETI brand card {BRAND_AT:g} to {DUR} s
-commit.at {COMMIT_AT:g} s · count.at {COUNT_AT:g} s · at most four visual structures in the whole film
+{clock}count.at {COUNT_AT:g} s · at most four visual structures in the whole film
 
 ## Structures (at most 4; the brand card is not one)
-1. S-A TODO: the sheet (the belief, the commit box)
+1. S-A TODO: the sheet ({sheet})
 2. S-B TODO: the case (the fixture's numbers at true scale)
 3. S-C TODO: the count (each mark is one TODO)
 4. (spare; leave it empty if you can)
@@ -117,17 +146,12 @@ commit.at {COMMIT_AT:g} s · count.at {COUNT_AT:g} s · at most four visual stru
 
 | t0 | t1 | text |
 |---:|---:|------|
-| 0.6 | 7.6 | TODO hook |
-| 8.4 | 15.6 | TODO the commit question |
-| 16.4 | 35.6 | TODO the case (split into 3 to 4 captions) |
-| 36.4 | 61.6 | TODO the count (split; counts before any ratio) |
-| 62.4 | 71.6 | TODO the Monday question, then the honest line |
+{cap_rows}
 
 ## Checks before building
 - [ ] Every digit in a caption or on the stage has a claim (value or `renders`).
 - [ ] No ratio, percentage or "N in M" before count.at ({COUNT_AT:g} s), and none before its count has landed.
-- [ ] Nothing derived from the viewer's answer before the seal (commit.at {COMMIT_AT:g} s + 4.5 s).
-- [ ] At most four structures; at most two full-screen cards.
+{seal}- [ ] At most four structures; at most two full-screen cards.
 """
 
 
@@ -151,9 +175,17 @@ def film_claims(fid):
          "formula": "actual", "source": "S1", "renders": ["14 years"], "appears_at": 24},
         {"id": "example-ratio", "text": "EXAMPLE, replace: 3.5 times the plan", "value": 3.5,
          "formula": "actual / planned", "source": "derived", "renders": ["3.5×"], "appears_at": 40},
-        {"id": "commit-default", "text": "the film-mode guess (commit.default): the viewer's number, not a fact",
-         "value": 50, "source": "input", "appears_at": COMMIT_AT},
-    ]
+    ] + ([{"id": "commit-default", "text": "the film-mode guess (commit.default): the viewer's number, not a fact",
+           "value": 50, "source": "input", "appears_at": COMMIT_AT}] if COMMIT else [])
+
+
+def captions():
+    """[t0, t1, text] per beat (the beats.md table writes the same rows with its splitting notes)."""
+    a = dict((bt, (t0, t1)) for _i, bt, _n, t0, t1 in BEATS)
+    text = {"HOOK": "TODO hook: the situation and the belief.", "COMMIT": "TODO the commit question, asked plainly.",
+            "CASE": "TODO the case, one real example.", "COUNT": "TODO the count: marks before any ratio.",
+            "MONDAY": "TODO the Monday question."}
+    return [[a[b][0] + 0.6 if b == "HOOK" else a[b][0] + 0.4, a[b][1] - 0.4, text[b]] for b in a]
 
 
 def film_json(fid, title):
@@ -172,19 +204,13 @@ def film_json(fid, title):
             {"family": "IBM Plex Mono", "weight": 400, "style": "normal"},
             {"family": "IBM Plex Mono", "weight": 500, "style": "normal"},
         ],
-        "commit": {"at": COMMIT_AT, "title": "YOUR NUMBER", "prompt": "TODO: the one-number question?",
-                   "default": 50, "min": 0, "max": 100, "unit": "TODO unit"},
+        "commit": ({"enabled": True, "at": COMMIT_AT, "title": "YOUR NUMBER", "prompt": "TODO: the one-number question?",
+                    "default": 50, "min": 0, "max": 100, "unit": "TODO unit"} if COMMIT else {"enabled": False}),
         "chapters": [{"id": i, "beat": beat, "name": name, "t0": a, "t1": b,
                       "eyebrow": "CASE FILE · " + name.upper(), "title": "TODO " + name.lower()}
                      for i, beat, name, a, b in BEATS],
         "cards": [],
-        "captions": [
-            [0.6, 7.6, "TODO hook: the situation and the belief."],
-            [8.4, 15.6, "TODO the commit question, asked plainly."],
-            [16.4, 35.6, "TODO the case, one real example."],
-            [36.4, 61.6, "TODO the count: marks before any ratio."],
-            [62.4, 71.6, "TODO the Monday question."],
-        ],
+        "captions": captions(),
         "count": {"at": COUNT_AT},
         "brand": {"takeaway": "TODO: the one-line takeaway.", "at": BRAND_AT},
         "sources": [["S1", "TODO author, title, year, where"], ["S2", "TODO"], ["S3", "TODO"]],
@@ -194,7 +220,8 @@ def film_json(fid, title):
 
 
 FILM_JS = r"""/* __ID__ · film.js. The 75-second case. One clock: every frame is render(t, state, K), a pure function of
-   (t, state). Scaffold from factory/tools/new_topic.py: the sheet, a placeholder per beat and the commit box.
+   (t, state). Scaffold from factory/tools/new_topic.py: the sheet, a placeholder per beat and, when film.json
+   enables it (D11: off by default), the commit box.
    Contract (factory/FORMAT.md; helpers in factory/kit/kit.js, documented in factory/kit/README.md):
      window.FILM_RENDER = { setup(p, K), render(t, state, K), tryit?(values, state, K) }   K === window.KIT
    The kit draws the ground, the captions (FILM.captions) and the CETI brand card (FILM.brand.at); render() draws
@@ -211,20 +238,21 @@ window.FILM_RENDER = {
   },
   render(t, s, K) {
     const { tx, rc, seg, ease, C, LAYOUT } = K;
-    const B = LAYOUT.content, A = F.commit.at, sealed = t >= A + 4.5;
-    const ch = K.chapterAt(t);
+    const CM = F.commit && F.commit.enabled !== false ? F.commit : null;   // D11: the commit beat is optional
+    const B = LAYOUT.content, A = CM ? CM.at : Infinity, sealed = t >= A + 4.5;
+    const ch = K.chapterAt(t), hookEnd = (F.chapters.find(c => c.beat === 'CASE') || { t0: 16 }).t0;
     K.chrome(t, ch, { ledger: false,
       block: { title: F.title.toUpperCase(), lines: ['CASE FILE', 'ISSUED FOR REVIEW'], open: 0.4,
-               slotLabel: 'ANSWER', slot: sealed ? 'SEALED' : null } });
+               slotLabel: CM ? 'ANSWER' : '', slot: sealed ? 'SEALED' : null } });
 
     // HOOK: the belief (replace with the everyday situation)
-    if (t < 16) {
+    if (t < hookEnd) {
       const u = ease(seg(t, 0.6, 1.6));
       K.wrap(F.lede, B.x1 - B.x0 - 40, 34, 'disp').slice(0, 3).forEach((line, i) =>
         tx('hook.b' + i, 'labels', B.x0, B.y0 + 70 + i * 42, line, { fam: 'disp', size: 34, op: u }));
     }
-    // COMMIT: the kit's sealed commit box (the player pauses at commit.at on the live page)
-    if (t >= A - 1 && t < 16) K.commitBox(t, s, { title: F.commit.title, prompt: F.commit.unit.toUpperCase() });
+    // COMMIT (only when film.json enables it): the kit's sealed commit box (the player pauses at commit.at)
+    if (CM && t >= A - 1 && t < hookEnd) K.commitBox(t, s, { title: CM.title, prompt: CM.unit.toUpperCase() });
 
     // CASE, COUNT, MONDAY: placeholders until the beats are built
     const todo = { CASE: 'TODO the case: the fixture at true scale', COUNT: 'TODO the count: marks first',
@@ -242,6 +270,7 @@ window.FILM_RENDER = {
 
 
 def notes_md(fid, title):
+    commit_row = (f"| COMMIT | 8 to 16 s (commit.at {COMMIT_AT:g}, sealed at {COMMIT_AT + 4.5:g}) | TODO |\n" if COMMIT else "")
     return f"""# {title} · NOTES
 
 id `{fid}` · builder: TODO (opus) · page sha256 `TODO` (the shipper writes it from factory/catalogue.json)
@@ -252,9 +281,8 @@ TODO: two sentences. The belief, the fixture, what the count shows.
 ## Timings
 | beat | window | structure |
 |------|--------|-----------|
-| HOOK | 0 to 8 s | TODO |
-| COMMIT | 8 to 16 s (commit.at {COMMIT_AT:g}, sealed at {COMMIT_AT + 4.5:g}) | TODO |
-| THE CASE | 16 to 36 s | TODO |
+| HOOK | {win("HOOK")} | TODO |
+{commit_row}| THE CASE | {win("CASE")} | TODO |
 | THE COUNT | 36 to 62 s (count.at {COUNT_AT:g}) | TODO |
 | MONDAY | 62 to 72 s | TODO |
 | BRAND | {BRAND_AT:g} to {DUR} s | the kit's CETI card |
@@ -293,9 +321,12 @@ def main():
     ap = argparse.ArgumentParser(description="Scaffold a 75-second case: factory/topics/<id>/ and factory/films/<id>/.")
     ap.add_argument("id", help="kebab-case id, e.g. sunk-cost")
     ap.add_argument("title", help='the film title, e.g. "The Concorde"')
+    ap.add_argument("--commit", action="store_true", help="scaffold the sealed-answer COMMIT beat (five beats; off by default, D11)")
     ap.add_argument("--force", action="store_true", help="overwrite existing files")
     ap.add_argument("--root", help="plugin root (default: found from this file)")
     a = ap.parse_args()
+    global BEATS, COMMIT
+    COMMIT, BEATS = a.commit, (BEATS5 if a.commit else BEATS4)
     if not ID_RE.match(a.id):
         sys.exit("id must be kebab-case: lowercase letters, digits and hyphens, 2 to 48 characters")
     root = os.path.abspath(a.root) if a.root else ((ceti_root and ceti_root(HERE)) or os.path.abspath(os.path.join(HERE, "..", "..")))
@@ -308,7 +339,9 @@ def main():
     write(os.path.join(film, "film.js"), FILM_JS.replace("__ID__", a.id), a.force)
     write(os.path.join(film, "claims.json"), dump(film_claims(a.id)), a.force)
     write(os.path.join(film, "NOTES.md"), notes_md(a.id, a.title), a.force)
-    print("next   explore: fill factory/topics/%s/; build: python3 factory/kit/build.py factory/films/%s" % (a.id, a.id))
+    print("commit %s" % ("on: five beats, commit.at %g s" % COMMIT_AT if COMMIT else "off (D11): four beats, the film plays straight through; --commit to ask for a number"))
+    # factory/kit/build.py requires a commit; kit2 builds both (factory/kit2/README.md "Commit (optional, D11)")
+    print("next   explore: fill factory/topics/%s/; build: python3 factory/kit2/build.py factory/films/%s" % (a.id, a.id))
 
 
 if __name__ == "__main__":

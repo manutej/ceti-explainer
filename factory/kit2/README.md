@@ -14,6 +14,7 @@ factory/kit is untouched and the shipped films still build against it.
 |------|------|
 | kit2.js | window.KIT: kit's API, plus role resolver, chrome facade + adapters, material proxy, ground |
 | player.js | kit's player; the commit overlay follows `K.commitGeom`; try-it pane guarded |
+| commit-off.js | D11: inlined only for a film with the commit beat off; see "Commit (optional, D11)" |
 | shell.html | kit's shell; CSS variables generated from the pack; `<meta name="kit2" content="brand=… chrome=… material=…">` |
 | build.py | assembles the page; byte-reproducible (same inputs, same bytes) |
 | probe.mjs | kit's probe with the SHIP defect 4 fixes |
@@ -24,7 +25,7 @@ factory/kit is untouched and the shipped films still build against it.
 
 The page carries `window.KIT2 = {brand: <pack object>, chrome: '<id>', material: '<id>'}` (written by
 build.py before the chrome and material scripts and kit2.js). Script order: p5, FILM, KIT2, chrome module,
-material module, kit2.js, film.js, player.js. Optional switches on the same object: `metrics: false` (no
+material module, [commit-off.js], kit2.js, film.js, player.js (the bracket only for a film with the commit off, D11). Optional switches on the same object: `metrics: false` (no
 display-face compensation), `window: false` (chrome drawn over the content box), `guard: false` (no
 off-role text lift).
 
@@ -130,6 +131,32 @@ materials are Canvas2D marks); `K.ctx` is null, `K.pencil` is a no-op. Proof: `s
   `renderer=webgl`.
 - **libs.** film.json `"libs": ["lib/scene.js"]` inlines scripts (film dir first, then the repo root, e.g.
   `arsenal/patterns/webgl-scene/pattern.js`) between kit2.js and film.js; the gate's G3 scans them like film.js.
+
+## Commit (optional, D11)
+
+The sealed-answer beat is optional and off by default (docs/DECISIONS.md D11). film.json:
+
+    "commit": {"enabled": false}                       // or no "commit" at all: a plain video (new films)
+    "commit": {"enabled": true, "at": 11.5, "prompt": "…", "default": 5, "title": "YOUR GUESS",
+               "unit": "of 6", "min": 0, "max": 6, "step": 1}   // the beat, as before
+
+- **Off** (`commit` absent, `null` or `enabled: false`): no commit box (`K.commitBox` draws nothing and returns
+  `{op: 0, sealed: false, off: true}`; `K.commitGeom` stays null), no countdown ring, no hold on the page, no rail,
+  no try-it panel (even if `tryit` is present), no film-mode default (`state.answer` stays null); the film plays
+  straight through. `window.__film.info.commit` is `{enabled: false}`. build.py does not ask for
+  `commit.at/prompt/default` (it notes them as ignored if present) and no COMMIT chapter is needed: four beats,
+  HOOK → CASE → COUNT → MONDAY (a COMMIT chapter is allowed and asks nothing; build.py notes it). The law "the
+  viewer commits a number before any number is shown" does not apply; counts first, the honest line and the CETI
+  card still bind.
+- **On** (`enabled: true`, or a `commit` object without `enabled`: every film shipped before D11): unchanged
+  behaviour, and build.py still requires `at`, `prompt`, `default`. `info.commit` is the film.json object.
+- **How.** kit2.js and player.js are not edited: build.py inlines `commit-off.js` (after FILM, before kit2.js),
+  `KIT2_COMMIT_OFF.kit(window.KIT)` after kit2.js and `KIT2_COMMIT_OFF.page()` after player.js, for an off film
+  only. A film with the commit on therefore rebuilds byte-identical to its catalogue hash. Proof: `smoke-webgl/`
+  (commit off, gate PASS); factory/films/simpsons-3d (commit on) rebuilds to the same sha256.
+- probe.mjs: with the commit off it checks the play-through instead of the pause, seal and "no answer" paths.
+- Gate: G4b takes HOOK → [COMMIT] → CASE → COUNT → MONDAY; G4c reports "commit disabled (D11)" as PASS; G7 keeps
+  counts first (factory/tools/README.md).
 
 ## Knobs (film.json `knobs` + `knobs_doc`; the evaluator's only numeric lever)
 

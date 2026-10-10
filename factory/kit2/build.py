@@ -27,6 +27,10 @@ film.json, optional:
   libs       ['path.js', ...]: scripts inlined in order between kit2.js and film.js; resolved against the film dir,
              then the repo root (e.g. a lib/ copy of an arsenal pattern).
   look       {brand, chrome, material}: the defaults for the three flags (recorded by apply_findings.py).
+  commit     {"enabled": true, at, prompt, default, title?, unit?, min?, max?, step?}: the sealed-answer beat
+             (DECISIONS D11: optional, off by default). Absent, null or {"enabled": false}: no commit box, hold,
+             countdown ring, try-it panel or film-mode default; commit-off.js is inlined and the film plays straight
+             through. An object without "enabled" (films before D11) counts as on; on requires at, prompt, default.
   knobs      {name: value} and knobs_doc [{name, range: [lo, hi] | options: [...], step?, what}]: every knob is
              documented and in range, every documented knob has a value (refused otherwise).
 """
@@ -41,7 +45,7 @@ RENDERERS = ("2d", "webgl")
 FONTS_JS = os.path.join(ROOT, "arsenal", "fonts", "fonts.js")
 LEVELS = ("exec", "manager", "engineer")   # film.json "level" (DECISIONS Q6); default exec
 EXEC_TEXTURES = ("none", "paper")
-REQUIRED = ["id", "title", "eyebrow", "lede", "dur", "commit", "chapters", "captions", "brand", "sources", "honest"]
+REQUIRED = ["id", "title", "eyebrow", "lede", "dur", "chapters", "captions", "brand", "sources", "honest"]
 FILM_PAL = {"paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "muted": "#8E887C",
             "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277"}
 
@@ -330,6 +334,30 @@ def check_knobs(film):
     return len(names)
 
 
+def commit_state(film):
+    """D11: True when the film keeps the sealed-answer beat. Absent / null / enabled false -> off. An object
+    without "enabled" (every film shipped before D11) is on. On requires at, prompt and default."""
+    cm = film.get("commit")
+    if cm is None:
+        return False
+    if not isinstance(cm, dict):
+        die("film.json commit must be an object or absent")
+    en = cm.get("enabled", True)
+    if not isinstance(en, bool):
+        die("film.json commit.enabled must be true or false (got %r)" % (en,))
+    if not en:
+        if any(k in cm for k in ("at", "prompt", "default")):
+            print("note: commit.enabled is false: commit.at/prompt/default are ignored (D11)")
+        beats = [str(c.get("beat") or c.get("id") or "") for c in film.get("chapters") or []]
+        if any(re.search(r"commit", b, re.I) for b in beats):
+            print("note: commit.enabled is false but a chapter is named COMMIT: nothing is asked there (D11)")
+        return False
+    for k in ("at", "prompt", "default"):
+        if k not in cm:
+            die("film.json commit lacks %s (or set commit.enabled false, D11)" % k)
+    return True
+
+
 def arg(args, k, default=None):
     if k in args:
         i = args.index(k)
@@ -352,9 +380,7 @@ def main():
     miss = [k for k in REQUIRED if k not in film]
     if miss:
         die("film.json lacks %s" % ", ".join(miss))
-    for k in ("at", "prompt", "default"):
-        if k not in film["commit"]:
-            die("film.json commit lacks %s" % k)
+    commit_on = commit_state(film)
     if "takeaway" not in film["brand"]:
         die("film.json brand lacks takeaway")
     cp = os.path.join(fdir, "claims.json")
@@ -383,6 +409,8 @@ def main():
     if cid != "none":
         kit2_scripts.append(script(chrome_src(cid)))
     kit2_scripts.append(script(msrc))
+    if not commit_on:   # D11: after FILM, before kit2.js (commit-off.js says why it is a separate file)
+        kit2_scripts.append(script(read(os.path.join(KIT2, "commit-off.js"))))
     if f3d:
         kit2_scripts.append(script("window.KIT2_FONTS3D = " + json.dumps(f3d, sort_keys=True, separators=(",", ":")) + ";"))
     shell = read(os.path.join(KIT2, "shell.html"))
@@ -398,9 +426,9 @@ def main():
         "{{P5}}": p5_script(),
         "{{FILM}}": "<script>window.FILM = " + raw.replace("</", "<\\/") + ";</script>",
         "{{KIT2}}": "\n".join(kit2_scripts),
-        "{{KIT}}": script(read(os.path.join(KIT2, "kit2.js"))),
+        "{{KIT}}": script(read(os.path.join(KIT2, "kit2.js"))) + ("" if commit_on else "\n" + script("KIT2_COMMIT_OFF.kit(window.KIT);")),
         "{{FILMJS}}": "\n".join([script("/* lib: %s */\n" % rel + src) for rel, src in libs] + [script(film_js)]),
-        "{{PLAYER}}": script(read(os.path.join(KIT2, "player.js"))),
+        "{{PLAYER}}": script(read(os.path.join(KIT2, "player.js"))) + ("" if commit_on else "\n" + script("KIT2_COMMIT_OFF.page();")),
     }
     found = set(re.findall(r"\{\{[A-Z0-9]+\}\}", shell))
     if found != set(rep):
@@ -426,6 +454,8 @@ def main():
     if renderer != "2d" or nknobs or f3d or libs:
         print("renderer %s; knobs %d; fonts3d %s; libs %s" % (renderer, nknobs,
               ", ".join("%s %d B" % (k, len(v)) for k, v in sorted(f3d.items())) or "none", ", ".join(r for r, _ in libs) or "none"))
+    if not commit_on:
+        print("commit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through")
     if level == "exec" and mid != "ink":
         print("note: level exec with material %s: gate G10 will FAIL (DECISIONS Q6: exec renders in ink)" % mid)
     if level == "exec" and pack.get("texture", "none") not in EXEC_TEXTURES:

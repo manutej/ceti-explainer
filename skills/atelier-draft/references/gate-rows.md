@@ -13,8 +13,8 @@ Plan: one gate run, then at most two fix rounds; ship with every remaining WARN 
 | G2b purity SVG | `innerHTML` of the stage SVG, same seeks | byte-identical (first diff printed) |
 | G3 clock scan | film.js + film.json `libs` + `--kit` files, comments blanked: Math.random, Date, performance.now, frameCount, millis(), requestAnimationFrame, deltaTime, p.random | 0 hits (player files may use rAF/Date/perf) |
 | G4a duration | material = dur - brand.dur (else dur - brand.at, else 3) | case 60-75 s, total <= 78; feature 90-120 / 123; smoke 5-20 / 25 |
-| G4b five beats | chapters mapped by `beat`, `id`, `name`, `title` | HOOK, COMMIT, CASE, COUNT, MONDAY in order, t0 ascending; SKIP if no chapter names a beat |
-| G4c commit time | `commit.at`, else `T.commit`/`T.ask`, else COMMIT t0 | 8-16 s |
+| G4b beats | chapters mapped by `beat`, `id`, `name`, `title` | HOOK → [COMMIT] → CASE → COUNT → MONDAY (COMMIT optional, D11), t0 ascending; SKIP if no chapter names a beat |
+| G4c commit time | commit off (`commit` absent/null or `enabled: false`, D11): PASS "commit disabled (D11)" if the page's `info.commit` is null or `{enabled: false}`; else `commit.at`, else `T.commit`/`T.ask`, else COMMIT t0 | off: page built without the off switch FAILs; on: 8-16 s |
 | G4d brand card | `brand.takeaway` non-empty; frame at dur-1 not blank | s.d. >= 2 |
 | G4e honest line | `honest` / `limits` / `honesty` / `honestLimits` | non-empty (string or array) |
 | G4f sources | `sources` | >= 3 |
@@ -50,9 +50,11 @@ Fix: replace by `K.mulberry32`; reword the label; for a vendored lib, copy and s
 Fix: dur = material + 3 where material is 60-75; set `brand.at = dur - 3`. Chapters end at `brand.at`.
 
 **G4b.** Cause: chapter `beat` strings missing or out of order; a sixth beat; MONDAY before COUNT. SKIP is silent: always
-set `beat`. Fix: five chapters named exactly HOOK COMMIT CASE COUNT MONDAY, `t0` ascending, `t1` of one = `t0` of next.
+set `beat`. Fix: four chapters named exactly HOOK CASE COUNT MONDAY (five, with COMMIT second, when the commit is on),
+`t0` ascending, `t1` of one = `t0` of next.
 
-**G4c.** Cause: `commit.at` < 8 or > 16 (the live pause arrives before the viewer understands the question, or too late).
+**G4c.** Commit off (D11): PASS; a FAIL means the page predates the off switch: rebuild with factory/kit2/build.py.
+Commit on: cause `commit.at` < 8 or > 16 (the live pause arrives before the viewer understands the question, or too late).
 Fix: `at` 10-12; HOOK ends before it; no number from the answer is shown earlier. Keep `commit.default` set (film mode).
 
 **G4d.** Cause: empty `takeaway`, or the card frame blank because `brand:false` and the film draws no card. Fix: leave

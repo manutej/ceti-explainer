@@ -2,7 +2,7 @@
 
 Sources: factory/kit2/{README.md,kit2.js,build.py,player.js}, factory/tools/gate.mjs, factory/FORMAT.md.
 A film is a folder `factory/films/<id>/` with `film.json`, `film.js`, `claims.json` (+ optional `lib/*.js`).
-kit2 owns time, the SVG layers, captions, commit box, cards, brand card, chrome, ground. The film owns the canvas.
+kit2 owns time, the SVG layers, captions, commit box (when on), cards, brand card, chrome, ground. The film owns the canvas.
 
 ## 1. Build
 
@@ -17,15 +17,18 @@ kit2 owns time, the SVG layers, captions, commit box, cards, brand card, chrome,
   type{disp,mono}`); `film` synthesises a pack from film.json `palette`/`type`/`fonts` (card = palette.dark).
 - `--chrome` = `factory/kit2/chromes/<ID>.js`, else `factory/chromes/<ID>.js`; `none` = no furniture (plain cards).
 - Byte-reproducible: same inputs, same bytes. Prints bytes, sha256, faces, contrast of ink/muted/accent on paper.
-- build.py REFUSES (exit with message): film.json missing any of `id title eyebrow lede dur commit chapters captions
-  brand sources honest`; commit lacking `at`, `prompt`, `default`; brand lacking `takeaway`; missing claims.json;
+- build.py REFUSES (exit with message): film.json missing any of `id title eyebrow lede dur chapters captions
+  brand sources honest`; a commit that is on (`enabled: true`, or an object without `enabled`) lacking `at`, `prompt`,
+  `default`; `commit.enabled` not a boolean; brand lacking `takeaway`; missing claims.json;
   `level` not exec|manager|engineer; `renderer` not 2d|webgl; webgl with `--material` other than ink; knobs/knobs_doc
   that do not match (section 3); unknown brand/chrome/material id; a pack face absent from vendor/fonts.lock.json or
   whose sha256 differs; `fonts3d` key not in arsenal/fonts/fonts.js; `libs` path not found; a script containing
   `</script`. It only WARNS: page > 1.3 MB, film code > 120 KB, ink/muted/accent under 4.5:1, exec + non-ink material
   (the gate then FAILs G10), exec + grain/halftone pack (drawn flat, G10 WARN), object-form claims.json (array is canonical).
 - Script order in the page: p5 2.3.4 (vendored), FILM (film.json), KIT2 (brand, chrome id, material id), chrome module,
-  material module, [KIT2_FONTS3D], kit2.js, libs (in order), film.js, player.js. No runtime fetch, no Google Fonts.
+  material module, [KIT2_FONTS3D], [commit-off.js], kit2.js, libs (in order), film.js, player.js (commit-off.js and its
+  two one-line hooks after kit2.js and player.js only when the commit is off, D11; a film with the commit on rebuilds
+  byte-identical). No runtime fetch, no Google Fonts.
 
 ## 2. film.json, field by field (G = read by the gate; K = read by kit2/player; B = build.py requirement)
 
@@ -41,15 +44,15 @@ kit2 owns time, the SVG layers, captions, commit box, cards, brand card, chrome,
 | seed | integer | K. `K.SEED` (default 23); p5 `noiseSeed(seed)` set before setup and again after. Use it for every shuffle. |
 | palette, type, fonts | objects/list | only for `--brand film`. palette keys paper ink accent muted chalk dark soft (panel optional); type {disp, mono, sans?}; fonts [{family, weight}] = exactly the faces embedded. |
 | params | object | G5a: scope of claim formulas (wins over claim ids and count numbers). Put every raw datum the film draws here. |
-| commit | {at, prompt, default, title?, unit?, min?, max?, step?} | B needs at/prompt/default. G4c: `at` in 8-16 s. `default` is the film-mode guess (K.state.answer). title = box heading (default "YOUR NUMBER"), unit = line under it, min/max/step bound the live input (step < 1 keeps decimals). The live page pauses at `at` for an 8 s box; no answer = "none". Nothing numeric from the answer before `at`. |
+| commit | absent \| {enabled: false} \| {enabled: true, at, prompt, default, title?, unit?, min?, max?, step?} | Optional, off by default (D11). Off (absent, null, `enabled: false`): no commit box (`K.commitBox` is a no-op, `K.commitGeom` null), no countdown ring, no hold, no rail, no try-it panel, no film-mode default (`state.answer` null); the film plays straight through; `info.commit = {enabled: false}`; G4c PASS "commit disabled (D11)"; no COMMIT chapter needed. On (`enabled: true`; an object without `enabled` = a pre-D11 film, also on): B needs at/prompt/default. G4c: `at` in 8-16 s. `default` is the film-mode guess (K.state.answer). title = box heading (default "YOUR NUMBER"), unit = line under it, min/max/step bound the live input (step < 1 keeps decimals). The live page pauses at `at` for an 8 s box; no answer = "none". Nothing numeric from the answer before `at`. |
 | count | {at, ...numbers} | G7 + G5a. `at` = second the count structure is first drawn; no %, "N in M", "N out of M" before it (SVG text or caption). Numeric fields join the claim-formula scope. |
-| chapters | [{id, beat, t0, t1, eyebrow, title, card?, device?}] | G4b/G4c/G7/G9, K (player markers, K.chrome title, K.chapterAt). Beats HOOK, COMMIT, CASE, COUNT, MONDAY in this order, t0 ascending; the gate reads `beat`, else `id`/`name`/`title`. `card:true` counts toward the G9 limit of 2. |
+| chapters | [{id, beat, t0, t1, eyebrow, title, card?, device?}] | G4b/G4c/G7/G9, K (player markers, K.chrome title, K.chapterAt). Beats HOOK, [COMMIT], CASE, COUNT, MONDAY in this order (COMMIT only with the commit on, D11), t0 ascending; the gate reads `beat`, else `id`/`name`/`title`. `card:true` counts toward the G9 limit of 2. |
 | cards | [{id, t0, t1, q[], sub?, subAt?, fadeOut?, label?}] | K (K.card, K.cardAt) and G9. Full-screen question cards; at most 2 in the whole film (chapters card:true + cards). |
 | captions | [[t0, t1, "text"], ...] | G5b (every number must be a claim value or a claim `renders` string), G7, K. kit2 draws them, 28 units, 2 lines max, in the chrome's caption geometry. <= 60 chars (apply_findings limit). Silent film: captions carry it. `window.NOCAP` hides them. |
 | brand | brand {takeaway, at?, dur?} | B needs takeaway. G4a: material = dur - brand.dur, else dur - brand.at, else dur - 3. `brand.at` default dur - 3. kit2 freezes the film at `at - 0.001` and draws the card from `at`. G4d: takeaway non-empty and frame at dur-1 not blank. |
 | sources | [[key, "citation"], ...] | G4f needs >= 3. Keys are what claims.json `source` cites. Shown on the live page. |
 | honest | string \| string[] | B, G4e (non-empty). One honest-limits line is the law. Shown on the live page. |
-| tryit | {title, note, seek, inputs[{id,label,min,max,step,value,unit}]} | optional live-page panel; needs `FILM_RENDER.tryit(values, state, K) -> HTML`. Values land in `state.try`. |
+| tryit | {title, note, seek, inputs[{id,label,min,max,step,value,unit}]} | optional live-page panel, shown only with the commit on (D11); needs `FILM_RENDER.tryit(values, state, K) -> HTML`. Values land in `state.try`. |
 | fonts3d | ["Family\|wt" \| {key, text}] | K (webgl). Keys exist in arsenal/fonts/fonts.js: Big Shoulders Display\|600, IBM Plex Mono\|400, Sofia Sans Extra Condensed\|700, Space Mono\|400, Jost\|600, Red Hat Mono\|400. `text` subsets the TTF to those glyphs (+ space): 4 KB, not 43 KB. |
 | libs | ["lib/x.js", ...] | B inlines in order between kit2.js and film.js (film dir first, then repo root, e.g. `arsenal/patterns/webgl-scene/pattern.js`). G3 scans them like film.js. Counts toward the built page size (G8), not film code. |
 | knobs, knobs_doc | object, list | B enforces, K reads, apply_findings.py edits only here. See knob-catalogue.md. |
@@ -171,9 +174,10 @@ never carries an on-screen number (those are claims). `window.__film.info.knobs 
 - `window.__film = {ready(), seek(t), only(groups), info}`: `ready()` awaits mount and fonts and renders; `seek(t)`
   renders synchronously and returns `{t, error}`; `only(['figure'|'ground'|'svg'|'bg'])` hides layers for isolation
   shots; `info = {id, title, dur, chapters, cards, captions, commit, brand{at,takeaway}, axes, renderer, knobs,
-  knobs_doc}`.
+  knobs_doc}`; `info.commit` is the film.json object with the commit on, `{enabled: false}` with it off (D11).
 - `window.__ctrl = {play, pause, seek, duration, state, setState(o)}`; `setState({answer: 4})` re-renders at the
-  current t. Live mode pauses at `commit.at` and opens the HTML input over `K.commitGeom`.
+  current t. With the commit on, live mode pauses at `commit.at` and opens the HTML input over `K.commitGeom`; with it
+  off (D11) the page plays straight through.
 - Gate stage selector: `#stage`, `.ex-stage-frame` or `[data-stage]`. Errors land in `window.__error`.
 
 ## Chrome content box and the commit box (what a drafter must plan for)
@@ -181,6 +185,6 @@ never carries an on-screen number (those are claims). `window.__film.info.knobs 
   ledger 120–824 × 128–448 (s ≈ 0.784, centred), memo 48–924 × 166–444 (s ≈ 0.885, start-aligned), tender-set identity.
   SVG `marks`/`labels` layers and the canvas get the same matrix; text keeps its floor (28/14/12) by authored size.
   `KIT2.box` cannot be set from film.json (build.py writes brand, chrome, material only); design on the sheet and let it scale.
-- The commit box is the kit's: it fades in from `commit.at − 1`, the ring runs 4 s, the seal lands at `commit.at + 4.5`;
+- The commit box (commit on only, D11) is the kit's: it fades in from `commit.at − 1`, the ring runs 4 s, the seal lands at `commit.at + 4.5`;
   the film-mode default answer is `commit.default`. Nothing in film.js changes that timing.
 - Captions are static strings `[t0, t1, text]`; there is no template substitution.

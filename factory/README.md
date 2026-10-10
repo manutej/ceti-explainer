@@ -107,11 +107,11 @@ never `build/`, stills or packets.
 
 ## Adding a topic
 
-    python3 factory/tools/new_topic.py <id> "<Title>"
+    python3 factory/tools/new_topic.py <id> "<Title>" [--commit]     # commit beat off by default (D11)
     python3 factory/tools/repo_topic.py <path-to-local-git-repo> --id <id> [--days 7] [--rev HEAD]   # a repository as the source
 
 writes the explorer's `brief.md`, `claims.json`, `beats.md` and the builder's `film.json`, `film.js` (a titled
-sheet, the commit box, a placeholder per beat), `claims.json`, `NOTES.md`, so the page builds and gates at once.
+sheet, a placeholder per beat; the commit box only with --commit), `claims.json`, `NOTES.md`, so the page builds and gates at once.
 Every placeholder reads TODO; nothing in it is a fact. Then EXPLORE, BUILD, GATE, SEAT, SHIP as in the skill.
 Each concept brings its own fixture: never base rates, the planning fallacy or the AI agent loop.
 

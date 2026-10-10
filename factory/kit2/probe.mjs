@@ -1,4 +1,4 @@
-// kit2/probe.mjs (kit2: fill value from the commit range; no try-it panel is not an error; overlay placement reported) <abs page.html> <abs shots-dir> [t1,t2,...]: film-mode load, screenshots at the given times, re-seek purity (SVG + canvas), live commit pause/seal, 8 s "no answer" on a phone viewport; prints errors.
+// kit2/probe.mjs (kit2: fill value from the commit range; no try-it panel is not an error; overlay placement reported; D11: commit off → play-through check) <abs page.html> <abs shots-dir> [t1,t2,...]: film-mode load, screenshots at the given times, re-seek purity (SVG + canvas), live commit pause/seal, 8 s "no answer" on a phone viewport; prints errors.
 import { chromium } from '/opt/node-tools/node_modules/playwright/index.mjs';
 const page_path = process.argv[2], shots = process.argv[3], times = (process.argv[4] || '3,7.5,14,19').split(',').map(Number);
 const url = 'file://' + page_path;
@@ -27,6 +27,16 @@ lp.on('console', m => { if (m.type() === 'error' || m.type() === 'warning') errs
 lp.on('pageerror', e => errs.push('live pageerror: ' + e.message));
 await lp.goto(url);
 await lp.evaluate(() => window.__film.ready());
+if (await lp.evaluate(() => (window.__film.info.commit || {}).enabled === false)) {
+  // D11: the commit beat is off: no overlay, no rail, no try-it pane, no film-mode default; the clock runs straight through
+  const off = await lp.evaluate(async () => { window.__ctrl.seek(7); window.__ctrl.play(); await new Promise(r => setTimeout(r, 2500));
+    const t = +document.getElementById('scrub').value; window.__ctrl.pause();
+    return { t, ask: !!document.getElementById('ask'), rail: !!document.getElementById('rail'), tryit: !!document.getElementById('try'), answer: window.__ctrl.state.answer, commitBox: !!window.KIT.commitGeom }; });
+  const fm = await pg.evaluate(() => window.__ctrl.state.answer);
+  console.log('live', JSON.stringify({ commit: 'off (D11)', playedFrom7To: off.t, askInDom: off.ask, railInDom: off.rail, tryInDom: off.tryit, answer: off.answer, filmModeAnswer: fm, commitGeom: off.commitBox }));
+  console.log('errors', errs.length, errs.join('\n'));
+  await b.close(); process.exit(0);
+}
 await lp.evaluate(() => { window.__ctrl.seek(window.__film.info.commit.at - 0.3); window.__ctrl.play(); });
 await lp.waitForTimeout(800);
 const askShown = await lp.evaluate(() => document.getElementById('ask').classList.contains('show'));

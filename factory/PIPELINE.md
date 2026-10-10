@@ -6,7 +6,8 @@ commits. One brief per film; one contract per module; the laws never move (CLAUD
 ## Stages and commands
 
 1. BRIEF: factory/topics/<id>/{brief.md, claims.json, beats.md} (new_topic.py or repo_topic.py). The beat sheet names
-   the chain of arsenal modules and the brand, chrome, material, level, renderer and format.
+   the chain of arsenal modules and the brand, chrome, material, level, renderer and format, and whether the film
+   asks for a number: the commit beat is off by default (DECISIONS D11; `new_topic.py --commit` turns it on).
 2. DRAFT ×3 (Sonnet, parallel): factory/films/<id>/drafts/<a|b|c>/{film.json, film.js, claims.json, lib/, NOTES.md}.
    Same brief, same claims, different look and motion. Every number that an evaluator may tune is a KNOB:
    film.json.knobs = { name: value } with a `knobs_doc` list [{name, range: [lo, hi] | options, step, what}]

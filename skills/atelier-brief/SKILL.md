@@ -10,10 +10,11 @@ description: "Turn ANY subject into a verifiable topic package for the explainer
 
 # atelier-brief · subject → topic package
 
-The category this skill serves: **a subject that a short silent film must make true for a viewer who commits a
-number first**. The instance varies in kind (concept, repository, product, lesson, client case), in audience
-(exec, manager, engineer) and in format (case, feature, reel). The structure never varies: one belief, one
-fixture with real numbers, one count, one commit, one Monday question, one honest limit, one chain of modules.
+The category this skill serves: **a subject that a short silent film must make true for a viewer** (who commits a
+number first only when the film enables the commit beat, off by default: docs/DECISIONS.md D11). The instance varies
+in kind (concept, repository, product, lesson, client case), in audience (exec, manager, engineer) and in format
+(case, feature, reel). The structure never varies: one belief, one fixture with real numbers, one count, at most one
+commit, one Monday question, one honest limit, one chain of modules.
 
 ## Typed slots (fill every one; a slot you cannot fill is a finding, not a blank)
 
@@ -24,10 +25,12 @@ Format:         case (60–75 s) | feature (90–120 s) | reel (planned)        
 Belief:         str                      // the sentence a person in that room says out loud before the film
 Fixture:        {name, place, year, numbers: list[ClaimId]}               // one real example; never a made-up one
 Claims:         list[Claim]  (shape in references/claims-shape.md)        // every digit that will ever be on screen;
-                                                                          // role input (commit range, unit, hold) is exempt from the commit law
+                                                                          // role input (commit range, unit, hold) is exempt from the commit law (commit on)
 Count:          list[{unit: str, n: int, lands_at: ClaimId}]  (≥ 1)      // "one mark is one ___"; the first lands before any ratio;
                                                                           // a feature may carry a second count after the first has landed
-Commit:         {question: str, unit, min, max, default_guess, why_default: source|"reasoning, no survey"}
+Commit:         none | {question: str, unit, min, max, default_guess, why_default: source|"reasoning, no survey"}
+                                         // default none (D11): film.json "commit": {"enabled": false}, four beats;
+                                         // the object means "commit": {"enabled": true, ...} and the COMMIT beat
 Mechanism:      str                      // one paragraph: what THE COUNT draws and why the belief breaks
 Monday:         {question: str, honest_limit: str}                        // the one question to ask at work; what the case is not
 Cost:           {per_film: measured|target, value, source}  (optional)   // only when the room will ask; measured beats target
@@ -54,9 +57,10 @@ NotThis:        list[str]                // the tempting versions we are not mak
 3. **Fix the count before anything else.** Choose the unit so that `n` is drawable at true scale (hundreds to about
    3,000 marks; above that, batch by a documented factor that is itself a claim, or name the `mass` module in the
    chain). The count's landing value is a claim; every ratio that follows is a formula over claims.
-4. **Write the commit question** so a wrong guess is the belief's guess. The default guess (film mode) is the
-   belief's number, sourced where a survey exists.
-5. **Write claims.json first, then the prose.** `python3 factory/tools/new_topic.py <id> "<Title>"` scaffolds the
+4. **Decide the commit (default none, D11).** Most films are plain videos: `Commit: none`, no COMMIT beat. Only when
+   the brief asks the viewer for a number, write the commit question so a wrong guess is the belief's guess; the
+   default guess (film mode) is the belief's number, sourced where a survey exists.
+5. **Write claims.json first, then the prose.** `python3 factory/tools/new_topic.py <id> "<Title>" [--commit]` scaffolds the
    topic (brief.md, claims.json, beats.md) and a film skeleton under factory/films/<id>/; fill the three topic files
    and leave the skeleton to the drafters. The gate recomputes every `formula` over claim ids, `count` fields and
    `params` (`references/claims-shape.md`), so prefer formulas to pasted percentages.
@@ -72,8 +76,9 @@ NotThis:        list[str]                // the tempting versions we are not mak
 - A claim resolved here is immutable downstream: drafters and evaluators may not change a number; they may only
   move it in time or re-caption it with the same digits.
 - `Count[0].lands_at` must precede every ratio in the beat table (law: counts before ratios).
-- Nothing in HOOK or COMMIT carries a digit from `Claims` except role `input` claims (the commit box's unit, range,
-  default and hold), which the kit draws (law: the viewer commits before any number is shown).
+- Nothing in HOOK carries a digit from `Claims`. With a commit, nothing in COMMIT does either, except role `input`
+  claims (the commit box's unit, range, default and hold), which the kit draws (law, for a film that enables the
+  commit: the viewer commits before any number is shown). Counts before ratios binds every film.
 - One `Monday.honest_limit`, exactly one, and it names what the fixture does not prove.
 - `Sources` ≥ 3 and each `Claims[i].source` is one of them or a formula over other claims.
 

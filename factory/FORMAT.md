@@ -28,16 +28,18 @@ vendored fonts and p5 from vendor/ by hash (see films/opera-house/build.py for h
 - Length 60 to 75 s plus a 3 s CETI brand card at the very end (decision Q8): the material's last frame
   holds, then a plain card: "CETI" wordmark line, the film's one-line takeaway. Silent (Q3): captions carry
   it; no audio at all.
-- Five beats, in this order, at most four visual structures in the whole film:
+- Five beats, in this order, at most four visual structures in the whole film. The COMMIT beat is optional and
+  off by default (D11, film.json `commit.enabled`): without it the film is four beats and plays straight through,
+  and the commit law below binds only films that enable it; counts first, the honest line and the card still bind.
   1. HOOK (0 to 8 s): the everyday situation a manager actually faces, with the thing people believe.
-  2. COMMIT (8 to 16 s): ask the viewer for one number. The live page pauses and holds for 8 s
+  2. COMMIT (optional, D11; 8 to 16 s): ask the viewer for one number. The live page pauses and holds for 8 s
      (an input box; "no answer" after the timer); film mode uses a default guess from film.json (Q13).
      Nothing numeric from the answer is shown before the commit.
   3. THE CASE (16 to 36 s): one real worked example with real, sourced numbers. Each concept brings its
      own fixture (Q10); never base rates, the planning fallacy, or the AI agent loop (already done).
   4. THE COUNT (36 to 62 s): the mechanism shown as a count, drawn before any percentage or ratio
      appears (counts first, Q14): a wall, a grid, a row of marks, whatever the concept is made of; then
-     the viewer's committed number placed on it against the truth.
+     (commit on) the viewer's committed number placed on it against the truth.
   5. MONDAY (62 to 72 s): the one question to ask at work; one honest-limits line (what the case is not).
 - Exec clean (Q6): typeset numbers in a mono face, paper and pencil texture at most, no hand-drawn
   figures, no icons, no dashboards, no chart-junk. Big marks at true scale; few words.

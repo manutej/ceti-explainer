@@ -69,7 +69,7 @@ body.film #stage { width: 1920px; height: 1080px; aspect-ratio: auto; border: 0;
   <header>
     <div class="eb">CETI · kit2 infrastructure test · renderer webgl</div>
     <h1>Smoke: WEBGL renderer</h1>
-    <p>A 10-second infrastructure film: 120 boxes on a WEBGL canvas, a keyed camera swing, an extruded headline and a neon post pass, under the kit&#x27;s SVG captions, commit box and brand card.</p>
+    <p>A 10-second infrastructure film: 120 boxes on a WEBGL canvas, a keyed camera swing, an extruded headline and a neon post pass, under the kit&#x27;s SVG captions and brand card; the commit beat is off (D11), so it plays straight through.</p>
   </header>
   <div id="stageHost"><div id="stage" class="ex-stage-frame"><div class="ask" id="ask" role="dialog" aria-label="Seal your number">
     <h3 id="askH">YOUR NUMBER</h3>
@@ -110,7 +110,7 @@ body.film #stage { width: 1920px; height: 1080px; aspect-ratio: auto; border: 0;
  "id": "smoke-webgl",
  "title": "Smoke: WEBGL renderer",
  "eyebrow": "CETI · kit2 infrastructure test · renderer webgl",
- "lede": "A 10-second infrastructure film: 120 boxes on a WEBGL canvas, a keyed camera swing, an extruded headline and a neon post pass, under the kit's SVG captions, commit box and brand card.",
+ "lede": "A 10-second infrastructure film: 120 boxes on a WEBGL canvas, a keyed camera swing, an extruded headline and a neon post pass, under the kit's SVG captions and brand card; the commit beat is off (D11), so it plays straight through.",
  "format": "smoke",
  "renderer": "webgl",
  "level": "manager",
@@ -126,13 +126,12 @@ body.film #stage { width: 1920px; height: 1080px; aspect-ratio: auto; border: 0;
   {"name": "neonAt", "range": [5, 8], "step": 0.1, "what": "second at which the neon reveal peaks"},
   {"name": "headTurn", "range": [0, 1], "step": 0.05, "what": "how far the extruded headline turns (1 = a half turn)"}
  ],
- "commit": {"at": 8, "title": "YOUR GUESS", "prompt": "How many boxes?", "unit": "boxes", "default": 120, "min": 0, "max": 1000, "step": 1},
+ "commit": {"enabled": false},
  "count": {"at": 9.4},
  "chapters": [
   {"id": "hook", "beat": "HOOK", "t0": 0, "t1": 4, "eyebrow": "SMOKE · HOOK", "title": "Front view"},
-  {"id": "commit", "beat": "COMMIT", "t0": 4, "t1": 9.4, "eyebrow": "SMOKE · YOUR NUMBER", "title": "Side view"},
-  {"id": "case", "beat": "CASE", "t0": 9.4, "t1": 9.6, "eyebrow": "SMOKE · CASE", "title": "Case"},
-  {"id": "count", "beat": "COUNT", "t0": 9.6, "t1": 9.8, "eyebrow": "SMOKE · COUNT", "title": "Count"},
+  {"id": "case", "beat": "CASE", "t0": 4, "t1": 9.4, "eyebrow": "SMOKE · CASE", "title": "Side view"},
+  {"id": "count", "beat": "COUNT", "t0": 9.4, "t1": 9.8, "eyebrow": "SMOKE · COUNT", "title": "Count"},
   {"id": "monday", "beat": "MONDAY", "t0": 9.8, "t1": 10, "eyebrow": "SMOKE · MONDAY", "title": "Monday"}
  ],
  "captions": [
@@ -414,6 +413,32 @@ body.film #stage { width: 1920px; height: 1080px; aspect-ratio: auto; border: 0;
   A.materials.blueprint = make('blueprint', blueprint, bpOver, T.blueprint);
   A.mulberry32 = mulberry32;
 })(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>/* factory/kit2/commit-off.js · D11: the commit beat is optional and off by default. build.py inlines this file
+   only for a film whose film.json has no `commit`, `commit: null` or `commit.enabled: false`, so the pages of
+   films that keep the beat (every film shipped before 2026-10-10) rebuild byte-identical: kit2.js and player.js
+   are not edited. Three steps, at three places in the page:
+     1. here, after FILM and before kit2.js: FILM.commit and FILM.tryit read as absent, so kit2.js sets no
+        film-mode default (state.answer stays null) and player.js sets no hold, no rail, no overlay, no try-it pane;
+     2. KIT2_COMMIT_OFF.kit(KIT), after kit2.js: K.commitBox draws nothing (no box, no countdown ring, no stamp)
+        and K.commitGeom stays null, so a film.js that still calls it is harmless;
+     3. KIT2_COMMIT_OFF.page(), after player.js: FILM.commit and FILM.tryit are put back as authored,
+        window.__film.info.commit = {enabled: false}, and the commit overlay, the rail and the try-it section leave
+        the DOM. The film plays straight through. */
+(function () {
+'use strict';
+const F = window.FILM, had = { commit: F.commit, tryit: F.tryit };
+F.commit = null; F.tryit = null;
+window.KIT2_COMMIT_OFF = {
+  enabled: false,
+  kit(K) { K.commitBox = () => ({ op: 0, sealed: false, off: true }); K.commitGeom = null; },
+  page() {
+    F.commit = had.commit; F.tryit = had.tryit;
+    if (window.__film && window.__film.info) window.__film.info.commit = { enabled: false };
+    ['ask', 'rail', 'try'].forEach((id) => { const e = document.getElementById(id); if (e) e.remove(); });
+  },
+};
+})();
 </script>
 <script>window.KIT2_FONTS3D = {"Big Shoulders Display|600":"data:font/ttf;base64,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"};</script>
 <script>/* ════════════════════════════════════════════════════════════════════
@@ -1168,6 +1193,7 @@ const K = window.KIT = {
 };
 })();
 </script>
+<script>KIT2_COMMIT_OFF.kit(window.KIT);</script>
 <script>/* factory/kit2/smoke-webgl/film.js · the renderer-webgl smoke film (infrastructure test, never shipped).
    One clock: render(t, s, K) draws frame t from t alone. 120 boxes baked once with buildGeometry, a keyed camera
    swing (front to side), a textToModel headline, a neon post pass (scene → framebuffer → image → filter shader),
@@ -1392,5 +1418,6 @@ if (TI) {
 mounted.then(async () => { if (document.fonts) await document.fonts.ready; refreshTry(); seek(hm ? hm.t + 0.01 : 0); requestAnimationFrame(tick); });
 })();
 </script>
+<script>KIT2_COMMIT_OFF.page();</script>
 </body>
 </html>
