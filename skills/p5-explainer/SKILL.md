@@ -1,6 +1,6 @@
 ---
 name: p5-explainer
-description: "The p5 tier of CETI explainers: two modes, one deterministic clock. Two-cut: one storyboard as the ceti-explainer SVG cut plus a p5.js cut whose canvas layers carry counted mass, thousands of runs or a 128k field, with live interactions, frame-exact MP4 (score, subtitles) and a layered tree. Atelier: an art department of 8 distinct chromes (material, kernel, type, sound), a Glance/Grasp/Wield/Master ladder, and typed modules that compose a film from a beat graph over one material. Use for /p5-explainer, \"make an explainer video about <concept>\", \"long-form explainer with p5\", \"interactive explainer\", \"rehaul ceti-explainer with p5\", \"render the explainer to MP4\", \"atelier\", \"art direction for an explainer\", \"new chrome/material for explainers\", \"compose an explainer from modules\", \"levels of understanding\", or a topic needing cardinality, conserved mass or a field SVG can only label. Not for a single generative piece (p5-studio) or a short SVG episode with no p5 need (ceti-explainer)."
+description: "The p5 tier of CETI explainers: two modes, one deterministic clock. Two-cut: one storyboard as the ceti-explainer SVG cut plus a p5.js cut whose canvas layers carry counted mass, thousands of runs or a 128k field, with live interactions, frame-exact MP4 (score, subtitles) and a layered tree. Atelier: an art department of 8 distinct chromes (material, kernel, type, sound), a Glance/Grasp/Wield/Master ladder, and typed modules that compose a film from a beat graph over one material. Use for /p5-explainer, \"make an explainer video about <concept>\", \"long-form explainer with p5\", \"interactive explainer\", \"rehaul ceti-explainer with p5\", \"render the explainer to MP4\", \"atelier\", \"art direction for an explainer\", \"new chrome/material for explainers\", \"compose an explainer from modules\", \"levels of understanding\", or a topic needing cardinality, conserved mass or a field SVG can only label. Not for a single generative piece (p5-studio, archived in archive/skills/) or a short SVG episode with no p5 need (ceti-explainer)."
 ---
 
 > Inherits `${CLAUDE_PLUGIN_ROOT}/references/doctrine.md`. The clock contract of ceti-explainer is law: one clock, every frame a pure
@@ -15,7 +15,7 @@ Semantic colours and the clock stay; ground, material, type, camera and sound ar
 
 A film here is **a module, not a fork**: `data.js` (numbers, geometry, key moments) + `scenes.js` (`window.FEATURE`,
 the whole film in SVG) + `layers/*.js` (`P5Film.layer(...)`). `build_feature.py` makes both cuts from the same files.
-Worked example, end to end: `${CLAUDE_PLUGIN_ROOT}/films/typesafe/` ("Type-safe AI", 120 s, 7 movements).
+Worked example, end to end: `${CLAUDE_PLUGIN_ROOT}/archive/films/typesafe/` ("Type-safe AI", 120 s, 7 movements).
 
 ## The pipeline (do it in this order)
 
@@ -126,7 +126,7 @@ specified per chrome but built only through the module demo (`grasp.graph.json`)
 
 | File | When |
 |---|---|
-| `${CLAUDE_PLUGIN_ROOT}/films/typesafe/STORYBOARD.md`, `CONTRACT.md` | the worked example and the two-lane contract — copy their shape |
+| `${CLAUDE_PLUGIN_ROOT}/archive/films/typesafe/STORYBOARD.md`, `CONTRACT.md` | the worked example and the two-lane contract — copy their shape |
 | `references/feature-cut.md` | movement cadence, archetype mapping and the crit checklist for this tier |
 | `references/longform.md` | the ceti-explainer long-form cadence this tier inherits (vendored copy) |
 | `references/short-tier.md` | the 8-beat variant: engine.js unchanged, `build_film.py`, caption band in film mode |

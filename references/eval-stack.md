@@ -14,7 +14,7 @@ scoring for both humans and models; disagreement between judges is a finding, no
 | **c. Computed metrics** | compression, entropy, edge density, fractal D, colourfulness, OKLCH palette, value bins, negative space, coarse structure, balance centroid, symmetry, hierarchy, spectrum | `scripts/metrics.py` | flags only; cliché flags on >50% of seeds → COMMON |
 | **d. Seed sweep** | 8 seeds (dev) / 32 (series) / 64+ (release): failure rate, pHash dispersion, coarse structure, effective dimension, outliers | `scripts/gate.py` → `metrics.batch` | OATMEAL / mode collapse → COMMON |
 | **d′. Series** | across pieces: shared ground / accent hue / layout twins / recorded studio habits | `scripts/series.py` | HOUSE-LOOK → `Reallocate` edits before seats |
-| **e. Seats** | isolated critic agents, pairwise with swap, describe-before-judge | Agent tool + `skills/p5-crit/references/seats/*.md` | see aggregation |
+| **e. Seats** | isolated critic agents, pairwise with swap, describe-before-judge | Agent tool + `archive/skills/p5-crit/references/seats/*.md` (archived 2026-10-10) | see aggregation |
 | **f. Human** | sees worst seeds + DISAGREEMENT records first | — | only a human confirms "release" when Wonder decides |
 
 `gate.py` runs a–d and returns **FAIL / COMMON / CANDIDATE**. A CANDIDATE is "ready to be judged", not
@@ -32,7 +32,7 @@ bands once ~200 labelled studio renders exist; log the re-baseline in `RE-BASELI
 ## The seats (layer e)
 
 Each seat is a **separate agent** (Agent tool), launched in **one message** so they run concurrently, with
-a prompt built from its file in `skills/p5-crit/references/seats/` and its own packet from
+a prompt built from its file in `archive/skills/p5-crit/references/seats/` (archived 2026-10-10) and its own packet from
 `scripts/seat_packets.py` (never one shared manifest — tells #14). A seat never sees another seat's
 report, the generator's reasoning, or (except Craft) the code. Each seat gets: the contact sheet, the 2–3
 worst seeds from `gate.json`, the hero seed, the one-line Intent, and — for pairwise — the previous version
@@ -97,7 +97,7 @@ should run first (they are also rows in `tells.md`):
 ## Honest limits
 
 - Still-frame metrics only; motion needs temporal metrics (flow distribution, loop seam, flash rate) —
-  `gate.py` checks flash rate only when frames are rendered (see p5-ship).
+  `gate.py` checks flash rate only when frames are rendered (see archive/skills/p5-ship).
 - Seats share the model family and the brief's framing; isolation is not independence. Where another
   model family is available, put it in the Cliché and Wonder seats.
 - Consistency (OC, seat agreement) is calibration, not truth. A whole panel can agree and be dull — which

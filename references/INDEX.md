@@ -1,6 +1,8 @@
 # References index — ceti-p5-studio
 
 Start at the skill you were invoked as; each SKILL.md ends with a table of which file to load for which step.
+The p5 studio skills named in the last column (p5-studio, concept, forge, crit, ship) were archived on 2026-10-10:
+see archive/skills/ and archive/README.md.
 This index is the whole map, for maintainers and for anyone browsing.
 
 | File | What it is | Loaded by |

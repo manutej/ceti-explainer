@@ -16,7 +16,7 @@ Command: `/sheaf-run course`
 
 ## Run an episode
 
-Needs Node 18+ and Python 3. No npm install. Full steps: [RUN.md](./RUN.md).
+Needs Node 18+ and Python 3. No npm install. Full steps: [skills/ceti-explainer/RUN.md](./skills/ceti-explainer/RUN.md).
 
 ```bash
 git clone https://github.com/manutej/ceti-explainer.git
@@ -26,7 +26,7 @@ node assets/gate.mjs my-episode.js
 python3 assets/build.py my-episode.js "Title"
 ```
 
-Gold standard: `reference/self-attention.js`. Film occupancy: [`contrib/COURSE-E0.md`](./contrib/COURSE-E0.md).
+Gold standard: `reference/self-attention.js`. Film occupancy: [`archive/contrib/COURSE-E0.md`](./archive/contrib/COURSE-E0.md).
 
 ## Experiment E0
 
@@ -41,7 +41,7 @@ The Noether dual-loop (Propose → Tailor → Commit → Meta) is the runtime. T
 
 Round one result: the 2-minute lecture **committed**. The 5-minute single-file mux **did not glue**; the stills atlas is the conserved record.
 
-See [contrib/EXPERIMENT-E0.md](./contrib/EXPERIMENT-E0.md).
+See [archive/contrib/EXPERIMENT-E0.md](./archive/contrib/EXPERIMENT-E0.md).
 
 ## Quality bar
 
@@ -64,13 +64,13 @@ Lookbook quality is a **bar**, not a corpus to copy. No text overlap with [ceti-
 ## Repo layout
 
 ```
-RUN.md                   clone → gate → build
+skills/ceti-explainer/RUN.md  clone → gate → build
 skills/ceti-explainer/   SVG episode engine
 skills/ceti-research/    Propose occupant — conserved storyboard slots
-skills/ceti-brand/       cream / vermillion / ink contract
-contrib/                 noether-harness, sheaf-*, operadic-interview, EXPERIMENT-E0.md, COURSE-E0.md, SKILLS.md (not shipped)
-notebooks/               lookbook-grade HTML + field notebooks
-REQUIREMENTS.md          locked product contract
+archive/skills/ceti-brand/  cream / vermillion / ink contract (archived 2026-10-10; brands now live in arsenal/brands)
+archive/contrib/         noether-harness, sheaf-*, operadic-interview, EXPERIMENT-E0.md, COURSE-E0.md, SKILLS.md (not shipped; D4, D12)
+archive/notebooks/       lookbook-grade HTML + field notebooks (archived 2026-10-10)
+archive/notes/REQUIREMENTS.md  locked product contract (archived 2026-10-10; D3's tier table)
 ```
 
 The p5 film tier and the rest of the merged plugin are described in **Layout** below.
@@ -82,12 +82,12 @@ and this folder must stay in sync — update both, then push.
 
 The repo root is the plugin root (`.claude-plugin/plugin.json`, `ceti-explainer-atelier` 0.2.0). Tools find it by
 walking up to that file (`scripts/paths.py`, `scripts/root.mjs`); set `CETI_ROOT` to override. Notes on the merge,
-the path patches and what is still open: [MERGE-NOTES.md](./MERGE-NOTES.md).
+the path patches and what is still open: [archive/notes/MERGE-NOTES.md](./archive/notes/MERGE-NOTES.md).
 
 ```
 .claude-plugin/plugin.json   plugin manifest; skills are discovered in skills/
-skills/                      ceti-explainer (SVG episodes), ceti-brand, ceti-research, p5-studio, p5-concept, p5-forge,
-                             p5-crit, p5-ship, p5-explainer (feature cut, plan and Atelier film tiers)
+skills/                      ceti-explainer (SVG episodes), ceti-research, p5-explainer (feature cut, plan and
+                             Atelier film tiers); p5-studio, p5-concept, p5-forge, p5-crit, p5-ship and ceti-brand are in archive/skills/
 runtime/                     Atelier runtime: dist/atelier.js (+ atelier.sha256), tools/{build,gate,render}.py,
                              src/studio/studio.js (ceti-p5-studio runtime 0.2.0), examples/ (smoke films), README
 library/operad/              AM module operad: am.js, laws.js, compose.js, check.mjs, operad.json, OPERAD/README/INTERVIEW
@@ -97,11 +97,14 @@ library/cameras/             cameras.js
 library/tools/               build_film.py (beat graph + material → film page)
 library/plan/                plan-compiled explainer library: core/ (compile, lint_plan, build_plan), modules/ (6),
                              METHOD, MODULE-OPERAD, BUILD-SPEC, CHANNELS, QUESTION-TREE, research/
-chromes/<id>/                8 art directions: NOTES, README, kit, shared + native films, build script, out/*.gate.json
-films/                       base-rate (plan + copy), typesafe (feature-cut worked example), grasp (beat graphs, negatives)
+chromes/<id>/                4 art directions (escapement, bunraku, run, marbling): NOTES, README, kit, shared + native films,
+                             build script, out/*.gate.json; delta, ledger, exposure and margin are in archive/chromes/
+films/                       base-rate (plan + copy), grasp (beat graphs, negatives), opera-house; the typesafe feature-cut
+                             worked example is in archive/films/typesafe
 references/                  studio doctrine, tells, technique atlas, p5 2.x notes, atelier/ (BRIEF, BUILDER,
                              ART-DIRECTION v0/v1, crit/), research/ (pedagogy map, PED-L1..L4, notes/01-06)
-scripts/                     paths.py, root.mjs, requirements.txt, channels/ (reel, carousel, PDF, video, blog, newsletter)
+scripts/                     paths.py, root.mjs, requirements.txt, doctor.sh; channels/ (reel, carousel, PDF, video, blog,
+                             newsletter) is in archive/scripts/channels
 vendor/                      p5-2.3.4.min.js (LGPL-2.1), fonts/ (34 files, OFL), fonts.lock.json, SHA256SUMS, LICENSES.md
 tests/                       proofs.sh, node/ (unit tests), baselines/ (gate, check, lint and build JSON)
 factory/                     the 75-second case factory: FORMAT.md, kit/, kit2/ (the default build: brand, chrome, material
@@ -110,10 +113,11 @@ factory/                     the 75-second case factory: FORMAT.md, kit/, kit2/ 
 arsenal/                     pattern and material library (37 lanes), core/ (timeline, generator), structures/, 22 brand packs
                              in brands/, tools/ (shoot, export, brand_check, tweak, ds_bundle), ds-bundle/; index: arsenal/README.md
 references/atlas/            the p5 atlas: pages/<slug>.md that the arsenal cards cite
-docs/                        DECISIONS.md (binding: D1 to D10, Q1 to Q15), study/
+docs/                        DECISIONS.md (binding: D1 to D12, Q1 to Q15), study/
 scripts/doctor.sh            cold-start check (tools, vendor hashes, kit and kit2 builds, brand contrast)
 [HANDOFF.md](./HANDOFF.md)                   the orchestrator's state-of-the-repo note, written at each hand-off; read it first
-eval/, notebooks/            unchanged
+archive/                     layers nothing builds or tests (eval, contrib, notebooks, notes, archived skills and chromes); index:
+                             archive/README.md
 ```
 
 ### Cold start
@@ -125,7 +129,7 @@ open factory/CATALOGUE.md     # the shipped films; HANDOFF.md (written by the or
 ```
 
 
-Built pages (`build/`, `*.html` outside `notebooks/`), renders and `_npm/` are not committed (see `.gitignore`).
+Built pages (`build/`, `*.html` outside `archive/notebooks/`), renders and `_npm/` are not committed (see `.gitignore`).
 
 ### Build from the repo: the four proofs
 
