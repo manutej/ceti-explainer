@@ -1,32 +1,32 @@
 {
   "film": "noether-symmetry",
-  "page": "/home/user/ceti-explainer/factory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html",
-  "filmDir": "/home/user/ceti-explainer/factory/films/noether-symmetry",
-  "date": "2026-10-10T17:51:32.172Z",
+  "page": "factory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html",
+  "filmDir": "factory/films/noether-symmetry",
+  "date": "2026-10-10T18:08:11.772Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1243 ms; stage sd 30.6s:41.5 76.5s:32.4 122.4s:23.6",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1123 ms; stage sd 30.6s:42.2 76.5s:34.5 122.4s:25.7",
       "data": {
-        "readyMs": 1243,
+        "readyMs": 1123,
         "stats": [
           {
             "t": 30.6,
-            "mean": 39.88607387152898,
-            "sd": 41.51168137701703
+            "mean": 40.25608433642097,
+            "sd": 42.16733641007254
           },
           {
             "t": 76.5,
-            "mean": 33.88775113811859,
-            "sd": 32.4273528676024
+            "mean": 35.39191779514017,
+            "sd": 34.540462212552924
           },
           {
             "t": 122.4,
-            "mean": 30.658745187115265,
-            "sd": 23.628183382830482
+            "mean": 31.507649729939434,
+            "sd": 25.69568469480409
           }
         ],
         "filmErrs": [],
@@ -54,7 +54,7 @@
       "id": "G3",
       "name": "clock scan",
       "status": "PASS",
-      "evidence": "clean: film.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "evidence": "clean: film.js, commit-off.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
       "data": {
         "hits": []
       }
@@ -118,10 +118,10 @@
       "id": "G5c",
       "name": "claims · on-screen digits",
       "status": "WARN",
-      "evidence": "1 visible number(s) not in claims (chrome?): 20 @86s \"ORBITS LIT · 620 OF 3,000 DOTS\"",
+      "evidence": "1 visible number(s) not in claims (chrome?): 20 @86s \"620 OF 3,000 DOTS\"",
       "data": {
         "unknown": [
-          "20 @86s \"ORBITS LIT · 620 OF 3,000 DOTS\""
+          "20 @86s \"620 OF 3,000 DOTS\""
         ]
       }
     },
@@ -129,13 +129,13 @@
       "id": "G6",
       "name": "legibility",
       "status": "PASS",
-      "evidence": "8 must-read / 11 secondary / 0 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 553/390 OVERFLOW",
+      "evidence": "8 must-read / 14 secondary / 0 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 553/390 OVERFLOW, shot factory/films/noether-symmetry/shots/phone-390.png",
       "data": {
         "fails": [],
         "warns": [],
         "counts": {
           "must-read": 8,
-          "secondary": 11,
+          "secondary": 14,
           "chrome": 0
         }
       }
@@ -150,10 +150,10 @@
       "id": "G8",
       "name": "size",
       "status": "PASS",
-      "evidence": "film code 110.3 KB (film.js 70.6, film.json 22.9, claims.json 16.8) < 120 KB; page 1.288 MB < 1.3 MB",
+      "evidence": "film code 114.9 KB (film.js 73.8, film.json 24.3, claims.json 16.8) < 120 KB; page 1.293 MB < 1.3 MB",
       "data": {
-        "code": 112978,
-        "page": 1287853
+        "code": 117666,
+        "page": 1292541
       }
     },
     {
@@ -186,7 +186,7 @@
       "id": "G11",
       "name": "text overlap",
       "status": "PASS",
-      "evidence": "307 samples every 0.5 s, 65 distinct texts (texts with data-role), caption showing at 231; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
+      "evidence": "307 samples every 0.5 s, 76 distinct texts (texts with data-role), caption showing at 231; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
       "data": {
         "step": 0.5,
         "samples": 307,
@@ -196,6 +196,12 @@
         "warn": 0,
         "instances": []
       }
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 21.27, 41.53, 61.8, 82.07, 102.33, 122.6, 153 s → factory/films/noether-symmetry/shots"
     }
   ]
 }

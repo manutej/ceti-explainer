@@ -64,7 +64,7 @@
    ],
    "step": 2,
    "what": "world units between the five energy layers",
-   "value": 38
+   "value": 30
   },
   {
    "name": "dotR",
@@ -674,7 +674,7 @@
    ],
    "step": 0.1,
    "what": "s: the spin arrow of the followed orbit and its pin appear",
-   "value": 58.5
+   "value": 58.8
   },
   {
    "name": "tPSame",
@@ -754,7 +754,7 @@
    ],
    "step": 0.1,
    "what": "s: the first training step counts in",
-   "value": 103.5
+   "value": 102.5
   },
   {
    "name": "tNet1",
@@ -1324,7 +1324,7 @@
    ],
    "step": 10,
    "what": "cam netcut: eye x",
-   "value": 314
+   "value": 1247
   },
   {
    "name": "camNetcutEyeY",
@@ -1344,7 +1344,7 @@
    ],
    "step": 10,
    "what": "cam netcut: eye z",
-   "value": 669
+   "value": 547
   },
   {
    "name": "camNetcutCenterX",
@@ -1454,7 +1454,7 @@
    ],
    "step": 5,
    "what": "cam m4: degrees swept round the aim point",
-   "value": 60
+   "value": -60
   },
   {
    "name": "camM4El",
@@ -1595,10 +1595,100 @@
    "step": 10,
    "what": "cam wide: aim point z",
    "value": 0
+  },
+  {
+   "name": "tHook0",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.1,
+   "what": "s: the first line of the HOOK type starts to fade in (no blank opening)",
+   "value": 0.3
+  },
+  {
+   "name": "tPlateOff",
+   "range": [
+    57.6,
+    58.6
+   ],
+   "step": 0.1,
+   "what": "s: the plate 'closer: faster' leaves; the orbit cloud comes back up and the followed orbit lights after it",
+   "value": 58
+  },
+  {
+   "name": "shellRing",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "strength of the thin outline ring drawn round each shell, orbit and network (0 = none)",
+   "value": 0.55
+  },
+  {
+   "name": "shellDim",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "how far the other shells' specks sink while one shell is lit in the sweep",
+   "value": 0.7
+  },
+  {
+   "name": "tShell0",
+   "range": [
+    72,
+    74
+   ],
+   "step": 0.1,
+   "what": "s: the sweep starts: one shell lit at a time, inner to outer",
+   "value": 72.9
+  },
+  {
+   "name": "shellStep",
+   "range": [
+    0.3,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "s each shell stays lit in the sweep (six steps, then all lit)",
+   "value": 0.42
+  },
+  {
+   "name": "cutRing",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "strength of the rings drawn where the cut plane meets the six shells (0 = none)",
+   "value": 0.8
+  },
+  {
+   "name": "cmpX",
+   "range": [
+    640,
+    740
+   ],
+   "step": 2,
+   "what": "sheet x of the network's comparison readout (the two distances, their bars, the ratio)",
+   "value": 700
+  },
+  {
+   "name": "cmpBar",
+   "range": [
+    120,
+    250
+   ],
+   "step": 5,
+   "what": "sheet units of bar for the weights' 0.24; the fixed sum's bar is drawn in the same scale",
+   "value": 220
   }
  ],
- "ms_per_frame": 136,
- "s_per_frame": 0.136,
+ "ms_per_frame": 121,
+ "s_per_frame": 0.121,
  "purity": {
   "pass": true,
   "at": {

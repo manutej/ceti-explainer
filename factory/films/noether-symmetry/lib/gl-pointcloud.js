@@ -9,6 +9,8 @@
        (smootherstep, stagger <= 0.25). Same marks, same count: no point is added, removed or faded; `at()` is the CPU twin of the shader.
      - a colour table indexed by level (uCol[6]), a count-in order (uShown), a feature rank (uF lights a subset one point at a time, uFDim sinks the rest),
        a cut flag (uCut dims everything outside the flagged set, never removes it), a ring mode (uRing: the fluids plate, positions from t).
+     - tier-2 revision: a shell index per point (aInfo.z, row field `sh`); uShL picks one shell, uShA lights it and sinks the rest by uShDim
+       (the 'one shell at a time' sweep). Nothing moves, nothing is added or removed.
    Pure of t: draw(p, st, o) reads only o (computed from t by the film) and the baked arrays. */
 (function () {
   const A = (window.ARSENAL = window.ARSENAL || { patterns: {}, structures: {}, materials: {}, brands: {} });
@@ -17,7 +19,7 @@
   const VERT = `precision highp float;
 attribute vec3 aPosition; attribute vec3 aNormal; attribute vec2 aTexCoord; attribute vec3 aTo; attribute vec3 aTo2; attribute vec4 aInfo;
 uniform mat4 uModelViewMatrix; uniform mat4 uProjectionMatrix;
-uniform float uR, uSizeCue, uZRef, uShown, uM1, uM2, uStag, uDim, uFDim, uFog, uF, uCut, uCutDim, uGrow, uRing, uT, uRingR, uTube, uRingW, uRingV, uSwap;
+uniform float uR, uSizeCue, uZRef, uShown, uM1, uM2, uStag, uDim, uFDim, uFog, uF, uCut, uCutDim, uGrow, uRing, uT, uRingR, uTube, uRingW, uRingV, uSwap, uShL, uShA, uShDim;
 uniform vec2 uFogZ; uniform vec3 uBg, uHi, uCol[6];
 varying vec3 vCol; varying vec2 vC; varying float vFog;
 float sm(float x){ x = clamp(x, 0.0, 1.0); return x * x * x * (x * (x * 6.0 - 15.0) + 10.0); }
@@ -38,8 +40,10 @@ void main(){
   c = mix(c, uBg, uDim);
   c = mix(c, uBg, uFDim * (1.0 - fa));
   c = mix(c, uBg, uCut * uCutDim * (1.0 - inb));
+  float shOn = (aInfo.z > -0.5 && abs(aInfo.z - uShL) < 0.5) ? 1.0 : 0.0;
+  c = mix(c, uBg, uShA * uShDim * (1.0 - shOn));
   float vis = aTexCoord.y < uShown ? 1.0 : 0.0;
-  float r = vis * uR * sz * pow(uZRef / z, uSizeCue) * (1.0 + uGrow * max(fa, uCut * inb));
+  float r = vis * uR * sz * pow(uZRef / z, uSizeCue) * (1.0 + uGrow * max(max(fa, uCut * inb), uShA * shOn));
   mv.xy += aNormal.xy * r;
   vFog = uFog * smoothstep(uFogZ.x, uFogZ.y, z);
   vCol = c; vC = aNormal.xy;
@@ -59,7 +63,7 @@ void main(){ float r2 = dot(vC, vC); if (r2 > 1.0) discard; vec3 c = vCol * (1.0
         const v = i * 4 + c;
         g.vertices.push(p.createVector(r.h[0], r.h[1], r.h[2])); g.vertexNormals.push(p.createVector(C[c][0], C[c][1], (r.lvl || 0) + sz));
         g.uvs.push(r.cut ? 0 : -1, r.order == null ? i : r.order);
-        a1.set(t1, v * 3); a2.set(t2, v * 3); inf[v * 4] = r.feat == null ? -1 : r.feat; inf[v * 4 + 1] = r.delay || 0;
+        a1.set(t1, v * 3); a2.set(t2, v * 3); inf[v * 4] = r.feat == null ? -1 : r.feat; inf[v * 4 + 1] = r.delay || 0; inf[v * 4 + 2] = r.sh == null ? -1 : r.sh;
       }
       const b = i * 4; g.faces.push([b, b + 1, b + 2], [b, b + 2, b + 3]);
     }
@@ -68,7 +72,7 @@ void main(){ float r2 = dot(vC, vC); if (r2 > 1.0) discard; vec3 c = vCol * (1.0
     return g;
   }
   const DEF = { off: [0, 0, 0], r: 2.6, sizeCue: 0.5, zRef: 1000, shown: 1e9, m1: 0, m2: 0, stag: 0, dim: 0, fdim: 0, fog: 0, fogZ: [0, 1e5], f: 0, cut: 0, cutDim: 0.8, grow: 0.6,
-    ring: 0, t: 0, ringR: 60, tube: 22, ringW: 1, ringV: 0, swap: 0 };
+    ring: 0, t: 0, ringR: 60, tube: 22, ringW: 1, ringV: 0, swap: 0, shL: -1, shA: 0, shDim: 0.7 };
   A.patterns['gl-pointcloud'] = {
     id: 'gl-pointcloud', renderer: 'webgl', sm,
     shader(p) { return p.createShader(VERT, FRAG); },
@@ -79,7 +83,7 @@ void main(){ float r2 = dot(vC, vC); if (r2 > 1.0) discard; vec3 c = vCol * (1.0
       p.push(); p.translate(o.off[0], o.off[1], o.off[2]); p.noStroke(); p.fill(255); p.shader(sh);
       U('uR', o.r); U('uSizeCue', o.sizeCue); U('uZRef', o.zRef); U('uShown', o.shown); U('uM1', o.m1); U('uM2', o.m2); U('uStag', o.stag); U('uDim', o.dim); U('uFDim', o.fdim);
       U('uFog', o.fog); U('uFogZ', o.fogZ); U('uF', o.f); U('uCut', o.cut); U('uCutDim', o.cutDim); U('uGrow', o.grow); U('uCol', o.col); U('uBg', o.bg); U('uHi', o.hi);
-      U('uRing', o.ring); U('uT', o.t); U('uRingR', o.ringR); U('uTube', o.tube); U('uRingW', o.ringW); U('uRingV', o.ringV); U('uSwap', o.swap);
+      U('uRing', o.ring); U('uT', o.t); U('uRingR', o.ringR); U('uTube', o.tube); U('uRingW', o.ringW); U('uRingV', o.ringV); U('uSwap', o.swap); U('uShL', o.shL); U('uShA', o.shA); U('uShDim', o.shDim);
       p.model(st.geom); p.resetShader(); p.pop();
     },
     /* CPU twin of the vertex shader's place (for pins): world position of point i at (m1, m2) */

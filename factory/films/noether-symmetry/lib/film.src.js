@@ -95,7 +95,7 @@ function buildClouds(p, K) {
     o.spin = spin; o.layer = [rho * Math.cos(phi), -(o.ai - 2) * KN.layerGap, rho * Math.sin(phi)]; o.cut = cut;
     for (let j = 0; j < P.perOrbit; j++) {
       const xy = kepler(o.a, o.e, (j + o.u0) / P.perOrbit * TAU), v = add(mul(o.R.Pa, xy[0]), mul(o.R.Qa, xy[1]));
-      rows.push({ h: W3(v, KN.sP), t1: spin, t2: o.layer, lvl: o.ai, size: 0.5, order: rank[o.k] * P.perOrbit + j, cut, feat: o.k === FEAT ? j : -1, delay: (o.k * 0.6180339) % 1 });
+      rows.push({ h: W3(v, KN.sP), t1: spin, t2: o.layer, lvl: o.ai, size: 0.5, order: rank[o.k] * P.perOrbit + j, cut, sh: o.li, feat: o.k === FEAT ? j : -1, delay: (o.k * 0.6180339) % 1 });
     }
   });
   ORB = PC.make(p, rows); ORB.nCut = nCut;
@@ -155,7 +155,7 @@ const camFor = (t) => { const q = poseAt(t); return { eye: q.eye, look: q.center
 const pr = (t) => GLL.project(camFor(t), 960, 540);
 
 /* ── type helpers ── */
-const BAND = [0, 412, 960, 540], TAG = [0, 0, 440, 60], LEG = [650, 14, 960, 76], FORM = [0, 62, 960, 206], NETP = [0, 62, 560, 130];
+const BAND = [0, 412, 960, 540], TAG = [0, 0, 560, 60], LEG = [650, 14, 960, 76], AXR = [500, 58, 960, 84], FORM = [0, 62, 960, 206], NETP = [0, 62, 560, 130];
 const anchor = (id, pt, text, sub, role, size, priority) => ({ id, x: pt[0], y: pt[1], z: pt[2], text, sub, role, size, priority });
 function plateRect(K, key, x, y, w, h, op, fo) { K.rc(key, 'labels', x, y, w, h, { fill: C.paper, fo: fo == null ? KN.plate : fo, op }); }
 function drawPl(K, key, sol, op, o) {
@@ -204,6 +204,7 @@ function formula(K, t, run) {
   if (kr <= 0) slot(id + '.q', 4, '?', C.muted, f); else slot(id + '.r', 4, kr >= 1 ? run.res : fmtTick(run.val * sm(kr)), C.ink, 1);
 }
 const fmtTick = (v) => (Math.round(v * 10) / 10).toFixed(1).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const netDimE = (t) => win(t, KN.tRing0 - 0.5, KN.tRing0 + 0.2, M.wide[0] - 0.5, M.wide[0]);
 const runLit = (run, t) => ({ r: sm(seg(t - run.t0, KN.fbBind, KN.fbBind + 0.5)) * 0.85 + 0.15 * sm(seg(t - run.t0, 0, 0.4)), v: sm(seg(t - run.t0, KN.fbBind + 0.3, KN.fbBind + 0.8)) * 0.85 + 0.15 * sm(seg(t - run.t0, 0, 0.4)) });
 
 /* ── 3D line work (p5 lines): arm, arrow, heads ── */
@@ -214,6 +215,15 @@ function arrow3(p, a, b, col, w, alpha, head) {
   const d = nrm3(sub(b, a)), up = Math.abs(d[1]) > 0.9 ? [1, 0, 0] : [0, 1, 0], s1 = nrm3([d[1] * up[2] - d[2] * up[1], d[2] * up[0] - d[0] * up[2], d[0] * up[1] - d[1] * up[0]]);
   const s2 = nrm3([d[1] * s1[2] - d[2] * s1[1], d[2] * s1[0] - d[0] * s1[2], d[0] * s1[1] - d[1] * s1[0]]);
   for (const s of [s1, mul(s1, -1), s2, mul(s2, -1)]) { const e = add(sub(b, mul(d, head)), mul(s, head * 0.42)); p.line(b[0], b[1], b[2], e[0], e[1], e[2]); }
+}
+
+/* tier-2: a closed 3D loop, and a sphere's silhouette circle seen from the eye (centre o, radius R): it lies R²/d toward the eye, radius R√(1 − R²/d²) */
+function loop3(p, q, col, w, a) { if (!q || a <= 0.01) return; p.noFill(); p.stroke(col[0] * 255, col[1] * 255, col[2] * 255, a * 255); p.strokeWeight(w); p.beginShape(); for (const v of q) p.vertex(v[0], v[1], v[2]); p.endShape(p.CLOSE); }
+function sil(eye, o, R) {
+  const e = sub(eye, o), d = len3(e); if (d < R * 1.05) return null;
+  const n = mul(e, 1 / d), u = nrm3([n[2], 0, -n[0]]), v = [n[1] * u[2] - n[2] * u[1], n[2] * u[0] - n[0] * u[2], n[0] * u[1] - n[1] * u[0]], c = add(o, mul(n, R * R / d)), r = R * Math.sqrt(1 - R * R / (d * d)), q = [];
+  for (let i = 0; i < 120; i++) { const a = TAU * i / 120; q.push(add(c, add(mul(u, r * Math.cos(a)), mul(v, r * Math.sin(a))))); }
+  return q;
 }
 
 /* ── anchors and the pin windows (made once: gl-labels memoises by array identity) ── */
@@ -232,18 +242,25 @@ function pinSets() {
   SOL.specks = [anchor('specks', TIPS.feat, '300', 'SPECKS · TEN DOTS ON EACH', 'result', 28, 1)];
   SOL.shells = [anchor('shells', ANCH.shell, '6 shells', 'SAME SPIN LENGTH ON EACH', 'result', 28, 1)];
   SOL.trill = [anchor('trill', TIPS.feat, 'under 1 in a trillion', 'INSIDE ONE ORBIT · WHERE IT IS SWINGS BY ABOUT HALF', 'result', 28, 1)];
-  SOL.cut = [anchor('cut', [KN.sL * 1.3 * 1.12, 0, 0], '62', 'ORBITS LIT · 620 OF 3,000 DOTS', 'result', 28, 1)];
   SOL.lay = [anchor('lay', ANCH.top, '5 layers', 'ONE PER ENERGY LEVEL', 'result', 28, 1)];
   SOL.nfeat = [anchor('nfeat', ANCH.nFeatDot, 'ONE RUN', 'ITS STEPS, ONE DOT EACH', 'secondary', 14, 1)];
   SOL.ncnt = [anchor('ncnt', ANCH.netFar, '3,000', 'STEPS · 100 RUNS', 'result', 28, 1)];
   SOL.n3 = [anchor('n3', ANCH.nShell, '3 shells', 'THE SAME PICTURE', 'result', 28, 1)];
-  SOL.nw = [anchor('nw', ANCH.mid, '0.24', 'HOW FAR THE WEIGHTS TRAVELLED', 'result', 28, 1)];
-  SOL.nc = [anchor('nc', ANCH.nTip, '0.00095', 'HOW FAR THE FIXED SUM MOVED', 'result', 28, 1)];
-  SOL.nr = [anchor('nr', ANCH.nTip, 'about 250 times less', 'THE SUM MOVES THAT MUCH LESS THAN THE WEIGHTS', 'result', 28, 1)];
   MEAS = (s, size, fam) => String(s).length * size * (fam === 'disp' ? KN.dispAdv : 0.612);
   const P3 = pr(TE0 + 3), box = (w, d) => { const q = P3(w); return [q[0] - d, q[1] - d, q[0] + d, q[1] + d]; };
   const ER = [box(EARTH.S, 16), box(EARTH.rp, 14), box(EARTH.ra, 14)];
-  OPT = { base: O([TAG, BAND]), earth: O([TAG, BAND, FORM].concat(ER)), leg: O([TAG, BAND, LEG]), net: O([TAG, BAND, NETP]) };
+  OPT = { base: O([TAG, BAND, AXR]), earth: O([TAG, BAND, FORM].concat(ER)), leg: O([TAG, BAND, LEG, AXR]), net: O([TAG, BAND, NETP, AXR, [KN.cmpX - 24, 96, 960, 412]]) };
+}
+
+function axisWords(t) {
+  const in2 = (a, b) => t >= a && t < b;
+  if (in2(M.m1[0], M.m1[1] + 1) || in2(M.m2[0], M.m2[1] + 1) || in2(M.m4[0], M.m4[1] + 1)) return 'SAME 3,000 DOTS';
+  if (in2(KN.tReveal0 + 1, TE0) || in2(KN.tPlateOff, M.m1[0])) return 'AXES: WHERE IT IS';
+  if (in2(M.m1[1] + 1, M.m2[0])) return 'AXES: ITS SPIN ARROW';
+  if (in2(M.m2[1] + 1, M.netcut[0])) return 'UP: MORE ENERGY · OUT: MORE SPIN';
+  if (in2(KN.tNet0 + 1, M.m4[0])) return 'AXES: A PICTURE OF THE WEIGHTS';
+  if (in2(M.m4[1] + 1, KN.tRing0)) return 'AXES: THE THREE FIXED SUMS';
+  return null;
 }
 
 window.FILM_RENDER = {
@@ -270,8 +287,8 @@ window.FILM_RENDER = {
     // timeline windows
     const inEarth = t >= TE0 && t < TE1, eFade = win(t, TE0, TE0 + 1.6, TE1 - 0.3, TE1);
     const shownO = Math.floor(P.states * sm(seg(t, KN.tReveal0, KN.tReveal1)) + 1e-9);
-    const featO = Math.max(10 * seg(t, KN.tFeat0, KN.tFeat1) * (1 - sm(seg(t, KN.tFeat1 + 0.5, KN.tFeat1 + 1.2))), 10 * sm(seg(t, KN.tSpin - 1.8, KN.tSpin - 0.8)) * (1 - sm(seg(t, M.m3[0] - 0.6, M.m3[0]))));
-    const dEarth = sm(seg(t, TE0 - 0.6, TE0 + 2)) * (1 - sm(seg(t, TE1, TE1 + 1.2)));
+    const featO = Math.max(10 * seg(t, KN.tFeat0, KN.tFeat1) * (1 - sm(seg(t, KN.tFeat1 + 0.5, KN.tFeat1 + 1.2))), 10 * sm(seg(t, KN.tPlateOff, KN.tPlateOff + 0.8)) * (1 - sm(seg(t, M.m3[0] - 0.6, M.m3[0]))));
+    const dEarth = sm(seg(t, TE0 - 0.6, TE0 + 2)) * (1 - sm(seg(t, KN.tPlateOff, KN.tPlateOff + 1)));
     const ghost = sm(seg(t, M.netcut[0], M.netcut[0] + 1.6)) * (1 - sm(seg(t, M.wide[0] - 0.4, M.wide[0] + 1)));
     const ringV = win(t, KN.tRing0, KN.tRing0 + 0.6, M.wide[0] - 0.7, M.wide[0] - 0.1);
     const dimO = Math.max(KN.dimEarth * dEarth, KN.dimGhost * ghost, 0.97 * ringV);
@@ -279,7 +296,7 @@ window.FILM_RENDER = {
     const cutU = sm(seg(t, M.m3[1] - 1.5, M.m3[1] - 0.3)) * (1 - sm(seg(t, M.m2[0] - 0.6, M.m2[0])));
     const planeY = -KN.cutTop * (1 - sm(seg(t, M.m3[0], M.m3[1] - 1.5))), planeOp = sm(seg(t, M.m3[0], M.m3[0] + 0.8)) * (1 - sm(seg(t, M.m2[0] - 0.6, M.m2[0])));
     const sky = 0.3 + 0.7 * sm(seg(t, 0, 2.2));
-    const fdW = win(t, KN.tFeat0, KN.tFeat0 + 1.5, KN.tFeat1 + 0.5, KN.tFeat1 + 1.2) + win(t, KN.tSpin - 1.8, KN.tSpin - 0.8, M.m1[0] + 0.3, M.m1[0] + 1.5);
+    const fdW = win(t, KN.tFeat0, KN.tFeat0 + 1.5, KN.tFeat1 + 0.5, KN.tFeat1 + 1.2) + win(t, KN.tPlateOff, KN.tPlateOff + 0.8, M.m1[0] + 0.3, M.m1[0] + 1.5);
     const fdN = win(t, KN.tFRun0, KN.tFRun0 + 1.2, KN.tFRun0 + 4.2, KN.tFRun0 + 5);
     draw(STAR, { col: COL.muted, r: KN.starR, sizeCue: 0, fog: 0, dim: 1 - (1 - STARLOW) * sky });
     // wires (dotted guides): the ecliptic rings, the shells, the layers, the network shells, the featured paths
@@ -292,15 +309,21 @@ window.FILM_RENDER = {
     if (layV > 0.01) draw(WL, Object.assign({ dim: wd(layV) }, wc));
     const nshV = sm(seg(t, M.m4[1], M.m4[1] + 1.2)) * (1 - sm(seg(t, KN.tRing0 - 0.5, KN.tRing0))) + sm(seg(t, M.wide[0], M.wide[0] + 1));
     if (nshV > 0.01 && t >= M.m4[1] - 0.1) draw(WN, Object.assign({ off: [NX, 0, 0], dim: wd(clamp(nshV)) }, wc));
-    const fe = win(t, KN.tFeat0, KN.tFeat0 + 1, KN.tFeat1 + 1, KN.tFeat1 + 2) + win(t, KN.tSpin - 1.8, KN.tSpin - 0.8, M.m1[0] + 3, M.m1[0] + 5);
+    const fe = win(t, KN.tFeat0, KN.tFeat0 + 1, KN.tFeat1 + 1, KN.tFeat1 + 2) + win(t, KN.tPlateOff, KN.tPlateOff + 0.8, M.m1[0] + 3, M.m1[0] + 5);
     if (fe > 0.01) draw(WF, { col: COL.white, r: KN.wireR * 1.3, sizeCue: KN.sizeCue, dim: 1 - 0.85 * clamp(fe) });
     const pathV = win(t, KN.tFRun0, KN.tFRun0 + 1, KN.tRing0 - 0.4, KN.tRing0);
     if (pathV > 0.01) draw(WP, { off: [NX, 0, 0], col: COL.energy, r: KN.wireR, sizeCue: KN.sizeCue, dim: wd(pathV * (t < M.m4[1] ? 1 : 0.6)) });
+    // tier-2: the shells drawn as shells (a thin outline ring per spin length, as the camera sees each sphere), lit one at a time, inner to outer
+    const swA = win(t, KN.tShell0 - 0.2, KN.tShell0, KN.tShell0 + 6 * KN.shellStep, KN.tShell0 + 6 * KN.shellStep + 0.3), swL = clamp(Math.floor((t - KN.tShell0) / KN.shellStep), 0, 5);
+    const shR = KN.shellRing * clamp(sm(seg(t, M.m1[1] - 1, M.m1[1] + 0.5)) * (1 - sm(seg(t, M.m2[0] - 0.6, M.m2[0]))) + sm(seg(t, M.wide[0], M.wide[0] + 1))) * (1 - dimO);
+    if (shR > 0.01) LV.forEach((L, i) => { const on = swA > 0 && i === swL; loop3(p, sil(pose.eye, [0, 0, 0], L * KN.sL), HI, on ? 2.4 : 1.1, shR * (on ? 1 : 1 - 0.6 * swA)); });
+    const nR = KN.shellRing * clamp(nshV) * (t >= M.m4[1] - 0.1 ? 1 : 0) * (1 - netDimE(t));
+    if (nR > 0.01) [0.4, 0.8, 1.2].forEach((r) => loop3(p, sil(pose.eye, [NX, 0, 0], r * KN.sC), HI, 1.1, nR));
     // the clouds
-    draw(ORB, { col: COL.energy, r: KN.dotR * (1 + KN.speckGrow * sm(m1)), shown: shownO, m1, m2, f: featO, fdim: KN.featDim * clamp(fdW), cut: cutU, dim: dimO });
+    draw(ORB, { col: COL.energy, r: KN.dotR * (1 + KN.speckGrow * sm(m1)), shown: shownO, m1, m2, f: featO, fdim: KN.featDim * clamp(fdW), cut: cutU, dim: dimO, shL: swL, shA: swA, shDim: KN.shellDim });
     const netShown = Math.floor(P.netStates * sm(seg(t, KN.tNet0, KN.tNet1)) + 1e-9), netM = seg(t, M.m4[0], M.m4[1]);
     const featN = t < KN.tRing0 ? P.netPerRun * seg(t, KN.tFRun0, KN.tFRun0 + 3.6) : 0;
-    const netDim = KN.dimEarth * win(t, KN.tRing0 - 0.5, KN.tRing0 + 0.2, M.wide[0] - 0.5, M.wide[0]);
+    const netDim = KN.dimEarth * netDimE(t);
     if (t >= KN.tNet0) draw(NET, { off: [NX, 0, 0], col: COL.net, r: KN.dotRNet, shown: netShown, m1: netM, f: featN, fdim: KN.featDim * clamp(fdN), dim: netDim });
     // Earth's fixture
     if (eFade > 0.01) {
@@ -314,13 +337,15 @@ window.FILM_RENDER = {
       arm(0, EARTH.rp, lit[0].r, 0); arm(1, EARTH.ra, lit[1].r, 0); arr(EARTH.rp, EARTH.vp, lit[0].v); arr(EARTH.ra, EARTH.va, lit[1].v);
     }
     // the featured orbit's spin arrow (position space, then the speck it lands on)
-    const spinV = win(t, KN.tSpin - 1.8, KN.tSpin - 0.8, M.m3[0] - 0.6, M.m3[0]);
+    const spinV = win(t, KN.tPlateOff, KN.tPlateOff + 0.8, M.m3[0] - 0.6, M.m3[0]);
     if (spinV > 0.01) { const c = hex3(C.ink); arrow3(p, [0, 0, 0], TIPS.feat, c, 2.2, spinV, 9); }
     // the cut plane (Lz = 0): a translucent disc that stops at the equator
     if (planeOp > 0.01) {
       p.push(); p.translate(0, planeY, 0); p.rotateX(Math.PI / 2); const a = hex3(C.accent), Rp = KN.sL * 1.3 * 1.12;
       p.noStroke(); p.fill(a[0] * 255, a[1] * 255, a[2] * 255, 34 * planeOp); p.circle(0, 0, 2 * Rp);
       p.noFill(); p.stroke(a[0] * 255, a[1] * 255, a[2] * 255, 200 * planeOp); p.strokeWeight(1.4); p.circle(0, 0, 2 * Rp); p.pop();
+      // tier-2: where the plane meets each shell, a ring (radius from the shell and the plane's height; they open as the plane comes down)
+      LV.forEach((L) => { const R = L * KN.sL, y = planeY; if (Math.abs(y) < R) { const rr = Math.sqrt(R * R - y * y), q = []; for (let i = 0; i < 96; i++) q.push([rr * Math.cos(TAU * i / 96), y, rr * Math.sin(TAU * i / 96)]); loop3(p, q, HI, 1.6, KN.cutRing * planeOp); } });
     }
     // the smoke ring (wordless fluids plate)
     if (ringV > 0.01) {
@@ -330,17 +355,17 @@ window.FILM_RENDER = {
 
     // ───────── 2 · type (SVG, flat, with data-roles) ─────────
     // HOOK: the belief and the doubt, as set type
-    dsp(K, 'hk.a', 480, 258, 'Conservation laws', 80, C.ink, win(t, 1.0, 1.9, 5.2, 6.1));
+    dsp(K, 'hk.a', 480, 258, 'Conservation laws', 80, C.ink, win(t, KN.tHook0, KN.tHook0 + 0.6, 5.2, 6.1));
     dsp(K, 'hk.b', 480, 232, 'Rules handed down?', 80, C.ink, win(t, 6.5, 7.4, 11.0, 11.9));
     dsp(K, 'hk.c', 480, 304, 'Or something that follows?', 62, C.accent, win(t, 9.2, 10.0, 11.0, 11.9));
     dsp(K, 'hk.n', 480, 262, 'Emmy Noether · 1918', 70, C.ink, win(t, 12.3, 13.2, 14.4, 15.6));
     // the honest tag: what is simulated, what is measured
     const tagS = win(t, KN.tReveal0, KN.tReveal0 + 0.8, TE0 - 0.2, TE0) + win(t, TE1 + 0.2, TE1 + 1, M.netcut[0] - 0.2, M.netcut[0]) + win(t, M.wide[0], M.wide[0] + 0.5, 150, 150.1);
     const tagN = win(t, KN.tNet0 - 0.6, KN.tNet0 + 0.2, M.wide[0] - 0.3, M.wide[0]);
-    if (tagS > 0.01) K.tx('tag.s', 'chrome', 48, 40, 'SIMULATED · MADE-UP UNITS', { size: 14, fill: C.soft, role: 'secondary', ls: 1.5, op: Math.min(1, tagS) });
-    if (tagN > 0.01) K.tx('tag.n', 'chrome', 48, 40, 'SIMULATED · A TINY NETWORK, 16 UNITS', { size: 14, fill: C.soft, role: 'secondary', ls: 1.5, op: tagN });
+    const tag = (k, s, col, op) => { if (op <= 0.01) return; K.rc(k + '.m', 'chrome', 48, 28, 11, 11, { fill: col, op }); K.tx(k, 'chrome', 66, 40, s, { size: 16, fill: C.ink, role: 'secondary', ls: 1.5, op }); };
+    tag('tag.s', 'SIMULATED · MADE-UP UNITS', C.soft, Math.min(1, tagS)); tag('tag.n', 'SIMULATED · A TINY NETWORK, 16 UNITS', C.soft, tagN);
     const tagE = win(t, TE0, TE0 + 0.6, TE1 - 0.2, TE1);
-    if (tagE > 0.01) K.tx('tag.e', 'chrome', 48, 40, 'MEASURED · NASA DISTANCES, PUBLISHED SPEEDS', { size: 14, fill: C.accent, role: 'secondary', ls: 1.5, op: tagE });
+    tag('tag.e', 'MEASURED · NASA DISTANCES, PUBLISHED SPEEDS', C.accent, tagE);
     if (inEarth) K.tx('tag.d', 'chrome', 912, 40, 'DRAWN TO SCALE · ALMOST A CIRCLE', { size: 14, fill: C.muted, role: 'secondary', ls: 1.5, anchor: 'end', op: win(t, TE0 + 1.4, TE0 + 2.2, TE1 - 0.4, TE1) });
 
     // CASE: the first count, one orbit, then the pins
@@ -359,7 +384,7 @@ window.FILM_RENDER = {
       dsp(K, 'fx.c', 480, 200, 'only 0.011 % apart', 58, C.accent, co);
     }
     // the return and the spin arrow
-    const rt = win(t, TE1 + 0.1, TE1 + 0.7, KN.tSpin - 0.7, KN.tSpin - 0.2);
+    const rt = win(t, TE1 + 0.1, TE1 + 0.7, KN.tPlateOff - 0.4, KN.tPlateOff);
     if (rt > 0.01) {
       plateRect(K, 'rt.p', 120, 74, 720, 108, rt * 0.7);
       dsp(K, 'rt.a', 480, 112, 'closer: faster · farther: slower', 56, C.ink, rt); dsp(K, 'rt.b', 480, 166, 'the product stays', 60, C.accent, rt);
@@ -370,8 +395,20 @@ window.FILM_RENDER = {
     pin(K, t, 'p.specks.', SOL.specks, OPT.leg, KN.tPSpecks, KN.tPSpecks + KN.pinHold);
     pin(K, t, 'p.shells.', SOL.shells, OPT.leg, KN.tPShells, KN.tPShells + KN.pinHold);
     pin(K, t, 'p.trill.', SOL.trill, OPT.leg, KN.tPTrill, KN.tPTrill + 3.0);
-    pin(K, t, 'p.cut.', SOL.cut, OPT.leg, KN.tPCut, KN.tPCut + KN.pinHold);
     pin(K, t, 'p.lay.', SOL.lay, OPT.leg, KN.tPLay, KN.tPLay + KN.pinHold);
+    // tier-2: the axes in lay words, hard-cut at each re-projection; during a move, the count that does not change (I2)
+    const ax = axisWords(t);
+    if (ax) K.tx('ax', 'labels', 912, 74, ax, { size: 15, fill: C.ink, role: 'secondary', ls: 1, anchor: 'end', op: 0.92 });
+    // tier-2: the cut's count beside the plane's rim (a fixed readout, so it never sits on the plane's edge)
+    const cu = win(t, KN.tPCut, KN.tPCut + KN.pinFade, KN.tPCut + KN.pinHold - KN.pinFade, KN.tPCut + KN.pinHold);
+    if (cu > 0.01) {
+      const P0 = pr(t), Rp = KN.sL * 1.3 * 1.12; let b = null;
+      for (let i = 0; i < 72; i++) { const q = P0([Rp * Math.cos(TAU * i / 72), 0, Rp * Math.sin(TAU * i / 72)]); if (!b || q[0] > b[0]) b = q; }
+      const x = clamp(b[0] + 30, 560, 770), y = clamp(b[1] - 10, 130, 330);
+      K.ln('cu.l', 'labels', b[0] + 3, b[1], x - 8, y - 12, { stroke: C.muted, w: 1, op: cu }); plateRect(K, 'cu.p', x - 8, y - 42, 176, 92, cu);
+      dsp(K, 'cu.n', x, y, '62', 40, C.accent, cu, 'start');
+      K.tx('cu.a', 'labels', x, y + 22, 'ORBITS LIT', { size: 14, fill: C.ink, role: 'secondary', ls: 1, op: cu }); K.tx('cu.b', 'labels', x, y + 40, '620 OF 3,000 DOTS', { size: 14, fill: C.muted, role: 'secondary', ls: 1, op: cu });
+    }
     // the legend of the colours (energy) while the shells and layers are on stage
     const lg = win(t, KN.tPSpecks, KN.tPSpecks + 0.6, M.m2[1] + 6, M.m2[1] + 6.4);
     if (lg > 0.01) {
@@ -381,10 +418,10 @@ window.FILM_RENDER = {
     // the table of what each symmetry gives (words only; the third row greyed, unused)
     const tb = win(t, KN.tTable, KN.tTable + 0.5, M.netcut[0] - 0.1, M.netcut[0]);
     if (tb > 0.01) {
-      plateRect(K, 'tb.p', 48, 66, 560, 96, tb * 0.8);
-      K.tx('tb.1', 'labels', 60, 92, 'turn it round  →  spin stays  →  shells', { fam: 'sans', size: 20, fill: C.ink, role: 'secondary', op: tb });
-      K.tx('tb.2', 'labels', 60, 122, 'change the day  →  energy stays  →  layers', { fam: 'sans', size: 20, fill: C.ink, role: 'secondary', op: tb });
-      K.tx('tb.3', 'labels', 60, 152, 'slide it sideways  →  momentum stays  →  not used here', { fam: 'sans', size: 20, fill: C.muted, role: 'secondary', op: tb * 0.6 });
+      plateRect(K, 'tb.p', 48, 64, 520, 78, tb * 0.8);
+      K.tx('tb.1', 'labels', 60, 84, 'turn it round  →  spin stays  →  shells', { fam: 'sans', size: 18, fill: C.ink, role: 'secondary', op: tb });
+      K.tx('tb.2', 'labels', 60, 107, 'change the day  →  energy stays  →  layers', { fam: 'sans', size: 18, fill: C.ink, role: 'secondary', op: tb });
+      K.tx('tb.3', 'labels', 60, 130, 'slide it sideways  →  momentum stays  →  not used here', { fam: 'sans', size: 18, fill: C.muted, role: 'secondary', op: tb * 0.6 });
     }
     // the network
     pin(K, t, 'p.nfeat.', SOL.nfeat, OPT.base, KN.tPFRun, KN.tPNet - 0.05);
@@ -396,9 +433,15 @@ window.FILM_RENDER = {
       K.tx('nt.2', 'labels', 60, 114, 'a sum that should not change while it trains', { fam: 'sans', size: 16, fill: C.muted, role: 'secondary', op: pl });
     }
     pin(K, t, 'p.n3.', SOL.n3, OPT.net, KN.tPN3, KN.tPN3 + KN.pinHold);
-    pin(K, t, 'p.nw.', SOL.nw, OPT.net, KN.tPW, KN.tPW + KN.pinHold);
-    pin(K, t, 'p.nc.', SOL.nc, OPT.net, KN.tPC, KN.tPC + KN.pinHold);
-    pin(K, t, 'p.nr.', SOL.nr, OPT.net, KN.tPRatio, KN.tPRatio + 3.0);
+    // tier-2: the network's comparison on one frame: two distances as numbers and as bars in one scale, then the ratio (results <= 2 on screen)
+    const end = (a) => win(t, a, a + KN.pinFade, KN.tRing0 - 0.4, KN.tRing0), cw = end(KN.tPW), cc = end(KN.tPC), cr = end(KN.tPRatio), dm = t >= KN.tPRatio, X = KN.cmpX, Y = 150;
+    if (cw > 0.01) {
+      plateRect(K, 'cm.p', X - 14, Y - 46, 960 - X, 252, cw);
+      const val = (k, y, s, sub, col, op, w) => { if (op <= 0.01) return; K.tx(k, 'labels', X, y, s, { fam: 'disp', size: dm ? 24 : 40, fill: col, role: dm ? 'secondary' : 'must-read', op }); K.tx(k + 's', 'labels', X, y + 20, sub, { size: 14, fill: C.ink, role: 'secondary', ls: 1, op }); K.rc(k + 'b', 'labels', X, y + 30, w, 8, { fill: col, op }); };
+      val('cm.w', Y, '0.24', 'THE WEIGHTS MOVED', C.soft, cw, KN.cmpBar);
+      val('cm.c', Y + 78, '0.00095', 'THE FIXED SUM MOVED', C.accent, cc, KN.cmpBar * P.cMove / P.wMove);
+      if (cr > 0.01) { dsp(K, 'cm.r', X, Y + 160, 'about 250 times', 32, C.ink, cr, 'start'); K.tx('cm.rs', 'labels', X, Y + 182, 'LESS FOR THE FIXED SUM', { size: 14, fill: C.ink, role: 'secondary', ls: 1, op: cr }); }
+    }
     // MONDAY: the question, then the honest line on stage (no caption in the band during it)
     const q = win(t, KN.tQ, KN.tQ + 0.8, KN.tHonest - 0.4, KN.tHonest);
     if (q > 0.01) { dsp(K, 'mq.a', 480, 86, 'and what may we change', 64, C.ink, q); dsp(K, 'mq.b', 480, 130, 'without changing the answer?', 64, C.accent, q); }
