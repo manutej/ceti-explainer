@@ -90,7 +90,8 @@ def main():
         src = open(os.path.join(HERE, m), encoding="utf-8").read()
         body = cut(src, CUTS[m]) if m in CUTS else src
         parts.append("/* ── lib/%s sha256 %s%s ── */\n" % (m, hashlib.sha256(src.encode()).hexdigest()[:16], (" (cut, 3 lines replaced)" if m == "gl-stack-city.js" else " (cut)") if m in CUTS else "") + strip(body))
-    parts.append(open(os.path.join(HERE, "film.src.js"), encoding="utf-8").read())
+    src = open(os.path.join(HERE, "film.src.js"), encoding="utf-8").read()   # tier 2: the film is stripped too (pays for the METR belief boxes)
+    parts.append("/* ── lib/film.src.js sha256 %s (comment-stripped) ── */\n" % hashlib.sha256(src.encode()).hexdigest()[:16] + strip(src))
     out = "\n".join(parts) + "\n"
     with open(os.path.join(HERE, "..", "film.js"), "w", encoding="utf-8") as f:
         f.write(out)

@@ -87,7 +87,7 @@ void main(){
 }`;
 const FRAGP = 'precision highp float; uniform float uBaseY; varying vec3 vLo; varying vec3 vHi; varying float vY; void main(){ gl_FragColor = vec4(vY < uBaseY - 0.01 ? vHi : vLo, 1.0); }';
 
-let S1, S2, PS, CAM, SH, SHP, TK, COL, TAGC, PLO, PHI, DOTC, SOLOC, BG_S, DECK_S, RULE_S, FRAME_S, GHOST_S, GEO_M, GEO_D, GEO_S, MB, TAGHOME;
+let S1, S2, PS, CAM, SH, SHP, TK, COL, TAGC, PLO, PHI, DOTC, SOLOC, BG_S, DECK_S, RULE_S, FRAME_S, GHOST_S, PLATE_S, GEO_M, GEO_D, GEO_S, MB, TAGHOME;
 let A_POOL, A_SPLIT, A_DEV, A_MBEL, A_MSIDE, A_BOOK, O_POOL, O_SPLIT, O_DEV, O_MBEL, O_MSIDE, O_BOOK, MEAS, CAMFN;
 
 const s2l = (x) => (x <= 0.04045 ? x / 12.92 : Math.pow((x + 0.055) / 1.055, 2.4));
@@ -111,12 +111,12 @@ function camAt(t) {
       if (w > 0) ps = mixP(ps, { az: spl.az, el: spl.el, hh: KN.hhTag, look: TAGHOME }, w);
     }
   } else if (t < KN.cutM) ps = { az: KN.azD, el: KN.elD, hh: KN.hhD, look: [0, -H1 * KN.lookYD, KN.devZ + KN.devLookDz] };
-  else if (t < KN.cutB) ps = { az: KN.azM, el: lerp(KN.elBelief, KN.elSide, sm(seg(t, KN.tilt0, KN.tilt1))), hh: KN.hhM, look: [KN.metLookX, -KN.metLookY, KN.metZ] };
+  else if (t < KN.cutB) ps = { az: KN.azM, el: lerp(KN.elBelief, KN.elSide, sm(seg(t, KN.tilt0, KN.tilt1))), hh: KN.hhM, look: [KN.metLookX, -KN.metLookY, KN.metZ + KN.metLookZ] };
   else ps = { az: cse.az, el: cse.el, hh: cse.hh, look: [0, lk[1] + KN.bookLift, 0] };   // the bookend: the same pose, the wall lifted clear of the honest line
   const amp = KN.orbitAmp * (t >= KN.cutM && t < KN.cutB ? 1 - clamp((ps.el - 30) / 40) : 1);   // no sway over the plan view
   const az = (ps.az + amp * Math.sin(2 * Math.PI * t / KN.orbitPeriod)) * D2R, el = ps.el * D2R, hh = ps.hh, dist = 3000, look = ps.look;
   const eye = [look[0] + dist * Math.cos(el) * Math.sin(az), look[1] - dist * Math.sin(el), look[2] + dist * Math.cos(el) * Math.cos(az)];
-  return { eye, look, up: [0, 1, 0], ortho: 2 * hh / 540, hh, hw: hh * 960 / 540 };
+  return { eye, look, up: [0, 1, 0], ortho: 2 * hh / 540, hh, hw: hh * 960 / 540, el: ps.el };
 }
 
 /* ── scene colours (scene-referred linear, through gl-post's inverse tone curve) ── */
@@ -133,6 +133,7 @@ function colours() {
   RULE_S = POST.toSceneLinear(mixLin(c.bg, c.muted, KN.ruleMix), 1, PS);
   FRAME_S = POST.toSceneLinear(mixLin(c.bg, c.ink, KN.frameMix), 1, PS);
   GHOST_S = POST.toSceneLinear(mixLin(c.bg, c.accent, KN.ghostMix), 1, PS);
+  PLATE_S = POST.toSceneLinear(mixLin(c.panel, c.muted, KN.plateMix), 1, PS);
 }
 
 /* ── prism geometry (METR columns, 16 dots, the lone box): one p5.Geometry, per-vertex column data ── */
@@ -177,9 +178,17 @@ function boxes(p, ph, S, off, fade, tagOn) {
   U('uLit', ph.lit); U('uCol', COL); U('uTagC', TAGC); U('uOff', off); U('uBgS', [BG_S[0], BG_S[1], BG_S[2]]); U('uFade', fade); U('uTagOn', tagOn);
   p.model(S.geo); p.resetShader();
 }
-function rectAt(p, y, x0, x1, z0, z1, col, a) {
-  p.stroke(col[0] * 255, col[1] * 255, col[2] * 255, 255 * a); p.strokeWeight(KN.frameW); p.noFill();
+function rectAt(p, y, x0, x1, z0, z1, col, a, w) {
+  p.stroke(col[0] * 255, col[1] * 255, col[2] * 255, 255 * a); p.strokeWeight(w || KN.frameW); p.noFill();
   p.line(x0, y, z0, x1, y, z0); p.line(x1, y, z0, x1, y, z1); p.line(x1, y, z1, x0, y, z1); p.line(x0, y, z1, x0, y, z0); p.noStroke();
+}
+// a belief level beside the block: a wire box, ground to its arm-mean height (the forecast, then the believed-after)
+function wireBox(p, h, z0, z1, a, el) {
+  const w = KN.frameW * KN.ghostW8, col = GHOST_S, ab = a * clamp((el - 10) / 30);   // back edges fade out toward the side view (no sway parallax)
+  rectAt(p, 0, MB.x0, MB.x1, z0, z1, col, a, w); rectAt(p, -h, MB.x0, MB.x1, z0, z1, col, a, w);
+  p.strokeWeight(w);
+  for (const x of [MB.x0, MB.x1]) for (const z of [z0, z1]) { const o = x === MB.x1 ? a : ab; if (o > 0.01) { p.stroke(col[0] * 255, col[1] * 255, col[2] * 255, 255 * o); p.line(x, 0, z, x, -h, z); } }
+  p.noStroke();
 }
 
 /* ── counters (exact integers; boxes are workers, k = 1) ── */
@@ -195,9 +204,9 @@ function drawPl(K, key, sol, op, dimOf) {
     K.ln(kk + '.l', 'labels', q.lead[0], q.lead[1], q.lead[2], q.lead[3], { stroke: C.muted, w: 1, op: o });
     K.rc(kk + '.d', 'labels', q.ax - 2.5, q.ay - 2.5, 5, 5, { fill: col, op: o });
     const adv = q.fam === 'disp' ? KN.dispAdv : 0.612, wa = String(q.text).length * q.size * adv;
-    const x0 = q.align === 'right' ? q.tx - wa : q.align === 'center' ? q.tx - wa / 2 : q.tx;
-    K.tx(kk + '.t', 'labels', x0, q.ty, q.text, { fam: q.fam, size: q.size, fill: col, role: q.dataRole, op: o });
-    if (q.sub) K.tx(kk + '.s', 'labels', x0, q.sy, q.sub, { fam: q.subFam, size: q.subSize, fill: C.muted, role: q.subDataRole, op: o });
+    const xa = (w) => (q.align === 'right' ? q.tx - w : q.align === 'center' ? q.tx - w / 2 : q.tx);   // each line aligned on its own width
+    K.tx(kk + '.t', 'labels', xa(wa), q.ty, q.text, { fam: q.fam, size: q.size, fill: col, role: q.dataRole, op: o });
+    if (q.sub) K.tx(kk + '.s', 'labels', xa(String(q.sub).length * q.subSize * 0.612), q.sy, q.sub, { fam: q.subFam, size: q.subSize, fill: C.muted, role: q.subDataRole, op: o });
   }
 }
 const projector = (cam) => GLL.project(cam, 960, 540);
@@ -220,13 +229,14 @@ window.FILM_RENDER = {
     TAGHOME = S1.tags[0].to.slice();
     // METR block: 246 issue columns on a grid (18 along z, 14 deep along x), 16 developer dots in front, one lone box for the hook
     const pM = KN.metPitch, NC = P.metrIssues, cols = [], per = KN.metCols, rows = Math.ceil(NC / per);
-    for (let i = 0; i < NC; i++) { const r = Math.floor(i / per), c = i % per; cols.push({ x: (r - (rows - 1) / 2) * pM, z: KN.metZ - (c - (per - 1) / 2) * pM, r: (i + 0.5) / NC }); }
+    for (let i = 0; i < NC; i++) { const r = Math.floor(i / per), c = i % per; cols.push({ x: ((rows - 1 - r) - (rows - 1) / 2) * pM, z: KN.metZ - (c - (per - 1) / 2) * pM, r: (i + 0.5) / NC }); }
     GEO_M = prismGeo(p, cols);
     const ND = P.metrDevs, dots = [], dx = (rows - 1) / 2 * pM + KN.dotGap;
     for (let i = 0; i < ND; i++) dots.push({ x: dx, z: KN.metZ - (i - (ND - 1) / 2) * KN.dotPitch, r: (i + 0.5) / ND, k: i === KN.tagDev ? 1 : 0 });
     GEO_D = prismGeo(p, dots);
     GEO_S = prismGeo(p, [{ x: KN.soloX, z: KN.soloZ, r: 0.5, k: 0 }]);
     MB = { x0: -(rows * pM) / 2, x1: (rows * pM) / 2, z0: KN.metZ - per * pM / 2, z1: KN.metZ + per * pM / 2, rows, per, dotX: dx, dotZ: dots.map((d) => d.z) };
+    MB.f0 = MB.z1 + KN.ghostGap; MB.f1 = MB.f0 + KN.ghostW; MB.b0 = MB.f1 + KN.ghostGap; MB.b1 = MB.b0 + KN.ghostW;   // forecast box, believed-after box
     CAMFN = (t) => camAt(t);
     MEAS = (s, size, fam) => String(s).length * size * (fam === 'disp' ? KN.dispAdv : 0.612);
     // anchors (made once: gl-labels memoises by array identity)
@@ -243,18 +253,22 @@ window.FILM_RENDER = {
     A_DEV = [{ id: 'D', x: dt[0], y: dt[1], z: dt[2], text: '+' + P.poolDevs + ' %', sub: 'POOLED · TASKS COMPLETED', role: 'result', size: KN.poolPinSize, priority: 1 }];
     const Lb = KN.metH, Lf = Lb * (1 - P.forecast / 100), Lm = Lb * (1 + P.slower / 100), Lbl = Lb * (1 - P.believedAfter / 100);
     MB.Lb = Lb; MB.Lf = Lf; MB.Lm = Lm; MB.Lbl = Lbl;
-    A_MBEL = [{ id: 'F', x: MB.x1, y: -Lf, z: MB.z0, text: P.forecast + ' %', sub: 'FORECAST · LESS TIME', role: 'result', size: KN.poolPinSize, priority: 1 },
+    A_MBEL = [{ id: 'F', x: 0, y: -Lf, z: MB.f1 + 4, text: P.forecast + ' %', sub: 'FORECAST · LESS TIME', role: 'result', size: KN.poolPinSize, priority: 1 },
       { id: 'dev', x: MB.dotX, y: -KN.dotH, z: MB.dotZ[KN.tagDev], text: 'ONE OF THE ' + P.metrDevs, sub: 'A DEVELOPER, FOLLOWED', role: 'secondary', size: 14, priority: 0 }];
-    A_MSIDE = [{ id: 'M', x: MB.x1, y: -Lm, z: MB.z0, text: P.slower + ' %', sub: 'MEASURED · MORE TIME', role: 'result', size: KN.poolPinSize, priority: 3 },
-      { id: 'B', x: MB.x1, y: -Lbl, z: MB.z1, text: P.believedAfter + ' %', sub: 'BELIEVED AFTER · LESS TIME', role: 'result', size: KN.poolPinSize, priority: 2 },
+    A_MSIDE = [{ id: 'M', x: MB.x1, y: -Lm - 10, z: MB.z0, text: P.slower + ' %', sub: 'MEASURED · MORE TIME', role: 'result', size: KN.poolPinSize, priority: 3 },
+      { id: 'B', x: MB.x1, y: -Lbl, z: MB.b1 + 10, text: P.believedAfter + ' %', sub: 'BELIEVED AFTER · LESS TIME', role: 'result', size: KN.poolPinSize, priority: 2 },
       { id: 'dev', x: MB.dotX, y: -KN.dotH, z: MB.dotZ[KN.tagDev], text: 'SAME DEVELOPER', sub: 'HEIGHTS ARE ARM MEANS', role: 'secondary', size: 14, priority: 1 }];
     const HEAD = [0, 0, 640, 46], HEADR = [640, 0, 960, 62], READ = [28, 52, 215, 128], READM = [28, 52, 215, 178], READB = [28, 52, 300, 128], CAPB = [0, KN.capTop, 960, 540];
     const base = { w: 960, h: 540, fps: 30, hold: KN.hold, leader: KN.leader, margin: 14, occlusion: false, maxShown: KN.maxShown, sticky: 'window', measure: MEAS };
     O_POOL = Object.assign({}, base, { reserve: [HEAD, HEADR, READ, CAPB], measureKey: 'wg-b-pool' });
     O_SPLIT = Object.assign({}, base, { reserve: [HEAD, HEADR, READ, CAPB], measureKey: 'wg-b-split' });
     O_DEV = Object.assign({}, base, { reserve: [HEAD, HEADR, READ, CAPB], measureKey: 'wg-b-dev' });
-    O_MBEL = Object.assign({}, base, { reserve: [HEAD, HEADR, READM, CAPB], measureKey: 'wg-b-mbel' });
-    O_MSIDE = Object.assign({}, base, { reserve: [HEAD, HEADR, READM, CAPB], measureKey: 'wg-b-mside' });
+    // reserves: the screen rect of a world box over sample times, so no pin sits on the block or on the belief boxes
+    const box2 = (ts, xs, y0, y1, z0, z1, m) => { const q = []; for (const t of ts) { const pr = projector(camAt(t)); for (const x of xs) for (const z of [z0, z1]) for (const y of [y0, y1]) q.push(pr([x, y, z])); }
+      return [Math.min(...q.map((v) => v[0])) - m, Math.min(...q.map((v) => v[1])) - m, Math.max(...q.map((v) => v[0])) + m, Math.max(...q.map((v) => v[1])) + m]; };
+    const TS = [KN.measAt, (KN.measAt + KN.cutB) / 2, KN.cutB - 0.05];
+    O_MBEL = Object.assign({}, base, { reserve: [HEAD, HEADR, READM, CAPB, box2([KN.foreAt], [MB.x0, MB.x1], -Lf, -Lf, MB.z0, MB.z1, 6)], measureKey: 'wg-b-mbel' });
+    O_MSIDE = Object.assign({}, base, { reserve: [HEAD, HEADR, READM, CAPB, box2(TS, [MB.x1], -Lm, -Lb, MB.z0, MB.z1, 3), box2(TS, [MB.x1], 0, -Lb, MB.f0, MB.b1, 2)], measureKey: 'wg-b-mside' });
     O_BOOK = Object.assign({}, base, { reserve: [HEAD, HEADR, READB, CAPB, [60, KN.honestY - 24, 900, KN.honestY + 34]], measureKey: 'wg-b-book' });
     p.setCamera(K.cam0);
     window.__wg = { s1: S1, s2: S2, mb: MB, cam: camAt, check: (t) => SC.check(t - T0, S1, SCP1), proj: (t, x) => projector(camAt(t))(x),
@@ -296,15 +310,22 @@ window.FILM_RENDER = {
       boxes(p, ph2, S2, [0, 0, KN.devZ], 0, 0);
     }
     if (inMet) {
+      p.fill(PLATE_S[0] * 255, PLATE_S[1] * 255, PLATE_S[2] * 255);   // the field, from the cut frame on
+      p.push(); p.translate((MB.x0 + MB.dotX) / 2, 0.3, (MB.z0 + MB.b1) / 2); p.rotateX(Math.PI / 2); p.plane(MB.dotX - MB.x0 + 2 * KN.platePad, MB.b1 - MB.z0 + 2 * KN.platePad); p.pop();
       const show = sm(seg(t, KN.issues0, KN.issues1)) * (1 + KN.arrW), dshow = sm(seg(t, KN.dots0, KN.dots1)) * (1 + KN.arrW);
       drawPrisms(p, GEO_M, { w: KN.metW, h: lvl, show, off: [0, 0, 0], lo: PLO, hi: PHI, base: Lb });
       drawPrisms(p, GEO_D, { w: KN.dotW, h: KN.dotH, show: dshow, off: [0, 0, 0], lo: DOTC, hi: DOTC, base: 1e6 });
       if (t >= KN.issues0) {
         rectAt(p, -Lb, MB.x0, MB.x1, MB.z0, MB.z1, FRAME_S, 1);
         const fo = sm(seg(t, KN.frameF0, KN.frameF0 + 0.8));
-        if (fo > 0.01) rectAt(p, -Lf, MB.x0, MB.x1, MB.z0, MB.z1, GHOST_S, fo);
+        if (fo > 0.01) wireBox(p, Lf, MB.f0, MB.f1, fo, cam.el);
         const bo = sm(seg(t, KN.frameB0, KN.frameB0 + 0.8));
-        if (bo > 0.01) rectAt(p, -Lbl, MB.x0, MB.x1, MB.z0, MB.z1, GHOST_S, bo);
+        if (bo > 0.01) wireBox(p, Lbl, MB.b0, MB.b1, bo, cam.el);
+        if (t >= KN.tilt1) {   // the line runs on over both belief boxes (dashed), so below and above it read on one frame
+          p.stroke(FRAME_S[0] * 255, FRAME_S[1] * 255, FRAME_S[2] * 255); p.strokeWeight(KN.frameW);
+          for (let z = MB.z1; z < MB.b1; z += KN.dash * 1.6) p.line(MB.x1, -Lb, z, MB.x1, -Lb, Math.min(MB.b1, z + KN.dash));
+          p.noStroke();
+        }
       }
     }
     if (inAg && tgOn > 0.01) SC.api.drawTags(p, S1, SCP1, TK, ph1);
@@ -358,9 +379,9 @@ window.FILM_RENDER = {
     if (inAg && pop > 0.01) drawPl(K, 'pp.', GLL.solve(t, CAMFN, A_POOL, O_POOL), pop, null);
 
     // the followed agent: a pin that rides the box (M1), and the same box in the close-up (M3)
-    const tg = win(t, KN.tag0, KN.tag0 + 0.6, KN.tag1, KN.tag1 + 0.6), tg2 = win(t, KN.tagPin0, KN.tagPin0 + 0.4, KN.tagPin1, KN.tagPin1 + 0.4);
-    if (inAg && (tg > 0.01 || tg2 > 0.01)) {
-      const b = S1.tags[0], q = SC.api.boxAt(S1, SCP1, ph1, b), v = pr([q.c[0], q.c[1] - SCP1.size, q.c[2]]), o = Math.max(tg, tg2);
+    const o = (t >= KN.tagTx0 && t < KN.tag1) || (t >= KN.tagPin0 && t < KN.tagPin1) ? 1 : 0;   // text only on still frames: after M1 settles, in the M3 close-up hold
+    if (inAg && o) {
+      const b = S1.tags[0], q = SC.api.boxAt(S1, SCP1, ph1, b), v = pr([q.c[0], q.c[1] - SCP1.size, q.c[2]]);
       K.ln('tg.l', 'labels', v[0], v[1], v[0] + 22, v[1] - 30, { stroke: C.accent, w: 1, op: o });
       K.rc('tg.p', 'labels', v[0] + 22, v[1] - 48, 'ONE LOW-SKILL AGENT'.length * 14 * 0.612 + 8, 20, { fill: C.paper, fo: KN.plate, op: o });
       K.tx('tg.t', 'labels', v[0] + 26, v[1] - 34, 'ONE LOW-SKILL AGENT', { size: 14, fill: C.accent, role: 'secondary', op: o });
@@ -394,6 +415,11 @@ window.FILM_RENDER = {
     if (inMet && t >= KN.devPin0 && t < KN.foreOut + 0.4) drawPl(K, 'mb.', GLL.solve(t, CAMFN, A_MBEL, O_MBEL), 1, (q) => (q.id === 'dev' ? win(t, KN.devPin0, KN.devPin0 + 0.4, KN.foreOut, KN.foreOut + 0.3) : win(t, KN.foreAt, KN.foreAt + 0.4, KN.foreOut, KN.foreOut + 0.3)));
     const mop = inMet ? Math.max(win(t, KN.measAt, KN.measAt + 0.4, 1e6, 1e6 + 1), win(t, KN.beliefAt, KN.beliefAt + 0.4, 1e6, 1e6 + 1)) : 0;
     if (mop > 0.01) drawPl(K, 'ms.', GLL.solve(t, CAMFN, A_MSIDE, O_MSIDE), 1, (q) => (q.id === 'M' ? win(t, KN.measAt, KN.measAt + 0.4, 1e6, 1e6 + 1) : q.id === 'B' ? win(t, KN.beliefAt, KN.beliefAt + 0.4, 1e6, 1e6 + 1) : win(t, KN.devPin1, KN.devPin1 + 0.4, 1e6, 1e6 + 1)));
+
+    if (inMet && t >= KN.measAt) {
+      const v = pr([MB.x1, -Lf * 0.5, (MB.f0 + MB.f1) / 2]);
+      K.tx('ms.fw', 'labels', v[0], v[1] + 4, 'FORECAST', { size: 12, fill: C.accent, role: 'chrome', anchor: 'middle' });
+    }
 
     // MONDAY: the pooled number again (the same agents), and the one honest-limits line, on stage
     const bk = inBook ? win(t, KN.cutB + 0.4, KN.cutB + 1.0, 1e6, 1e6 + 1) : 0;
