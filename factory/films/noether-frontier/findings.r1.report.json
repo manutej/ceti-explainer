@@ -1,0 +1,148 @@
+{
+ "film": "noether-frontier",
+ "findings": "factory/films/noether-frontier/findings.r1.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:cometDim",
+   "old": 0.25,
+   "new": 0.55,
+   "finding": {
+    "t": 84.0,
+    "frame": "strip-14.png cells 4-11, strip-15.png cells 0-7 (thumbs/t-0080.00.jpg … t-0087.50.jpg)",
+    "severity": "major",
+    "what": "The comet 80-88 s does not read: every layer just greys out at thumb size, so 'they slide, but never change layer' (c19) is told by the caption, not seen. Draft b's lit arcs at the same seconds show that the slide can carry.",
+    "why": "Sinking the dots outside the comet further raises the contrast of the moving head against its arc; round 2 checks that the five layers still read as layers while it runs.",
+    "knob": "cometDim",
+    "proposed_value": 0.55
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:growComet",
+   "old": 1.5,
+   "new": 2.2,
+   "finding": {
+    "t": 84.0,
+    "frame": "strip-15.png cell 0 (thumbs/t-0084.00.jpg)",
+    "severity": "major",
+    "what": "The comet head is the same size as its neighbours at 480 px and vanishes at phone width (1 unit = 0.37 px), so no single dot can be followed along its arc.",
+    "why": "A bigger head is the one thing the eye can track (about 4 targets at once); 2.2 stays inside the range and only during 80-88 s.",
+    "knob": "growComet",
+    "proposed_value": 2.2
+   }
+  },
+  {
+   "n": 2,
+   "target": "knob:treeD",
+   "old": 70,
+   "new": 90,
+   "finding": {
+    "t": 132.5,
+    "frame": "strip-23.png cell 1 (thumbs/t-0132.50.jpg)",
+    "severity": "major",
+    "what": "During the swap 131-134 s the two children of Q2 drop onto the row of their own children and the five boxes clump into one blob; the drawn re-ordering that the candidate survives is not legible.",
+    "why": "More distance between the three layers gives the swapping pair room to step out without landing on the row below, and makes the 4/8/7 layers taller on the stage; round 2 checks the pin leader and the Monday frame.",
+    "knob": "treeD",
+    "proposed_value": 90
+   }
+  },
+  {
+   "n": 3,
+   "target": "knob:treeBox",
+   "old": 20,
+   "new": 24,
+   "finding": {
+    "t": 125.0,
+    "frame": "strip-21.png cells 10-11, strip-22.png cells 0-5 (thumbs/t-0125.00.jpg)",
+    "severity": "minor",
+    "what": "The 19 question boxes are about 8 px at thumb size; the count 4 · 8 · 7 is countable but only just, and the ring on the candidate (131 s) is smaller than the caption's letters.",
+    "why": "A larger box carries the count by layer at phone width; 24 keeps the boxes clear of each other at treeW 190.",
+    "knob": "treeBox",
+    "proposed_value": 24
+   }
+  },
+  {
+   "n": 4,
+   "target": "knob:toyH",
+   "old": 14,
+   "new": 20,
+   "finding": {
+    "t": 101.0,
+    "frame": "strip-17.png cells 9-11, strip-18.png cells 0-9 (thumbs/t-0101.00.jpg)",
+    "severity": "minor",
+    "what": "The three toy marks are thin slivers on a large plate; the lengths 4, 7 and 9 read, but the marks look like rules, not things. Draft b's chunky blocks at the same seconds read as three objects at once.",
+    "why": "Taller marks make each sub-answer an object (borrowed from draft b's block look) without changing any length.",
+    "knob": "toyH",
+    "proposed_value": 20
+   }
+  },
+  {
+   "n": 5,
+   "target": "knob:toyBoxD",
+   "old": 12,
+   "new": 16,
+   "finding": {
+    "t": 110.0,
+    "frame": "strip-19.png cell 4 (thumbs/t-0110.00.jpg)",
+    "severity": "minor",
+    "what": "With 6 rows of 12-unit marks the rows touch at 480 px and the 'same total in every order' picture reads as a striped slab, not six rows.",
+    "why": "Deeper marks with the same row pitch (1.5 box depths) give each row its own visible gap; 6 x 16 x 1.5 = 144 still fits the 150-unit plate.",
+    "knob": "toyBoxD",
+    "proposed_value": 16
+   }
+  },
+  {
+   "n": 6,
+   "target": "knob:ringW",
+   "old": 1.3,
+   "new": 1.8,
+   "finding": {
+    "t": 36.0,
+    "frame": "strip-07.png cells 0-4 (thumbs/t-0036.00.jpg … t-0038.00.jpg)",
+    "severity": "minor",
+    "what": "The landing of the blind search (36-38.5 s) and the HOOK read as one ball of rings; the six separate shells that make 'the same shells' true are faint at thumb size.",
+    "why": "A heavier outline on each shell separates the six shells without enlarging any dot (the director's 'brighter, not bigger').",
+    "knob": "ringW",
+    "proposed_value": 1.8
+   }
+  },
+  {
+   "n": 7,
+   "target": "caption:25",
+   "old": "A model that minds order contradicts itself.",
+   "new": "A model that cares about order contradicts itself.",
+   "finding": {
+    "t": 113.0,
+    "frame": "strip-19.png cell 10 (thumbs/t-0113.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 25 says 'minds order', less plain than the brief's wording; draft b's 'cares about order' fits on one line at 50 characters.",
+    "why": "Lay words, one idea; no digits; 50 characters fits the band (b shows it on one line at 113 s).",
+    "caption_index": 25,
+    "proposed_value": "A model that cares about order contradicts itself."
+   }
+  },
+  {
+   "n": 8,
+   "target": "caption:32",
+   "old": "Monday: reorder a question. Same answer?",
+   "new": "Monday: reorder a question's parts. Same answer?",
+   "finding": {
+    "t": 136.0,
+    "frame": "strip-23.png cell 8 (thumbs/t-0136.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 32 'reorder a question' drops 'parts': the Monday test reorders a question's parts, as the stage type above it says.",
+    "why": "Borrowed from draft b (48 characters, one line there at 136 s); matches the stage type and the takeaway.",
+    "caption_index": 32,
+    "proposed_value": "Monday: reorder a question's parts. Same answer?"
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": true
+}
