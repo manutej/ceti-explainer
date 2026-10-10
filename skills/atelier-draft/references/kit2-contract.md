@@ -175,3 +175,12 @@ never carries an on-screen number (those are claims). `window.__film.info.knobs 
 - `window.__ctrl = {play, pause, seek, duration, state, setState(o)}`; `setState({answer: 4})` re-renders at the
   current t. Live mode pauses at `commit.at` and opens the HTML input over `K.commitGeom`.
 - Gate stage selector: `#stage`, `.ex-stage-frame` or `[data-stage]`. Errors land in `window.__error`.
+
+## Chrome content box and the commit box (what a drafter must plan for)
+- A chrome other than `none` maps the film box (x 40–938, y 96–410) into its own content box with one uniform scale:
+  ledger 120–824 × 128–448 (s ≈ 0.784, centred), memo 48–924 × 166–444 (s ≈ 0.885, start-aligned), tender-set identity.
+  SVG `marks`/`labels` layers and the canvas get the same matrix; text keeps its floor (28/14/12) by authored size.
+  `KIT2.box` cannot be set from film.json (build.py writes brand, chrome, material only); design on the sheet and let it scale.
+- The commit box is the kit's: it fades in from `commit.at − 1`, the ring runs 4 s, the seal lands at `commit.at + 4.5`;
+  the film-mode default answer is `commit.default`. Nothing in film.js changes that timing.
+- Captions are static strings `[t0, t1, text]`; there is no template substitution.

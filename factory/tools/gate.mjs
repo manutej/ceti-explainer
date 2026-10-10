@@ -375,11 +375,21 @@ else {
     if (c.formula == null) continue;
     let got;
     try { got = vm.runInContext(String(c.formula), vctx, { timeout: 200 }); } catch (e) { bad.push(`${id}: formula throws ${String(e.message).slice(0, 60)}`); continue; }
+    if (Array.isArray(c.value)) {
+      // a list-valued claim (a year range, a pair): element-wise, same tolerance rule per element
+      const want = c.value.map(Number), have = Array.isArray(got) ? got.map(Number) : [];
+      const same = want.length === have.length && want.every((w, i) => {
+        const t = c.tolerance != null ? +c.tolerance : (Number.isInteger(w) ? 0.5 : Math.max(Math.abs(w) * 0.005, 1e-9));
+        return Math.abs(have[i] - w) <= t;
+      });
+      if (!same) bad.push(`${id}: ${c.formula} = [${have.map(r2)}] ≠ [${want}]`); else ok.push(id);
+      continue;
+    }
     const v = +c.value;
     const tol = c.tolerance != null ? +c.tolerance : (Number.isInteger(v) ? 0.5 : Math.max(Math.abs(v) * 0.005, 1e-9));
     if (!(Math.abs(+got - v) <= tol)) bad.push(`${id}: ${c.formula} = ${r2(+got)} ≠ ${v} (±${r2(tol)})`); else ok.push(id);
   }
-  const vals = claims.map(c => +c.value).filter(Number.isFinite);
+  const vals = claims.flatMap(c => Array.isArray(c.value) ? c.value.map(Number) : [+c.value]).filter(Number.isFinite);
   const renders = claims.flatMap(c => [].concat(c.renders || [], typeof c.render === 'string' ? [c.render] : []));
   const unknown = [];
   for (const c of CAPS) for (const n of numbersIn(c.text, renders)) if (!covered(n, vals)) unknown.push(`${n.raw} @${c.t0}s "${c.text.slice(0, 40)}"`);

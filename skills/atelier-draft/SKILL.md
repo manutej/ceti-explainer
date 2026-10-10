@@ -32,15 +32,25 @@ Notes:        NOTES.md: register, chain, what you patched in a module copy, warn
 
 ## Procedure
 
-1. **Read the brief as law, the chain as a plan.** Copy claims.json into the target unchanged. Read
+1. **Read the brief as law, the chain as a plan.** Look and chain come from beats.md's header when the brief has
+   one, else from the pipeline's message; if neither names them, choose per the recipes and write the choice at the
+   top of NOTES.md. Copy claims.json into the target unchanged. Read
    `references/chain-recipes.md` for the chain's recipe: what each module contributes, which tunables it exposes,
    its pitfalls. If a module in the chain cannot do the job (wrong renderer, cost, occlusion), swap it for the
    recipe's fallback and record why in NOTES.md.
 2. **Set up the lib.** `lib/<module>.js` copies, `lib/film.src.js` (your code), `lib/assemble.py` concatenating
-   them into `film.js` (shape in chain-recipes §3). kit2's `libs` is the alternative when a module needs no patch.
+   them into `film.js` (shape in chain-recipes §3; every module you cut needs its own CUT pattern, written against its
+   registration line; run assemble twice and diff). kit2's `libs` is the alternative when a module needs no patch.
+   Module pitfalls that bite on first contact (a `background()` wipe inside a draw, canvas-drawn digits that are not
+   claims, an alpha the module sets itself) are listed per module in chain-recipes §1 and §2; read the module's draw
+   before you call it.
 3. **Write film.js against the kit2 contract** (`references/kit2-contract.md`): `window.FILM_RENDER = {setup(p, K),
    render(t, state, K)}`; render pure in t; all seeded orders made once in setup; captions, commit, cards and brand
-   card belong to the kit, not to you; text you draw gets a `data-role` through `K.tx`. For `renderer: "webgl"`:
+   card belong to the kit, not to you; text you draw gets a `data-role` through `K.tx`. Captions are static strings
+   in film.json (no templates: write the resolved words). The commit box's own timing is the kit's (it fades in from
+   `commit.at − 1`, rings for 4 s, seals at `+4.5`); beats.md timings for it are advisory. A chrome other than `none`
+   scales your whole film box (ledger ≈ 0.78, memo ≈ 0.89) and keeps text at its floor: lay out on the 960×540 sheet
+   and let the kit scale; never take beats.md's absolute geometry literally under a chrome. For `renderer: "webgl"`:
    origin at centre (`K.world`), set your camera every frame, `fonts3d` from the vendored faces, post filters only
    in the reveal window.
 4. **Make every tunable a knob as you write it**, never afterwards: times a viewer could feel, camera keys, gaps,

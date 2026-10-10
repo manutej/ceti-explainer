@@ -129,3 +129,8 @@ the drafts and simpsons-3d are); pick a brand whose texture is none/paper. Exec 
 
 1. G1/G2/G3 (code is wrong, nothing else is meaningful). 2. G5a/G5b/G4f/G4e (data). 3. G6 (sizes, roles, gaps via
 knobs). 4. G7 (ratio order). 5. G4a-c, G9, G10 (film.json). 6. G8 (fonts, libs). WARNs go to NOTES.md or card.md.
+
+## Claims with array values (G5a)
+A claim whose `value` is a list (a year range, a pair) is compared element-wise against its recomputed formula since the
+2026-10-10 gate patch; before it, such claims read NaN and failed G5a. If a topic's claims.json carries lists and G5a still
+reports NaN, the gate in use predates the patch: run `node factory/tools/gate.mjs --version` or read the row's evidence.

@@ -195,6 +195,18 @@ Fallback: `scene(...)` cross-fade only (`fade: 0.5`), which wiring used for all 
 
 ---
 
+### Pitfalls met in films (not visible from the demos)
+- **reveal**: `draw` calls `p.background(T.color.bg)` and wipes everything drawn before it in the frame. Pass a token copy
+  whose `color.bg` is `rgba(0,0,0,0)` (wiring film.src.js does this) or draw reveal first.
+- **data-marks**: `bars()` prints the value digits on the canvas at 12 px with its own `globalAlpha 0.95`, so the digits
+  are not SVG claims (G5c) and the module ignores your fade. Pass `fmt: () => ''` and an rgba ink for fades; draw the
+  numbers yourself with `K.tx` (roled) from claims.
+- **morph-type / webgl-scene / shader**: export nothing for chaining as shipped; add a one-line export in your lib copy
+  (or a CUT in assemble.py) and record it in NOTES.md.
+- **structures**: pure layout; it does not draw. Pair it with `K.ctx` marks or a material's `mark()`.
+- **Any module under a chrome**: the kit scales the film box (ledger 0.784, memo 0.885); module pixel constants (label
+  sizes, gaps) shrink with it. Prefer sheet-relative sizes or raise them when the look names a chrome.
+
 ## 3. Assembly
 
 kit2 inlines only `film.js`, `film.json`, `claims.json` and (optionally) `libs`. Two ways to get arsenal code onto the page.
