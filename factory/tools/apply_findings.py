@@ -254,9 +254,9 @@ def main():
         print("dry run: film.json not written; report " + os.path.relpath(rp, ROOT))
         return 0
 
+    # keep the file's own formatting: a compact film.json (one line, written to fit the G8 budget) stays compact
+    compact = os.path.exists(fjp) and open(fjp).read().count("\n") <= 2
     with open(fjp, "w") as f:
-        # keep the file's own formatting: a compact film.json (one line, written to fit the G8 budget) stays compact
-        compact = film_json_path.read_text().count("\n") <= 2 if film_json_path.exists() else False
         f.write((json.dumps(film, ensure_ascii=False, separators=(",", ":")) if compact
                  else json.dumps(film, indent=1, ensure_ascii=False)) + "\n")
     L = film["look"]
