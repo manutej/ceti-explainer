@@ -247,6 +247,16 @@
    "value": 71.4
   },
   {
+   "name": "legendAt",
+   "range": [
+    76,
+    78
+   ],
+   "step": 0.1,
+   "what": "s: the grey legend lands on the plan view of the world field",
+   "value": 77
+  },
+  {
    "name": "pctAt",
    "range": [
     76.4,
@@ -313,8 +323,28 @@
     97
    ],
    "step": 0.1,
-   "what": "s: the three shares land",
+   "what": "s: the US share lands on its stack (China and Europe follow, one per shareStep)",
    "value": 95.8
+  },
+  {
+   "name": "shareStep",
+   "range": [
+    0.5,
+    1.4
+   ],
+   "step": 0.1,
+   "what": "s: between one share landing on its stack and the next",
+   "value": 0.8
+  },
+  {
+   "name": "checkAt",
+   "range": [
+    94,
+    95.6
+   ],
+   "step": 0.1,
+   "what": "s: the check line 187 + 104 + 62 + 62 = 415 TWh lands (same marks, I2)",
+   "value": 94.6
   },
   {
    "name": "stagger",
@@ -463,8 +493,38 @@
     129
    ],
    "step": 0.1,
-   "what": "s: about half of the growth lands",
+   "what": "s: the 2025 US new-demand slab and its +2.1 % land (the whole, before its half)",
    "value": 128.2
+  },
+  {
+   "name": "halfAt",
+   "range": [
+    130.4,
+    132.4
+   ],
+   "step": 0.1,
+   "what": "s: the lower half of the slab is inked and about half lands",
+   "value": 131.4
+  },
+  {
+   "name": "slabGap",
+   "range": [
+    0,
+    120
+   ],
+   "step": 5,
+   "what": "world units: gap between the terrain front and the new-demand slab",
+   "value": 60
+  },
+  {
+   "name": "slabD",
+   "range": [
+    8,
+    60
+   ],
+   "step": 2,
+   "what": "world units: depth of the new-demand slab",
+   "value": 24
   },
   {
    "name": "pinsOn1",
@@ -659,12 +719,22 @@
   {
    "name": "zStretch",
    "range": [
+    0.05,
+    1
+   ],
+   "step": 0.05,
+   "what": "depth of a cell as a fraction of its width in the elevation views, after the tilt (mesas squarer; cells and values are unchanged)",
+   "value": 0.2
+  },
+  {
+   "name": "zPlan",
+   "range": [
     0.2,
     1
    ],
    "step": 0.05,
-   "what": "depth of a cell as a fraction of its width (mesas squarer; cells and values are unchanged)",
-   "value": 0.2
+   "what": "depth of a cell as a fraction of its width in the plan view (squashed to zStretch through the tilt only)",
+   "value": 0.35
   },
   {
    "name": "planeA",
@@ -843,7 +913,7 @@
     153
    ],
    "step": 0.1,
-   "what": "camera rig · back (dolly): start (s)",
+   "what": "camera rig · back (orbit): start (s)",
    "value": 74
   },
   {
@@ -853,7 +923,7 @@
     153
    ],
    "step": 0.1,
-   "what": "camera rig · back (dolly): end (s)",
+   "what": "camera rig · back (orbit): end (s)",
    "value": 77
   },
   {
@@ -868,18 +938,113 @@
     "back",
     "step"
    ],
-   "what": "camera rig · back (dolly): ease (arsenal/core/timeline curves)",
+   "what": "camera rig · back (orbit): ease (arsenal/core/timeline curves)",
    "value": "inout"
   },
   {
-   "name": "camBackFactor",
+   "name": "camBackEl",
    "range": [
-    0.05,
-    20
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · back (orbit): end elevation (deg above the centre)",
+   "value": 89
+  },
+  {
+   "name": "camBackR",
+   "range": [
+    0.2,
+    5.9
    ],
    "step": 0.05,
-   "what": "camera rig · back (dolly): distance factor",
-   "value": 3.5
+   "what": "camera rig · back (orbit): end radius as a factor of the start",
+   "value": 5.9
+  },
+  {
+   "name": "camObliqueT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · oblique (cut): start (s)",
+   "value": 82.8
+  },
+  {
+   "name": "camObliqueEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · oblique (cut): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camObliqueEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · oblique (cut): eye x",
+   "value": 0
+  },
+  {
+   "name": "camObliqueEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · oblique (cut): eye y",
+   "value": -1830
+  },
+  {
+   "name": "camObliqueEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · oblique (cut): eye z",
+   "value": 1666
+  },
+  {
+   "name": "camObliqueCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · oblique (cut): aim point x",
+   "value": 0
+  },
+  {
+   "name": "camObliqueCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · oblique (cut): aim point y",
+   "value": -10
+  },
+  {
+   "name": "camObliqueCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · oblique (cut): aim point z",
+   "value": 28
   },
   {
    "name": "camRegroupT0",
@@ -1217,8 +1382,8 @@
    "value": 1.05
   }
  ],
- "ms_per_frame": 434,
- "s_per_frame": 0.434,
+ "ms_per_frame": 696,
+ "s_per_frame": 0.696,
  "purity": {
   "pass": true,
   "at": {
@@ -4098,7 +4263,7 @@
    "file": "thumbs/t-0128.50.jpg",
    "strip": "strip-22.png",
    "cell": 5,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "In 2025, US demand grew by about 2.1 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4109,7 +4274,7 @@
    "file": "thumbs/t-0129.00.jpg",
    "strip": "strip-22.png",
    "cell": 6,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "In 2025, US demand grew by about 2.1 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4120,7 +4285,7 @@
    "file": "thumbs/t-0129.50.jpg",
    "strip": "strip-22.png",
    "cell": 7,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "In 2025, US demand grew by about 2.1 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4131,7 +4296,7 @@
    "file": "thumbs/t-0130.00.jpg",
    "strip": "strip-22.png",
    "cell": 8,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "In 2025, US demand grew by about 2.1 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4142,7 +4307,7 @@
    "file": "thumbs/t-0130.50.jpg",
    "strip": "strip-22.png",
    "cell": 9,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "In 2025, US demand grew by about 2.1 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4153,7 +4318,7 @@
    "file": "thumbs/t-0131.00.jpg",
    "strip": "strip-22.png",
    "cell": 10,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4164,7 +4329,7 @@
    "file": "thumbs/t-0131.50.jpg",
    "strip": "strip-22.png",
    "cell": 11,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "Data centres were about half of that growth.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4175,7 +4340,7 @@
    "file": "thumbs/t-0132.00.jpg",
    "strip": "strip-23.png",
    "cell": 0,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "Data centres were about half of that growth.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4186,7 +4351,7 @@
    "file": "thumbs/t-0132.50.jpg",
    "strip": "strip-23.png",
    "cell": 1,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "Data centres were about half of that growth.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4197,7 +4362,7 @@
    "file": "thumbs/t-0133.00.jpg",
    "strip": "strip-23.png",
    "cell": 2,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "Data centres were about half of that growth.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4208,7 +4373,7 @@
    "file": "thumbs/t-0133.50.jpg",
    "strip": "strip-23.png",
    "cell": 3,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "Data centres were about half of that growth.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4219,7 +4384,7 @@
    "file": "thumbs/t-0134.00.jpg",
    "strip": "strip-23.png",
    "cell": 4,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "Data centres were about half of that growth.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -4230,7 +4395,7 @@
    "file": "thumbs/t-0134.50.jpg",
    "strip": "strip-23.png",
    "cell": 5,
-   "caption": "Yet about half of 2025's US demand growth.",
+   "caption": "Data centres were about half of that growth.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"

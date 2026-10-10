@@ -40,7 +40,8 @@
   "dePct": 4,
   "ukPct": 4,
   "frPct": 2,
-  "oneTwh": 1
+  "oneTwh": 1,
+  "usDemGrowth25": 2.1
  },
  "claims": [
   {
@@ -189,7 +190,7 @@
    "source": "derived",
    "url": null,
    "grade": "A (S1 x definition)",
-   "where": "CASE caption 8; rung-1 readout",
+   "where": "CASE caption 8; rung-1 readout; ladder readout, rung 10^1 (36-38 s)",
    "renders": [
     "2.4 Wh"
    ]
@@ -202,7 +203,7 @@
    "source": "derived",
    "url": null,
    "grade": "A (S1 x definition)",
-   "where": "CASE caption 8",
+   "where": "CASE caption 8; ladder microwave readout, rung 10^1 (36-38 s)",
    "renders": [
     "8.6 s"
    ]
@@ -218,6 +219,114 @@
    "where": "not on stage; transcript only"
   },
   {
+   "id": "rungQ",
+   "text": "Ladder rungs: 1, 10, 100, 1,000, 10,000 and 100,000 queries (n = 10^k, k = 0..5; marks drawn = n, scale-anchor spiral)",
+   "value": [
+    1,
+    10,
+    100,
+    1000,
+    10000,
+    100000
+   ],
+   "formula": "[0,1,2,3,4,5].map(function (k) { return Math.pow(10, k); })",
+   "source": "input",
+   "url": null,
+   "grade": "def (count)",
+   "where": "CASE ladder readout 'n QUERIES' (34.6-55.4 s)"
+  },
+  {
+   "id": "rung2Wh",
+   "text": "Rung 10^2: 100 queries x 0.24 Wh = 24 Wh",
+   "value": 24,
+   "formula": "100*gemWh",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x count)",
+   "where": "CASE ladder readout, rung 10^2 (40-42 s)",
+   "renders": [
+    "24 Wh"
+   ]
+  },
+  {
+   "id": "rung3Wh",
+   "text": "Rung 10^3: 1,000 queries x 0.24 Wh = 240 Wh",
+   "value": 240,
+   "formula": "1000*gemWh",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x count)",
+   "where": "CASE ladder readout, rung 10^3 (44-46 s)",
+   "renders": [
+    "240 Wh"
+   ]
+  },
+  {
+   "id": "rung4Kwh",
+   "text": "Rung 10^4: 10,000 queries x 0.24 Wh = 2,400 Wh = 2.4 kWh",
+   "value": 2.4,
+   "formula": "10000*gemWh/1000",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x count)",
+   "where": "CASE ladder readout, rung 10^4 (48-50 s)",
+   "renders": [
+    "2.4 kWh"
+   ]
+  },
+  {
+   "id": "rung2MicroS",
+   "text": "Rung 10^2 in microwave time: 100 x 0.24 Wh x 3,600 / 1,000 W = 86.4 s (shown 86 s). Shown on the ladder readout (40-55 s) beside the microwave icon labelled 'A 1,000 W MICROWAVE'; the 1,000 W microwave is a stated assumption (claim microW), named in the on-stage honest line.",
+   "value": 86,
+   "formula": "Math.round(100*gemWh*3600/microW)",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x definition)",
+   "where": "CASE ladder microwave readout, rung 10^2 (40-42 s)",
+   "renders": [
+    "86 s"
+   ]
+  },
+  {
+   "id": "rung3MicroMin",
+   "text": "Rung 10^3 in microwave time: 1,000 x 0.24 Wh x 3,600 / 1,000 W = 864 s = 14.4 min (shown 14 min). Shown on the ladder readout (40-55 s) beside the microwave icon labelled 'A 1,000 W MICROWAVE'; the 1,000 W microwave is a stated assumption (claim microW), named in the on-stage honest line.",
+   "value": 14,
+   "formula": "Math.round(1000*gemWh*3600/microW/60)",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x definition)",
+   "where": "CASE ladder microwave readout, rung 10^3 (44-46 s)",
+   "renders": [
+    "14 min"
+   ]
+  },
+  {
+   "id": "rung4MicroH",
+   "text": "Rung 10^4 in microwave time: 10,000 x 0.24 Wh / 1,000 W = 2.4 h (8,640 s). Shown on the ladder readout (40-55 s) beside the microwave icon labelled 'A 1,000 W MICROWAVE'; the 1,000 W microwave is a stated assumption (claim microW), named in the on-stage honest line.",
+   "value": 2.4,
+   "formula": "Math.round(10*10000*gemWh/microW)/10",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x definition)",
+   "where": "CASE ladder microwave readout, rung 10^4 (48-50 s)",
+   "renders": [
+    "2.4 h"
+   ]
+  },
+  {
+   "id": "rung5MicroH",
+   "text": "Rung 10^5 in microwave time: 100,000 x 0.24 Wh / 1,000 W = 24 h (86,400 s). Shown on the ladder readout (40-55 s) beside the microwave icon labelled 'A 1,000 W MICROWAVE'; the 1,000 W microwave is a stated assumption (claim microW), named in the on-stage honest line.",
+   "value": 24,
+   "formula": "100000*gemWh/microW",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x definition)",
+   "where": "CASE ladder microwave readout, rung 10^5 (52-55 s)",
+   "renders": [
+    "24 h"
+   ]
+  },
+  {
    "id": "tileKwh",
    "text": "100,000 queries = 24 kWh",
    "value": 24,
@@ -225,7 +334,7 @@
    "source": "derived",
    "url": null,
    "grade": "A (S1)",
-   "where": "CASE caption 10 (51 s); rung-5 readout",
+   "where": "CASE caption 10 (51 s); rung-5 readout (ladder rung 10^5 energy)",
    "renders": [
     "24 kWh"
    ]
@@ -596,7 +705,7 @@
    "source": "S3",
    "url": "https://www.iea.org/reports/electricity-2026/executive-summary",
    "grade": "A (several extractions; IEA page not opened)",
-   "where": "COUNT caption 24 (128.2 s)",
+   "where": "COUNT caption 25 (131.4 s); readout \"about half\" and the inked half of the US growth slab (131.4-135 s)",
    "renders": [
     "half"
    ]
@@ -613,6 +722,30 @@
    "renders": [
     "2025"
    ]
+  },
+  {
+   "id": "usDemGrowth25",
+   "text": "US electricity demand grew about 2.1 % in 2025 (IEA Electricity 2026; read through search extractions, page not opened). Drawn as the 2025 new-demand slab beside the US mesa, on the mesas' own scale (% of the US grid); half of it inked for data centres (usGrowthPct). Year mix: the US mesa is 2023 (LBNL), the slab 2025",
+   "value": 2.1,
+   "formula": "usDemGrowth25",
+   "source": "S3",
+   "url": "https://www.iea.org/reports/electricity-2026/demand",
+   "grade": "B (S3 via search; sources.md 'US demand +2.1 % in 2025 (B)')",
+   "where": "COUNT terrain, US growth slab and readout (128.2-135 s)",
+   "renders": [
+    "+2.1 %",
+    "2.1 %"
+   ]
+  },
+  {
+   "id": "usDcGrowth25",
+   "text": "Data centres' part of the 2025 US demand growth as a share of the US grid: about half of 2.1 % = about 1 point (drawn as the inked half of the slab; not printed)",
+   "value": 1.05,
+   "formula": "usGrowthPct/100*usDemGrowth25",
+   "source": "derived",
+   "url": null,
+   "grade": "B (derived from S3)",
+   "where": "COUNT terrain, inked half of the growth slab (not printed)"
   },
   {
    "id": "ieYear",

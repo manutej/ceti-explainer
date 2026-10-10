@@ -34,13 +34,16 @@ cutB:kd('cutB',66.0,65.0,67.0,0.1,'s: hard cut from the tile field to the world 
 bIn0:kd('bIn0',66.4,66.0,67.5,0.1,'s: the inked cubes start to count in (spiral order, centre out)'),
 bIn1:kd('bIn1',71.0,69.5,71.3,0.1,'s: the last inked cube is in (the count lands at worldAt)'),
 worldAt:kd('worldAt',71.4,71.0,72.0,0.1,'s: 415 TWh lands'),
+legendAt:kd('legendAt',77.0,76.0,78.0,0.1,'s: the grey legend lands on the plan view of the world field'),
 pctAt:kd('pctAt',77.4,76.4,79.0,0.1,'s: 1.5 % lands (>= 5 s after the count)'),
 moveT0:kd('moveT0',83.0,82.0,84.0,0.1,'s: the inked cubes start to travel into the region stacks (the rig orbit has the same t0)'),
 moveT1:kd('moveT1',88.0,86.5,89.0,0.1,'s: they have landed (the rig orbit has the same t1)'),
 usAt:kd('usAt',88.4,88.0,89.4,0.1,'s: the US count lands'),
 cnAt:kd('cnAt',92.0,91.0,93.0,0.1,'s: the China count lands'),
 euAt:kd('euAt',93.8,93.0,95.0,0.1,'s: the Europe count lands'),
-shareAt:kd('shareAt',95.8,95.0,97.0,0.1,'s: the three shares land'),
+shareAt:kd('shareAt',95.8,95.0,97.0,0.1,'s: the US share lands on its stack (China and Europe follow, one per shareStep)'),
+shareStep:kd('shareStep',0.8,0.5,1.4,0.1,'s: between one share landing on its stack and the next'),
+checkAt:kd('checkAt',94.6,94.0,95.6,0.1,'s: the check line 187 + 104 + 62 + 62 = 415 TWh lands (same marks, I2)'),
 stagger:kd('stagger',0.55,0,0.9,0.05,'fraction of the move spent staggering layers (0 = all at once)'),
 lift:kd('lift',40,0,120,1,'world units: the hop a cube makes in flight'),
 terrT:kd('terrT',99.0,98.0,100.0,0.1,'s: hard cut to the plan view of the terrain'),
@@ -55,7 +58,10 @@ usCutT0:kd('usCutT0',121.0,120.0,122.0,0.1,'s: the cut hops from Ireland to the 
 usCutT1:kd('usCutT1',122.4,121.2,123.4,0.1,'s: the cut sits on the US column'),
 usTwhAt:kd('usTwhAt',121.8,121.4,123.0,0.1,'s: 176 TWh lands'),
 us44At:kd('us44At',125.2,124.0,126.5,0.1,'s: 4.4 % lands'),
-usHalfAt:kd('usHalfAt',128.2,127.0,129.0,0.1,'s: about half of the growth lands'),
+usHalfAt:kd('usHalfAt',128.2,127.0,129.0,0.1,'s: the 2025 US new-demand slab and its +2.1 % land (the whole, before its half)'),
+halfAt:kd('halfAt',131.4,130.4,132.4,0.1,'s: the lower half of the slab is inked and about half lands'),
+slabGap:kd('slabGap',30,0,120,5,'world units: gap between the terrain front and the new-demand slab'),
+slabD:kd('slabD',24,8,60,2,'world units: depth of the new-demand slab'),
 pinsOn1:kd('pinsOn1',110.0,109.0,111.0,0.1,'s: place pins come back after the tilt has settled'),
 mondayAt:kd('mondayAt',135.0,134.0,136.0,0.1,'s: the terrain is dimmed and the question starts'),
 honestAt:kd('honestAt',138.0,136.0,140.0,0.1,'s: the honest-limits line appears on stage'),
@@ -75,7 +81,8 @@ stackGap:kd('stackGap',95,70,140,5,'world units: distance between the four regio
 greyMix:kd('greyMix',0.2,0.1,0.7,0.02,'how far the grey backdrop marks go from the ground colour toward muted'),
 hscale:kd('hscale',110,80,220,5,'world units: height of the value 25 (scale fixed: vmin 0, vmax 25)'),
 terrW:kd('terrW',760,560,900,10,'world units: terrain width (40 columns)'),
-zStretch:kd('zStretch',0.4,0.2,1,0.05,'depth of a cell as a fraction of its width (mesas squarer; cells and values are unchanged)'),
+zStretch:kd('zStretch',0.4,0.05,1,0.05,'depth of a cell as a fraction of its width in the elevation views, after the tilt (mesas squarer; cells and values are unchanged)'),
+zPlan:kd('zPlan',0.55,0.2,1,0.05,'depth of a cell as a fraction of its width in the plan view (squashed to zStretch through the tilt only)'),
 planeA:kd('planeA',0.1,0,0.5,0.02,'opacity of the translucent cut plane'),
 cutIE:kd('cutIE',3,2,5,1,'column of the Ireland mesa the cut snaps to (columns 2 to 5)'),
 tiltX:kd('tiltX',-20,-300,300,5,'world units: x the camera looks at after the Ireland tilt'),
@@ -199,12 +206,14 @@ if(w2>0.01)K.tx('hw2','labels',480,128,'ALMOST NONE',{fam:'disp',size:72,anchor:
 if(t<KN.panelIn)return;
 const T0=0.62*PS_()/ 3*KN.hookZoom,ro=sm(seg(t,KN.rulerAt,KN.rulerAt + 0.5)),rx=40,ry=150;
 if(ro>0.01){
-K.ln('rl','marks',rx,ry,rx + T0,ry,{stroke:C.soft,w:2,op:ro});
-K.ln('rl0','marks',rx,ry - 8,rx,ry + 8,{stroke:C.soft,w:2,op:ro});K.ln('rl1','marks',rx + T0,ry - 8,rx + T0,ry + 8,{stroke:C.soft,w:2,op:ro});
-const t2=t>=KN.swap0 + 0.2;
-K.tx('rt','labels',rx,ry - 14,t2?'FIRST QUERY, TO SCALE':'1 MARK = 1 QUERY',{size:14,fill:C.ink,op:ro,ls:'0.06em',role:'secondary'});
-const so=sm(seg(t,KN.ladderT0,KN.ladderT0 + 0.6))*ro*(t2?0:1);
-if(so>0.01)K.tx('rs','labels',rx,ry + 26,'SAME SIZE, EVERY RUNG',{size:14,fill:C.muted,op:so,role:'secondary'});
+const t2=v.tier===2,len=t2?v.kT*v.pitch2:Math.min(T0,0.62*v.pitch),L=Math.max(1,len);
+if(len<=T0 + 0.5){
+K.ln('rl','marks',rx,ry,rx + L,ry,{stroke:C.soft,w:2,op:ro});
+K.ln('rl0','marks',rx,ry - 8,rx,ry + 8,{stroke:C.soft,w:2,op:ro});K.ln('rl1','marks',rx + L,ry - 8,rx + L,ry + 8,{stroke:C.soft,w:2,op:ro});
+}
+K.tx('rt','labels',rx,ry - 14,t2?'1 MARK = 1 TILE':'1 MARK = 1 QUERY',{size:14,fill:C.ink,op:ro,ls:'0.06em',role:'secondary'});
+const so=sm(seg(t,KN.ladderT0,KN.ladderT0 + 0.6))*ro;
+if(so>0.01)K.tx('rs','labels',rx,ry + 26,'THE TICK IS ONE MARK WIDE',{size:14,fill:C.muted,op:so,role:'secondary'});
 }
 const mo=sm(seg(t,KN.mwAt,KN.mwAt + 0.5));
 const lad=t>=KN.ladderT0 - 0.01,k=v.tier===1?Math.round(v.L):5,settled=v.tier===1?Math.abs(v.L - k)<0.004:false;
@@ -334,25 +343,62 @@ let sum=0;for(const r of m)for(const v of r)sum +=v;
 if(Math.abs(sum - 4590)>1e-6)throw new Error('one-query: the terrain matrix does not reproduce data/terrain-matrix.json (sum ' + sum + ')');
 return m;
 }
-function hfParams(){return Object.assign({},HF.params,{size:KN.terrW,hscale:KN.hscale,zs:KN.zStretch,vmin:0,vmax:25,contours:0,ramp:['panel','muted','accent'],reveal:null});}
+function hfParams(){return Object.assign({},HF.params,{size:KN.terrW,hscale:KN.hscale,zs:1,vmin:0,vmax:25,contours:0,ramp:['panel','muted','accent'],reveal:null});}
 const colX=(c)=>S.hf.x0 + c*S.hf.cell;
+function ieBox(W2S,j){
+const st=S.hf,pl=PLACES[j||0],x0=colX(pl[1][0])- st.cell / 2,x1=colX(pl[1][1])+ st.cell / 2,h=KN.hscale*P[pl[2]]/ 25,z=(-st.z0 + st.cellZ / 2)*KN.zStretch;
+const q=[];for(const x of[x0,x1])for(const y of[0,-h])for(const zz of[-z,z])q.push(W2S(x,y,zz));
+const a=W2S((x0 + x1)/ 2,-h - 6,0),r4=(u)=>Math.round(u / 4)*4;
+return[r4(Math.min(...q.map((u)=>u.x))- 4),r4(a.y + 6),r4(Math.max(...q.map((u)=>u.x))+ 4),r4(Math.max(...q.map((u)=>u.y))+ 4)];
+}
 function cutCol(t){
 const a=sm(seg(t,KN.ieCutT0,KN.ieCutT1)),b=sm(seg(t,KN.usCutT0,KN.usCutT1));
 const from=1,c=a<1?from +(KN.cutIE - from)*a:KN.cutIE +(KN.cutUS - KN.cutIE)*b;
 return Math.round(c);
 }
+function stepMesh(p,st){
+const g=geo(p,'oq-steps'),R=st.rows,N=st.cols,w=st.cell / 2,d=st.cellZ / 2,H=st.hgt,sp=(st.cmax - st.cmin)||1;
+let q=0;
+const quad4=(a,b,c,e,n,v)=>{for(const u of[a,b,c,e]){g.vertices.push(new p5.Vector(u[0],u[1],u[2]));g.vertexNormals.push(new p5.Vector(n[0],n[1],n[2]));g.vertexColors.push(v,0,0,1);}
+g.faces.push([q,q + 1,q + 2],[q,q + 2,q + 3]);q +=4;};
+for(let r=0;r<R;r++)for(let c=0;c<N;c++){
+const i=r*N + c,h=H[i],v=clamp((st.CM[r][c]- st.cmin)/ sp),x=st.x0 + c*st.cell,z=st.z0 + r*st.cellZ;
+quad4([x - w,-h,z - d],[x + w,-h,z - d],[x + w,-h,z + d],[x - w,-h,z + d],[0,-1,0],v);
+const nb=[[c<N - 1?H[i + 1]:0,[1,0,0]],[c===0?0:null,[-1,0,0]],[r<R - 1?H[i + N]:0,[0,0,1]],[r===0?0:null,[0,0,-1]]];
+for(const[h2,n]of nb){
+if(h2===null||h2>=h)continue;
+const ax=n[0]?x + n[0]*w:x - w,bx=n[0]?ax:x + w,az=n[2]?z + n[2]*d:z - d,bz=n[2]?az:z + d;
+quad4([ax,-h,az],[bx,-h,bz],[bx,-h2,bz],[ax,-h2,az],n,v);
+}
+}
+return g;
+}
+function slabBox(){const st=S.hf,u=PLACES[2][1],h=KN.hscale*P.usDemGrowth25 / 25,z=(-st.z0 + st.cellZ / 2)*KN.zStretch + KN.slabGap;
+return{x0:colX(u[0])- st.cell / 2,x1:colX(u[1])+ st.cell / 2,z0:z,z1:z + KN.slabD,h};}
+function slab(p,C,t){
+const b=slabBox(),hm=b.h*P.usGrowthPct / 100,ink=t>=KN.halfAt;
+const box=(y0,y1,col)=>{const c=p.color(col),f=(k)=>p.color(p.red(c)*k,p.green(c)*k,p.blue(c)*k);
+const F=[[1,[[b.x0,y1,b.z0],[b.x1,y1,b.z0],[b.x1,y1,b.z1],[b.x0,y1,b.z1]]],[0.62,[[b.x0,y1,b.z1],[b.x1,y1,b.z1],[b.x1,y0,b.z1],[b.x0,y0,b.z1]]],
+[0.8,[[b.x1,y1,b.z0],[b.x1,y1,b.z1],[b.x1,y0,b.z1],[b.x1,y0,b.z0]]],[0.8,[[b.x0,y1,b.z0],[b.x0,y1,b.z1],[b.x0,y0,b.z1],[b.x0,y0,b.z0]]]];
+p.noStroke();for(const[k,q]of F){p.fill(f(k));p.beginShape(p.TRIANGLE_STRIP);p.vertex(...q[0]);p.vertex(...q[1]);p.vertex(...q[3]);p.vertex(...q[2]);p.endShape();}};
+box(-hm,-b.h,C.muted);box(0,-hm,ink?C.accent2:C.muted);
+}
+const zk=(t)=>KN.zPlan +(KN.zStretch - KN.zPlan)*EI(seg(t,S.tilt.t0,S.tilt.t1));
 function drawC(p,K,t,pose){
 const st=S.hf,B=S.TOK,rows=st.rows;
 RIG.apply(p,S.cam,pose,S.rig);p.setCamera(S.cam);p.noLights();
 p.background(B.color.bg);p.drawingContext.clear(p.drawingContext.DEPTH_BUFFER_BIT);
 const shown=Math.max(1,Math.round(rows*sm(seg(t,KN.revealT0,KN.revealT1)))),revZ=shown>=rows?1e6:st.z0 +(shown - 0.5)*st.cellZ;
 const on=t>=KN.ieCutT0,col=cutCol(t),cut=on?{x:colX(col),col}:null;
+p.push();p.scale(1,1,zk(t));
 HF.api.terrain(p,st,B,S.hfp,cut,revZ);
 if(cut&&KN.planeA>0.001){
 const c=p.color(B.color.accent2);c.setAlpha(255*KN.planeA);p.noStroke();p.fill(c);
-const z0=st.z0,z1=st.z0 +(rows - 1)*st.cellZ,y1=-KN.hscale*1.12;
+const z0=st.z0 - st.cellZ / 2,z1=-z0,y1=-KN.hscale*1.12;
 p.beginShape(p.TRIANGLE_STRIP);p.vertex(cut.x,0,z0);p.vertex(cut.x,y1,z0);p.vertex(cut.x,0,z1);p.vertex(cut.x,y1,z1);p.endShape();
 }
+p.pop();
+if(t>=KN.usHalfAt)slab(p,B.color,t);
 p.setCamera(K.cam0);
 }
 function pins(K,t,key,anchors,op,reserve,fam){
@@ -395,18 +441,22 @@ S.W=buildWorld(p,K);
 S.hfp=hfParams();
 const hp=Object.assign({},S.hfp,{data:matrix()});
 S.hf=await HF.setup(p,{seed:F.seed,tokens:TOK,fonts:{disp:{},mono:{}}},hp);
+S.hf.g=stepMesh(p,S.hf);
 const scene={points:[]},base=JSON.parse(JSON.stringify(F.rig));
 base.moves.forEach((m)=>{if(m.id==='tilt')m.around=[KN.tiltX,KN.tiltY,KN.tiltZ];if(m.id==='swing')m.around=[KN.swingX,KN.tiltY,KN.tiltZ];});
 const script=RIG.fromKnobs(base,(name,cur)=>K.knob(name,cur),scene);
-S.rig=RIG.compile(script,scene);S.cam=p.createCamera();
+S.rig=RIG.compile(script,scene);S.cam=p.createCamera();S.tilt=S.rig.moves.find((m)=>m.id==='tilt');
 S.camFn=(t)=>{const q=RIG.at(S.rig,t);return{eye:q.eye,look:q.center,up:q.up,fov:q.fov,aspect:K.W / K.H};};
 S.measure=(s,z,f)=>String(s).length*z*(f==='disp'?K.ADV.disp:K.ADV.mono);
 const an=(id,x,y,z,text,sub,color,pr)=>({id,x,y,z,text,sub:sub||null,role:'secondary',color:color||'ink',priority:pr||1});
 const stk=(g,text,sub,pr)=>an('s' + g,S.W.gx(g),-S.W.top[g]- KN.tile - 4,0,text,sub,'ink',pr);
 const sg=[['UNITED STATES',P.usDc],['CHINA',P.cnDc],['EUROPE',P.euDc],['REST OF WORLD',P.restDc]];
-S.AN={stk:[1,2,3,4].map((n)=>sg.slice(0,n).map((q,g)=>stk(g,q[0],fmt(q[1])+ ' TWh',9 - g)))};
+const shr=[P.usPctDc,P.cnPctDc,P.euPctDc];
+S.AN={stk:[1,2,3,4,5,6,7].map((n)=>sg.slice(0,Math.min(4,n)).map((q,g)=>stk(g,q[0],fmt(q[1])+ ' TWh' +(g<n - 4?' · ' + shr[g]+ ' %':''),9 - g)))};
 const st=S.hf;
-S.AN.places=PLACES.map((pl,i)=>an('p' + i,colX((pl[1][0]+ pl[1][1])/ 2),-KN.hscale*(P[pl[2]]/ 25)- 6,(i%2?1:-1)*st.ZD*0.42,pl[0],String(P[pl[3]]),i===0?'accent':'ink',[10,7,9,6,5,4,8][i]));
+const placeAn=(z)=>PLACES.map((pl,i)=>an('p' + i,colX((pl[1][0]+ pl[1][1])/ 2),-KN.hscale*(P[pl[2]]/ 25)- 6,z,pl[0],String(P[pl[3]]),i===0?'accent':'ink',[10,7,9,6,5,4,8][i]));
+S.AN.plan=placeAn((st.z0 - st.cellZ / 2)*KN.zPlan);
+S.AN.places=placeAn(0);
 p.setCamera(K.cam0);
 },
 render(t,s,K){
@@ -430,6 +480,8 @@ groundFrame(K,'fl',pose,W.lat,0,win(t,KN.worldAt + 3.2,KN.terrT - 0.05,0.2)*0.5,
 const n=Math.round(P.worldTwh*sm(seg(t,KN.bIn0,KN.bIn1))),lg=sm(seg(t,KN.bIn0 - 0.3,KN.bIn0 + 0.2));
 const hudA=t<KN.moveT0 - 0.1?1:0;
 if(lg>0.01&&hudA)K.tx('lg','labels',40,130,'1 MARK = ' + P.oneTwh + ' TWh',{size:14,fill:C.ink,op:lg,ls:'0.08em',role:'secondary'});
+const lg2=win(t,KN.legendAt,KN.moveT0 - 0.1,0.1);
+if(lg2>0.01)K.tx('lg2','labels',40,150,"GREY = THE REST OF THE WORLD'S GRID",{size:14,fill:C.muted,op:lg2,ls:'0.04em',role:'secondary'});
 if(hudA&&lg>0.01)result(K,'h1',40,214,t>=KN.worldAt?fmt(P.worldTwh)+ ' TWh':fmt(n),t>=KN.worldAt?'DATA CENTRES, ALL KINDS, ' + P.ieaYear:'MARKS COUNTED IN',1);
 const po=sm(seg(t,KN.pctAt,KN.pctAt + 0.4))*hudA;
 result(K,'h2',40,316,P.worldPct + ' %',"OF THE WORLD'S ELECTRICITY",po,C.accent);
@@ -437,19 +489,20 @@ const gw=t>=KN.moveT1?1:0;
 if(gw){
 const seq=[[KN.usAt,P.usDc,'UNITED STATES'],[KN.cnAt,P.cnDc,'CHINA'],[KN.euAt,P.euDc,'EUROPE']];
 let cur=null;for(const q of seq)if(t>=q[0])cur=q;
-const sh=t>=KN.shareAt;
-if(cur&&!sh)result(K,'h3',40,214,fmt(cur[1])+ ' TWh',cur[2],1,C.ink);
-if(sh)result(K,'h4',40,214,P.usPctDc + ' % · ' + P.cnPctDc + ' % · ' + P.euPctDc + ' %','US · CHINA · EUROPE',1,C.accent,"OF THE WORLD'S DATA-CENTRE POWER");
+if(cur&&t<KN.checkAt)result(K,'h3',40,214,fmt(cur[1])+ ' TWh',cur[2],1,C.ink);
+const ck=win(t,KN.checkAt,KN.terrT - 0.05,0.1);
+if(ck>0.01)K.tx('ck','labels',40,420,[P.usDc,P.cnDc,P.euDc,P.restDc].map(fmt).join(' + ')+ ' = ' + fmt(P.worldTwh)+ ' TWh · SAME MARKS',{size:16,fill:C.ink,op:ck,role:'secondary'});
 let na=0;for(const q of seq)if(t>=q[0])na++;
-const stage=Math.min(4,na===3?4:na);
-if(na>0)pins(K,t,'ps',S.AN.stk[stage - 1],win(t,KN.moveT1 + 1.0,KN.terrT - 0.05,0.12),[capBand,[28,150,330,280]]);
+let ns=0;for(let i=0;i<3;i++)if(t>=KN.shareAt + i*KN.shareStep)ns++;
+const stage=ns?3 + ns:Math.min(4,na===3?4:na);
+if(na>0)pins(K,t,'ps',S.AN.stk[stage - 1],win(t,KN.moveT1 + 1.0,KN.terrT - 0.05,0.12),[capBand,[28,150,260,250],[28,396,520,430]]);
 }
 return;
 }
 drawC(p,K,t,pose);
 if(t>=KN.ieCutT0&&t<KN.mondayAt + 0.3){
-const st=S.hf,x=colX(cutCol(t)),z1=st.z0 +(st.rows - 1)*st.cellZ,yT=-KN.hscale*1.12;
-const pts=[[x,0,st.z0],[x,yT,st.z0],[x,yT,z1],[x,0,z1]].map((q)=>W2S(q[0],q[1],q[2]));
+const st=S.hf,x=colX(cutCol(t)),z1=(-st.z0 + st.cellZ / 2)*zk(t),yT=-KN.hscale*1.12;
+const pts=[[x,0,-z1],[x,yT,-z1],[x,yT,z1],[x,0,z1]].map((q)=>W2S(q[0],q[1],q[2]));
 if(pts.every((q)=>q.depth>0))K.path('cf','marks',poly(pts.map((q)=>[q.x,q.y])),{stroke:C.soft,w:1.4,dash:'6 4',op:sm(seg(t,KN.ieCutT0,KN.ieCutT0 + 0.3))*(1 - sm(seg(t,KN.mondayAt,KN.mondayAt + 0.3)))});
 }
 const mon=sm(seg(t,KN.mondayAt,KN.mondayAt + 0.3));
@@ -461,10 +514,15 @@ result(K,'c2',300,170,P.iePct + ' %',"OF ITS METERED ELECTRICITY",ie(KN.ie23At,K
 result(K,'c3',560,170,P.ieVsWorld + ' times',"THE WORLD'S " + P.worldPct + ' %',ie(KN.ie15At,KN.usCutT0),C.accent);
 const us=(a,b)=>win(t,a,b,0.1);
 result(K,'c4',40,170,fmt(P.usTwh23)+ ' TWh','UNITED STATES, ' + P.usYear,us(KN.usTwhAt,KN.usHalfAt),C.ink);
-result(K,'c5',300,170,P.usPct23 + ' %','OF ITS ELECTRICITY',us(KN.us44At,KN.mondayAt),C.accent);
-result(K,'c6',560,170,'about half','OF US DEMAND GROWTH, ' + P.growthYear,us(KN.usHalfAt,KN.mondayAt),C.accent2);
+result(K,'c5',300,170,P.usPct23 + ' %','OF ITS ELECTRICITY',us(KN.us44At,KN.halfAt),C.accent);
+result(K,'c7',40,170,'+' + P.usDemGrowth25 + ' %','US DEMAND GROWTH, ' + P.growthYear,us(KN.usHalfAt,KN.mondayAt),C.ink);
+result(K,'c6',300,170,'about half','OF IT: DATA CENTRES',us(KN.halfAt,KN.mondayAt),C.accent2);
 const pinOp=(win(t,KN.terrT + 0.3,KN.ieCutT0 - 0.05,0.1)+ win(t,KN.pinsOn1,KN.usCutT0 - 0.05,0.1)+ win(t,KN.usCutT1 + 0.4,KN.mondayAt,0.1));
-pins(K,t,'pp',S.AN.places,clamp(pinOp),[capBand,[28,96,800,250]]);
+const plan=t<KN.ieCutT0;
+if(t>=KN.usHalfAt){const b=slabBox(),q=W2S(b.x1,-b.h / 2,b.z1),go=us(KN.usHalfAt,KN.mondayAt);
+K.tx('sl0','labels',q.x + 10,q.y + 2,'NEW US DEMAND, ' + P.growthYear,{size:14,fill:C.ink,op:go,role:'secondary'});
+K.tx('sl1','labels',q.x + 10,q.y + 20,'SAME SCALE AS THE MESAS',{size:14,fill:C.muted,op:go,role:'secondary'});}
+pins(K,t,'pp',plan?S.AN.plan:S.AN.places,clamp(pinOp),plan?[capBand]:[capBand,[28,96,800,250],ieBox(W2S)].concat(t>=KN.usCutT1?[ieBox(W2S,2)]:[]));
 }else{
 const qo=sm(seg(t,KN.mondayAt + 0.3,KN.mondayAt + 0.9));
 K.tx('q0','labels',60,118,'FOR ANY AI ENERGY FIGURE YOU ARE QUOTED, ASK',{size:14,fill:C.muted,op:qo,ls:'0.1em',role:'secondary'});
