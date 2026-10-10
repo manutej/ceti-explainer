@@ -1,5 +1,10 @@
 # R9 — Current repo audit: ceti-explainer
 
+> Note (2026-10-10): this study describes the repo as it stood when it was written. Several paths it names (contrib/,
+> eval/, notebooks/, REQUIREMENTS.md, MERGE-NOTES.md, HANDOFF-JEV-EVAL.md, RUN.md, films/typesafe, skills/ceti-brand, the p5
+> studio skills, four chromes) have since moved to archive/ or, for RUN.md, to skills/ceti-explainer/RUN.md. See
+> archive/README.md.
+
 Branch `claude/hopeful-keller-2cal0b`, HEAD `d6a12de`, clean. Engine files live under `skills/ceti-explainer/` (`E/`).
 
 **Gate run** (`cd E && node assets/gate.mjs reference/self-attention.js`): exit 0.
@@ -55,7 +60,7 @@ Gaps:
 - Overlap and region gates cover only the five detail scenes (415, 417). The anchor and working zone are unchecked. No `ex.fit` use (oauth, tcp and binary-search use it).
 - `_episode-template.js`: line 41 and 97 recommend `ex.pulse` (SKILL forbids it); line 121 says tag ≤58 (gate says ≤38); the `__AUDIT` stub (109–112) always returns `ok:true`.
 
-## 4. REQUIREMENTS.md constraints a p5 film tier would hit
+## 4. archive/notes/REQUIREMENTS.md constraints a p5 film tier would hit
 
 - **Palette (L26, L30).** Locked cream/vermillion/ink, but the engine ships dark (§1). Already unenforced; a film tier should bind colors through the same tokens. Negotiable only by an owner decision.
 - **Animation ≤1.2 s per transition (L28).** Episodes comply. `LONGFORM.md:36` has 12–16 s counter sweeps, so the sister format already breaks it. A p5 tier with continuous generative motion violates it unless "transition" is defined as a state change. Negotiable by definition.
@@ -83,7 +88,7 @@ None is imported by `assets/`, `reference/` or `eval/`.
 - Policy (`eval/README.md`, HANDOFF-JEV-EVAL §2.1): overlap, region, type size and palette go to code (the gate). Literal and semantic questions go to Jev. Aesthetics go to neither. Jev reads text only.
 - Not in repo: `JEV-works` (`kit/run.ts`) and the 30 CCAF source modules (HANDOFF-JEV-EVAL §9.3).
 
-## 7. ceti-brand contract (`skills/ceti-brand/SKILL.md`, 61 lines)
+## 7. ceti-brand contract (`archive/skills/ceti-brand/SKILL.md`, 61 lines; archived 2026-10-10)
 
 - Source of truth (tokens, principles, brand book) lives in `milton/` and `noether-course/`, neither in this repo.
 - Non-negotiables: warm grounds only; frozen token names; per-mode type stacks; original SVG marks, no emoji icons; AA; reduced motion; keyboard; zero hype.
