@@ -2,16 +2,16 @@
   "film": "one-query",
   "page": "/home/user/ceti-explainer/factory/films/one-query/build/one-query.ceti-boardwalk-dark.none.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/one-query",
-  "date": "2026-10-10T18:14:29.653Z",
+  "date": "2026-10-10T18:32:06.687Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1297 ms; stage sd 30.6s:34.6 76.5s:28.8 122.4s:34.7",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1603 ms; stage sd 30.6s:34.6 76.5s:28.8 122.4s:34.7",
       "data": {
-        "readyMs": 1297,
+        "readyMs": 1603,
         "stats": [
           {
             "t": 30.6,
@@ -147,7 +147,7 @@
       "id": "G7",
       "name": "counts first",
       "status": "PASS",
-      "evidence": "count at 17.2 s (count.at); first ratio \"Against the grey, all the world's electr\" at 77.4 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
+      "evidence": "count at 17.2 s (count.at); first ratio \"The grey is the world's electricity: 1.5\" at 77.4 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
     },
     {
       "id": "G8",
@@ -155,8 +155,8 @@
       "status": "PASS",
       "evidence": "film code 69.7 KB (film.js 31.5, film.json 19.2, claims.json 19.0) < 120 KB; page 1.287 MB < 1.3 MB",
       "data": {
-        "code": 71362,
-        "page": 1286848
+        "code": 71352,
+        "page": 1286838
       }
     },
     {

@@ -189,3 +189,74 @@ Ordered by what it buys a viewer:
 10. **MONDAY callback** to the hook's single lit mark (the film opens on one query and never returns to it).
 11. **Ship hygiene.** Remove the eyebrow's draft suffix. Fix the phone 390 overflow (scrollWidth 604/390, kit or page
     level, both drafts).
+
+## Round 2
+Evaluator: Opus, 2026-10-10. Read: the rebuilt frames (strip-13..26 and thumbs at 0.5 s, read as 4 x 4 contact grids
+and a 4x crop of the terrain at 116.5 s), frames.json, film.json (knobs and captions confirm all 7 round-1 changes),
+claims.json, gate.json (PASS; the same 4 G5c count-in WARNs at 67-70 s; phone 390 still 604/390 OVERFLOW). No browser.
+
+### Round-1 findings
+| # | change | verdict | evidence (film s) |
+|---|---|---|---|
+| 0 | zStretch 0.4 → 0.2 | worked, with a cost | 110-134 s: mesas are squarer and screen height follows the value more closely. Cost: the plan view at 99-104 s is now a thin ribbon, so the 25-row count-in barely reads (Beyond scope 9) |
+| 1 | camTiltEl 22 → 14 | worked | 109 s: lands as an elevation view. 110-134 s: the Netherlands mesa stands clear to the right of Ireland, but its pin plate overprints Ireland's right face (Beyond scope 6) |
+| 2 | hscale 110 → 150 | worked | 116.5 s: Ireland is about 92 px tall on a 270 px frame, the same presence as round 1 |
+| 3 | camSwingEl 18 → 14 | worked | 121-128 s: the swing is azimuth only. 176 TWh (121.8 s) and 4.4 % (125.2 s) land with the elevation held |
+| 4 | caption 15 (grey legend) | backfired | 77.4-83 s: 53 characters wrap to two lines, "... electricity: 1.5" / "%.", which splits the film's first ratio. Fixed in r2 #0 |
+| 5 | dimA 0.6 → 0.8 | worked | 139.5-149.5 s: "per grid?" ends beside the veiled Ireland mesa instead of on it, and the honest plate sits below the terrain floor |
+| 6 | caption 27 (anchors assumed) | worked | 141.8-149.6 s: both halves of the honest line are named. The caption wraps with "assumed." alone on line two, which is benign (no number split), so it is left |
+
+### Check in round 2
+1. **Ireland towers over World: met, about 6.5x.** At 116.5 s Ireland is about 92 px and World about 14 px (true ratio
+   15x). Low mesas are still inflated by their top faces and shoulders: the Netherlands is 2.3x (true 3.3x) and the US
+   3.1x (true 5.2x). The knob travel is spent: zStretch sits at its 0.2 floor, and below el 8 the back rows hide (R-E
+   P1 breaks). The rest is geometry (Beyond scope 2).
+2. **Ireland does not hide the Netherlands: met.** At 110-134 s the Netherlands mesa is fully visible. Only its pin
+   plate collides with Ireland.
+3. **Ireland top clears the 7,663 GWh plate: met, tight.** At 107.5-110.4 s the cut-band marker ends about 5 px under
+   "IRELAND, 2025, METERED", and the mesa top sits 15-20 px below it.
+4. **Terrain base and cut line clear the caption band at 105-112 s: met.** The front-left base is about 15 px above
+   the caption line at 107.5-112 s. G11 cannot see canvas, so this check is visual.
+5. **MONDAY and the honest line read clean: met.** From 136 to 150 s the questions sit on the veil, and the honest
+   plate sits on its own band above the caption.
+
+### Round 2 findings
+findings.r2.json holds 1 finding: 0 block, 1 major, 0 minor. The dry run accepted 1 of 1.
+- Major: caption 15 becomes "The grey is the world's electricity: 1.5 %." (43 characters, fits one line). It keeps
+  the legend and adds no digits.
+- Considered and not filed:
+  - A lower landing elevation (camTiltEl/camSwingEl 14 → 8-10) would gain little, about 7-8x for World, and risks
+    the P1 break.
+  - Moving the tilt or the readout to settle before 7,663 GWh: ieAt tops out at 106, the tilt is tied to ieCutT0 and
+    ends at 109, and an earlier tilt would cross the row count-in.
+
+### Beyond scope, updated (tier 2: film.js / claims.json)
+Law, before ship (unchanged):
+- Add claims for the per-rung anchors on stage at 40-55 s. Rung energy is n x gemWh (24 Wh, 240 Wh, 2.4 kWh). Rung
+  microwave time is n x microS (86 s, 14 min, 2.4 h, 24 h). Give each its formula and the 1,000 W assumption. Today
+  they pass G5c only by numeric coincidence.
+- Record the count-in WARN at 67-70 s (G5c, the marks counted in from 1 to 415) in NOTES.md.
+
+Ordered by what it buys a viewer:
+1. **Draw "about half of US demand growth"** (128-135 s). It now lands as a readout plate ("about half, OF US DEMAND
+   GROWTH, 2025"), told and not drawn. Add a small stack of 2025 US new demand beside the US mesa, half of it inked.
+2. **Make the terrain piecewise constant** (99-135 s). Use flat tops and vertical steps (I4). This is now the only
+   lever left for the understated low mesas: World reads 6.5x on screen against a true 15x, and the US 3.1x against
+   5.2x.
+3. **Fix the stale ladder ruler** (36-60 s). "1 MARK = 1 QUERY, SAME SIZE, EVERY RUNG" contradicts the shrinking marks
+   for 24 s.
+4. **Land 1.5 % flat with an on-stage legend** (77-83 s). Use an ortho or plan pose for the world field (P10). Put
+   "grey = the rest of the world's grid" on stage, not only in the caption.
+5. **Show I2 for the regroup** (96-99 s). Add the check line "187 + 104 + 62 + 62 = 415 TWh · same marks". Stagger the
+   shares as pins on their stacks, not one plate over the China stack.
+6. **Place the Netherlands pin off Ireland** (110-134 s). Its plate overprints the hero mesa's right face. Pin it
+   up-right of its own mesa, or let gl-labels avoid the Ireland silhouette.
+7. **Stage the regroup cleanly** (83-88 s). Assign colour after the cubes land (T5), and orbit at constant radius.
+8. **Settle before 7,663 GWh** (104.5-109 s). Order it tilt, then cut, then number (T7). Today the number and caption
+   21 land at 105 s while the tilt runs.
+9. **Decouple the plan depth from the elevation depth** (99-104 s). zStretch 0.2 makes the plan a ribbon. Draw the
+   plan at full cell depth, and squash depth only through the tilt. Put all seven pins above the strip; three still
+   sit under it.
+10. **Honest line**: append "not independently verified" to the stage string and film.json honest.
+11. **MONDAY callback** to the hook's single lit mark.
+12. **Ship hygiene.** Strip the eyebrow's "draft B" suffix. Fix the phone 390 overflow (scrollWidth 604/390).

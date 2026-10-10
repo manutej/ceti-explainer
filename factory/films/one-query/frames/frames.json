@@ -1217,8 +1217,8 @@
    "value": 1.05
   }
  ],
- "ms_per_frame": 245,
- "s_per_frame": 0.245,
+ "ms_per_frame": 434,
+ "s_per_frame": 0.434,
  "purity": {
   "pass": true,
   "at": {
@@ -2976,7 +2976,7 @@
    "file": "thumbs/t-0077.50.jpg",
    "strip": "strip-13.png",
    "cell": 11,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -2987,7 +2987,7 @@
    "file": "thumbs/t-0078.00.jpg",
    "strip": "strip-14.png",
    "cell": 0,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -2998,7 +2998,7 @@
    "file": "thumbs/t-0078.50.jpg",
    "strip": "strip-14.png",
    "cell": 1,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -3009,7 +3009,7 @@
    "file": "thumbs/t-0079.00.jpg",
    "strip": "strip-14.png",
    "cell": 2,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -3020,7 +3020,7 @@
    "file": "thumbs/t-0079.50.jpg",
    "strip": "strip-14.png",
    "cell": 3,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -3031,7 +3031,7 @@
    "file": "thumbs/t-0080.00.jpg",
    "strip": "strip-14.png",
    "cell": 4,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -3042,7 +3042,7 @@
    "file": "thumbs/t-0080.50.jpg",
    "strip": "strip-14.png",
    "cell": 5,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -3053,7 +3053,7 @@
    "file": "thumbs/t-0081.00.jpg",
    "strip": "strip-14.png",
    "cell": 6,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -3064,7 +3064,7 @@
    "file": "thumbs/t-0081.50.jpg",
    "strip": "strip-14.png",
    "cell": 7,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -3075,7 +3075,7 @@
    "file": "thumbs/t-0082.00.jpg",
    "strip": "strip-14.png",
    "cell": 8,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
@@ -3086,7 +3086,7 @@
    "file": "thumbs/t-0082.50.jpg",
    "strip": "strip-14.png",
    "cell": 9,
-   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "caption": "The grey is the world's electricity: 1.5 %.",
    "chapter": {
     "id": "count",
     "title": "The world, then each grid"
