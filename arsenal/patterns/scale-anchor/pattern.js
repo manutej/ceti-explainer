@@ -43,11 +43,11 @@
     for (let k = 0; k <= top; k++) rungs.push({ k, n: Math.pow(10, k), t0: k * seg, t1: k * seg + P.dwell });
     return { top, dur: (top + 1) * P.dwell + top * P.move, rungs };
   }
-  function level(t, P, T) {
+  function level(t, P) {
     const top = P.top, seg = P.dwell + P.move; if (t <= 0) return 0; if (t >= (top + 1) * P.dwell + top * P.move) return top;
     const k = Math.min(top, Math.floor(t / seg)), r = t - k * seg;
     if (r <= P.dwell || k >= top) return k;
-    const e = EASE[P.ease || (T && T.tempo && T.tempo.ease) || 'cubic'] || EASE.cubic;
+    const e = EASE[P.ease] || EASE.cubic;   // the module's own ease (default 'cubic'); a pack never reaches the timeline
     return k + e(clamp((r - P.dwell) / P.move, 0, 1));
   }
   const countOf = L => Math.max(1, Math.min(NMAX, Math.round(Math.pow(10, L))));
@@ -97,7 +97,7 @@
   function draw(p, t, S, P, T) {
     P = Object.assign({}, A.patterns['scale-anchor'].params, P);
     const ctx = p.drawingContext, W = p.width, H = p.height, ks = W / 960, C = T.color;
-    const tl = S.tl = timeline(P), L = level(t, P, T), n = countOf(L), ta = lodAlpha(L, P), ma = 1 - ta;
+    const tl = S.tl = timeline(P), L = level(t, P), n = countOf(L), ta = lodAlpha(L, P), ma = 1 - ta;
     const PS = 408, PX = 252, PY = 66, ox = PX + PS / 2, oy = PY + PS / 2;
     const pitch = PS / (Math.pow(10, L / 2) + 2), s = Math.max(2, P.tile | 0), f = s * s;
     ctx.save(); ctx.scale(ks, ks);
@@ -242,7 +242,7 @@
   }
 
   const BASE = {
-    anchor: 'ruler', mark: 'dot', dwell: 1.2, move: 1.3, ease: '', top: 5,
+    anchor: 'ruler', mark: 'dot', dwell: 1.2, move: 1.3, ease: 'cubic', top: 5,
     budget: 2500, tile: 4, swapW: .2, lod: 'auto', showSwap: false, loupe: false, tileStroke: false,
     flagFrac: .125, flagLabel: 'flagged', data: null, m2PerPerson: 1,
     note: 'Marks are shrunk, never resampled; past the budget each tile counts its marks.'

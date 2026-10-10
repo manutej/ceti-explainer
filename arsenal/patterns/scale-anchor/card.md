@@ -11,7 +11,7 @@
 | mark | 'dot' | 'dot' \| 'person' (pictogram once pitch >= ~9 px) \| 'square' |
 | dwell* | 1.2 s | 0..5, hold per rung (0 = no pause; with ease 'linear' a continuous zoom) |
 | move* | 1.3 s | >0, time between rungs; dur = (top+1)*dwell + top*move (13.7 s) |
-| ease | '' | '' = tokens.tempo.ease; linear, quad, cubic, sine, expo (per segment, on L) |
+| ease | 'cubic' | linear, quad, cubic, sine, expo (per segment, on L); fixed by the module, never read from the pack, so count(t) cannot depend on the brand |
 | top | 5 | 1..5, highest rung 10^top |
 | budget* | 2500 | marks drawn individually up to n = budget (swap level log10 budget) |
 | tile* | 4 | 2..16 cells per tile side; batch factor f = tile^2 |
@@ -42,7 +42,8 @@ n = round(10^L) = marks drawn, or the sum of tile counts (checked: tileSum == n 
 - Silhouette sizes (1.7, 2, 4.5, 12 m) are typical, not sourced; the density assumption is a param, not a fact.
 - Below ~1.3 px pitch marks are sub-pixel squares (0.7 p); the picture is a texture, the count is the claim. Boundary tiles draw their member cells individually.
 - Text >= 11 px; the right column is 176 px wide, long labels in a pack with wide faces shrink-to-fit (big count) or should be shortened.
-- Brand switch: marks ink, flags accent, anchor accent2, panel `panel`; all roles. Light packs verified (swiss-grid).
+- Brand switch: marks ink, flags accent, anchor accent2, panel `panel`; all roles. Light packs verified (swiss-grid). A pack changes colour, type and texture only; it never touches the zoom timeline.
+- **Brand invariance.** count(t) (flagged in parens) is identical under ceti-dark and swiss-grid at the four shot times, all three variants (read from the on-screen readout via `__film.seek`): t=0 -> 1 vs 1 (0); t=4.52 -> 63 vs 63 (7 vs 7); t=9.18 -> 1,585 vs 1,585 (212 vs 212); t=13.70 -> 100,000 vs 100,000 (12,449 vs 12,449). people-ladder flags are 0 in both. Earlier fault (63 vs 83, 1,585 vs 1,204) came from ease '' = tokens.tempo.ease (ceti-dark cubic, swiss-grid expo); fixed 2026-10-10.
 
 ## Cost (headless Chromium, 960x540 x2, 137 frames per variant incl. getImageData)
 dots-ruler 3.3 ms/frame, people-ladder 4.3 ms, tiles-lod 5.9 ms; shoot harness 6.7 ms/frame (0.007 s). Setup (100,000-cell spiral table, flags, prefix sums) is a few ms. Renderer p2d.
