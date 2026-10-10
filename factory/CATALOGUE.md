@@ -6,7 +6,7 @@ when built, its page. Do not edit by hand. The sha256 is the baseline a rebuild 
 
 | id | title | duration | gate verdict | page sha256 |
 |----|-------|---------:|--------------|-------------|
-| a-bell-from-dice | A bell from dice | 2:03 | PASS | `191d92699104d87bfbb78368428dbedf7218cc582946b5a9f19b5d0fc5173d2d` (1,268,875 bytes) |
+| a-bell-from-dice | A bell from dice | 2:03 | PASS | `13f57f9e4509bcefc9a2261fe2a0f10a6c3395556d307b127ec8cb314e4e14a8` (1,268,874 bytes) |
 | amdahl | Ten Times Faster | 1:15 | PASS | `d400603042adca17557c267b75146fda822ddab5818390b854f1c66ea2dd7613` (1,111,964 bytes) |
 | brooks | Brooks' Law | 1:15 | PASS | `be95e706603583f3ce552b13fe5c786bd1480ef0436ebe21c5fc737ae615c45b` (1,111,502 bytes) |
 | correlated-risk | Ten Bets, One Bet | 1:15 | PASS | `de70c74503bfcdf442fa95c412771b40aa2d92f40339d285858d0b7f33c48433` (1,110,819 bytes) |
