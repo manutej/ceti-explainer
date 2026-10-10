@@ -18,8 +18,7 @@ __MACOSX/
 
 # Built pages (<id>.html). Hand-authored pages and fixtures stay tracked.
 *.html
-!notebooks/*.html
-!notebooks/**/*.html
+!archive/notebooks/**/*.html
 !tests/fixtures/**
 !skills/**/*.template.html
 !skills/ceti-explainer/reference/longform/*.html
@@ -31,6 +30,7 @@ factory/**/shots/
 
 # built standalone pages are always kept, so the source can be refactored against them (DECISIONS D10)
 !**/build/*.html
+!archive/**/build/*.html
 
 # arsenal stills: keep only the contact sheet and report
 arsenal/**/shots/*
@@ -51,3 +51,7 @@ factory/**/frames/*
 # the generated film gallery is committed (published as the gallery artifact)
 !factory/gallery.html
 !arsenal/gallery-gl.html
+
+# MP4 exports and their frame dumps are not committed (regenerate with arsenal/tools/export.mjs)
+factory/**/sample/
+factory/**/export/
