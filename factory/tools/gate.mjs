@@ -3,9 +3,9 @@
    factory/tools/gate.mjs · the gate for "the 75-second case" films
    --------------------------------------------------------------------
    node factory/tools/gate.mjs <built-page.html> --film <film-dir>
-        [--json out.json] [--shots dir] [--kit file.js|dir ...] [--quick]
+        [--json out.json] [--shots dir] [--kit file.js|dir ...] [--quick] [--no-overlap]
 
-   Rows G1..G10 (see factory/tools/README.md). Each row is PASS, FAIL, WARN
+   Rows G1..G11 (see factory/tools/README.md). Each row is PASS, FAIL, WARN
    or SKIP with evidence. Exit 1 if any row FAILs (WARN and SKIP do not).
    Hook contract (films/opera-house/page.js): ?film=1 strips the page to the
    bare 1920x1080 stage; window.__film {ready, seek, only, info};
@@ -33,11 +33,12 @@ for (let i = 0; i < argv.length; i++) {
   else if (a === '--shots') opt.shots = argv[++i];
   else if (a === '--kit') opt.kit.push(argv[++i]);
   else if (a === '--quick') opt.quick = true;
+  else if (a === '--no-overlap') opt.noOverlap = true;
   else if (a === '-h' || a === '--help') { usage(0); }
   else pos.push(a);
 }
 function usage(code) {
-  console.log('usage: node factory/tools/gate.mjs <built-page.html> --film <film-dir> [--json out.json] [--shots dir] [--kit file.js|dir ...]');
+  console.log('usage: node factory/tools/gate.mjs <built-page.html> --film <film-dir> [--json out.json] [--shots dir] [--kit file.js|dir ...] [--quick] [--no-overlap]');
   process.exit(code);
 }
 const PAGE = pos[0];
@@ -221,6 +222,33 @@ await pg.evaluate((sel) => {
       }
       return out;
     },
+    /* G11: every visible SVG <text> with its box in stage units (960 x 540), opacity > 0.05; no centre filter, the node side
+       judges the box. role/layer from the nearest data-role / data-layer. */
+    boxes() {
+      const svgs = [...st.querySelectorAll('svg')].filter(s => !s.parentElement.closest('svg'));
+      const root = svgs.sort((a, b) => b.getBoundingClientRect().width - a.getBoundingClientRect().width)[0];
+      if (!root) return [];
+      const vb = root.viewBox && root.viewBox.baseVal && root.viewBox.baseVal.width ? root.viewBox.baseVal : { x: 0, y: 0, width: 960, height: 540 };
+      const k = 960 / vb.width, inv = root.getScreenCTM().inverse(), out = [];
+      for (const el of root.querySelectorAll('text')) {
+        const s = (el.textContent || '').replace(/\s+/g, ' ').trim(); if (!s) continue;
+        if (el.checkVisibility && !el.checkVisibility({ visibilityProperty: true })) continue;
+        let op = 1; for (let n = el; n && n !== root; n = n.parentElement) { const c = getComputedStyle(n); if (c.display === 'none') { op = 0; break; } op *= parseFloat(c.opacity); }
+        const cs = getComputedStyle(el); op *= parseFloat(cs.fillOpacity || 1);
+        if (!(op > 0.05)) continue;
+        let bb; try { bb = el.getBBox(); } catch (e) { continue; }
+        if (!(bb.width > 0 && bb.height > 0)) continue;
+        const M = inv.multiply(el.getScreenCTM()), sc = Math.sqrt(Math.abs(M.a * M.d - M.b * M.c));
+        const P = (x, y) => ({ x: (M.a * x + M.c * y + M.e - vb.x) * k, y: (M.b * x + M.d * y + M.f - vb.y) * k });
+        const ps = [P(bb.x, bb.y), P(bb.x + bb.width, bb.y), P(bb.x, bb.y + bb.height), P(bb.x + bb.width, bb.y + bb.height)];
+        const xs = ps.map(p => p.x), ys = ps.map(p => p.y);
+        const roleEl = el.closest('[data-role]'), layerEl = el.closest('[data-layer]');
+        out.push({ s, size: Math.round(parseFloat(cs.fontSize) * sc * k * 100) / 100, op: Math.round(op * 100) / 100,
+          x0: Math.min(...xs), y0: Math.min(...ys), x1: Math.max(...xs), y1: Math.max(...ys),
+          role: roleEl ? roleEl.getAttribute('data-role') : null, layer: layerEl ? layerEl.getAttribute('data-layer') : null });
+      }
+      return out;
+    },
   };
 }, stageSel);
 const seek = (t) => pg.evaluate((t) => window.__gate.seek(t), t);
@@ -304,7 +332,7 @@ for (let t = 0; t <= DUR + 1e-6; t += STEP) {
   const brandDur = +(film.brand?.dur ?? film.brand?.duration ?? (film.brand?.at != null ? DUR - film.brand.at : 3));
   const material = film.brand ? DUR - brandDur : DUR;
   // format 'smoke' (infrastructure tests only, e.g. factory/kit2/smoke-webgl; never shipped): 5-20 s of material
-  const fmt = film.format === 'feature' ? { lo: 90, hi: 120, cap: 123 } : film.format === 'smoke' ? { lo: 5, hi: 20, cap: 25 } : { lo: 60, hi: 75, cap: 78 };
+  const fmt = film.format === 'feature' ? { lo: 90, hi: 120, cap: 123 } : film.format === 'feature-long' ? { lo: 140, hi: 180, cap: 183 } : film.format === 'smoke' ? { lo: 5, hi: 20, cap: 25 } : { lo: 60, hi: 75, cap: 78 };
   row('G4a', 'format · duration', pf(material >= fmt.lo && material <= fmt.hi && DUR <= fmt.cap),
     `total ${r2(DUR)} s; material ${r2(material)} s (want ${fmt.lo}–${fmt.hi}, format ${film.format || 'case'}) + brand ${film.brand ? brandDur + ' s' : 'none'}; total ≤ ${fmt.cap}`);
   if (!tagged.length) row('G4b', 'format · beats', 'SKIP', `no chapter carries a beat id/name (${chs.length} chapters: ${chs.slice(0, 4).map(c => c.id + ' ' + (c.title || '')).join(', ')}…); legacy schema`);
@@ -516,6 +544,70 @@ else {
       (bad.length ? bad.join('; ') + '; ' : dropped ? `the brand's ${decl} texture is drawn flat at the exec level; ` : '') + ids,
       { axes: ax, level, bad });
   }
+}
+
+/* ═════════════ G11 text overlap ═════════════
+   The owner wants no text over text. Every STEP11 s (0.5; 1 under --quick) the visible SVG text boxes (getBBox through the
+   CTM into stage units) are compared pairwise. Texts with a data-role are judged; on a page with no data-role at all (kit v1)
+   every text is judged and classed like G6 (layer cap or size). Caption texts (layer cap) are not paired with each other: their
+   union is the caption band, and any other text that crosses it while a caption shows is reported. A pair counts when the
+   overlap is more than 4 % of the smaller box. FAIL: both must-read, a must-read covered more than 25 %, or a must-read
+   crossing the caption band. WARN: everything else, and text leaving the stage. Canvas-drawn text (WEBGL / p5 text) is
+   invisible to this row. --no-overlap skips it. */
+if (opt.noOverlap) row('G11', 'text overlap', 'SKIP', '--no-overlap');
+else {
+  const STEP11 = opt.quick ? 1.0 : 0.5, MINF = 0.04, COVER = 0.25, EPS = 1, LEAD = 0.12;
+  const samples = [];
+  for (let t = 0; t <= DUR + 1e-6; t += STEP11) { const tt = r2(Math.min(t, DUR)); await seek(tt); samples.push({ t: tt, boxes: await pg.evaluate(() => window.__gate.boxes()) }); }
+  const anyRole = samples.some(f => f.boxes.some(b => b.role));
+  const klass = (x) => {
+    if (x.role) { const r = x.role.toLowerCase(); return r.startsWith('must') ? 'must-read' : r.startsWith('sec') ? 'secondary' : r.startsWith('chrome') ? 'chrome' : 'secondary'; }
+    if (x.layer && /^(cap|caption|captions)$/i.test(x.layer)) return 'must-read';
+    return x.size >= 22 ? 'must-read' : x.size >= 12.5 ? 'secondary' : 'chrome';
+  };
+  const isCap = (b) => b.layer && /^(cap|caption|captions)$/i.test(b.layer);
+  const area = (b) => Math.max(0, b.x1 - b.x0) * Math.max(0, b.y1 - b.y0);
+  const inter = (a, b) => Math.max(0, Math.min(a.x1, b.x1) - Math.max(a.x0, b.x0)) * Math.max(0, Math.min(a.y1, b.y1) - Math.max(a.y0, b.y0));
+  const cut = (s) => s.length > 40 ? s.slice(0, 39) + '…' : s;
+  const inst = [], nTexts = new Set(); let nCap = 0, nSamples = 0;
+  for (const f of samples) {
+    const all = f.boxes.filter(b => b.s).map(b => ({ ...b, k: klass(b) }))
+      .map(b => { const h = (b.y1 - b.y0) * LEAD; return { ...b, y0: b.y0 + h, y1: b.y1 - h }; })   // getBBox is the line box (ascent + descent): trim 12 % top and bottom so tightly stacked lines are not "overlap"
+      .filter(b => b.x1 > 0 && b.x0 < 960 && b.y1 > 0 && b.y0 < 540);                     // entirely off the sheet: a parked element
+    const caps = all.filter(isCap), body = all.filter(b => !isCap(b) && (!anyRole || b.role));
+    body.forEach(b => nTexts.add(b.s)); if (caps.length) nCap++; nSamples++;
+    const band = caps.length ? { x0: Math.min(...caps.map(b => b.x0)), y0: Math.min(...caps.map(b => b.y0)), x1: Math.max(...caps.map(b => b.x1)), y1: Math.max(...caps.map(b => b.y1)) } : null;
+    const add = (kind, sev, a, b, ov, frac, extra = {}) => inst.push({ t: f.t, kind, sev, a: cut(a.s), a_role: a.k, b: b ? cut(b.s) : null, b_role: b ? b.k : null, overlap: r2(ov), frac: r2(frac), ...extra });
+    for (let i = 0; i < body.length; i++) for (let j = i + 1; j < body.length; j++) {
+      const a = body[i], b = body[j], ov = inter(a, b); if (ov <= 0) continue;
+      const sm = Math.min(area(a), area(b)); if (!(ov > MINF * sm)) continue;
+      if (a.s === b.s && ov > 0.9 * sm && area(a) / area(b) < 1.2 && area(b) / area(a) < 1.2) continue;   // a halo / duplicate drawn on itself, not two texts
+      const fa = ov / area(a), fb = ov / area(b);
+      const fail = (a.k === 'must-read' && b.k === 'must-read') || (a.k === 'must-read' && fa > COVER) || (b.k === 'must-read' && fb > COVER);
+      add('overlap', fail ? 'FAIL' : 'WARN', a, b, ov, Math.max(a.k === 'must-read' ? fa : 0, b.k === 'must-read' ? fb : 0, fail ? 0 : Math.max(fa, fb)));
+    }
+    if (band) for (const a of body) {
+      const ov = inter(a, band); if (ov <= 0 || !(ov > MINF * Math.min(area(a), area(band)))) continue;
+      add('caption-band', a.k === 'must-read' ? 'FAIL' : 'WARN', a, { s: 'caption band', k: 'caption' }, ov, ov / area(a));
+    }
+    for (const a of body) {
+      const out = Math.max(0, -a.x0, a.x1 - 960, -a.y0, a.y1 - 540);
+      if (out > EPS) add('off-stage', 'WARN', a, null, out, Math.max(0, area(a) - inter(a, { x0: 0, y0: 0, x1: 960, y1: 540 })) / area(a));
+    }
+  }
+  const key = (x) => [x.kind, x.a, x.b].join('|');
+  const groups = new Map();
+  for (const x of inst) { const g = groups.get(key(x)); if (!g) groups.set(key(x), { w: x, n: 1, t0: x.t, t1: x.t }); else { g.n++; g.t1 = x.t; if ((x.sev === 'FAIL') > (g.w.sev === 'FAIL') || (x.sev === g.w.sev && x.overlap > g.w.overlap)) g.w = x; } }
+  const worst = [...groups.values()].sort((p, q) => (q.w.sev === 'FAIL') - (p.w.sev === 'FAIL') || q.w.frac - p.w.frac || q.w.overlap - p.w.overlap);
+  const nF = inst.filter(x => x.sev === 'FAIL').length, nW = inst.length - nF;
+  const desc = (g) => { const x = g.w; return x.kind === 'off-stage' ? `${x.sev} @${x.t}s "${x.a}" (${x.a_role}) leaves the stage by ${x.overlap}u${g.n > 1 ? ` (${g.n} samples, ${g.t0}–${g.t1}s)` : ''}`
+      : `${x.sev} @${x.t}s ${x.kind === 'caption-band' ? 'crosses the caption band' : 'overlap'}: "${x.a}" (${x.a_role}) × ${x.kind === 'caption-band' ? 'caption band' : `"${x.b}" (${x.b_role})`} ${x.overlap}u² (${Math.round(x.frac * 100)} %)${g.n > 1 ? ` (${g.n} samples, ${g.t0}–${g.t1}s)` : ''}`; };
+  const mode = anyRole ? 'texts with data-role' : 'no data-role on this page (kit v1): every text judged, classed by layer/size';
+  row('G11', 'text overlap', nF ? 'FAIL' : nW ? 'WARN' : 'PASS',
+    `${nSamples} samples every ${STEP11} s, ${nTexts.size} distinct texts (${mode}), caption showing at ${nCap}; ` +
+    (inst.length ? `${nF} FAIL / ${nW} WARN instances in ${groups.size} distinct pair(s); worst ${Math.min(8, worst.length)}: ${worst.slice(0, 8).map(desc).join('; ')}` : 'no overlap, no text off the stage, nothing across the caption band') +
+    '. Canvas-drawn text (p5 / WEBGL) is not visible to this row.',
+    { step: STEP11, samples: nSamples, mode, canvasText: 'not seen', fail: nF, warn: nW, instances: inst });
 }
 
 /* ═════════════ stills ═════════════ */
