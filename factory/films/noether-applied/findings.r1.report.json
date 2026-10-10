@@ -114,5 +114,20 @@
   "chrome": "none",
   "material": "ink"
  },
- "dry_run": true
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/noether-applied/build/noether-applied.ceti-coastal-dark.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/noether-applied/build/noether-applied.ceti-coastal-dark.none.html  1264097 bytes  sha256 7c0683e23914af93a1640079dac239c437c07cf2e5c9361a3d28f82dea8afb70  (film code 72006 bytes; brand ceti-coastal-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 16.0  muted 10.9  accent 13.7  onDark/dark 16.0\nrenderer webgl; knobs 107; fonts3d none; libs none\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/noether-applied/gate.json",
+  "log": " captions is a claim value or render\n  G5c claims · on-screen digits  PASS  every visible SVG number is a claim value\n  G6 legibility                  PASS  8 must-read / 17 secondary / 0 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 587/390 OVERFLOW\n  G7 counts first                PASS  count at 26 s (count.at); first ratio \"The energy-keeper never strays more than\" at 44.5 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 84.6 KB (film.js 53.2, film.json 17.2, claims.json 14.3) < 120 KB; page 1.264 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand ceti-coastal-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes\n  G11 text overlap               PASS  307 samples every 0.5 s, 69 distinct texts (texts with data-role), caption showing at 228; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames noether-applied: 307 frames every 0.5 s → 26 strip(s) in factory/films/noether-applied/frames; 0.16 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0"
+ }
 }
