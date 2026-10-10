@@ -1,0 +1,54 @@
+{
+ "questions": 3,
+ "orders": 6,
+ "a": 4,
+ "b": 7,
+ "c": 9,
+ "total": 20,
+ "orderList": [
+  [
+   4,
+   7,
+   9
+  ],
+  [
+   4,
+   9,
+   7
+  ],
+  [
+   7,
+   4,
+   9
+  ],
+  [
+   7,
+   9,
+   4
+  ],
+  [
+   9,
+   4,
+   7
+  ],
+  [
+   9,
+   7,
+   4
+  ]
+ ],
+ "toyModelWeights": [
+  1.0,
+  0.8,
+  0.6
+ ],
+ "toyModelValues": [
+  15.0,
+  15.4,
+  15.6,
+  16.6,
+  16.4,
+  17.0
+ ],
+ "note": "ILLUSTRATION. Six rows, one per order; a row's colour = the toy model's answer (never a digit); the sum is 20 in every row"
+}
