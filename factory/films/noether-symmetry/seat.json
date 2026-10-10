@@ -1,0 +1,20 @@
+{
+ "id": "noether-symmetry",
+ "verdict": "SHIP",
+ "seat": "director, after two tier-1 rounds (knobs, captions) and one tier-2 film.js revision; frames read at 480x270 and the before/after sheet; commit beat off (D11)",
+ "truth": [
+  {"claim": "Earth at perihelion 147.095 million km and 30.29 km/s, at aphelion 152.100 million km and 29.29 km/s; distance x speed agrees within 0.011 %", "status": "ok", "note": "measured values (NASA fact sheet), bound twice on stage by the formula; the 0.011 % lands at 53.5 s after both products are counted"},
+  {"claim": "3,000 simulated orbit states (10 moments of 300 orbits) land on 6 shells of equal spin and then 5 energy layers; a cut plane lights 62 orbits, 620 dots", "status": "ok", "note": "lib/data.js regenerated from factory/topics/noether-symmetry/data by recompute.py; same 3,000 dots through every move, none added or faded"},
+  {"claim": "3,000 training states of a tiny network: the weights move 0.24, the fixed sum (weights in squared minus weights out squared) moves 0.00095, about 250 times less", "status": "ok", "note": "network.json from recompute.py; the ratio 0.24 / 0.00095 = 253 shown as 'about 250 times' with both values on one frame first"}
+ ],
+ "craft": 4, "originality": 5, "stop": 4,
+ "legibility_phone": "ok (caption band and readouts at or above 16 units; G6 overflow is the kit shell, not the film)",
+ "format": {"counts_first": true, "commit_before_number": "n/a (D11)", "brand_card": true, "honest_line": true, "exec_clean": "n/a (level manager)"},
+ "moves_3d": ["re-plot by spin (60-68 s)", "cut plane (78-86 s)", "regroup into energy layers with a crane down (88-96 s)", "the network's three shells (112-119 s)", "the bookend swing (135 s)"],
+ "defects": [
+  {"t": 86, "what": "G5c reads '620' as '20' once the claim renders are stripped (reader quirk); the figure is the claim cutMarks", "severity": "low"},
+  {"t": 103, "what": "the match cut to the network keeps an orbit ghost at left for 0.5 s; reads as intended but a cold viewer may miss that the dots are new", "severity": "low"},
+  {"t": 131, "what": "the fluids plate is wordless by design (director's choice); a lay viewer gets Kelvin's 1869 only from the honest line's register, not a date", "severity": "low"}
+ ],
+ "notes": "What it buys a viewer: the same 3,000 dots sorted three ways show that a symmetry (turning, waiting) is a shell the data cannot leave. The network half makes the same move on weights. Numbers from search snippets are not used; every digit is either NASA's fact sheet or the film's own recompute."
+}

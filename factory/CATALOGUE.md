@@ -13,6 +13,9 @@ when built, its page. Do not edit by hand. The sha256 is the baseline a rebuild 
 | cost-of-delay | The Cost of Waiting | 1:15 | PASS | `85b9c679a37b27259d314cc5d20074c04c130ff6112a6238ea27ec3e7463dda3` (1,112,568 bytes) |
 | goodhart | Eight Is Great | 1:15 | PASS | `7280596d4b9026eb47194ada10f68b4af54fad59047ba96dd81e9848fe5415a5` (1,105,448 bytes) |
 | how-a-network-learns | How a Network Learns | 2:03 | PASS | `9fbe415629cca419d274a6e0e93df948871aa7b0af80d6ab920b57f7221d708d` (1,293,129 bytes) |
+| noether-symmetry | Noether's symmetry | 2:33 | PASS | `d23365c6b2ce5c85be82bea65b8aa8ab26d3b6ab90ff3eeeaa802e1462e78fa6` (1,292,541 bytes) |
+| one-query | One query | 2:33 | PASS | `68222e9ac2f0fcf52b721ea78e731b22a666d7a5a68d99db831b07bb769d6da7` (1,286,848 bytes) |
+| pass-every-time | Pass every time | 2:33 | PASS | `d126e73f005dc1954878e6ae4a76851ea82c9b62d8fbfcaf9d25e05c7a55020c` (1,241,076 bytes) |
 | queues | Busy is not fast | 1:15 | PASS | `4743e73dcfc458458d9b4394251a93ed9c04b9a14db68dda4e55aed4f60d2c0c` (1,108,580 bytes) |
 | regression | The Flight Instructors | 1:15 | PASS | `aaea715753770f14187c1388ba8eef099fb44d18c9f7e09d4b6e3609ce55859f` (1,114,715 bytes) |
 | sample-size | Thirty Customers | 1:15 | PASS | `836da6218b26344c2dcbf62ff58605ea68acef637ebe327c8977efed68e68c88` (1,117,559 bytes) |
@@ -23,6 +26,7 @@ when built, its page. Do not edit by hand. The sha256 is the baseline a rebuild 
 | sunk-cost | The Season Ticket | 1:15 | PASS | `8552cc4056be00717ee5e5444c8131aae9b3ead330b9ecfe140be65c65c90157` (1,108,495 bytes) |
 | survivorship | The Missing Planes | 1:15 | PASS | `484bccb63f752fb0633425bb61b8ed292d2966f4ac59cd8dd09e23c1e5f991f3` (1,107,514 bytes) |
 | volatility-drag | The average is not your outcome | 1:15 | PASS | `0f1f544b53a4cd6a875a4cf415a58b9262aa63d122bb93ff562e5f44c5829e08` (1,112,917 bytes) |
+| who-gains | Who gains? | 2:33 | PASS | `4a826aa38971f432a78bd523438128926d6169b15ddeac9e67a4b0f6b916223c` (1,298,912 bytes) |
 | winners-curse | The Winner's Curse | 1:15 | PASS | `a4fc5a1a53742c5457361bd47c6d4110a4309131184481bdfd5514f7ae5470bf` (1,110,017 bytes) |
 | wiring-and-the-whole | The Wiring and the Whole | 1:55 | PASS | not built |
 | women-and-children | Women and children first | 2:03 | PASS | `9889710e014db71d418bb5d12b98a1841d68aa4c4b0a067cc6f776f6054f168b` (1,282,677 bytes) |

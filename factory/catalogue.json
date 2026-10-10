@@ -178,6 +178,81 @@
    }
   },
   {
+   "id": "noether-symmetry",
+   "title": "Noether's symmetry",
+   "eyebrow": "CETI · AI-STORIES · Noether's symmetry",
+   "dur": 153,
+   "chapters": 4,
+   "captions": 38,
+   "sources": 12,
+   "claims": 40,
+   "takeaway": "Every symmetry hides something that stays.",
+   "folder": "factory/films/noether-symmetry",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/noether-symmetry/gate.json",
+    "failed_of_total": [
+     0,
+     20
+    ]
+   },
+   "page": {
+    "path": "factory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html",
+    "bytes": 1292541,
+    "sha256": "d23365c6b2ce5c85be82bea65b8aa8ab26d3b6ab90ff3eeeaa802e1462e78fa6"
+   }
+  },
+  {
+   "id": "one-query",
+   "title": "One query",
+   "eyebrow": "CETI · AI and energy, by the numbers · draft B (the denominator)",
+   "dur": 153,
+   "chapters": 4,
+   "captions": 28,
+   "sources": 7,
+   "claims": 61,
+   "takeaway": "Small per query, large per grid. Divided by what?",
+   "folder": "factory/films/one-query",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/one-query/gate.json",
+    "failed_of_total": [
+     0,
+     19
+    ]
+   },
+   "page": {
+    "path": "factory/films/one-query/build/one-query.ceti-boardwalk-dark.none.html",
+    "bytes": 1286848,
+    "sha256": "68222e9ac2f0fcf52b721ea78e731b22a666d7a5a68d99db831b07bb769d6da7"
+   }
+  },
+  {
+   "id": "pass-every-time",
+   "title": "Pass every time",
+   "eyebrow": "CETI · a data film · agents, one try versus every try",
+   "dur": 153,
+   "chapters": 4,
+   "captions": 30,
+   "sources": 7,
+   "claims": 26,
+   "takeaway": "A pass is not a pass every time.",
+   "folder": "factory/films/pass-every-time",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/pass-every-time/gate.json",
+    "failed_of_total": [
+     0,
+     19
+    ]
+   },
+   "page": {
+    "path": "factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.html",
+    "bytes": 1241076,
+    "sha256": "d126e73f005dc1954878e6ae4a76851ea82c9b62d8fbfcaf9d25e05c7a55020c"
+   }
+  },
+  {
    "id": "queues",
    "title": "Busy is not fast",
    "eyebrow": "CETI case · utilisation and waiting",
@@ -421,6 +496,31 @@
     "path": "factory/films/volatility-drag/build/volatility-drag.html",
     "bytes": 1112917,
     "sha256": "0f1f544b53a4cd6a875a4cf415a58b9262aa63d122bb93ff562e5f44c5829e08"
+   }
+  },
+  {
+   "id": "who-gains",
+   "title": "Who gains?",
+   "eyebrow": "CETI · a data film · AI at work",
+   "dur": 153,
+   "chapters": 4,
+   "captions": 23,
+   "sources": 4,
+   "claims": 25,
+   "takeaway": "Averages hide who gains. Split by experience first.",
+   "folder": "factory/films/who-gains",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/who-gains/gate.json",
+    "failed_of_total": [
+     0,
+     19
+    ]
+   },
+   "page": {
+    "path": "factory/films/who-gains/build/who-gains.ceti-neosage-dark.none.html",
+    "bytes": 1298912,
+    "sha256": "4a826aa38971f432a78bd523438128926d6169b15ddeac9e67a4b0f6b916223c"
    }
   },
   {
