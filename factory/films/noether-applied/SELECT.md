@@ -111,3 +111,45 @@ chain stays clear of the tag and the band at 125-134 s and of the panel; the cut
 7. **Phone overflow** (G6, both drafts): scrollWidth 587/390 at 390 px; kit2/player level, not this film. Factory.
 8. **build.sh vs findings**: lib/mkfilm.py regenerates film.json; port the applied values into its knob table before any
    build.sh run (see Winner). Tier 2.
+
+## Round 2
+Read: the regenerated frames/ (strips, thumbs at 31.5-33.5, 81.5-89, 122-134 s, enlarged crops of 81.5 and 87 s),
+frames.json, film.json (knobs and captions carry all seven round-1 values), claims.json, gate.json (PASS G1-G11; G11 307
+samples, 0 overlap; page 1.264 MB; G6 phone note unchanged). Still not read: film.js, lib/, NOTES.md; no browser.
+
+| # | round-1 change | result | evidence |
+|---|---|---|---|
+| 1 | caption 6 "From above, the two look the same." | **worked** | 31.5-33.5 s (strip-06 cells 3-7, thumbs/t-0032.50.jpg): one line, over the two coincident columns; the belief is now said right before M1 |
+| 2 | arrowLen 24 -> 30 | **did nothing visible** | 127.5-134.5 s (strip-22 cells 3-11, t-0129.00, t-0130.50, t-0132.00): the chain turns against its grey ghost, no answer arrow can be told from the residues at 480 px. Knob at its top: the cause is arrow width / head / colour (film.js). Parked, not re-filed |
+| 3 | caption 29 "Turn the chain. Its answer arrows turn with it." | **half, now misleading** | 127.6-131.2 s: one line and the noun matches the tag, but it names arrows that are not visible (follows from 2). Round-2 finding 1 rewords it without pointing at marks |
+| 4 | runDim 0.40 -> 0.60 | **half** | 87 s (t-0087.00.jpg, crop): the followed run is the one white tick at the pin's tip on the middle shell, 3 px long; the other 99 runs still read as grey-cyan streaks and the three shells read (they are drawn as rings, not by the runs). 81.5 vs 87 s show no visible dimming step, so more of this knob buys little; parked (Beyond scope 4) |
+| 5 | pinN0 81.8 -> 82.5 | **worked** | 82.0 and 82.5 s no pin (t-0082.00, t-0082.50); pin full at 83.0 s (t-0083.00), 1.5 s after M3 lands at 81.5 s; 0.24 row lands by 83.5 s (strip-14 cell 11), clear of the pin. The old rows retire and the pin lands together at 83.0 s: one change of the panel and one new mark, acceptable |
+| 6 | cin4T0 123.0 -> 122.5 | **worked** | 122.5 s is the cut instant (tag only, t-0122.50); 123.0 s already shows a third of the chain counting in (t-0123.00). The empty stage is one sample, not 0.5 s |
+| 7 | chainR 130 -> 150 | **worked, modest** | 125.5 s about 120 px wide (was about 110); top at y about 55 px, bottom about 195 px at 132 s, caption band from about 225 px, right edge about 200 px vs panel at 326 px: clear of tag, band and panel through the turn |
+
+Round 2: findings.r2.json: 1 finding: 0 block, 1 major, 0 minor; dry run accepted 1 of 1, 0 rejected.
+1 caption 29 -> "Turn the chain. A protein AI turns its answer with it." (major; restore the arrow wording only if tier 2 makes the
+arrows visible). No knob is reversed. Converged (7 -> 1, no block); what remains is film.js, below. Round 2 is the last.
+
+## Beyond scope after round 2 (needs film.js), ordered by what it buys a viewer
+1. **Keeper vs plain colour** (17-62 s, 92-110 s): unchanged; accent and accent2 are two pale cyans that merge at thumb
+   size (t-0032.50.jpg legend squares). Give the plain group a warm or clearly darker role. Tier 2.
+2. **Idea 3 shown, not told** (112-122.4 s): unchanged; the vase stretches and folds (122.0 s) but nothing on screen stays
+   constant; port b's constant-height wall ("WALL HEIGHT: THE SWIRL") or a ring of constant colour. Tier 2.
+3. **Idea 4 legible** (127.5-134.5 s): arrows invisible at arrowLen 30 (its top). Draw them wider, with heads, in a role
+   colour that differs from the residues (accent on muted residues), few enough to count (arrowEvery is the density knob);
+   optionally b's still distances pad as the "what stays" mark. When they read, caption 29 may return to "Its answer arrows
+   turn with it." Tier 2.
+4. **Followed run** (82.5-89 s): runDim did little; the followed run is a 3 px white tick that reads only because the pin
+   points at it. Draw its whole track as a thicker bright arc along its shell (the dot that cannot leave its shell, part 1's
+   picture), and dim the others in brightness, not only depth. Tier 2.
+5. **Text budget** (17-62 s, 92-110 s): legend is a fourth text element (32.5 s: tag, two-line legend, panel); panel
+   reaches three rows (51.5 s, 107.5 s). Fold the legend into the tag's second line; cap the panel at two rows. Tier 2.
+6. **Honest line on one line** (141.5-150 s): still wraps to two (unchanged by round 1); widen its box or one size down. Tier 2.
+7. **Thrown-out planets** (26.5-62 s): the streak beside the column reads as a tick without its pin; end it in a distinct
+   mark or let it leave the frame. Tier 2.
+8. **MUST-FIX: build.sh vs findings**: lib/mkfilm.py regenerates film.json from its own knob table and caption list;
+   any build.sh run reverts round 1 (caption 6, arrowLen 30, runDim 0.60, pinN0 82.5, cin4T0 122.5, chainR 150) and
+   round 2 (caption 29). Port these values into mkfilm.py, or make build.sh call kit2/build.py on the existing
+   film.json, before tier 2 runs it. Tier 2.
+9. **Phone overflow** (G6): scrollWidth 587/390 at 390 px; kit2/player level, not this film. Factory.

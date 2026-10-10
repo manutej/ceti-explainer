@@ -1087,8 +1087,8 @@
    "value": 20
   }
  ],
- "ms_per_frame": 160,
- "s_per_frame": 0.16,
+ "ms_per_frame": 158,
+ "s_per_frame": 0.158,
  "purity": {
   "pass": true,
   "at": {
@@ -3957,7 +3957,7 @@
    "file": "thumbs/t-0128.00.jpg",
    "strip": "strip-22.png",
    "cell": 4,
-   "caption": "Turn the chain. Its answer arrows turn with it.",
+   "caption": "Turn the chain. A protein AI turns its answer with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3968,7 +3968,7 @@
    "file": "thumbs/t-0128.50.jpg",
    "strip": "strip-22.png",
    "cell": 5,
-   "caption": "Turn the chain. Its answer arrows turn with it.",
+   "caption": "Turn the chain. A protein AI turns its answer with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3979,7 +3979,7 @@
    "file": "thumbs/t-0129.00.jpg",
    "strip": "strip-22.png",
    "cell": 6,
-   "caption": "Turn the chain. Its answer arrows turn with it.",
+   "caption": "Turn the chain. A protein AI turns its answer with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3990,7 +3990,7 @@
    "file": "thumbs/t-0129.50.jpg",
    "strip": "strip-22.png",
    "cell": 7,
-   "caption": "Turn the chain. Its answer arrows turn with it.",
+   "caption": "Turn the chain. A protein AI turns its answer with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -4001,7 +4001,7 @@
    "file": "thumbs/t-0130.00.jpg",
    "strip": "strip-22.png",
    "cell": 8,
-   "caption": "Turn the chain. Its answer arrows turn with it.",
+   "caption": "Turn the chain. A protein AI turns its answer with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -4012,7 +4012,7 @@
    "file": "thumbs/t-0130.50.jpg",
    "strip": "strip-22.png",
    "cell": 9,
-   "caption": "Turn the chain. Its answer arrows turn with it.",
+   "caption": "Turn the chain. A protein AI turns its answer with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -4023,7 +4023,7 @@
    "file": "thumbs/t-0131.00.jpg",
    "strip": "strip-22.png",
    "cell": 10,
-   "caption": "Turn the chain. Its answer arrows turn with it.",
+   "caption": "Turn the chain. A protein AI turns its answer with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"

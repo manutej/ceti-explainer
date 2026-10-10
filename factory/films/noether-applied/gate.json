@@ -2,16 +2,16 @@
   "film": "noether-applied",
   "page": "/home/user/ceti-explainer/factory/films/noether-applied/build/noether-applied.ceti-coastal-dark.none.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/noether-applied",
-  "date": "2026-10-10T19:59:52.784Z",
+  "date": "2026-10-10T20:11:52.416Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1374 ms; stage sd 30.6s:27.0 76.5s:21.5 122.4s:17.6",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1739 ms; stage sd 30.6s:27.0 76.5s:21.5 122.4s:17.6",
       "data": {
-        "readyMs": 1374,
+        "readyMs": 1739,
         "stats": [
           {
             "t": 30.6,
@@ -150,8 +150,8 @@
       "status": "PASS",
       "evidence": "film code 84.6 KB (film.js 53.2, film.json 17.2, claims.json 14.3) < 120 KB; page 1.264 MB < 1.3 MB",
       "data": {
-        "code": 86600,
-        "page": 1264097
+        "code": 86607,
+        "page": 1264104
       }
     },
     {

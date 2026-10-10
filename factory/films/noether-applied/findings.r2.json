@@ -1,0 +1,6 @@
+[
+ {"t": 129.0, "frame": "strip-22.png cells 3-9 (thumbs/t-0129.00.jpg, t-0130.50.jpg, t-0132.00.jpg)", "severity": "major",
+  "what": "Round-1 finding 3 now names 'answer arrows', but with arrowLen at its top (30) no arrow can be seen at 480 px from 127.5 to 134.5 s: the caption points at marks that are not on screen.",
+  "why": "Say what the idea is without pointing at invisible marks; keeps 'the chain' (the tag's word) and names the thing whose answer turns (the AI the audience knows). No digit, 54 chars. If tier 2 draws visible arrows, the round-1 wording can return.",
+  "caption_index": 29, "proposed_value": "Turn the chain. A protein AI turns its answer with it."}
+]
