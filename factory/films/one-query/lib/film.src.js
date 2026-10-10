@@ -1,0 +1,605 @@
+/* one-query · draft B · register "the denominator"
+   The same marks are shown three times, each time against a larger base, and the camera goes back by a fixed ratio so the
+   block visibly shrinks against its base (the nested dashed frames keep what each earlier view was):
+     PER QUERY  (12-55 s)  one lit mark and a ruler that never changes size; the crowd grows ten-fold per rung under a log zoom
+                           (scale-anchor: spiral cells, ladder level(t)); every rung is a dashed frame inside the next.
+     PER SITE   (55-66 s)  the 10^5-query field is ONE tile; a second tile tier (film-side, 1 tile = 100,000 queries) runs the
+                           same zoom five more decades to 100,000 tiles (the site's day).
+     PER GRID   (66-99 s)  hard cut to 3D: 415 inked cubes (1 mark = 1 TWh) in the centre of the world's 27,667-mark spiral;
+                           dolly back by one ratio (camBackFactor), then the SAME cubes travel into four region stacks.
+     PER OWN GRID (99-135) plan view of seven mesas; the camera tilts up only when the Ireland mesa is cut.
+   One clock: render(t) is a pure function of t; every order, slot and mesh is built once in setup. All text is SVG (K.tx). */
+(function () {
+'use strict';
+const F = window.FILM, P0 = F.params, A = window.ARSENAL, K0 = window.KIT;
+/* every derived number is recomputed here from the raw claim params with the claims.json formula (never typed) */
+const P = Object.assign({}, P0);
+P.microS = Math.round(100 * P0.gemWh * 3600 / P0.microW) / 100; P.bulbS = Math.round(P0.gemWh * 3600 / P0.bulbW);
+P.dayWh = P0.promptsDay * P0.gemWh; P.tileKwh = P0.tileQ * P0.gemWh / 1000;
+P.siteDayGwh = P0.siteMW * P0.hoursDay / 1000; P.siteDayTiles = Math.round(P.siteDayGwh * 1e6 / P.tileKwh);
+P.usDc = Math.round(P0.usPctDc / 100 * P0.worldTwh); P.cnDc = Math.round(P0.cnPctDc / 100 * P0.worldTwh); P.euDc = Math.round(P0.euPctDc / 100 * P0.worldTwh);
+P.restDc = P0.worldTwh - P.usDc - P.cnDc - P.euDc; P.ieVsWorld = Math.round(P0.iePct / P0.worldPct);
+const SA = A.patterns['scale-anchor'], HF = A.patterns['gl-heightfield'], RIG = A.patterns['gl-camera-rig'].rig, LAB = A.patterns['gl-labels'];
+const kd = (n, d) => K0.knob(n, d);   // kd(name, default, lo, hi, step, what): the extra arguments are read by the film.json builder only
+const KN = {
+  // ── HOOK
+  hookW1: kd('hookW1', 0.6, 0.2, 1.5, 0.1, 's: the headline word TOO MUCH appears'),
+  hookW2: kd('hookW2', 4.8, 4.2, 5.4, 0.1, 's: the headline word ALMOST NONE replaces it over the same still mark'),
+  hookWOut: kd('hookWOut', 8.7, 8.2, 9.0, 0.1, 's: the headline words leave'),
+  hookPush0: kd('hookPush0', 8.0, 7.0, 9.0, 0.1, 's: the slow push toward the mark starts (camera still before this, R-E template)'),
+  hookPush1: kd('hookPush1', 12.0, 11.0, 12.0, 0.1, 's: the push ends (HOOK ends at 12)'),
+  hookZoom: kd('hookZoom', 1.3, 1, 1.8, 0.05, 'x: size of the first mark after the push (the ruler and the first rung keep it)'),
+  // ── PER QUERY
+  panelIn: kd('panelIn', 12.0, 11.8, 12.6, 0.1, 's: the crowd panel (the base) appears around the mark'),
+  rulerAt: kd('rulerAt', 12.4, 12.0, 13.4, 0.1, 's: the ruler tick equal to one mark appears'),
+  whAt: kd('whAt', 17.2, 16.6, 18.0, 0.1, 's: the first count lands: 0.24 Wh'),
+  mwAt: kd('mwAt', 23.0, 22.0, 24.0, 0.1, 's: the microwave anchor and its seconds'),
+  bulbAt: kd('bulbAt', 28.8, 27.6, 30.0, 0.1, 's: the bulb anchor and its seconds'),
+  ladderT0: kd('ladderT0', 34.6, 33.0, 36.0, 0.1, 's: the first move of the ladder (1 -> 10 queries) starts'),
+  dwell: kd('dwell', 2.6, 2.0, 3.4, 0.1, 's: hold on each rung (>= 2.5 for a new number)'),
+  move: kd('move', 1.3, 0.8, 2.0, 0.1, 's: the move between rungs'),
+  // ── PER SITE (second tile tier)
+  swap0: kd('swap0', 55.4, 54.4, 56.4, 0.1, 's: the 10^5 field starts to shrink into ONE tile (second tier)'),
+  swap1: kd('swap1', 60.0, 59.0, 61.0, 0.1, 's: 100,000 tiles are on screen'),
+  gwhAt: kd('gwhAt', 56.2, 55.6, 57.0, 0.1, 's: the site day: 2.4 GWh'),
+  tilesAt: kd('tilesAt', 60.2, 59.8, 61.0, 0.1, 's: 100,000 tiles lands'),
+  billionAt: kd('billionAt', 63.0, 62.0, 64.5, 0.1, 's: the same energy as queries: 10 billion'),
+  // ── PER GRID
+  cutB: kd('cutB', 66.0, 65.0, 67.0, 0.1, 's: hard cut from the tile field to the world field (3D)'),
+  bIn0: kd('bIn0', 66.4, 66.0, 67.5, 0.1, 's: the inked cubes start to count in (spiral order, centre out)'),
+  bIn1: kd('bIn1', 71.0, 69.5, 71.3, 0.1, 's: the last inked cube is in (the count lands at worldAt)'),
+  worldAt: kd('worldAt', 71.4, 71.0, 72.0, 0.1, 's: 415 TWh lands'),
+  legendAt: kd('legendAt', 77.0, 76.0, 78.0, 0.1, 's: the grey legend lands on the plan view of the world field'),
+  pctAt: kd('pctAt', 77.4, 76.4, 79.0, 0.1, 's: 1.5 % lands (>= 5 s after the count)'),
+  moveT0: kd('moveT0', 83.0, 82.0, 84.0, 0.1, 's: the inked cubes start to travel into the region stacks (the rig orbit has the same t0)'),
+  moveT1: kd('moveT1', 88.0, 86.5, 89.0, 0.1, 's: they have landed (the rig orbit has the same t1)'),
+  usAt: kd('usAt', 88.4, 88.0, 89.4, 0.1, 's: the US count lands'),
+  cnAt: kd('cnAt', 92.0, 91.0, 93.0, 0.1, 's: the China count lands'),
+  euAt: kd('euAt', 93.8, 93.0, 95.0, 0.1, 's: the Europe count lands'),
+  shareAt: kd('shareAt', 95.8, 95.0, 97.0, 0.1, 's: the US share lands on its stack (China and Europe follow, one per shareStep)'),
+  shareStep: kd('shareStep', 0.8, 0.5, 1.4, 0.1, 's: between one share landing on its stack and the next'),
+  checkAt: kd('checkAt', 94.6, 94.0, 95.6, 0.1, 's: the check line 187 + 104 + 62 + 62 = 415 TWh lands (same marks, I2)'),
+  stagger: kd('stagger', 0.55, 0, 0.9, 0.05, 'fraction of the move spent staggering layers (0 = all at once)'),
+  lift: kd('lift', 40, 0, 120, 1, 'world units: the hop a cube makes in flight'),
+  // ── PER OWN GRID (terrain)
+  terrT: kd('terrT', 99.0, 98.0, 100.0, 0.1, 's: hard cut to the plan view of the terrain'),
+  revealT0: kd('revealT0', 99.2, 99.0, 100.0, 0.1, 's: the matrix rows start to count in'),
+  revealT1: kd('revealT1', 104.0, 102.0, 104.4, 0.1, 's: all 25 rows are in'),
+  ieCutT0: kd('ieCutT0', 104.5, 104.0, 105.5, 0.1, 's: the cut band appears and travels to the Irish column (the rig tilt has the same t0)'),
+  ieCutT1: kd('ieCutT1', 106.2, 105.0, 107.5, 0.1, 's: the cut sits on the Irish column'),
+  ieAt: kd('ieAt', 105.0, 104.6, 106.0, 0.1, 's: 7,663 GWh lands'),
+  ie23At: kd('ie23At', 110.8, 109.6, 112.0, 0.1, 's: 23 % lands (>= 5 s after the count)'),
+  ie15At: kd('ie15At', 116.4, 115.0, 118.0, 0.1, 's: 15 times lands'),
+  usCutT0: kd('usCutT0', 121.0, 120.0, 122.0, 0.1, 's: the cut hops from Ireland to the US column (the rig swing has the same t0)'),
+  usCutT1: kd('usCutT1', 122.4, 121.2, 123.4, 0.1, 's: the cut sits on the US column'),
+  usTwhAt: kd('usTwhAt', 121.8, 121.4, 123.0, 0.1, 's: 176 TWh lands'),
+  us44At: kd('us44At', 125.2, 124.0, 126.5, 0.1, 's: 4.4 % lands'),
+  usHalfAt: kd('usHalfAt', 128.2, 127.0, 129.0, 0.1, 's: the 2025 US new-demand slab and its +2.1 % land (the whole, before its half)'),
+  halfAt: kd('halfAt', 131.4, 130.4, 132.4, 0.1, 's: the lower half of the slab is inked and about half lands'),
+  slabGap: kd('slabGap', 30, 0, 120, 5, 'world units: gap between the terrain front and the new-demand slab'),
+  slabD: kd('slabD', 24, 8, 60, 2, 'world units: depth of the new-demand slab'),
+  pinsOn1: kd('pinsOn1', 110.0, 109.0, 111.0, 0.1, 's: place pins come back after the tilt has settled'),
+  mondayAt: kd('mondayAt', 135.0, 134.0, 136.0, 0.1, 's: the terrain is dimmed and the question starts'),
+  honestAt: kd('honestAt', 138.0, 136.0, 140.0, 0.1, 's: the honest-limits line appears on stage'),
+  dimA: kd('dimA', 0.6, 0.3, 0.85, 0.05, 'opacity of the dimming veil over the terrain in MONDAY (0.6 = 40 % left)'),
+  // ── sizes
+  resSize: kd('resSize', 52, 40, 64, 2, 'units: the result number (must-read floor 28)'),
+  tagSize: kd('tagSize', 30, 28, 40, 1, 'units: the denominator word at the top left (must-read floor 28)'),
+  noteSize: kd('noteSize', 16, 14, 20, 1, 'units: the honest line on stage (secondary floor 14)'),
+  qSize: kd('qSize', 46, 40, 72, 2, 'units: the MONDAY question words'),
+  // ── PER QUERY layout
+  panel: kd('panel', 408, 340, 420, 2, 'units: side of the crowd panel (the module uses 408)'),
+  panelY: kd('panelY', 22, 10, 40, 1, 'units: top of the crowd panel'),
+  litMin: kd('litMin', 3, 1.5, 6, 0.5, 'px: the lit first mark never gets smaller than this radius'),
+  frameA: kd('frameA', 0.8, 0.2, 1, 0.05, 'opacity of the nested dashed frames (what each earlier view was)'),
+  // ── world geometry
+  cell: kd('cell', 10, 6, 14, 1, 'world units: pitch of one mark in the world field'),
+  tile: kd('tile', 8, 4, 12, 1, 'world units: side of one mark (a gap of pitch - side keeps marks countable)'),
+  layer: kd('layer', 9, 6, 14, 1, 'world units: vertical pitch of a stack layer'),
+  stackGap: kd('stackGap', 95, 70, 140, 5, 'world units: distance between the four region stacks'),
+  greyMix: kd('greyMix', 0.2, 0.1, 0.7, 0.02, 'how far the grey backdrop marks go from the ground colour toward muted'),
+  // ── terrain
+  hscale: kd('hscale', 110, 80, 220, 5, 'world units: height of the value 25 (scale fixed: vmin 0, vmax 25)'),
+  terrW: kd('terrW', 760, 560, 900, 10, 'world units: terrain width (40 columns)'),
+  zStretch: kd('zStretch', 0.4, 0.05, 1, 0.05, 'depth of a cell as a fraction of its width in the elevation views, after the tilt (mesas squarer; cells and values are unchanged)'),
+  zPlan: kd('zPlan', 0.55, 0.2, 1, 0.05, 'depth of a cell as a fraction of its width in the plan view (squashed to zStretch through the tilt only)'),
+  planeA: kd('planeA', 0.1, 0, 0.5, 0.02, 'opacity of the translucent cut plane'),
+  cutIE: kd('cutIE', 3, 2, 5, 1, 'column of the Ireland mesa the cut snaps to (columns 2 to 5)'),
+  tiltX: kd('tiltX', -20, -300, 300, 5, 'world units: x the camera looks at after the Ireland tilt'),
+  tiltY: kd('tiltY', -80, -200, 0, 5, 'world units: height the camera looks at in the tilt and the swing (negative = up)'),
+  tiltZ: kd('tiltZ', -20, -150, 150, 5, 'world units: z the camera looks at in the tilt and the swing'),
+  swingX: kd('swingX', -50, -300, 300, 5, 'world units: x the camera looks at after the swing to the US column'),
+  cutUS: kd('cutUS', 13, 12, 15, 1, 'column of the US mesa the cut snaps to (columns 12 to 15)'),
+  // ── labels
+  labHold: kd('labHold', 4, 0, 15, 1, 'frames a label must be pushed before it hides (gl-labels hold)'),
+  labLeader: kd('labLeader', 22, 12, 40, 2, 'px: pin leader length (gl-labels leader)'),
+  plateA: kd('plateA', 0.72, 0, 1, 0.02, 'opacity of the plate behind readouts and pins'),
+};
+const DUR = F.dur;
+const fmt = (n) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const sm = (u) => { u = clamp(u); return u * u * (3 - 2 * u); };
+const EI = (u) => { u = clamp(u); return u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2; };
+const win = (t, a, b, f = 0.12) => (t < a - f || t >= b) ? 0 : sm(seg(t, a - f, a)) * (1 - sm(seg(t, b - f, b)));   // a short ramp = a hard cut
+const NALL = Math.round(P.worldTwh / (P.worldPct / 100));   // 27,667 marks of the world's electricity (claim worldGridTwh)
+let S = null;   // everything built once in setup
+
+/* ───────────────────────── scene A · the crowd of queries (Canvas2D layer, composited flat) ───────────────────────── */
+const PS_ = () => KN.panel, OX = 480;
+const OY = () => KN.panelY + KN.panel / 2;
+const SAP = { top: 5, dwell: KN.dwell, move: KN.move, ease: 'cubic' };
+const zoomH = (t) => 1 + (KN.hookZoom - 1) * EI(seg(t, KN.hookPush0, KN.hookPush1));
+const levelA = (t) => SA.level(t - (KN.ladderT0 - KN.dwell), SAP);
+function viewA(t) {
+  const PS = PS_();
+  if (t >= KN.swap0) {
+    const u = EI(seg(t, KN.swap0, KN.swap1)), L2 = 5 * u, W2 = Math.pow(10, L2 / 2) + 2 * sm(L2);
+    return { tier: 2, L: 5, L2, n2: Math.max(1, Math.round(Math.pow(10, L2))), pitch2: PS / W2, kT: 405 / 408 + (0.8 - 405 / 408) * sm(L2 / 1.5) };
+  }
+  const L = levelA(t), z = 1 + (zoomH(t) - 1) * (1 - sm(Math.min(L, 1)));
+  return { tier: 1, L, n: Math.max(1, Math.round(Math.pow(10, L))), pitch: PS / (Math.pow(10, L / 2) + 2) * z };
+}
+/* the crowd: the first n cells of the module's square spiral, ink; cell 0 (the first query) is drawn apart, lit */
+function crowd(ctx, n, pitch, ox, oy, square, kT, alpha) {
+  const cx = S.sa.cx, cy = S.sa.cy, C = S.TOK.color, p = new Path2D(), dot = !square && pitch >= 3.5;
+  const half = (square ? kT * 0.5 : 0.35) * pitch, r = 0.31 * pitch;
+  for (let k = 1; k < n; k++) {
+    const x = ox + cx[k] * pitch, y = oy + cy[k] * pitch;
+    if (dot) { p.moveTo(x + r, y); p.arc(x, y, r, 0, 6.2832); } else p.rect(x - half, y - half, 2 * half, 2 * half);
+  }
+  ctx.globalAlpha = alpha; ctx.fillStyle = C.ink; ctx.fill(p); ctx.globalAlpha = 1;
+}
+function litMark(ctx, ox, oy, pitch, a) {
+  const C = S.TOK.color, r = Math.max(0.31 * pitch, KN.litMin), g = ctx.createRadialGradient(ox, oy, 0, ox, oy, r * 3.4);
+  ctx.save(); ctx.globalAlpha = a; g.addColorStop(0, C.accent); g.addColorStop(0.28, C.accent); g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.globalAlpha = a * 0.28; ctx.fillStyle = g; ctx.beginPath(); ctx.arc(ox, oy, r * 3.4, 0, 6.2832); ctx.fill();
+  ctx.globalAlpha = a; ctx.fillStyle = C.accent; ctx.beginPath(); ctx.arc(ox, oy, r, 0, 6.2832); ctx.fill(); ctx.restore();
+}
+function frames(ctx, v, ox, oy, pitch) {
+  const C = S.TOK.color, top = v.tier === 1 ? v.L : v.L2, lo = v.tier === 1 ? 1 : 0;
+  ctx.save(); ctx.setLineDash([3, 4]); ctx.lineWidth = 1; ctx.strokeStyle = C.accent2;
+  for (let k = lo; k <= 4; k++) {
+    const a = clamp(top - k + 0.3) * KN.frameA; if (a < 0.02) continue;
+    const s = Math.sqrt(Math.pow(10, k)) * pitch; ctx.globalAlpha = a;
+    ctx.strokeRect(ox - s / 2 + 0.5, oy - s / 2 + 0.5, s, s);
+  }
+  ctx.restore();
+}
+function drawA(G, t, v) {
+  const ctx = G.drawingContext, C = S.TOK.color, PS = PS_(), PX = OX - PS / 2, PY = KN.panelY, oy = OY();
+  ctx.save(); ctx.globalAlpha = 1; ctx.fillStyle = C.bg; ctx.fillRect(0, 0, 960, 540);
+  const pa = sm(seg(t, KN.panelIn, KN.panelIn + 0.5));
+  if (pa > 0.001) {
+    ctx.globalAlpha = pa; ctx.fillStyle = C.panel; ctx.fillRect(PX, PY, PS, PS);
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.strokeRect(PX + 0.5, PY + 0.5, PS - 1, PS - 1); ctx.globalAlpha = 1;
+    ctx.beginPath(); ctx.rect(PX, PY, PS, PS); ctx.clip();
+  }
+  if (v.tier === 1) {
+    const pitch = t < KN.panelIn ? PS / 3 * zoomH(t) : v.pitch;
+    if (v.n > 1) crowd(ctx, v.n, pitch, OX, oy, false, 0, 0.9);
+    frames(ctx, v, OX, oy, pitch);
+    litMark(ctx, OX, oy, pitch, 1);
+  } else {
+    const p2 = v.pitch2, side = v.kT * p2;
+    if (v.n2 > 1) crowd(ctx, v.n2, p2, OX, oy, true, v.kT, 0.62);
+    frames(ctx, v, OX, oy, p2);
+    // tile 0 is the whole 10^5-query field: its baked picture while it is big, an accent square once it is small
+    const big = clamp((side - 12) / 28);
+    ctx.globalAlpha = big; ctx.drawImage(S.fld.elt, OX - side / 2, oy - side / 2, side, side);
+    ctx.globalAlpha = 1 - big; ctx.fillStyle = C.accent; ctx.fillRect(OX - side / 2, oy - side / 2, side, side); ctx.globalAlpha = 1;
+  }
+  ctx.restore();
+  // the ladder: six notches, no words; filled as the zoom passes them
+  const ax = 944, y0 = 420, y1 = 90, Ltop = v.tier === 1 ? v.L : 5 + v.L2, a = clamp(Ltop / 10);
+  const al = sm(seg(t, KN.panelIn, KN.panelIn + 0.5));
+  ctx.save(); ctx.globalAlpha = al; ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(ax, y0); ctx.lineTo(ax, y1); ctx.stroke();
+  ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(ax, y0); ctx.lineTo(ax, y0 + (y1 - y0) * a); ctx.stroke();
+  for (let k = 0; k <= 10; k++) { const y = y0 + (y1 - y0) * k / 10, on = Ltop >= k - 1e-6; ctx.fillStyle = on ? C.accent : C.bg; ctx.strokeStyle = on ? C.accent : C.muted; ctx.lineWidth = 1.2;
+    ctx.beginPath(); ctx.arc(ax, y, k === 5 ? 4.5 : 3, 0, 6.2832); ctx.fill(); ctx.stroke(); }
+  ctx.restore();
+  ctx.restore();
+}
+/* energy and time strings from the claims (gemWh, microW, bulbW): computed, never typed */
+function whStr(n) { const wh = n * P.gemWh; return wh >= 1000 ? +(wh / 1000).toPrecision(2) + ' kWh' : (+wh.toPrecision(2)) + ' Wh'; }
+function secStr(sec, rung) {
+  if (rung === 0) return P.microS + ' s';
+  if (sec < 10) return (+sec.toPrecision(2)) + ' s';
+  if (sec < 100) return Math.round(sec) + ' s';
+  if (sec < 7200) return Math.round(sec / 60) + ' min';
+  return (+(sec / 3600).toPrecision(2)) + ' h';
+}
+const MWS = (n) => n * P.gemWh * 3600 / P.microW;
+const ICON = { x: 40, w: 64 };
+function microwave(K, y, op) {
+  const C = K.C, x = ICON.x, w = ICON.w, h = 44;
+  K.rc('mwb', 'marks', x, y, w, h, { stroke: C.soft, w: 1.6, rx: 4, op });
+  K.rc('mww', 'marks', x + 6, y + 6, 38, h - 12, { stroke: C.soft, w: 1.2, rx: 2, op });
+  K.ln('mwl', 'marks', x + 50, y + 8, x + 50, y + h - 8, { stroke: C.soft, w: 1.2, op });
+  K.E('mwd1', 'circle', 'marks', { cx: x + 57, cy: y + 14, r: 2.6, fill: 'none', stroke: C.soft, 'stroke-width': 1.2, opacity: op.toFixed(3) });
+  K.E('mwd2', 'circle', 'marks', { cx: x + 57, cy: y + 26, r: 2.6, fill: 'none', stroke: C.soft, 'stroke-width': 1.2, opacity: op.toFixed(3) });
+}
+function bulb(K, y, op) {
+  const C = K.C, x = ICON.x + 30;
+  K.E('bbl', 'circle', 'marks', { cx: x, cy: y + 16, r: 15, fill: 'none', stroke: C.soft, 'stroke-width': 1.6, opacity: op.toFixed(3) });
+  K.rc('bbs', 'marks', x - 8, y + 31, 16, 8, { stroke: C.soft, w: 1.4, rx: 1.5, op });
+  K.ln('bbf', 'marks', x - 5, y + 17, x, y + 10, { stroke: C.soft, w: 1.2, op }); K.ln('bbg', 'marks', x, y + 10, x + 5, y + 17, { stroke: C.soft, w: 1.2, op });
+}
+function svgA(K, t, v) {
+  const C = K.C, oy = OY();
+  // HOOK: two true sentences over the same still mark (display face, no digit)
+  const w1 = win(t, KN.hookW1, KN.hookW2 - 0.1, 0.25), w2 = win(t, KN.hookW2, KN.hookWOut, 0.25);
+  if (w1 > 0.01) K.tx('hw1', 'labels', 480, 128, 'TOO MUCH', { fam: 'disp', size: 72, anchor: 'middle', op: w1, role: 'must-read' });
+  if (w2 > 0.01) K.tx('hw2', 'labels', 480, 128, 'ALMOST NONE', { fam: 'disp', size: 72, anchor: 'middle', op: w2, fill: C.soft, role: 'must-read' });
+  if (t < KN.panelIn) return;
+  // the ruler is a scale bar: one mark wide as the marks are drawn now (it shrinks with the zoom; the microwave is the fixed anchor)
+  const T0 = 0.62 * PS_() / 3 * KN.hookZoom, ro = sm(seg(t, KN.rulerAt, KN.rulerAt + 0.5)), rx = 40, ry = 150;
+  if (ro > 0.01) {
+    const t2 = v.tier === 2, len = t2 ? v.kT * v.pitch2 : Math.min(T0, 0.62 * v.pitch), L = Math.max(1, len);
+    if (len <= T0 + 0.5) {
+      K.ln('rl', 'marks', rx, ry, rx + L, ry, { stroke: C.soft, w: 2, op: ro });
+      K.ln('rl0', 'marks', rx, ry - 8, rx, ry + 8, { stroke: C.soft, w: 2, op: ro }); K.ln('rl1', 'marks', rx + L, ry - 8, rx + L, ry + 8, { stroke: C.soft, w: 2, op: ro });
+    }
+    K.tx('rt', 'labels', rx, ry - 14, t2 ? '1 MARK = 1 TILE' : '1 MARK = 1 QUERY', { size: 14, fill: C.ink, op: ro, ls: '0.06em', role: 'secondary' });
+    const so = sm(seg(t, KN.ladderT0, KN.ladderT0 + 0.6)) * ro;
+    if (so > 0.01) K.tx('rs', 'labels', rx, ry + 26, 'THE TICK IS ONE MARK WIDE', { size: 14, fill: C.muted, op: so, role: 'secondary' });
+  }
+  // anchors: the microwave and the bulb, in plain strokes, at one size
+  const mo = sm(seg(t, KN.mwAt, KN.mwAt + 0.5));
+  const lad = t >= KN.ladderT0 - 0.01, k = v.tier === 1 ? Math.round(v.L) : 5, settled = v.tier === 1 ? Math.abs(v.L - k) < 0.004 : false;
+  const nK = Math.pow(10, k);
+  if (mo > 0.01) {
+    microwave(K, 244, mo);
+    K.tx('mwt', 'labels', 40, 234, 'A ' + fmt(P.microW) + ' W MICROWAVE', { size: 14, fill: C.ink, op: mo, ls: '0.04em', role: 'secondary' });
+    const show = !lad ? 1 : (settled && v.tier === 1 ? 1 : 0), txt = secStr(MWS(nK), k);
+    if (show) K.tx('mws', 'labels', 118, 278, txt, { fam: 'disp', size: 32, fill: C.soft, op: mo, role: 'must-read' });
+  }
+  const bo = sm(seg(t, KN.bulbAt, KN.bulbAt + 0.5)) * (t < KN.ladderT0 - 0.01 ? 1 : 0);
+  if (bo > 0.01) {
+    bulb(K, 346, bo);
+    K.tx('bbt', 'labels', 40, 338, 'A ' + fmt(P.bulbW) + ' W BULB', { size: 14, fill: C.ink, op: bo, ls: '0.04em', role: 'secondary' });
+    K.tx('bbs2', 'labels', 118, 376, P.bulbS + ' s', { fam: 'disp', size: 32, fill: C.soft, op: bo, role: 'must-read' });
+  }
+  // the right column: queries, energy
+  const X = 706, whOp = sm(seg(t, KN.whAt, KN.whAt + 0.4));
+  if (v.tier === 1 && whOp > 0.01 && (!lad || settled)) {
+    const e = k === 0 ? P.gemWh + ' Wh' : whStr(nK);
+    K.tx('ra', 'labels', X, 96, fmt(nK) + (k === 0 ? ' QUERY' : ' QUERIES'), { size: 14, fill: C.muted, op: whOp, ls: '0.08em', role: 'secondary' });
+    K.tx('rb', 'labels', X, 150, e, { fam: 'disp', size: KN.resSize, op: whOp, fill: k === 5 ? C.accent : C.ink, role: 'must-read' });
+    const sub = k === 0 ? ['MEDIAN GEMINI PROMPT', 'GOOGLE, ' + P.gemYear] : k === 5 ? ['ONE TILE = ' + fmt(P.tileQ) + ' QUERIES'] : ['ENERGY OF ' + fmt(nK) + ' QUERIES'];
+    sub.forEach((s, i) => K.tx('rc' + i, 'labels', X, 176 + 22 * i, s, { size: 14, fill: C.muted, op: whOp, role: 'secondary' }));
+  }
+  if (v.tier === 2) {
+    const tl = win(t, KN.swap0 + 0.2, KN.cutB, 0.15);
+    if (tl > 0.01) {
+      K.tx('ra', 'labels', X, 96, '1 TILE = ' + fmt(P.tileQ) + ' QUERIES', { size: 14, fill: C.muted, op: tl, ls: '0.06em', role: 'secondary' });
+      K.tx('ra2', 'labels', X, 116, '= ' + P.tileKwh + ' kWh', { size: 14, fill: C.muted, op: tl, role: 'secondary' });
+    }
+    const go = sm(seg(t, KN.gwhAt, KN.gwhAt + 0.4)) * (1 - sm(seg(t, KN.tilesAt - 0.1, KN.tilesAt + 0.1)));
+    if (go > 0.01) {
+      K.tx('rb', 'labels', X, 170, P.siteDayGwh + ' GWh', { fam: 'disp', size: KN.resSize, fill: C.ink, op: go, role: 'must-read' });
+      K.tx('rc0', 'labels', X, 196, 'A ' + fmt(P.siteMW) + ' MW SITE, ' + P.hoursDay + ' HOURS', { size: 14, fill: C.muted, op: go, role: 'secondary' });
+      K.tx('rc1', 'labels', X, 216, 'AT FULL LOAD (ASSUMED)', { size: 14, fill: C.muted, op: go, role: 'secondary' });
+    }
+    const to = sm(seg(t, KN.tilesAt, KN.tilesAt + 0.4));
+    if (to > 0.01) {
+      K.tx('rb', 'labels', X, 170, fmt(P.siteDayTiles), { fam: 'disp', size: KN.resSize, fill: C.accent, op: to, role: 'must-read' });
+      K.tx('rc0', 'labels', X, 196, 'TILES, EACH ' + fmt(P.tileQ) + ' QUERIES', { size: 14, fill: C.muted, op: to, role: 'secondary' });
+    }
+    const bi = sm(seg(t, KN.billionAt, KN.billionAt + 0.4));
+    if (bi > 0.01) {
+      K.tx('rd', 'labels', X, 292, '10 billion', { fam: 'disp', size: KN.resSize, fill: C.ink, op: bi, role: 'must-read' });
+      K.tx('rd0', 'labels', X, 318, 'QUERIES AT ' + P.gemWh + ' Wh', { size: 14, fill: C.muted, op: bi, role: 'secondary' });
+      K.tx('rd1', 'labels', X, 338, '(ENERGY EQUIVALENT ONLY)', { size: 14, fill: C.muted, op: bi, role: 'secondary' });
+    }
+  }
+}
+
+/* ───────────────────────── scene B · the world's marks (3D) ───────────────────────── */
+const VERT_B = 'precision highp float; attribute vec3 aPosition; attribute vec3 aNormal; attribute vec4 aVertexColor;' +
+  'uniform mat4 uModelViewMatrix; uniform mat4 uProjectionMatrix; uniform float uMove, uStag, uLift, uKc;' +
+  'uniform vec3 uInk, uGrey, uGhost, uG0, uG1, uG2, uG3; varying vec3 vCol;' +
+  'void main(){ float face = aVertexColor.r, delay = aVertexColor.g, grp = aVertexColor.b, idx = aVertexColor.a;' +
+  ' if (idx > 0.5 && idx > uKc + 0.5) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); vCol = vec3(0.0); return; }' +
+  ' float m = clamp((uMove - delay * uStag) / max(1e-3, 1.0 - uStag), 0.0, 1.0); m = m * m * (3.0 - 2.0 * m);' +
+  ' vec3 pos = aPosition + aNormal * m - vec3(0.0, uLift * sin(3.14159265 * m), 0.0);' +
+  ' float sh = face < 0.5 ? 1.0 : face < 1.5 ? 0.80 : face < 2.5 ? 0.45 : face < 3.5 ? 0.62 : 0.52;' +
+  ' vec3 gc = grp < 0.5 ? uG0 : grp < 1.5 ? uG1 : grp < 2.5 ? uG2 : uG3;' +
+  ' vec3 base = idx > 0.5 ? mix(uInk, gc, m) : (idx < -0.5 ? uGhost : uGrey); vCol = base * sh;' +
+  ' gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(pos, 1.0); }';
+const FRAG_B = 'precision highp float; varying vec3 vCol; void main(){ gl_FragColor = vec4(vCol, 1.0); }';
+const rgb3 = (p, c) => { c = p.color(c); return [p.red(c) / 255, p.green(c) / 255, p.blue(c) / 255]; };
+function geo(p, gid) { const g = new p5.Geometry(1, 1, undefined, p._renderer); g.gid = gid; return g; }
+let ZERO_N = null;   // one shared zero normal for the static marks (110k fewer allocations in setup)
+function quad(g, i, v0, v1, v2, v3, nrm, col) {
+  const zero = !nrm[0] && !nrm[1] && !nrm[2], nv = zero ? (ZERO_N || (ZERO_N = new p5.Vector(0, 0, 0))) : new p5.Vector(nrm[0], nrm[1], nrm[2]);
+  for (const v of [v0, v1, v2, v3]) { g.vertices.push(new p5.Vector(v[0], v[1], v[2])); g.vertexNormals.push(nv); g.vertexColors.push(col[0], col[1], col[2], col[3]); }
+  const b = i * 4; g.faces.push([b, b + 1, b + 2], [b, b + 2, b + 3]);
+}
+function buildWorld(p, K) {
+  const CELL = KN.cell, T = KN.tile, h = T / 2, LV = KN.layer, FX = 5, FZ = 5, PER = FX * FZ;
+  const cx = S.sa.cx, cy = S.sa.cy, NIN = P.worldTwh;
+  // grey backdrop: cells NIN .. NALL-1 of the spiral, flat marks, three chunks (16-bit index safe)
+  const chunks = 3, per = Math.ceil((NALL - NIN) / chunks), grey = [];
+  for (let c = 0; c < chunks; c++) {
+    const g = geo(p, 'oq-grey-' + c); let i = 0;
+    for (let k = NIN + c * per; k < Math.min(NALL, NIN + (c + 1) * per); k++) {
+      const x = cx[k] * CELL, z = cy[k] * CELL, y = -0.4;
+      quad(g, i++, [x - h, y, z - h], [x + h, y, z - h], [x + h, y, z + h], [x - h, y, z + h], [0, 0, 0], [0, 0, 0, 0]);
+    }
+    grey.push(g);
+  }
+  // ghost slots: the 415 cells the inked marks start in stay as dim marks (where they were) once the marks have left
+  const gg = geo(p, 'oq-ghost');
+  for (let k = 0; k < NIN; k++) { const x = cx[k] * CELL, z = cy[k] * CELL, y = -0.4; quad(gg, k, [x - h, y, z - h], [x + h, y, z - h], [x + h, y, z + h], [x - h, y, z + h], [0, 0, 0], [0, 0, 0, -1]); }
+  // groups: a seeded shuffle of the 415 cubes into US / China / Europe / rest (187 + 104 + 62 + 62)
+  const sizes = [P.usDc, P.cnDc, P.euDc, P.restDc], perm = K.shuffle(Array.from({ length: NIN }, (_, i) => i), F.seed), grp = new Uint8Array(NIN), rank = new Uint16Array(NIN);
+  let o = 0; sizes.forEach((n, g) => { const mem = perm.slice(o, o + n).sort((a, b) => a - b); mem.forEach((id, j) => { grp[id] = g; rank[id] = j; }); o += n; });
+  const maxLay = Math.max(...sizes.map((n) => Math.ceil(n / PER))), rng = K.mulberry32(F.seed + 7);
+  const gx = (g) => (g - 1.5) * KN.stackGap, top = sizes.map((n) => Math.ceil(n / PER) * LV);
+  const cg = geo(p, 'oq-cubes'); let qi = 0;
+  const ext = { x0: 1e9, x1: -1e9, z0: 1e9, z1: -1e9 };
+  for (let id = 0; id < NIN; id++) {
+    const ax = cx[id] * CELL, az = cy[id] * CELL, layer = Math.floor(rank[id] / PER), cell = rank[id] % PER;
+    const bx = gx(grp[id]) + ((cell % FX) - (FX - 1) / 2) * CELL, bz = (Math.floor(cell / FX) - (FZ - 1) / 2) * CELL, by = -(layer * LV) - 0;
+    const d = [bx - ax, by - 0, bz - az], delay = clamp((layer + rng() * 0.6) / (maxLay + 0.6)), meta = (f) => [f, delay, grp[id], id + 1];
+    const yb = -0.4, yt = -T - 0.4, x0 = ax - h, x1 = ax + h, z0 = az - h, z1 = az + h;
+    ext.x0 = Math.min(ext.x0, x0); ext.x1 = Math.max(ext.x1, x1); ext.z0 = Math.min(ext.z0, z0); ext.z1 = Math.max(ext.z1, z1);
+    const faces = [[[x0, yt, z0], [x1, yt, z0], [x1, yt, z1], [x0, yt, z1]],      // top
+      [[x0, yt, z1], [x1, yt, z1], [x1, yb, z1], [x0, yb, z1]],                    // +z (front)
+      [[x0, yt, z0], [x1, yt, z0], [x1, yb, z0], [x0, yb, z0]],                    // -z
+      [[x1, yt, z0], [x1, yt, z1], [x1, yb, z1], [x1, yb, z0]],                    // +x
+      [[x0, yt, z0], [x0, yt, z1], [x0, yb, z1], [x0, yb, z0]]];                   // -x
+    faces.forEach((f, fi) => quad(cg, qi++, f[0], f[1], f[2], f[3], d, meta(fi)));
+  }
+  // the lattice outline (world extent of all cells) for the nested frames
+  let L0 = 1e9, L1 = -1e9, M0 = 1e9, M1 = -1e9;
+  for (let k = 0; k < NALL; k++) { L0 = Math.min(L0, cx[k]); L1 = Math.max(L1, cx[k]); M0 = Math.min(M0, cy[k]); M1 = Math.max(M1, cy[k]); }
+  return { grey, ghost: gg, cubes: cg, sizes, gx, top, ext, lat: { x0: L0 * CELL - h, x1: L1 * CELL + h, z0: M0 * CELL - h, z1: M1 * CELL + h }, sh: p.createShader(VERT_B, FRAG_B) };
+}
+function drawB(p, K, t, pose) {
+  const W = S.W, B = S.TOK.color, sh = W.sh;
+  RIG.apply(p, S.cam, pose, S.rig); p.setCamera(S.cam); p.noLights();
+  p.shader(sh); p.noStroke(); p.fill(255);
+  const gm = (a, b, u) => p.lerpColor(p.color(a), p.color(b), u);
+  sh.setUniform('uMove', EI(seg(t, KN.moveT0, KN.moveT1))); sh.setUniform('uStag', KN.stagger); sh.setUniform('uLift', KN.lift);
+  sh.setUniform('uKc', Math.round(P.worldTwh * sm(seg(t, KN.bIn0, KN.bIn1))));
+  sh.setUniform('uInk', rgb3(p, B.ink)); sh.setUniform('uGrey', rgb3(p, gm(B.bg, B.muted, KN.greyMix))); sh.setUniform('uGhost', rgb3(p, gm(B.bg, B.muted, KN.greyMix * 0.5)));
+  sh.setUniform('uG0', rgb3(p, B.accent2)); sh.setUniform('uG1', rgb3(p, B.accent)); sh.setUniform('uG2', rgb3(p, B.ink)); sh.setUniform('uG3', rgb3(p, gm(B.muted, B.bg, 0.45)));
+  for (const g of W.grey) p.model(g);
+  p.model(W.ghost); p.model(W.cubes);
+  p.resetShader(); p.setCamera(K.cam0);
+}
+
+/* ───────────────────────── scene C · the terrain (gl-heightfield) ───────────────────────── */
+const PLACES = [  // [name, cols, claim key for the value, claim key for the year]
+  ['IRELAND', [2, 5], 'iePct', 'ieYear'], ['NETHERLANDS', [7, 10], 'nlPct', 'ieaYear'], ['US', [12, 15], 'usPct23', 'usYear'], ['GERMANY', [17, 20], 'dePct', 'ieaYear'],
+  ['UK', [22, 25], 'ukPct', 'ieaYear'], ['FRANCE', [27, 30], 'frPct', 'ieaYear'], ['WORLD', [32, 35], 'worldPct', 'ieaYear']];
+function matrix() {
+  const rows = 25, cols = 40, m = Array.from({ length: rows }, () => new Array(cols).fill(0));
+  for (const pl of PLACES) for (let r = 0; r < rows; r++) for (let c = pl[1][0]; c <= pl[1][1]; c++) m[r][c] = P[pl[2]];
+  let sum = 0; for (const r of m) for (const v of r) sum += v;
+  if (Math.abs(sum - 4590) > 1e-6) throw new Error('one-query: the terrain matrix does not reproduce data/terrain-matrix.json (sum ' + sum + ')');
+  return m;
+}
+function hfParams() { return Object.assign({}, HF.params, { size: KN.terrW, hscale: KN.hscale, zs: 1, vmin: 0, vmax: 25, contours: 0, ramp: ['panel', 'muted', 'accent'], reveal: null }); }
+const colX = (c) => S.hf.x0 + c * S.hf.cell;
+/* a mesa's screen box below its own pin (place j: 0 Ireland, 2 US): a reserve rect, so no other pin plate lands on a mesa being read */
+function ieBox(W2S, j) {
+  const st = S.hf, pl = PLACES[j || 0], x0 = colX(pl[1][0]) - st.cell / 2, x1 = colX(pl[1][1]) + st.cell / 2, h = KN.hscale * P[pl[2]] / 25, z = (-st.z0 + st.cellZ / 2) * KN.zStretch;
+  const q = []; for (const x of [x0, x1]) for (const y of [0, -h]) for (const zz of [-z, z]) q.push(W2S(x, y, zz));
+  const a = W2S((x0 + x1) / 2, -h - 6, 0), r4 = (u) => Math.round(u / 4) * 4;
+  return [r4(Math.min(...q.map((u) => u.x)) - 4), r4(a.y + 6), r4(Math.max(...q.map((u) => u.x)) + 4), r4(Math.max(...q.map((u) => u.y)) + 4)];
+}
+function cutCol(t) {
+  const a = sm(seg(t, KN.ieCutT0, KN.ieCutT1)), b = sm(seg(t, KN.usCutT0, KN.usCutT1));
+  const from = 1, c = a < 1 ? from + (KN.cutIE - from) * a : KN.cutIE + (KN.cutUS - KN.cutIE) * b;
+  return Math.round(c);
+}
+/* the terrain as a solid of flat-topped cells: every cell a level top at its value, a vertical wall wherever two neighbours differ
+   (I4: the height between two places is not data, so no slope is drawn); same cells, same values, same shader as the module */
+function stepMesh(p, st) {
+  const g = geo(p, 'oq-steps'), R = st.rows, N = st.cols, w = st.cell / 2, d = st.cellZ / 2, H = st.hgt, sp = (st.cmax - st.cmin) || 1;
+  let q = 0;
+  const quad4 = (a, b, c, e, n, v) => { for (const u of [a, b, c, e]) { g.vertices.push(new p5.Vector(u[0], u[1], u[2])); g.vertexNormals.push(new p5.Vector(n[0], n[1], n[2])); g.vertexColors.push(v, 0, 0, 1); }
+    g.faces.push([q, q + 1, q + 2], [q, q + 2, q + 3]); q += 4; };
+  for (let r = 0; r < R; r++) for (let c = 0; c < N; c++) {
+    const i = r * N + c, h = H[i], v = clamp((st.CM[r][c] - st.cmin) / sp), x = st.x0 + c * st.cell, z = st.z0 + r * st.cellZ;
+    quad4([x - w, -h, z - d], [x + w, -h, z - d], [x + w, -h, z + d], [x - w, -h, z + d], [0, -1, 0], v);
+    const nb = [[c < N - 1 ? H[i + 1] : 0, [1, 0, 0]], [c === 0 ? 0 : null, [-1, 0, 0]], [r < R - 1 ? H[i + N] : 0, [0, 0, 1]], [r === 0 ? 0 : null, [0, 0, -1]]];
+    for (const [h2, n] of nb) {
+      if (h2 === null || h2 >= h) continue;   // each wall once, from the taller side, down to the neighbour
+      const ax = n[0] ? x + n[0] * w : x - w, bx = n[0] ? ax : x + w, az = n[2] ? z + n[2] * d : z - d, bz = n[2] ? az : z + d;
+      quad4([ax, -h, az], [bx, -h, bz], [bx, -h2, bz], [ax, -h2, az], n, v);
+    }
+  }
+  return g;
+}
+/* the 2025 US new-demand slab: in front of the US mesa, its own width, on the mesas' own scale (% of the US grid);
+   it lands whole (the count of new demand), then its lower half is inked: the data centres' part (usGrowthPct) */
+function slabBox() { const st = S.hf, u = PLACES[2][1], h = KN.hscale * P.usDemGrowth25 / 25, z = (-st.z0 + st.cellZ / 2) * KN.zStretch + KN.slabGap;
+  return { x0: colX(u[0]) - st.cell / 2, x1: colX(u[1]) + st.cell / 2, z0: z, z1: z + KN.slabD, h }; }   // the US mesa's own footprint width
+function slab(p, C, t) {
+  const b = slabBox(), hm = b.h * P.usGrowthPct / 100, ink = t >= KN.halfAt;
+  const box = (y0, y1, col) => { const c = p.color(col), f = (k) => p.color(p.red(c) * k, p.green(c) * k, p.blue(c) * k);
+    const F = [[1, [[b.x0, y1, b.z0], [b.x1, y1, b.z0], [b.x1, y1, b.z1], [b.x0, y1, b.z1]]], [0.62, [[b.x0, y1, b.z1], [b.x1, y1, b.z1], [b.x1, y0, b.z1], [b.x0, y0, b.z1]]],
+      [0.8, [[b.x1, y1, b.z0], [b.x1, y1, b.z1], [b.x1, y0, b.z1], [b.x1, y0, b.z0]]], [0.8, [[b.x0, y1, b.z0], [b.x0, y1, b.z1], [b.x0, y0, b.z1], [b.x0, y0, b.z0]]]];
+    p.noStroke(); for (const [k, q] of F) { p.fill(f(k)); p.beginShape(p.TRIANGLE_STRIP); p.vertex(...q[0]); p.vertex(...q[1]); p.vertex(...q[3]); p.vertex(...q[2]); p.endShape(); } };
+  box(-hm, -b.h, C.muted); box(0, -hm, ink ? C.accent2 : C.muted);
+}
+const zk = (t) => KN.zPlan + (KN.zStretch - KN.zPlan) * EI(seg(t, S.tilt.t0, S.tilt.t1));
+function drawC(p, K, t, pose) {
+  const st = S.hf, B = S.TOK, rows = st.rows;
+  RIG.apply(p, S.cam, pose, S.rig); p.setCamera(S.cam); p.noLights();
+  p.background(B.color.bg); p.drawingContext.clear(p.drawingContext.DEPTH_BUFFER_BIT);
+  const shown = Math.max(1, Math.round(rows * sm(seg(t, KN.revealT0, KN.revealT1)))), revZ = shown >= rows ? 1e6 : st.z0 + (shown - 0.5) * st.cellZ;
+  const on = t >= KN.ieCutT0, col = cutCol(t), cut = on ? { x: colX(col), col } : null;
+  p.push(); p.scale(1, 1, zk(t));   // depth is not data: full footprints in plan, squashed only through the tilt
+  HF.api.terrain(p, st, B, S.hfp, cut, revZ);
+  if (cut && KN.planeA > 0.001) {   // a translucent plane through the cut column: the section the viewer is told about
+    const c = p.color(B.color.accent2); c.setAlpha(255 * KN.planeA); p.noStroke(); p.fill(c);
+    const z0 = st.z0 - st.cellZ / 2, z1 = -z0, y1 = -KN.hscale * 1.12;
+    p.beginShape(p.TRIANGLE_STRIP); p.vertex(cut.x, 0, z0); p.vertex(cut.x, y1, z0); p.vertex(cut.x, 0, z1); p.vertex(cut.x, y1, z1); p.endShape();
+  }
+  p.pop();
+  if (t >= KN.usHalfAt) slab(p, B.color, t);
+  p.setCamera(K.cam0);
+}
+
+/* ───────────────────────── labels (gl-labels solves; the film emits K.tx / K.ln with roles) ───────────────────────── */
+function pins(K, t, key, anchors, op, reserve, fam) {
+  if (op <= 0.01) return;
+  const r = LAB.solve(t, S.camFn, anchors, { hold: KN.labHold, leader: KN.labLeader, sticky: 'window', occlusion: false, reserve, measure: S.measure, measureKey: 'k2' });
+  for (const q of r.placements) {
+    const k = key + q.id, fill = K.C[q.color] || K.C.ink, anc = q.align === 'right' ? 'end' : q.align === 'center' ? 'middle' : 'start';
+    K.rc(k + 'b', 'labels', q.box[0], q.box[1], q.box[2] - q.box[0], q.box[3] - q.box[1], { fill: K.C.paper, fo: KN.plateA, op });
+    K.ln(k + 'l', 'labels', q.lead[0], q.lead[1], q.lead[2], q.lead[3], { stroke: fill, w: 1.2, op });
+    K.E(k + 'd', 'circle', 'labels', { cx: q.ax.toFixed(1), cy: q.ay.toFixed(1), r: 2.6, fill, opacity: op.toFixed(3) });
+    K.tx(k + 't', 'labels', q.tx, q.ty, q.text, { fam: q.fam, size: q.size, anchor: anc, fill, op, role: q.dataRole });
+    if (q.sub) K.tx(k + 's', 'labels', q.tx, q.sy + 4, q.sub, { fam: q.subFam, size: Math.max(q.subSize, 14), anchor: anc, fill: K.C.muted, op, role: q.subDataRole === 'chrome' ? 'secondary' : q.subDataRole });
+  }
+}
+/* a result readout at a fixed place on the sheet: a plate, the number, one line of what it is */
+function result(K, key, x, y, big, sub, op, fill, sub2) {
+  if (op <= 0.01) return;
+  const w = Math.max(String(big).length * KN.resSize * K.ADV.disp, String(sub).length * 14 * K.ADV.mono, sub2 ? String(sub2).length * 14 * K.ADV.mono : 0) + 24;
+  K.rc(key + 'p', 'labels', x - 12, y - KN.resSize * 0.82, w, KN.resSize * 0.82 + (sub2 ? 52 : 30), { fill: K.C.paper, fo: KN.plateA, op });
+  K.tx(key + 'n', 'labels', x, y, big, { fam: 'disp', size: KN.resSize, fill: fill || K.C.ink, op, role: 'must-read' });
+  K.tx(key + 's', 'labels', x, y + 22, sub, { size: 14, fill: K.C.muted, op, role: 'secondary' });
+  if (sub2) K.tx(key + 't', 'labels', x, y + 42, sub2, { size: 14, fill: K.C.muted, op, role: 'secondary' });
+}
+const poly = (pts) => 'M' + pts.map((q) => q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' L') + ' Z';
+function groundFrame(K, key, pose, r, y, op, col, dash) {
+  if (op <= 0.01) return;
+  const pts = [[r.x0, y, r.z0], [r.x1, y, r.z0], [r.x1, y, r.z1], [r.x0, y, r.z1]].map((q) => RIG.worldToScreen(pose, q, K.W, K.H));
+  if (pts.some((q) => !(q.depth > 0))) return;
+  K.path(key, 'marks', poly(pts.map((q) => [q.x, q.y])), { stroke: col, w: 1.3, dash: dash || '5 5', op });
+}
+
+/* ───────────────────────── setup ───────────────────────── */
+window.FILM_RENDER = {
+  ground: false,
+  async setup(p, K) {
+    const BC = K.BRAND.color, TOK = { id: K.BRAND.id, color: { bg: BC.bg, ink: BC.ink, accent: BC.accent, accent2: BC.accent2 || BC.muted, muted: BC.muted, line: BC.line || BC.muted, chalk: BC.chalk || BC.ink, panel: BC.panel || BC.bg }, type: K.BRAND.type };
+    // the module's square spiral (100,000 cells): the crowd of queries, the tiles of the site, the world's marks
+    const sa = SA.setup(p, { seed: F.seed }, Object.assign({}, SA.params, { flagFrac: 0, data: null, top: 5, dwell: KN.dwell, move: KN.move }));
+    S = { TOK, sa };
+    const G = p.createGraphics(960, 540); G.pixelDensity(2); S.G = G;
+    // the baked picture of tile 0: the whole 10^5-query field, drawn once with the same routine
+    const fld = p.createGraphics(405, 405); fld.pixelDensity(2); S.fld = fld;
+    { const c = fld.drawingContext; c.save(); c.clearRect(0, 0, 405, 405); crowd(c, 100000, 405 / 318.2, 202.5, 202.5, false, 0, 0.9); litMark(c, 202.5, 202.5, 405 / 318.2, 1); c.restore(); }
+    S.W = buildWorld(p, K);
+    // terrain
+    S.hfp = hfParams();
+    const hp = Object.assign({}, S.hfp, { data: matrix() });
+    S.hf = await HF.setup(p, { seed: F.seed, tokens: TOK, fonts: { disp: {}, mono: {} } }, hp);
+    S.hf.g = stepMesh(p, S.hf);
+    // camera rig: script in film.json, retuned by knobs (cam<Id><Param>)
+    const scene = { points: [] }, base = JSON.parse(JSON.stringify(F.rig));
+    base.moves.forEach((m) => { if (m.id === 'tilt') m.around = [KN.tiltX, KN.tiltY, KN.tiltZ]; if (m.id === 'swing') m.around = [KN.swingX, KN.tiltY, KN.tiltZ]; });
+    const script = RIG.fromKnobs(base, (name, cur) => K.knob(name, cur), scene);
+    S.rig = RIG.compile(script, scene); S.cam = p.createCamera(); S.tilt = S.rig.moves.find((m) => m.id === 'tilt');
+    S.camFn = (t) => { const q = RIG.at(S.rig, t); return { eye: q.eye, look: q.center, up: q.up, fov: q.fov, aspect: K.W / K.H }; };
+    S.measure = (s, z, f) => String(s).length * z * (f === 'disp' ? K.ADV.disp : K.ADV.mono);
+    // pin anchors (stable arrays: the solver memoises by identity)
+    const an = (id, x, y, z, text, sub, color, pr) => ({ id, x, y, z, text, sub: sub || null, role: 'secondary', color: color || 'ink', priority: pr || 1 });
+    const stk = (g, text, sub, pr) => an('s' + g, S.W.gx(g), -S.W.top[g] - KN.tile - 4, 0, text, sub, 'ink', pr);
+    const sg = [['UNITED STATES', P.usDc], ['CHINA', P.cnDc], ['EUROPE', P.euDc], ['REST OF WORLD', P.restDc]];
+    const shr = [P.usPctDc, P.cnPctDc, P.euPctDc];   // the shares, one per stack, after the counts (stages 5-7)
+    S.AN = { stk: [1, 2, 3, 4, 5, 6, 7].map((n) => sg.slice(0, Math.min(4, n)).map((q, g) => stk(g, q[0], fmt(q[1]) + ' TWh' + (g < n - 4 ? ' · ' + shr[g] + ' %' : ''), 9 - g))) };
+    const st = S.hf;
+    const placeAn = (z) => PLACES.map((pl, i) => an('p' + i, colX((pl[1][0] + pl[1][1]) / 2), -KN.hscale * (P[pl[2]] / 25) - 6, z, pl[0], String(P[pl[3]]), i === 0 ? 'accent' : 'ink', [10, 7, 9, 6, 5, 4, 8][i]));
+    S.AN.plan = placeAn((st.z0 - st.cellZ / 2) * KN.zPlan);   // plan: every pin on the far edge, so all seven sit above the strip
+    S.AN.places = placeAn(0);
+    p.setCamera(K.cam0);
+  },
+
+  /* ───────────────────────── render ───────────────────────── */
+  render(t, s, K) {
+    const p = K.p, C = K.C, ch = K.chapterAt(t), pose = RIG.at(S.rig, t), W2S = (x, y, z) => RIG.worldToScreen(pose, [x, y, z], K.W, K.H);
+    const capBand = [0, 440, 960, 540];
+    if (ch && t < KN.mondayAt) K.tx('eb', 'labels', 40, 36, ch.eyebrow, { size: 12, fill: C.muted, ls: '0.14em', role: 'chrome' });
+    // the denominator word: the film's spine, one per base
+    const tag = t < KN.rulerAt ? '' : t < KN.swap0 + 0.2 ? 'per query' : t < KN.cutB ? 'per site' : t < KN.terrT ? 'per grid' : t < KN.mondayAt ? 'per own grid' : '';
+    if (tag) K.tx('tag', 'labels', 40, 84, tag, { fam: 'disp', size: KN.tagSize, fill: C.soft, role: 'must-read' });
+
+    /* ── PER QUERY, PER SITE (0-66) ── */
+    if (t < KN.cutB) {
+      const v = viewA(t);
+      drawA(S.G, t, v);
+      K.flat((q) => { q.resetShader(); q.noStroke(); q.image(S.G, 0, 0, 960, 540); });
+      svgA(K, t, v);
+      return;
+    }
+
+    /* ── PER GRID (66-99) ── */
+    if (t < KN.terrT) {
+      drawB(p, K, t, pose);
+      const W = S.W, moving = t >= KN.moveT0 - 0.1 && t < KN.moveT1 + 1.0;
+      // nested frames on the ground: the block's footprint (what the first view was) and the whole field
+      groundFrame(K, 'fb', pose, W.ext, 0, win(t, KN.worldAt, KN.terrT - 0.05, 0.2) * 0.9, C.soft, '4 4');
+      groundFrame(K, 'fl', pose, W.lat, 0, win(t, KN.worldAt + 3.2, KN.terrT - 0.05, 0.2) * 0.5, C.muted, '8 6');
+      // HUD (flat, still): the legend, the count, the share
+      const n = Math.round(P.worldTwh * sm(seg(t, KN.bIn0, KN.bIn1))), lg = sm(seg(t, KN.bIn0 - 0.3, KN.bIn0 + 0.2));
+      const hudA = t < KN.moveT0 - 0.1 ? 1 : 0;
+      if (lg > 0.01 && hudA) K.tx('lg', 'labels', 40, 130, '1 MARK = ' + P.oneTwh + ' TWh', { size: 14, fill: C.ink, op: lg, ls: '0.08em', role: 'secondary' });
+      const lg2 = win(t, KN.legendAt, KN.moveT0 - 0.1, 0.1);   // on-stage legend of the grey, read on the plan view (P10)
+      if (lg2 > 0.01) K.tx('lg2', 'labels', 40, 150, "GREY = THE REST OF THE WORLD'S GRID", { size: 14, fill: C.muted, op: lg2, ls: '0.04em', role: 'secondary' });
+      if (hudA && lg > 0.01) result(K, 'h1', 40, 214, t >= KN.worldAt ? fmt(P.worldTwh) + ' TWh' : fmt(n), t >= KN.worldAt ? 'DATA CENTRES, ALL KINDS, ' + P.ieaYear : 'MARKS COUNTED IN', 1);
+      const po = sm(seg(t, KN.pctAt, KN.pctAt + 0.4)) * hudA;
+      result(K, 'h2', 40, 316, P.worldPct + ' %', "OF THE WORLD'S ELECTRICITY", po, C.accent);
+      // after the regroup: the counts land one at a time (HUD and pins), the check line sums them (I2), then each share lands on its own stack
+      const gw = t >= KN.moveT1 ? 1 : 0;
+      if (gw) {
+        const seq = [[KN.usAt, P.usDc, 'UNITED STATES'], [KN.cnAt, P.cnDc, 'CHINA'], [KN.euAt, P.euDc, 'EUROPE']];
+        let cur = null; for (const q of seq) if (t >= q[0]) cur = q;
+        if (cur && t < KN.checkAt) result(K, 'h3', 40, 214, fmt(cur[1]) + ' TWh', cur[2], 1, C.ink);
+        const ck = win(t, KN.checkAt, KN.terrT - 0.05, 0.1);
+        if (ck > 0.01) K.tx('ck', 'labels', 40, 420, [P.usDc, P.cnDc, P.euDc, P.restDc].map(fmt).join(' + ') + ' = ' + fmt(P.worldTwh) + ' TWh · SAME MARKS', { size: 16, fill: C.ink, op: ck, role: 'secondary' });
+        let na = 0; for (const q of seq) if (t >= q[0]) na++;
+        let ns = 0; for (let i = 0; i < 3; i++) if (t >= KN.shareAt + i * KN.shareStep) ns++;
+        const stage = ns ? 3 + ns : Math.min(4, na === 3 ? 4 : na);   // the rest-of-world pin lands with Europe; then one share per step
+        if (na > 0) pins(K, t, 'ps', S.AN.stk[stage - 1], win(t, KN.moveT1 + 1.0, KN.terrT - 0.05, 0.12), [capBand, [28, 150, 260, 250], [28, 396, 520, 430]]);
+      }
+      return;
+    }
+
+    /* ── PER OWN GRID (99-150) ── */
+    drawC(p, K, t, pose);
+    if (t >= KN.ieCutT0 && t < KN.mondayAt + 0.3) {   // the cut plane as a dashed frame (SVG), through the snapped column
+      const st = S.hf, x = colX(cutCol(t)), z1 = (-st.z0 + st.cellZ / 2) * zk(t), yT = -KN.hscale * 1.12;
+      const pts = [[x, 0, -z1], [x, yT, -z1], [x, yT, z1], [x, 0, z1]].map((q) => W2S(q[0], q[1], q[2]));
+      if (pts.every((q) => q.depth > 0)) K.path('cf', 'marks', poly(pts.map((q) => [q.x, q.y])), { stroke: C.soft, w: 1.4, dash: '6 4', op: sm(seg(t, KN.ieCutT0, KN.ieCutT0 + 0.3)) * (1 - sm(seg(t, KN.mondayAt, KN.mondayAt + 0.3))) });
+    }
+    const mon = sm(seg(t, KN.mondayAt, KN.mondayAt + 0.3));
+    if (mon > 0.001) K.flat((q) => { const c = q.color(C.paper); c.setAlpha(255 * KN.dimA * mon); q.noStroke(); q.fill(c); q.rect(-2, -2, 964, 544); });
+    if (t < KN.mondayAt) {
+      // results at a fixed place, one comparison at a time
+      const ie = (a, b) => win(t, a, b, 0.1);
+      result(K, 'c1', 40, 170, fmt(P.ieGwh) + ' GWh', 'IRELAND, ' + P.ieYear + ', METERED', ie(KN.ieAt, KN.ie15At), C.ink);
+      result(K, 'c2', 300, 170, P.iePct + ' %', "OF ITS METERED ELECTRICITY", ie(KN.ie23At, KN.usCutT0), C.accent);
+      result(K, 'c3', 560, 170, P.ieVsWorld + ' times', "THE WORLD'S " + P.worldPct + ' %', ie(KN.ie15At, KN.usCutT0), C.accent);
+      const us = (a, b) => win(t, a, b, 0.1);
+      result(K, 'c4', 40, 170, fmt(P.usTwh23) + ' TWh', 'UNITED STATES, ' + P.usYear, us(KN.usTwhAt, KN.usHalfAt), C.ink);
+      result(K, 'c5', 300, 170, P.usPct23 + ' %', 'OF ITS ELECTRICITY', us(KN.us44At, KN.halfAt), C.accent);
+      result(K, 'c7', 40, 170, '+' + P.usDemGrowth25 + ' %', 'US DEMAND GROWTH, ' + P.growthYear, us(KN.usHalfAt, KN.mondayAt), C.ink);   // the whole first
+      result(K, 'c6', 300, 170, 'about half', 'OF IT: DATA CENTRES', us(KN.halfAt, KN.mondayAt), C.accent2);   // then its inked half
+      const pinOp = (win(t, KN.terrT + 0.3, KN.ieCutT0 - 0.05, 0.1) + win(t, KN.pinsOn1, KN.usCutT0 - 0.05, 0.1) + win(t, KN.usCutT1 + 0.4, KN.mondayAt, 0.1));
+      const plan = t < KN.ieCutT0;
+      if (t >= KN.usHalfAt) { const b = slabBox(), q = W2S(b.x1, -b.h / 2, b.z1), go = us(KN.usHalfAt, KN.mondayAt);   // the slab's own flat label, at its right edge
+        K.tx('sl0', 'labels', q.x + 10, q.y + 2, 'NEW US DEMAND, ' + P.growthYear, { size: 14, fill: C.ink, op: go, role: 'secondary' });
+        K.tx('sl1', 'labels', q.x + 10, q.y + 20, 'SAME SCALE AS THE MESAS', { size: 14, fill: C.muted, op: go, role: 'secondary' }); }
+      pins(K, t, 'pp', plan ? S.AN.plan : S.AN.places, clamp(pinOp), plan ? [capBand] : [capBand, [28, 96, 800, 250], ieBox(W2S)].concat(t >= KN.usCutT1 ? [ieBox(W2S, 2)] : []));
+    } else {
+      const qo = sm(seg(t, KN.mondayAt + 0.3, KN.mondayAt + 0.9));
+      K.tx('q0', 'labels', 60, 118, 'FOR ANY AI ENERGY FIGURE YOU ARE QUOTED, ASK', { size: 14, fill: C.muted, op: qo, ls: '0.1em', role: 'secondary' });
+      ['per query?', 'per site?', 'per grid?'].forEach((w, i) => { const o = sm(seg(t, KN.mondayAt + 0.5 + i * 0.9, KN.mondayAt + 1.1 + i * 0.9));
+        K.tx('q' + (i + 1), 'labels', 60, 170 + i * 52, w, { fam: 'disp', size: KN.qSize, fill: i === 2 ? C.accent : C.ink, op: o, role: 'must-read' }); });
+      const ho = sm(seg(t, KN.honestAt, KN.honestAt + 0.6));
+      K.rc('hp', 'labels', 48, 336, 864, 60, { fill: C.paper, fo: 0.8, op: ho });
+      K.tx('ho1', 'labels', 60, 360, "Per-query figures: one vendor's median text prompt (Google, " + P.gemYear + ').', { size: KN.noteSize, fill: C.ink, op: ho, role: 'secondary' });
+      K.tx('ho2', 'labels', 60, 384, 'Assumed: ' + fmt(P.microW) + ' W microwave, ' + P.bulbW + ' W bulb, ' + P.promptsDay + ' prompts a day, a ' + P.siteMW + ' MW site at full load.', { size: KN.noteSize, fill: C.ink, op: ho, role: 'secondary' });
+    }
+  },
+};
+})();

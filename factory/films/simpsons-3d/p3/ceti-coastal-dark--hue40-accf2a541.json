@@ -1,0 +1,13 @@
+{ "id": "ceti-coastal-dark--hue40-accf2a541", "name": "CETI coastal dark [hue +40, accent #F2A541]",
+  "color": {
+    "bg": "#181B1F",
+    "ink": "#F2F8F7",
+    "accent": "#F2A541",
+    "accent2": "#7BBDFF",
+    "muted": "#BCD1DA",
+    "line": "rgba(124,222,198,0.3)",
+    "panel": "#242532",
+    "chalk": "#F2F8F7" },
+  "type": { "disp": {"family": "Fraunces", "weight": 300, "style": "italic"}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400} },
+  "texture": "none", "tempo": {"ease": "expo", "beat_s": 4},
+  "voice": {"register": "Academy coastal dark: a quiet coast, teal water and warm sand", "end_card": "CETI", "derived": {"from": "ceti-coastal-dark", "transforms": ["hue +40", "accent #F2A541"]}} }

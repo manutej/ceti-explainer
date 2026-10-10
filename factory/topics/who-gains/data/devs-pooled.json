@@ -1,0 +1,26 @@
+{
+ "source": "S2",
+ "unit": "% change in completed tasks",
+ "total": 4867,
+ "pooled": 26.08,
+ "se": 10.3,
+ "experiments": [
+  "Microsoft",
+  "Accenture",
+  "Fortune 100 electronics manufacturer"
+ ],
+ "split": "direction only: recent hires and junior developers gain more; longer-tenure and senior gain less (Microsoft arm has tenure and title)",
+ "group_n": null,
+ "ranges_pending": {
+  "junior": [
+   27,
+   39
+  ],
+  "senior": [
+   8,
+   13
+  ],
+  "grade": "C until re-read"
+ },
+ "blocker": "per-group developer counts and per-experiment n are not verified; no true-scale re-partition of the 4,867 boxes is possible"
+}

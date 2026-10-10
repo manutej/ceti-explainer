@@ -1,0 +1,259 @@
+{
+ "id": "queues",
+ "title": "Busy is not fast",
+ "eyebrow": "CETI case · utilisation and waiting",
+ "lede": "Everyone on the team is busy nine hours in ten, and everything is late. One hospital model, one real winter, and two desks fed the same hundred jobs show why: past about 85 % busy, the wait does not rise, it climbs.",
+ "dur": 75,
+ "seed": 31,
+ "palette": {
+  "paper": "#E8DCC2",
+  "ink": "#1E3A5C",
+  "accent": "#C8452E",
+  "muted": "#8E887C",
+  "chalk": "#F2ECDD",
+  "dark": "#0A0D12",
+  "soft": "#B9A277"
+ },
+ "type": {
+  "disp": "Big Shoulders Display",
+  "mono": "IBM Plex Mono"
+ },
+ "fonts": [
+  {
+   "family": "Big Shoulders Display",
+   "weight": 600,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 400,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 500,
+   "style": "normal"
+  }
+ ],
+ "params": {
+  "rhoA": 0.5,
+  "rhoB": 0.9,
+  "rho80": 0.8,
+  "rho85": 0.85,
+  "rho95": 0.95,
+  "seed": 3,
+  "warm": 2000,
+  "n": 100,
+  "defaultGuess": 2,
+  "hoursPerDay": 10,
+  "bedsShown": 100,
+  "bagustYear": 1999,
+  "bagustRisk": 85,
+  "bagustCrisis": 90,
+  "nhsOcc": 92.0,
+  "nhsYear": 2022
+ },
+ "commit": {
+  "at": 11.0,
+  "title": "YOUR GUESS",
+  "prompt": "A team busy 9 hours of 10: how many job-lengths does a new job wait?",
+  "unit": "job-lengths",
+  "default": 2,
+  "min": 0,
+  "max": 100,
+  "step": 0.5
+ },
+ "count": {
+  "at": 38
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 8,
+   "eyebrow": "QUEUES · THE HOOK",
+   "title": "Everyone is busy"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 8,
+   "t1": 16,
+   "eyebrow": "QUEUES · YOUR GUESS",
+   "title": "How long a wait?"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 16,
+   "t1": 36,
+   "eyebrow": "QUEUES · ONE HOSPITAL",
+   "title": "The ward that runs full"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 36,
+   "t1": 62,
+   "eyebrow": "QUEUES · THE COUNT",
+   "title": "Two desks, same jobs"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 62,
+   "t1": 72,
+   "eyebrow": "QUEUES · MONDAY",
+   "title": "One question"
+  }
+ ],
+ "captions": [
+  [
+   0.6,
+   3.9,
+   "Your team is busy 9 hours of every 10. Nobody idles."
+  ],
+  [
+   4.1,
+   7.8,
+   "Everyone fully used, so we are efficient. Right?"
+  ],
+  [
+   8.3,
+   10.9,
+   "Busy 5 hours of 10: a new job waits about one job's length."
+  ],
+  [
+   11.0,
+   15.8,
+   "Busy 9 of 10: how many job-lengths? Pick a number."
+  ],
+  [
+   16.4,
+   21.8,
+   "1999, BMJ: a model of an English hospital's beds."
+  ],
+  [
+   22.0,
+   27.8,
+   "Above 85 of 100 beds full, the risk of no bed appears."
+  ],
+  [
+   28.0,
+   31.8,
+   "At 90 of 100: regular shortages, periodic crises."
+  ],
+  [
+   32.0,
+   35.8,
+   "Oct to Dec 2022, England's hospitals ran 92 of 100."
+  ],
+  [
+   36.4,
+   47.8,
+   "Same 100 arrivals, two desks. Each mark: one job ahead."
+  ],
+  [
+   48.2,
+   52.8,
+   "Half-busy desk: 100 arrivals found 99 jobs ahead."
+  ],
+  [
+   53.0,
+   56.8,
+   "Nine-tenths busy: the same 100 found 837 ahead."
+  ],
+  [
+   57.0,
+   61.8,
+   "837 ÷ 100 is 8.4 a job. The long run says 9."
+  ],
+  [
+   62.4,
+   67.8,
+   "Monday: which step runs above 85 % busy? What waits?"
+  ],
+  [
+   68.0,
+   71.8,
+   "Limit: one desk, random work. Steadier work waits less."
+  ]
+ ],
+ "ledger": [
+  [
+   0.6,
+   "REV A · THE TEAM"
+  ],
+  [
+   15.6,
+   "REV B · GUESS SEALED"
+  ],
+  [
+   16.5,
+   "REV C · THE WARD"
+  ],
+  [
+   36.5,
+   "REV D · TWO DESKS"
+  ],
+  [
+   62.5,
+   "REV E · MONDAY"
+  ]
+ ],
+ "brand": {
+  "takeaway": "Busy is not fast: at 90 %, a job waits nine."
+ },
+ "sources": [
+  [
+   "BPP99",
+   "Bagust A, Place M, Posnett JW. Dynamics of bed use in accommodating emergency admissions: stochastic simulation model. BMJ 1999;319(7203):155–158. doi:10.1136/bmj.319.7203.155. Risks discernible above about 85 % average occupancy; regular bed shortages and periodic bed crises at 90 % or more."
+  ],
+  [
+   "KH03",
+   "NHS England. Bed Availability and Occupancy (KH03), Quarter 3 2023-24 Statistical Press Notice, February 2024: general and acute beds open overnight, average occupancy 92.0 % in Quarter 3 2022/23 (October–December 2022, revised)."
+  ],
+  [
+   "KL75",
+   "Kleinrock L. Queueing Systems, Volume 1: Theory. Wiley, 1975. M/M/1: mean wait in queue = ρ/(1−ρ) × mean job length; an arrival finds on average ρ/(1−ρ) jobs in the system."
+  ],
+  [
+   "KI61",
+   "Kingman JFC. The single server queue in heavy traffic. Proceedings of the Cambridge Philosophical Society 1961;57:902–904. Wait ≈ ρ/(1−ρ) × (cₐ² + cₛ²)/2 × job length."
+  ],
+  [
+   "RE09",
+   "Reinertsen DG. The Principles of Product Development Flow: Second Generation Lean Product Development. Celeritas, 2009. Ch. 3, Managing Queues: queue size against capacity utilisation."
+  ],
+  [
+   "SIM",
+   "This film's seeded simulation (claims.json formulas): one M/M/1 desk, mulberry32 seed 3, 2,000 warm-up jobs discarded, then 100 counted; the same random stream feeds both desks. Seed rule: the first seed from 1 whose two counts both land within 10 % of the long run (100 and 900)."
+  ],
+  [
+   "FILM",
+   "This film's own construction: a day drawn as 10 hours, a ward drawn as 100 beds, the film-mode default guess."
+  ]
+ ],
+ "honest": [
+  "The count is one desk with random arrivals and random job sizes (M/M/1). Steadier work waits less: perfectly regular jobs at 90 % busy wait 4.5 job-lengths, half of 9 (Kingman). The curve keeps its shape.",
+  "The hospital case is a many-bed simulation (Bagust 1999) and a national average (NHS England); many parallel servers push the cliff later, they do not remove it. The film shows the cliff is real, not where a given ward's cliff sits.",
+  "The two desks are one seeded run of 100 arrivals each. Single runs at 90 % busy vary widely, from about 1 to 40 jobs ahead per arrival across seeds 1 to 60; seed 3 was chosen by a stated rule (the first seed whose two counts both land within 10 % of the long run)."
+ ],
+ "tryit": {
+  "title": "Try it",
+  "note": "Move how busy the desk is; the long-run wait follows ρ/(1−ρ).",
+  "seek": 61.5,
+  "inputs": [
+   {
+    "id": "busy",
+    "label": "Busy",
+    "min": 10,
+    "max": 98,
+    "step": 1,
+    "value": 85,
+    "unit": "%"
+   }
+  ]
+ }
+}

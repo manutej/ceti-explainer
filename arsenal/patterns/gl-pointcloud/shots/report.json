@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/demo.html",
+ "errors": [],
+ "variants": {
+  "two-groups-2k": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/two-groups-2k-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/two-groups-2k-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/two-groups-2k-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/two-groups-2k-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "fog-20k": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/fog-20k-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/fog-20k-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/fog-20k-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/fog-20k-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "brushed-pins": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/brushed-pins-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/brushed-pins-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/brushed-pins-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/brushed-pins-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "brushed-dof": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/brushed-dof-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/brushed-dof-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/brushed-dof-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/brushed-dof-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 532.8,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-pointcloud/shots/contact.png"
+}

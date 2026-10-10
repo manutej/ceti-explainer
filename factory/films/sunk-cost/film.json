@@ -1,0 +1,73 @@
+{
+  "id": "sunk-cost",
+  "title": "The Season Ticket",
+  "eyebrow": "CETI case · the sunk cost fallacy",
+  "lede": "Sixty theatre-goers, one season, three prices for the same ticket. The money was gone either way. Count the stubs: did the price people had already paid change how often they came?",
+  "dur": 75,
+  "seed": 1985,
+  "palette": { "paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "muted": "#8E887C", "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277" },
+  "type": { "disp": "Big Shoulders Display", "mono": "IBM Plex Mono" },
+  "fonts": [
+    { "family": "Big Shoulders Display", "weight": 600, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 400, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 500, "style": "normal" }
+  ],
+  "params": {
+    "spentM": 4, "bought": 60, "groups": 3, "plays": 5, "price": 15, "off2": 2, "off7": 7,
+    "couples15": 2, "couples13": 1, "couples8": 3, "m15": 4.11, "m13": 3.32, "m8": 3.29,
+    "season": 1982, "holdSec": 8, "guessDefault": 17
+  },
+  "commit": { "at": 11.2, "title": "YOUR GUESS", "prompt": "17 people got $7 off: 85 tickets. How many went unused?", "unit": "unused of 85", "default": 17, "min": 0, "max": 85, "step": 1 },
+  "count": { "at": 36 },
+  "groups": [
+    { "key": "g15", "price": 15, "label": "$15", "n": 18, "used": 74, "seed": 15, "mean": "4.11" },
+    { "key": "g8",  "price": 8,  "label": "$8",  "n": 17, "used": 56, "seed": 8,  "mean": "3.29" },
+    { "key": "g13", "price": 13, "label": "$13", "n": 19, "used": 63, "seed": 13, "mean": "3.32" }
+  ],
+  "chapters": [
+    { "id": "hook",   "beat": "HOOK",   "t0": 0,  "t1": 8,  "eyebrow": "SUNK COST · THE HOOK",   "title": "Four million in" },
+    { "id": "commit", "beat": "COMMIT", "t0": 8,  "t1": 16, "eyebrow": "SUNK COST · THE COMMIT", "title": "Seal one number" },
+    { "id": "case",   "beat": "CASE",   "t0": 16, "t1": 36, "eyebrow": "SUNK COST · THE CASE",   "title": "Ohio, one season" },
+    { "id": "count",  "beat": "COUNT",  "t0": 36, "t1": 62, "eyebrow": "SUNK COST · THE COUNT",  "title": "Count the stubs" },
+    { "id": "monday", "beat": "MONDAY", "t0": 62, "t1": 72, "eyebrow": "SUNK COST · MONDAY",     "title": "The next dollar" }
+  ],
+  "captions": [
+    [0.6, 3.8, "We've already spent $4M on this. We can't stop now."],
+    [4.0, 7.8, "That money is gone either way. Does it still steer us?"],
+    [8.2, 10.9, "A season ticket: five plays. Some paid $15, some $7 less."],
+    [11.0, 15.8, "17 people got $7 off: 85 tickets. How many went unused?"],
+    [16.2, 22.0, "Ohio University Theater, 1982. The first 60 season buyers."],
+    [22.2, 28.6, "Each was sold a $15, $13 or $8 ticket, at random."],
+    [28.8, 35.8, "Six bought as couples, set aside. Who came to plays 1–5?"],
+    [36.4, 41.8, "Paid $15: 18 people, 90 tickets. 74 used, 16 empty."],
+    [42.0, 47.8, "Got $7 off: 17 people, 85 tickets. 56 used, 29 empty."],
+    [48.0, 53.8, "Your guess is in red. The stubs say 29 went unused."],
+    [54.0, 57.0, "$2 off was no better: 63 of 95 used."],
+    [57.2, 61.8, "Per person: 4.11 of 5 plays at $15; 3.29 at $8."],
+    [62.4, 66.6, "If the $4M weren't spent, would we fund the rest today?"],
+    [66.8, 71.8, "One theatre, 54 people; by plays 6–10 the gap had faded."]
+  ],
+  "ledger": [
+    [0.8, "Q · $4M SPENT · STOP OR GO ON"],
+    [8.4, "COMMIT · UNUSED OF 85 TICKETS"],
+    [16.4, "ARKES & BLUMER · OBHDP 1985"],
+    [22.4, "60 BUYERS · $15 / $13 / $8"],
+    [29.0, "6 COUPLES OUT · 54 COUNTED"],
+    [36.4, "PLAYS 1–5 · TICKETS USED"],
+    [62.4, "MONDAY · THE NEXT DOLLAR"]
+  ],
+  "brand": { "takeaway": "What's spent is spent. Decide on what's left." },
+  "sources": [
+    ["AB85", "Arkes, H. R., & Blumer, C. (1985). The psychology of sunk cost. Organizational Behavior and Human Decision Processes, 35(1), 124–140. doi:10.1016/0749-5978(85)90049-4. The season-ticket field experiment: 60 buyers, $15 / $13 / $8, two halves of five plays, six couples removed (2 / 1 / 3); first-half means 4.11, 3.32, 3.29."],
+    ["AA99", "Arkes, H. R., & Ayton, P. (1999). The sunk cost and Concorde effects: Are humans less rational than lower animals? Psychological Bulletin, 125(5), 591–600. doi:10.1037/0033-2909.125.5.591. About one third each at $15, $13 and $8."],
+    ["F07", "Friedman, D., Pommerenke, K., Lukose, R., Milam, G., & Huberman, B. A. (2007). Searching for the sunk cost fallacy. Experimental Economics, 10(1), 79–104. doi:10.1007/s10683-006-9134-0. The 20 / 20 / 20 design; a small and erratic effect in the lab."],
+    ["S76", "Staw, B. M. (1976). Knee-deep in the big muddy: A study of escalating commitment to a chosen course of action. Organizational Behavior and Human Performance, 16(1), 27–44. doi:10.1016/0030-5073(76)90005-2."],
+    ["T80", "Thaler, R. (1980). Toward a positive theory of consumer choice. Journal of Economic Behavior & Organization, 1(1), 39–60. doi:10.1016/0167-2681(80)90051-7."]
+  ],
+  "honest": [
+    "One season at one campus theatre: 54 people, discounts of $2 and $7 on a $15 ticket. That is not a $4M project, and the film does not claim the size of the effect carries over.",
+    "The gap held for the first five plays only; in the second half (plays 6 to 10) the groups did not differ significantly. Lab studies (Friedman et al. 2007) find the sunk-cost effect small and erratic.",
+    "The paper reports average tickets used per person (4.11, 3.32, 3.29). The totals on screen (74, 63, 56) are the only whole numbers that give those averages for 18, 19 and 17 people. Which seats were empty is not reported: the empty squares are placed by a seeded shuffle; only their number is data.",
+    "The $4M in the hook is an illustrative quote, not data."
+  ]
+}

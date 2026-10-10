@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/demo.html",
+ "errors": [],
+ "variants": {
+  "funnel-two-layer": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/funnel-two-layer-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/funnel-two-layer-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/funnel-two-layer-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/funnel-two-layer-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "sankey-multistage": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/sankey-multistage-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/sankey-multistage-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/sankey-multistage-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/sankey-multistage-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "queue-arrivals": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/queue-arrivals-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/queue-arrivals-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/queue-arrivals-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/queue-arrivals-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "funnel-tubes": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/funnel-tubes-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/funnel-tubes-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/funnel-tubes-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/funnel-tubes-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 155.4,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-ribbons/shots/contact.png"
+}

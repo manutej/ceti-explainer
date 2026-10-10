@@ -1,0 +1,59 @@
+{
+ "id": "noether-symmetry",
+ "verdict": "SHIP",
+ "seat": "director, v2 after owner feedback (concept first, no moving text, finer cloud); one Opus revision round on a director's note; strips and the v2 before/after sheet read at 480x270; commit beat off (D11)",
+ "truth": [
+  {
+   "claim": "Earth at perihelion 147.095 million km and 30.29 km/s, at aphelion 152.100 million km and 29.29 km/s; distance x speed agrees within 0.011 %",
+   "status": "ok",
+   "note": "measured values (NASA fact sheet), bound twice on stage by the formula; the 0.011 % lands at 53.5 s after both products are counted"
+  },
+  {
+   "claim": "30,000 simulated orbit states (300 planets x 100 moments) land on 6 shells by spin and 5 layers by energy; our planet's 100 dots stay on one shell and in one layer",
+   "status": "ok",
+   "note": "lib/data rebuilt from factory/topics/noether-symmetry by recompute.py and mkdata.py, same seeds; the cut plane is dropped; the followed planet is the picture of 'conserved'"
+  },
+  {
+   "claim": "10,000 training states of a tiny network (100 runs x 100 steps): the weights move 0.24, the fixed sum moves 0.00095, about 250 times less",
+   "status": "ok",
+   "note": "both values on one frame before the ratio"
+  }
+ ],
+ "craft": 4,
+ "originality": 5,
+ "stop": 4,
+ "legibility_phone": "ok (caption band and readouts at or above 16 units; G6 overflow is the kit shell, not the film)",
+ "format": {
+  "counts_first": true,
+  "commit_before_number": "n/a (D11)",
+  "brand_card": true,
+  "honest_line": true,
+  "exec_clean": "n/a (level manager)"
+ },
+ "moves_3d": [
+  "one orbit, three readouts, the flat bar (0-12 s)",
+  "Earth's two measured moments in one panel (27 s)",
+  "turn the whole picture under a still readout (42-48 s)",
+  "30,000 dots sort by spin into 6 shells (68-80 s)",
+  "regroup by energy into layers (88-101 s)",
+  "the network's 3 shells (112-127 s)"
+ ],
+ "defects": [
+  {
+   "t": 68,
+   "what": "the followed planet is faint in the 30,000-dot tangle at thumbnail size (reads at stage size)",
+   "severity": "low"
+  },
+  {
+   "t": 112,
+   "what": "the network dots read as short streaks (100 steps per run, close together)",
+   "severity": "low"
+  },
+  {
+   "t": 9,
+   "what": "the bar is labelled 'speed around the sun' (the tangential part), which is the honest product; a lay viewer may read it as plain speed",
+   "severity": "low"
+  }
+ ],
+ "notes": "v2 replaces v1 on the same artifact. Text: one readout panel, one corner tag, at most one pin; nothing moves and nothing touches the cloud (checked every 0.5 s by the reviser). Part 1 of a three-part series; Parts 2 and 3 in production."
+}

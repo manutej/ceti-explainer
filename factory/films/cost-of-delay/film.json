@@ -1,0 +1,92 @@
+{
+  "id": "cost-of-delay",
+  "title": "The Cost of Waiting",
+  "eyebrow": "CETI · the 75-second case · cost of delay",
+  "lede": "“We'll start with the biggest project; the small ones can wait.” Three features, one team, six months: count what the waiting costs under each order, then see why the cheapest-looking plan is not.",
+  "dur": 75,
+  "seed": 31,
+  "palette": { "paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "muted": "#8E887C", "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277" },
+  "type": { "disp": "Big Shoulders Display", "mono": "IBM Plex Mono" },
+  "fonts": [
+    { "family": "Big Shoulders Display", "weight": 600, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 400, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 500, "style": "normal" }
+  ],
+  "params": {
+    "codA": 200, "durA": 3, "codB": 100, "durB": 1, "codC": 50, "durC": 2,
+    "unit": 50, "guess": 500,
+    "mHours": 82, "mWeeks": 46, "mWait": 38, "mWeekly": 200000, "mEstimate": 8000000,
+    "mPortfolio": 100000000, "mAvgDays": 150, "mOverYearPct": 24
+  },
+  "features": [
+    { "id": "A", "cod": 200, "dur": 3, "tone": 0.92 },
+    { "id": "B", "cod": 100, "dur": 1, "tone": 0.55 },
+    { "id": "C", "cod": 50, "dur": 2, "tone": 0.22 }
+  ],
+  "orders": [
+    { "id": "big", "seq": ["A", "C", "B"], "label": "BIGGEST FIRST", "t0": 38.0, "step": 1.15, "stag": 0.1, "reset": 36.0 },
+    { "id": "cheap", "seq": ["B", "C", "A"], "label": "CHEAPEST FIRST", "t0": 48.0, "step": 0.5, "stag": 0.05, "reset": 47.4 },
+    { "id": "cd3", "seq": ["B", "A", "C"], "label": "BY CD3", "t0": 53.5, "step": 0.45, "stag": 0.05, "reset": 53.0 }
+  ],
+  "commit": { "at": 9.0, "title": "YOUR NUMBER", "prompt": "Biggest first, as planned. Six months: what does the waiting cost in total, in £k?", "unit": "£K OF WAITING, 6 MO", "default": 500, "min": 0, "max": 5000, "step": 10 },
+  "count": { "at": 36.0 },
+  "T": {
+    "heads": 1.0, "rows": [2.0, 2.6, 3.2], "bars": [4.4, 5.0, 5.4], "plan": 5.8, "ticks": 6.2,
+    "dimBoard": 8.0, "boxOut": 15.4,
+    "caseIn": 16.0, "hours": 16.4, "cells": 20.8, "wait": 23.2, "legend": 25.8, "chips": 26.4, "product": 30.8, "estimate": 31.8,
+    "countIn": 36.0, "countLegend": 36.4, "slots": 36.4, "money1": 44.2, "unseal": 45.0, "gap": 45.8,
+    "money2": 50.9, "money3": 55.9, "saved": 56.2, "cd3": 58.0, "monday": 62.0
+  },
+  "chapters": [
+    { "id": "hook", "beat": "HOOK", "t0": 0, "t1": 8, "eyebrow": "COST OF DELAY · THE PLAN", "title": "The biggest goes first" },
+    { "id": "commit", "beat": "COMMIT", "t0": 8, "t1": 16, "eyebrow": "COST OF DELAY · YOUR NUMBER", "title": "What does waiting cost?" },
+    { "id": "case", "beat": "CASE", "t0": 16, "t1": 36, "eyebrow": "COST OF DELAY · THE CASE · MAERSK LINE", "title": "One feature, waiting" },
+    { "id": "count", "beat": "COUNT", "t0": 36, "t1": 62, "eyebrow": "COST OF DELAY · THE COUNT", "title": "Count the waiting" },
+    { "id": "monday", "beat": "MONDAY", "t0": 62, "t1": 72, "eyebrow": "COST OF DELAY · MONDAY", "title": "One question" }
+  ],
+  "captions": [
+    [0.5, 4.1, "“Start with the biggest. The small ones can wait.”"],
+    [4.3, 7.9, "Three features. Each earns only once it ships."],
+    [8.2, 15.8, "Biggest first. Seal a number: what does waiting cost?"],
+    [16.3, 20.6, "Maersk Line: one feature, 82 hours of work."],
+    [20.8, 25.6, "It took 46 weeks to ship. 38 were spent waiting."],
+    [25.8, 30.6, "Each week of waiting: over $200,000 not earned."],
+    [30.8, 35.8, "38 × $200k = $7.6M. Their own estimate: nearly $8M."],
+    [36.3, 41.6, "Your three. One mark: £50k not yet earned, per month."],
+    [44.0, 47.4, "Biggest first: 29 marks. £1.45M."],
+    [50.9, 53.6, "Cheapest first: 29 marks. The same £1.45M."],
+    [56.0, 59.0, "Reordered: 24 marks. £1.2M. Same work, same team."],
+    [59.2, 62.0, "The rule: £ a month ÷ months of work. Highest first."],
+    [62.2, 66.8, "Monday: what does a month of delay cost, for each item?"],
+    [67.0, 71.8, "Teaching numbers. Real cost of delay is an estimate."]
+  ],
+  "ledger": [
+    [5.8, "REV A · PLAN: BIGGEST FIRST"],
+    [13.6, "REV B · YOUR NUMBER SEALED"],
+    [30.8, "REV C · THE CASE: MAERSK LINE"],
+    [44.2, "REV D · COUNTED: BIGGEST FIRST"],
+    [50.9, "REV E · COUNTED: CHEAPEST FIRST"],
+    [55.9, "REV F · REORDERED BY CD3"]
+  ],
+  "brand": { "takeaway": "Do first what loses the most per month of work.", "at": 72 },
+  "sources": [
+    ["S1", "Reinertsen, D. G. The Principles of Product Development Flow: Second Generation Lean Product Development. Celeritas Publishing, 2009. Cost of delay (“If you only quantify one thing, quantify the cost of delay”); Weighted Shortest Job First = cost of delay ÷ duration."],
+    ["S2", "Arnold, J. J. & Yüce, Ö. “Black Swan Farming Using Cost of Delay: Discover, Nurture and Speed Up Delivery of Value.” Agile Conference 2013 (AGILE 2013), IEEE, pp. 101–116. doi:10.1109/AGILE.2013.16. Maersk Line, a portfolio of about $100M; CD3 = cost of delay divided by duration."],
+    ["S3", "Arnold, J. J. “Cost of Delay.” Black Swan Farming, blackswanfarming.com/cost-of-delay: the Maersk feature, about 82 hours of work, 46 weeks idea to launch, over 38 weeks in queues, more than $200,000 per week, “nearly $8m in lost revenue”."],
+    ["S4", "Arnold, J. J. & Yüce, Ö. “Black Swan Farming using Cost of Delay”, authors' repost, blackswanfarming.com: on average 150 days to get value out of the pipeline before October 2010; 24 % of requirements took over a year."],
+    ["S5", "Smith, W. E. “Various optimizers for single-stage production.” Naval Research Logistics Quarterly 3 (1956): 59–66. doi:10.1002/nav.3800030106. Ordering by weight ÷ processing time minimises total weighted completion time."]
+  ],
+  "honest": [
+    "The three features are a declared teaching object: stated values (£200k, £100k and £50k a month; 3, 1 and 2 months of work), not data. Real cost of delay is an estimate, and it is rarely a flat line per month: deadlines and closing windows change its shape.",
+    "Value ÷ duration is exactly the best order only for one team doing one item at a time with roughly linear delay costs. Maersk's $200,000 a week is the company's own estimate of lost revenue, not an audited figure; the 38 waiting weeks are drawn as one run, but the source does not give their calendar order."
+  ],
+  "tryit": { "title": "Try it", "note": "Change the values and durations; the six orders are recounted with the same rule (value a month × the month it ships).", "seek": 61.0,
+    "inputs": [
+      { "id": "codA", "label": "A · £k a month", "min": 0, "max": 500, "step": 10, "value": 200, "unit": "£k" },
+      { "id": "durA", "label": "A · months", "min": 1, "max": 6, "step": 1, "value": 3, "unit": "mo" },
+      { "id": "codB", "label": "B · £k a month", "min": 0, "max": 500, "step": 10, "value": 100, "unit": "£k" },
+      { "id": "durB", "label": "B · months", "min": 1, "max": 6, "step": 1, "value": 1, "unit": "mo" },
+      { "id": "codC", "label": "C · £k a month", "min": 0, "max": 500, "step": 10, "value": 50, "unit": "£k" },
+      { "id": "durC", "label": "C · months", "min": 1, "max": 6, "step": 1, "value": 2, "unit": "mo" }
+    ] }
+}

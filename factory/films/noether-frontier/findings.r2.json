@@ -1,0 +1,38 @@
+[
+ {
+  "t": 84.0,
+  "frame": "thumbs/t-0080.50.jpg ... t-0087.00.jpg (strip-14 c5 to strip-15 c6)",
+  "severity": "major",
+  "what": "Round-1 cometDim 0.55 and growComet 2.2 landed, but the comet still does not read: from 80.5 s each layer turns into one even grey band of enlarged dots and no single head can be followed; the five layers still read as layers (their plates carry them). With 8 lit moments per arc grown 2.2x, the lit dots cover most of each band.",
+  "why": "A shorter comet halves the lit, grown dots per arc so the heads separate from their arcs instead of merging into a bar. Last knob for this beat: if 4 does not show a moving head, the slide needs the drawn followed head (Beyond scope 2), not more knobs.",
+  "knob": "cometLen",
+  "proposed_value": 4
+ },
+ {
+  "t": 111.0,
+  "frame": "thumbs/t-0108.00.jpg ... t-0114.50.jpg (strip-19 c0-c11)",
+  "severity": "minor",
+  "what": "Round-1 toyH 20 and toyBoxD 16 landed: the marks are blocks now (101 s). But the taller fronts cover the gap between rows at camToyEl 40, so at 109.5-111 s the six rows read as a slab with seams, not six rows.",
+  "why": "A wider row pitch gives each row a visible strip of plate between it and the next; 5 x 16 x 1.9 + 16 = 168 units, which needs the deeper plate in the next finding.",
+  "knob": "toyRow",
+  "proposed_value": 1.9
+ },
+ {
+  "t": 111.0,
+  "frame": "thumbs/t-0111.00.jpg (strip-19 c6)",
+  "severity": "minor",
+  "what": "At toyRow 1.9 the six rows span 168 units, more than the 150-unit plate.",
+  "why": "190 keeps all six rows on the plate with an 11-unit margin each side; the plate grows about 13 stage units toward the front, far from the caption band (plate front at about 334 of 540 at 108 s).",
+  "knob": "plateD",
+  "proposed_value": 190
+ },
+ {
+  "t": 135.5,
+  "frame": "thumbs/t-0135.50.jpg, t-0136.00.jpg (strip-23 c7-c8)",
+  "severity": "major",
+  "what": "New in round 2: with treeD 90 the tree's plate reaches further toward the camera, and as the Monday stage type fades in (135.3-136.0 s) its first line sits on the plate's front edge (plate edge about y 364, line 1 cap tops about y 354, stage units). From 136.5 s the easing camera clears it.",
+  "why": "Moving the Monday type down 18 units puts its first line clear of the plate edge throughout the fade; line 2 lands at 428 with descenders about 436, still above the caption's mark at about 444. G11 sees this text and will confirm.",
+  "knob": "monY",
+  "proposed_value": 390
+ }
+]

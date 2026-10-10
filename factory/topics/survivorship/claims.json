@@ -1,0 +1,239 @@
+{
+ "film": "survivorship",
+ "params": {
+  "flew": 400,
+  "returned": 380,
+  "unhit": 320,
+  "a0": 0.8,
+  "a1": 0.08,
+  "a2": 0.05,
+  "a3": 0.01,
+  "a4": 0.005,
+  "a5": 0.005,
+  "hit1": 32,
+  "hit2": 20,
+  "hit3": 4,
+  "hit4": 2,
+  "hit5": 2,
+  "per": 100,
+  "guess": 10,
+  "year": 1943
+ },
+ "notes": "Wald's Part I numerical example (Wald 1943, CRC 432 reprint 1980). Confirmed from the sources reachable here: 400 planes, 380 return, 20 downed, 320 returning with no hit (a0 = .800), 32 with one (a1 = .080), 20 with two (a2 = .050), at most five hits (n = 5), root q = .851, p = .149. The split 4 / 2 / 2 for three, four and five hits (a3 = .010, a4 = .005, a5 = .005) is reconstructed from the memo's polynomial fragments and is the only split that reproduces q = .851 (claim c-q). On screen it appears only as '8 with 3 to 5 holes', which is the subtraction 60 - 32 - 20 and holds whatever the split. 'guess' is the film-mode default commit (film.json defaultGuess), not a fact.",
+ "claims": [
+  {
+   "id": "c-year",
+   "text": "1943",
+   "value": 1943,
+   "formula": "year",
+   "source": "s-wald",
+   "where": "CASE memo title block; caption 5"
+  },
+  {
+   "id": "c-flew",
+   "text": "400 planes flew",
+   "value": 400,
+   "formula": "flew",
+   "source": "s-wald",
+   "where": "CASE ledger line 1; caption 6; COUNT grid header '400 FLEW'"
+  },
+  {
+   "id": "c-returned",
+   "text": "380 came home",
+   "value": 380,
+   "formula": "returned",
+   "source": "s-wald",
+   "where": "CASE ledger line 2; caption 6"
+  },
+  {
+   "id": "c-returned-check",
+   "text": "380 = 400 x 0.95 (returning share is the sum of a0..a5)",
+   "value": 380,
+   "formula": "Math.round(flew*(a0+a1+a2+a3+a4+a5))",
+   "source": "s-wald",
+   "where": "cross-check only (not on screen)"
+  },
+  {
+   "id": "c-lost",
+   "text": "20 never came home",
+   "value": 20,
+   "formula": "flew-returned",
+   "source": "s-wald",
+   "where": "CASE ledger line 3; caption 7; COUNT bottom row label '20 never came back'; COUNT truth marker"
+  },
+  {
+   "id": "c-unhit",
+   "text": "320 came home with no holes",
+   "value": 320,
+   "formula": "Math.round(a0*flew)",
+   "source": "s-wald",
+   "where": "COUNT label for rows 1-16; caption 9"
+  },
+  {
+   "id": "c-holed",
+   "text": "60 came home with holes",
+   "value": 60,
+   "formula": "returned-unhit",
+   "source": "s-wald",
+   "where": "HOOK tally label; CASE ledger; caption 7; COUNT label for rows 17-19; COUNT '0 of 60' survivor line"
+  },
+  {
+   "id": "c-holed-check",
+   "text": "60 = 32 + 20 + 8",
+   "value": 60,
+   "formula": "hit1+hit2+hit3+hit4+hit5",
+   "source": "s-wald",
+   "where": "cross-check only"
+  },
+  {
+   "id": "c-hit1",
+   "text": "32 with one hole",
+   "value": 32,
+   "formula": "Math.round(a1*flew)",
+   "source": "s-wald",
+   "where": "CASE ledger, holes line"
+  },
+  {
+   "id": "c-hit2",
+   "text": "20 with two holes",
+   "value": 20,
+   "formula": "Math.round(a2*flew)",
+   "source": "s-wald",
+   "where": "CASE ledger, holes line"
+  },
+  {
+   "id": "c-hit3to5",
+   "text": "8 with three to five holes",
+   "value": 8,
+   "formula": "returned-unhit-hit1-hit2",
+   "source": "s-wald",
+   "where": "CASE ledger, holes line"
+  },
+  {
+   "id": "c-minhits3",
+   "text": "3 (lower end of '3 to 5 holes')",
+   "value": 3,
+   "formula": "3",
+   "source": "s-wald",
+   "where": "CASE ledger, holes line ('8 with 3 to 5')"
+  },
+  {
+   "id": "c-maxhits",
+   "text": "at most 5 holes on any plane that came home",
+   "value": 5,
+   "formula": "5",
+   "source": "s-wald",
+   "where": "CASE ledger, holes line ('3 to 5')"
+  },
+  {
+   "id": "c-hittotal",
+   "text": "80 planes were hit (60 home + 20 lost)",
+   "value": 80,
+   "formula": "(returned-unhit)+(flew-returned)",
+   "source": "s-wald",
+   "where": "COUNT bracket '80 HIT'; caption 10"
+  },
+  {
+   "id": "c-hittotal-check",
+   "text": "80 = 400 - 320 (every plane that was not hit came home)",
+   "value": 80,
+   "formula": "flew-unhit",
+   "source": "s-mangel",
+   "where": "cross-check only; the model assumption is in the honest-limits block"
+  },
+  {
+   "id": "c-lostofhit",
+   "text": "20 of 80 hit planes never came back",
+   "value": 20,
+   "formula": "flew-returned",
+   "source": "s-wald",
+   "where": "COUNT truth line 'TRUE 20 of 80'"
+  },
+  {
+   "id": "c-ratio",
+   "text": "1 in 4",
+   "value": 4,
+   "formula": "((returned-unhit)+(flew-returned))/(flew-returned)",
+   "source": "s-wald",
+   "where": "COUNT headline '1 in 4' with '20 ÷ 80' beneath (after the count is drawn)"
+  },
+  {
+   "id": "c-per100",
+   "text": "25 in 100 hit planes never came home",
+   "value": 25,
+   "formula": "Math.round(per*(flew-returned)/((returned-unhit)+(flew-returned)))",
+   "source": "s-wald",
+   "where": "COUNT comparison line 'TRUE 25 in 100' against the viewer's guess; try-it panel"
+  },
+  {
+   "id": "c-survivorview",
+   "text": "0 of 60: what the survivors' data shows about hit planes lost",
+   "value": 0,
+   "formula": "0*(returned-unhit)",
+   "source": "s-wald",
+   "where": "COUNT survivor line 'THE DATA YOU HAD: 0 of 60 lost'"
+  },
+  {
+   "id": "c-per",
+   "text": "out of 100 planes hit (the commit prompt's base)",
+   "value": 100,
+   "formula": "per",
+   "source": "s-wald",
+   "where": "COMMIT prompt; caption 4; COUNT comparison lines"
+  },
+  {
+   "id": "c-guess-default",
+   "text": "film-mode default guess: 10 in 100",
+   "value": 10,
+   "formula": "guess",
+   "source": "film.json defaultGuess (declared teaching default, not a fact)",
+   "where": "COMMIT box in film mode; COUNT 'YOU 10 in 100'"
+  },
+  {
+   "id": "c-guess-cells",
+   "text": "the viewer's guess placed on the 80 hit planes: 8 of 80",
+   "value": 8,
+   "formula": "Math.round(guess*((returned-unhit)+(flew-returned))/per)",
+   "source": "derived from the viewer's commit and s-wald",
+   "where": "COUNT 'YOU 8 of 80' (recomputed live from the committed guess)"
+  },
+  {
+   "id": "c-q",
+   "text": "Wald's per-hit survival q = 0.851 (memo's root)",
+   "value": 0.851,
+   "formula": "(function(){var a=[a0,a1,a2,a3,a4,a5];var f=function(q){var s=0;for(var i=0;i<a.length;i++){s+=a[i]/Math.pow(q,i);}return s-1;};var lo=0.5,hi=0.9999;for(var k=0;k<200;k++){var m=(lo+hi)/2;if(f(m)>0){lo=m;}else{hi=m;}}return Math.round(lo*1000)/1000;})()",
+   "source": "s-wald",
+   "where": "try-it panel and sources note only (cross-check that the reconstructed 4 / 2 / 2 split reproduces the memo)"
+  },
+  {
+   "id": "c-p",
+   "text": "about 15 in 100: chance a single hit downs a plane (p = 0.149)",
+   "value": 0.149,
+   "formula": "(function(){var a=[a0,a1,a2,a3,a4,a5];var f=function(q){var s=0;for(var i=0;i<a.length;i++){s+=a[i]/Math.pow(q,i);}return s-1;};var lo=0.5,hi=0.9999;for(var k=0;k<200;k++){var m=(lo+hi)/2;if(f(m)>0){lo=m;}else{hi=m;}}return Math.round((1-lo)*1000)/1000;})()",
+   "source": "s-wald",
+   "where": "try-it panel only"
+  }
+ ],
+ "sources": [
+  {
+   "id": "s-wald",
+   "cite": "Wald, A. (1943). A Method of Estimating Plane Vulnerability Based on Damage of Survivors. Statistical Research Group, Columbia University, for the Applied Mathematics Panel, NDRC (eight memoranda). Reprinted as CRC 432, Center for Naval Analyses, Alexandria VA, July 1980 (DTIC AD-A091073). Part I, numerical example."
+  },
+  {
+   "id": "s-mangel",
+   "cite": "Mangel, M. and Samaniego, F. J. (1984). Abraham Wald's Work on Aircraft Survivability. Journal of the American Statistical Association 79(386), 259-267. doi:10.2307/2288257."
+  },
+  {
+   "id": "s-ellenberg",
+   "cite": "Ellenberg, J. (2014). How Not to Be Wrong: The Power of Mathematical Thinking. New York: Penguin Press. Introduction, 'When Am I Going to Use This?' (the armour retelling)."
+  },
+  {
+   "id": "s-wallis",
+   "cite": "Wallis, W. A. (1980). The Statistical Research Group, 1942-1945. Journal of the American Statistical Association 75(370), 320-330. doi:10.2307/2287451."
+  },
+  {
+   "id": "s-casselman",
+   "cite": "Casselman, B. (2016). The Legend of Abraham Wald. AMS Feature Column, June 2016. https://www.ams.org/publicoutreach/feature-column/fc-2016-06"
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "id": "noether-frontier",
+ "verdict": "SHIP",
+ "seat": "director, after two tier-1 rounds (knobs, captions) and one tier-2 film.js revision; before/after sheet and strips read at 480x270; commit beat off (D11)",
+ "truth": [
+  {"claim": "30,000 orbit moments plotted with no rule; a blind search over simple terms lands on the same shells; in 2021 a team's program found every exactly conserved quantity on 5 test systems and flagged the near ones", "status": "ok", "note": "the in-film search is our illustration (tagged); the 5-system result is Liu and Tegmark 2021 (PRL), read from snippets, grade A/B; 'the laws were known' is said on stage"},
+  {"claim": "24,000 training dots (60 runs x 8 neurons x 50 moments); each neuron keeps one sum fixed, 8 in all; one neuron per layer slides along its layer and never leaves it; bigger steps and the layers leak", "status": "ok", "note": "the film's own recompute (grade B for the '8 sums' count, Kunin et al. 2021, Marcotte et al. 2023); the leak is the honest limit shown, not told"},
+  {"claim": "3 independent questions in 6 orders total 20 every time (4 + 7 + 9); reordering cost more than 30 % in some tests (ICML 2024); the owner's tree: 19 questions in 3 layers (4, 8, 7), 9 modules, 22 sources", "status": "ok", "note": "the toy is tagged ILLUSTRATION; the tree scene carries PROGRAM, NOT A THEOREM from its first frame; counts are of what exists; the honest line says nobody has proved a Noether theorem for questions"}
+ ],
+ "craft": 4, "originality": 5, "stop": 4,
+ "legibility_phone": "ok (readouts at or above 16 units; G6 overflow is the kit shell)",
+ "format": {"counts_first": true, "commit_before_number": "n/a (D11)", "brand_card": true, "honest_line": true, "exec_clean": "n/a (level manager)"},
+ "moves_3d": ["the recall cloud, rule removed (12-28 s)", "the machine's re-sort onto shells (36 s)", "the network's layers edge-on with five sliding heads (78-96 s)", "the toy rows with answer cubes (98-115 s)", "the tree and the swap (119-135 s)"],
+ "defects": [
+  {"t": 132, "what": "the swap lines up in a column for a frame; the swapped children read, the path less so", "severity": "low"},
+  {"t": 88, "what": "the '8 fixed sums' panel dims at the move's start rather than at its settle (a display rule bent for honesty: the sums stop holding when the steps grow)", "severity": "low"},
+  {"t": 84, "what": "the sliding heads move at an even display speed, not the training speed; said in REVISION.md", "severity": "low"}
+ ],
+ "notes": "Primary pages (Liu and Tegmark 2021, Marcotte et al. 2023, Chen et al. 2024) were not opened (egress blocked); re-verify the 5-system, 8-sums and 30 % figures before public use. Part 3 of the series. What it buys a viewer: the same question asked of a machine, a learner and a body of knowledge, with the honest line that the last one is a program."
+}

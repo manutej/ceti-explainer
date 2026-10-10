@@ -1,0 +1,22 @@
+{
+  "id": "selection",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "24 of 30 = 80 %, 35 of 70 = 50 %, gap 30 points", "status": "ok", "note": "recomputed; declared teaching set"},
+    {"claim": "coin flip: 33 of 50 = 66 % vs 28 of 50 = 56 %; the feature earns 10, who chose it 20", "status": "ok", "note": "all 51 formulas recompute from seeds 7 and 90; the true effect P/N also gives 10"},
+    {"claim": "Stampfer & Colditz 1991: 15 of 16 cohorts lower, pooled RR 0.56 (0.50-0.61) -> 56 per 100", "status": "ok", "note": "as cited"},
+    {"claim": "WHI 2002: 16,608 women, 8,506 vs 8,102, 164 vs 122 CHD events, HR 1.29 (1.02-1.63) -> 129 per 100", "status": "ok", "note": "JAMA 2002;288:321 as cited; 8,506 + 8,102 = 16,608"},
+    {"claim": "WHI 2004 estrogen-alone HR 0.91; Rossouw 2007 early-start HR 0.76", "status": "ok", "note": "page only; supports the honest line"}
+  ],
+  "craft": 4,
+  "originality": 4,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 36.3, "what": "The 100 customers are declared a teaching set only on the brand plate ('TEACHING SET · SEEDS 7 · 90') and the page; the captions present them as 'your' retention data ('100 customers. 30 chose the feature; 24 of them stayed')", "severity": "low"},
+    {"t": 50.3, "what": "During the coin-flip reshuffle the 100 squares scatter into a jumble for a few seconds; the frame reads as a glitch before they settle into 50/50", "severity": "low"},
+    {"t": 10.9, "what": "The commit frame is a bare 0-to-30 bar with 'NONE OF IT / ALL OF IT'; functional, but the weakest frame of the film", "severity": "low"}
+  ],
+  "one_line": "The HRT reversal is the right real case and the same hundred counted twice, as they chose and by coin flip, is the cleanest statement of selection in the batch; ship it."
+}

@@ -1,0 +1,20 @@
+{
+ "id": "who-gains",
+ "verdict": "SHIP",
+ "seat": "director, after two tier-1 rounds (knobs, captions) and one tier-2 film.js revision; strips and the before/after sheet read at 480x270; commit beat off (D11)",
+ "truth": [
+  {"claim": "5,179 support agents, pooled gain +14 % issues per hour; split by skill fifth, novices +34 %, the most skilled about 0", "status": "ok", "note": "NBER w31161 (Brynjolfsson, Li, Raymond); the journal version rounds differently (5,172, 15 %), said on the honest line; middle-three-fifths height derived from the pooled mean and labelled derived"},
+  {"claim": "4,867 developers in three field RCTs, pooled +26 % completed tasks; juniors +27 to +39 %, seniors +8 to +13 %", "status": "ok", "note": "Cui et al. SSRN; ranges shown as ranges, SE 10.3 sets the honest width"},
+  {"claim": "16 experienced open-source developers, 246 issues; forecast 24 % less time, measured 19 % more, believed afterwards 20 % less", "status": "ok", "note": "METR 2025 RCT; the two beliefs sit as wire boxes beside the measured block on one frame, counts before the ratio"}
+ ],
+ "craft": 4, "originality": 4, "stop": 4,
+ "legibility_phone": "ok (readouts at or above 16 units; G6 overflow is the kit shell)",
+ "format": {"counts_first": true, "commit_before_number": "n/a (D11)", "brand_card": true, "honest_line": true, "exec_clean": "n/a (level manager)"},
+ "moves_3d": ["the ledger wall counted in (12-26 s)", "re-partition by skill fifth with one agent followed (40-65 s)", "the developers' field (78-95 s)", "the METR block: forecast box, measured block, belief box on one frame (101-130 s)", "the bookend swing (135 s)"],
+ "defects": [
+  {"t": 141, "what": "the honest line runs to two rows; shortening it loses the journal-rounding caveat, so it stays", "severity": "low"},
+  {"t": 86, "what": "G5c reads the running count-in as unclaimed digits (kit defect 7)", "severity": "low"},
+  {"t": 78, "what": "the developers beat is caption-only for group sizes: the paper gives no per-arm counts", "severity": "low"}
+ ],
+ "notes": "Numbers were read from search snippets (egress blocked); re-verify the three primaries before public use. What it buys a viewer: the same 5,179 boxes sorted by skill overturn 'AI makes everyone faster', and the METR frame shows belief and measurement on one scale."
+}

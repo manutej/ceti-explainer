@@ -1,0 +1,559 @@
+{
+ "film": "simpsons",
+ "params": {
+  "mA": 825,
+  "mAa": 512,
+  "wA": 108,
+  "wAa": 89,
+  "mB": 560,
+  "mBa": 353,
+  "wB": 25,
+  "wBa": 17,
+  "mC": 325,
+  "mCa": 120,
+  "wC": 593,
+  "wCa": 202,
+  "mD": 417,
+  "mDa": 138,
+  "wD": 375,
+  "wDa": 131,
+  "mE": 191,
+  "mEa": 53,
+  "wE": 393,
+  "wEa": 94,
+  "mF": 373,
+  "mFa": 22,
+  "wF": 341,
+  "wFa": 24,
+  "campusMen": 8442,
+  "campusWomen": 4321,
+  "campusMenPct": 44,
+  "campusWomenPct": 35,
+  "guessDefault": 5,
+  "holdSeconds": 8,
+  "year": 1973,
+  "perMark": 1
+ },
+ "claims": [
+  {
+   "id": "year",
+   "text": "Berkeley, fall 1973",
+   "value": 1973,
+   "formula": "year",
+   "source": "BHO75",
+   "where": "caption 3, caption 5, eyebrow, title block"
+  },
+  {
+   "id": "depts",
+   "text": "six largest departments; commit range 0 to 6",
+   "value": 6,
+   "formula": "6",
+   "source": "RDS",
+   "where": "caption 4; commit box prompt \"OF 6 DEPARTMENTS\"; guess strip 0-6; \"2 OF 6\""
+  },
+  {
+   "id": "hold",
+   "text": "8-second commit countdown",
+   "value": 8,
+   "formula": "holdSeconds",
+   "source": "FMT",
+   "where": "live page commit timer (player); film shows the kit countdown ring"
+  },
+  {
+   "id": "guess",
+   "text": "film-mode default guess: 5 of 6",
+   "value": 5,
+   "formula": "guessDefault",
+   "source": "FMT",
+   "where": "commit box (film mode types 5 at 12.7 s); guess strip ring at 52.4 s"
+  },
+  {
+   "id": "applicants",
+   "text": "4,526 applicants, one mark each",
+   "value": 4526,
+   "formula": "(mA+mB+mC+mD+mE+mF)+(wA+wB+wC+wD+wE+wF)",
+   "source": "RDS",
+   "where": "caption 5"
+  },
+  {
+   "id": "perMark",
+   "text": "one mark = one applicant",
+   "value": 1,
+   "formula": "perMark",
+   "source": "RDS",
+   "where": "CASE caption 5"
+  },
+  {
+   "id": "menApplied",
+   "text": "2,691 men applied",
+   "value": 2691,
+   "formula": "(mA+mB+mC+mD+mE+mF)",
+   "source": "RDS",
+   "where": "column header 17-26.5 s (counts up to 2,691, 28u); header line 2; caption 6"
+  },
+  {
+   "id": "womenApplied",
+   "text": "1,835 women applied",
+   "value": 1835,
+   "formula": "(wA+wB+wC+wD+wE+wF)",
+   "source": "RDS",
+   "where": "column header 17-26.5 s (counts up to 1,835, 28u); header line 2; caption 6"
+  },
+  {
+   "id": "menAdmitted",
+   "text": "1,198 men admitted",
+   "value": 1198,
+   "formula": "(mAa+mBa+mCa+mDa+mEa+mFa)",
+   "source": "RDS",
+   "where": "column header 26.5-36 s (28u); line 2 \"1,198 ÷ 2,691\" 36-56 s; caption 6"
+  },
+  {
+   "id": "womenAdmitted",
+   "text": "557 women admitted",
+   "value": 557,
+   "formula": "(wAa+wBa+wCa+wDa+wEa+wFa)",
+   "source": "RDS",
+   "where": "column header 26.5-36 s (28u); line 2 \"557 ÷ 1,835\" 36-56 s; caption 6"
+  },
+  {
+   "id": "menRate",
+   "text": "45 % of men admitted (six departments pooled)",
+   "value": 45,
+   "formula": "Math.round(100*(mAa+mBa+mCa+mDa+mEa+mFa)/(mA+mB+mC+mD+mE+mF))",
+   "source": "RDS",
+   "where": "column header \"MEN 45 %\" from 36 s (28u); caption 8"
+  },
+  {
+   "id": "womenRate",
+   "text": "30 % of women admitted (six departments pooled)",
+   "value": 30,
+   "formula": "Math.round(100*(wAa+wBa+wCa+wDa+wEa+wFa)/(wA+wB+wC+wD+wE+wF))",
+   "source": "RDS",
+   "where": "column header \"WOMEN 30 %\" from 36 s (28u); caption 8"
+  },
+  {
+   "id": "mAn",
+   "text": "Dept A: men applied",
+   "value": 825,
+   "formula": "mA",
+   "source": "RDS",
+   "where": "drawn as marks in band A (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mAa",
+   "text": "Dept A: men admitted",
+   "value": 512,
+   "formula": "mAa",
+   "source": "RDS",
+   "where": "drawn as marks in band A (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wAn",
+   "text": "Dept A: women applied",
+   "value": 108,
+   "formula": "wA",
+   "source": "RDS",
+   "where": "drawn as marks in band A (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wAa",
+   "text": "Dept A: women admitted",
+   "value": 89,
+   "formula": "wAa",
+   "source": "RDS",
+   "where": "drawn as marks in band A (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mAr",
+   "text": "Dept A: % of men admitted",
+   "value": 62,
+   "formula": "Math.round(100*mAa/mA)",
+   "source": "RDS",
+   "where": "department ledger row A (20u) from 46 s"
+  },
+  {
+   "id": "wAr",
+   "text": "Dept A: % of women admitted",
+   "value": 82,
+   "formula": "Math.round(100*wAa/wA)",
+   "source": "RDS",
+   "where": "department ledger row A (20u) from 46 s"
+  },
+  {
+   "id": "mBn",
+   "text": "Dept B: men applied",
+   "value": 560,
+   "formula": "mB",
+   "source": "RDS",
+   "where": "drawn as marks in band B (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mBa",
+   "text": "Dept B: men admitted",
+   "value": 353,
+   "formula": "mBa",
+   "source": "RDS",
+   "where": "drawn as marks in band B (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wBn",
+   "text": "Dept B: women applied",
+   "value": 25,
+   "formula": "wB",
+   "source": "RDS",
+   "where": "drawn as marks in band B (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wBa",
+   "text": "Dept B: women admitted",
+   "value": 17,
+   "formula": "wBa",
+   "source": "RDS",
+   "where": "drawn as marks in band B (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mBr",
+   "text": "Dept B: % of men admitted",
+   "value": 63,
+   "formula": "Math.round(100*mBa/mB)",
+   "source": "RDS",
+   "where": "department ledger row B (20u) from 46 s"
+  },
+  {
+   "id": "wBr",
+   "text": "Dept B: % of women admitted",
+   "value": 68,
+   "formula": "Math.round(100*wBa/wB)",
+   "source": "RDS",
+   "where": "department ledger row B (20u) from 46 s"
+  },
+  {
+   "id": "mCn",
+   "text": "Dept C: men applied",
+   "value": 325,
+   "formula": "mC",
+   "source": "RDS",
+   "where": "drawn as marks in band C (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mCa",
+   "text": "Dept C: men admitted",
+   "value": 120,
+   "formula": "mCa",
+   "source": "RDS",
+   "where": "drawn as marks in band C (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wCn",
+   "text": "Dept C: women applied",
+   "value": 593,
+   "formula": "wC",
+   "source": "RDS",
+   "where": "drawn as marks in band C (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wCa",
+   "text": "Dept C: women admitted",
+   "value": 202,
+   "formula": "wCa",
+   "source": "RDS",
+   "where": "drawn as marks in band C (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mCr",
+   "text": "Dept C: % of men admitted",
+   "value": 37,
+   "formula": "Math.round(100*mCa/mC)",
+   "source": "RDS",
+   "where": "department ledger row C (20u) from 46 s"
+  },
+  {
+   "id": "wCr",
+   "text": "Dept C: % of women admitted",
+   "value": 34,
+   "formula": "Math.round(100*wCa/wC)",
+   "source": "RDS",
+   "where": "department ledger row C (20u) from 46 s"
+  },
+  {
+   "id": "mDn",
+   "text": "Dept D: men applied",
+   "value": 417,
+   "formula": "mD",
+   "source": "RDS",
+   "where": "drawn as marks in band D (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mDa",
+   "text": "Dept D: men admitted",
+   "value": 138,
+   "formula": "mDa",
+   "source": "RDS",
+   "where": "drawn as marks in band D (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wDn",
+   "text": "Dept D: women applied",
+   "value": 375,
+   "formula": "wD",
+   "source": "RDS",
+   "where": "drawn as marks in band D (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wDa",
+   "text": "Dept D: women admitted",
+   "value": 131,
+   "formula": "wDa",
+   "source": "RDS",
+   "where": "drawn as marks in band D (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mDr",
+   "text": "Dept D: % of men admitted",
+   "value": 33,
+   "formula": "Math.round(100*mDa/mD)",
+   "source": "RDS",
+   "where": "department ledger row D (20u) from 46 s"
+  },
+  {
+   "id": "wDr",
+   "text": "Dept D: % of women admitted",
+   "value": 35,
+   "formula": "Math.round(100*wDa/wD)",
+   "source": "RDS",
+   "where": "department ledger row D (20u) from 46 s"
+  },
+  {
+   "id": "mEn",
+   "text": "Dept E: men applied",
+   "value": 191,
+   "formula": "mE",
+   "source": "RDS",
+   "where": "drawn as marks in band E (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mEa",
+   "text": "Dept E: men admitted",
+   "value": 53,
+   "formula": "mEa",
+   "source": "RDS",
+   "where": "drawn as marks in band E (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wEn",
+   "text": "Dept E: women applied",
+   "value": 393,
+   "formula": "wE",
+   "source": "RDS",
+   "where": "drawn as marks in band E (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wEa",
+   "text": "Dept E: women admitted",
+   "value": 94,
+   "formula": "wEa",
+   "source": "RDS",
+   "where": "drawn as marks in band E (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mEr",
+   "text": "Dept E: % of men admitted",
+   "value": 28,
+   "formula": "Math.round(100*mEa/mE)",
+   "source": "RDS",
+   "where": "department ledger row E (20u) from 46 s"
+  },
+  {
+   "id": "wEr",
+   "text": "Dept E: % of women admitted",
+   "value": 24,
+   "formula": "Math.round(100*wEa/wE)",
+   "source": "RDS",
+   "where": "department ledger row E (20u) from 46 s"
+  },
+  {
+   "id": "mFn",
+   "text": "Dept F: men applied",
+   "value": 373,
+   "formula": "mF",
+   "source": "RDS",
+   "where": "drawn as marks in band F (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mFa",
+   "text": "Dept F: men admitted",
+   "value": 22,
+   "formula": "mFa",
+   "source": "RDS",
+   "where": "drawn as marks in band F (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wFn",
+   "text": "Dept F: women applied",
+   "value": 341,
+   "formula": "wF",
+   "source": "RDS",
+   "where": "drawn as marks in band F (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "wFa",
+   "text": "Dept F: women admitted",
+   "value": 24,
+   "formula": "wFa",
+   "source": "RDS",
+   "where": "drawn as marks in band F (one square each); transcript; not printed on stage"
+  },
+  {
+   "id": "mFr",
+   "text": "Dept F: % of men admitted",
+   "value": 6,
+   "formula": "Math.round(100*mFa/mF)",
+   "source": "RDS",
+   "where": "department ledger row F (20u) from 46 s"
+  },
+  {
+   "id": "wFr",
+   "text": "Dept F: % of women admitted",
+   "value": 7,
+   "formula": "Math.round(100*wFa/wF)",
+   "source": "RDS",
+   "where": "department ledger row F (20u) from 46 s"
+  },
+  {
+   "id": "womenWorse",
+   "text": "women admitted less often in 2 of 6 departments (C, E)",
+   "value": 2,
+   "formula": "(wAa/wA<mAa/mA?1:0)+(wBa/wB<mBa/mB?1:0)+(wCa/wC<mCa/mC?1:0)+(wDa/wD<mDa/mD?1:0)+(wEa/wE<mEa/mE?1:0)+(wFa/wF<mFa/mF?1:0)",
+   "source": "RDS",
+   "where": "guess strip TRUTH (inked 2) and \"2 OF 6\" (28u) from 52 s; caption 11"
+  },
+  {
+   "id": "womenBetter",
+   "text": "women admitted more often in 4 of 6 departments (A, B, D, F)",
+   "value": 4,
+   "formula": "(wAa/wA>mAa/mA?1:0)+(wBa/wB>mBa/mB?1:0)+(wCa/wC>mCa/mC?1:0)+(wDa/wD>mDa/mD?1:0)+(wEa/wE>mEa/mE?1:0)+(wFa/wF>mFa/mF?1:0)",
+   "source": "RDS",
+   "where": "ledger HIGHER column: WOMEN in rows A, B, D, F (52.6 s)"
+  },
+  {
+   "id": "gapC",
+   "text": "Dept C: men ahead by 3 points (37 vs 34)",
+   "value": 3,
+   "formula": "Math.round(100*mCa/mC)-Math.round(100*wCa/wC)",
+   "source": "RDS",
+   "where": "caption 11 (\"by 3 and 4 points\")"
+  },
+  {
+   "id": "gapE",
+   "text": "Dept E: men ahead by 4 points (28 vs 24)",
+   "value": 4,
+   "formula": "Math.round(100*mEa/mE)-Math.round(100*wEa/wE)",
+   "source": "RDS",
+   "where": "caption 11"
+  },
+  {
+   "id": "menAB",
+   "text": "1,385 of 2,691 men applied to A or B",
+   "value": 1385,
+   "formula": "mA+mB",
+   "source": "RDS",
+   "where": "column header \"MEN 1,385\" 56-58.5 s; line 2 after"
+  },
+  {
+   "id": "womenAB",
+   "text": "133 of 1,835 women applied to A or B",
+   "value": 133,
+   "formula": "wA+wB",
+   "source": "RDS",
+   "where": "column header \"WOMEN 133\" 56-58.5 s; line 2 after"
+  },
+  {
+   "id": "menABpct",
+   "text": "51 % of men applied to A or B",
+   "value": 51,
+   "formula": "Math.round(100*(mA+mB)/(mA+mB+mC+mD+mE+mF))",
+   "source": "RDS",
+   "where": "column header \"MEN 51 %\" from 58.5 s; caption 12"
+  },
+  {
+   "id": "womenABpct",
+   "text": "7 % of women applied to A or B",
+   "value": 7,
+   "formula": "Math.round(100*(wA+wB)/(wA+wB+wC+wD+wE+wF))",
+   "source": "RDS",
+   "where": "column header \"WOMEN 7 %\" from 58.5 s; caption 12"
+  },
+  {
+   "id": "aRate",
+   "text": "Dept A: 64 % of all applicants admitted",
+   "value": 64,
+   "formula": "Math.round(100*(mAa+wAa)/(mA+wA))",
+   "source": "RDS",
+   "where": "COUNT ledger band A (optional sub-label \"64 % OVERALL\")"
+  },
+  {
+   "id": "bRate",
+   "text": "Dept B: 63 % of all applicants admitted",
+   "value": 63,
+   "formula": "Math.round(100*(mBa+wBa)/(mB+wB))",
+   "source": "RDS",
+   "where": "COUNT ledger band B (optional sub-label)"
+  },
+  {
+   "id": "fRate",
+   "text": "Dept F: 6 % of all applicants admitted (lowest)",
+   "value": 6,
+   "formula": "Math.round(100*(mFa+wFa)/(mF+wF))",
+   "source": "RDS",
+   "where": "COUNT ledger (optional) / transcript: low end 6 %"
+  },
+  {
+   "id": "cfHigh",
+   "text": "highest of C to F: C at 35 %",
+   "value": 35,
+   "formula": "Math.round(100*(mCa+wCa)/(mC+wC))",
+   "source": "RDS",
+   "where": "transcript only"
+  },
+  {
+   "id": "stdWomen",
+   "text": "women at the men’s application mix: 52 % (vs men 45 %)",
+   "value": 52,
+   "formula": "Math.round(100*(mA*wAa/wA+mB*wBa/wB+mC*wCa/wC+mD*wDa/wD+mE*wEa/wE+mF*wFa/wF)/(mA+mB+mC+mD+mE+mF))",
+   "source": "RDS",
+   "where": "try-it panel (optional), not on stage"
+  },
+  {
+   "id": "campusMen",
+   "text": "campus-wide: 8,442 men applied",
+   "value": 8442,
+   "formula": "campusMen",
+   "source": "BHO75",
+   "where": "live page honest-limits block only, not on stage"
+  },
+  {
+   "id": "campusWomen",
+   "text": "campus-wide: 4,321 women applied",
+   "value": 4321,
+   "formula": "campusWomen",
+   "source": "BHO75",
+   "where": "live page honest-limits block only, not on stage"
+  },
+  {
+   "id": "campusMenPct",
+   "text": "campus-wide: about 44 % of men admitted",
+   "value": 44,
+   "formula": "campusMenPct",
+   "source": "BHO75",
+   "where": "live page honest-limits block only"
+  },
+  {
+   "id": "campusWomenPct",
+   "text": "campus-wide: about 35 % of women admitted",
+   "value": 35,
+   "formula": "campusWomenPct",
+   "source": "BHO75",
+   "where": "live page honest-limits block only"
+  }
+ ]
+}

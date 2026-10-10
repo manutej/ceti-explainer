@@ -1,0 +1,460 @@
+{
+ "demos": [
+  {
+   "meta": {
+    "id": "trap-detector",
+    "short": "AI · the detector",
+    "demo": true,
+    "title": "trap-and-correct · an AI-text detector",
+    "chrome": "dark",
+    "level": "novice",
+    "vo": false,
+    "eyebrow": "Explainer modules · trap-and-correct · 1 of 2",
+    "titleHTML": "Trust the <em>detector</em>?",
+    "lede": "A detector that catches 90 % of AI essays flags one. The wrong model runs first — “90 % accurate, so 90 % AI” — then breaks on the class it never looked at, and the count corrects it on the same dots.",
+    "synthTitle": "What the combinator carries",
+    "synthesis": "The wrong model is stated fairly and credited where it works, runs on the viewer’s case, and fails visibly before the right module plays on the same anchors. All rates are illustrative.",
+    "sources": [
+     [
+      "GH95",
+      "Gigerenzer & Hoffrage 1995 — natural frequencies",
+      "https://doi.org/10.1037/0033-295X.102.4.684"
+     ]
+    ]
+   },
+   "type": {
+    "primary": "T5",
+    "secondary": "T8"
+   },
+   "roles": {
+    "aiDoc": "shape:filled",
+    "humanDoc": "shape:hollow",
+    "mass": "neutral",
+    "dropped": "neutral",
+    "kept": "machine",
+    "evidence": "machine",
+    "answer": "allowed",
+    "wrongModel": "person",
+    "guess": "person",
+    "gapMark": "error",
+    "closeMark": "remedy"
+   },
+   "po": {
+    "kind": "grid",
+    "id": "essays",
+    "n": 1000,
+    "cols": 40,
+    "pitch": 7.5,
+    "x0": 230,
+    "y0": 176,
+    "label": "A detector flags an essay as AI-written."
+   },
+   "example": {
+    "essays": 1000,
+    "bins": [
+     {
+      "id": "ai-flag",
+      "label": "AI, flagged",
+      "short": "AI",
+      "p": 0.09,
+      "group": "aiDoc"
+     },
+     {
+      "id": "ai-pass",
+      "label": "AI, passed",
+      "p": 0.01,
+      "group": "aiDoc"
+     },
+     {
+      "id": "human-flag",
+      "label": "human, flagged",
+      "p": 0.045,
+      "group": "humanDoc"
+     },
+     {
+      "id": "human-pass",
+      "label": "human, passed",
+      "p": 0.855,
+      "group": "humanDoc"
+     }
+    ],
+    "catch": 0.9
+   },
+   "given": {
+    "flags": [
+     "gap",
+     "parts",
+     "instance"
+    ]
+   },
+   "modules": [
+    {
+     "use": "trap-and-correct",
+     "head": {
+      "eyebrow": "TRAP-AND-CORRECT · AN AI-TEXT DETECTOR",
+      "title": "Trust the detector?",
+      "chapter": "The trap"
+     },
+     "params": {
+      "wrong": {
+       "name": "trust the detector",
+       "steelman": "It catches 90 % of AI essays, so a flag means 90 % AI.",
+       "works": "AI and human essays are equally common.",
+       "says": "@example.catch"
+      },
+      "observed": {
+       "line": "But it never looked at the class: 900 of the 1,000 essays are human.",
+       "box": {
+        "x": 218,
+        "y": 164,
+        "w": 316,
+        "h": 204
+       }
+      },
+      "read": {
+       "fn": "answer",
+       "args": [
+        true
+       ],
+       "scale": 100
+      },
+      "fresh": {
+       "label": "if it did not flag",
+       "read": {
+        "fn": "counts",
+        "ratio": {
+         "top": [
+          3
+         ],
+         "of": [
+          1,
+          3
+         ]
+        },
+        "scale": 100
+       },
+       "line": "human: {top} of {of}"
+      },
+      "meter": {
+       "x0": 560,
+       "x1": 860,
+       "y": 420
+      },
+      "card": {
+       "x": 570,
+       "y": 196,
+       "w": 350
+      },
+      "notes": [
+       "illustrative rates"
+      ]
+     },
+     "right": {
+      "use": "mass-reseat",
+      "params": {
+       "variant": "condition",
+       "N": "@example.essays",
+       "focus": "ai-flag",
+       "bins": "@example.bins",
+       "keep": [
+        "ai-flag",
+        "human-flag"
+       ],
+       "means": "each mark is one essay",
+       "legend": [
+        {
+         "group": "aiDoc",
+         "label": "{n} AI-written"
+        },
+        {
+         "group": "humanDoc",
+         "label": "{n} human"
+        }
+       ],
+       "keepLabel": "flagged by the detector",
+       "answerLabel": "AI, given a flag",
+       "foot": {
+        "queue": "each dot is one essay · {groupPct} of the class used AI (illustrative)",
+        "close": "flag every essay: 100 × 0.9 = {n:ai-flag} AI · 900 × 0.05 = {n:human-flag} human",
+        "reseat": "the other {droppedN} were not flagged: no longer in the question",
+        "count": "counted: {focusN} ÷ ({focusN} + {n:human-flag}) = {answer}"
+       },
+       "principle": {
+        "term": "the base rate",
+        "line": "the denominator decides"
+       },
+       "control": {
+        "label": "Use the flag",
+        "question": "Without the detector, what is the chance an essay is AI-written?",
+        "on": "flag on",
+        "off": "no detector"
+       },
+       "notes": [
+        "detector rates are illustrative, not a measured product"
+       ]
+      }
+     },
+     "captions": {
+      "r.queue": "A class of 1,000 essays. 100 were written with AI (illustrative).",
+      "steelman": "The obvious answer, fairly put: it catches 90 % of AI essays.",
+      "run-wrong": "Run that model: a flag means 90 % AI.",
+      "break": "But it never looked at the class: 900 of the 1,000 are human.",
+      "break-hold": "The detector is the same. The question is which essays it flags.",
+      "r.close": "Flag every essay: 90 AI and 45 human essays get flagged.",
+      "r.reseat": "Only the 135 flagged essays are in question.",
+      "r.count": "AI among them: 90 of 135. About 67 %, not 90 %.",
+      "r.hold": "One flagged essay in three is human.",
+      "r.name": "The base rate decides.",
+      "fruitful": "Fresh case: no flag. 855 of 865 unflagged essays are human."
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "id": "trap-cabs",
+    "short": "Behavioural · the cab problem",
+    "demo": true,
+    "title": "trap-and-correct · the cab problem",
+    "chrome": "notebook",
+    "level": "novice",
+    "vo": false,
+    "eyebrow": "Explainer modules · trap-and-correct · 2 of 2",
+    "titleHTML": "The witness, <em>run</em> first",
+    "lede": "“Trust the witness” runs on the city and says 80 %. It breaks on the 850 Green cabs it never looked at; the count on the same dots says 41 %.",
+    "synthTitle": "What the combinator carries",
+    "synthesis": "Wrong and right run on the same persistent object: the correction is a state change of one picture. The fresh case shows the count answering a question the wrong model gets wrong the other way.",
+    "sources": [
+     [
+      "K16",
+      "Kahneman, Thinking, Fast and Slow, ch. 16 (Causes Trump Statistics)",
+      "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow"
+     ]
+    ]
+   },
+   "type": {
+    "primary": "T5",
+    "secondary": "T8"
+   },
+   "roles": {
+    "blueCab": "shape:filled",
+    "greenCab": "shape:hollow",
+    "mass": "neutral",
+    "dropped": "neutral",
+    "rung": "neutral",
+    "tie": "neutral",
+    "neutralMark": "neutral",
+    "witness": "person",
+    "kept": "person",
+    "evidence": "person",
+    "guess": "person",
+    "wrongModel": "person",
+    "card": "person",
+    "answer": "machine",
+    "gapMark": "error",
+    "closeMark": "remedy",
+    "principle": "remedy",
+    "returnInstance": "remedy"
+   },
+   "po": {
+    "kind": "grid",
+    "id": "city",
+    "n": 1000,
+    "cols": 40,
+    "pitch": 7.5,
+    "x0": 230,
+    "y0": 176,
+    "label": "A cab hit someone at night. A witness says it was Blue."
+   },
+   "example": {
+    "cabs": 1000,
+    "blue": 150,
+    "reliability": 0.8,
+    "lowBase": 0.05,
+    "cityBins": [
+     {
+      "id": "blue-saysBlue",
+      "label": "Blue, called Blue",
+      "short": "Blue",
+      "p": 0.12,
+      "group": "blueCab"
+     },
+     {
+      "id": "blue-saysGreen",
+      "label": "Blue, called Green",
+      "p": 0.03,
+      "group": "blueCab"
+     },
+     {
+      "id": "green-saysBlue",
+      "label": "Green, called Blue",
+      "p": 0.17,
+      "group": "greenCab"
+     },
+     {
+      "id": "green-saysGreen",
+      "label": "Green, called Green",
+      "p": 0.68,
+      "group": "greenCab"
+     }
+    ],
+    "evenBins": [
+     {
+      "id": "blue-saysBlue",
+      "label": "Blue, called Blue",
+      "short": "Blue",
+      "p": 0.4,
+      "group": "blueCab"
+     },
+     {
+      "id": "blue-saysGreen",
+      "label": "Blue, called Green",
+      "p": 0.1,
+      "group": "blueCab"
+     },
+     {
+      "id": "green-saysBlue",
+      "label": "Green, called Blue",
+      "p": 0.1,
+      "group": "greenCab"
+     },
+     {
+      "id": "green-saysGreen",
+      "label": "Green, called Green",
+      "p": 0.4,
+      "group": "greenCab"
+     }
+    ]
+   },
+   "given": {
+    "flags": [
+     "gap",
+     "parts",
+     "instance"
+    ]
+   },
+   "modules": [
+    {
+     "use": "trap-and-correct",
+     "head": {
+      "eyebrow": "FIELD NOTEBOOK · TRAP-AND-CORRECT",
+      "title": "The witness, run first",
+      "chapter": "The trap"
+     },
+     "params": {
+      "wrong": {
+       "name": "trust the witness",
+       "steelman": "She is right 80 % of the time, so it is 80 % Blue.",
+       "works": "Blue and Green cabs are equally common.",
+       "says": "@example.reliability"
+      },
+      "observed": {
+       "line": "But it never looked at the city: 850 of the 1,000 cabs are Green.",
+       "box": {
+        "x": 218,
+        "y": 164,
+        "w": 316,
+        "h": 204
+       }
+      },
+      "read": {
+       "fn": "answer",
+       "args": [
+        true
+       ],
+       "scale": 100
+      },
+      "fresh": {
+       "label": "if she said “Green”",
+       "read": {
+        "fn": "counts",
+        "ratio": {
+         "top": [
+          3
+         ],
+         "of": [
+          1,
+          3
+         ]
+        },
+        "scale": 100
+       },
+       "line": "count: {top} of {of}"
+      },
+      "meter": {
+       "x0": 560,
+       "x1": 860,
+       "y": 420,
+       "min": 0,
+       "max": 100
+      },
+      "card": {
+       "x": 570,
+       "y": 196,
+       "w": 350
+      }
+     },
+     "right": {
+      "use": "mass-reseat",
+      "params": {
+       "variant": "condition",
+       "N": "@example.cabs",
+       "focus": "blue-saysBlue",
+       "bins": "@example.cityBins",
+       "keep": [
+        "blue-saysBlue",
+        "green-saysBlue"
+       ],
+       "means": "each mark is one cab",
+       "legend": [
+        {
+         "group": "blueCab",
+         "label": "{n} Blue cabs"
+        },
+        {
+         "group": "greenCab",
+         "label": "{n} Green cabs"
+        }
+       ],
+       "keepLabel": "ringed · she would say Blue",
+       "answerLabel": "Blue, given “Blue”",
+       "foot": {
+        "queue": "each dot is one cab · only {groupPct} of the city’s cabs are Blue",
+        "close": "test her on every cab: 150 × 0.8 = {n:blue-saysBlue} Blue · 850 × 0.2 = {n:green-saysBlue} Green",
+        "reseat": "the other {droppedN} stay, faint: still in the city, no longer in the question",
+        "count": "Bayes, counted: {focusN} ÷ ({focusN} + {n:green-saysBlue}) = {answer}",
+        "countOff": "no witness: the answer is the base rate, {groupN} of {N}"
+       },
+       "principle": {
+        "term": "the base rate",
+        "line": "the denominator decides"
+       },
+       "control": {
+        "label": "Use the witness",
+        "question": "Without the witness, what is the chance the cab was Blue?",
+        "on": "witness on",
+        "off": "no witness"
+       },
+       "notes": [
+        "the 80 % reliability is the textbook’s, tested at night"
+       ]
+      }
+     },
+     "captions": {
+      "r.queue": "A city of 1,000 cabs: 150 Blue, 850 Green.",
+      "steelman": "The obvious answer, fairly put: she is right 80 % of the time.",
+      "run-wrong": "Run that model and it says 80 %, with confidence.",
+      "break": "But it never looked at the city: 850 of the 1,000 cabs are Green.",
+      "break-hold": "Same witness. Which cabs could she be describing?",
+      "r.close": "Test her on every cab: 120 Blue and 170 Green called Blue.",
+      "r.reseat": "Only those 290 are still in question.",
+      "r.count": "Blue among them: 120 of 290. About 41 %.",
+      "r.hold": "Most cabs she would call Blue are Green.",
+      "r.name": "The base rate decides.",
+      "fruitful": "Fresh case: if she said Green, 680 of 710. 96 %, not 80 %."
+     }
+    }
+   ]
+  }
+ ]
+}

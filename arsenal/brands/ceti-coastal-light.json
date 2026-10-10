@@ -1,0 +1,8 @@
+{ "id": "ceti-coastal-light",
+  "name": "CETI coastal light",
+  "color": {"bg": "#EFECE1", "ink": "#211C17", "accent": "#339780", "accent2": "#3187C4", "muted": "#53483C", "line": "rgba(34,79,71,0.2)", "panel": "#E2DED0", "chalk": "#211C17"},
+  "type": {"disp": {"family": "Fraunces", "weight": 300, "style": "italic"}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400}},
+  "texture": "none",
+  "tempo": {"ease": "expo", "beat_s": 4},
+  "voice": {"register": "Academy coastal light: a quiet coast, teal water and warm sand", "end_card": "CETI"},
+  "notes": ["accent nudged #36A188->#339780 (L -2.5) to reach 3.0:1 on #EFECE1"] }

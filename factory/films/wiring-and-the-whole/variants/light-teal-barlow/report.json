@@ -1,0 +1,16 @@
+{
+ "html": "/home/user/ceti-explainer/factory/films/wiring-and-the-whole/build/wiring-and-the-whole.midnight-ink--light-acc0f766e-typebarlow.none.html",
+ "errors": [],
+ "variants": {
+  "default": {
+   "stills": [
+    "/home/user/ceti-explainer/factory/films/wiring-and-the-whole/variants/light-teal-barlow/default-t14.95.png",
+    "/home/user/ceti-explainer/factory/films/wiring-and-the-whole/variants/light-teal-barlow/default-t44.85.png",
+    "/home/user/ceti-explainer/factory/films/wiring-and-the-whole/variants/light-teal-barlow/default-t114.42.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 6.3,
+ "contact": "/home/user/ceti-explainer/factory/films/wiring-and-the-whole/variants/light-teal-barlow/contact.png"
+}

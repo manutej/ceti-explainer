@@ -1,0 +1,35 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-labels/demo.html",
+ "errors": [],
+ "variants": {
+  "orbit-30": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/orbit-30-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/orbit-30-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/orbit-30-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/orbit-30-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "occlusion-200": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/occlusion-200-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/occlusion-200-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/occlusion-200-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/occlusion-200-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "callout-travel": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/callout-travel-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/callout-travel-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/callout-travel-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/callout-travel-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 548.5,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-labels/shots/contact.png"
+}

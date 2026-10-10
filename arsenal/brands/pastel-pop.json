@@ -1,0 +1,37 @@
+{
+ "id": "pastel-pop",
+ "name": "Pastel pop (pale ground, two saturated accents)",
+ "color": {
+  "bg": "#FFF4EC",
+  "ink": "#241F3A",
+  "accent": "#E8336D",
+  "accent2": "#2A6BF2",
+  "muted": "#6B6785",
+  "line": "rgba(36,31,58,0.16)",
+  "panel": "#FFE3D6",
+  "chalk": "#150F2E"
+ },
+ "type": {
+  "disp": {
+   "family": "Jost",
+   "weight": 700
+  },
+  "mono": {
+   "family": "DM Mono",
+   "weight": 400
+  },
+  "body": {
+   "family": "Jost",
+   "weight": 400
+  }
+ },
+ "texture": "none",
+ "tempo": {
+  "ease": "expo",
+  "beat_s": 2.5
+ },
+ "voice": {
+  "register": "a friendly sticker sheet: bouncy, plain words, a joke allowed",
+  "end_card": "CETI!"
+ }
+}

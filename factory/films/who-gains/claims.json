@@ -1,0 +1,341 @@
+{
+ "film": "who-gains",
+ "params": {
+  "quintiles": 5
+ },
+ "sources": {
+  "S1": "Brynjolfsson, Li & Raymond, Generative AI at Work, NBER w31161 (2023 working paper): https://www.nber.org/papers/w31161 ; published QJE 140(2):889-942 (2025): https://academic.oup.com/qje/article/140/2/889/7990658",
+  "S2": "Cui, Demirer, Jaffe, Musolff, Peng & Salz, The Effects of Generative AI on High-Skilled Work: Evidence from Three Field Experiments with Software Developers, Management Science (2026): https://pubsonline.informs.org/doi/10.1287/mnsc.2025.00535 ; draft https://economics.mit.edu/sites/default/files/inline-files/draft_copilot_experiments.pdf",
+  "S3": "METR, Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity (Becker et al.), 10 Jul 2025: https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/ ; arXiv 2507.09089",
+  "S4": "METR, We are Changing our Developer Productivity Experiment Design, 24 Feb 2026: https://metr.org/blog/2026-02-24-uplift-update/",
+  "S5": "MIT Sloan, How generative AI affects highly skilled workers (secondary summary of S2): https://mitsloan.mit.edu/ideas-made-to-matter/how-generative-ai-affects-highly-skilled-workers"
+ },
+ "rounding": "percentages shown as published, rounded to the integer; poolDevs 26.08 shows as 26 %",
+ "claims": [
+  {
+   "id": "agents",
+   "text": "5,179 support agents, one box each (NBER w31161 count; QJE text says 5,172)",
+   "value": 5179,
+   "formula": null,
+   "source": "S1",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE count-in, lands 22.0 s; caption 4",
+   "renders": [
+    "5,179",
+    "5179"
+   ]
+  },
+  {
+   "id": "poolAgents",
+   "text": "pooled gain, issues resolved per hour, +14 % (NBER; QJE text says 15 %)",
+   "value": 14,
+   "formula": null,
+   "source": "S1",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 26.0 s; caption 5, 9",
+   "renders": [
+    "14 %",
+    "+14 %",
+    "14%"
+   ]
+  },
+  {
+   "id": "novice",
+   "text": "gain for novice and low-skilled agents, +34 % (= 0.29 log points: exp(0.29)-1)",
+   "value": 34,
+   "formula": null,
+   "source": "S1",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 46.6 s label on the lowest-skill column; caption 7",
+   "renders": [
+    "34 %",
+    "+34 %",
+    "34%"
+   ],
+   "check": "round(100*(exp(0.29)-1)) = 34"
+  },
+  {
+   "id": "expertAgents",
+   "text": "gain for the most skilled agents: minimal, shown as about 0",
+   "value": 0,
+   "formula": null,
+   "source": "S1",
+   "grade": "B",
+   "onscreen": true,
+   "where": "CASE 49.6 s label on the highest-skill column; caption 8",
+   "renders": [
+    "0",
+    "about 0"
+   ],
+   "note": "NBER abstract: 'minimal impact on experienced and highly skilled workers'; body text: 'no productivity increase' for the top skill quintile. Point value not read from the figure."
+  },
+  {
+   "id": "nQ",
+   "text": "agents per skill quintile (5,179 / 5, equal quintiles assumed)",
+   "value": 1036,
+   "formula": "round(agents/quintiles)",
+   "source": "derived",
+   "grade": "B",
+   "onscreen": true,
+   "where": "CASE 34-44 s column counts (optional label)",
+   "note": "assumes equal quintiles; paper quintiles come from a pre-AI skill index and may differ by a few agents"
+  },
+  {
+   "id": "nMid",
+   "text": "agents in the middle three quintiles",
+   "value": 3107,
+   "formula": "agents-2*nQ",
+   "source": "derived",
+   "grade": "B",
+   "onscreen": false,
+   "where": "column count, no digit required"
+  },
+  {
+   "id": "midGain",
+   "text": "middle-three-quintile gain, height only, derived from the pooled mean: (5*14-34-0)/3",
+   "value": 12,
+   "formula": "(quintiles*poolAgents-novice-expertAgents)/3",
+   "source": "derived",
+   "grade": "B",
+   "onscreen": false,
+   "where": "column HEIGHT only, no digit on screen",
+   "note": "equal-weight approximation; the three middle quintile values were NOT read from the paper's figure (grade C individually). The average is robust to how the gain is spread across the three; the shape within the middle block is not claimed."
+  },
+  {
+   "id": "devs",
+   "text": "4,867 software developers in three field RCTs (Microsoft, Accenture, a Fortune 100 manufacturer)",
+   "value": 4867,
+   "formula": null,
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT second count, lands 84.0 s; caption 12",
+   "renders": [
+    "4,867",
+    "4867"
+   ]
+  },
+  {
+   "id": "poolDevs",
+   "text": "pooled increase in completed tasks, +26.08 % (SE 10.3)",
+   "value": 26.08,
+   "formula": null,
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 88.0 s; caption 13",
+   "renders": [
+    "26 %",
+    "+26 %",
+    "26%",
+    "26"
+   ],
+   "tolerance": 0.01
+  },
+  {
+   "id": "poolDevsSE",
+   "text": "standard error of the pooled estimate (not on screen; sets the honest width)",
+   "value": 10.3,
+   "formula": null,
+   "source": "S2",
+   "grade": "A",
+   "onscreen": false,
+   "where": "notes only"
+  },
+  {
+   "id": "juniorRange",
+   "text": "recent hires and junior developers: +27 to +39 % (Microsoft arm; MIT Sloan summary)",
+   "value": [
+    27,
+    39
+   ],
+   "formula": null,
+   "source": "S5",
+   "grade": "C",
+   "onscreen": false,
+   "where": "NOT ON SCREEN; promote to B only after a re-read of S2's table",
+   "note": "range found only in a secondary summary; the search tool could not find it in the paper excerpts"
+  },
+  {
+   "id": "seniorRange",
+   "text": "longer-tenure and senior developers: +8 to +13 %, not significant in the paper's wording",
+   "value": [
+    8,
+    13
+   ],
+   "formula": null,
+   "source": "S5",
+   "grade": "C",
+   "onscreen": false,
+   "where": "NOT ON SCREEN; same condition as juniorRange"
+  },
+  {
+   "id": "metrDevs",
+   "text": "16 experienced open-source developers",
+   "value": 16,
+   "formula": null,
+   "source": "S3",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT close-up, 102.0 s; caption 15",
+   "renders": [
+    "16"
+   ]
+  },
+  {
+   "id": "metrIssues",
+   "text": "246 real issues, each randomly assigned AI allowed or forbidden",
+   "value": 246,
+   "formula": null,
+   "source": "S3",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT close-up, 105.0 s; caption 16",
+   "renders": [
+    "246"
+   ]
+  },
+  {
+   "id": "forecast",
+   "text": "developers' forecast before the tasks: AI cuts their time by 24 %",
+   "value": 24,
+   "formula": null,
+   "source": "S3",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 111.0 s; caption 17",
+   "renders": [
+    "24 %",
+    "24%"
+   ]
+  },
+  {
+   "id": "slower",
+   "text": "measured: tasks took 19 % longer with AI (95 % CI +2 to +39)",
+   "value": 19,
+   "formula": null,
+   "source": "S3",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 126.0 s; caption 18",
+   "renders": [
+    "19 %",
+    "19%",
+    "+19 %"
+   ]
+  },
+  {
+   "id": "slowerCI",
+   "text": "95 % CI of the slowdown, +2 to +39 % (from the research file / one secondary report)",
+   "value": [
+    2,
+    39
+   ],
+   "formula": null,
+   "source": "S3",
+   "grade": "B",
+   "onscreen": false,
+   "where": "notes only"
+  },
+  {
+   "id": "believedAfter",
+   "text": "developers' belief after the tasks: AI had cut their time by 20 %",
+   "value": 20,
+   "formula": null,
+   "source": "S3",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 129.0 s; caption 19",
+   "renders": [
+    "20 %",
+    "20%"
+   ]
+  },
+  {
+   "id": "gapBelief",
+   "text": "gap between belief after and measure: 20 + 19 points of baseline time",
+   "value": 39,
+   "formula": "believedAfter+slower",
+   "source": "derived",
+   "grade": "A",
+   "onscreen": false,
+   "where": "optional; do NOT show beside the economists' 39 (different thing)"
+  },
+  {
+   "id": "econForecast",
+   "text": "external economists' forecast: 39 % shorter; ML experts 38 % shorter",
+   "value": [
+    39,
+    38
+   ],
+   "formula": null,
+   "source": "S3",
+   "grade": "B",
+   "onscreen": false,
+   "where": "not on screen (digit collision with gapBelief)"
+  },
+  {
+   "id": "fuReturning",
+   "text": "Feb 2026 follow-up, 10 returning developers: time change -18 % (CI -38 to +9); sign reading disputed in secondary coverage",
+   "value": -18,
+   "formula": null,
+   "source": "S4",
+   "grade": "C",
+   "onscreen": false,
+   "where": "NOT ON SCREEN",
+   "note": "METR calls its own follow-up data 'very weak evidence' because 30-50 % of developers withheld tasks they did not want to do without AI"
+  },
+  {
+   "id": "fuNew",
+   "text": "Feb 2026 follow-up, 47 new developers: time change -4 % (CI -15 to +9)",
+   "value": -4,
+   "formula": null,
+   "source": "S4",
+   "grade": "C",
+   "onscreen": false,
+   "where": "NOT ON SCREEN"
+  },
+  {
+   "id": "fuWithhold",
+   "text": "30 to 50 % of follow-up developers withheld tasks they would not do without AI",
+   "value": [
+    30,
+    50
+   ],
+   "formula": null,
+   "source": "S4",
+   "grade": "B",
+   "onscreen": false,
+   "where": "notes only; METR's reason the follow-up cannot size the speedup"
+  },
+  {
+   "id": "metrYear",
+   "text": "METR study year",
+   "value": 2025,
+   "formula": null,
+   "source": "S3",
+   "grade": "A",
+   "onscreen": true,
+   "where": "METR source chrome tag",
+   "renders": [
+    "2025"
+   ]
+  },
+  {
+   "id": "fuYear",
+   "text": "METR follow-up year",
+   "value": 2026,
+   "formula": null,
+   "source": "S4",
+   "grade": "A",
+   "onscreen": true,
+   "where": "METR source chrome tag",
+   "renders": [
+    "2026"
+   ]
+  }
+ ]
+}

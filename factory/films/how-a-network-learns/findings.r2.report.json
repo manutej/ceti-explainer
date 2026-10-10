@@ -1,0 +1,147 @@
+{
+ "film": "how-a-network-learns",
+ "findings": "factory/films/how-a-network-learns/findings.r2.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:widthGain",
+   "old": 6,
+   "new": 7.5,
+   "finding": {
+    "t": 73.0,
+    "frame": "strip-13.png cell 2 (thumbs/t-0073.00.jpg) vs strip-14.png cell 8 (t-0082.00.jpg)",
+    "severity": "major",
+    "what": "After ribbonMix 0.85 the bands are lighter, but from step 10 to step 100 (66-81 s) they still read as hairlines; 'Weights thicken' is told more than seen until step 1,000.",
+    "why": "ribbonMix acted on colour, not width; the width knob is the one that makes |weight| growth visible. 7.5 is draft B's value, which read at 67 s. Last round: check that bands do not merge at step 1,000.",
+    "knob": "widthGain",
+    "proposed_value": 7.5
+   }
+  },
+  {
+   "n": 1,
+   "target": "caption:6",
+   "old": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "new": "4 measurements in, 8 hidden units, 3 names out.",
+   "finding": {
+    "t": 31.0,
+    "frame": "strip-06.png cell 2 (thumbs/t-0031.00.jpg)",
+    "severity": "minor",
+    "what": "camDist0 1.7 pulled the plan view up, but the two-line caption 6 still touches the slice's lower edge (31-35 s).",
+    "why": "One line clears the band; same claims (n_measurements, n_hidden, n_species), shorter text.",
+    "caption_index": 6,
+    "proposed_value": "4 measurements in, 8 hidden units, 3 names out."
+   }
+  },
+  {
+   "n": 2,
+   "target": "caption:7",
+   "old": "67 weights decide its answers. Wrong answers cost loss.",
+   "new": "67 weights decide its answers. Errors cost loss.",
+   "finding": {
+    "t": 37.0,
+    "frame": "strip-07.png cells 2-6 (thumbs/t-0037.00.jpg .. t-0039.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 7 wraps to two lines over the tilting slice.",
+    "why": "One line; keeps n_params.",
+    "caption_index": 7,
+    "proposed_value": "67 weights decide its answers. Errors cost loss."
+   }
+  },
+  {
+   "n": 3,
+   "target": "caption:5",
+   "old": "Versicolor and virginica overlap: 37 share 4.5–5.1 cm.",
+   "new": "Versicolor and virginica: 37 share 4.5–5.1 cm.",
+   "finding": {
+    "t": 28.0,
+    "frame": "strip-05.png cell 8 (thumbs/t-0028.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 5 wraps; 'cm.' drops to a second line under the band's 4.5 / 5.1 ticks.",
+    "why": "One line; keeps petal_overlap, virginica_pl_min, versicolor_pl_max.",
+    "caption_index": 5,
+    "proposed_value": "Versicolor and virginica: 37 share 4.5–5.1 cm."
+   }
+  },
+  {
+   "n": 4,
+   "target": "caption:3",
+   "old": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "new": "150 flowers, 3 species. 4 measurements, 3 drawn.",
+   "finding": {
+    "t": 20.0,
+    "frame": "strip-04.png cells 0-5 (thumbs/t-0018.00.jpg .. t-0020.50.jpg)",
+    "severity": "minor",
+    "what": "Caption 3 wraps ('drawn here.' alone on line two) under the box floor.",
+    "why": "One line; keeps n_flowers, n_species, n_measurements (the 3 was already in the caption).",
+    "caption_index": 3,
+    "proposed_value": "150 flowers, 3 species. 4 measurements, 3 drawn."
+   }
+  },
+  {
+   "n": 5,
+   "target": "caption:2",
+   "old": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "new": "Irises measured by Anderson, 1935; Fisher, 1936.",
+   "finding": {
+    "t": 14.0,
+    "frame": "strip-03.png cells 2-10 (thumbs/t-0013.00.jpg .. t-0017.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 2 wraps ('1936.' alone) under the turning box.",
+    "why": "One line; keeps anderson_year and fisher_year.",
+    "caption_index": 2,
+    "proposed_value": "Irises measured by Anderson, 1935; Fisher, 1936."
+   }
+  },
+  {
+   "n": 6,
+   "target": "caption:1",
+   "old": "After 10 steps of learning, how many does it get right?",
+   "new": "After 10 steps, how many does it get right?",
+   "finding": {
+    "t": 8.0,
+    "frame": "strip-02.png cells 4-11 (thumbs/t-0008.00.jpg .. t-0011.50.jpg)",
+    "severity": "minor",
+    "what": "The hook question wraps, so 'right?' sits alone on line two.",
+    "why": "A one-line question reads in one look; keeps step_10.",
+    "caption_index": 1,
+    "proposed_value": "After 10 steps, how many does it get right?"
+   }
+  },
+  {
+   "n": 7,
+   "target": "caption:20",
+   "old": "Monday: when the curve flattens, which cases is it missing?",
+   "new": "Monday: once it goes flat, which cases still miss?",
+   "finding": {
+    "t": 110.0,
+    "frame": "strip-19.png cells 4-11 (thumbs/t-0110.00.jpg .. t-0113.50.jpg)",
+    "severity": "minor",
+    "what": "The Monday question wraps ('missing?' alone on line two).",
+    "why": "One line; no digits.",
+    "caption_index": 20,
+    "proposed_value": "Monday: once it goes flat, which cases still miss?"
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-neosage-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "note:",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/how-a-network-learns/build/how-a-network-learns.ceti-neosage-dark.none.html  1298244 bytes  sha256 ea7f2ecbf3cb759a2df88b2efe0a448fd4eab963b567390d148f390154fd9b93  (film code 106034 bytes; brand ceti-neosage-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 17.5  muted 11.4  accent 12.8  onDark/dark 17.5\nrenderer webgl; knobs 94; fonts3d none; libs none\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": false,
+  "verdict": null,
+  "json": "factory/films/how-a-network-learns/gate.json"
+ },
+ "frames": {
+  "ok": false,
+  "log": ""
+ }
+}

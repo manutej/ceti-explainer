@@ -1,0 +1,199 @@
+{
+  "film": "pass-every-time",
+  "page": "factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.html",
+  "filmDir": "factory/films/pass-every-time",
+  "date": "2026-10-10T19:09:15.686Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 3460 ms; stage sd 30.6s:25.0 76.5s:35.8 122.4s:19.0",
+      "data": {
+        "readyMs": 3460,
+        "stats": [
+          {
+            "t": 30.6,
+            "mean": 43.758304407795436,
+            "sd": 24.96657476653457
+          },
+          {
+            "t": 76.5,
+            "mean": 50.97210545910778,
+            "sd": 35.82887903689932
+          },
+          {
+            "t": 122.4,
+            "mean": 34.08328577353271,
+            "sd": 18.954017464630233
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 15.3, 45.9, 76.5, 107.1, 137.7 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 153 s; material 150 s (want 140–180, format feature-long) + brand 3 s; total ≤ 183"
+    },
+    {
+      "id": "G4b",
+      "name": "format · beats",
+      "status": "PASS",
+      "evidence": "order HOOK → CASE → COUNT → MONDAY; t0 H0 C12 C60 M135"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit {\"enabled\":false}"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"A pass is not a pass every time.\"; frame at 152 s sd 22.3; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"One 2024 model, and agents that could not revise: newer ones may do better.\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "7 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "26 claims, 19 with formula, 19 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 30 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "PASS",
+      "evidence": "every visible SVG number is a claim value",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "13 must-read / 20 secondary / 13 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 400/390 OVERFLOW",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 13,
+          "secondary": 20,
+          "chrome": 13
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 21 s (count.at); first ratio \"Tries that pass: 60.4 %.\" at 36.8 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 93.4 KB (film.js 59.3, film.json 21.4, claims.json 12.6) < 120 KB; page 1.244 MB < 1.3 MB",
+      "data": {
+        "code": 95597,
+        "page": 1243700
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand midnight-ink, chrome none, material ink, texture paper; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "midnight-ink",
+          "chrome": "none",
+          "material": "ink",
+          "texture": "paper",
+          "texture_declared": "paper",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    },
+    {
+      "id": "G11",
+      "name": "text overlap",
+      "status": "PASS",
+      "evidence": "307 samples every 0.5 s, 78 distinct texts (texts with data-role), caption showing at 241; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
+      "data": {
+        "step": 0.5,
+        "samples": 307,
+        "mode": "texts with data-role",
+        "canvasText": "not seen",
+        "fail": 0,
+        "warn": 0,
+        "instances": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "film": "volatility-drag",
+  "page": "factory/films/volatility-drag/build/volatility-drag.html",
+  "filmDir": "factory/films/volatility-drag",
+  "date": "2026-10-08T10:10:48.809Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 296 ms; stage sd 15s:26.7 37.5s:41.2 60s:31.7",
+      "data": {
+        "readyMs": 296,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 210.81136875000334,
+            "sd": 26.726338602535943
+          },
+          {
+            "t": 37.5,
+            "mean": 202.27262002315857,
+            "sd": 41.20489140512209
+          },
+          {
+            "t": 60,
+            "mean": 208.33373909143822,
+            "sd": 31.674571330921932
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 10 s (want 8–16); film-mode default 150"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"The average is not your outcome.\"; frame at 74 s sd 19.0; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"The coin game is a thought experiment: independent fair flips with fixed payoffs\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "6 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "32 claims, 32 with formula, 32 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 14 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "62 visible number(s) not in claims (chrome?): 3 @11s \"3\"; 15 @12s \"15\"; £65.61 @26s \"£65.61\"; 8 @26.5s \"PAIR 8 / 50\"; £38.74 @26.5s \"£38.74\"; £22.88 @27s \"£22.88\"",
+      "data": {
+        "unknown": [
+          "3 @11s \"3\"",
+          "15 @12s \"15\"",
+          "£65.61 @26s \"£65.61\"",
+          "8 @26.5s \"PAIR 8 / 50\"",
+          "£38.74 @26.5s \"£38.74\"",
+          "£22.88 @27s \"£22.88\"",
+          "18 @27.5s \"PAIR 18 / 50\"",
+          "3.51 @27.5s \"£13.51\"",
+          "23 @28s \"PAIR 23 / 50\"",
+          "£7.98 @28s \"£7.98\"",
+          "28 @28.5s \"PAIR 28 / 50\"",
+          "£4.71 @28.5s \"£4.71\"",
+          "33 @29s \"PAIR 33 / 50\"",
+          "£2.78 @29s \"£2.78\"",
+          "38 @29.5s \"PAIR 38 / 50\"",
+          "43 @30s \"PAIR 43 / 50\"",
+          "£0.97 @30s \"£0.97\"",
+          "48 @30.5s \"PAIR 48 / 50\"",
+          "£0.57 @30.5s \"£0.57\"",
+          "63 @39s \"EXPECTED £163\"",
+          "98 @39.5s \"EXPECTED £198\"",
+          "14 @39.5s \"ROUND 14 / 100\"",
+          "£241 @40s \"EXPECTED £241\"",
+          "£293 @40.5s \"EXPECTED £293\"",
+          "22 @40.5s \"ROUND 22 / 100\"",
+          "£356 @41s \"EXPECTED £356\"",
+          "26 @41s \"ROUND 26 / 100\"",
+          "£432 @41.5s \"EXPECTED £432\"",
+          "30 @41.5s \"ROUND 30 / 100\"",
+          "£552 @42s \"EXPECTED £552\"",
+          "35 @42s \"ROUND 35 / 100\"",
+          "£670 @42.5s \"EXPECTED £670\"",
+          "39 @42.5s \"ROUND 39 / 100\"",
+          "£815 @43s \"EXPECTED £815\"",
+          "£991 @43.5s \"EXPECTED £991\"",
+          "47 @43.5s \"ROUND 47 / 100\"",
+          "204 @44s \"EXPECTED £1,204\"",
+          "51 @44s \"ROUND 51 / 100\"",
+          "464 @44.5s \"EXPECTED £1,464\"",
+          "868 @45s \"EXPECTED £1,868\"",
+          "£2,270 @45.5s \"EXPECTED £2,270\"",
+          "64 @45.5s \"ROUND 64 / 100\"",
+          "£2,760 @46s \"EXPECTED £2,760\"",
+          "68 @46s \"ROUND 68 / 100\"",
+          "£3,355 @46.5s \"EXPECTED £3,355\"",
+          "72 @46.5s \"ROUND 72 / 100\"",
+          "£4,077 @47s \"EXPECTED £4,077\"",
+          "76 @47s \"ROUND 76 / 100\"",
+          "£4,956 @47.5s \"EXPECTED £4,956\"",
+          "80 @47.5s \"ROUND 80 / 100\"",
+          "£6,325 @48s \"EXPECTED £6,325\"",
+          "85 @48s \"ROUND 85 / 100\"",
+          "£7,689 @48.5s \"EXPECTED £7,689\"",
+          "89 @48.5s \"ROUND 89 / 100\"",
+          "£9,346 @49s \"EXPECTED £9,346\"",
+          "93 @49s \"ROUND 93 / 100\"",
+          "1,360 @49.5s \"EXPECTED £11,360\"",
+          "97 @49.5s \"ROUND 97 / 100\"",
+          "11 @52s \"LOST MONEY: 11 OF 100\"",
+          "36 @52.5s \"LOST MONEY: 36 OF 100\"",
+          "61 @53s \"LOST MONEY: 61 OF 100\"",
+          "86 @53.5s \"LOST MONEY: 86 OF 100\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "34 must-read / 29 secondary / 50 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/volatility-drag/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 34,
+          "secondary": 29,
+          "chrome": 50
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 36.4 s (count.at); first ratio \"AVERAGE +5 % · TYPICAL −5.1 %/ROUND\" at 61 s (svg)"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 33.1 KB (film.js 16.4, film.json 5.7, claims.json 11.0) < 120 KB; page 1.113 MB < 1.3 MB",
+      "data": {
+        "code": 33908,
+        "page": 1112917
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 10.87, 20.73, 30.6, 40.47, 50.33, 60.2, 75 s → /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/volatility-drag/shots"
+    }
+  ]
+}

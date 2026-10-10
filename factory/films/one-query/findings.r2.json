@@ -1,0 +1,11 @@
+[
+ {
+  "t": 77.4,
+  "frame": "strip-13.png cell 11 to strip-14.png cell 11 (thumbs/t-0078.00.jpg, t-0081.00.jpg)",
+  "severity": "major",
+  "what": "Round 1's caption 15 (53 characters) wraps to two lines and breaks the film's first ratio across them: '... electricity: 1.5' on line one, '%.' alone on line two, and the second line pushes the caption up into the grey field.",
+  "why": "43 characters fits one line (caption 24, 48 characters, already fits at 122 s); it keeps the round-1 legend for the grey, and the only digit is 1.5, the worldPct claim already in this caption.",
+  "caption_index": 15,
+  "proposed_value": "The grey is the world's electricity: 1.5 %."
+ }
+]

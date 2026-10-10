@@ -1,0 +1,1606 @@
+{
+ "id": "one-query",
+ "title": "One query",
+ "eyebrow": "CETI · AI and energy, by the numbers",
+ "lede": "One median AI prompt is 0.24 Wh, less than a second of a microwave. Counted up, the same energy is 1.5 % of the world's electricity and 23 % of Ireland's. Small per query, large per grid: the picture depends on what you divide by.",
+ "format": "feature-long",
+ "level": "manager",
+ "renderer": "webgl",
+ "look": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dur": 153,
+ "seed": 2310,
+ "params": {
+  "gemWh": 0.24,
+  "gemChipWh": 0.1,
+  "gemG": 0.03,
+  "gemMl": 0.26,
+  "gemX": 33,
+  "gemYear": 2025,
+  "tvS": 9,
+  "microW": 1000,
+  "bulbW": 60,
+  "promptsDay": 10,
+  "daysYear": 365,
+  "siteMW": 100,
+  "hoursDay": 24,
+  "hoursYear": 8760,
+  "tileQ": 100000,
+  "ieaYear": 2024,
+  "worldTwh": 415,
+  "worldPct": 1.5,
+  "world2030": 945,
+  "usPctDc": 45,
+  "cnPctDc": 25,
+  "euPctDc": 15,
+  "usTwh23": 176,
+  "usYear": 2023,
+  "usPct23": 4.4,
+  "us2028lo": 6.7,
+  "us2028hi": 12,
+  "epri2030lo": 9,
+  "epri2030hi": 17,
+  "usGrowthPct": 50,
+  "growthYear": 2025,
+  "ieYear": 2025,
+  "ieGwh": 7663,
+  "iePct": 23,
+  "iePct15": 5,
+  "nlPct": 7,
+  "dePct": 4,
+  "ukPct": 4,
+  "frPct": 2,
+  "oneTwh": 1
+ },
+ "commit": {
+  "enabled": false
+ },
+ "count": {
+  "at": 17.2
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 12,
+   "eyebrow": "HOOK",
+   "title": "Two true sentences"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 12,
+   "t1": 60,
+   "eyebrow": "CASE",
+   "title": "One query, then a site-day"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 60,
+   "t1": 135,
+   "eyebrow": "COUNT",
+   "title": "The same energy, three denominators"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 135,
+   "t1": 150,
+   "eyebrow": "MONDAY",
+   "title": "Per what?"
+  }
+ ],
+ "captions": [
+  [
+   0.6,
+   4.6,
+   "AI is using far too much energy."
+  ],
+  [
+   4.8,
+   8.6,
+   "AI is using almost no energy."
+  ],
+  [
+   8.8,
+   11.8,
+   "Both come with true numbers. Count them."
+  ],
+  [
+   12.4,
+   16.8,
+   "One question to a chatbot. One mark."
+  ],
+  [
+   17.2,
+   22.6,
+   "Google, 2025: a median text prompt takes 0.24 Wh."
+  ],
+  [
+   23,
+   28.4,
+   "A 1,000 W microwave runs 0.86 s on that."
+  ],
+  [
+   28.8,
+   34.2,
+   "A 60 W bulb: 14 s. A fraction of a minute."
+  ],
+  [
+   35.6,
+   41,
+   "Ask 10 a day: 2.4 Wh, 8.6 s of microwave."
+  ],
+  [
+   41.4,
+   50.8,
+   "Zoom out: each step is ten times the queries."
+  ],
+  [
+   51,
+   55.8,
+   "100,000 queries: 24 kWh."
+  ],
+  [
+   56.2,
+   57.8,
+   "100,000 queries become one tile."
+  ],
+  [
+   58,
+   60,
+   "A 100 MW site, 24 hours: 2.4 GWh."
+  ],
+  [
+   60.4,
+   65.8,
+   "100,000 tiles of 100,000 queries: 10 billion."
+  ],
+  [
+   66.2,
+   71,
+   "Now the world. One mark is one TWh."
+  ],
+  [
+   71.4,
+   77,
+   "Data centres, all kinds, 2024: 415 TWh."
+  ],
+  [
+   77.4,
+   81.6,
+   "Against the world's electricity: 1.5 %."
+  ],
+  [
+   82,
+   87.6,
+   "Same marks, now by region."
+  ],
+  [
+   88.8,
+   93.8,
+   "US about 187 TWh, China 104, Europe 62."
+  ],
+  [
+   94.2,
+   99,
+   "45 %, 25 %, 15 % of the world's data-centre power."
+  ],
+  [
+   99.4,
+   104.4,
+   "Now each country against its own grid."
+  ],
+  [
+   105,
+   112.6,
+   "Cut at Ireland, 2025: 7,663 GWh."
+  ],
+  [
+   113,
+   117,
+   "23 % of Ireland's metered electricity."
+  ],
+  [
+   117.4,
+   120.6,
+   "15 times the world's 1.5 %."
+  ],
+  [
+   121.6,
+   128.4,
+   "Cut at the US, 2023: 176 TWh."
+  ],
+  [
+   128.8,
+   132.2,
+   "4.4 % of its grid."
+  ],
+  [
+   132.6,
+   135.4,
+   "Yet about half of 2025's US demand growth."
+  ],
+  [
+   135.8,
+   141.6,
+   "Monday: for any AI energy figure, ask: per what?"
+  ],
+  [
+   142,
+   149.6,
+   "Per query? Per site? Per grid?"
+  ]
+ ],
+ "brand": {
+  "takeaway": "Small per query, large per grid. Divided by what?",
+  "at": 150
+ },
+ "sources": [
+  [
+   "S1",
+   "Google (2025). Measuring the environmental impact of delivering AI at Google Scale; blog: Measuring the environmental impact of AI inference. cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference"
+  ],
+  [
+   "S2",
+   "IEA (2025). Energy and AI, World Energy Outlook Special Report, \"Energy demand from AI\". iea.org/reports/energy-and-ai/energy-demand-from-ai"
+  ],
+  [
+   "S3",
+   "IEA (2026). Electricity 2026 (executive summary, demand) and Global Energy Review 2026. iea.org/reports/electricity-2026"
+  ],
+  [
+   "S4",
+   "Shehabi et al. (2024). 2024 United States Data Center Energy Usage Report, Lawrence Berkeley National Laboratory. eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report"
+  ],
+  [
+   "S5",
+   "Central Statistics Office Ireland (2026). Data Centres Metered Electricity Consumption 2025. cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/"
+  ],
+  [
+   "S6",
+   "Ember (2025). Grids for data centres: ambitious grid planning can win Europe's AI race. ember-energy.org"
+  ],
+  [
+   "S7",
+   "EPRI (2026). Powering Intelligence: updated U.S. data center scenarios. powering-intelligence.epri.com/load-growth.html"
+  ],
+  [
+   "input",
+   "Stated assumption of the film: a definition (1,000 W microwave, 60 W bulb, ten prompts a day, a 100 MW site at full load), not a measurement."
+  ]
+ ],
+ "honest": "Assumed: a 1,000 W microwave, a 60 W bulb, 10 prompts a day, a 100 MW site at full load. Per-query figures: one vendor's median text prompt (Google, 2025), not independently verified.",
+ "honestLines": [
+  "Assumed: a 1,000 W microwave, a 60 W bulb, 10 prompts a day,",
+  "a 100 MW site at full load. Per-query figures: one vendor's",
+  "median text prompt (Google, 2025), not independently verified."
+ ],
+ "libs": [
+  "lib/arsenal.gen.js"
+ ],
+ "knobs": {
+  "hookScale0": 0.34,
+  "pushT0": 8,
+  "pushT1": 12,
+  "hookEnd": 9,
+  "hookSize": 64,
+  "hookY": 132,
+  "glowR": 1.4,
+  "litT0": 0,
+  "litT1": 0.8,
+  "ruler0": 13,
+  "rulerDy": 84,
+  "q0": 17.2,
+  "q0Size": 44,
+  "micro0": 23,
+  "bulb0": 28.8,
+  "ladT0": 32,
+  "dwell": 2.6,
+  "move": 1.3,
+  "budget": 2500,
+  "tile": 4,
+  "rungLag": 0.4,
+  "cntSize": 56,
+  "enSize": 36,
+  "panelSize": 320,
+  "panelY": 56,
+  "panelDensity": 2,
+  "swapT0": 56,
+  "swapDur": 1.2,
+  "t2T0": 57.4,
+  "t2T1": 60,
+  "tileFill": 0.82,
+  "siteAt": 58,
+  "billionAt": 61.4,
+  "worldT0": 66,
+  "terrT0": 99,
+  "plateCols": 190,
+  "cell": 3,
+  "boxFill": 0.84,
+  "blockCols": 20,
+  "towerFoot": 3,
+  "towerGap": 88,
+  "plateRes": 8,
+  "gridAlpha": 0.3,
+  "ambient": 120,
+  "keyLight": 190,
+  "wLeg0": 66.4,
+  "cinT0": 66.6,
+  "cinT1": 70.6,
+  "cinGrow": 0.35,
+  "pctAt": 77.4,
+  "regStagger": 0.2,
+  "regLift": 14,
+  "towT0": 88.6,
+  "towStep": 0.9,
+  "pctRegAt": 94.2,
+  "checkAt": 96.6,
+  "terrSize": 700,
+  "terrZ": 0.6,
+  "terrH": 170,
+  "terrMax": 25,
+  "terrSlab": 14,
+  "contours": 0,
+  "terrAmb": 0.42,
+  "terrKey": 0.72,
+  "revealDur": 2.4,
+  "namesAt": 103.4,
+  "cutStartCol": 0,
+  "cutIeT0": 104.5,
+  "cutIeT1": 106.8,
+  "ieGwhAt": 107.6,
+  "iePctAt": 113,
+  "ieTimesAt": 117.4,
+  "cutUsT0": 121,
+  "cutUsT1": 124.2,
+  "usTwhAt": 124.6,
+  "usPctAt": 128.6,
+  "usHalfAt": 132.4,
+  "dimT0": 135.6,
+  "dim": 0.7,
+  "endFade": 149.2,
+  "monQ0": 135.8,
+  "monY": 100,
+  "monSize": 60,
+  "monSize2": 38,
+  "honestAt": 139,
+  "honestY": 356,
+  "honestSize": 16,
+  "labHold": 6,
+  "labLeader": 22,
+  "labMax": 8,
+  "cwStartEyeX": 0,
+  "cwStartEyeY": -149.9771542734587,
+  "cwStartEyeZ": 2.6178609655925396,
+  "cwStartCenterX": 0,
+  "cwStartCenterY": 0,
+  "cwStartCenterZ": 0,
+  "cwStartFov": 38,
+  "cwPullT0": 74,
+  "cwPullT1": 77,
+  "cwPullEase": "inout",
+  "cwPullDist": 740,
+  "cwRiseT0": 82,
+  "cwRiseT1": 87.4,
+  "cwRiseEase": "inout",
+  "cwRiseAz": 24,
+  "cwRiseEl": 19,
+  "cwRiseR": 0.66,
+  "ctStartEyeX": -686.8164714639927,
+  "ctStartEyeY": -38.44016847289235,
+  "ctStartEyeZ": 576.3074478919171,
+  "ctStartCenterX": 0,
+  "ctStartCenterY": 40,
+  "ctStartCenterZ": 0,
+  "ctStartFov": 38,
+  "ctLiftT0": 99,
+  "ctLiftT1": 103.2,
+  "ctLiftEase": "inout",
+  "ctLiftRise": 470,
+  "ctLiftFollow": 0,
+  "ctDriftT0": 104.6,
+  "ctDriftT1": 120.6,
+  "ctDriftEase": "inout",
+  "ctDriftAz": -10,
+  "ctUsT0": 121,
+  "ctUsT1": 131,
+  "ctUsEase": "inout",
+  "ctUsAz": 28,
+  "ctUsEl": 15,
+  "ctUsR": 0.5
+ },
+ "knobs_doc": [
+  {
+   "name": "hookScale0",
+   "range": [
+    0.2,
+    0.6
+   ],
+   "step": 0.02,
+   "what": "the lit mark at the start, as a fraction of its size at the end of the push-in"
+  },
+  {
+   "name": "pushT0",
+   "range": [
+    7,
+    9
+   ],
+   "step": 0.1,
+   "what": "s: the 4 s push toward the mark starts (the camera is still before it)"
+  },
+  {
+   "name": "pushT1",
+   "range": [
+    11,
+    12.4
+   ],
+   "step": 0.1,
+   "what": "s: the push-in ends on the mark at its full size"
+  },
+  {
+   "name": "hookEnd",
+   "range": [
+    8.7,
+    11
+   ],
+   "step": 0.1,
+   "what": "s: the headline words are gone by this second (they fade over 0.7 s before it)"
+  },
+  {
+   "name": "hookSize",
+   "range": [
+    40,
+    88
+   ],
+   "step": 2,
+   "what": "sheet units: the two headline words (display face, must-read)"
+  },
+  {
+   "name": "hookY",
+   "range": [
+    100,
+    180
+   ],
+   "step": 2,
+   "what": "sheet units: baseline of the headline words"
+  },
+  {
+   "name": "glowR",
+   "range": [
+    0.8,
+    2
+   ],
+   "step": 0.05,
+   "what": "the lit mark's glow radius, in mark widths (kept inside the panel)"
+  },
+  {
+   "name": "litT0",
+   "range": [
+    0,
+    1.5
+   ],
+   "step": 0.1,
+   "what": "s: the mark starts to light"
+  },
+  {
+   "name": "litT1",
+   "range": [
+    0.4,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: the mark is fully lit"
+  },
+  {
+   "name": "ruler0",
+   "range": [
+    12.4,
+    16
+   ],
+   "step": 0.1,
+   "what": "s: the microwave-second ruler draws under the mark"
+  },
+  {
+   "name": "rulerDy",
+   "range": [
+    60,
+    110
+   ],
+   "step": 2,
+   "what": "sheet units: the ruler sits this far below the mark's centre"
+  },
+  {
+   "name": "q0",
+   "range": [
+    17,
+    18
+   ],
+   "step": 0.1,
+   "what": "s: the 0.24 Wh readout lands (the first count)"
+  },
+  {
+   "name": "q0Size",
+   "range": [
+    32,
+    56
+   ],
+   "step": 2,
+   "what": "sheet units: the 0.24 Wh readout (display face, must-read)"
+  },
+  {
+   "name": "micro0",
+   "range": [
+    22.6,
+    24
+   ],
+   "step": 0.1,
+   "what": "s: the microwave row of the legend and the filled part of the ruler appear"
+  },
+  {
+   "name": "bulb0",
+   "range": [
+    28.4,
+    30
+   ],
+   "step": 0.1,
+   "what": "s: the bulb row of the legend appears"
+  },
+  {
+   "name": "ladT0",
+   "range": [
+    31.5,
+    32.5
+   ],
+   "step": 0.1,
+   "what": "s: the log zoom starts (rung 10^0 holds first)"
+  },
+  {
+   "name": "dwell",
+   "range": [
+    2.5,
+    2.7
+   ],
+   "step": 0.1,
+   "what": "s: hold per rung (a caption lands in it)"
+  },
+  {
+   "name": "move",
+   "range": [
+    1.2,
+    1.4
+   ],
+   "step": 0.1,
+   "what": "s: time between rungs (ease cubic on log10 n)"
+  },
+  {
+   "name": "budget",
+   "range": [
+    400,
+    4000
+   ],
+   "step": 100,
+   "what": "marks drawn one by one up to this many; past it, tiles (module LOD)"
+  },
+  {
+   "name": "tile",
+   "range": [
+    3,
+    6
+   ],
+   "step": 1,
+   "what": "cells per tile side past the budget (the module's batch factor is its square)"
+  },
+  {
+   "name": "rungLag",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.1,
+   "what": "s: after a rung arrives, the energy readout lands (the count is read first)"
+  },
+  {
+   "name": "cntSize",
+   "range": [
+    40,
+    72
+   ],
+   "step": 2,
+   "what": "sheet units: the running count (display face, must-read)"
+  },
+  {
+   "name": "enSize",
+   "range": [
+    28,
+    48
+   ],
+   "step": 2,
+   "what": "sheet units: the energy readouts (display face, must-read)"
+  },
+  {
+   "name": "panelSize",
+   "range": [
+    280,
+    340
+   ],
+   "step": 4,
+   "what": "sheet units: the square panel the crowd lives in (the ruler is a third of it)"
+  },
+  {
+   "name": "panelY",
+   "range": [
+    46,
+    70
+   ],
+   "step": 2,
+   "what": "sheet units: top of the panel"
+  },
+  {
+   "name": "panelDensity",
+   "range": [
+    1,
+    2
+   ],
+   "step": 1,
+   "what": "pixel density of the panel texture (1 = softer, cheaper)"
+  },
+  {
+   "name": "swapT0",
+   "range": [
+    56,
+    57
+   ],
+   "step": 0.1,
+   "what": "s: the whole 10^5 field starts to shrink into ONE tile (the tile swap)"
+  },
+  {
+   "name": "swapDur",
+   "range": [
+    0.8,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: length of the swap"
+  },
+  {
+   "name": "t2T0",
+   "range": [
+    57,
+    58
+   ],
+   "step": 0.1,
+   "what": "s: second tier zoom starts (one tile to 100,000 tiles)"
+  },
+  {
+   "name": "t2T1",
+   "range": [
+    59,
+    60.4
+   ],
+   "step": 0.1,
+   "what": "s: second tier zoom ends on the full site-day"
+  },
+  {
+   "name": "tileFill",
+   "range": [
+    0.6,
+    0.95
+   ],
+   "step": 0.01,
+   "what": "share of a cell a tile mark fills in the second tier"
+  },
+  {
+   "name": "siteAt",
+   "range": [
+    57.4,
+    59
+   ],
+   "step": 0.1,
+   "what": "s: the 100 MW site-day readout (2.4 GWh) lands"
+  },
+  {
+   "name": "billionAt",
+   "range": [
+    60.6,
+    63
+   ],
+   "step": 0.1,
+   "what": "s: the 10 billion queries readout lands (after the 100,000 tiles)"
+  },
+  {
+   "name": "worldT0",
+   "range": [
+    65.5,
+    66.5
+   ],
+   "step": 0.1,
+   "what": "s: hard cut to the world's grid"
+  },
+  {
+   "name": "terrT0",
+   "range": [
+    98.5,
+    99.6
+   ],
+   "step": 0.1,
+   "what": "s: hard cut to the terrain"
+  },
+  {
+   "name": "plateCols",
+   "range": [
+    170,
+    220
+   ],
+   "step": 5,
+   "what": "cells across the world's grid plate (rows follow from the grid size, one cell per TWh)"
+  },
+  {
+   "name": "cell",
+   "range": [
+    2.5,
+    4
+   ],
+   "step": 0.1,
+   "what": "world units: one cell of the plate (and the edge of a mark's box)"
+  },
+  {
+   "name": "boxFill",
+   "range": [
+    0.5,
+    0.95
+   ],
+   "step": 0.02,
+   "what": "share of a cell a mark's box fills"
+  },
+  {
+   "name": "blockCols",
+   "range": [
+    14,
+    30
+   ],
+   "step": 1,
+   "what": "marks per row of the block of 415 (rows follow)"
+  },
+  {
+   "name": "towerFoot",
+   "range": [
+    2,
+    4
+   ],
+   "step": 1,
+   "what": "boxes along one side of a tower's square footprint"
+  },
+  {
+   "name": "towerGap",
+   "range": [
+    50,
+    120
+   ],
+   "step": 2,
+   "what": "world units: spacing of the four towers"
+  },
+  {
+   "name": "plateRes",
+   "range": [
+    4,
+    8
+   ],
+   "step": 1,
+   "what": "texture pixels per plate cell"
+  },
+  {
+   "name": "gridAlpha",
+   "range": [
+    0.15,
+    0.7
+   ],
+   "step": 0.02,
+   "what": "opacity of the grey cells of the rest of the world's grid"
+  },
+  {
+   "name": "ambient",
+   "range": [
+    60,
+    200
+   ],
+   "step": 5,
+   "what": "ambient light on the boxes (0-255)"
+  },
+  {
+   "name": "keyLight",
+   "range": [
+    100,
+    255
+   ],
+   "step": 5,
+   "what": "key light on the boxes (0-255)"
+  },
+  {
+   "name": "wLeg0",
+   "range": [
+    66.2,
+    68
+   ],
+   "step": 0.1,
+   "what": "s: the legend (one mark = one TWh; grey = the rest) appears"
+  },
+  {
+   "name": "cinT0",
+   "range": [
+    66.2,
+    67.4
+   ],
+   "step": 0.1,
+   "what": "s: the first of the 415 marks lands in the block"
+  },
+  {
+   "name": "cinT1",
+   "range": [
+    69.5,
+    71
+   ],
+   "step": 0.1,
+   "what": "s: the last mark lands (the count reads 415 by then)"
+  },
+  {
+   "name": "cinGrow",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "s: a mark takes this long to rise to its height"
+  },
+  {
+   "name": "pctAt",
+   "range": [
+    77,
+    78.5
+   ],
+   "step": 0.1,
+   "what": "s: the share pin appears on the block (after the pull-back settles; 6 s after the count)"
+  },
+  {
+   "name": "regStagger",
+   "range": [
+    0,
+    0.25
+   ],
+   "step": 0.05,
+   "what": "share of the regroup the last mark waits before leaving"
+  },
+  {
+   "name": "regLift",
+   "range": [
+    0,
+    40
+   ],
+   "step": 1,
+   "what": "world units: the hop a mark makes in flight"
+  },
+  {
+   "name": "towT0",
+   "range": [
+    88,
+    90
+   ],
+   "step": 0.1,
+   "what": "s: the first tower count pins (after the turn settles)"
+  },
+  {
+   "name": "towStep",
+   "range": [
+    0.6,
+    1.5
+   ],
+   "step": 0.1,
+   "what": "s: between one tower's pin and the next"
+  },
+  {
+   "name": "pctRegAt",
+   "range": [
+    93.6,
+    95
+   ],
+   "step": 0.1,
+   "what": "s: the first share replaces a tower count (counts first)"
+  },
+  {
+   "name": "checkAt",
+   "range": [
+    95,
+    98
+   ],
+   "step": 0.1,
+   "what": "s: the check line (187 + 104 + 62 + 62 = 415) appears"
+  },
+  {
+   "name": "terrSize",
+   "range": [
+    500,
+    860
+   ],
+   "step": 20,
+   "what": "world units: width of the terrain (40 columns)"
+  },
+  {
+   "name": "terrZ",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.05,
+   "what": "the terrain's depth (rows) as a share of its width scale; a view choice, no cell changes"
+  },
+  {
+   "name": "terrH",
+   "range": [
+    100,
+    240
+   ],
+   "step": 10,
+   "what": "world units: height of the taller end of the fixed scale"
+  },
+  {
+   "name": "terrMax",
+   "range": [
+    22,
+    30
+   ],
+   "step": 1,
+   "what": "percent at the top of the fixed height scale (the same for every mesa)"
+  },
+  {
+   "name": "terrSlab",
+   "range": [
+    0,
+    30
+   ],
+   "step": 1,
+   "what": "world units: depth of the section's floor under the terrain"
+  },
+  {
+   "name": "contours",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "contour intervals over the height scale (0 = off; unlabelled)"
+  },
+  {
+   "name": "terrAmb",
+   "range": [
+    0.3,
+    0.6
+   ],
+   "step": 0.02,
+   "what": "ambient light on the terrain"
+  },
+  {
+   "name": "terrKey",
+   "range": [
+    0.5,
+    0.9
+   ],
+   "step": 0.02,
+   "what": "key light on the terrain"
+  },
+  {
+   "name": "revealDur",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.1,
+   "what": "s: the terrain's rows count in over this long after the cut"
+  },
+  {
+   "name": "namesAt",
+   "range": [
+    103,
+    104.4
+   ],
+   "step": 0.1,
+   "what": "s: the place names pin (after the crane settles)"
+  },
+  {
+   "name": "cutStartCol",
+   "range": [
+    0,
+    1
+   ],
+   "step": 1,
+   "what": "column the section cut starts at (the left edge)"
+  },
+  {
+   "name": "cutIeT0",
+   "range": [
+    104,
+    105.5
+   ],
+   "step": 0.1,
+   "what": "s: the section cut starts to travel to Ireland"
+  },
+  {
+   "name": "cutIeT1",
+   "range": [
+    106,
+    107.6
+   ],
+   "step": 0.1,
+   "what": "s: the cut stops at Ireland (a real column)"
+  },
+  {
+   "name": "ieGwhAt",
+   "range": [
+    107,
+    109
+   ],
+   "step": 0.1,
+   "what": "s: Ireland's GWh pins at the cut"
+  },
+  {
+   "name": "iePctAt",
+   "range": [
+    111.5,
+    114
+   ],
+   "step": 0.1,
+   "what": "s: Ireland's share replaces the GWh (5 s after it)"
+  },
+  {
+   "name": "ieTimesAt",
+   "range": [
+    116,
+    119
+   ],
+   "step": 0.1,
+   "what": "s: the \"15 times\" pin replaces the share"
+  },
+  {
+   "name": "cutUsT0",
+   "range": [
+    120.5,
+    122
+   ],
+   "step": 0.1,
+   "what": "s: the cut starts to travel to the United States (the Ireland pin is off one second before)"
+  },
+  {
+   "name": "cutUsT1",
+   "range": [
+    123,
+    125
+   ],
+   "step": 0.1,
+   "what": "s: the cut stops at the United States"
+  },
+  {
+   "name": "usTwhAt",
+   "range": [
+    124,
+    126
+   ],
+   "step": 0.1,
+   "what": "s: the US TWh pins at the cut"
+  },
+  {
+   "name": "usPctAt",
+   "range": [
+    127,
+    129.5
+   ],
+   "step": 0.1,
+   "what": "s: the US share replaces the TWh"
+  },
+  {
+   "name": "usHalfAt",
+   "range": [
+    131,
+    133.5
+   ],
+   "step": 0.1,
+   "what": "s: the \"about half of 2025 growth\" pin replaces the share"
+  },
+  {
+   "name": "dimT0",
+   "range": [
+    135,
+    136
+   ],
+   "step": 0.1,
+   "what": "s: the terrain dims for Monday and the pins go"
+  },
+  {
+   "name": "dim",
+   "range": [
+    0.3,
+    0.85
+   ],
+   "step": 0.02,
+   "what": "how far the terrain dims on Monday (share of the ground colour laid over it)"
+  },
+  {
+   "name": "endFade",
+   "range": [
+    148,
+    149.4
+   ],
+   "step": 0.1,
+   "what": "s: the Monday text fades out (gone 0.5 s later, before the CETI card at 150 s covers the page)"
+  },
+  {
+   "name": "monQ0",
+   "range": [
+    135.2,
+    137
+   ],
+   "step": 0.1,
+   "what": "s: the question appears"
+  },
+  {
+   "name": "monY",
+   "range": [
+    80,
+    160
+   ],
+   "step": 2,
+   "what": "sheet units: baseline of \"Per what?\" (the second line is 56 below it)"
+  },
+  {
+   "name": "monSize",
+   "range": [
+    40,
+    88
+   ],
+   "step": 2,
+   "what": "sheet units: \"Per what?\" (display face)"
+  },
+  {
+   "name": "monSize2",
+   "range": [
+    28,
+    56
+   ],
+   "step": 2,
+   "what": "sheet units: the second line of the question (display face)"
+  },
+  {
+   "name": "honestAt",
+   "range": [
+    138,
+    141
+   ],
+   "step": 0.1,
+   "what": "s: the honest-limits line appears on stage"
+  },
+  {
+   "name": "honestY",
+   "range": [
+    270,
+    380
+   ],
+   "step": 2,
+   "what": "sheet units: baseline of the first honest line (it is three lines)"
+  },
+  {
+   "name": "honestSize",
+   "range": [
+    14,
+    20
+   ],
+   "step": 1,
+   "what": "sheet units: the honest-limits line (mono, secondary: floor 14)"
+  },
+  {
+   "name": "labHold",
+   "range": [
+    0,
+    12
+   ],
+   "step": 1,
+   "what": "frames a pin must be pushed before it hides (gl-labels hysteresis)"
+  },
+  {
+   "name": "labLeader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "sheet units: pin leader length"
+  },
+  {
+   "name": "labMax",
+   "range": [
+    3,
+    12
+   ],
+   "step": 1,
+   "what": "most pins on screen at once (gl-labels maxShown)"
+  },
+  {
+   "name": "cwStartEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye x"
+  },
+  {
+   "name": "cwStartEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye y"
+  },
+  {
+   "name": "cwStartEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye z"
+  },
+  {
+   "name": "cwStartCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point x"
+  },
+  {
+   "name": "cwStartCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point y"
+  },
+  {
+   "name": "cwStartCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point z"
+  },
+  {
+   "name": "cwStartFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · start pose: vertical field of view (deg)"
+  },
+  {
+   "name": "cwPullT0",
+   "range": [
+    72.5,
+    75.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · pull (dolly): start (s)"
+  },
+  {
+   "name": "cwPullT1",
+   "range": [
+    75.5,
+    78.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · pull (dolly): end (s)"
+  },
+  {
+   "name": "cwPullEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · pull (dolly): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "cwPullDist",
+   "range": [
+    200,
+    1200
+   ],
+   "step": 10,
+   "what": "camera rig · pull (dolly): distance to the centre / target (world units; lookat 0 = pan from the eye)"
+  },
+  {
+   "name": "cwRiseT0",
+   "range": [
+    80.5,
+    83.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · rise (orbit): start (s)"
+  },
+  {
+   "name": "cwRiseT1",
+   "range": [
+    85.9,
+    88.9
+   ],
+   "step": 0.1,
+   "what": "camera rig · rise (orbit): end (s)"
+  },
+  {
+   "name": "cwRiseEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · rise (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "cwRiseAz",
+   "range": [
+    -16,
+    64
+   ],
+   "step": 5,
+   "what": "camera rig · rise (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "cwRiseEl",
+   "range": [
+    3,
+    60
+   ],
+   "step": 1,
+   "what": "camera rig · rise (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "cwRiseR",
+   "range": [
+    0.3,
+    2
+   ],
+   "step": 0.05,
+   "what": "camera rig · rise (orbit): end radius as a factor of the start"
+  },
+  {
+   "name": "ctStartEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye x"
+  },
+  {
+   "name": "ctStartEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye y"
+  },
+  {
+   "name": "ctStartEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye z"
+  },
+  {
+   "name": "ctStartCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point x"
+  },
+  {
+   "name": "ctStartCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point y"
+  },
+  {
+   "name": "ctStartCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point z"
+  },
+  {
+   "name": "ctStartFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · start pose: vertical field of view (deg)"
+  },
+  {
+   "name": "ctLiftT0",
+   "range": [
+    97.5,
+    100.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · lift (crane): start (s)"
+  },
+  {
+   "name": "ctLiftT1",
+   "range": [
+    101.7,
+    104.7
+   ],
+   "step": 0.1,
+   "what": "camera rig · lift (crane): end (s)"
+  },
+  {
+   "name": "ctLiftEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · lift (crane): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "ctLiftRise",
+   "range": [
+    100,
+    900
+   ],
+   "step": 10,
+   "what": "camera rig · lift (crane): eye rise (world units, + = up)"
+  },
+  {
+   "name": "ctLiftFollow",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "camera rig · lift (crane): how much of the rise the aim follows (0 = keep the subject)"
+  },
+  {
+   "name": "ctDriftT0",
+   "range": [
+    103.1,
+    106.1
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): start (s)"
+  },
+  {
+   "name": "ctDriftT1",
+   "range": [
+    119.1,
+    122.1
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): end (s)"
+  },
+  {
+   "name": "ctDriftEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · drift (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "ctDriftAz",
+   "range": [
+    -50,
+    30
+   ],
+   "step": 5,
+   "what": "camera rig · drift (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "ctUsT0",
+   "range": [
+    119.5,
+    122.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · us (orbit): start (s)"
+  },
+  {
+   "name": "ctUsT1",
+   "range": [
+    129.5,
+    132.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · us (orbit): end (s)"
+  },
+  {
+   "name": "ctUsEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · us (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "ctUsAz",
+   "range": [
+    -12,
+    68
+   ],
+   "step": 5,
+   "what": "camera rig · us (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "ctUsEl",
+   "range": [
+    3,
+    60
+   ],
+   "step": 1,
+   "what": "camera rig · us (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "ctUsR",
+   "range": [
+    0.3,
+    2
+   ],
+   "step": 0.05,
+   "what": "camera rig · us (orbit): end radius as a factor of the start"
+  }
+ ]
+}

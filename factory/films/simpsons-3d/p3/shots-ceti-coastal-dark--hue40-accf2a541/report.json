@@ -1,0 +1,16 @@
+{
+ "html": "/home/user/ceti-explainer/factory/films/simpsons-3d/build/simpsons-3d.ceti-coastal-dark--hue40-accf2a541.none.html",
+ "errors": [],
+ "variants": {
+  "default": {
+   "stills": [
+    "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-ceti-coastal-dark--hue40-accf2a541/default-t30.00.png",
+    "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-ceti-coastal-dark--hue40-accf2a541/default-t51.98.png",
+    "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-ceti-coastal-dark--hue40-accf2a541/default-t56.48.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 55.7,
+ "contact": "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-ceti-coastal-dark--hue40-accf2a541/contact.png"
+}

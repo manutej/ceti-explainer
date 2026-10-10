@@ -1,0 +1,37 @@
+{
+ "id": "warm-lab",
+ "name": "Warm lab (sand, umber, coral)",
+ "color": {
+  "bg": "#EBDCC3",
+  "ink": "#3B2618",
+  "accent": "#D94F3A",
+  "accent2": "#2F6F73",
+  "muted": "#74604C",
+  "line": "rgba(59,38,24,0.20)",
+  "panel": "#DFCDAF",
+  "chalk": "#24150B"
+ },
+ "type": {
+  "disp": {
+   "family": "DM Sans",
+   "weight": 600
+  },
+  "mono": {
+   "family": "DM Mono",
+   "weight": 400
+  },
+  "body": {
+   "family": "DM Sans",
+   "weight": 400
+  }
+ },
+ "texture": "paper",
+ "tempo": {
+  "ease": "cubic",
+  "beat_s": 4
+ },
+ "voice": {
+  "register": "a friendly researcher at the bench: curious, concrete, show the sample",
+  "end_card": "CETI"
+ }
+}

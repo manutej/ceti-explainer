@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/demo.html",
+ "errors": [],
+ "variants": {
+  "bars-2x6": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-t14.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-t18.00.png"
+   ],
+   "purity": "identical"
+  },
+  "bars-2x6-k10": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-k10-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-k10-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-k10-t14.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-k10-t18.00.png"
+   ],
+   "purity": "identical"
+  },
+  "treemap-4x8": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/treemap-4x8-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/treemap-4x8-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/treemap-4x8-t14.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/treemap-4x8-t18.00.png"
+   ],
+   "purity": "identical"
+  },
+  "big-12x12-lod": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/big-12x12-lod-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/big-12x12-lod-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/big-12x12-lod-t14.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/big-12x12-lod-t18.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 220.8,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/contact.png"
+}

@@ -1,0 +1,393 @@
+{
+ "film": "pass-every-time",
+ "params": {
+  "tasks": 115,
+  "triesPer": 4,
+  "n0": 22,
+  "n1": 18,
+  "n2": 9,
+  "n3": 22,
+  "n4": 44,
+  "modelTries": 4,
+  "seed": 20261010,
+  "modelAll8": 36,
+  "paperPass8Upper": 25,
+  "prs": 296,
+  "maintainers": 4,
+  "swe": 80.9,
+  "h50h": 4,
+  "h50m": 49,
+  "h80": 27,
+  "perCubeMin": 1,
+  "perMark": 1,
+  "year": 2024,
+  "r50": 50,
+  "r80": 80
+ },
+ "rounding": "percentages use round(x,1) as in factory gate helpers; grade A = opened or recomputed here from the primary data file, B = primary page blocked by egress, read through quoted search-result text from several outlets, C = single secondary (none are on screen)",
+ "sources": {
+  "S1": {
+   "url": "https://github.com/sierra-research/tau-bench",
+   "what": "tau-bench README leaderboard, retail, TC (gpt-4o): Pass^1..4 = 0.604 / 0.491 / 0.430 / 0.383 (opened and read 2026-10-10) ; model GPT-4o, 2024"
+  },
+  "S2": {
+   "url": "https://raw.githubusercontent.com/sierra-research/tau-bench/main/historical_trajectories/gpt-4o-retail.json",
+   "what": "tau-bench historical_trajectories/gpt-4o-retail.json: 460 rows = 115 tasks x 4 trials, per-task reward 0/1; tasks_test.py has 115 retail tasks (downloaded and recomputed 2026-10-10)"
+  },
+  "S3": {
+   "url": "https://arxiv.org/abs/2406.12045",
+   "what": "Yao, Shinn, Razavi, Narasimhan 2024, tau-bench, abstract: about 61 % pass^1 on retail, 'as low as ~25 % for pass^8'; paper PDF blocked by egress (403), abstract seen as quoted in search results"
+  },
+  "S4": {
+   "url": "https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/",
+   "what": "METR note 2026-03-10: 4 active maintainers, 3 SWE-bench Verified repos, 296 AI PRs, roughly half of test-passing PRs would not be merged; agents could not iterate on feedback (METR page blocked by egress; read through search-result text of the note and four outlets quoting it)"
+  },
+  "S5": {
+   "url": "https://x.com/metr_evals (Dec 2025 post; reported by https://www.techmeme.com/251221/p1 and https://the-decoder.com/anthropics-claude-opus-4-5-can-tackle-some-tasks-lasting-nearly-five-hours/)",
+   "what": "METR time-horizon measurement for Claude Opus 4.5: 50 % horizon about 4 h 49 min (95 % CI 1 h 49 min to 20 h 25 min), 80 % horizon 27 min"
+  },
+  "S6": {
+   "url": "https://www.anthropic.com/news/claude-opus-4-5",
+   "what": "Anthropic, Claude Opus 4.5 announcement 2025-11-24: 80.9 % on SWE-bench Verified (vendor-reported; read through secondary coverage, announcement page not opened)"
+  },
+  "S7": {
+   "url": "factory/topics/pass-every-time/recompute.py",
+   "what": "recompute.py: beta model of the published curve, mulberry32 seed 20261010 (simulation claim)"
+  }
+ },
+ "claims": [
+  {
+   "id": "tasks",
+   "text": "tau-bench retail test set: 115 tasks, one tile each",
+   "value": 115,
+   "formula": "tasks",
+   "source": "S2",
+   "grade": "A",
+   "url": "https://raw.githubusercontent.com/sierra-research/tau-bench/main/historical_trajectories/gpt-4o-retail.json",
+   "where": "CASE 21.0 s label '115 tasks'; caption c4; cut readout '44 of 115' 77.5 s; caption c16 92.0 s"
+  },
+  {
+   "id": "triesPer",
+   "text": "four published trials per task",
+   "value": 4,
+   "formula": "triesPer",
+   "source": "S2",
+   "grade": "A",
+   "url": "https://raw.githubusercontent.com/sierra-research/tau-bench/main/historical_trajectories/gpt-4o-retail.json",
+   "where": "CASE caption c5 28.0 s (word 'Four'); column height",
+   "renders": [
+    "4 tries",
+    "four tries"
+   ]
+  },
+  {
+   "id": "tries",
+   "text": "460 tries = 115 tasks x 4 trials, one cube each",
+   "value": 460,
+   "formula": "tasks*triesPer",
+   "source": "S2",
+   "grade": "A",
+   "url": "https://raw.githubusercontent.com/sierra-research/tau-bench/main/historical_trajectories/gpt-4o-retail.json",
+   "where": "CASE 28.5 s label '460 tries'; caption c5"
+  },
+  {
+   "id": "passed",
+   "text": "278 of the 460 tries passed (lit cubes)",
+   "value": 278,
+   "formula": "n1+2*n2+3*n3+4*n4",
+   "source": "S2",
+   "grade": "A",
+   "url": "https://raw.githubusercontent.com/sierra-research/tau-bench/main/historical_trajectories/gpt-4o-retail.json",
+   "where": "CASE 34.0 s label '278 passed'; caption c6"
+  },
+  {
+   "id": "pass1",
+   "text": "one try: 60.4 % of tries pass (= pass^1)",
+   "value": 60.4,
+   "formula": "round(100*passed/tries,1)",
+   "source": "S1",
+   "grade": "A",
+   "url": "https://github.com/sierra-research/tau-bench",
+   "where": "CASE 36.5 s label '60.4 %' (hold to 40.0); caption c7",
+   "renders": [
+    "60.4 %",
+    "60.4%"
+   ],
+   "cross_check": "README 0.604"
+  },
+  {
+   "id": "pass2",
+   "text": "two tries both pass: 49.1 % (pass^2)",
+   "value": 49.1,
+   "formula": "round(100*(n2+3*n3+6*n4)/6/tasks,1)",
+   "source": "S1",
+   "grade": "A",
+   "url": "https://github.com/sierra-research/tau-bench",
+   "where": "optional curve readout, COUNT 79.5-82.5 s (not required)",
+   "renders": [
+    "49.1 %"
+   ],
+   "cross_check": "README 0.491"
+  },
+  {
+   "id": "pass3",
+   "text": "three tries all pass: 43.0 % (pass^3)",
+   "value": 43.0,
+   "formula": "round(100*(n3+4*n4)/4/tasks,1)",
+   "source": "S1",
+   "grade": "A",
+   "url": "https://github.com/sierra-research/tau-bench",
+   "where": "optional curve readout, COUNT 79.5-82.5 s (not required)",
+   "renders": [
+    "43.0 %"
+   ],
+   "cross_check": "README 0.430"
+  },
+  {
+   "id": "pass4",
+   "text": "all four tries pass: 38.3 % (pass^4)",
+   "value": 38.3,
+   "formula": "round(100*n4/tasks,1)",
+   "source": "S1",
+   "grade": "A",
+   "url": "https://github.com/sierra-research/tau-bench",
+   "where": "COUNT 79.5 s label '38.3 %' (hold to 82.5); caption c14",
+   "renders": [
+    "38.3 %",
+    "38.3%"
+   ],
+   "cross_check": "README 0.383"
+  },
+  {
+   "id": "fullyLit4",
+   "text": "44 tasks pass all four tries (fully lit columns)",
+   "value": 44,
+   "formula": "n4",
+   "source": "S2",
+   "grade": "A",
+   "url": "https://raw.githubusercontent.com/sierra-research/tau-bench/main/historical_trajectories/gpt-4o-retail.json",
+   "where": "COUNT 68.0 s label '44'; caption c11; cut readout 77.5 s"
+  },
+  {
+   "id": "neverPass",
+   "text": "22 tasks never pass in four tries",
+   "value": 22,
+   "formula": "n0",
+   "source": "S2",
+   "grade": "A",
+   "url": "https://raw.githubusercontent.com/sierra-research/tau-bench/main/historical_trajectories/gpt-4o-retail.json",
+   "where": "COUNT 70.5 s label '22'; caption c12"
+  },
+  {
+   "id": "tries8",
+   "text": "eight tries per task = 4 measured + 4 modelled",
+   "value": 8,
+   "formula": "triesPer+modelTries",
+   "source": "derived",
+   "grade": "A",
+   "url": null,
+   "where": "COUNT caption c15 82.6 s (word 'eight'), c16-c18",
+   "renders": [
+    "8 tries",
+    "eight tries"
+   ]
+  },
+  {
+   "id": "modelAll8",
+   "text": "MODEL: 36 of 115 columns lit in all 8 tries (seed 20261010; 1000-seed range 24 to 42)",
+   "value": 36,
+   "formula": null,
+   "source": "S7",
+   "grade": "B",
+   "url": "factory/topics/pass-every-time/recompute.py",
+   "where": "COUNT 92.0 s readout '36 of 115', tagged MODEL; caption c16",
+   "kind": "simulation",
+   "model": "per-task p ~ Beta(a,b), a=0.576 b=0.375 fitted by least squares to pass^1..4; tries 5-8 drawn from the Polya-urn posterior predictive given each task's 4 measured tries",
+   "recompute": "python3 -I factory/topics/pass-every-time/recompute.py | sed -n 's/.*8: \\([0-9]*\\)}.*/\\1/p'",
+   "expect": "36"
+  },
+  {
+   "id": "modelAll8Pct",
+   "text": "MODEL: 31 % of tasks pass all 8 tries (36 / 115)",
+   "value": 31,
+   "formula": "round(100*modelAll8/tasks)",
+   "source": "S7",
+   "grade": "B",
+   "url": "factory/topics/pass-every-time/recompute.py",
+   "where": "COUNT 94.5 s readout '31 %', tagged MODEL; caption c17",
+   "renders": [
+    "31 %"
+   ],
+   "kind": "simulation"
+  },
+  {
+   "id": "paperPass8",
+   "text": "The tau-bench paper reports pass^8 under 25 % on retail (the paper's own 8-trial run)",
+   "value": 25,
+   "formula": null,
+   "source": "S3",
+   "grade": "B",
+   "url": "https://arxiv.org/abs/2406.12045",
+   "where": "COUNT 97.0 s caption c18 and a plate attributed to the paper",
+   "renders": [
+    "under 25 %",
+    "25 %"
+   ]
+  },
+  {
+   "id": "prs",
+   "text": "296 SWE-bench-passing PRs read by maintainers",
+   "value": 296,
+   "formula": null,
+   "source": "S4",
+   "grade": "B",
+   "url": "https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/",
+   "where": "COUNT 105.0 s label '296 PRs'; caption c20"
+  },
+  {
+   "id": "maintainers",
+   "text": "4 active maintainers reviewed them",
+   "value": 4,
+   "formula": null,
+   "source": "S4",
+   "grade": "B",
+   "url": "https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/",
+   "where": "COUNT caption c22 107.5-117.8 s",
+   "renders": [
+    "4 maintainers",
+    "four maintainers"
+   ]
+  },
+  {
+   "id": "notMergedHalf",
+   "text": "about half of the test-passing PRs would not be merged (METR noise-adjusted estimate); drawn as a half split, no digit on screen",
+   "value": "about half",
+   "formula": null,
+   "source": "S4",
+   "grade": "B",
+   "url": "https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/",
+   "where": "COUNT 118.0 s label 'about half would not be merged'; caption c23",
+   "note": "schematic: marks are split 148/148 only to draw 'about half'; the split is not a count and carries no number"
+  },
+  {
+   "id": "swe",
+   "text": "80.9 % top SWE-bench Verified score, Claude Opus 4.5, Nov 2025 (vendor-reported)",
+   "value": 80.9,
+   "formula": null,
+   "source": "S6",
+   "grade": "B",
+   "url": "https://www.anthropic.com/news/claude-opus-4-5",
+   "where": "COUNT 107.5 s caption c21 '80.9 %'",
+   "renders": [
+    "80.9 %",
+    "80.9%"
+   ]
+  },
+  {
+   "id": "h50",
+   "text": "50 % horizon: 4 h 49 min = 289 minutes (95 % CI 1 h 49 min to 20 h 25 min)",
+   "value": 289,
+   "formula": "h50h*60+h50m",
+   "source": "S5",
+   "grade": "B",
+   "url": "https://x.com/metr_evals (Dec 2025 post; reported by https://www.techmeme.com/251221/p1 and https://the-decoder.com/anthropics-claude-opus-4-5-can-tackle-some-tasks-lasting-nearly-five-hours/)",
+   "where": "COUNT 129.5 s label '4 h 49 min'; caption c27",
+   "renders": [
+    "4 h 49 min"
+   ]
+  },
+  {
+   "id": "h80",
+   "text": "80 % horizon: 27 minutes",
+   "value": 27,
+   "formula": "h80",
+   "source": "S5",
+   "grade": "B",
+   "url": "https://x.com/metr_evals (Dec 2025 post; reported by https://www.techmeme.com/251221/p1 and https://the-decoder.com/anthropics-claude-opus-4-5-can-tackle-some-tasks-lasting-nearly-five-hours/)",
+   "where": "COUNT 124.0 s label '27 min'; caption c25",
+   "renders": [
+    "27 min",
+    "27 minutes"
+   ]
+  },
+  {
+   "id": "perCube",
+   "text": "one cube = one minute of human task time",
+   "value": 1,
+   "formula": "perCubeMin",
+   "source": "derived",
+   "grade": "A",
+   "url": null,
+   "where": "COUNT 122.0 s legend 'one cube = one minute'",
+   "renders": [
+    "1 cube = 1 minute"
+   ]
+  },
+  {
+   "id": "horizonRatio",
+   "text": "the 50 % horizon is about 10 times the 80 % horizon (289 / 27 = 10.7, rounded to the nearest ten)",
+   "value": 10,
+   "formula": "round(h50/h80/10)*10",
+   "source": "derived",
+   "grade": "B",
+   "url": null,
+   "where": "COUNT 132.0 s label 'about 10x'; caption c28",
+   "renders": [
+    "about 10x",
+    "about 10 times",
+    "10x",
+    "10 times"
+   ]
+  },
+  {
+   "id": "model",
+   "text": "agent tested: GPT-4o (function calling), tau-bench retail",
+   "value": "GPT-4o",
+   "formula": null,
+   "source": "S1",
+   "grade": "A",
+   "url": "https://github.com/sierra-research/tau-bench",
+   "where": "CASE 12.4 s label under the field; caption c3",
+   "renders": [
+    "GPT-4o",
+    "gpt-4o"
+   ]
+  },
+  {
+   "id": "year",
+   "text": "the tau-bench GPT-4o run is from 2024",
+   "value": 2024,
+   "formula": "year",
+   "source": "S3",
+   "grade": "A",
+   "url": "https://arxiv.org/abs/2406.12045",
+   "where": "MONDAY honest-limits line 141.5 s"
+  },
+  {
+   "id": "r50",
+   "text": "METR 50 % reliability bar (task counted if the agent succeeds half the time)",
+   "value": 50,
+   "formula": "r50",
+   "source": "S5",
+   "grade": "B",
+   "url": "https://x.com/metr_evals (Dec 2025 post; reported by https://www.techmeme.com/251221/p1 and https://the-decoder.com/anthropics-claude-opus-4-5-can-tackle-some-tasks-lasting-nearly-five-hours/)",
+   "where": "COUNT 129.5 s label; caption c27",
+   "renders": [
+    "50 %"
+   ]
+  },
+  {
+   "id": "r80",
+   "text": "METR 80 % reliability bar",
+   "value": 80,
+   "formula": "r80",
+   "source": "S5",
+   "grade": "B",
+   "url": "https://x.com/metr_evals (Dec 2025 post; reported by https://www.techmeme.com/251221/p1 and https://the-decoder.com/anthropics-claude-opus-4-5-can-tackle-some-tasks-lasting-nearly-five-hours/)",
+   "where": "COUNT 124.0 s label; caption c25",
+   "renders": [
+    "80 %"
+   ]
+  }
+ ]
+}

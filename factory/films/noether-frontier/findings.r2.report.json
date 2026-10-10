@@ -1,0 +1,88 @@
+{
+ "film": "noether-frontier",
+ "findings": "factory/films/noether-frontier/findings.r2.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:cometLen",
+   "old": 8,
+   "new": 4,
+   "finding": {
+    "t": 84.0,
+    "frame": "thumbs/t-0080.50.jpg ... t-0087.00.jpg (strip-14 c5 to strip-15 c6)",
+    "severity": "major",
+    "what": "Round-1 cometDim 0.55 and growComet 2.2 landed, but the comet still does not read: from 80.5 s each layer turns into one even grey band of enlarged dots and no single head can be followed; the five layers still read as layers (their plates carry them). With 8 lit moments per arc grown 2.2x, the lit dots cover most of each band.",
+    "why": "A shorter comet halves the lit, grown dots per arc so the heads separate from their arcs instead of merging into a bar. Last knob for this beat: if 4 does not show a moving head, the slide needs the drawn followed head (Beyond scope 2), not more knobs.",
+    "knob": "cometLen",
+    "proposed_value": 4
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:toyRow",
+   "old": 1.5,
+   "new": 1.9,
+   "finding": {
+    "t": 111.0,
+    "frame": "thumbs/t-0108.00.jpg ... t-0114.50.jpg (strip-19 c0-c11)",
+    "severity": "minor",
+    "what": "Round-1 toyH 20 and toyBoxD 16 landed: the marks are blocks now (101 s). But the taller fronts cover the gap between rows at camToyEl 40, so at 109.5-111 s the six rows read as a slab with seams, not six rows.",
+    "why": "A wider row pitch gives each row a visible strip of plate between it and the next; 5 x 16 x 1.9 + 16 = 168 units, which needs the deeper plate in the next finding.",
+    "knob": "toyRow",
+    "proposed_value": 1.9
+   }
+  },
+  {
+   "n": 2,
+   "target": "knob:plateD",
+   "old": 150,
+   "new": 190,
+   "finding": {
+    "t": 111.0,
+    "frame": "thumbs/t-0111.00.jpg (strip-19 c6)",
+    "severity": "minor",
+    "what": "At toyRow 1.9 the six rows span 168 units, more than the 150-unit plate.",
+    "why": "190 keeps all six rows on the plate with an 11-unit margin each side; the plate grows about 13 stage units toward the front, far from the caption band (plate front at about 334 of 540 at 108 s).",
+    "knob": "plateD",
+    "proposed_value": 190
+   }
+  },
+  {
+   "n": 3,
+   "target": "knob:monY",
+   "old": 372,
+   "new": 390,
+   "finding": {
+    "t": 135.5,
+    "frame": "thumbs/t-0135.50.jpg, t-0136.00.jpg (strip-23 c7-c8)",
+    "severity": "major",
+    "what": "New in round 2: with treeD 90 the tree's plate reaches further toward the camera, and as the Monday stage type fades in (135.3-136.0 s) its first line sits on the plate's front edge (plate edge about y 364, line 1 cap tops about y 354, stage units). From 136.5 s the easing camera clears it.",
+    "why": "Moving the Monday type down 18 units puts its first line clear of the plate edge throughout the fade; line 2 lands at 428 with descenders about 436, still above the caption's mark at about 444. G11 sees this text and will confirm.",
+    "knob": "monY",
+    "proposed_value": 390
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/noether-frontier/build/noether-frontier.ceti-coastal-dark.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/noether-frontier/build/noether-frontier.ceti-coastal-dark.none.html  1260731 bytes  sha256 121b3edb34c5836d733f55408919a28aa4d47c3f121817bae5b32111f34454a1  (film code 68608 bytes; brand ceti-coastal-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 16.0  muted 10.9  accent 13.7  onDark/dark 16.0\nrenderer webgl; knobs 99; fonts3d none; libs none\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/noether-frontier/gate.json",
+  "log": "r in 33 captions is a claim value or render\n  G5c claims · on-screen digits  PASS  every visible SVG number is a claim value\n  G6 legibility                  PASS  11 must-read / 15 secondary / 0 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390\n  G7 counts first                PASS  count at 21 s (count.at); first ratio \"Reordering cost more than 30 % in some t\" at 115.1 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 82.4 KB (film.js 47.1, film.json 19.9, claims.json 15.4) < 120 KB; page 1.261 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand ceti-coastal-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes\n  G11 text overlap               PASS  307 samples every 0.5 s, 57 distinct texts (texts with data-role), caption showing at 243; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames noether-frontier: 307 frames every 0.5 s → 26 strip(s) in factory/films/noether-frontier/frames; 0.276 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0"
+ }
+}

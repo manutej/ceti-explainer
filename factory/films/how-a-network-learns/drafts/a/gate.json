@@ -1,0 +1,203 @@
+{
+  "film": "how-a-network-learns",
+  "page": "factory/films/how-a-network-learns/drafts/a/build/how-a-network-learns.ceti-neosage-dark.none.html",
+  "filmDir": "factory/films/how-a-network-learns/drafts/a",
+  "date": "2026-10-10T09:41:06.197Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1063 ms; stage sd 24.6s:23.6 61.5s:26.2 98.4s:26.4",
+      "data": {
+        "readyMs": 1063,
+        "stats": [
+          {
+            "t": 24.6,
+            "mean": 21.221703443292988,
+            "sd": 23.568565419391945
+          },
+          {
+            "t": 61.5,
+            "mean": 22.557958294760617,
+            "sd": 26.201107535343176
+          },
+          {
+            "t": 98.4,
+            "mean": 22.65586661844889,
+            "sd": 26.37597095731654
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 12.3, 36.9, 61.5, 86.1, 110.7 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, commit-off.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 123 s; material 120 s (want 90–120, format feature) + brand 3 s; total ≤ 123"
+    },
+    {
+      "id": "G4b",
+      "name": "format · beats",
+      "status": "PASS",
+      "evidence": "order HOOK → CASE → COUNT → MONDAY; t0 H0 C12 C58 M108"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit {\"enabled\":false}"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Fast at first. The last few cost the most.\"; frame at 122 s sd 14.3; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Graded on the 150 it learned from; new flowers untested. One small network, one \""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "6 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "69 claims, 30 with formula, 30 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 22 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "12 visible number(s) not in claims (chrome?): 60 @46s \"STEP 60\"; 160 @47s \"STEP 160\"; 260 @48s \"STEP 260\"; 360 @49s \"STEP 360\"; 460 @50s \"STEP 460\"; 560 @51s \"STEP 560\"",
+      "data": {
+        "unknown": [
+          "60 @46s \"STEP 60\"",
+          "160 @47s \"STEP 160\"",
+          "260 @48s \"STEP 260\"",
+          "360 @49s \"STEP 360\"",
+          "460 @50s \"STEP 460\"",
+          "560 @51s \"STEP 560\"",
+          "660 @52s \"STEP 660\"",
+          "760 @53s \"STEP 760\"",
+          "860 @54s \"STEP 860\"",
+          "960 @55s \"STEP 960\"",
+          "134 @103s \"ROW 134\"",
+          "84 @103s \"ROW 84\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "16 must-read / 14 secondary / 11 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot factory/films/how-a-network-learns/drafts/a/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 16,
+          "secondary": 14,
+          "chrome": 11
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 61 s (count.at); first ratio \"OF 150 · 90 %\" at 67 s (svg); commit disabled (D11): no seal, counts-before-ratios only"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 117.6 KB (film.js 83.4, film.json 16.8, claims.json 17.4) < 120 KB; page 1.295 MB < 1.3 MB",
+      "data": {
+        "code": 120470,
+        "page": 1294853
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand ceti-neosage-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "ceti-neosage-dark",
+          "chrome": "none",
+          "material": "ink",
+          "texture": "none",
+          "texture_declared": "none",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 17.27, 33.53, 49.8, 66.07, 82.33, 98.6, 123 s → factory/films/how-a-network-learns/drafts/a/shots"
+    }
+  ]
+}

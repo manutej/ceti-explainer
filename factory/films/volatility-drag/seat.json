@@ -1,0 +1,22 @@
+{
+  "id": "volatility-drag",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "heads x1.5, tails x0.6: £150 / £60, average £105, +5 % a round; a win-loss pair x0.9 = £90", "status": "ok", "note": "1.5 x 0.6 = 0.9 (Peters 2019)"},
+    {"claim": "typical player after 100 rounds: £100 x 0.9^50 = £0.52; -5.1 % a round", "status": "ok", "note": "0.9^50 = 0.005154; sqrt(0.9) - 1 = -5.13 %"},
+    {"claim": "expected after 100 rounds: £100 x 1.05^100 = £13,150; £293 at round 22", "status": "ok", "note": "1.05^100 = 131.5; 1.05^22 = 2.925"},
+    {"claim": "seeded 100 players: 87 lost money, 55 under £1, 12 reached £150, median £0.52 (ranks 50 and 51 at 50 heads)", "status": "ok", "note": "all 32 formulas recompute from seed 1; £150 needs 57+ heads, binomial tail about 10 %, so 12 is a typical draw"},
+    {"claim": "Kelly: betting a quarter of the pot grows about +0.6 % a round", "status": "ok", "note": "sqrt(1.125 x 0.9) - 1 = 0.62 %; page only"}
+  ],
+  "craft": 4,
+  "originality": 3,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 50.3, "what": "The count is a 100-bar chart on a log axis with gridlines at 1p, £1, £100, £10,000, £1M; the scale is needed to hold 52p and £13,150 on one stage, but it is chart apparatus on an exec stage and the bars thin to hairlines at phone width", "severity": "med"},
+    {"t": 10.9, "what": "Three grey ghost bars sit under the commit prompt with no label; residue of the hook, meaningless in the commit frame", "severity": "low"},
+    {"t": 1.0, "what": "Hook is a single £100 bar; the stop comes from the caption and the £0.52 later", "severity": "low"}
+  ],
+  "one_line": "Fifty pairs of x0.9 landing on 52p beside a £13,150 expectation line is the whole argument in one frame, and it all recomputes; the log chart is the price of showing both."
+}

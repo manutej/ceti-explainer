@@ -1,0 +1,13 @@
+{ "id": "terminal--light", "name": "Terminal (near-black, phosphor green) [light]",
+  "color": {
+    "bg": "#EAEEEA",
+    "ink": "#102917",
+    "accent": "#005A23",
+    "accent2": "#785100",
+    "muted": "#54745D",
+    "line": "rgba(16,41,23,0.22)",
+    "panel": "#F5FEF6",
+    "chalk": "#1B2D21" },
+  "type": { "disp": {"family": "Red Hat Mono", "weight": 500}, "mono": {"family": "Red Hat Mono", "weight": 400}, "body": {"family": "Red Hat Mono", "weight": 400} },
+  "texture": "grain", "tempo": {"ease": "linear", "beat_s": 2.5},
+  "voice": {"register": "a command line reporting back, terse, lowercase, no adjectives", "end_card": "> ceti_", "derived": {"from": "terminal", "transforms": ["light"]}} }

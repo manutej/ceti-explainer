@@ -1,0 +1,22 @@
+{
+  "id": "simpsons",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "4,526 applicants = 2,691 men + 1,835 women; 1,198 and 557 admitted", "status": "ok", "note": "sums of the six-department UCBAdmissions table recompute; the table values match the R dataset (A 512/825, 89/108; B 353/560, 17/25; C 120/325, 202/593; D 138/417, 131/375; E 53/191, 94/393; F 22/373, 24/341)"},
+    {"claim": "45 % of men, 30 % of women (pooled)", "status": "ok", "note": "1198/2691 = 44.5 %, 557/1835 = 30.4 %; the campus-wide 44/35 is kept off stage and explained in the honest limits"},
+    {"claim": "women worse in 2 of 6 (C by 3, E by 4); better in A, B, D, F", "status": "ok", "note": "37 vs 34, 28 vs 24; 62/82, 63/68, 33/35, 6/7"},
+    {"claim": "51 % of men and 7 % of women applied to A or B", "status": "ok", "note": "1385/2691 = 51.5 %, 133/1835 = 7.2 %"},
+    {"claim": "campus-wide 44 % of 8,442 men vs 35 % of 4,321 women", "status": "ok", "note": "Bickel et al. 1975 Table 1 as cited; page only"}
+  ],
+  "craft": 4,
+  "originality": 4,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 58.5, "what": "The column headers switch from 'MEN 45 % / WOMEN 30 %' (admitted) to 'MEN 51 % / WOMEN 7 %' (applied to A or B) in the same position and face; without the caption a viewer reads 51 % as a new admission rate", "severity": "med"},
+    {"t": 40.5, "what": "During the split the department letters A to F appear beside bands that are still filling, and the grey mass of 4,526 marks reads as texture; the mix (men in A and B, women in C to F) only becomes legible once the ledger lands at 46 s", "severity": "low"},
+    {"t": 60.2, "what": "The MEN column header '1,385 ÷ 2,691' and the WOMEN '133 ÷ 1,835' are secondary-size under a headline that has changed meaning; the ledger rows C and E (the answer) are set in a lighter tint than the others", "severity": "low"}
+  ],
+  "one_line": "Moving the same marks from two columns into six bands is the honest way to show a mix, and the commit (2 of 6, not 5) lands; label the 51 % / 7 % headline for what it is."
+}

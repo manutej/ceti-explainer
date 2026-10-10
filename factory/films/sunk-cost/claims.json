@@ -1,0 +1,452 @@
+{
+ "film": "sunk-cost",
+ "params": {
+  "spentM": 4,
+  "bought": 60,
+  "groups": 3,
+  "plays": 5,
+  "price": 15,
+  "off2": 2,
+  "off7": 7,
+  "couples15": 2,
+  "couples13": 1,
+  "couples8": 3,
+  "m15": 4.11,
+  "m13": 3.32,
+  "m8": 3.29,
+  "season": 1982,
+  "holdSec": 8,
+  "guessDefault": 17
+ },
+ "sources": {
+  "AB85": "Arkes, H. R., & Blumer, C. (1985). The psychology of sunk cost. Organizational Behavior and Human Decision Processes, 35(1), 124-140. doi:10.1016/0749-5978(85)90049-4",
+  "AA99": "Arkes, H. R., & Ayton, P. (1999). The sunk cost and Concorde effects: Are humans less rational than lower animals? Psychological Bulletin, 125(5), 591-600. doi:10.1037/0033-2909.125.5.591",
+  "F07": "Friedman, D., Pommerenke, K., Lukose, R., Milam, G., & Huberman, B. A. (2007). Searching for the sunk cost fallacy. Experimental Economics, 10(1), 79-104. doi:10.1007/s10683-006-9134-0",
+  "S76": "Staw, B. M. (1976). Knee-deep in the big muddy. Organizational Behavior and Human Performance, 16(1), 27-44. doi:10.1016/0030-5073(76)90005-2",
+  "T80": "Thaler, R. (1980). Toward a positive theory of consumer choice. Journal of Economic Behavior & Organization, 1(1), 39-60. doi:10.1016/0167-2681(80)90051-7"
+ },
+ "claims": [
+  {
+   "id": "hook.spent",
+   "text": "$4M",
+   "value": 4,
+   "formula": "spentM",
+   "params": [
+    "spentM"
+   ],
+   "source": "Illustrative: the exec's own quote in the hook scenario, not data (scenario per S76 escalation framing)",
+   "where": "HOOK caption 1 (0.6-3.8 s) and spend bar label 0.6-8 s; MONDAY caption 13 and spend bar 62-72 s"
+  },
+  {
+   "id": "commit.plays",
+   "text": "five plays",
+   "value": 5,
+   "formula": "plays",
+   "params": [
+    "plays"
+   ],
+   "source": "AB85: season split into two halves of five plays each",
+   "where": "COMMIT caption 3 and commit box (8-16 s); CASE caption 7 'plays 1-5'; COUNT caption 12 'of 5'"
+  },
+  {
+   "id": "commit.price15",
+   "text": "$15",
+   "value": 15,
+   "formula": "price",
+   "params": [
+    "price"
+   ],
+   "source": "AB85; AA99 (normal season-ticket price $15)",
+   "where": "COMMIT ticket and caption 3; CASE ticket and caption 6; COUNT column header and captions 8, 12"
+  },
+  {
+   "id": "commit.off7",
+   "text": "$7 off",
+   "value": 7,
+   "formula": "off7",
+   "params": [
+    "off7"
+   ],
+   "source": "AB85 ($7 discount group)",
+   "where": "COMMIT ticket 'less $7' and captions 3, 4; COUNT caption 9"
+  },
+  {
+   "id": "commit.n8",
+   "text": "17 people got $7 off",
+   "value": 17,
+   "formula": "bought/groups - couples8",
+   "params": [
+    "bought",
+    "groups",
+    "couples8"
+   ],
+   "source": "F07 (20 per group by design); AB85 (three $7-discount subjects removed as couples)",
+   "where": "COMMIT caption 4 and box (8-16 s); COUNT column header '$8 · 17 PEOPLE' and caption 9"
+  },
+  {
+   "id": "commit.tickets8",
+   "text": "85 tickets",
+   "value": 85,
+   "formula": "(bought/groups - couples8) * plays",
+   "params": [
+    "bought",
+    "groups",
+    "couples8",
+    "plays"
+   ],
+   "source": "derived: 17 holders x 5 plays (AB85, F07)",
+   "where": "COMMIT caption 4, box prompt and input range 0-85; COUNT header and caption 9"
+  },
+  {
+   "id": "commit.hold",
+   "text": "8 s countdown",
+   "value": 8,
+   "formula": "holdSec",
+   "params": [
+    "holdSec"
+   ],
+   "source": "FORMAT.md / DECISIONS Q13 (8 s hold on the page, timed countdown in film mode)",
+   "where": "COMMIT box countdown digits 8..1 (8-16 s)"
+  },
+  {
+   "id": "commit.default",
+   "text": "your guess: 17 unused (film-mode default)",
+   "value": 17,
+   "formula": "guessDefault",
+   "params": [
+    "guessDefault"
+   ],
+   "source": "film.json defaultGuess (viewer input, not a fact; Q13). Rationale: one missed play per person",
+   "where": "COMMIT box typed value from 12.4 s (film mode); COUNT red outline over 17 squares and 'YOU SAID 17' on the $8 band (48-62 s)"
+  },
+  {
+   "id": "case.season",
+   "text": "1982",
+   "value": 1982,
+   "formula": "season",
+   "params": [
+    "season"
+   ],
+   "source": "AB85 (1982-1983 season, Ohio University Theater)",
+   "where": "CASE caption 5 and ticket face '1982-83' (16-36 s); title block line 2 (chrome)"
+  },
+  {
+   "id": "case.season2",
+   "text": "-83 (season 1982-83)",
+   "value": 83,
+   "formula": "(season + 1) % 100",
+   "params": [
+    "season"
+   ],
+   "source": "AB85",
+   "where": "CASE ticket face '1982-83'; title block line 2 (chrome)"
+  },
+  {
+   "id": "case.bought",
+   "text": "the first 60 season buyers",
+   "value": 60,
+   "formula": "bought",
+   "params": [
+    "bought"
+   ],
+   "source": "AB85 (first 60 people at the ticket window); F07",
+   "where": "CASE caption 5 and 60 buyer marks (16-22 s)"
+  },
+  {
+   "id": "case.price13",
+   "text": "$13",
+   "value": 13,
+   "formula": "price - off2",
+   "params": [
+    "price",
+    "off2"
+   ],
+   "source": "AB85 ($2 discount); AA99 ($13)",
+   "where": "CASE ticket and caption 6; COUNT column header"
+  },
+  {
+   "id": "case.price8",
+   "text": "$8",
+   "value": 8,
+   "formula": "price - off7",
+   "params": [
+    "price",
+    "off7"
+   ],
+   "source": "AB85 ($7 discount); AA99 ($8)",
+   "where": "COMMIT ticket; CASE ticket and caption 6; COUNT column header and caption 12"
+  },
+  {
+   "id": "case.perGroup",
+   "text": "20 per ticket",
+   "value": 20,
+   "formula": "bought / groups",
+   "params": [
+    "bought",
+    "groups"
+   ],
+   "source": "F07 (20 / 20 / 20); AA99 (about one third each)",
+   "where": "CASE buyer marks dealt into three columns of 20 (22-28 s), 14-unit label '20 · 20 · 20'"
+  },
+  {
+   "id": "case.couples",
+   "text": "six bought as couples, set aside",
+   "value": 6,
+   "formula": "couples15 + couples13 + couples8",
+   "params": [
+    "couples15",
+    "couples13",
+    "couples8"
+   ],
+   "source": "AB85 (2 no-discount, 1 $2, 3 $7 subjects removed as couples)",
+   "where": "CASE caption 7 and struck marks (28.8-35.8 s)"
+  },
+  {
+   "id": "case.analysed",
+   "text": "54 people",
+   "value": 54,
+   "formula": "bought - (couples15 + couples13 + couples8)",
+   "params": [
+    "bought",
+    "couples15",
+    "couples13",
+    "couples8"
+   ],
+   "source": "AB85 (derived: 60 - 6)",
+   "where": "CASE 14-unit label '54 COUNTED'; MONDAY honest-limits caption 14 and stage line"
+  },
+  {
+   "id": "count.n15",
+   "text": "Paid $15: 18 people",
+   "value": 18,
+   "formula": "bought/groups - couples15",
+   "params": [
+    "bought",
+    "groups",
+    "couples15"
+   ],
+   "source": "AB85; F07",
+   "where": "COUNT column header and caption 8 (36.4-41.8 s); readout '74 ÷ 18'"
+  },
+  {
+   "id": "count.tickets15",
+   "text": "90 tickets",
+   "value": 90,
+   "formula": "(bought/groups - couples15) * plays",
+   "params": [
+    "bought",
+    "groups",
+    "couples15",
+    "plays"
+   ],
+   "source": "derived: 18 x 5",
+   "where": "COUNT column header and caption 8"
+  },
+  {
+   "id": "count.used15",
+   "text": "74 used",
+   "value": 74,
+   "formula": "Math.round((bought/groups - couples15) * m15)",
+   "params": [
+    "bought",
+    "groups",
+    "couples15",
+    "m15"
+   ],
+   "source": "derived from AB85 mean 4.11 x 18; the only integer total that rounds to 4.11 with n = 18",
+   "where": "COUNT counter under $15 column (ticks 0..74, 36.4-41.4 s) and caption 8; readout '74 ÷ 18'"
+  },
+  {
+   "id": "count.empty15",
+   "text": "16 empty",
+   "value": 16,
+   "formula": "(bought/groups - couples15) * plays - Math.round((bought/groups - couples15) * m15)",
+   "params": [
+    "bought",
+    "groups",
+    "couples15",
+    "plays",
+    "m15"
+   ],
+   "source": "derived: 90 - 74",
+   "where": "COUNT caption 8; bracket label '16' on $15 column after sort (47-62 s)"
+  },
+  {
+   "id": "count.used8",
+   "text": "56 used",
+   "value": 56,
+   "formula": "Math.round((bought/groups - couples8) * m8)",
+   "params": [
+    "bought",
+    "groups",
+    "couples8",
+    "m8"
+   ],
+   "source": "derived from AB85 mean 3.29 x 17; the only integer total that rounds to 3.29 with n = 17",
+   "where": "COUNT counter under $8 column (ticks 0..56, 42.0-47.0 s) and caption 9; readout '56 ÷ 17'"
+  },
+  {
+   "id": "count.empty8",
+   "text": "29 empty / the stubs say 29",
+   "value": 29,
+   "formula": "(bought/groups - couples8) * plays - Math.round((bought/groups - couples8) * m8)",
+   "params": [
+    "bought",
+    "groups",
+    "couples8",
+    "plays",
+    "m8"
+   ],
+   "source": "derived: 85 - 56",
+   "where": "COUNT captions 9 and 10; '29 EMPTY' on the $8 band (48.8-62 s)"
+  },
+  {
+   "id": "count.off2",
+   "text": "$2 off",
+   "value": 2,
+   "formula": "off2",
+   "params": [
+    "off2"
+   ],
+   "source": "AB85 ($2 discount group)",
+   "where": "COUNT caption 11 (54.0-57.0 s)"
+  },
+  {
+   "id": "count.n13",
+   "text": "19 people",
+   "value": 19,
+   "formula": "bought/groups - couples13",
+   "params": [
+    "bought",
+    "groups",
+    "couples13"
+   ],
+   "source": "AB85; F07",
+   "where": "COUNT column header '$13 · 19 PEOPLE'; readout '63 ÷ 19'"
+  },
+  {
+   "id": "count.tickets13",
+   "text": "of 95",
+   "value": 95,
+   "formula": "(bought/groups - couples13) * plays",
+   "params": [
+    "bought",
+    "groups",
+    "couples13",
+    "plays"
+   ],
+   "source": "derived: 19 x 5",
+   "where": "COUNT column header and caption 11"
+  },
+  {
+   "id": "count.used13",
+   "text": "63 used",
+   "value": 63,
+   "formula": "Math.round((bought/groups - couples13) * m13)",
+   "params": [
+    "bought",
+    "groups",
+    "couples13",
+    "m13"
+   ],
+   "source": "derived from AB85 mean 3.32 x 19; the only integer total that rounds to 3.32 with n = 19",
+   "where": "COUNT counter under $13 column (54.0-56.2 s) and caption 11; readout '63 ÷ 19'"
+  },
+  {
+   "id": "count.empty13",
+   "text": "32 empty",
+   "value": 32,
+   "formula": "(bought/groups - couples13) * plays - Math.round((bought/groups - couples13) * m13)",
+   "params": [
+    "bought",
+    "groups",
+    "couples13",
+    "plays",
+    "m13"
+   ],
+   "source": "derived: 95 - 63",
+   "where": "COUNT bracket label '32' on $13 column (57-62 s)"
+  },
+  {
+   "id": "count.mean15",
+   "text": "4.11 of 5 plays per person at $15",
+   "value": 4.11,
+   "formula": "Math.round(Math.round((bought/groups - couples15) * m15) / (bought/groups - couples15) * 100) / 100",
+   "params": [
+    "bought",
+    "groups",
+    "couples15",
+    "m15"
+   ],
+   "source": "AB85 (first-half mean, no-discount group); recomputes as 74 / 18",
+   "where": "COUNT caption 12 and readout under $15 column (57.2-62 s)"
+  },
+  {
+   "id": "count.mean13",
+   "text": "3.32 per person at $13",
+   "value": 3.32,
+   "formula": "Math.round(Math.round((bought/groups - couples13) * m13) / (bought/groups - couples13) * 100) / 100",
+   "params": [
+    "bought",
+    "groups",
+    "couples13",
+    "m13"
+   ],
+   "source": "AB85 (first-half mean, $2-discount group); recomputes as 63 / 19",
+   "where": "COUNT readout under $13 column (57.2-62 s)"
+  },
+  {
+   "id": "count.mean8",
+   "text": "3.29 per person at $8",
+   "value": 3.29,
+   "formula": "Math.round(Math.round((bought/groups - couples8) * m8) / (bought/groups - couples8) * 100) / 100",
+   "params": [
+    "bought",
+    "groups",
+    "couples8",
+    "m8"
+   ],
+   "source": "AB85 (first-half mean, $7-discount group); recomputes as 56 / 17",
+   "where": "COUNT caption 12 and readout under $8 column (57.2-62 s)"
+  },
+  {
+   "id": "limits.play6",
+   "text": "plays 6-10 (start)",
+   "value": 6,
+   "formula": "plays + 1",
+   "params": [
+    "plays"
+   ],
+   "source": "AB85 (second half of the season, five plays)",
+   "where": "MONDAY honest-limits caption 14 and stage line (66.8-72 s)"
+  },
+  {
+   "id": "limits.play10",
+   "text": "plays 6-10 (end)",
+   "value": 10,
+   "formula": "plays * 2",
+   "params": [
+    "plays"
+   ],
+   "source": "AB85 (second half: means 2.28, 1.54, 2.18, no significant difference)",
+   "where": "MONDAY honest-limits caption 14 and stage line (66.8-72 s)"
+  },
+  {
+   "id": "case.play1",
+   "text": "plays 1-5 (start)",
+   "value": 1,
+   "formula": "1",
+   "params": [],
+   "source": "AB85 (first half of the season)",
+   "where": "CASE caption 7 'plays 1-5'"
+  },
+  {
+   "id": "case.paperYear",
+   "text": "Arkes & Blumer 1985 (title block)",
+   "value": 1985,
+   "source": "AB85",
+   "where": "ledger row 3 (chrome)"
+  }
+ ],
+ "note": "Every on-screen number: film.json.params drive the formulas (gate scope). Counters tick through intermediate integers (0..74 etc.) during the sweeps; only final values are claims."
+}

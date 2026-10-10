@@ -1,0 +1,1 @@
+frames one-query: 307 frames every 0.5 s → 26 strip(s) in factory/films/one-query/drafts/b/frames; 0.748 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0

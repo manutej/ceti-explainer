@@ -1,0 +1,26 @@
+{
+  "id": "goodhart",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "flagged2016 = 2.1 M", "status": "ok", "note": "1,534,280 + 565,443 = 2,099,723 -> 2.1 M (CFPB 2016-CFPB-0015)"},
+    {"claim": "fines2016 = $185 M", "status": "ok", "note": "100 + 35 + 50 = 185 (CFPB, OCC, City of LA)"},
+    {"claim": "reviewTotal = 3.5 M", "status": "ok", "note": "2.55 + 0.981 = 3.531 -> 3.5; split matches WF 8-K Ex. 99.1, 31 Aug 2017"},
+    {"claim": "flaggedPer1000 = 21", "status": "ok", "note": "1000 x 3.531 / 165 = 21.4 -> 21"},
+    {"claim": "per100 = 2", "status": "ok", "note": "100 x 3.531 / 165 = 2.14 -> 2; shown as an approximation"},
+    {"claim": "perMark = 165,000", "status": "ok", "note": "165e6 / 1000"},
+    {"claim": "reviewed = 165 M, Jan 2009 to Sep 2016", "status": "ok", "note": "8-K says 'more than 165 million'; film says 165 M, acceptable"},
+    {"claim": "xsell 6.13, 1 in 4 at 8+, target 8", "status": "ok", "note": "WF 10-Q Q1 2015 as cited; not independently recomputed"},
+    {"claim": "5,300 fired; $3 B 2020; 2002 to 2016", "status": "ok", "note": "CFPB order, DOJ 2020 release as cited"}
+  ],
+  "craft": 4,
+  "originality": 3,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 60.2, "what": "The guess outline (100) is drawn as an L-shaped region over the first 100 slots; it reads as a bracket, not as 100 marks, so the guess-vs-truth comparison is weaker than the 21 red marks", "severity": "low"},
+    {"t": 67.6, "what": "Honest line compressed to 'Limits: 3.5 M is an estimate. One bank, one metric.' The on-page honest text carries the real caveat (consented-but-unused products not in the 21); the film itself only says '21 is the floor'", "severity": "low"},
+    {"t": 1.0, "what": "Case-log ledger and brand plate type on with partial words ('TARGET SE', 'WHE') visible at 1 s; chrome only", "severity": "low"}
+  ],
+  "one_line": "The grid earns the turn (21 is a floor, and the metric could not tell), and every number recomputes; ship it."
+}

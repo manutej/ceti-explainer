@@ -1,0 +1,5137 @@
+{
+ "page": "factory/films/who-gains/build/who-gains.ceti-neosage-dark.none.html",
+ "film": "who-gains",
+ "dur": 153,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-neosage-dark",
+ "axes": {
+  "brand": "ceti-neosage-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "caseT0",
+   "range": [
+    11.5,
+    12.5
+   ],
+   "step": 0.1,
+   "what": "s: film time at which the agents stack-city clock starts (CASE t0)",
+   "value": 12
+  },
+  {
+   "name": "caseT1",
+   "range": [
+    56,
+    62
+   ],
+   "step": 0.1,
+   "what": "s: film time at which the agents stack-city clock ends; beats are fractions of caseT1 - caseT0",
+   "value": 60
+  },
+  {
+   "name": "arrive0",
+   "range": [
+    12,
+    14
+   ],
+   "step": 0.1,
+   "what": "s: the first agent boxes start to land in the pooled wall",
+   "value": 12.4
+  },
+  {
+   "name": "arrive1",
+   "range": [
+    20,
+    22
+   ],
+   "step": 0.1,
+   "what": "s: the last agent has landed (count 5,179 is read at 22.0)",
+   "value": 21.6
+  },
+  {
+   "name": "lit0",
+   "range": [
+    23,
+    26
+   ],
+   "step": 0.1,
+   "what": "s: the pooled wall starts to light bottom-up (lit height = average gain)",
+   "value": 24.6
+  },
+  {
+   "name": "lit1",
+   "range": [
+    25,
+    27
+   ],
+   "step": 0.1,
+   "what": "s: the pooled wall is lit (the ratio pin lands at poolPin)",
+   "value": 26
+  },
+  {
+   "name": "move0",
+   "range": [
+    33,
+    35
+   ],
+   "step": 0.1,
+   "what": "s: the boxes leave the pooled wall for the five skill fifths (M1 starts)",
+   "value": 34
+  },
+  {
+   "name": "move1",
+   "range": [
+    42,
+    46
+   ],
+   "step": 0.1,
+   "what": "s: the last box is in its fifth",
+   "value": 44
+  },
+  {
+   "name": "turn0",
+   "range": [
+    33,
+    35
+   ],
+   "step": 0.1,
+   "what": "s: the camera starts its turn (keep equal to move0: turn and re-partition are one gesture)",
+   "value": 34
+  },
+  {
+   "name": "turn1",
+   "range": [
+    42,
+    46
+   ],
+   "step": 0.1,
+   "what": "s: the camera arrives at the split view",
+   "value": 44
+  },
+  {
+   "name": "devT0",
+   "range": [
+    75.5,
+    76.5
+   ],
+   "step": 0.1,
+   "what": "s: film time at which the developers stack-city clock starts",
+   "value": 76
+  },
+  {
+   "name": "devT1",
+   "range": [
+    96,
+    102
+   ],
+   "step": 0.1,
+   "what": "s: film time at which the developers clock ends",
+   "value": 100
+  },
+  {
+   "name": "devArrive0",
+   "range": [
+    76,
+    78
+   ],
+   "step": 0.1,
+   "what": "s: the first developer boxes land",
+   "value": 76.4
+  },
+  {
+   "name": "devArrive1",
+   "range": [
+    82,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the last developer has landed (count 4,867 is read at 84.0)",
+   "value": 83.6
+  },
+  {
+   "name": "devLit0",
+   "range": [
+    85,
+    87
+   ],
+   "step": 0.1,
+   "what": "s: the developers wall starts to light bottom-up",
+   "value": 86.2
+  },
+  {
+   "name": "devLit1",
+   "range": [
+    86.5,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: the developers wall is lit (ratio pin at devPin)",
+   "value": 87.8
+  },
+  {
+   "name": "cutD",
+   "range": [
+    75,
+    77
+   ],
+   "step": 0.1,
+   "what": "s: hard cut to the second field (developers)",
+   "value": 76
+  },
+  {
+   "name": "cutM",
+   "range": [
+    100,
+    103
+   ],
+   "step": 0.1,
+   "what": "s: hard cut to the third field (METR)",
+   "value": 101.5
+  },
+  {
+   "name": "cutB",
+   "range": [
+    134,
+    136
+   ],
+   "step": 0.1,
+   "what": "s: hard cut back to the pooled wall (MONDAY bookend)",
+   "value": 135
+  },
+  {
+   "name": "bookT",
+   "range": [
+    27,
+    33
+   ],
+   "step": 0.1,
+   "what": "s: which pooled moment of the agents clock the bookend shows (after the lit beat, before move0)",
+   "value": 30
+  },
+  {
+   "name": "hookPush0",
+   "range": [
+    8,
+    10
+   ],
+   "step": 0.1,
+   "what": "s: the wide hook frame starts a slow push to the case frame (no move before 8 s)",
+   "value": 9
+  },
+  {
+   "name": "hookPush1",
+   "range": [
+    11,
+    12.4
+   ],
+   "step": 0.1,
+   "what": "s: the push ends",
+   "value": 12
+  },
+  {
+   "name": "hookOutline0",
+   "range": [
+    2,
+    10
+   ],
+   "step": 0.1,
+   "what": "s: the outline of the column starts to rise behind the lone box",
+   "value": 4
+  },
+  {
+   "name": "hookOutline1",
+   "range": [
+    9,
+    12
+   ],
+   "step": 0.1,
+   "what": "s: the outline is full height",
+   "value": 11.6
+  },
+  {
+   "name": "aiAt",
+   "range": [
+    4,
+    11
+   ],
+   "step": 0.1,
+   "what": "s: the word AI appears over the outline (no digit in the hook)",
+   "value": 8.4
+  },
+  {
+   "name": "look0",
+   "range": [
+    59,
+    62
+   ],
+   "step": 0.1,
+   "what": "s: M3 starts: the camera pushes in on the followed agent",
+   "value": 60
+  },
+  {
+   "name": "lookIn",
+   "range": [
+    61,
+    64
+   ],
+   "step": 0.1,
+   "what": "s: the push-in has landed (expo ease in)",
+   "value": 62.6
+  },
+  {
+   "name": "lookHold",
+   "range": [
+    62,
+    66
+   ],
+   "step": 0.1,
+   "what": "s: the pull-back starts",
+   "value": 65.2
+  },
+  {
+   "name": "lookOut",
+   "range": [
+    66,
+    70
+   ],
+   "step": 0.1,
+   "what": "s: the camera is back on the wide split pose (stored key)",
+   "value": 68
+  },
+  {
+   "name": "tag0",
+   "range": [
+    32,
+    36
+   ],
+   "step": 0.1,
+   "what": "s: the followed agent takes the accent colour and rides M1 (its text pin waits for the settle, R5)",
+   "value": 34
+  },
+  {
+   "name": "tag1",
+   "range": [
+    42,
+    47
+   ],
+   "step": 0.1,
+   "what": "s: the followed agent returns to its colour and its text pin cuts off (after M1 settles, before the split pins)",
+   "value": 46
+  },
+  {
+   "name": "tagB0",
+   "range": [
+    58,
+    62
+   ],
+   "step": 0.1,
+   "what": "s: the followed agent is outlined again for the close-up (M3)",
+   "value": 60
+  },
+  {
+   "name": "tagB1",
+   "range": [
+    66,
+    70
+   ],
+   "step": 0.1,
+   "what": "s: the outline of the close-up ends",
+   "value": 68
+  },
+  {
+   "name": "tagPin0",
+   "range": [
+    61,
+    65
+   ],
+   "step": 0.1,
+   "what": "s: the pin on the followed agent appears in the close-up (after the push-in settles)",
+   "value": 62.8
+  },
+  {
+   "name": "tagPin1",
+   "range": [
+    65,
+    69
+   ],
+   "step": 0.1,
+   "what": "s: the pin on the followed agent hard-cuts off as the pull-back starts (keep equal to lookHold)",
+   "value": 65.2
+  },
+  {
+   "name": "poolPin",
+   "range": [
+    25,
+    28
+   ],
+   "step": 0.1,
+   "what": "s: the pooled ratio pin (+14 %) lands, 4 s after the count",
+   "value": 26
+  },
+  {
+   "name": "poolOut",
+   "range": [
+    31,
+    34
+   ],
+   "step": 0.1,
+   "what": "s: the pooled pin cuts off before the re-partition",
+   "value": 33.6
+  },
+  {
+   "name": "splitPin",
+   "range": [
+    45,
+    48
+   ],
+   "step": 0.1,
+   "what": "s: the split pins start (low and middle appear together)",
+   "value": 46.6
+  },
+  {
+   "name": "lowPin",
+   "range": [
+    45,
+    48
+   ],
+   "step": 0.1,
+   "what": "s: the lowest-skill result and the middle label appear",
+   "value": 46.6
+  },
+  {
+   "name": "highPin",
+   "range": [
+    48,
+    52
+   ],
+   "step": 0.1,
+   "what": "s: the highest-skill result appears (3 s after the first)",
+   "value": 49.6
+  },
+  {
+   "name": "avgLine",
+   "range": [
+    52,
+    56
+   ],
+   "step": 0.1,
+   "what": "s: the pooled average returns as a dashed line across the five fifths",
+   "value": 53.6
+  },
+  {
+   "name": "splitOut0",
+   "range": [
+    57,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: the split pins cut off for the push-in (labels never ride a move)",
+   "value": 59.6
+  },
+  {
+   "name": "splitBack",
+   "range": [
+    67,
+    70
+   ],
+   "step": 0.1,
+   "what": "s: the split pins cut back on after the settle",
+   "value": 68.2
+  },
+  {
+   "name": "splitOut1",
+   "range": [
+    73,
+    76
+   ],
+   "step": 0.1,
+   "what": "s: the split pins cut off before the hard cut",
+   "value": 75
+  },
+  {
+   "name": "devPin",
+   "range": [
+    87,
+    90
+   ],
+   "step": 0.1,
+   "what": "s: the developers ratio pin (+26 %) lands, 4 s after the count",
+   "value": 88
+  },
+  {
+   "name": "devPinOut",
+   "range": [
+    96,
+    101.4
+   ],
+   "step": 0.1,
+   "what": "s: the developers pin leaves before the cut",
+   "value": 100.4
+  },
+  {
+   "name": "dots0",
+   "range": [
+    101.5,
+    103
+   ],
+   "step": 0.1,
+   "what": "s: the 16 developer dots start to land",
+   "value": 102
+  },
+  {
+   "name": "dots1",
+   "range": [
+    103,
+    105
+   ],
+   "step": 0.1,
+   "what": "s: all 16 developer dots are in",
+   "value": 103
+  },
+  {
+   "name": "issues0",
+   "range": [
+    104.5,
+    106
+   ],
+   "step": 0.1,
+   "what": "s: the 246 issue columns start to land",
+   "value": 105
+  },
+  {
+   "name": "issues1",
+   "range": [
+    107,
+    110
+   ],
+   "step": 0.1,
+   "what": "s: all 246 issue columns are in",
+   "value": 107
+  },
+  {
+   "name": "devPin0",
+   "range": [
+    102,
+    106
+   ],
+   "step": 0.1,
+   "what": "s: the pin on the followed developer appears",
+   "value": 105.2
+  },
+  {
+   "name": "foreAt",
+   "range": [
+    110,
+    112
+   ],
+   "step": 0.1,
+   "what": "s: the forecast result (24 %) appears in the belief view",
+   "value": 111
+  },
+  {
+   "name": "foreOut",
+   "range": [
+    114,
+    116
+   ],
+   "step": 0.1,
+   "what": "s: the forecast pin and the developer pin cut off before the tilt",
+   "value": 115.6
+  },
+  {
+   "name": "frameF0",
+   "range": [
+    108,
+    112
+   ],
+   "step": 0.1,
+   "what": "s: the forecast box (wire, beside the block, ground to the forecast level) appears",
+   "value": 110.6
+  },
+  {
+   "name": "frameB0",
+   "range": [
+    127,
+    130
+   ],
+   "step": 0.1,
+   "what": "s: the believed-after box (wire, beside the forecast box) appears",
+   "value": 128.6
+  },
+  {
+   "name": "tilt0",
+   "range": [
+    114,
+    118
+   ],
+   "step": 0.1,
+   "what": "s: M2 starts: the camera tilts from plan to the side and the level re-stacks from forecast to measured",
+   "value": 116
+  },
+  {
+   "name": "tilt1",
+   "range": [
+    122,
+    126
+   ],
+   "step": 0.1,
+   "what": "s: M2 has landed on the side view",
+   "value": 124
+  },
+  {
+   "name": "measAt",
+   "range": [
+    125,
+    128
+   ],
+   "step": 0.1,
+   "what": "s: the measured result (19 %) appears",
+   "value": 126
+  },
+  {
+   "name": "beliefAt",
+   "range": [
+    128,
+    131
+   ],
+   "step": 0.1,
+   "what": "s: the believed-after result (20 %) appears, 3 s after the first",
+   "value": 129
+  },
+  {
+   "name": "devPin1",
+   "range": [
+    125,
+    130
+   ],
+   "step": 0.1,
+   "what": "s: the pin on the followed developer returns in the side view",
+   "value": 126.4
+  },
+  {
+   "name": "honestAt",
+   "range": [
+    136,
+    141
+   ],
+   "step": 0.1,
+   "what": "s: the honest-limits line appears on stage",
+   "value": 138
+  },
+  {
+   "name": "azH",
+   "range": [
+    0,
+    60
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the wide hook frame",
+   "value": 14
+  },
+  {
+   "name": "elH",
+   "range": [
+    4,
+    40
+   ],
+   "step": 1,
+   "what": "degrees: elevation of the wide hook frame",
+   "value": 12
+  },
+  {
+   "name": "hhH",
+   "range": [
+    100,
+    320
+   ],
+   "step": 5,
+   "what": "world units: half-height of the hook frame (larger = wider)",
+   "value": 215
+  },
+  {
+   "name": "az0",
+   "range": [
+    0,
+    60
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the pooled-wall view (small = the wall seen flat)",
+   "value": 12
+  },
+  {
+   "name": "el0",
+   "range": [
+    4,
+    40
+   ],
+   "step": 1,
+   "what": "degrees: elevation of the pooled-wall view",
+   "value": 12
+  },
+  {
+   "name": "hhC",
+   "range": [
+    80,
+    200
+   ],
+   "step": 2,
+   "what": "world units: half-height of the pooled-wall view",
+   "value": 182
+  },
+  {
+   "name": "lookYC",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "0-1 of the wall height the camera looks at (pooled view)",
+   "value": 0.44
+  },
+  {
+   "name": "az1",
+   "range": [
+    60,
+    120
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the split view (about 90 = square on to the row of fifths)",
+   "value": 98
+  },
+  {
+   "name": "el1",
+   "range": [
+    8,
+    40
+   ],
+   "step": 1,
+   "what": "degrees: elevation of the split view (the tilt into 3D)",
+   "value": 22
+  },
+  {
+   "name": "hhS",
+   "range": [
+    80,
+    220
+   ],
+   "step": 2,
+   "what": "world units: half-height of the split view",
+   "value": 178
+  },
+  {
+   "name": "lookYS",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "0-1 of the wall height the camera looks at (split view)",
+   "value": 0.5
+  },
+  {
+   "name": "bookLift",
+   "range": [
+    0,
+    80
+   ],
+   "step": 2,
+   "what": "world units: how far the bookend lifts the wall up the frame (room for the honest-limits line below it)",
+   "value": 34
+  },
+  {
+   "name": "hhTag",
+   "range": [
+    30,
+    100
+   ],
+   "step": 2,
+   "what": "world units: half-height of the close-up on the followed agent (M3)",
+   "value": 58
+  },
+  {
+   "name": "azD",
+   "range": [
+    60,
+    120
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the developers view",
+   "value": 98
+  },
+  {
+   "name": "elD",
+   "range": [
+    8,
+    40
+   ],
+   "step": 1,
+   "what": "degrees: elevation of the developers view",
+   "value": 22
+  },
+  {
+   "name": "hhD",
+   "range": [
+    100,
+    240
+   ],
+   "step": 2,
+   "what": "world units: half-height of the developers view",
+   "value": 160
+  },
+  {
+   "name": "lookYD",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "0-1 of the wall height the camera looks at (developers view)",
+   "value": 0.385
+  },
+  {
+   "name": "devLookDz",
+   "range": [
+    -100,
+    100
+   ],
+   "step": 2,
+   "what": "world units: shift of the developers view toward the agents row (positive = more of the row shows)",
+   "value": -45
+  },
+  {
+   "name": "azM",
+   "range": [
+    60,
+    120
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the METR views (fixed through the tilt)",
+   "value": 90
+  },
+  {
+   "name": "elBelief",
+   "range": [
+    60,
+    89.5
+   ],
+   "step": 0.5,
+   "what": "degrees: elevation of the belief view (89 = plan)",
+   "value": 89
+  },
+  {
+   "name": "elSide",
+   "range": [
+    2,
+    12
+   ],
+   "step": 0.5,
+   "what": "degrees: elevation of the measured view (side elevation)",
+   "value": 4
+  },
+  {
+   "name": "hhM",
+   "range": [
+    100,
+    260
+   ],
+   "step": 2,
+   "what": "world units: half-height of the METR views",
+   "value": 200
+  },
+  {
+   "name": "metLookX",
+   "range": [
+    -60,
+    60
+   ],
+   "step": 2,
+   "what": "world units: x of the METR look point (shifts the block up or down the frame in plan)",
+   "value": 50
+  },
+  {
+   "name": "metLookY",
+   "range": [
+    0,
+    200
+   ],
+   "step": 2,
+   "what": "world units: height of the METR look point",
+   "value": 68
+  },
+  {
+   "name": "orbitAmp",
+   "range": [
+    0,
+    6
+   ],
+   "step": 0.5,
+   "what": "degrees: amplitude of the calm sway (whole film; 0 = still camera)",
+   "value": 3
+  },
+  {
+   "name": "orbitPeriod",
+   "range": [
+    20,
+    240
+   ],
+   "step": 5,
+   "what": "s: period of the calm sway (longer = slower)",
+   "value": 60
+  },
+  {
+   "name": "boxSize",
+   "range": [
+    3,
+    9
+   ],
+   "step": 0.1,
+   "what": "world units: edge of one worker box",
+   "value": 5
+  },
+  {
+   "name": "boxGap",
+   "range": [
+    0.2,
+    2
+   ],
+   "step": 0.1,
+   "what": "world units: seam between boxes",
+   "value": 0.6
+  },
+  {
+   "name": "layers",
+   "range": [
+    20,
+    36
+   ],
+   "step": 1,
+   "what": "boxes high a wall or fifth is (rate form: lit height = gain on one scale)",
+   "value": 30
+  },
+  {
+   "name": "slabDepth",
+   "range": [
+    2,
+    8
+   ],
+   "step": 1,
+   "what": "boxes deep a skill fifth is",
+   "value": 4
+  },
+  {
+   "name": "poolDepth",
+   "range": [
+    3,
+    12
+   ],
+   "step": 1,
+   "what": "boxes deep the pooled agents wall is",
+   "value": 6
+  },
+  {
+   "name": "slabGap",
+   "range": [
+    6,
+    50
+   ],
+   "step": 1,
+   "what": "world units: aisle between the five fifths",
+   "value": 18
+  },
+  {
+   "name": "devPoolDepth",
+   "range": [
+    20,
+    50
+   ],
+   "step": 1,
+   "what": "boxes along the viewing axis of the developers wall",
+   "value": 34
+  },
+  {
+   "name": "devZ",
+   "range": [
+    -600,
+    -200
+   ],
+   "step": 5,
+   "what": "world units: where the developers wall stands, to the right of the agents row",
+   "value": -330
+  },
+  {
+   "name": "gainFull",
+   "range": [
+    36,
+    60
+   ],
+   "step": 1,
+   "what": "% gain that would light a whole column (one scale for every agent column; not shown)",
+   "value": 40
+  },
+  {
+   "name": "gainFullDev",
+   "range": [
+    40,
+    100
+   ],
+   "step": 1,
+   "what": "% gain that would light the whole developers wall (its own scale; a different outcome)",
+   "value": 60
+  },
+  {
+   "name": "arrW",
+   "range": [
+    0.01,
+    0.1
+   ],
+   "step": 0.01,
+   "what": "fraction of an arrival clock one box takes to fall and grow into its berth",
+   "value": 0.04
+  },
+  {
+   "name": "drop",
+   "range": [
+    0,
+    100
+   ],
+   "step": 5,
+   "what": "world units a box falls from as it arrives",
+   "value": 60
+  },
+  {
+   "name": "stagger",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "0-1: how spread out in time the boxes leave the pooled wall (each box keeps its own path)",
+   "value": 0.25
+  },
+  {
+   "name": "lift",
+   "range": [
+    0,
+    40
+   ],
+   "step": 1,
+   "what": "world units: height of the arc each box makes between its two homes",
+   "value": 22
+  },
+  {
+   "name": "orderMix",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "0 = seeded order, 1 = fifth order (the fifths fill one after another)",
+   "value": 0.5
+  },
+  {
+   "name": "metCols",
+   "range": [
+    12,
+    24
+   ],
+   "step": 1,
+   "what": "issue columns across the METR block",
+   "value": 18
+  },
+  {
+   "name": "metPitch",
+   "range": [
+    8,
+    16
+   ],
+   "step": 0.5,
+   "what": "world units: pitch of the issue columns",
+   "value": 11
+  },
+  {
+   "name": "metW",
+   "range": [
+    6,
+    15
+   ],
+   "step": 0.2,
+   "what": "world units: edge of one issue column",
+   "value": 9.4
+  },
+  {
+   "name": "metH",
+   "range": [
+    80,
+    160
+   ],
+   "step": 2,
+   "what": "world units: height of the line for time without AI (the baseline frame)",
+   "value": 120
+  },
+  {
+   "name": "metZ",
+   "range": [
+    -1000,
+    -500
+   ],
+   "step": 10,
+   "what": "world units: where the METR block stands, to the right of the developers wall",
+   "value": -700
+  },
+  {
+   "name": "dotPitch",
+   "range": [
+    8,
+    20
+   ],
+   "step": 0.5,
+   "what": "world units: pitch of the 16 developer dots",
+   "value": 12
+  },
+  {
+   "name": "dotW",
+   "range": [
+    4,
+    12
+   ],
+   "step": 0.5,
+   "what": "world units: edge of a developer dot",
+   "value": 7
+  },
+  {
+   "name": "dotH",
+   "range": [
+    4,
+    12
+   ],
+   "step": 0.5,
+   "what": "world units: height of a developer dot",
+   "value": 7
+  },
+  {
+   "name": "dotGap",
+   "range": [
+    10,
+    60
+   ],
+   "step": 1,
+   "what": "world units: distance of the dot row in front of the block",
+   "value": 46
+  },
+  {
+   "name": "tagDev",
+   "range": [
+    0,
+    15
+   ],
+   "step": 1,
+   "what": "which of the 16 developer dots is followed",
+   "value": 6
+  },
+  {
+   "name": "soloScale",
+   "range": [
+    1,
+    6
+   ],
+   "step": 0.5,
+   "what": "x box size: the lone box of the hook",
+   "value": 3
+  },
+  {
+   "name": "soloX",
+   "range": [
+    -150,
+    150
+   ],
+   "step": 5,
+   "what": "world units: x of the lone box (toward the camera is positive)",
+   "value": 100
+  },
+  {
+   "name": "soloZ",
+   "range": [
+    -100,
+    100
+   ],
+   "step": 5,
+   "what": "world units: z of the lone box",
+   "value": -10
+  },
+  {
+   "name": "groundX",
+   "range": [
+    3000,
+    16000
+   ],
+   "step": 500,
+   "what": "world units: width (depth for the camera) of the ledger floor",
+   "value": 12000
+  },
+  {
+   "name": "groundZ0",
+   "range": [
+    -9000,
+    -2000
+   ],
+   "step": 500,
+   "what": "world units: far edge of the ledger page",
+   "value": -7000
+  },
+  {
+   "name": "groundZ1",
+   "range": [
+    2000,
+    9000
+   ],
+   "step": 500,
+   "what": "world units: near edge of the ledger page",
+   "value": 6000
+  },
+  {
+   "name": "rules",
+   "range": [
+    0,
+    60
+   ],
+   "step": 1,
+   "what": "number of ruled lines each side of the centre line (0 = plain floor)",
+   "value": 30
+  },
+  {
+   "name": "rulePitch",
+   "range": [
+    20,
+    120
+   ],
+   "step": 2,
+   "what": "world units: distance between ruled lines",
+   "value": 40
+  },
+  {
+   "name": "ruleZ0",
+   "range": [
+    -2400,
+    -1000
+   ],
+   "step": 50,
+   "what": "world units: far end of the ruled lines",
+   "value": -1700
+  },
+  {
+   "name": "ruleZ1",
+   "range": [
+    300,
+    1400
+   ],
+   "step": 50,
+   "what": "world units: near end of the ruled lines",
+   "value": 900
+  },
+  {
+   "name": "deckMix",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "0-1: ground colour from background (0) to panel (1)",
+   "value": 0.8
+  },
+  {
+   "name": "ruleMix",
+   "range": [
+    0,
+    0.4
+   ],
+   "step": 0.01,
+   "what": "0-1: rule colour from background toward muted",
+   "value": 0.09
+  },
+  {
+   "name": "frameMix",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "0-1: the line for time without AI (baseline frame and its dashed run over the belief boxes), from background toward ink",
+   "value": 1
+  },
+  {
+   "name": "ghostMix",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "0-1: hook outline and the forecast and believed-after boxes, colour from background toward accent",
+   "value": 1
+  },
+  {
+   "name": "frameW",
+   "range": [
+    0.5,
+    4
+   ],
+   "step": 0.1,
+   "what": "line width of the frames",
+   "value": 2.6
+  },
+  {
+   "name": "dim",
+   "range": [
+    0.4,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "0-1: how far an unlit box is mixed toward the ground",
+   "value": 0.62
+  },
+  {
+   "name": "metDim",
+   "range": [
+    0.1,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "0-1: how far the METR columns below the baseline are mixed toward the ground",
+   "value": 0.5
+  },
+  {
+   "name": "dotDim",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.02,
+   "what": "0-1: how far the developer dots are mixed toward the ground",
+   "value": 0.1
+  },
+  {
+   "name": "ambient",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "fill light on every face (display-linear multiplier)",
+   "value": 0.5
+  },
+  {
+   "name": "keyLight",
+   "range": [
+    0.1,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "key light from above-left",
+   "value": 0.5
+  },
+  {
+   "name": "rimLight",
+   "range": [
+    0,
+    0.4
+   ],
+   "step": 0.02,
+   "what": "rim light from behind-right",
+   "value": 0.1
+  },
+  {
+   "name": "bgFade",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "0-1: how far the agents row dims behind the developers wall",
+   "value": 0.85
+  },
+  {
+   "name": "postLevel",
+   "options": [
+    "exec",
+    "manager",
+    "engineer"
+   ],
+   "what": "gl-post level: exec = tone map only; manager adds bloom and vignette",
+   "value": "exec"
+  },
+  {
+   "name": "bloomGain",
+   "range": [
+    0,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "bloom strength on the measured top (0 = off)",
+   "value": 0.06
+  },
+  {
+   "name": "bloom0",
+   "range": [
+    120,
+    130
+   ],
+   "step": 0.1,
+   "what": "s: bloom starts to rise (before the measured result)",
+   "value": 125.5
+  },
+  {
+   "name": "bloom1",
+   "range": [
+    121,
+    131
+   ],
+   "step": 0.1,
+   "what": "s: bloom at full gain",
+   "value": 126.5
+  },
+  {
+   "name": "bloom2",
+   "range": [
+    128,
+    136
+   ],
+   "step": 0.1,
+   "what": "s: bloom starts to fall",
+   "value": 133
+  },
+  {
+   "name": "bloom3",
+   "range": [
+    130,
+    137
+   ],
+   "step": 0.1,
+   "what": "s: bloom off",
+   "value": 135
+  },
+  {
+   "name": "vignetteGain",
+   "range": [
+    0,
+    0.15
+   ],
+   "step": 0.01,
+   "what": "corner darkening, the whole film",
+   "value": 0.05
+  },
+  {
+   "name": "exposure",
+   "range": [
+    0.5,
+    2
+   ],
+   "step": 0.05,
+   "what": "pre-tonemap exposure",
+   "value": 1
+  },
+  {
+   "name": "bookExposure",
+   "range": [
+    0.4,
+    1
+   ],
+   "step": 0.05,
+   "what": "exposure of the MONDAY bookend (the wall under the honest line)",
+   "value": 0.85
+  },
+  {
+   "name": "pinLift",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "world units: a pin anchor above its roof",
+   "value": 8
+  },
+  {
+   "name": "pinSize",
+   "range": [
+    28,
+    40
+   ],
+   "step": 1,
+   "what": "sheet units: split result type (result floor 28)",
+   "value": 28
+  },
+  {
+   "name": "poolPinSize",
+   "range": [
+    28,
+    40
+   ],
+   "step": 1,
+   "what": "sheet units: pooled and METR result type (result floor 28)",
+   "value": 28
+  },
+  {
+   "name": "plate",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.02,
+   "what": "0-1: opacity of the dark plate behind a pin text",
+   "value": 0.72
+  },
+  {
+   "name": "dispAdv",
+   "range": [
+    0.4,
+    0.62
+   ],
+   "step": 0.01,
+   "what": "em: average advance of the display face, for label boxes",
+   "value": 0.5
+  },
+  {
+   "name": "readSize",
+   "range": [
+    28,
+    44
+   ],
+   "step": 1,
+   "what": "sheet units: the count readout (must-read)",
+   "value": 34
+  },
+  {
+   "name": "readDim",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the agents readout once the re-partition starts",
+   "value": 0.85
+  },
+  {
+   "name": "hold",
+   "range": [
+    0,
+    15
+   ],
+   "step": 1,
+   "what": "frames a label must be pushed before it hides (gl-labels hysteresis)",
+   "value": 8
+  },
+  {
+   "name": "leader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "sheet units: leader length of a pin",
+   "value": 20
+  },
+  {
+   "name": "maxShown",
+   "range": [
+    1,
+    14
+   ],
+   "step": 1,
+   "what": "label budget per frame",
+   "value": 6
+  },
+  {
+   "name": "bracketLift",
+   "range": [
+    0,
+    30
+   ],
+   "step": 1,
+   "what": "world units: bracket and middle-label anchor above the roofs",
+   "value": 6
+  },
+  {
+   "name": "avgPad",
+   "range": [
+    0,
+    30
+   ],
+   "step": 1,
+   "what": "world units: how far the average line overhangs the first and last fifth",
+   "value": 6
+  },
+  {
+   "name": "legendY",
+   "range": [
+    396,
+    408
+   ],
+   "step": 1,
+   "what": "sheet units: y of the legend line (above the caption band)",
+   "value": 404
+  },
+  {
+   "name": "capTop",
+   "range": [
+    400,
+    430
+   ],
+   "step": 1,
+   "what": "sheet units: top of the reserved caption band (labels never enter it)",
+   "value": 414
+  },
+  {
+   "name": "hookSize",
+   "range": [
+    28,
+    60
+   ],
+   "step": 1,
+   "what": "sheet units: the word AI over the hook outline",
+   "value": 44
+  },
+  {
+   "name": "honestY",
+   "range": [
+    340,
+    392
+   ],
+   "step": 1,
+   "what": "sheet units: y of the first line of the honest-limits line",
+   "value": 372
+  },
+  {
+   "name": "honestSize",
+   "range": [
+    14,
+    20
+   ],
+   "step": 1,
+   "what": "sheet units: the honest-limits line (secondary)",
+   "value": 16
+  },
+  {
+   "name": "honestW",
+   "range": [
+    500,
+    860
+   ],
+   "step": 10,
+   "what": "sheet units: wrap width of the honest-limits line",
+   "value": 800
+  },
+  {
+   "name": "tagTx0",
+   "range": [
+    44,
+    47
+   ],
+   "step": 0.1,
+   "what": "s: the followed agent's text pin cuts on after M1 settles (the mark rode without text)",
+   "value": 44.2
+  },
+  {
+   "name": "metLookZ",
+   "range": [
+    0,
+    160
+   ],
+   "step": 2,
+   "what": "world units: METR look point along the row (centres block plus the two belief boxes)",
+   "value": 82
+  },
+  {
+   "name": "ghostW",
+   "range": [
+    20,
+    80
+   ],
+   "step": 2,
+   "what": "world units: width of the forecast and believed-after boxes (their footprint carries no count)",
+   "value": 48
+  },
+  {
+   "name": "ghostGap",
+   "range": [
+    8,
+    40
+   ],
+   "step": 1,
+   "what": "world units: gap between the block and the forecast box, and between the two belief boxes",
+   "value": 14
+  },
+  {
+   "name": "ghostW8",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.05,
+   "what": "x frameW: line width of the belief boxes (thinner than the line for time without AI)",
+   "value": 0.6
+  },
+  {
+   "name": "dash",
+   "range": [
+    3,
+    14
+   ],
+   "step": 0.5,
+   "what": "world units: dash length of the line for time without AI where it runs over the belief boxes",
+   "value": 7
+  },
+  {
+   "name": "plateMix",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.01,
+   "what": "0-1: the METR field plate, panel toward muted (shows the field on the cut frame)",
+   "value": 0.03
+  },
+  {
+   "name": "platePad",
+   "range": [
+    0,
+    60
+   ],
+   "step": 2,
+   "what": "world units: margin of the METR field plate around block, boxes and dots",
+   "value": 16
+  }
+ ],
+ "ms_per_frame": 365,
+ "s_per_frame": 0.365,
+ "purity": {
+  "pass": true,
+  "at": {
+   "30.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "76.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "122.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png",
+  "strip-22.png",
+  "strip-23.png",
+  "strip-24.png",
+  "strip-25.png",
+  "strip-26.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "Everyone says AI makes everyone faster.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "Everyone says AI makes everyone faster.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "Everyone says AI makes everyone faster.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "Everyone says AI makes everyone faster.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Everyone says AI makes everyone faster.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Everyone says AI makes everyone faster.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Everyone says AI makes everyone faster.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "Everyone says AI makes everyone faster.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "Everyone says AI makes everyone faster.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "Faster at what, and for whom?",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "A support desk gave an AI assistant to its agents.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "5,179 agents. One box is one agent.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "5,179 agents. One box is one agent.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "5,179 agents. One box is one agent.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "5,179 agents. One box is one agent.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "5,179 agents. One box is one agent.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "5,179 agents. One box is one agent.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "5,179 agents. One box is one agent.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "5,179 agents. One box is one agent.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "On average: +14 % issues resolved per hour.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "Same 5,179 boxes, sorted by skill.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "Lowest-skill fifth: +34 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "Lowest-skill fifth: +34 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "Lowest-skill fifth: +34 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "Lowest-skill fifth: +34 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "Lowest-skill fifth: +34 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "Highest-skill fifth: about 0.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": "Highest-skill fifth: about 0.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "Highest-skill fifth: about 0.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "Highest-skill fifth: about 0.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "Highest-skill fifth: about 0.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "Highest-skill fifth: about 0.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "Highest-skill fifth: about 0.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "The 14 % was a big gain and a flat line, averaged.",
+   "chapter": {
+    "id": "case",
+    "title": "The support desk, pooled and split"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Follow one new agent through the split.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "Inside the average, her gain was large.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "Another test: developers with a coding assistant.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "4,867 developers in three field trials.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "4,867 developers in three field trials.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "4,867 developers in three field trials.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "4,867 developers in three field trials.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "4,867 developers in three field trials.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "4,867 developers in three field trials.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "4,867 developers in three field trials.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "4,867 developers in three field trials.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "Pooled: they finished 26 % more tasks.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "Newer hires gained more than veterans.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "16 experienced developers, on code they know.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "16 experienced developers, on code they know.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "16 experienced developers, on code they know.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "16 experienced developers, on code they know.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "16 experienced developers, on code they know.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "16 experienced developers, on code they know.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "246 real issues; AI allowed or banned at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "They forecast AI would cut their time by 24 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 123,
+   "file": "thumbs/t-0123.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 123.5,
+   "file": "thumbs/t-0123.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 7,
+   "caption": "Same issues, now timed with a stopwatch.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 124,
+   "file": "thumbs/t-0124.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 124.5,
+   "file": "thumbs/t-0124.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 125,
+   "file": "thumbs/t-0125.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 125.5,
+   "file": "thumbs/t-0125.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 126,
+   "file": "thumbs/t-0126.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 0,
+   "caption": "Measured: 19 % slower.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 126.5,
+   "file": "thumbs/t-0126.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 1,
+   "caption": "Measured: 19 % slower.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 127,
+   "file": "thumbs/t-0127.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 2,
+   "caption": "Measured: 19 % slower.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 127.5,
+   "file": "thumbs/t-0127.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 3,
+   "caption": "Measured: 19 % slower.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 128,
+   "file": "thumbs/t-0128.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 4,
+   "caption": "Measured: 19 % slower.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 128.5,
+   "file": "thumbs/t-0128.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 5,
+   "caption": "Measured: 19 % slower.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 129,
+   "file": "thumbs/t-0129.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 6,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 129.5,
+   "file": "thumbs/t-0129.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 7,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 130,
+   "file": "thumbs/t-0130.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 8,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 130.5,
+   "file": "thumbs/t-0130.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 9,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 131,
+   "file": "thumbs/t-0131.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 10,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 131.5,
+   "file": "thumbs/t-0131.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 11,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 132,
+   "file": "thumbs/t-0132.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 0,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 132.5,
+   "file": "thumbs/t-0132.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 1,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 133,
+   "file": "thumbs/t-0133.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 2,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 133.5,
+   "file": "thumbs/t-0133.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 3,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 134,
+   "file": "thumbs/t-0134.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 4,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 134.5,
+   "file": "thumbs/t-0134.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 5,
+   "caption": "Afterwards they still believed 20 % faster.",
+   "chapter": {
+    "id": "count",
+    "title": "Two more fields"
+   }
+  },
+  {
+   "t": 135,
+   "file": "thumbs/t-0135.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 135.5,
+   "file": "thumbs/t-0135.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 7,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 136,
+   "file": "thumbs/t-0136.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 8,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 136.5,
+   "file": "thumbs/t-0136.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 9,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 137,
+   "file": "thumbs/t-0137.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 10,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 137.5,
+   "file": "thumbs/t-0137.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 11,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 138,
+   "file": "thumbs/t-0138.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 0,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 138.5,
+   "file": "thumbs/t-0138.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 1,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 139,
+   "file": "thumbs/t-0139.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 2,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 139.5,
+   "file": "thumbs/t-0139.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 3,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 140,
+   "file": "thumbs/t-0140.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 4,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 140.5,
+   "file": "thumbs/t-0140.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 5,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 141,
+   "file": "thumbs/t-0141.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 6,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 141.5,
+   "file": "thumbs/t-0141.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 7,
+   "caption": "Before rollout, split the gain by experience.",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 142,
+   "file": "thumbs/t-0142.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 142.5,
+   "file": "thumbs/t-0142.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 9,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 143,
+   "file": "thumbs/t-0143.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 10,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 143.5,
+   "file": "thumbs/t-0143.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 11,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 144,
+   "file": "thumbs/t-0144.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 0,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 144.5,
+   "file": "thumbs/t-0144.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 1,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 145,
+   "file": "thumbs/t-0145.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 2,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 145.5,
+   "file": "thumbs/t-0145.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 3,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 146,
+   "file": "thumbs/t-0146.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 4,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 146.5,
+   "file": "thumbs/t-0146.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 5,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 147,
+   "file": "thumbs/t-0147.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 6,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 147.5,
+   "file": "thumbs/t-0147.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 7,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 148,
+   "file": "thumbs/t-0148.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 8,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 148.5,
+   "file": "thumbs/t-0148.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 9,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 149,
+   "file": "thumbs/t-0149.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 10,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 149.5,
+   "file": "thumbs/t-0149.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 11,
+   "caption": "Ask: average gain, or gain for whom?",
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 150,
+   "file": "thumbs/t-0150.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 150.5,
+   "file": "thumbs/t-0150.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 151,
+   "file": "thumbs/t-0151.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 151.5,
+   "file": "thumbs/t-0151.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 152,
+   "file": "thumbs/t-0152.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 152.5,
+   "file": "thumbs/t-0152.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  },
+  {
+   "t": 152.99,
+   "file": "thumbs/t-0152.99.jpg",
+   "strip": "strip-26.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Gain for whom?"
+   }
+  }
+ ]
+}

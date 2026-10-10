@@ -1,0 +1,359 @@
+{
+  "film": "volatility-drag",
+  "params": {
+    "start": 100,
+    "up": 1.5,
+    "down": 0.6,
+    "p": 0.5,
+    "rounds": 100,
+    "players": 100,
+    "seed": 1,
+    "guess": 150
+  },
+  "claims": [
+    {
+      "id": "stake",
+      "text": "£100, the starting stake",
+      "value": 100,
+      "formula": "start",
+      "source": "P19",
+      "renders": [
+        "£100"
+      ],
+      "where": "hook stake bar; commit prompt; case ghost outline; count \"£100 EACH\" and £100 gridline; captions 1, 4, 5, 8, 9"
+    },
+    {
+      "id": "heads_factor",
+      "text": "heads multiplies the pot by 1.5 (+50 %)",
+      "value": 1.5,
+      "formula": "up",
+      "source": "P19",
+      "renders": [
+        "×1.5"
+      ],
+      "where": "hook heads label; case ledger; ledger row"
+    },
+    {
+      "id": "tails_factor",
+      "text": "tails multiplies the pot by 0.6 (−40 %)",
+      "value": 0.6,
+      "formula": "down",
+      "source": "P19",
+      "renders": [
+        "×0.6"
+      ],
+      "where": "hook tails label; case ledger; ledger row"
+    },
+    {
+      "id": "heads_value",
+      "text": "£150 after one head",
+      "value": 150,
+      "formula": "start*up",
+      "source": "P19",
+      "renders": [
+        "£150"
+      ],
+      "where": "hook heads bar; case ledger; caption 1, 5"
+    },
+    {
+      "id": "tails_value",
+      "text": "£60 after one tail",
+      "value": 60,
+      "formula": "start*down",
+      "source": "P19",
+      "renders": [
+        "£60"
+      ],
+      "where": "hook tails bar; case swap demo; caption 1"
+    },
+    {
+      "id": "avg_one_round",
+      "text": "£105, the average of £150 and £60",
+      "value": 105,
+      "formula": "start*(up+down)/2",
+      "source": "P19",
+      "renders": [
+        "£105"
+      ],
+      "where": "hook dashed average line; caption 2"
+    },
+    {
+      "id": "ev_rate",
+      "text": "+5 % a round, the expected growth",
+      "value": 5,
+      "formula": "Math.round(((up+down)/2-1)*100)",
+      "source": "P19",
+      "renders": [
+        "+5 %"
+      ],
+      "where": "count closing headline (60.6 s, after every count)"
+    },
+    {
+      "id": "rounds_n",
+      "text": "100 rounds",
+      "value": 100,
+      "formula": "rounds",
+      "source": "P19",
+      "renders": [
+        "100 ROUNDS"
+      ],
+      "where": "commit prompt; count round counter \"ROUND n / 100\"; caption 3"
+    },
+    {
+      "id": "pair_value",
+      "text": "£90 after one win and one loss, either order",
+      "value": 90,
+      "formula": "Math.round(start*up*down*1e6)/1e6",
+      "source": "P19",
+      "renders": [
+        "£90"
+      ],
+      "where": "case ledger; caption 5"
+    },
+    {
+      "id": "pair_loss",
+      "text": "−£10 against the £100 ghost after one pair",
+      "value": 10,
+      "formula": "Math.round((1-up*down)*start)",
+      "source": "P19",
+      "renders": [
+        "−£10"
+      ],
+      "where": "case gap label"
+    },
+    {
+      "id": "pair_factor",
+      "text": "×0.9 per win-loss pair",
+      "value": 0.9,
+      "formula": "Math.round(up*down*1e9)/1e9",
+      "source": "P19",
+      "renders": [
+        "×0.9"
+      ],
+      "where": "case ledger; captions 6, 7"
+    },
+    {
+      "id": "typical_heads",
+      "text": "50 heads and 50 tails, the exact median run of Binomial(100, ½)",
+      "value": 50,
+      "formula": "(()=>{const n=rounds;let c=1,s=0;const P=[];for(let k=0;k<=n;k++){P.push(c);c=c*(n-k)/(k+1);}const tot=Math.pow(2,n);for(let k=0;k<=n;k++){s+=P[k]/tot;if(s>=0.5)return k;}})()",
+      "source": "P19",
+      "renders": [
+        "50 HEADS",
+        "50 TAILS"
+      ],
+      "where": "case ledger; caption 7"
+    },
+    {
+      "id": "pairs",
+      "text": "50 win-loss pairs",
+      "value": 50,
+      "formula": "rounds/2",
+      "source": "P19",
+      "renders": [
+        "/ 50"
+      ],
+      "where": "case pair counter \"PAIR n / 50\""
+    },
+    {
+      "id": "case_final",
+      "text": "£0.52 after 50 pairs (the case readout runs £100 × 0.9^n for n = 0..50)",
+      "value": 0.5153775207,
+      "formula": "start*Math.pow(up*down,50)",
+      "source": "P19",
+      "renders": [
+        "£0.52"
+      ],
+      "where": "case readout 25.6–30.6 s, final frame"
+    },
+    {
+      "id": "typical_final",
+      "text": "£0.52 (52p) left of £100 for the typical player",
+      "value": 0.5153775207,
+      "formula": "start*Math.pow(up*down,rounds/2)",
+      "source": "P19",
+      "renders": [
+        "£0.52",
+        "52p"
+      ],
+      "where": "case \"£0.52 · TRUE SCALE\"; count \"TYPICAL £0.52\"; captions 8, 12"
+    },
+    {
+      "id": "typical_rate",
+      "text": "−5.1 % a round for the typical player",
+      "value": -5.1317,
+      "formula": "Math.round((Math.sqrt(up*down)-1)*1e6)/1e4",
+      "source": "P19",
+      "renders": [
+        "−5.1 %"
+      ],
+      "where": "count closing headline (after every count)"
+    },
+    {
+      "id": "ev_final",
+      "text": "£13,150 expected after 100 rounds (131.5× the stake)",
+      "value": 13150.1258,
+      "formula": "Math.round(start*Math.pow((up+down)/2,rounds)*1e4)/1e4",
+      "source": "P19",
+      "renders": [
+        "£13,150"
+      ],
+      "where": "count expected-value label at round 100; caption 12; the label runs 100 × 1.05^r during the rounds"
+    },
+    {
+      "id": "players_n",
+      "text": "100 players",
+      "value": 100,
+      "formula": "players",
+      "source": "P23",
+      "renders": [
+        "100 PLAYERS"
+      ],
+      "where": "count headline; \"n OF 100\" readouts; captions 9, 11"
+    },
+    {
+      "id": "seed_n",
+      "text": "simulation seed 1",
+      "value": 1,
+      "formula": "seed",
+      "source": "SIM",
+      "renders": [
+        "SEED 1"
+      ],
+      "where": "ledger row (chrome)"
+    },
+    {
+      "id": "default_guess",
+      "text": "£150, the film-mode default guess",
+      "value": 150,
+      "formula": "guess",
+      "source": "SIM",
+      "renders": [
+        "YOUR £150"
+      ],
+      "where": "commit box (film mode); count guess rule"
+    },
+    {
+      "id": "sim_lost",
+      "text": "87 of 100 players lost money (final stake below £100)",
+      "value": 87,
+      "formula": "(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().filter(w=>w<start).length",
+      "source": "SIM",
+      "renders": [
+        "87 OF 100"
+      ],
+      "where": "count tally; caption 11"
+    },
+    {
+      "id": "sim_under_1",
+      "text": "55 of 100 have less than £1",
+      "value": 55,
+      "formula": "(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().filter(w=>w<1).length",
+      "source": "SIM",
+      "renders": [
+        "55 OF 100"
+      ],
+      "where": "count bracket headline; caption 11"
+    },
+    {
+      "id": "sim_reach_guess",
+      "text": "12 of 100 reached the default guess of £150",
+      "value": 12,
+      "formula": "(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().filter(w=>w>=guess).length",
+      "source": "SIM",
+      "renders": [
+        "12 OF 100"
+      ],
+      "where": "count guess headline (film mode); the live page recomputes for the viewer's guess"
+    },
+    {
+      "id": "sim_median",
+      "text": "£0.52, the realised median of the 100 (ranks 50 and 51)",
+      "value": 0.5153775207,
+      "formula": "(()=>{const w=(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().sort((x,y)=>x-y);return (w[49]+w[50])/2;})()",
+      "source": "SIM",
+      "renders": [],
+      "where": "count: the two middle bars carry the TYPICAL label"
+    },
+    {
+      "id": "sim_mean",
+      "text": "£5,232, the 100 players' own average (page only)",
+      "value": 5232.3393,
+      "formula": "(()=>{const w=(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})();return Math.round(w.reduce((a,b)=>a+b,0)/w.length*1e4)/1e4;})()",
+      "source": "SIM",
+      "renders": [],
+      "where": "NOTES and page text only"
+    },
+    {
+      "id": "sim_top_share",
+      "text": "92 % of the money held by one player (page only)",
+      "value": 91.73,
+      "formula": "(()=>{const w=(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().sort((x,y)=>x-y);return Math.round(w[w.length-1]/w.reduce((a,b)=>a+b,0)*1e4)/100;})()",
+      "source": "SIM",
+      "renders": [],
+      "where": "NOTES only"
+    },
+    {
+      "id": "kelly_rate",
+      "text": "about +0.6 % a round, betting a quarter of the pot (page only)",
+      "value": 0.623,
+      "formula": "Math.round((Math.sqrt((1+0.25*(up-1))*(1-0.25*(1-down)))-1)*1e5)/1e3",
+      "source": "K56",
+      "renders": [],
+      "where": "honest-limits text on the page"
+    },
+    {
+      "id": "axis_1p",
+      "text": "1p axis floor",
+      "value": 0.01,
+      "formula": "0.01",
+      "source": "SIM",
+      "renders": [
+        "1p"
+      ],
+      "where": "count axis label (secondary)"
+    },
+    {
+      "id": "axis_1",
+      "text": "£1 gridline; the under-£1 threshold",
+      "value": 1,
+      "formula": "1",
+      "source": "SIM",
+      "renders": [
+        "£1"
+      ],
+      "where": "count axis label; caption 11"
+    },
+    {
+      "id": "axis_10k",
+      "text": "£10,000 gridline",
+      "value": 10000,
+      "formula": "10000",
+      "source": "SIM",
+      "renders": [
+        "£10,000"
+      ],
+      "where": "count axis label"
+    },
+    {
+      "id": "axis_1m",
+      "text": "£1M gridline",
+      "value": 1000000,
+      "formula": "1000000",
+      "source": "SIM",
+      "renders": [
+        "£1M"
+      ],
+      "where": "count axis label"
+    },
+    {
+      "id": "countdown",
+      "text": "commit ring 4, 3, 2, 1",
+      "value": 4,
+      "formula": "4",
+      "source": "SIM",
+      "renders": [],
+      "where": "commit ring (kit)"
+    }
+  ]
+}

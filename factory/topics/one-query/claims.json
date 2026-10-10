@@ -1,0 +1,760 @@
+{
+ "film": "one-query",
+ "params": {
+  "gemWh": 0.24,
+  "gemChipWh": 0.1,
+  "gemG": 0.03,
+  "gemMl": 0.26,
+  "gemX": 33,
+  "gemYear": 2025,
+  "tvS": 9,
+  "microW": 1000,
+  "bulbW": 60,
+  "promptsDay": 10,
+  "daysYear": 365,
+  "siteMW": 100,
+  "hoursDay": 24,
+  "hoursYear": 8760,
+  "tileQ": 100000,
+  "ieaYear": 2024,
+  "worldTwh": 415,
+  "worldPct": 1.5,
+  "world2030": 945,
+  "usPctDc": 45,
+  "cnPctDc": 25,
+  "euPctDc": 15,
+  "usTwh23": 176,
+  "usYear": 2023,
+  "usPct23": 4.4,
+  "us2028lo": 6.7,
+  "us2028hi": 12,
+  "epri2030lo": 9,
+  "epri2030hi": 17,
+  "usGrowthPct": 50,
+  "growthYear": 2025,
+  "ieYear": 2025,
+  "ieGwh": 7663,
+  "iePct": 23,
+  "iePct15": 5,
+  "nlPct": 7,
+  "dePct": 4,
+  "ukPct": 4,
+  "frPct": 2,
+  "oneTwh": 1
+ },
+ "claims": [
+  {
+   "id": "gemWh",
+   "text": "Median Gemini Apps text prompt: 0.24 Wh (comprehensive, May 2025 data)",
+   "value": 0.24,
+   "formula": "gemWh",
+   "source": "S1",
+   "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+   "grade": "A",
+   "where": "CASE caption 5 (17.2 s); mark readout at rung 0",
+   "renders": [
+    "0.24 Wh"
+   ]
+  },
+  {
+   "id": "gemYear",
+   "text": "Google paper year",
+   "value": 2025,
+   "formula": "gemYear",
+   "source": "S1",
+   "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+   "grade": "A",
+   "where": "CASE caption 5",
+   "renders": [
+    "2025"
+   ]
+  },
+  {
+   "id": "gemChipWh",
+   "text": "Chip-only energy 0.10 Wh (Google calls it optimistic)",
+   "value": 0.1,
+   "formula": "gemChipWh",
+   "source": "S1",
+   "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+   "grade": "A",
+   "where": "not on stage; live-page honest block"
+  },
+  {
+   "id": "gemG",
+   "text": "0.03 gCO2e per median prompt",
+   "value": 0.03,
+   "formula": "gemG",
+   "source": "S1",
+   "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+   "grade": "A",
+   "where": "not on stage; transcript only"
+  },
+  {
+   "id": "gemMl",
+   "text": "0.26 mL water per median prompt (about five drops)",
+   "value": 0.26,
+   "formula": "gemMl",
+   "source": "S1",
+   "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+   "grade": "A",
+   "where": "not on stage; transcript only"
+  },
+  {
+   "id": "gemX",
+   "text": "Energy per median prompt fell 33x, May 2024 to May 2025 (Google own measurement)",
+   "value": 33,
+   "formula": "gemX",
+   "source": "S1",
+   "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+   "grade": "A",
+   "where": "optional caption, not in the default sheet"
+  },
+  {
+   "id": "tvS",
+   "text": "Google own comparison: under nine seconds of TV",
+   "value": 9,
+   "formula": "tvS",
+   "source": "S1",
+   "url": "https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference",
+   "grade": "A",
+   "where": "cross-check of the microwave anchor; transcript only"
+  },
+  {
+   "id": "microW",
+   "text": "Anchor definition: a 1,000 W microwave",
+   "value": 1000,
+   "formula": "microW",
+   "source": "input",
+   "url": null,
+   "grade": "def (stated assumption)",
+   "where": "CASE caption 6",
+   "renders": [
+    "1,000 W"
+   ]
+  },
+  {
+   "id": "bulbW",
+   "text": "Anchor definition: a 60 W bulb",
+   "value": 60,
+   "formula": "bulbW",
+   "source": "input",
+   "url": null,
+   "grade": "def (stated assumption)",
+   "where": "CASE caption 7",
+   "renders": [
+    "60 W"
+   ]
+  },
+  {
+   "id": "promptsDay",
+   "text": "Hypothetical day: 10 prompts (labelled \"ask 10 a day\", not a usage statistic)",
+   "value": 10,
+   "formula": "promptsDay",
+   "source": "input",
+   "url": null,
+   "grade": "def (stated assumption)",
+   "where": "CASE caption 8"
+  },
+  {
+   "id": "microS",
+   "text": "Microwave seconds in one query = gemWh*3600/microW = 0.864",
+   "value": 0.86,
+   "formula": "Math.round(100*gemWh*3600/microW)/100",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x definition)",
+   "where": "CASE caption 6; rung-0 readout",
+   "renders": [
+    "0.86 s"
+   ]
+  },
+  {
+   "id": "bulbS",
+   "text": "60 W bulb seconds in one query = 14.4",
+   "value": 14,
+   "formula": "Math.round(gemWh*3600/bulbW)",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x definition)",
+   "where": "CASE caption 7",
+   "renders": [
+    "14 s"
+   ]
+  },
+  {
+   "id": "dayWh",
+   "text": "Ten prompts = 2.4 Wh",
+   "value": 2.4,
+   "formula": "promptsDay*gemWh",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x definition)",
+   "where": "CASE caption 8; rung-1 readout",
+   "renders": [
+    "2.4 Wh"
+   ]
+  },
+  {
+   "id": "dayMicroS",
+   "text": "Ten prompts in microwave seconds = 8.64",
+   "value": 8.6,
+   "formula": "Math.round(10*promptsDay*gemWh*3600/microW)/10",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x definition)",
+   "where": "CASE caption 8",
+   "renders": [
+    "8.6 s"
+   ]
+  },
+  {
+   "id": "yearWh",
+   "text": "Ten prompts a day for 365 days = 876 Wh",
+   "value": 876,
+   "formula": "promptsDay*gemWh*daysYear",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1 x definition)",
+   "where": "not on stage; transcript only"
+  },
+  {
+   "id": "tileKwh",
+   "text": "100,000 queries = 24 kWh",
+   "value": 24,
+   "formula": "tileQ*gemWh/1000",
+   "source": "derived",
+   "url": null,
+   "grade": "A (S1)",
+   "where": "CASE caption 10 (51 s); rung-5 readout",
+   "renders": [
+    "24 kWh"
+   ]
+  },
+  {
+   "id": "tileQ",
+   "text": "Batch: 1 tile = 100,000 queries (the scale-anchor ceiling, 10^5)",
+   "value": 100000,
+   "formula": "tileQ",
+   "source": "input",
+   "url": null,
+   "grade": "def (batch factor)",
+   "where": "CASE rung 5; tile legend; caption 12",
+   "renders": [
+    "100,000"
+   ]
+  },
+  {
+   "id": "siteMW",
+   "text": "Reference site: 100 MW hyperscale (IEA: \"100 MW or more\" AI-focused site; most conventional sites 10-25 MW)",
+   "value": 100,
+   "formula": "siteMW",
+   "source": "S2",
+   "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+   "grade": "B (class from IEA; running at full load is our assumption)",
+   "where": "CASE caption 11",
+   "renders": [
+    "100 MW"
+   ]
+  },
+  {
+   "id": "hoursDay",
+   "text": "Hours in a day",
+   "value": 24,
+   "formula": "hoursDay",
+   "source": "input",
+   "url": null,
+   "grade": "def",
+   "where": "CASE caption 11",
+   "renders": [
+    "24 hours"
+   ]
+  },
+  {
+   "id": "siteDayGwh",
+   "text": "A 100 MW site at full load for 24 h = 2.4 GWh",
+   "value": 2.4,
+   "formula": "siteMW*hoursDay/1000",
+   "source": "derived",
+   "url": null,
+   "grade": "B",
+   "where": "CASE caption 11 (56 s)",
+   "renders": [
+    "2.4 GWh"
+   ]
+  },
+  {
+   "id": "siteDayTiles",
+   "text": "2.4 GWh = 100,000 tiles of 24 kWh",
+   "value": 100000,
+   "formula": "siteDayGwh*1e6/tileKwh",
+   "source": "derived",
+   "url": null,
+   "grade": "B",
+   "where": "COUNT caption 12 (60 s); count 2 lands",
+   "renders": [
+    "100,000"
+   ]
+  },
+  {
+   "id": "siteDayQ",
+   "text": "2.4 GWh = 10 billion queries at 0.24 Wh (energy-equivalent, not a usage claim)",
+   "value": 10000000000,
+   "formula": "siteDayGwh*1e9/gemWh",
+   "source": "derived",
+   "url": null,
+   "grade": "B",
+   "where": "COUNT caption 12",
+   "renders": [
+    "10 billion"
+   ]
+  },
+  {
+   "id": "siteYearGwh",
+   "text": "100 MW x 8,760 h = 876 GWh",
+   "value": 876,
+   "formula": "siteMW*hoursYear/1000",
+   "source": "derived",
+   "url": null,
+   "grade": "B",
+   "where": "not on stage; used by ieSites"
+  },
+  {
+   "id": "ieSites",
+   "text": "Ireland's 7,663 GWh = about 9 sites of 100 MW at full load (8.75)",
+   "value": 9,
+   "formula": "Math.round(ieGwh/siteYearGwh)",
+   "source": "derived",
+   "url": null,
+   "grade": "B",
+   "where": "transcript only (optional)"
+  },
+  {
+   "id": "worldSites",
+   "text": "World 415 TWh = about 474 such sites",
+   "value": 474,
+   "formula": "Math.round(worldTwh*1000/siteYearGwh)",
+   "source": "derived",
+   "url": null,
+   "grade": "B",
+   "where": "transcript only"
+  },
+  {
+   "id": "ieaYear",
+   "text": "IEA data year for the world split",
+   "value": 2024,
+   "formula": "ieaYear",
+   "source": "S2",
+   "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+   "grade": "A",
+   "where": "COUNT caption 14",
+   "renders": [
+    "2024"
+   ]
+  },
+  {
+   "id": "worldTwh",
+   "text": "Data centres, world, 2024: 415 TWh (all kinds, not AI alone)",
+   "value": 415,
+   "formula": "worldTwh",
+   "source": "S2",
+   "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+   "grade": "A",
+   "where": "COUNT caption 14 (71.4 s); field of 415 marks",
+   "renders": [
+    "415 TWh",
+    "415"
+   ]
+  },
+  {
+   "id": "oneTwh",
+   "text": "Mark unit: 1 mark = 1 TWh",
+   "value": 1,
+   "formula": "oneTwh",
+   "source": "input",
+   "url": null,
+   "grade": "def (count unit)",
+   "where": "COUNT caption 13; legend",
+   "renders": [
+    "One TWh"
+   ]
+  },
+  {
+   "id": "worldPct",
+   "text": "Share of world electricity 2024: about 1.5 %",
+   "value": 1.5,
+   "formula": "worldPct",
+   "source": "S2",
+   "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+   "grade": "A",
+   "where": "COUNT caption 15 (77.4 s); CASE-to-COUNT ratio",
+   "renders": [
+    "1.5 %"
+   ]
+  },
+  {
+   "id": "worldGridTwh",
+   "text": "World electricity 2024 = 415 / 0.015 = about 27,700 TWh (back-solved from the rounded 1.5 %)",
+   "value": 27667,
+   "formula": "Math.round(worldTwh/(worldPct/100))",
+   "source": "derived",
+   "url": null,
+   "grade": "B",
+   "where": "grey backdrop marks only; number NOT printed"
+  },
+  {
+   "id": "world2030",
+   "text": "IEA base case 2030: about 945 TWh (under 3 %)",
+   "value": 945,
+   "formula": "world2030",
+   "source": "S2",
+   "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+   "grade": "A (projection)",
+   "where": "not on stage; live-page block"
+  },
+  {
+   "id": "usPctDc",
+   "text": "US share of world data-centre electricity 2024: 45 %",
+   "value": 45,
+   "formula": "usPctDc",
+   "source": "S2",
+   "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+   "grade": "A",
+   "where": "COUNT caption 18 (94.2 s)",
+   "renders": [
+    "45 %"
+   ]
+  },
+  {
+   "id": "cnPctDc",
+   "text": "China share: 25 %",
+   "value": 25,
+   "formula": "cnPctDc",
+   "source": "S2",
+   "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+   "grade": "A",
+   "where": "COUNT caption 18",
+   "renders": [
+    "25 %"
+   ]
+  },
+  {
+   "id": "euPctDc",
+   "text": "Europe share: 15 %",
+   "value": 15,
+   "formula": "euPctDc",
+   "source": "S2",
+   "url": "https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai",
+   "grade": "A",
+   "where": "COUNT caption 18",
+   "renders": [
+    "15 %"
+   ]
+  },
+  {
+   "id": "usDc",
+   "text": "US about 187 TWh = 45 % x 415 (our product, not an IEA table value)",
+   "value": 187,
+   "formula": "Math.round(usPctDc/100*worldTwh)",
+   "source": "derived",
+   "url": null,
+   "grade": "A->B (derived from rounded shares)",
+   "where": "COUNT caption 16 (83.4 s); region group size",
+   "renders": [
+    "187 TWh"
+   ]
+  },
+  {
+   "id": "cnDc",
+   "text": "China about 104 TWh",
+   "value": 104,
+   "formula": "Math.round(cnPctDc/100*worldTwh)",
+   "source": "derived",
+   "url": null,
+   "grade": "A->B",
+   "where": "COUNT caption 17",
+   "renders": [
+    "104"
+   ]
+  },
+  {
+   "id": "euDc",
+   "text": "Europe about 62 TWh",
+   "value": 62,
+   "formula": "Math.round(euPctDc/100*worldTwh)",
+   "source": "derived",
+   "url": null,
+   "grade": "A->B",
+   "where": "COUNT caption 17",
+   "renders": [
+    "62"
+   ]
+  },
+  {
+   "id": "restDc",
+   "text": "Rest of world about 62 TWh = 415 - 187 - 104 - 62 (rounds to a 15 % share)",
+   "value": 62,
+   "formula": "worldTwh-usDc-cnDc-euDc",
+   "source": "derived",
+   "url": null,
+   "grade": "A->B",
+   "where": "region group size (label only, no caption)"
+  },
+  {
+   "id": "usYear",
+   "text": "LBNL data year",
+   "value": 2023,
+   "formula": "usYear",
+   "source": "S4",
+   "url": "https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report",
+   "grade": "A",
+   "where": "COUNT caption 23",
+   "renders": [
+    "2023"
+   ]
+  },
+  {
+   "id": "usTwh23",
+   "text": "US data centres 2023: 176 TWh (LBNL; excludes crypto)",
+   "value": 176,
+   "formula": "usTwh23",
+   "source": "S4",
+   "url": "https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report",
+   "grade": "A",
+   "where": "COUNT caption 23 (121.8 s)",
+   "renders": [
+    "176 TWh"
+   ]
+  },
+  {
+   "id": "usPct23",
+   "text": "176 TWh = 4.4 % of US electricity, 2023",
+   "value": 4.4,
+   "formula": "usPct23",
+   "source": "S4",
+   "url": "https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report",
+   "grade": "A",
+   "where": "COUNT caption 23; terrain cell US",
+   "renders": [
+    "4.4 %"
+   ]
+  },
+  {
+   "id": "usGridTwh",
+   "text": "US electricity 2023 = 176 / 0.044 = about 4,000 TWh",
+   "value": 4000,
+   "formula": "Math.round(usTwh23/(usPct23/100))",
+   "source": "derived",
+   "url": null,
+   "grade": "A",
+   "where": "terrain / readout only; number NOT printed"
+  },
+  {
+   "id": "us2028lo",
+   "text": "LBNL 2028 low 6.7 %",
+   "value": 6.7,
+   "formula": "us2028lo",
+   "source": "S4",
+   "url": "https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report",
+   "grade": "A (projection)",
+   "where": "not on stage"
+  },
+  {
+   "id": "us2028hi",
+   "text": "LBNL 2028 high 12 %",
+   "value": 12,
+   "formula": "us2028hi",
+   "source": "S4",
+   "url": "https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report",
+   "grade": "A (projection)",
+   "where": "not on stage"
+  },
+  {
+   "id": "epri2030lo",
+   "text": "EPRI Feb 2026 low case 2030: 9 % of US electricity",
+   "value": 9,
+   "formula": "epri2030lo",
+   "source": "S7",
+   "url": "https://powering-intelligence.epri.com/load-growth.html",
+   "grade": "B (projection)",
+   "where": "not on stage"
+  },
+  {
+   "id": "epri2030hi",
+   "text": "EPRI Feb 2026 high case 2030: 17 %",
+   "value": 17,
+   "formula": "epri2030hi",
+   "source": "S7",
+   "url": "https://powering-intelligence.epri.com/load-growth.html",
+   "grade": "B (projection)",
+   "where": "not on stage"
+  },
+  {
+   "id": "usGrowthPct",
+   "text": "Data centres about half of US electricity-demand growth in 2025 (IEA 2026: \"around half\")",
+   "value": 50,
+   "formula": "usGrowthPct",
+   "source": "S3",
+   "url": "https://www.iea.org/reports/electricity-2026/executive-summary",
+   "grade": "A (several extractions; IEA page not opened)",
+   "where": "COUNT caption 24 (128.2 s)",
+   "renders": [
+    "half"
+   ]
+  },
+  {
+   "id": "growthYear",
+   "text": "Year of the growth statement",
+   "value": 2025,
+   "formula": "growthYear",
+   "source": "S3",
+   "url": "https://www.iea.org/reports/electricity-2026/executive-summary",
+   "grade": "A",
+   "where": "COUNT caption 24",
+   "renders": [
+    "2025"
+   ]
+  },
+  {
+   "id": "ieYear",
+   "text": "CSO data year",
+   "value": 2025,
+   "formula": "ieYear",
+   "source": "S5",
+   "url": "https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/",
+   "grade": "A",
+   "where": "COUNT caption 20",
+   "renders": [
+    "2025"
+   ]
+  },
+  {
+   "id": "ieGwh",
+   "text": "Irish data centres 2025: 7,663 GWh metered",
+   "value": 7663,
+   "formula": "ieGwh",
+   "source": "S5",
+   "url": "https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/",
+   "grade": "A",
+   "where": "COUNT caption 20 (105 s); terrain cell Ireland",
+   "renders": [
+    "7,663 GWh"
+   ]
+  },
+  {
+   "id": "iePct",
+   "text": "23 % of metered electricity, 2025",
+   "value": 23,
+   "formula": "iePct",
+   "source": "S5",
+   "url": "https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/",
+   "grade": "A",
+   "where": "COUNT caption 21 (110.8 s); terrain peak",
+   "renders": [
+    "23 %"
+   ]
+  },
+  {
+   "id": "iePct15",
+   "text": "5 % in 2015 (same CSO series)",
+   "value": 5,
+   "formula": "iePct15",
+   "source": "S5",
+   "url": "https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/",
+   "grade": "A",
+   "where": "not on stage; transcript only"
+  },
+  {
+   "id": "ieGridGwh",
+   "text": "Ireland's metered electricity 2025 = 7,663 / 0.23 = about 33,300 GWh (33 TWh)",
+   "value": 33317,
+   "formula": "Math.round(ieGwh/(iePct/100))",
+   "source": "derived",
+   "url": null,
+   "grade": "A",
+   "where": "terrain readout only; number NOT printed"
+  },
+  {
+   "id": "nlPct",
+   "text": "Netherlands 2024: 7 % (Ember; Dutch CBS says 4.6 %)",
+   "value": 7,
+   "formula": "nlPct",
+   "source": "S6",
+   "url": "https://ember-energy.org/latest-insights/grids-for-data-centres-ambitious-grid-planning-can-win-europes-ai-race/grids-for-data-centres/",
+   "grade": "B (conflicting source)",
+   "where": "terrain cell NL; pin \"Ember 2024\""
+  },
+  {
+   "id": "dePct",
+   "text": "Germany 2024: 4 % (Ember)",
+   "value": 4,
+   "formula": "dePct",
+   "source": "S6",
+   "url": "https://ember-energy.org/latest-insights/grids-for-data-centres-ambitious-grid-planning-can-win-europes-ai-race/grids-for-data-centres/",
+   "grade": "B",
+   "where": "terrain cell DE"
+  },
+  {
+   "id": "ukPct",
+   "text": "UK 2024: 4 % (Ember)",
+   "value": 4,
+   "formula": "ukPct",
+   "source": "S6",
+   "url": "https://ember-energy.org/latest-insights/grids-for-data-centres-ambitious-grid-planning-can-win-europes-ai-race/grids-for-data-centres/",
+   "grade": "B",
+   "where": "terrain cell UK"
+  },
+  {
+   "id": "frPct",
+   "text": "France 2024: 2 % (Ember)",
+   "value": 2,
+   "formula": "frPct",
+   "source": "S6",
+   "url": "https://ember-energy.org/latest-insights/grids-for-data-centres-ambitious-grid-planning-can-win-europes-ai-race/grids-for-data-centres/",
+   "grade": "B",
+   "where": "terrain cell FR"
+  },
+  {
+   "id": "ieVsWorld",
+   "text": "Ireland's share is 15 times the world's (23 / 1.5 = 15.3)",
+   "value": 15,
+   "formula": "Math.round(iePct/worldPct)",
+   "source": "derived",
+   "url": null,
+   "grade": "A",
+   "where": "COUNT caption 22 (116.4 s); after both counts",
+   "renders": [
+    "15 times"
+   ]
+  },
+  {
+   "id": "ieVsUs",
+   "text": "Ireland's share is 5.2 times the US's",
+   "value": 5.2,
+   "formula": "Math.round(10*iePct/usPct23)/10",
+   "source": "derived",
+   "url": null,
+   "grade": "A",
+   "where": "not on stage"
+  },
+  {
+   "id": "growthVsLoad",
+   "text": "US: about 50 % of 2025 growth vs 4.4 % of 2023 load = 11x (year mismatch)",
+   "value": 11,
+   "formula": "Math.round(usGrowthPct/usPct23)",
+   "source": "derived",
+   "url": null,
+   "grade": "B (2025 vs 2023)",
+   "where": "NOT on stage"
+  },
+  {
+   "id": "dcCheck",
+   "text": "Cross-check: IEA US 2024 split (187) vs LBNL 2023 (176) differ by year, not by method",
+   "value": 11,
+   "formula": "usDc-usTwh23",
+   "source": "derived",
+   "url": null,
+   "grade": "A->B",
+   "where": "NOT on stage; sources.md note"
+  }
+ ]
+}

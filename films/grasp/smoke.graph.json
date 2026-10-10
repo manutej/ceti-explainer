@@ -1,0 +1,78 @@
+{
+  "id": "agent-loop-smoke",
+  "concept": {
+    "claim": "Reliability multiplies across steps; a check moves the curve, at a cost.",
+    "claimId": "agent-loop.compounding",
+    "audience": "manager",
+    "level": "grasp"
+  },
+  "params": {
+    "N": 48,
+    "k": 20,
+    "p": 0.95,
+    "c": 0.8,
+    "retry": 1,
+    "seed": 1
+  },
+  "nodes": [
+    {
+      "id": "engine",
+      "module": "agentLoop"
+    },
+    {
+      "id": "grid",
+      "module": "gridLayout",
+      "in": {
+        "ens": "engine.ens"
+      }
+    },
+    {
+      "id": "guess",
+      "module": "predictCommitReveal",
+      "in": {
+        "ens": "engine.ens"
+      },
+      "params": {
+        "key": "guess",
+        "sample": 30,
+        "label": "Runs of 48 that finish, no check"
+      }
+    },
+    {
+      "id": "ens",
+      "module": "ensembleRun",
+      "in": {
+        "ens": "engine.ens",
+        "arr": "grid.arr"
+      },
+      "params": {
+        "stepDur": 0.35
+      }
+    },
+    {
+      "id": "truth",
+      "module": "truthUnderEvidence",
+      "in": {
+        "ens": "engine.ens",
+        "arr": "ens.arr",
+        "commit": "guess.commit"
+      }
+    },
+    {
+      "id": "twins",
+      "module": "contrastingTwins",
+      "in": {
+        "ens": "engine.ens",
+        "arr": "truth.arr"
+      }
+    },
+    {
+      "id": "cost",
+      "module": "costOfCheck",
+      "in": {
+        "ens": "engine.ens",
+        "arr": "twins.arr"
+      }
+    }
+  ]
+}

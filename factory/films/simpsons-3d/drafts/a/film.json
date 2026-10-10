@@ -1,0 +1,538 @@
+{
+ "id": "simpsons-3d",
+ "title": "Worse Overall, in 3D",
+ "eyebrow": "CETI · the 75-second case · Simpson's paradox · WEBGL",
+ "lede": "A new sales process converts worse overall, so it gets killed. Berkeley, 1973 is a city of 4,526 boxes: count the applicants in two columns, then fly the camera round to six department slabs.",
+ "format": "case",
+ "renderer": "webgl",
+ "level": "manager",
+ "dur": 75,
+ "seed": 1973,
+ "libs": [
+  "lib/glyphs.js",
+  "lib/camera.js",
+  "lib/scene3d.js",
+  "lib/morph.js",
+  "lib/neon.js"
+ ],
+ "params": {
+  "mA": 825,
+  "mAa": 512,
+  "wA": 108,
+  "wAa": 89,
+  "mB": 560,
+  "mBa": 353,
+  "wB": 25,
+  "wBa": 17,
+  "mC": 325,
+  "mCa": 120,
+  "wC": 593,
+  "wCa": 202,
+  "mD": 417,
+  "mDa": 138,
+  "wD": 375,
+  "wDa": 131,
+  "mE": 191,
+  "mEa": 53,
+  "wE": 393,
+  "wEa": 94,
+  "mF": 373,
+  "mFa": 22,
+  "wF": 341,
+  "wFa": 24,
+  "campusMen": 8442,
+  "campusWomen": 4321,
+  "campusMenPct": 44,
+  "campusWomenPct": 35,
+  "guessDefault": 5,
+  "holdSeconds": 8,
+  "year": 1973,
+  "perMark": 1
+ },
+ "knobs": {
+  "cell": 10,
+  "boxGap": 1.4,
+  "slabGap": 24,
+  "aisle": 100,
+  "slabLayers": 12,
+  "orbit": 0.3,
+  "frontEl": 7,
+  "sideAz": 50,
+  "sideEl": 35,
+  "zoomFront": 0.95,
+  "zoomSide": 1.25,
+  "modelX": 530,
+  "modelY": 292,
+  "flyT0": 38.6,
+  "flyT1": 45.2,
+  "hookKill": 4.4,
+  "arriveT0": 17,
+  "arriveDur": 6.6,
+  "inkT0": 24.4,
+  "inkDur": 2.2,
+  "splitT0": 40.2,
+  "riseDur": 2,
+  "pairsT0": 45.2,
+  "pairStep": 1.0,
+  "morphS": 0.55,
+  "headSize": 112,
+  "revealT": 52.4,
+  "neonGain": 1,
+  "neonWidth": 1.1,
+  "neonRadius": 14,
+  "mixT": 56.8,
+  "capShift": 0
+ },
+ "knobs_doc": [
+  {
+   "name": "cell",
+   "range": [
+    8,
+    14
+   ],
+   "step": 0.5,
+   "what": "box pitch in world units (box size); bigger boxes make the city larger on screen"
+  },
+  {
+   "name": "boxGap",
+   "range": [
+    0.5,
+    3
+   ],
+   "step": 0.1,
+   "what": "gap between neighbouring boxes in world units"
+  },
+  {
+   "name": "slabGap",
+   "range": [
+    10,
+    60
+   ],
+   "step": 2,
+   "what": "gap between the six department slabs along the street"
+  },
+  {
+   "name": "aisle",
+   "range": [
+    36,
+    110
+   ],
+   "step": 2,
+   "what": "gap between the men's and the women's blocks"
+  },
+  {
+   "name": "slabLayers",
+   "range": [
+    8,
+    16
+   ],
+   "step": 1,
+   "what": "layers in a department block (its height); the lit share of the height is the admission rate"
+  },
+  {
+   "name": "orbit",
+   "range": [
+    0,
+    1.2
+   ],
+   "step": 0.05,
+   "what": "slow orbit: degrees of azimuth per second drifting after the commit"
+  },
+  {
+   "name": "frontEl",
+   "range": [
+    2,
+    20
+   ],
+   "step": 1,
+   "what": "camera elevation of the front view, degrees"
+  },
+  {
+   "name": "sideAz",
+   "range": [
+    35,
+    80
+   ],
+   "step": 1,
+   "what": "camera azimuth of the side view, degrees from the front"
+  },
+  {
+   "name": "sideEl",
+   "range": [
+    18,
+    45
+   ],
+   "step": 1,
+   "what": "camera elevation of the side view, degrees"
+  },
+  {
+   "name": "zoomFront",
+   "range": [
+    0.75,
+    1.25
+   ],
+   "step": 0.01,
+   "what": "world units per screen unit in the front view (smaller = closer)"
+  },
+  {
+   "name": "zoomSide",
+   "range": [
+    0.85,
+    1.4
+   ],
+   "step": 0.01,
+   "what": "world units per screen unit in the side view (smaller = closer)"
+  },
+  {
+   "name": "modelX",
+   "range": [
+    420,
+    640
+   ],
+   "step": 5,
+   "what": "screen x where the model centre sits (960 wide sheet)"
+  },
+  {
+   "name": "modelY",
+   "range": [
+    280,
+    360
+   ],
+   "step": 2,
+   "what": "screen y where the model centre sits (540 high sheet)"
+  },
+  {
+   "name": "flyT0",
+   "range": [
+    36.5,
+    40.5
+   ],
+   "step": 0.1,
+   "what": "second the camera leaves the front view"
+  },
+  {
+   "name": "flyT1",
+   "range": [
+    43,
+    47
+   ],
+   "step": 0.1,
+   "what": "second the camera arrives at the side view"
+  },
+  {
+   "name": "hookKill",
+   "range": [
+    3.5,
+    6
+   ],
+   "step": 0.1,
+   "what": "second the KILLED stamp lands on the new process"
+  },
+  {
+   "name": "arriveT0",
+   "range": [
+    16.5,
+    18.5
+   ],
+   "step": 0.1,
+   "what": "second the first applicant box appears"
+  },
+  {
+   "name": "arriveDur",
+   "range": [
+    4,
+    8
+   ],
+   "step": 0.1,
+   "what": "seconds for the men's column to fill (the women's fills at the same rate)"
+  },
+  {
+   "name": "inkT0",
+   "range": [
+    23,
+    26
+   ],
+   "step": 0.1,
+   "what": "second the admitted boxes start to light, bottom up"
+  },
+  {
+   "name": "inkDur",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.1,
+   "what": "seconds the admitted boxes take to light"
+  },
+  {
+   "name": "splitT0",
+   "range": [
+    38.5,
+    42
+   ],
+   "step": 0.1,
+   "what": "second the two columns start to sink and the department slabs to rise"
+  },
+  {
+   "name": "riseDur",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "seconds one slab takes to rise (slabs start 0.45 s apart)"
+  },
+  {
+   "name": "pairsT0",
+   "range": [
+    44.5,
+    47
+   ],
+   "step": 0.1,
+   "what": "second the headline first shows a department's pair of rates"
+  },
+  {
+   "name": "pairStep",
+   "range": [
+    0.8,
+    1.6
+   ],
+   "step": 0.05,
+   "what": "seconds between department pairs"
+  },
+  {
+   "name": "morphS",
+   "range": [
+    0.3,
+    1.2
+   ],
+   "step": 0.05,
+   "what": "seconds a headline number takes to morph into the next"
+  },
+  {
+   "name": "headSize",
+   "range": [
+    70,
+    150
+   ],
+   "step": 2,
+   "what": "headline number size, font px (shrinks to fit 470 units)"
+  },
+  {
+   "name": "revealT",
+   "range": [
+    50.5,
+    55
+   ],
+   "step": 0.1,
+   "what": "second of the reveal frame: women did worse in 2 of 6"
+  },
+  {
+   "name": "neonGain",
+   "range": [
+    0,
+    2
+   ],
+   "step": 0.1,
+   "what": "strength of the neon post glow on the reveal (0 = off)"
+  },
+  {
+   "name": "neonWidth",
+   "range": [
+    0.4,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "seconds either side of the reveal the glow takes to fade"
+  },
+  {
+   "name": "neonRadius",
+   "range": [
+    6,
+    30
+   ],
+   "step": 1,
+   "what": "reach of the neon glow in screen units"
+  },
+  {
+   "name": "mixT",
+   "range": [
+    55,
+    58.5
+   ],
+   "step": 0.1,
+   "what": "second the headline turns to the A-and-B share (51 % and 7 %)"
+  },
+  {
+   "name": "capShift",
+   "range": [
+    -1,
+    1
+   ],
+   "step": 0.1,
+   "what": "seconds every caption is moved later (negative = earlier)"
+  }
+ ],
+ "commit": {
+  "at": 11.5,
+  "title": "YOUR GUESS",
+  "prompt": "Women got in less often overall. In how many of the 6 departments did they do worse?",
+  "unit": "of 6 departments",
+  "default": 5,
+  "min": 0,
+  "max": 6,
+  "step": 1
+ },
+ "count": {
+  "at": 17
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 8,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · THE HOOK",
+   "title": "The review"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 8,
+   "t1": 16.5,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · YOUR NUMBER",
+   "title": "Seal a number"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 16.5,
+   "t1": 36,
+   "eyebrow": "CASE · BERKELEY · FALL 1973",
+   "title": "One mark, one applicant"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 36,
+   "t1": 62,
+   "eyebrow": "CASE · BERKELEY · THE COUNT",
+   "title": "Split by department"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 62,
+   "t1": 72,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · MONDAY",
+   "title": "Before you kill it"
+  }
+ ],
+ "captions": [
+  [
+   0.6,
+   4.2,
+   "Our new sales process converts worse overall."
+  ],
+  [
+   4.4,
+   8.0,
+   "So we killed it. Case closed?"
+  ],
+  [
+   8.2,
+   11.2,
+   "Berkeley, 1973: women got in less often overall."
+  ],
+  [
+   11.3,
+   16.2,
+   "In how many of 6 departments did women do worse?"
+  ],
+  [
+   16.6,
+   24.4,
+   "Fall 1973, six departments: 4,526 applicants."
+  ],
+  [
+   24.6,
+   29.8,
+   "Admitted: 1,198 of 2,691 men, 557 of 1,835 women."
+  ],
+  [
+   30.0,
+   35.8,
+   "Fewer women got in. The headline writes itself."
+  ],
+  [
+   36.2,
+   39.6,
+   "Overall: 45 % of men admitted, 30 % of women."
+  ],
+  [
+   39.8,
+   45.6,
+   "Now split the same boxes by department."
+  ],
+  [
+   45.8,
+   51.8,
+   "Same boxes, same rules. Compare each department."
+  ],
+  [
+   52.0,
+   55.8,
+   "Women did worse in 2 of 6, by 3 and 4 points."
+  ],
+  [
+   56.0,
+   61.8,
+   "51 % of men applied to A or B. 7 % of women."
+  ],
+  [
+   62.2,
+   66.6,
+   "Monday: did the new process get the same mix of leads?"
+  ],
+  [
+   66.8,
+   71.6,
+   "Splitting explains this gap. It does not prove fairness."
+  ]
+ ],
+ "brand": {
+  "takeaway": "Split by segment before you call it worse.",
+  "at": 72
+ },
+ "sources": [
+  [
+   "BHO75",
+   "Bickel, P. J., Hammel, E. A., & O'Connell, J. W. (1975). Sex bias in graduate admissions: Data from Berkeley. Science, 187(4175), 398–404. doi:10.1126/science.187.4175.398"
+  ],
+  [
+   "RDS",
+   "R Core Team. UCBAdmissions: Student Admissions at UC Berkeley (R datasets package; 4,526 applicants, six largest departments, 1973; counts from Bickel et al. 1975)."
+  ],
+  [
+   "FPP07",
+   "Freedman, D., Pisani, R., & Purves, R. (2007). Statistics (4th ed.), ch. 2 §4: the six largest majors, Berkeley 1973. W. W. Norton."
+  ],
+  [
+   "SIM51",
+   "Simpson, E. H. (1951). The interpretation of interaction in contingency tables. Journal of the Royal Statistical Society, Series B, 13(2), 238–241."
+  ],
+  [
+   "PEA14",
+   "Pearl, J. (2014). Comment: Understanding Simpson's paradox. The American Statistician, 68(1), 8–13. doi:10.1080/00031305.2014.876829"
+  ],
+  [
+   "FMT",
+   "factory/FORMAT.md and docs/DECISIONS.md Q13: the 8-second commit hold and the film-mode default guess (5)."
+  ]
+ ],
+ "honest": [
+  "Splitting explains this gap. It does not prove fairness. The film counts the six largest departments of one year; why women applied mostly to the crowded departments is a question the split cannot answer.",
+  "Campus-wide the gap was about 44 % of 8,442 men against 35 % of 4,321 women (Bickel et al. 1975); pooled over the six departments shown it is 45 % against 30 %.",
+  "A split can mislead too: split on what came before the decision (the department, the segment), not on something the decision caused (Pearl 2014). The sales hook is a situation, not data."
+ ]
+}

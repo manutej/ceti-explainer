@@ -1,0 +1,208 @@
+{
+ "film": "pass-every-time",
+ "findings": "factory/films/pass-every-time/findings.r1.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:ghostMix",
+   "old": 0.3,
+   "new": 0.45,
+   "finding": {
+    "t": 47.5,
+    "frame": "strip-08.png cell 11 (thumbs/t-0047.50.jpg)",
+    "severity": "major",
+    "what": "Side view 47-59 s: unlit cubes are near the ground colour, so each task reads as a gold skyline of uneven height, not a column of four tries with some unlit; the 'every try' idea needs the unlit tries visible.",
+    "why": "Unlit cubes lifted toward muted keep the four-high column readable in plan, side and the sort; 0.45 stays under the 0.5 cap so lit gold still dominates at 30-39 s.",
+    "knob": "ghostMix",
+    "proposed_value": 0.45
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:plateMix",
+   "old": 0.16,
+   "new": 0.3,
+   "finding": {
+    "t": 20.0,
+    "frame": "strip-04.png cell 4 (thumbs/t-0020.00.jpg)",
+    "severity": "major",
+    "what": "The 115 task tiles (the first count, 21 s) are a faint texture against the floor at 13-23 s; the count lands on marks the eye barely sees, and the 22 never-pass columns later are only these plates.",
+    "why": "A brighter plate makes each tile a countable mark at thumb size and keeps the 22 empty columns visible in the sort and the cut.",
+    "knob": "plateMix",
+    "proposed_value": 0.3
+   }
+  },
+  {
+   "n": 2,
+   "target": "knob:m3T1",
+   "old": 77.0,
+   "new": 75.5,
+   "finding": {
+    "t": 77.5,
+    "frame": "strip-13.png cell 11 (thumbs/t-0077.50.jpg)",
+    "severity": "major",
+    "what": "'44 of 115', the reversal count, holds only 2.0 s (77.5-79.5) before '38.3 %' replaces it; T1 asks 2.5 s on a new number.",
+    "why": "The plane rests 1.5 s earlier (rise 73-75.5, still eased), so the count can land at 77.0 after a 1.5 s settle (T3); see the next finding.",
+    "knob": "m3T1",
+    "proposed_value": 75.5
+   }
+  },
+  {
+   "n": 3,
+   "target": "knob:c44of",
+   "old": 77.5,
+   "new": 77.0,
+   "finding": {
+    "t": 77.0,
+    "frame": "strip-13.png cell 10 (thumbs/t-0077.00.jpg)",
+    "severity": "major",
+    "what": "Pair of the previous finding: the count callout moves to 77.0 so it holds 2.5 s before the ratio at 79.5.",
+    "why": "Counts before ratios with a full hold on the count; caption 12 ('Cut the field at all four tries.') is unchanged.",
+    "knob": "c44of",
+    "proposed_value": 77.0
+   }
+  },
+  {
+   "n": 4,
+   "target": "knob:min27T0",
+   "old": 124.0,
+   "new": 123.0,
+   "finding": {
+    "t": 124.0,
+    "frame": "strip-21.png cell 8 (thumbs/t-0124.00.jpg)",
+    "severity": "major",
+    "what": "'27 min' pin points at empty floor at 124.0 s; its 27 cubes arrive 124-126, so the label states the number before the marks exist (caption-ahead on stage).",
+    "why": "The minute cubes start 1 s earlier; with the next three findings the column is complete before its pin holds.",
+    "knob": "min27T0",
+    "proposed_value": 123.0
+   }
+  },
+  {
+   "n": 5,
+   "target": "knob:min27T1",
+   "old": 126.0,
+   "new": 125.0,
+   "finding": {
+    "t": 125.0,
+    "frame": "strip-21.png cell 10 (thumbs/t-0125.00.jpg)",
+    "severity": "major",
+    "what": "Pair: the 80 % column is full by 125.0 instead of 126.0.",
+    "why": "A 2 s count-in for 27 cubes is still a build, and the pin then sits on finished marks.",
+    "knob": "min27T1",
+    "proposed_value": 125.0
+   }
+  },
+  {
+   "n": 6,
+   "target": "knob:cMin27",
+   "old": 124.0,
+   "new": 124.5,
+   "finding": {
+    "t": 124.5,
+    "frame": "strip-21.png cell 9 (thumbs/t-0124.50.jpg)",
+    "severity": "major",
+    "what": "Pair: the 27 min pin moves from 124.0 to 124.5, when most of the column has landed.",
+    "why": "Pin within 0.5 s of the column completing; caption 25 still shows 124.0-126.4 over the building column.",
+    "knob": "cMin27",
+    "proposed_value": 124.5
+   }
+  },
+  {
+   "n": 7,
+   "target": "knob:cMin27End",
+   "old": 126.5,
+   "new": 127.0,
+   "finding": {
+    "t": 126.5,
+    "frame": "strip-22.png cell 1 (thumbs/t-0126.50.jpg)",
+    "severity": "major",
+    "what": "Pair: with the pin at 124.5, ending it at 126.5 would leave a 2.0 s hold.",
+    "why": "Ending at 127.0 restores the 2.5 s hold; the 289 count-in starts 126.6 on the other column, the 4 h 49 min pin is at 129.6.",
+    "knob": "cMin27End",
+    "proposed_value": 127.0
+   }
+  },
+  {
+   "n": 8,
+   "target": "knob:c22End",
+   "old": 72.9,
+   "new": 73.0,
+   "finding": {
+    "t": 73.0,
+    "frame": "strip-13.png cell 2 (thumbs/t-0073.00.jpg)",
+    "severity": "minor",
+    "what": "'22 never pass' holds 2.4 s (70.5-72.9), just under the 2.5 s floor.",
+    "why": "Ending at 73.0, the instant the plane starts, gives 2.5 s and still cuts the label at the move start (R5).",
+    "knob": "c22End",
+    "proposed_value": 73.0
+   }
+  },
+  {
+   "n": 9,
+   "target": "knob:qIn",
+   "old": 135.6,
+   "new": 137.0,
+   "finding": {
+    "t": 137.0,
+    "frame": "strip-23.png cell 10 (thumbs/t-0137.00.jpg)",
+    "severity": "minor",
+    "what": "Monday question fades in at 135.6 while the camera is still rising (to 139.6): at 136-137.5 the set type overprints the gold columns.",
+    "why": "The question waits for the pose to settle (next finding); caption 29 carries the question from 135.3 meanwhile.",
+    "knob": "qIn",
+    "proposed_value": 137.0
+   }
+  },
+  {
+   "n": 10,
+   "target": "knob:bookT1",
+   "old": 139.6,
+   "new": 138.0,
+   "finding": {
+    "t": 138.0,
+    "frame": "strip-24.png cell 0 (thumbs/t-0138.00.jpg)",
+    "severity": "minor",
+    "what": "Pair: the bookend rise ends at 139.6, so even a 137.0 question overlaps the rising field for 2.5 s.",
+    "why": "The plan pose lands at 138.0 (rise 135.4-138.0, eased); the question then sits over empty floor above the plan field, as at 139.5.",
+    "knob": "bookT1",
+    "proposed_value": 138.0
+   }
+  },
+  {
+   "n": 11,
+   "target": "caption:29",
+   "old": "Monday: how often does it pass when it must every time?",
+   "new": "On Monday, ask for the every-time number.",
+   "finding": {
+    "t": 136.0,
+    "frame": "strip-23.png cell 8 (thumbs/t-0136.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 29 (55 chars) wraps to two lines and repeats the stage question word for word (136-140 s).",
+    "why": "Borrowed from draft b: the caption gives the action while the stage carries the question; 41 chars, one line, no digit.",
+    "caption_index": 29,
+    "proposed_value": "On Monday, ask for the every-time number."
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "midnight-ink",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/pass-every-time/build/pass-every-time.midnight-ink.none.html  1241076 bytes  sha256 d126e73f005dc1954878e6ae4a76851ea82c9b62d8fbfcaf9d25e05c7a55020c  (film code 80047 bytes; brand midnight-ink, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Mono 400, Newsreader 400, Newsreader 600)\ncontrast on paper: ink 13.9  muted 6.9  accent 8.3  onDark/dark 16.0\nrenderer webgl; knobs 130; fonts3d none; libs none\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/pass-every-time/gate.json",
+  "log": "every number in 30 captions is a claim value or render\n  G5c claims · on-screen digits  PASS  every visible SVG number is a claim value\n  G6 legibility                  PASS  11 must-read / 19 secondary / 13 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 400/390 OVERFLOW\n  G7 counts first                PASS  count at 21 s (count.at); first ratio \"Tries that pass: 60.4 %.\" at 36.8 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 90.8 KB (film.js 57.8, film.json 20.4, claims.json 12.6) < 120 KB; page 1.241 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand midnight-ink, chrome none, material ink, texture paper; level manager; via window.__film.info.axes\n  G11 text overlap               PASS  307 samples every 0.5 s, 73 distinct texts (texts with data-role), caption showing at 244; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames pass-every-time: 307 frames every 0.5 s → 26 strip(s) in factory/films/pass-every-time/frames; 0.518 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0"
+ }
+}

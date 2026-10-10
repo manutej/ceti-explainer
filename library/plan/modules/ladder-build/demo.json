@@ -1,0 +1,299 @@
+{
+ "demos": [
+  {
+   "meta": {
+    "id": "ladder-build-agent",
+    "short": "AI · the agent loop",
+    "demo": true,
+    "title": "ladder-build · the agent loop",
+    "chrome": "dark",
+    "level": "novice",
+    "vo": false,
+    "eyebrow": "Explainer modules · ladder-build · 1 of 2",
+    "titleHTML": "Why the budget <em>runs out</em> early",
+    "lede": "Climb from one model call to a running agent, one part per rung: act, observe, budget. Run them together and the budget empties at turn 8, not turn 33. Then step back down to one call.",
+    "synthTitle": "What the module carries",
+    "synthesis": "Ladder-build pre-trains the parts before the whole runs: each rung adds one part, shows it, cues it, names it and lets it behave. The emergent property only appears when every part runs at once, and the ladder comes back down so the first, concrete case is re-seen with the new model.",
+    "sources": [
+     [
+      "V",
+      "Bret Victor — Up and Down the Ladder of Abstraction",
+      "http://worrydream.com/LadderOfAbstraction/"
+     ],
+     [
+      "P",
+      "Pollock, Chandler & Sweller 2002 — isolated-elements pre-training",
+      "https://doi.org/10.1016/S0959-4752(01)00005-6"
+     ]
+    ]
+   },
+   "type": {
+    "primary": "T9",
+    "secondary": "T4"
+   },
+   "roles": {
+    "rung": "focus",
+    "answer": "machine",
+    "call": "machine",
+    "context": "neutral",
+    "budget": "allowed",
+    "verdict": "error"
+   },
+   "po": {
+    "kind": "chain",
+    "id": "agent",
+    "layout": "loop",
+    "nodes": [
+     {
+      "id": "context",
+      "x": 360,
+      "y": 240
+     },
+     {
+      "id": "model",
+      "x": 570,
+      "y": 240
+     },
+     {
+      "id": "tool",
+      "x": 790,
+      "y": 240
+     }
+    ]
+   },
+   "example": {
+    "perTurn": 3000,
+    "budget": 100000
+   },
+   "given": {
+    "flags": [
+     "gap"
+    ]
+   },
+   "modules": [
+    {
+     "use": "ladder-build",
+     "head": {
+      "eyebrow": "LADDER-BUILD · THE AGENT LOOP",
+      "title": "One part at a time",
+      "chapter": "The loop"
+     },
+     "params": {
+      "rung0": {
+       "part": "call",
+       "label": "one call",
+       "kind": "call",
+       "note": "one call reads its whole context, then answers"
+      },
+      "rungs": [
+       {
+        "part": "act",
+        "label": "+ act",
+        "kind": "act",
+        "note": "act: the answer becomes a tool call"
+       },
+       {
+        "part": "observe",
+        "label": "+ observe",
+        "kind": "observe",
+        "note": "observe: the result is appended to the context",
+        "droppable": true
+       },
+       {
+        "part": "budget",
+        "label": "+ budget",
+        "kind": "budget",
+        "note": "BUDGET · 100,000 TOKENS FOR THE RUN",
+        "droppable": true
+       }
+      ],
+      "emergent": {
+       "term": "re-reading",
+       "kind": "budget-run",
+       "label": "empty at turn {empty}",
+       "dur": 7
+      },
+      "model": {
+       "perTurn": "@example.perTurn",
+       "budget": "@example.budget"
+      },
+      "principle": {
+       "term": "context compounds",
+       "line": "turn n re-reads all n turns"
+      },
+      "returnLine": "one call still re-reads everything before it: {context} tokens",
+      "foot": {
+       "rung0": "the simplest whole that runs: context in, answer out",
+       "rung1": "instead of answering, the model asks a tool",
+       "rung2": "each turn appends ≈ {perTurn} tokens · illustrative",
+       "rung3": "one budget for the whole run",
+       "integrate": "turn n re-reads n pages: {spentEmpty} spent by turn {empty}, not turn {linear}",
+       "return": "back down to one call, seen with the model"
+      },
+      "ladder": {
+       "bottom": "CONCRETE",
+       "top": "RUNNING"
+      },
+      "control": {
+       "label": "Remove one part",
+       "question": "Take out observe or budget: what changes about the run?"
+      }
+     },
+     "captions": {
+      "rung0": "Start with the smallest thing that runs: one call reads its context and answers.",
+      "rung1": "Add one part. Act: the answer becomes a tool call.",
+      "rung2": "Observe: the tool’s result is written back into the context.",
+      "rung3": "Budget: the whole run gets 100,000 tokens.",
+      "integrate": "Now run every part. Each turn re-reads every page so far.",
+      "hold": "The cost per turn grows, so the total grows like a staircase.",
+      "name": "Context compounds: turn n re-reads all n turns.",
+      "return": "Back to one call. It was always reading everything before it."
+     }
+    }
+   ]
+  },
+  {
+   "meta": {
+    "id": "ladder-build-loss",
+    "short": "Behavioural · loss aversion",
+    "demo": true,
+    "title": "ladder-build · loss aversion",
+    "chrome": "notebook",
+    "level": "novice",
+    "vo": false,
+    "eyebrow": "Explainer modules · ladder-build · 2 of 2",
+    "titleHTML": "A good bet that <em>feels</em> bad",
+    "lede": "A fair coin: win $150 or lose $100. Climb from the coin to the value curve, one branch per rung, and the bet’s felt value lands below zero. Then step back down to the coin.",
+    "synthTitle": "What the module carries",
+    "synthesis": "The coin is rung zero, and it keeps flipping. Gains add the concave branch; losses add the steeper one. Integrate puts the bet’s two outcomes on the curve: the midpoint of the chord is the bet, at a positive expected value and a negative felt value.",
+    "sources": [
+     [
+      "K26",
+      "Kahneman, Thinking, Fast and Slow, ch. 26 (Prospect Theory)",
+      "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow"
+     ],
+     [
+      "TK92",
+      "Tversky & Kahneman 1992 — α = 0.88, λ = 2.25",
+      "https://doi.org/10.1007/BF00122574"
+     ]
+    ]
+   },
+   "type": {
+    "primary": "T8",
+    "secondary": "T5"
+   },
+   "roles": {
+    "rung": "focus",
+    "answer": "machine",
+    "outcome": "machine",
+    "felt": "person",
+    "verdict": "error"
+   },
+   "po": {
+    "kind": "axis",
+    "id": "value",
+    "x": {
+     "min": -160,
+     "max": 160,
+     "label": "OUTCOME ($)"
+    },
+    "y": {
+     "min": -150,
+     "max": 100,
+     "label": "FELT VALUE"
+    },
+    "box": {
+     "x0": 300,
+     "x1": 900,
+     "y0": 150,
+     "y1": 430
+    }
+   },
+   "example": {
+    "win": 150,
+    "lose": 100,
+    "alpha": 0.88,
+    "lambda": 2.25
+   },
+   "given": {
+    "flags": [
+     "gap"
+    ]
+   },
+   "modules": [
+    {
+     "use": "ladder-build",
+     "head": {
+      "eyebrow": "FIELD NOTEBOOK · LADDER-BUILD · KAHNEMAN CH. 26",
+      "title": "A good bet that feels bad",
+      "chapter": "Loss aversion"
+     },
+     "params": {
+      "rung0": {
+       "part": "bet",
+       "label": "the coin",
+       "kind": "bet",
+       "note": "fair coin: +$150 or −$100"
+      },
+      "rungs": [
+       {
+        "part": "gains",
+        "label": "+ gains",
+        "kind": "gains",
+        "note": "each extra dollar feels a little less"
+       },
+       {
+        "part": "losses",
+        "label": "+ losses",
+        "kind": "losses",
+        "note": "the same curve, λ = 2.25 times steeper",
+        "droppable": true
+       }
+      ],
+      "emergent": {
+       "term": "felt value",
+       "kind": "bet-value",
+       "label": "refused",
+       "dur": 6
+      },
+      "model": {
+       "alpha": "@example.alpha",
+       "lambda": "@example.lambda",
+       "win": "@example.win",
+       "lose": "@example.lose"
+      },
+      "principle": {
+       "term": "loss aversion",
+       "line": "losses loom larger than gains"
+      },
+      "returnLine": "same coin, felt as {felt}: most people say no",
+      "foot": {
+       "rung0": "across: money won or lost · zero is where you stand now",
+       "rung1": "the felt value of a gain: v(x) = x^0.88",
+       "rung2": "a loss of the same size hurts λ = {lambda} times as much",
+       "integrate": "expected value {ev}, felt value {felt}: a good bet that feels bad",
+       "return": "back to the coin: the curve, not the arithmetic, decides"
+      },
+      "control": {
+       "label": "Remove one part",
+       "question": "With no extra weight on losses, does the coin still feel bad?"
+      },
+      "notes": [
+       "the coin flip is the textbook example; the felt value is the model’s, not a measurement of you"
+      ]
+     },
+     "captions": {
+      "rung0": "Start with the concrete case: a fair coin. Win $150, or lose $100.",
+      "rung1": "Add gains: each extra dollar feels a little less than the one before.",
+      "rung2": "Add losses: the same shape, but more than twice as steep.",
+      "integrate": "Put the coin on the curve. The bet sits at the middle of the line.",
+      "hold": "Expected value: plus $25. Felt value: below zero.",
+      "name": "Loss aversion: losses loom larger than gains.",
+      "return": "Back down to the coin. Now you can see why most people refuse it."
+     }
+    }
+   ]
+  }
+ ]
+}

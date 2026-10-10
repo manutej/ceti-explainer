@@ -1,0 +1,36 @@
+{
+ "source": "S1 (Y: skill quintile, pre-AI skill index); middle block derived",
+ "unit": "% change in issues resolved per hour",
+ "groups": [
+  {
+   "id": "low",
+   "label": "lowest-skill fifth",
+   "n": 1036,
+   "gain": 34,
+   "claim": "novice",
+   "grade": "A"
+  },
+  {
+   "id": "mid",
+   "label": "middle three fifths",
+   "n": 3107,
+   "gain": 12,
+   "claim": "midGain",
+   "grade": "B-derived",
+   "show_digit": false
+  },
+  {
+   "id": "top",
+   "label": "highest-skill fifth",
+   "n": 1036,
+   "gain": 0,
+   "claim": "expertAgents",
+   "grade": "B",
+   "show_digit": true,
+   "word": "about 0"
+  }
+ ],
+ "total": 5179,
+ "pooled": 14,
+ "check": "1036+3107+1036 = 5179; weighted gain (1036*34+3107*12+1036*0)/5179 = 14.00 vs pooled 14"
+}

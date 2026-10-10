@@ -1,0 +1,24 @@
+
+GATE one-query  one-query.ceti-boardwalk-dark.none.html  (film dir factory/films/one-query/drafts/b)
+  G1 load                        PASS  film errors 0; live errors 0; charset utf-8; ready 2579 ms; stage sd 30.6s:34.6 76.5s:28.8 122.4s:37.6
+  G2a purity · canvas            PASS  1 canvas; re-seek at 15.3, 45.9, 76.5, 107.1, 137.7 identical; order A→B = B→A (2 pairs)
+  G2b purity · SVG               PASS  1 svg; re-seek identical; order identical (2 pairs)
+  G3 clock scan                  PASS  clean: film.js, arsenal.gen.js, kit2.js, player.js (player: rAF/Date/perf allowed)
+  G4a format · duration          PASS  total 153 s; material 150 s (want 140–180, format feature-long) + brand 3 s; total ≤ 183
+  G4b format · beats             PASS  order HOOK → CASE → COUNT → MONDAY; t0 H0 C12 C60 M135
+  G4c format · commit time       PASS  commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit {"enabled":false}
+  G4d format · brand card        PASS  takeaway "Small per query, large per grid. Divided by what?"; frame at 152 s sd 15.2; takeaway text visible in SVG
+  G4e format · honest line       PASS  "Per-query figures: one vendor's median text prompt (Google, 2025). Assumed: 1,00"
+  G4f format · sources           PASS  7 sources (want ≥ 3)
+  G5a claims · formulas          PASS  61 claims, 61 with formula, 61 recompute
+  G5b claims · caption digits    PASS  every number in 28 captions is a claim value or render
+  G5c claims · on-screen digits  WARN  4 visible number(s) not in claims (chrome?): 19 @67s "19"; 116 @68s "116"; 248 @69s "248"; 365 @70s "365"
+  G6 legibility                  PASS  19 must-read / 32 secondary / 5 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 604/390 OVERFLOW, shot factory/films/one-query/drafts/b/shots/phone-390.png
+  G7 counts first                PASS  count at 17.2 s (count.at); first ratio "Against the world's electricity: 1.5 %." at 77.4 s (caption); commit disabled (D11): no seal, counts-before-ratios only
+  G8 size                        PASS  film code 69.7 KB (film.js 31.5, film.json 19.1, claims.json 19.0) < 120 KB; page 1.287 MB < 1.3 MB
+  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring
+  G10 axes                       PASS  brand ceti-boardwalk-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes
+  G11 text overlap               PASS  307 samples every 0.5 s, 107 distinct texts (texts with data-role), caption showing at 272; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.
+  SHOTS stills                   INFO  8 stills at 1, 21.27, 41.53, 61.8, 82.07, 102.33, 122.6, 153 s → factory/films/one-query/drafts/b/shots
+  VERDICT                        PASS
+

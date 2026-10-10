@@ -1,0 +1,46 @@
+{
+ "id": "women-and-children",
+ "verdict": "SHIP",
+ "seat": "director, after two evaluator rounds; frames read at 480x270; commit beat off (D11)",
+ "truth": [
+  {
+   "claim": "2,201 people; 711 lived; 316 of 425 women (74 %), 57 of 109 children (52 %), 338 of 1,667 men (20 %)",
+   "status": "ok",
+   "note": "recompute.py --check matches all 139 claims from the 32-cell table"
+  },
+  {
+   "claim": "27 of 79 third-class children (34 %) lived, 57 of 175 first-class men (33 %); all 30 first- and second-class children lived",
+   "status": "ok",
+   "note": "seen: pooled columns lit at 40 s, counts before rates; the two level lit tops under bloom at 88 s"
+  }
+ ],
+ "craft": 4,
+ "originality": 4,
+ "stop": 4,
+ "legibility_phone": "ok",
+ "format": {
+  "counts_first": true,
+  "commit_before_number": "n/a (D11)",
+  "brand_card": true,
+  "honest_line": true,
+  "exec_clean": "n/a (level manager)"
+ },
+ "defects": [
+  {
+   "t": 96,
+   "what": "the crew caption still leads the crew picture by about 4 s (knobs at their limits)",
+   "severity": "low"
+  },
+  {
+   "t": 40,
+   "what": "the women's pooled label covers the unlit top of the children's column",
+   "severity": "low"
+  },
+  {
+   "t": 108,
+   "what": "the honest line is a caption only",
+   "severity": "low"
+  }
+ ],
+ "note": "the 32 Dawson cells were transcribed from memory (a secondary copy agrees on all 32) and must be verified against the published table before public use (brief.md)"
+}

@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wave GL Gallery</title>
+<style>
+:root{--bg:#F6F3EC;--ink:#1B1B1F;--muted:#5E5B55;--accent:#9A5214;--panel:#FBF9F4;--line:rgba(27,27,31,.15)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15161A;--ink:#EDE8DF;--muted:#A39A89;--accent:#E0B27A;--panel:#1E1F25;--line:rgba(237,232,223,.18)}}
+:root[data-theme="dark"]{--bg:#15161A;--ink:#EDE8DF;--muted:#A39A89;--accent:#E0B27A;--panel:#1E1F25;--line:rgba(237,232,223,.18)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 16px 64px}
+.eb{font-family:ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(30px,5vw,46px);margin:6px 0 10px;line-height:1.08}
+.lede{max-width:78ch;color:var(--muted);margin:0 0 28px}
+.lane{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px 18px;margin:0 0 18px}
+.lane h2{font-family:Georgia,serif;font-weight:400;font-size:21px;margin:4px 0 10px;color:var(--accent)}
+.lane img{width:100%;height:auto;display:block;border-radius:3px;background:#111}
+.meta{margin:8px 0 0;font-size:13px;color:var(--muted);font-family:ui-monospace,Menlo,monospace}
+.foot{margin-top:32px;font-size:13px;color:var(--muted);max-width:80ch}
+</style></head><body><div class="wrap">
+<div class="eb">CETI · the arsenal · Wave GL · 2026-10-10</div>
+<h1>Thirteen lanes that move the films to the frontier</h1>
+<p class="lede">Each sheet is one lane's variants at four times on the pure clock, rendered headless and checked for identical re-seek. Eight are WebGL lanes (instanced marks at 100k, terrain, ribbons, point clouds, the stack city, a camera rig, a post stack, volumes, a label solver); four are the flat moves the comprehension evidence favours (uncertainty as motion, formula binding, following one unit, the human-scale anchor). The research behind the choice is in arsenal/frontier/; the seats in arsenal/SEATS-GL.md.</p>
+<section class="lane"><div class="eb">the population at true scale</div><h2>gl-instances · 10k to 100k marks as one draw, counted in on t</h2>
+<a href="shots/gl-instances.png" target="_blank" rel="noopener"><img src="shots/gl-instances.png" alt="gl-instances contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/gl-instances/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">the reversal, same marks new partition</div><h2>gl-stack-city · same boxes, new partition (stacked bars / treemap city, WebGL)</h2>
+<a href="shots/gl-stack-city.png" target="_blank" rel="noopener"><img src="shots/gl-stack-city.png" alt="gl-stack-city contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/gl-stack-city/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">the reversal, flat and evidence-first</div><h2>track-unit · tag one unit, trace it through a re-partition, count before the ratio</h2>
+<a href="shots/track-unit.png" target="_blank" rel="noopener"><img src="shots/track-unit.png" alt="track-unit contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/track-unit/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">the move is the argument</div><h2>gl-camera-rig · a keyframed camera instrument for p5 WEBGL</h2>
+<a href="shots/gl-camera-rig.png" target="_blank" rel="noopener"><img src="shots/gl-camera-rig.png" alt="gl-camera-rig contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/gl-camera-rig/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">labels that hold still</div><h2>gl-labels · temporally coherent labels for WEBGL scenes (R-A technique 7)</h2>
+<a href="shots/gl-labels.png" target="_blank" rel="noopener"><img src="shots/gl-labels.png" alt="gl-labels contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/gl-labels/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">the reveal as a moment</div><h2>gl-post · a linear-light post stack (ARSENAL.post[&#x27;gl-post&#x27;], renderer webgl)</h2>
+<a href="shots/gl-post.png" target="_blank" rel="noopener"><img src="shots/gl-post.png" alt="gl-post contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/gl-post/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">uncertainty before the commit</div><h2>uncertainty-hop</h2>
+<a href="shots/uncertainty-hop.png" target="_blank" rel="noopener"><img src="shots/uncertainty-hop.png" alt="uncertainty-hop contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/uncertainty-hop/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">the formula computes on screen</div><h2>formula-bind · the formula whose terms fly into the marks they count</h2>
+<a href="shots/formula-bind.png" target="_blank" rel="noopener"><img src="shots/formula-bind.png" alt="formula-bind contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/formula-bind/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">one unit to 100,000</div><h2>scale-anchor · log zoom from 1 to 10^5 units against a constant-size anchor</h2>
+<a href="shots/scale-anchor.png" target="_blank" rel="noopener"><img src="shots/scale-anchor.png" alt="scale-anchor contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/scale-anchor/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">a matrix as terrain</div><h2>gl-heightfield · a matrix as a lit terrain, with contours and a travelling section cut</h2>
+<a href="shots/gl-heightfield.png" target="_blank" rel="noopener"><img src="shots/gl-heightfield.png" alt="gl-heightfield contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/gl-heightfield/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">a distribution with a cut</div><h2>gl-volume · a distribution as a cloud of counted cells</h2>
+<a href="shots/gl-volume.png" target="_blank" rel="noopener"><img src="shots/gl-volume.png" alt="gl-volume contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/gl-volume/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">a flow in depth</div><h2>gl-ribbons · flows as 3D ribbons between node slabs, units riding as countable marks</h2>
+<a href="shots/gl-ribbons.png" target="_blank" rel="noopener"><img src="shots/gl-ribbons.png" alt="gl-ribbons contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/gl-ribbons/card.md · seat: arsenal/SEATS-GL.md</p></section><section class="lane"><div class="eb">a scatter with depth</div><h2>gl-pointcloud · a 3D scatter with depth cues, a brush that arrives on t, and pins</h2>
+<a href="shots/gl-pointcloud.png" target="_blank" rel="noopener"><img src="shots/gl-pointcloud.png" alt="gl-pointcloud contact sheet" loading="lazy"></a>
+<p class="meta">card: arsenal/patterns/gl-pointcloud/card.md · seat: arsenal/SEATS-GL.md</p></section>
+<p class="foot">Built by arsenal/tools/gallery_gl.py from manutej/ceti-explainer, branch feature/explainer-atelier. Every lane is a pure module (arsenal/BRIEF.md) with a card citing the p5.js atlas; brand colours come from token roles, so every sheet also exists under a light pack (shots/swiss-grid/).</p>
+</div></body></html>

@@ -1,0 +1,13 @@
+{ "id": "blueprint--light", "name": "Blueprint (deep blue, white, cyan) [light]",
+  "color": {
+    "bg": "#E3EEFF",
+    "ink": "#26292F",
+    "accent": "#006873",
+    "accent2": "#755700",
+    "muted": "#4F678E",
+    "line": "rgba(38,41,47,0.28)",
+    "panel": "#C8DCFF",
+    "chalk": "#212121" },
+  "type": { "disp": {"family": "IBM Plex Mono", "weight": 500}, "mono": {"family": "IBM Plex Mono", "weight": 400}, "body": {"family": "IBM Plex Mono", "weight": 400} },
+  "texture": "grain", "tempo": {"ease": "quad", "beat_s": 3.5},
+  "voice": {"register": "a drafting sheet: dimensions, callouts and notes, exact and unadorned", "end_card": "CETI / SHEET 1 OF 1", "derived": {"from": "blueprint", "transforms": ["light"]}} }

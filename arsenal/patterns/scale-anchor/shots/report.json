@@ -1,0 +1,35 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/demo.html",
+ "errors": [],
+ "variants": {
+  "dots-ruler": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/dots-ruler-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/dots-ruler-t4.52.png",
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/dots-ruler-t9.18.png",
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/dots-ruler-t13.70.png"
+   ],
+   "purity": "identical"
+  },
+  "people-ladder": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/people-ladder-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/people-ladder-t4.52.png",
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/people-ladder-t9.18.png",
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/people-ladder-t13.70.png"
+   ],
+   "purity": "identical"
+  },
+  "tiles-lod": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/tiles-lod-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/tiles-lod-t4.52.png",
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/tiles-lod-t9.18.png",
+    "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/tiles-lod-t13.70.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 6.8,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/scale-anchor/shots/contact.png"
+}

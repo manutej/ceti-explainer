@@ -1,0 +1,13 @@
+{ "id": "warm-lab--dark", "name": "Warm lab (sand, umber, coral) [dark]",
+  "color": {
+    "bg": "#130C02",
+    "ink": "#D5BAA8",
+    "accent": "#B42A16",
+    "accent2": "#3D7D80",
+    "muted": "#85705C",
+    "line": "rgba(213,186,168,0.2)",
+    "panel": "#211500",
+    "chalk": "#E0CABC" },
+  "type": { "disp": {"family": "DM Sans", "weight": 600}, "mono": {"family": "DM Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400} },
+  "texture": "paper", "tempo": {"ease": "cubic", "beat_s": 4},
+  "voice": {"register": "a friendly researcher at the bench: curious, concrete, show the sample", "end_card": "CETI", "derived": {"from": "warm-lab", "transforms": ["dark"]}} }

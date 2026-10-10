@@ -1,0 +1,182 @@
+{
+  "film": "sample-size",
+  "page": "factory/films/sample-size/build/sample-size.html",
+  "filmDir": "factory/films/sample-size",
+  "date": "2026-10-08T10:09:39.969Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 308 ms; stage sd 15s:26.6 37.5s:27.0 60s:28.7",
+      "data": {
+        "readyMs": 308,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 212.00633312113257,
+            "sd": 26.601214539613927
+          },
+          {
+            "t": 37.5,
+            "mean": 210.40321514273577,
+            "sd": 27.01210253483953
+          },
+          {
+            "t": 60,
+            "mean": 210.4882621431247,
+            "sd": 28.672143697784087
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 9 s (want 8–16); film-mode default 55"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Noise shrinks with √n. Bias does not shrink at all.\"; frame at 74 s sd 22.6; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"The ± covers chance only, not who chose to answer. The margin 1.96·√(p(1−p)/n) a\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "8 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "44 claims, 42 with formula, 42 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 14 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "11 visible number(s) not in claims (chrome?): 2,376 @19s \"2,376,523 RETURNED\"; 25 @21s \"25\"; 75 @21s \"75\"; 7 @38.5s \"7 of 13\"; 13 @38.5s \"7 of 13\"; 14 @39s \"14 of 26\"",
+      "data": {
+        "unknown": [
+          "2,376 @19s \"2,376,523 RETURNED\"",
+          "25 @21s \"25\"",
+          "75 @21s \"75\"",
+          "7 @38.5s \"7 of 13\"",
+          "13 @38.5s \"7 of 13\"",
+          "14 @39s \"14 of 26\"",
+          "26 @39s \"14 of 26\"",
+          "8 @40.5s \"3 of 8\"",
+          "21 @41s \"6 of 21\"",
+          "16 @43s \"6 of 16\"",
+          "28 @43.5s \"10 of 28\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "25 must-read / 54 secondary / 44 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/sample-size/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 25,
+          "secondary": 54,
+          "chrome": 44
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 3 s (count.at); first ratio \"60 %\" at 4 s (svg)"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 39.5 KB (film.js 19.6, film.json 7.1, claims.json 12.8) < 120 KB; page 1.118 MB < 1.3 MB",
+      "data": {
+        "code": 40406,
+        "page": 1117559
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 10.87, 20.73, 30.6, 40.47, 50.33, 60.2, 75 s → /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/sample-size/shots"
+    }
+  ]
+}

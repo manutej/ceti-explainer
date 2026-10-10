@@ -1,0 +1,454 @@
+{
+ "film": "regression",
+ "claims": [
+  {
+   "id": "n_pilots",
+   "text": "100 pilots, 100 landings",
+   "value": 100,
+   "formula": "params.N",
+   "source": "Declared teaching model (brief.md, \"The model\")",
+   "where": [
+    "COUNT counter",
+    "caption c8",
+    "commit box sub"
+   ]
+  },
+  {
+   "id": "top_k",
+   "text": "today's top 10",
+   "value": 10,
+   "formula": "params.topK",
+   "source": "Declared teaching model",
+   "where": [
+    "commit box prompt",
+    "captions c8, c10, c12",
+    "COUNT tally (10 boxes)"
+   ]
+  },
+  {
+   "id": "mean_today",
+   "text": "average landing 50",
+   "value": 50,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return avg(T);})()",
+   "source": "Declared model: mean 50 by construction (symmetric quantiles)",
+   "where": [
+    "COUNT mean line label \"50 · AVERAGE\"",
+    "CASE bar mean line"
+   ]
+  },
+  {
+   "id": "mean_tomorrow",
+   "text": "average stays 50 tomorrow",
+   "value": 50,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return avg(M);})()",
+   "source": "Declared model",
+   "where": [
+    "COUNT mean line (same line both columns)"
+   ]
+  },
+  {
+   "id": "tvk_year",
+   "text": "Tversky & Kahneman, Science, 1974",
+   "value": 1974,
+   "formula": "params.tvkYear",
+   "source": "Tversky A, Kahneman D. Judgment under uncertainty: heuristics and biases. Science 185(4157):1124-1131, 1974",
+   "where": [
+    "CASE source line"
+   ]
+  },
+  {
+   "id": "tfs_year",
+   "text": "Kahneman, Thinking, Fast and Slow, 2011",
+   "value": 2011,
+   "formula": "params.tfsYear",
+   "source": "Kahneman D. Thinking, Fast and Slow. Farrar, Straus and Giroux, 2011",
+   "where": [
+    "CASE source line"
+   ]
+  },
+  {
+   "id": "tfs_chapter",
+   "text": "ch. 17, Regression to the Mean",
+   "value": 17,
+   "formula": "params.tfsChapter",
+   "source": "Kahneman 2011, chapter 17",
+   "where": [
+    "CASE source line"
+   ]
+  },
+  {
+   "id": "cadetA_today",
+   "text": "best landing today: 83",
+   "value": 83,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return T[O[0]];})()",
+   "source": "Declared model, pilot ranked 1st today (index 98)",
+   "where": [
+    "CASE bars",
+    "caption c7",
+    "COUNT top mark"
+   ]
+  },
+  {
+   "id": "cadetA_skill",
+   "text": "skill 65",
+   "value": 65,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return params.skill[O[0]];})()",
+   "source": "Declared model",
+   "where": [
+    "CASE bars",
+    "caption c7"
+   ]
+  },
+  {
+   "id": "cadetA_luck_today",
+   "text": "luck +18",
+   "value": 18,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return params.luck1[O[0]];})()",
+   "source": "Declared model",
+   "where": [
+    "CASE bars",
+    "caption c7"
+   ]
+  },
+  {
+   "id": "cadetA_luck_tomorrow",
+   "text": "luck −6 next day",
+   "value": -6,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return params.luck2[O[0]];})()",
+   "source": "Declared model",
+   "where": [
+    "CASE bars",
+    "caption c7"
+   ]
+  },
+  {
+   "id": "cadetA_tomorrow",
+   "text": "next landing 59",
+   "value": 59,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return M[O[0]];})()",
+   "source": "Declared model",
+   "where": [
+    "CASE bars",
+    "caption c7"
+   ]
+  },
+  {
+   "id": "cadetZ_today",
+   "text": "worst landing today: 26",
+   "value": 26,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return T[O[params.N-1]];})()",
+   "source": "Declared model, pilot ranked 100th today (index 0)",
+   "where": [
+    "CASE bars"
+   ]
+  },
+  {
+   "id": "cadetZ_skill",
+   "text": "skill 32",
+   "value": 32,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return params.skill[O[params.N-1]];})()",
+   "source": "Declared model",
+   "where": [
+    "CASE bars"
+   ]
+  },
+  {
+   "id": "cadetZ_luck_today",
+   "text": "luck −6",
+   "value": -6,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return params.luck1[O[params.N-1]];})()",
+   "source": "Declared model",
+   "where": [
+    "CASE bars"
+   ]
+  },
+  {
+   "id": "cadetZ_luck_tomorrow",
+   "text": "luck +5 next day",
+   "value": 5,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return params.luck2[O[params.N-1]];})()",
+   "source": "Declared model",
+   "where": [
+    "CASE bars"
+   ]
+  },
+  {
+   "id": "cadetZ_tomorrow",
+   "text": "next landing 37",
+   "value": 37,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return M[O[params.N-1]];})()",
+   "source": "Declared model",
+   "where": [
+    "CASE bars"
+   ]
+  },
+  {
+   "id": "top10_worse",
+   "text": "8 of the top 10 land worse",
+   "value": 8,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return top.filter(i=>M[i]<T[i]).length;})()",
+   "source": "Count over the declared sample",
+   "where": [
+    "COUNT tally headline",
+    "caption c10",
+    "caption c11",
+    "commit rail \"COUNT\" marker"
+   ]
+  },
+  {
+   "id": "top10_better",
+   "text": "2 of the top 10 land better",
+   "value": 2,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return top.filter(i=>M[i]>T[i]).length;})()",
+   "source": "Count over the declared sample",
+   "where": [
+    "COUNT tally (BETTER row)"
+   ]
+  },
+  {
+   "id": "bottom10_better",
+   "text": "8 of the bottom 10 land better",
+   "value": 8,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return bot.filter(i=>M[i]>T[i]).length;})()",
+   "source": "Count over the declared sample",
+   "where": [
+    "COUNT bottom tally",
+    "caption c12"
+   ]
+  },
+  {
+   "id": "top10_avg_today",
+   "text": "top 10 average today 70 (69.6)",
+   "value": 69.6,
+   "display": "70",
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return avg(top.map(i=>T[i]));})()",
+   "source": "Declared sample",
+   "where": [
+    "COUNT halfway bracket, TODAY column"
+   ]
+  },
+  {
+   "id": "top10_avg_tomorrow",
+   "text": "same 10 average tomorrow 60 (60.4)",
+   "value": 60.4,
+   "display": "60",
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return avg(top.map(i=>M[i]));})()",
+   "source": "Declared sample",
+   "where": [
+    "COUNT halfway bracket, TOMORROW column"
+   ]
+  },
+  {
+   "id": "top10_gap_today",
+   "text": "+20 above average today (19.6)",
+   "value": 19.6,
+   "display": "+20",
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return avg(top.map(i=>T[i]))-avg(T);})()",
+   "source": "Declared sample",
+   "where": [
+    "COUNT halfway bracket"
+   ]
+  },
+  {
+   "id": "top10_gap_tomorrow",
+   "text": "+10 above average tomorrow (10.4)",
+   "value": 10.4,
+   "display": "+10",
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return avg(top.map(i=>M[i]))-avg(M);})()",
+   "source": "Declared sample",
+   "where": [
+    "COUNT halfway bracket"
+   ]
+  },
+  {
+   "id": "bottom10_avg_today",
+   "text": "bottom 10 average today 33 (33.4)",
+   "value": 33.4,
+   "display": "33",
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return avg(bot.map(i=>T[i]));})()",
+   "source": "Declared sample",
+   "where": [
+    "live page try-it panel"
+   ]
+  },
+  {
+   "id": "bottom10_avg_tomorrow",
+   "text": "same 10 average tomorrow 42 (41.8)",
+   "value": 41.8,
+   "display": "42",
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return avg(bot.map(i=>M[i]));})()",
+   "source": "Declared sample",
+   "where": [
+    "live page try-it panel"
+   ]
+  },
+  {
+   "id": "top10_stay",
+   "text": "3 of the top 10 are still top 10 tomorrow",
+   "value": 3,
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return (()=>{const OM=[...Array(params.N).keys()].sort((a,b)=>M[b]-M[a]||a-b).slice(0,params.topK);return top.filter(i=>OM.includes(i)).length})();})()",
+   "source": "Count over the declared sample",
+   "where": [
+    "live page try-it panel"
+   ]
+  },
+  {
+   "id": "r_declared",
+   "text": "r = 0.5 (skill and luck equally variable)",
+   "value": 0.5,
+   "display": "0.5",
+   "formula": "params.sdSkill**2/(params.sdSkill**2+params.sdLuck**2)",
+   "source": "Declared model: r = var(skill)/(var(skill)+var(luck)); Kahneman 2011 ch. 17 \"success = talent + luck\"",
+   "where": [
+    "COUNT halfway label",
+    "honest-limits block"
+   ]
+  },
+  {
+   "id": "r_sample",
+   "text": "sample correlation 0.49",
+   "value": 0.4918,
+   "display": "0.49",
+   "formula": "(()=>{const T=params.skill.map((s,i)=>s+params.luck1[i]),M=params.skill.map((s,i)=>s+params.luck2[i]),O=[...Array(params.N).keys()].sort((a,b)=>T[b]-T[a]||a-b),top=O.slice(0,params.topK),bot=O.slice(params.N-params.topK),avg=a=>a.reduce((x,y)=>x+y,0)/a.length;return (()=>{const a=avg(T),b=avg(M);let sxy=0,sxx=0,syy=0;for(let i=0;i<params.N;i++){sxy+=(T[i]-a)*(M[i]-b);sxx+=(T[i]-a)**2;syy+=(M[i]-b)**2;}return sxy/Math.sqrt(sxx*syy)})();})()",
+   "source": "Declared sample",
+   "where": [
+    "live page honest-limits block"
+   ]
+  },
+  {
+   "id": "model_top_decile_gap_today",
+   "text": "model: top tenth sits +17.5 above average",
+   "value": 17.5498,
+   "display": "+17.5",
+   "formula": "(()=>{const z=params.z90;return params.sdTotal*Math.exp(-z*z/2)/Math.sqrt(2*Math.PI)/0.1})()",
+   "source": "Normal model: E[X | X > z0.90] = φ(z)/0.10 = 1.755 SD; SD 10",
+   "where": [
+    "live page try-it panel"
+   ]
+  },
+  {
+   "id": "model_top_decile_gap_tomorrow",
+   "text": "model: expected +8.8 next time",
+   "value": 8.7749,
+   "display": "+8.8",
+   "formula": "(()=>{const z=params.z90;return params.r*params.sdTotal*Math.exp(-z*z/2)/Math.sqrt(2*Math.PI)/0.1})()",
+   "source": "Normal model: E[Y | X in top tenth] = r · 1.755 SD",
+   "where": [
+    "live page try-it panel"
+   ]
+  },
+  {
+   "id": "model_expected_worse",
+   "text": "model expects 8.4 of 10 to land worse",
+   "value": 8.3799,
+   "display": "8.4",
+   "formula": "10*(()=>{const pdf=x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI),cdf=x=>{const t=1/(1+0.3275911*Math.abs(x)/Math.SQRT2),y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x/2);return x>=0?(1+y)/2:(1-y)/2;};const z=params.z90,r=params.r,k=Math.sqrt(1-r*r),h=0.001;let acc=0;for(let x=z+h/2;x<z+10;x+=h){const w=pdf(x)*h/0.1;acc+=w*(cdf((1-r)*x/k));}return acc;})()",
+   "source": "Bivariate normal, r = 0.5: 10 · E[Φ((1−r)x/√(1−r²)) | x > z0.90]",
+   "where": [
+    "live page try-it panel",
+    "honest-limits block"
+   ]
+  },
+  {
+   "id": "model_expected_stay",
+   "text": "model expects 3.2 of 10 to stay top 10",
+   "value": 3.2402,
+   "display": "3.2",
+   "formula": "10*(()=>{const pdf=x=>Math.exp(-x*x/2)/Math.sqrt(2*Math.PI),cdf=x=>{const t=1/(1+0.3275911*Math.abs(x)/Math.SQRT2),y=1-(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t*Math.exp(-x*x/2);return x>=0?(1+y)/2:(1-y)/2;};const z=params.z90,r=params.r,k=Math.sqrt(1-r*r),h=0.001;let acc=0;for(let x=z+h/2;x<z+10;x+=h){const w=pdf(x)*h/0.1;acc+=w*(1-cdf((z-r*x)/k));}return acc;})()",
+   "source": "Bivariate normal, r = 0.5",
+   "where": [
+    "live page try-it panel"
+   ]
+  },
+  {
+   "id": "default_guess",
+   "text": "film-mode default guess: 3",
+   "value": 3,
+   "formula": "params.defaultGuess",
+   "source": "film.json defaultGuess (the \"best stay best\" intuition); not data",
+   "where": [
+    "commit box (film mode)",
+    "caption c11 (film mode)",
+    "COUNT rail \"YOU\" marker"
+   ]
+  },
+  {
+   "id": "commit_seconds",
+   "text": "8-second commit countdown",
+   "value": 8,
+   "formula": "params.commitSeconds",
+   "source": "FORMAT.md beat 2",
+   "where": [
+    "commit box countdown"
+   ]
+  },
+  {
+   "id": "galton_children",
+   "text": "Galton: 928 adult children",
+   "value": 928,
+   "formula": "params.galton.children",
+   "source": "Galton F. Regression towards mediocrity in hereditary stature. J Anthropol Inst 15:246-263, 1886 (Table I)",
+   "where": [
+    "live page honest-limits block"
+   ]
+  },
+  {
+   "id": "galton_couples",
+   "text": "of 205 parent couples",
+   "value": 205,
+   "formula": "params.galton.parentCouples",
+   "source": "Galton 1886, Table I",
+   "where": [
+    "live page honest-limits block"
+   ]
+  },
+  {
+   "id": "galton_slope",
+   "text": "children kept about 2/3 of the parents' distance from average",
+   "value": 0.6667,
+   "display": "⅔",
+   "formula": "params.galton.slope",
+   "source": "Galton 1886; Hanley JA, Am J Public Health 2004;94(4)",
+   "where": [
+    "live page honest-limits block"
+   ]
+  },
+  {
+   "id": "galton_year",
+   "text": "1886",
+   "value": 1886,
+   "formula": "params.galton.year",
+   "source": "Galton 1886",
+   "where": [
+    "live page honest-limits block"
+   ]
+  },
+  {
+   "id": "rail_min",
+   "text": "guess rail runs 0 to 10",
+   "value": 0,
+   "source": "commit range (film.json commit.min)",
+   "where": [
+    "COUNT guess rail"
+   ]
+  },
+  {
+   "id": "ring_4",
+   "text": "kit commit ring counts 4..1",
+   "value": 4,
+   "source": "kit commitBox countdown (4 s)",
+   "where": [
+    "commit box ring"
+   ]
+  },
+  {
+   "id": "ring_1",
+   "text": "kit commit ring counts 4..1",
+   "value": 1,
+   "source": "kit commitBox countdown (4 s)",
+   "where": [
+    "commit box ring"
+   ]
+  }
+ ]
+}

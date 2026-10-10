@@ -1,0 +1,206 @@
+{
+ "note": "ids and titles as in the course's 'Operadic question tree'; layout is deterministic (x by leaf order, y by level); counts are of what exists; nothing here is a measured or conserved quantity",
+ "counts": {
+  "modules": 9,
+  "questions": 19,
+  "level1": 4,
+  "level2": 8,
+  "level3": 7,
+  "sources": 22,
+  "thesisSections": 12,
+  "wikiEntriesNeverShown": 19,
+  "noetherBranchNodes": 7
+ },
+ "nodes": [
+  {
+   "id": "L1-Q1",
+   "level": 1,
+   "parent": null,
+   "title": "How do we formally define the meta-operad\u2019s operations for decomposing a given body of knowledge into an initial set of atomic compositional questions?",
+   "x": -0.75,
+   "y": 1.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L2-1a",
+   "level": 2,
+   "parent": "L1-Q1",
+   "title": "What is the arity signature for the decomposition operation in this meta-operad?",
+   "x": -0.9,
+   "y": 0.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L3-1a-i",
+   "level": 3,
+   "parent": "L2-1a",
+   "title": "What generating operations specify branching from one input knowledge domain to n output questions?",
+   "x": -1.0,
+   "y": -1.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L3-1a-ii",
+   "level": 3,
+   "parent": "L2-1a",
+   "title": "How to ensure symmetry preservation in arity via Noether-like invariants on the question graph?",
+   "x": -0.8,
+   "y": -1.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L2-1b",
+   "level": 2,
+   "parent": "L1-Q1",
+   "title": "How does the operad composition substitute sub-question sets into parent questions without losing domain fidelity?",
+   "x": -0.6,
+   "y": 0.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L3-1b-i",
+   "level": 3,
+   "parent": "L2-1b",
+   "title": "What coherence conditions (Mac Lane pentagon / operadic associativity) govern multi-level substitution?",
+   "x": -0.6,
+   "y": -1.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L1-Q2",
+   "level": 1,
+   "parent": null,
+   "title": "How can Noether\u2019s theorem be operadically extended to identify symmetries in the graph architecture of question\u2013answer mappings for complex systems?",
+   "x": -0.1,
+   "y": 1.0,
+   "z": 0.0,
+   "noetherBranch": true
+  },
+  {
+   "id": "L2-2a",
+   "level": 2,
+   "parent": "L1-Q2",
+   "title": "What Lie or associative operad encodes the symmetry group actions on question-tree edges?",
+   "x": -0.3,
+   "y": 0.0,
+   "z": 0.0,
+   "noetherBranch": true
+  },
+  {
+   "id": "L3-2a-i",
+   "level": 3,
+   "parent": "L2-2a",
+   "title": "How to define the Lie bracket on edge transformations preserving question connectivity?",
+   "x": -0.4,
+   "y": -1.0,
+   "z": 0.0,
+   "noetherBranch": true
+  },
+  {
+   "id": "L3-2a-ii",
+   "level": 3,
+   "parent": "L2-2a",
+   "title": "What relations in the operad ensure Jacobi identity for symmetry flows?",
+   "x": -0.2,
+   "y": -1.0,
+   "z": 0.0,
+   "noetherBranch": true
+  },
+  {
+   "id": "L2-2b",
+   "level": 2,
+   "parent": "L1-Q2",
+   "title": "How does functoriality collapse symmetric answers back to conserved domain quantities?",
+   "x": 0.1,
+   "y": 0.0,
+   "z": 0.0,
+   "noetherBranch": true
+  },
+  {
+   "id": "L3-2b-i",
+   "level": 3,
+   "parent": "L2-2b",
+   "title": "What is the explicit Noether current map from operad compositions to invariant functors on the QA-graph?",
+   "x": 0.0,
+   "y": -1.0,
+   "z": 0.0,
+   "noetherBranch": true
+  },
+  {
+   "id": "L3-2b-ii",
+   "level": 3,
+   "parent": "L2-2b",
+   "title": "How to quantify non-degeneracy of conserved quantities under operadic substitution?",
+   "x": 0.2,
+   "y": -1.0,
+   "z": 0.0,
+   "noetherBranch": true
+  },
+  {
+   "id": "L1-Q3",
+   "level": 1,
+   "parent": null,
+   "title": "How does double operadic theory of systems structure the interfaces between knowledge domains and agentic research pipelines?",
+   "x": 0.5,
+   "y": 1.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L2-3a",
+   "level": 2,
+   "parent": "L1-Q3",
+   "title": "What is the double category of interfaces and interactions in DOTS?",
+   "x": 0.4,
+   "y": 0.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L2-3b",
+   "level": 2,
+   "parent": "L1-Q3",
+   "title": "How do wiring diagrams and open dynamical systems relate to question composition?",
+   "x": 0.6,
+   "y": 0.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L1-Q4",
+   "level": 1,
+   "parent": null,
+   "title": "How do Tree-of-Thoughts and multi-hop QA practices instantiate (or fail to instantiate) operadic compositionality?",
+   "x": 0.9,
+   "y": 1.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L2-4a",
+   "level": 2,
+   "parent": "L1-Q4",
+   "title": "Where does ToT coincide with free algebras over the questions operad?",
+   "x": 0.8,
+   "y": 0.0,
+   "z": 0.0,
+   "noetherBranch": false
+  },
+  {
+   "id": "L2-4b",
+   "level": 2,
+   "parent": "L1-Q4",
+   "title": "What failure modes appear as operadic inconsistency in multi-hop evaluation?",
+   "x": 1.0,
+   "y": 0.0,
+   "z": 0.0,
+   "noetherBranch": false
+  }
+ ]
+}

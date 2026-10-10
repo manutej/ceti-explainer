@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/camera/demo.html",
+ "errors": [],
+ "variants": {
+  "map": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/map-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/map-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/map-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/map-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "map-cuts": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/map-cuts-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/map-cuts-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/map-cuts-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/map-cuts-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "timeline": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/timeline-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/timeline-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/timeline-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/timeline-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "grid": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/grid-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/grid-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/grid-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/camera/shots/grid-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 13.1,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/camera/shots/contact.png"
+}

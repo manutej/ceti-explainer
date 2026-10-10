@@ -1,0 +1,102 @@
+{
+ "film": "simpsons-3d",
+ "findings": "factory/films/simpsons-3d/findings.r2.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "caption:11",
+   "old": "1,385 of 2,691 men applied to A or B; 133 of 1,835 women.",
+   "new": "A or B: 1,385 of 2,691 men, 133 of 1,835 women.",
+   "finding": {
+    "t": 60.0,
+    "frame": "strip-11.png cells 0-3 (t 60.0-61.5); strip-10.png cells 10-11",
+    "what": "The round-1 counts caption (57 chars) wraps to two lines; the first line rises into the slab bottoms and runs through the department letters A-F (letters print inside '2,691ᵦmen', 'B;ᴇ133').",
+    "severity": "major",
+    "caption_index": 11,
+    "proposed_value": "A or B: 1,385 of 2,691 men, 133 of 1,835 women.",
+    "why": "47 chars fits one line like caption 5 ('Admitted: 1,198 of 2,691 men, ...'), keeps counts before the 51 % / 7 % the picture shows at 60.6 s; every number is a claim (menAB, menApplied, womenAB, womenApplied)."
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:zoom1",
+   "old": 0.8,
+   "new": 0.83,
+   "finding": {
+    "t": 56.0,
+    "frame": "strip-10.png cells 1-8 (t 54.5-58.0)",
+    "what": "zoom1 0.80 enlarged the side view as wanted, but the department letters now sit about 6 units above the caption line and the ring passes through the caption.",
+    "severity": "minor",
+    "knob": "zoom1",
+    "proposed_value": 0.83,
+    "why": "Gives back half of the round-1 zoom: the pairs stay larger than the draft (0.86) and the letters clear the caption."
+   }
+  },
+  {
+   "n": 2,
+   "target": "knob:elev1",
+   "old": 15,
+   "new": 11,
+   "finding": {
+    "t": 68.0,
+    "frame": "strip-10.png (54-59.5 s); strip-12.png (66-71.5 s)",
+    "what": "The side-view platter ring sweeps through the reveal caption and, in MONDAY, sits right behind the honest-limits caption.",
+    "severity": "minor",
+    "knob": "elev1",
+    "proposed_value": 11,
+    "why": "A lower side camera flattens the ring by about a quarter, pulling it off most of the caption line, and makes the slab pairs read more as pure heights."
+   }
+  },
+  {
+   "n": 3,
+   "target": "knob:zoom0",
+   "old": 0.56,
+   "new": 0.6,
+   "finding": {
+    "t": 30.0,
+    "frame": "strip-04.png to strip-07.png (18-41.5 s)",
+    "what": "In the front view the ring's left arc still runs through the first letters of every caption ('Fall', 'Fewer', 'Overall', 'Now'); platterR is already at its minimum.",
+    "severity": "minor",
+    "knob": "zoom0",
+    "proposed_value": 0.6,
+    "why": "About 7 % farther front camera pulls the ring's arc inside the caption margin; the columns stay large and the men-taller read is unchanged."
+   }
+  },
+  {
+   "n": 4,
+   "target": "knob:slabGap",
+   "old": 22,
+   "new": 26,
+   "finding": {
+    "t": 57.0,
+    "frame": "strip-10.png cells 4-8 (t 56.0-58.0)",
+    "what": "The bigger ledger reads at 480 x 270 now, but neighbouring pairs still run together ('63% 68% 37% 34%', '33% 35% 28% 24%').",
+    "severity": "minor",
+    "knob": "slabGap",
+    "proposed_value": 26,
+    "why": "Four more world units between department groups separate each pair's ledger, so the six comparisons count as six."
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/simpsons-3d/build/simpsons-3d.ceti-boardwalk-dark.none.html",
+  "log": "factory/films/simpsons-3d/build/simpsons-3d.ceti-boardwalk-dark.none.html  1269544 bytes  sha256 9d5fccdd1dc8072f937582b0c974ed5693093a660bf8e9ecdbf739bdaddfbb60  (film code 68567 bytes; brand ceti-boardwalk-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 16.3  muted 10.5  accent 13.0  onDark/dark 16.3\nrenderer webgl; knobs 52; fonts3d Space Mono|400 10533 B; libs none"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/simpsons-3d/gate.json"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames simpsons-3d: 151 frames every 0.5 s → 13 strip(s) in factory/films/simpsons-3d/frames; 0.212 s/frame; purity identical at 15, 37.5, 60 s; errors 0"
+ }
+}

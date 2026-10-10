@@ -1,0 +1,118 @@
+{
+ "film": "women-and-children",
+ "findings": "factory/films/women-and-children/findings.r2.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "caption:6",
+   "old": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "new": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "finding": {
+    "t": 38.0,
+    "frame": "strip-07.png cells 2-10 (thumbs/t-0038.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 6 is 62 characters (over the 60 limit) and wraps to two lines under the pooled pins, 36-41.8 s.",
+    "why": "55 characters, same six counts; 'lived' is carried by caption 5 and by every pin's 'LIVED OF ABOARD'.",
+    "caption_index": 6,
+    "proposed_value": "316 of 425 women, 57 of 109 children, 338 of 1,667 men."
+   }
+  },
+  {
+   "n": 1,
+   "target": "caption:16",
+   "old": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "new": "Crew: 885 people, 40 % of all aboard. 212 lived.",
+   "finding": {
+    "t": 97.0,
+    "frame": "strip-17.png cells 2-10 (thumbs/t-0097.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 16 wraps ('212 / lived.') while the reveal lifts and the crew callout arrives; it is the caption that already runs ahead of its picture, so it should read at a glance.",
+    "why": "48 characters, one line, same digits (885, 40, 212).",
+    "caption_index": 16,
+    "proposed_value": "Crew: 885 people, 40 % of all aboard. 212 lived."
+   }
+  },
+  {
+   "n": 2,
+   "target": "caption:12",
+   "old": "Children in third class: 27 of 79 lived. 52 did not.",
+   "new": "Third-class children: 27 of 79 lived. 52 did not.",
+   "finding": {
+    "t": 72.0,
+    "frame": "strip-12.png cells 8-11 (thumbs/t-0072.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 12 wraps ('52 did / not.') under the 27 OF 79 callout.",
+    "why": "49 characters, one line, same digits (27, 79, 52).",
+    "caption_index": 12,
+    "proposed_value": "Third-class children: 27 of 79 lived. 52 did not."
+   }
+  },
+  {
+   "n": 3,
+   "target": "caption:10",
+   "old": "Each slab: how many were aboard, and how many lived.",
+   "new": "Each slab: how many were aboard, how many lived.",
+   "finding": {
+    "t": 61.0,
+    "frame": "strip-11.png cells 0-7 (thumbs/t-0061.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 10 wraps ('lived.' alone on line 2) under the eleven slab pins.",
+    "why": "48 characters, one line, same meaning, no digits.",
+    "caption_index": 10,
+    "proposed_value": "Each slab: how many were aboard, how many lived."
+   }
+  },
+  {
+   "n": 4,
+   "target": "caption:2",
+   "old": "The Titanic, April 1912. One box is one person aboard.",
+   "new": "Titanic, April 1912. One box is one person aboard.",
+   "finding": {
+    "t": 14.0,
+    "frame": "strip-03.png cells 2-10 (thumbs/t-0014.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 2 wraps ('aboard.' alone on line 2) while the first boxes drop.",
+    "why": "50 characters, one line; keeps the year 1912 already in the caption.",
+    "caption_index": 2,
+    "proposed_value": "Titanic, April 1912. One box is one person aboard."
+   }
+  },
+  {
+   "n": 5,
+   "target": "caption:0",
+   "old": "“Women and children first.” The rule everyone remembers.",
+   "new": "“Women and children first.” The rule we remember.",
+   "finding": {
+    "t": 3.0,
+    "frame": "strip-01.png cells 2-11 (thumbs/t-0003.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 0 wraps ('remembers.' alone on line 2) under the typed rule in HOOK.",
+    "why": "49 characters, one line, same meaning, no digits.",
+    "caption_index": 0,
+    "proposed_value": "“Women and children first.” The rule we remember."
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/women-and-children/build/women-and-children.ceti-boardwalk-dark.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/women-and-children/build/women-and-children.ceti-boardwalk-dark.none.html  1282677 bytes  sha256 9889710e014db71d418bb5d12b98a1841d68aa4c4b0a067cc6f776f6054f168b  (film code 66347 bytes; brand ceti-boardwalk-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 16.3  muted 10.5  accent 13.0  onDark/dark 16.3\nrenderer webgl; knobs 99; fonts3d none; libs lib/gl-post.js\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/women-and-children/gate.json",
+  "log": "  G4f format · sources           PASS  5 sources (want ≥ 3)\n  G5a claims · formulas          PASS  139 claims, 107 with formula, 107 recompute\n  G5b claims · caption digits    PASS  every number in 20 captions is a claim value or render\n  G5c claims · on-screen digits  WARN  12 visible number(s) not in claims (chrome?): 123 @13s \"123\"; 327 @14s \"327\"; 531 @15s \"531\"; 735 @16s \"735\"; 941 @17s \"941\"; 1,145 @18s \"1,145\"\n  G6 legibility                  PASS  18 must-read / 11 secondary / 15 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390\n  G7 counts first                PASS  count at 24 s (count.at); first ratio \"74 %\" at 38 s (svg); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 107.9 KB (film.js 48.9, film.json 15.9, claims.json 43.2) < 120 KB; page 1.283 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand ceti-boardwalk-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames women-and-children: 247 frames every 0.5 s → 21 strip(s) in factory/films/women-and-children/frames; 0.247 s/frame; purity identical at 24.6, 61.5, 98.4 s; errors 0"
+ }
+}

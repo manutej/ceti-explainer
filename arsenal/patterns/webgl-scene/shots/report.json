@@ -1,0 +1,53 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/demo.html",
+ "errors": [],
+ "variants": {
+  "iso-sorted": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/iso-sorted-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/iso-sorted-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/iso-sorted-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/iso-sorted-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "iso-perspective": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/iso-perspective-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/iso-perspective-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/iso-perspective-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/iso-perspective-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "fly-through": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/fly-through-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/fly-through-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/fly-through-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/fly-through-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "headline-extrude": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/headline-extrude-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/headline-extrude-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/headline-extrude-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/headline-extrude-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "headline-outline": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/headline-outline-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/headline-outline-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/headline-outline-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/headline-outline-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 41.1,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/contact.png"
+}

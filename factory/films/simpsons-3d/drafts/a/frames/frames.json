@@ -1,0 +1,2038 @@
+{
+ "page": "factory/films/simpsons-3d/drafts/a/build/simpsons-3d.ceti-boardwalk-dark.none.html",
+ "film": "simpsons-3d",
+ "dur": 75,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-boardwalk-dark",
+ "axes": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "cell",
+   "range": [
+    8,
+    14
+   ],
+   "step": 0.5,
+   "what": "box pitch in world units (box size); bigger boxes make the city larger on screen",
+   "value": 10
+  },
+  {
+   "name": "boxGap",
+   "range": [
+    0.5,
+    3
+   ],
+   "step": 0.1,
+   "what": "gap between neighbouring boxes in world units",
+   "value": 1.4
+  },
+  {
+   "name": "slabGap",
+   "range": [
+    10,
+    60
+   ],
+   "step": 2,
+   "what": "gap between the six department slabs along the street",
+   "value": 24
+  },
+  {
+   "name": "aisle",
+   "range": [
+    36,
+    110
+   ],
+   "step": 2,
+   "what": "gap between the men's and the women's blocks",
+   "value": 100
+  },
+  {
+   "name": "slabLayers",
+   "range": [
+    8,
+    16
+   ],
+   "step": 1,
+   "what": "layers in a department block (its height); the lit share of the height is the admission rate",
+   "value": 12
+  },
+  {
+   "name": "orbit",
+   "range": [
+    0,
+    1.2
+   ],
+   "step": 0.05,
+   "what": "slow orbit: degrees of azimuth per second drifting after the commit",
+   "value": 0.3
+  },
+  {
+   "name": "frontEl",
+   "range": [
+    2,
+    20
+   ],
+   "step": 1,
+   "what": "camera elevation of the front view, degrees",
+   "value": 7
+  },
+  {
+   "name": "sideAz",
+   "range": [
+    35,
+    80
+   ],
+   "step": 1,
+   "what": "camera azimuth of the side view, degrees from the front",
+   "value": 50
+  },
+  {
+   "name": "sideEl",
+   "range": [
+    18,
+    45
+   ],
+   "step": 1,
+   "what": "camera elevation of the side view, degrees",
+   "value": 35
+  },
+  {
+   "name": "zoomFront",
+   "range": [
+    0.75,
+    1.25
+   ],
+   "step": 0.01,
+   "what": "world units per screen unit in the front view (smaller = closer)",
+   "value": 0.95
+  },
+  {
+   "name": "zoomSide",
+   "range": [
+    0.85,
+    1.4
+   ],
+   "step": 0.01,
+   "what": "world units per screen unit in the side view (smaller = closer)",
+   "value": 1.25
+  },
+  {
+   "name": "modelX",
+   "range": [
+    420,
+    640
+   ],
+   "step": 5,
+   "what": "screen x where the model centre sits (960 wide sheet)",
+   "value": 530
+  },
+  {
+   "name": "modelY",
+   "range": [
+    280,
+    360
+   ],
+   "step": 2,
+   "what": "screen y where the model centre sits (540 high sheet)",
+   "value": 292
+  },
+  {
+   "name": "flyT0",
+   "range": [
+    36.5,
+    40.5
+   ],
+   "step": 0.1,
+   "what": "second the camera leaves the front view",
+   "value": 38.6
+  },
+  {
+   "name": "flyT1",
+   "range": [
+    43,
+    47
+   ],
+   "step": 0.1,
+   "what": "second the camera arrives at the side view",
+   "value": 45.2
+  },
+  {
+   "name": "hookKill",
+   "range": [
+    3.5,
+    6
+   ],
+   "step": 0.1,
+   "what": "second the KILLED stamp lands on the new process",
+   "value": 4.4
+  },
+  {
+   "name": "arriveT0",
+   "range": [
+    16.5,
+    18.5
+   ],
+   "step": 0.1,
+   "what": "second the first applicant box appears",
+   "value": 17
+  },
+  {
+   "name": "arriveDur",
+   "range": [
+    4,
+    8
+   ],
+   "step": 0.1,
+   "what": "seconds for the men's column to fill (the women's fills at the same rate)",
+   "value": 6.6
+  },
+  {
+   "name": "inkT0",
+   "range": [
+    23,
+    26
+   ],
+   "step": 0.1,
+   "what": "second the admitted boxes start to light, bottom up",
+   "value": 24.4
+  },
+  {
+   "name": "inkDur",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.1,
+   "what": "seconds the admitted boxes take to light",
+   "value": 2.2
+  },
+  {
+   "name": "splitT0",
+   "range": [
+    38.5,
+    42
+   ],
+   "step": 0.1,
+   "what": "second the two columns start to sink and the department slabs to rise",
+   "value": 40.2
+  },
+  {
+   "name": "riseDur",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "seconds one slab takes to rise (slabs start 0.45 s apart)",
+   "value": 2
+  },
+  {
+   "name": "pairsT0",
+   "range": [
+    44.5,
+    47
+   ],
+   "step": 0.1,
+   "what": "second the headline first shows a department's pair of rates",
+   "value": 45.2
+  },
+  {
+   "name": "pairStep",
+   "range": [
+    0.8,
+    1.6
+   ],
+   "step": 0.05,
+   "what": "seconds between department pairs",
+   "value": 1
+  },
+  {
+   "name": "morphS",
+   "range": [
+    0.3,
+    1.2
+   ],
+   "step": 0.05,
+   "what": "seconds a headline number takes to morph into the next",
+   "value": 0.55
+  },
+  {
+   "name": "headSize",
+   "range": [
+    70,
+    150
+   ],
+   "step": 2,
+   "what": "headline number size, font px (shrinks to fit 470 units)",
+   "value": 112
+  },
+  {
+   "name": "revealT",
+   "range": [
+    50.5,
+    55
+   ],
+   "step": 0.1,
+   "what": "second of the reveal frame: women did worse in 2 of 6",
+   "value": 52.4
+  },
+  {
+   "name": "neonGain",
+   "range": [
+    0,
+    2
+   ],
+   "step": 0.1,
+   "what": "strength of the neon post glow on the reveal (0 = off)",
+   "value": 1
+  },
+  {
+   "name": "neonWidth",
+   "range": [
+    0.4,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "seconds either side of the reveal the glow takes to fade",
+   "value": 1.1
+  },
+  {
+   "name": "neonRadius",
+   "range": [
+    6,
+    30
+   ],
+   "step": 1,
+   "what": "reach of the neon glow in screen units",
+   "value": 14
+  },
+  {
+   "name": "mixT",
+   "range": [
+    55,
+    58.5
+   ],
+   "step": 0.1,
+   "what": "second the headline turns to the A-and-B share (51 % and 7 %)",
+   "value": 56.8
+  },
+  {
+   "name": "capShift",
+   "range": [
+    -1,
+    1
+   ],
+   "step": 0.1,
+   "what": "seconds every caption is moved later (negative = earlier)",
+   "value": 0
+  }
+ ],
+ "ms_per_frame": 660,
+ "s_per_frame": 0.66,
+ "purity": {
+  "pass": true,
+  "at": {
+   "15": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "60": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "37.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "Our new sales process converts worse overall.",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "Our new sales process converts worse overall.",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "Our new sales process converts worse overall.",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "Our new sales process converts worse overall.",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Our new sales process converts worse overall.",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Our new sales process converts worse overall.",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Our new sales process converts worse overall.",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "So we killed it. Case closed?",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "So we killed it. Case closed?",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "So we killed it. Case closed?",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "So we killed it. Case closed?",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "So we killed it. Case closed?",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "So we killed it. Case closed?",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "So we killed it. Case closed?",
+   "chapter": {
+    "id": "hook",
+    "title": "The review"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Berkeley, 1973: women got in less often overall.",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Berkeley, 1973: women got in less often overall.",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Berkeley, 1973: women got in less often overall.",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Berkeley, 1973: women got in less often overall.",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Berkeley, 1973: women got in less often overall.",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Berkeley, 1973: women got in less often overall.",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "In how many of 6 departments did women do worse?",
+   "chapter": {
+    "id": "commit",
+    "title": "Seal a number"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "Fall 1973, six departments: 4,526 applicants.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "Admitted: 1,198 of 2,691 men, 557 of 1,835 women.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "Fewer women got in. The headline writes itself.",
+   "chapter": {
+    "id": "case",
+    "title": "One mark, one applicant"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "Overall: 45 % of men admitted, 30 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Overall: 45 % of men admitted, 30 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "Overall: 45 % of men admitted, 30 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Overall: 45 % of men admitted, 30 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Overall: 45 % of men admitted, 30 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "Overall: 45 % of men admitted, 30 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Overall: 45 % of men admitted, 30 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "Now split the same boxes by department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "Same boxes, same rules. Compare each department.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "Women did worse in 2 of 6, by 3 and 4 points.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "Women did worse in 2 of 6, by 3 and 4 points.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "Women did worse in 2 of 6, by 3 and 4 points.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "Women did worse in 2 of 6, by 3 and 4 points.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "Women did worse in 2 of 6, by 3 and 4 points.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "Women did worse in 2 of 6, by 3 and 4 points.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "Women did worse in 2 of 6, by 3 and 4 points.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "Women did worse in 2 of 6, by 3 and 4 points.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "51 % of men applied to A or B. 7 % of women.",
+   "chapter": {
+    "id": "count",
+    "title": "Split by department"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Monday: did the new process get the same mix of leads?",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Monday: did the new process get the same mix of leads?",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Monday: did the new process get the same mix of leads?",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Monday: did the new process get the same mix of leads?",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Monday: did the new process get the same mix of leads?",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Monday: did the new process get the same mix of leads?",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Monday: did the new process get the same mix of leads?",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Monday: did the new process get the same mix of leads?",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Monday: did the new process get the same mix of leads?",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "Splitting explains this gap. It does not prove fairness.",
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  },
+  {
+   "t": 74.99,
+   "file": "thumbs/t-0074.99.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Before you kill it"
+   }
+  }
+ ]
+}

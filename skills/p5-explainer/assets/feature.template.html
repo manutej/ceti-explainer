@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>__TITLE__ · CETI Explainers</title>
+<meta name="description" content="__DESCRIPTION__" />
+<meta name="generator" content="ceti-p5-studio · p5-explainer feature cut · __VARIANT__" />
+<style>
+__FONTS_CSS__
+__TOKENS_CSS__
+</style>
+<style id="ex-preset">__PRESET__</style>
+<style>
+  :root {
+    --ex-ground:#0E1014; --ex-ground-2:#0B0D11; --ex-ground-hi:#14181F; --ex-panel:#171B23; --ex-cell:#1C212B;
+    --ex-ink:#F5EFE3; --ex-dim:#A39A89; --ex-line:rgba(245,239,227,0.13); --ex-line-2:rgba(245,239,227,0.07);
+    --ex-accent:#CE9A6A; --ex-accent-fill:rgba(206,154,106,0.15); --ex-accent-glow:rgba(206,154,106,0.35);
+    --ex-accent2:#8FA985; --ex-support:#6E8CA8; --ex-peach:#D88B5C; --ex-bar:rgba(245,239,227,0.22);
+    color-scheme:dark;
+    --font-display:"Fraunces", Georgia, serif; --font-sans:"DM Sans", system-ui, sans-serif; --font-mono:"Space Mono", ui-monospace, monospace;
+  }
+  * { box-sizing:border-box; }
+  html, body { margin:0; }
+  body { background:radial-gradient(120% 70% at 50% -10%, var(--ex-ground-hi) 0%, var(--ex-ground) 50%, var(--ex-ground-2) 100%);
+    color:var(--ex-ink); font-family:var(--font-sans); -webkit-font-smoothing:antialiased; min-height:100vh; }
+  .wrap { max-width:1120px; margin:0 auto; padding:clamp(20px,4vw,48px) 16px 64px; }
+  .mast { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end; margin-bottom:28px; }
+  .eyebrow { font-family:var(--font-mono); font-weight:700; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--ex-accent); margin:0 0 14px; display:flex; gap:12px; align-items:center; }
+  .eyebrow svg { width:30px; height:18px; color:var(--ex-accent); }
+  h1 { font-family:var(--font-display); font-weight:300; font-style:italic; font-size:clamp(2.4rem,5.6vw,4.2rem); line-height:1; letter-spacing:-0.02em; margin:0 0 14px; }
+  h1 em { color:var(--ex-accent); font-style:italic; }
+  .lede { color:var(--ex-dim); font-size:clamp(1rem,1.4vw,1.12rem); line-height:1.55; max-width:62ch; margin:0; text-wrap:pretty; }
+  .lede em { color:var(--ex-ink); font-family:var(--font-display); font-style:italic; font-weight:300; }
+  .variant { font-family:var(--font-mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ex-dim);
+    border:1px solid var(--ex-line); border-radius:999px; padding:7px 12px; white-space:nowrap; }
+  .player { border:1px solid var(--ex-line); border-radius:18px; overflow:hidden; background:var(--ex-ground);
+    box-shadow:0 40px 90px -50px rgba(0,0,0,0.95), inset 0 1px 0 rgba(245,239,227,0.05); }
+  .stage { position:relative; width:100%; aspect-ratio:960/540; overflow:hidden; background:var(--ex-ground); }
+  .stage > svg { position:absolute; inset:0; width:100%; height:100%; display:block; z-index:10; }
+  .stage .p5f-layer { position:absolute; inset:0; pointer-events:none; }
+  .stage .p5f-layer canvas { display:block; width:100% !important; height:100% !important; }
+  .capband { min-height:76px; padding:18px 24px; border-top:1px solid var(--ex-line-2); background:rgba(8,10,13,0.55); display:flex; align-items:center; }
+  .captions { margin:0; font-size:clamp(1rem,1.6vw,1.24rem); line-height:1.45; color:var(--ex-ink); text-wrap:pretty; }
+  .bar { display:flex; align-items:center; gap:12px; padding:14px 20px; border-top:1px solid var(--ex-line-2); flex-wrap:wrap; }
+  .btn { width:44px; height:44px; border-radius:999px; border:1px solid var(--ex-line); background:var(--ex-panel); color:var(--ex-ink); cursor:pointer; font-size:14px; }
+  .btn#play { background:var(--ex-accent); border-color:var(--ex-accent); color:#14161A; width:50px; height:50px; }
+  .btn:focus-visible, .chip:focus-visible, .tg:focus-visible { outline:none; box-shadow:0 0 0 3px var(--ex-accent-glow); }
+  input[type=range] { accent-color:var(--ex-accent); }
+  #scrub { flex:1 1 240px; min-width:0; }
+  .time { font-family:var(--font-mono); font-size:12px; color:var(--ex-dim); font-variant-numeric:tabular-nums; }
+  .speeds { display:flex; gap:6px; }
+  .chip { font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; color:var(--ex-dim); background:transparent; border:1px solid var(--ex-line);
+    border-radius:999px; padding:8px 12px; min-height:36px; cursor:pointer; }
+  .chip[aria-pressed=true], .chip[aria-current=true] { color:var(--ex-ink); border-color:var(--ex-accent); background:var(--ex-accent-fill); }
+  .chip .n { color:var(--ex-accent); font-weight:700; }
+  .chapters { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0; }
+  .rm-note { font-family:var(--font-mono); font-size:12px; color:var(--ex-dim); margin:12px 0 0; }
+  .tryit { margin-top:36px; border:1px solid var(--ex-line); border-radius:16px; padding:22px 24px; background:linear-gradient(180deg, var(--ex-panel), var(--ex-ground)); }
+  .tryit h2, .synth h2 { font-family:var(--font-display); font-weight:300; font-style:italic; font-size:1.9rem; margin:0 0 6px; }
+  .tryit > p { color:var(--ex-dim); margin:0 0 18px; max-width:70ch; }
+  .controls { display:grid; gap:12px; }
+  .ctl { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) auto auto; gap:14px; align-items:center; padding:12px 0; border-top:1px solid var(--ex-line-2); }
+  .ctl label b { display:block; font-weight:600; font-size:15px; }
+  .ctl label span { display:block; color:var(--ex-dim); font-size:13px; margin-top:2px; }
+  .ctl output { font-family:var(--font-mono); font-size:13px; color:var(--ex-accent); min-width:6ch; text-align:right; }
+  .ctl select, .ctl input[type=number] { background:var(--ex-cell); color:var(--ex-ink); border:1px solid var(--ex-line); border-radius:8px; padding:9px 10px; font-family:var(--font-mono); font-size:13px; min-height:40px; }
+  .tg { font-family:var(--font-mono); font-size:12px; min-width:84px; min-height:40px; border-radius:999px; border:1px solid var(--ex-line); background:var(--ex-cell); color:var(--ex-dim); cursor:pointer; }
+  .tg[aria-checked=true] { color:#14161A; background:var(--ex-accent2); border-color:var(--ex-accent2); }
+  .reset { margin-top:12px; }
+  .synth { margin-top:48px; max-width:820px; }
+  .synth p { color:var(--ex-dim); line-height:1.7; font-size:1.05rem; }
+  details { margin-top:28px; border-top:1px solid var(--ex-line-2); padding-top:16px; }
+  summary { cursor:pointer; font-family:var(--font-mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ex-dim); }
+  #transcript p, .sources li { color:var(--ex-dim); line-height:1.6; font-size:0.98rem; }
+  #transcript .ts, .sources .tag { font-family:var(--font-mono); font-size:12px; color:var(--ex-accent); margin-right:8px; }
+  .sources a { color:var(--ex-ink); }
+  footer { margin-top:48px; font-family:var(--font-mono); font-size:11px; letter-spacing:0.06em; color:var(--ex-dim); border-top:1px solid var(--ex-line-2); padding-top:16px; }
+  @media (max-width:720px) { .mast { grid-template-columns:1fr; } .ctl { grid-template-columns:1fr; } .bar { gap:8px; } }
+  /* ── film mode: exactly the stage, 1920×1080 ── */
+  html.is-film, html.is-film body { background:var(--ex-ground); overflow:hidden; }
+  html.is-film .wrap { max-width:none; padding:0; margin:0; }
+  html.is-film .mast, html.is-film .capband, html.is-film .bar, html.is-film .chapters, html.is-film .rm-note,
+  html.is-film .tryit, html.is-film .synth, html.is-film details, html.is-film footer { display:none !important; }
+  html.is-film .player { border:0; border-radius:0; box-shadow:none; }
+  html.is-film .stage { width:1920px; height:1080px; aspect-ratio:auto; }
+  body.film-iso:not(.iso-ground), body.film-iso:not(.iso-ground) .stage, body.film-iso:not(.iso-ground) .player { background:transparent !important; }
+  html.is-film:has(body.film-iso:not(.iso-ground)) { background:transparent !important; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="mast">
+    <div>
+      <p class="eyebrow"><svg viewBox="0 0 100 60" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 36 C 22 18, 44 16, 60 26 C 72 33, 84 32, 92 24"/><path d="M60 26 C 64 38, 58 48, 46 48 C 40 48, 35 44, 33 39"/><path d="M14 30 C 12 26, 13 22, 17 21"/></svg><span id="m-eyebrow"></span></p>
+      <h1 id="m-title"></h1>
+      <p class="lede" id="m-lede"></p>
+    </div>
+    <span class="variant">__VARIANT_LABEL__</span>
+  </header>
+
+  <section class="player" aria-label="Explainer player">
+    <div class="stage" id="stage"><svg id="cv" viewBox="0 0 960 540" aria-hidden="true" focusable="false"></svg></div>
+    <div class="capband"><p class="captions" id="cap" aria-live="polite"></p></div>
+    <div class="bar">
+      <button id="play" class="btn" aria-label="Play">&#9654;</button>
+      <button id="restart" class="btn" aria-label="Restart from the beginning">&#10227;</button>
+      <input id="scrub" type="range" min="0" max="120" step="0.05" value="0" aria-label="Seek through the video">
+      <span id="time" class="time">0:00 / 2:00</span>
+      <div class="speeds" id="speeds" role="group" aria-label="Playback speed"></div>
+    </div>
+  </section>
+  <nav class="chapters" id="chaps" aria-label="Chapters"></nav>
+  <p class="rm-note" id="rmnote" hidden>Reduced motion is on: drifting is off. Use Play, the chapters or the scrubber — every frame is complete.</p>
+
+  <section class="tryit" id="tryit" hidden>
+    <h2>Try it yourself</h2>
+    <p>Change one thing and the film re-computes from the same clock. Each control jumps to the moment it changes.</p>
+    <div class="controls"></div>
+    <button class="chip reset" type="button">Reset to the film’s values</button>
+  </section>
+
+  <section class="synth">
+    <h2 id="m-synthtitle"></h2>
+    <p id="m-synth"></p>
+  </section>
+  <details><summary>Transcript</summary><div id="transcript"></div></details>
+  <details><summary>Sources</summary><ol class="sources" id="sources"></ol></details>
+  <footer>CETI.AI · cetiai.co · __FOOTER__</footer>
+</main>
+
+__P5_BLOCK__
+<script>
+/* ───── feature engine ───── */
+__ENGINE_JS__
+</script>
+<script>
+/* ───── data ───── */
+__DATA_JS__
+</script>
+<script>
+/* ───── scenes (SVG) ───── */
+__SCENES_JS__
+</script>
+<script>
+/* ───── p5 layers ───── */
+__LAYERS_JS__
+</script>
+<script>
+(async () => {
+  const M = window.FEATURE, m = M.meta;
+  if (new URLSearchParams(location.search).get('film') === '1') document.documentElement.classList.add('is-film');
+  document.getElementById('m-eyebrow').textContent = m.eyebrow || '';
+  document.getElementById('m-title').innerHTML = m.titleHTML || m.title;
+  document.getElementById('m-lede').innerHTML = m.lede || '';
+  document.getElementById('m-synthtitle').innerHTML = m.synthTitle || '';
+  document.getElementById('m-synth').innerHTML = m.synthesis || '';
+  const src = document.getElementById('sources');
+  (m.sources || []).forEach(s => { const li = document.createElement('li'); li.innerHTML = '<span class="tag">' + s[0] + '</span><a href="' + s[2] + '" rel="noopener">' + s[1] + '</a>'; src.appendChild(li); });
+  document.title = m.title + ' · CETI Explainers';
+  try {
+    await Promise.race([Promise.all([
+      document.fonts.load('300 italic 30px Fraunces'), document.fonts.load('400 16px "DM Sans"'),
+      document.fonts.load('600 16px "DM Sans"'), document.fonts.load('400 13px "Space Mono"'), document.fonts.load('700 13px "Space Mono"')]),
+      new Promise(r => setTimeout(r, 2500))]);
+  } catch (e) {}
+  if (window.P5Film) P5Film.install(M);
+  window.__fonts = true;
+  CetiFeature.create({ svg: document.getElementById('cv'), module: M });
+})();
+</script>
+</body>
+</html>

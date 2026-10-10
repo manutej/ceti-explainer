@@ -1,0 +1,64 @@
+{
+ "id": "correlated-risk",
+ "title": "Ten Bets, One Bet",
+ "eyebrow": "CETI explainer · correlated risk",
+ "lede": "Ten suppliers, each failing about one year in ten. How often do half of them fail together? It depends on one thing the supplier list does not show: whether they share a shock.",
+ "dur": 75,
+ "seed": 30,
+ "palette": { "paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#B3261E", "muted": "#8E887C", "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277" },
+ "type": { "disp": "Big Shoulders Display", "mono": "IBM Plex Mono" },
+ "fonts": [
+  { "family": "Big Shoulders Display", "weight": 600, "style": "normal" },
+  { "family": "IBM Plex Mono", "weight": 400, "style": "normal" },
+  { "family": "IBM Plex Mono", "weight": 500, "style": "normal" }
+ ],
+ "params": { "n": 10, "p": 0.1, "k": 5, "years": 100, "seed": 630, "mcSeed": 2008, "mcDraws": 10000 },
+ "commit": { "at": 9, "title": "YOUR NUMBER", "prompt": "Ten suppliers, each failing about one year in ten. Out of 100 years, in how many do 5 or more of them fail in the same year?", "unit": "bad years of 100", "default": 1, "min": 0, "max": 100, "step": 1 },
+ "count": { "at": 36 },
+ "chapters": [
+  { "id": "hook", "beat": "HOOK", "t0": 0, "t1": 8, "eyebrow": "CASE · CORRELATED RISK · THE HOOK", "title": "Ten suppliers, not one" },
+  { "id": "commit", "beat": "COMMIT", "t0": 8, "t1": 16, "eyebrow": "CASE · CORRELATED RISK · YOUR NUMBER", "title": "How many bad years?" },
+  { "id": "case", "beat": "CASE", "t0": 16, "t1": 36, "eyebrow": "CASE · 2006 · THE AAA RECIPE", "title": "Two loans, one slice" },
+  { "id": "count", "beat": "COUNT", "t0": 36, "t1": 62, "eyebrow": "CASE · CORRELATED RISK · THE COUNT", "title": "A hundred years of ten" },
+  { "id": "monday", "beat": "MONDAY", "t0": 62, "t1": 72, "eyebrow": "CASE · CORRELATED RISK · MONDAY", "title": "One question" }
+ ],
+ "captions": [
+  [0.4, 4.0, "\"We're diversified: ten suppliers, not one.\""],
+  [4.2, 7.8, "Each one fails about one year in ten."],
+  [8.2, 12.6, "Out of 100 years, how many see 5 or more of the ten fail?"],
+  [12.8, 15.8, "Hold your number. The count will place it."],
+  [16.3, 20.5, "The AAA recipe: pool two loans, each fails one year in ten."],
+  [20.7, 25.5, "The top slice fails only if both fail: 1 year of 100."],
+  [25.7, 30.0, "Unless they fail together. Then it is 10 years of 100."],
+  [30.2, 35.6, "Moody's 2006 triple-A mortgage bonds: 83 of 100 downgraded."],
+  [36.3, 41.5, "Back to your ten. One row per year, 100 years."],
+  [41.7, 47.5, "No shared shock: 100 failures, scattered. Zero bad years."],
+  [47.7, 54.5, "Add one shared shock: about as many failures, in clumps."],
+  [54.7, 61.6, "Bad years per 100: 0.16 apart, 6.9 when they move together."],
+  [62.3, 67.0, "Monday: what one shock hits five of our ten at once?"],
+  [67.2, 71.8, "Limits: these ρ are illustrative, not your suppliers'."]
+ ],
+ "ledger": [
+  [0.6, "SUPPLIERS · TEN"],
+  [16.4, "CASE · CJS 2009 · FCIC 2011"],
+  [36.4, "DRAW · SEED 630 · 100 YEARS"],
+  [47.8, "SHARED SHOCK · ρ 0 → 0.6"],
+  [57.6, "FORMULA · ONE-FACTOR COPULA"],
+  [62.4, "MONDAY · ONE QUESTION"]
+ ],
+ "brand": { "takeaway": "Ten bets that fail together are one bet." },
+ "sources": [
+  ["CJS09", "Coval, J. D., Jurek, J. W. & Stafford, E. (2009). The Economics of Structured Finance. Journal of Economic Perspectives 23(1), 3–25. doi:10.1257/jep.23.1.3 (the two-bond tranching example)."],
+  ["FCIC11", "Financial Crisis Inquiry Commission (2011). The Financial Crisis Inquiry Report. US Government Printing Office. Conclusions of the Commission (Moody's 2006 triple-A mortgage securities: 83 % ultimately downgraded)."],
+  ["SAL09", "Salmon, F. (2009). Recipe for Disaster: The Formula That Killed Wall Street. Wired 17(03), 23 February 2009; reprinted in Significance 9(1), 16–20 (2012)."],
+  ["LI00", "Li, D. X. (2000). On Default Correlation: A Copula Function Approach. Journal of Fixed Income 9(4), 43–54."],
+  ["VAS02", "Vasicek, O. (2002). The Distribution of Loan Portfolio Value. Risk 15(12), 160–162 (the one-factor model used for every rate in the count)."]
+ ],
+ "honest": [
+  "The shared-shock strengths ρ = 0.3 and 0.6 are illustrative, not measured for anyone's suppliers. The one-factor Gaussian copula is itself a mild model: real joint crashes are often worse than it says.",
+  "The hundred years on screen are one seeded draw (seed 630), chosen so its counts sit at the formula's rates (0, 3, 7 bad years); the rates come from the formula, not from the draw. A 10,000-year seeded check gives 0.14 %, 3.41 % and 7.11 %.",
+  "The mortgage example is Coval, Jurek and Stafford's stylised two-bond illustration of the AAA recipe, not one specific 2006 deal; the 83 of 100 downgrades had more than one cause, of which a nationwide fall in house prices, a shared shock, was the largest."
+ ],
+ "tryit": { "title": "Try it", "note": "Turn the shared shock up or down; the same hundred years are re-thresholded.", "seek": 55,
+  "inputs": [ { "id": "rho", "label": "Shared shock ρ", "min": 0, "max": 0.9, "step": 0.05, "value": 0.6, "unit": "" } ] }
+}

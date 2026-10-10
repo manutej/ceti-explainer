@@ -1,0 +1,16 @@
+{
+ "html": "/home/user/ceti-explainer/factory/films/simpsons-3d/build/simpsons-3d.editorial-serif.none.html",
+ "errors": [],
+ "variants": {
+  "default": {
+   "stills": [
+    "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-editorial-serif/default-t30.00.png",
+    "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-editorial-serif/default-t51.98.png",
+    "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-editorial-serif/default-t56.48.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 78,
+ "contact": "/home/user/ceti-explainer/factory/films/simpsons-3d/p3/shots-editorial-serif/contact.png"
+}

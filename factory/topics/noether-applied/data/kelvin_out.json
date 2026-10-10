@@ -1,0 +1,10 @@
+{
+ "frames": 30,
+ "parcels": 2000,
+ "circ_first": 0.999998355060093,
+ "circ_max_rel_change": 0.002981370367020064,
+ "length_first": 3.1415913616617575,
+ "length_last": 17.220348985835102,
+ "stretch": 5.481409579865387,
+ "vortex_strength_enclosed": 1.0
+}

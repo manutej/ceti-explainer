@@ -1,0 +1,993 @@
+{
+ "id": "noether-frontier",
+ "title": "Noether at the frontier",
+ "eyebrow": "CETI · AI-STORIES · Noether at the frontier · part 3",
+ "lede": "What happens when the idea of a number that never changes is pushed to its edge: a machine that sorts 30,000 tangled moments onto shells, 24,000 training moments with 8 fixed sums, and a tree of questions to reorder. A program, not a theorem. Part 3 of 3.",
+ "format": "feature-long",
+ "level": "manager",
+ "renderer": "webgl",
+ "dur": 153,
+ "seed": 20261012,
+ "look": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "params": {
+  "seed": 20261012,
+  "orbits": 300,
+  "perOrbit": 100,
+  "states": 30000,
+  "runs": 60,
+  "neurons": 8,
+  "recSteps": 50,
+  "netDots": 24000,
+  "laws": 8,
+  "liuSystems": 5,
+  "liuYear": 2021,
+  "toyQuestions": 3,
+  "orders": 6,
+  "toyA": 4,
+  "toyB": 7,
+  "toyC": 9,
+  "toySum": 20,
+  "toyW1": 1.0,
+  "toyW2": 0.8,
+  "toyW3": 0.6,
+  "premiseDrop": 30,
+  "chenYear": 2024,
+  "level1": 4,
+  "level2": 8,
+  "level3": 7,
+  "treeNodes": 19,
+  "modules": 9,
+  "sources": 22
+ },
+ "commit": {
+  "enabled": false
+ },
+ "count": {
+  "at": 21.0
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 12,
+   "eyebrow": "NOETHER · HOOK",
+   "title": "Each shell is a number that never changes"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 12,
+   "t1": 62,
+   "eyebrow": "NOETHER · CASE",
+   "title": "Take the rule away; a machine finds it again"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 62,
+   "t1": 135,
+   "eyebrow": "NOETHER · COUNT",
+   "title": "Fixed sums in learning; an order in questions"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 135,
+   "t1": 150,
+   "eyebrow": "NOETHER · MONDAY",
+   "title": "Reorder the parts of your question"
+  }
+ ],
+ "captions": [
+  [
+   0.8,
+   5.8,
+   "Last time, a dot could not leave its shell."
+  ],
+  [
+   6.2,
+   11.6,
+   "Each shell is a number that never changes."
+  ],
+  [
+   12.4,
+   19.6,
+   "Now take the rule away. Plot only where things are."
+  ],
+  [
+   20.0,
+   22.8,
+   "Each dot is one moment of one orbit."
+  ],
+  [
+   23.0,
+   27.6,
+   "That is 30,000 moments, tangled, with no rule."
+  ],
+  [
+   28.2,
+   35.8,
+   "A computer hunts for any number that stays put."
+  ],
+  [
+   36.1,
+   38.5,
+   "It lands on the same shells, told nothing."
+  ],
+  [
+   38.6,
+   41.4,
+   "In 2021, a team tried this on 5 test systems."
+  ],
+  [
+   41.6,
+   44.4,
+   "It found every number that truly never changes."
+  ],
+  [
+   44.6,
+   47.4,
+   "It also flagged numbers that only nearly hold."
+  ],
+  [
+   47.6,
+   50.4,
+   "Small, clean systems; the laws were already known."
+  ],
+  [
+   50.6,
+   54.4,
+   "Now something that learns: a small network."
+  ],
+  [
+   54.6,
+   58.4,
+   "Each dot is one neuron at one moment of training."
+  ],
+  [
+   58.6,
+   61.9,
+   "24,000 dots, tangled like before."
+  ],
+  [
+   62.4,
+   69.6,
+   "Plot each by one sum of its neuron's weights."
+  ],
+  [
+   72.6,
+   75.4,
+   "Each network here has 8 neurons."
+  ],
+  [
+   75.6,
+   78.4,
+   "Each neuron keeps one sum fixed: 8 in all."
+  ],
+  [
+   78.6,
+   82.4,
+   "Now let it train. Every dot starts to slide."
+  ],
+  [
+   82.6,
+   87.8,
+   "They slide, but never change layer."
+  ],
+  [
+   88.2,
+   95.8,
+   "Take bigger steps, and the layers start to leak."
+  ],
+  [
+   96.1,
+   98.45,
+   "The fixed sums hold only for tiny steps."
+  ],
+  [
+   98.6,
+   100.8,
+   "Now try it on questions."
+  ],
+  [
+   101.0,
+   105.8,
+   "3 questions that don't need each other."
+  ],
+  [
+   106.2,
+   108.9,
+   "They can be asked in 6 orders."
+  ],
+  [
+   109.2,
+   111.9,
+   "The total is 20 in every order."
+  ],
+  [
+   112.1,
+   114.95,
+   "A model that cares about order contradicts itself."
+  ],
+  [
+   115.1,
+   118.9,
+   "Reordered facts cut scores by more than 30 % in some tests."
+  ],
+  [
+   119.2,
+   121.9,
+   "Our own program starts with a tree of questions."
+  ],
+  [
+   122.2,
+   124.9,
+   "19 questions, in 3 layers."
+  ],
+  [
+   125.2,
+   127.9,
+   "4 broad, 8 narrower, 7 narrowest."
+  ],
+  [
+   128.2,
+   130.9,
+   "Behind it: 9 modules and 22 sources."
+  ],
+  [
+   131.2,
+   134.8,
+   "Idea: a claim that survives reordering is a candidate."
+  ],
+  [
+   135.3,
+   140.8,
+   "Monday: reorder a question's parts. Same answer?"
+  ]
+ ],
+ "brand": {
+  "takeaway": "Ask what stays when the order changes."
+ },
+ "sources": [
+  [
+   "S1",
+   "Part 1 package: factory/topics/noether-symmetry/{data/orbit_table.json, recompute.py}: 300 orbits x 100 moments, Kepler states rebuilt by the film. Simulation, tagged SIMULATED on stage."
+  ],
+  [
+   "S2",
+   "Liu and Tegmark, Machine learning conservation laws from trajectories (AI Poincare), Phys. Rev. Lett. 126, 180604 (2021), arXiv 2011.04698: https://arxiv.org/abs/2011.04698 . Abstract: fi..."
+  ],
+  [
+   "S3",
+   "Liu, Madhavan, Tegmark, Machine learning conservation laws from differential equations (AI Poincare 2.0), Phys. Rev. E 106, 045307 (2022), arXiv 2203.12610. Context only, nothing on screen."
+  ],
+  [
+   "S4",
+   "Du, Hu, Lee, Algorithmic regularization in learning deep homogeneous models: layers are automatically balanced, NeurIPS 2018, arXiv 1806.00900; Kunin, Sagastuy-Brena, Ganguli, Yamins, Tan..."
+  ],
+  [
+   "S5",
+   "Tanaka and Kunin, Noether's learning dynamics, NeurIPS 2021, arXiv 2105.02716. Context only."
+  ],
+  [
+   "S6",
+   "Marcotte, Gribonval, Peyre, Abide by the Law and Follow the Flow: Conservation Laws for Gradient Flows, NeurIPS 2023 (oral), arXiv 2307.00144: https://arxiv.org/abs/2307.00144 . Counting ..."
+  ],
+  [
+   "S7",
+   "Chen, Chi, Wang, Zhou (Google DeepMind), Premise Order Matters in Reasoning with Large Language Models, ICML 2024, PMLR 235:6596-6620, arXiv 2402.08939: https://arxiv.org/abs/2402.08939 ...."
+  ],
+  [
+   "S8",
+   "The owner's course: /home/user/manutej/noether-operadic-course/index.html (README.md; parts/*.js hold the same HTML). Counts: 9 modules, 19 question-tree nodes (4/8/7), 22 sources, counte..."
+  ],
+  [
+   "S9",
+   "The owner's thesis section 8 'Towards Noether structure on QA-graphs (program, not theorem)' and Module 6 in the same file: the program's own statement of what is not proved."
+  ],
+  [
+   "S10",
+   "factory/topics/noether-frontier/recompute.py, seed 20261012 (numpy only): the recall count, the blind search, the training clouds and the count of laws, the toy, the course counts. Simula..."
+  ],
+  [
+   "S11",
+   "In-film toy of three independent sub-answers (4, 7, 9): numbers chosen by the author, arithmetic only. Tagged ILLUSTRATION on stage; not data."
+  ]
+ ],
+ "honest": [
+  "Nobody has proved a Noether theorem for questions; this is a program, not a result."
+ ],
+ "monday": "Ask your AI the same question with its parts in another order. Does the answer stay?",
+ "libs": [
+  "lib/data.js"
+ ],
+ "knobs": {
+  "sP": 24,
+  "sL": 140,
+  "sC": 125,
+  "dotR": 1.1,
+  "dotRNet": 1.3,
+  "planetR": 3.6,
+  "sizeCue": 0.5,
+  "fog": 0.2,
+  "shadowK": 0.28,
+  "stag": 0.18,
+  "ghostK": 0.8,
+  "featHi": 0.4,
+  "shellRing": 0.5,
+  "slideA": 0.6,
+  "dimOthers": 0.6,
+  "cometLen": 8,
+  "cometGrow": 0.5,
+  "featOrbit": 270,
+  "perS": 5,
+  "plateX": 560,
+  "plateZ": 400,
+  "poolK": 0.5,
+  "poolR": 420,
+  "gridStep": 80,
+  "gridA": 0.1,
+  "camAz": 28,
+  "camEl": 30,
+  "camFov": 30,
+  "lensX": 0.44,
+  "lensY": 0.09,
+  "d1a": 1700,
+  "d1b": 1250,
+  "cy1": -190,
+  "d2a": 1250,
+  "d2b": 900,
+  "cy2": -150,
+  "d3": 1000,
+  "cy3": -20,
+  "d4a": 1250,
+  "d4b": 800,
+  "cy4": -155,
+  "dW": 1500,
+  "cyW": -90,
+  "tReveal": 3,
+  "countSecs": 6,
+  "tM0a": 12,
+  "tM0b": 20,
+  "tM1a": 28,
+  "tM1b": 36,
+  "tNet0": 50.5,
+  "tM2a": 62,
+  "tM2b": 70,
+  "tM3a": 88,
+  "tM3b": 96,
+  "tCometA": 80,
+  "tCometB": 88,
+  "tToy": 98.5,
+  "toyU": 11,
+  "toyGap": 70,
+  "toyRowGap": 1.7,
+  "tTree": 119,
+  "treeRise": 3,
+  "treeSpread": 190,
+  "tSwap0": 131.5,
+  "swapSecs": 3,
+  "tMon0": 135,
+  "tMon1": 141,
+  "cardX": 660
+ },
+ "knobs_doc": [
+  {
+   "name": "sP",
+   "range": [
+    10,
+    40
+   ],
+   "step": 1,
+   "what": "world units per orbit unit in the place picture"
+  },
+  {
+   "name": "sL",
+   "range": [
+    80,
+    190
+   ],
+   "step": 5,
+   "what": "world radius of a spin shell of strength 1"
+  },
+  {
+   "name": "sC",
+   "range": [
+    60,
+    130
+   ],
+   "step": 5,
+   "what": "world units per unit of a weight or of the fixed sum"
+  },
+  {
+   "name": "dotR",
+   "range": [
+    0.6,
+    2
+   ],
+   "step": 0.05,
+   "what": "dot radius in world units at the focus distance (recall cloud)"
+  },
+  {
+   "name": "dotRNet",
+   "range": [
+    0.6,
+    2
+   ],
+   "step": 0.05,
+   "what": "dot radius in world units (training cloud)"
+  },
+  {
+   "name": "planetR",
+   "range": [
+    2,
+    7
+   ],
+   "step": 0.2,
+   "what": "radius of the one moving planet marker"
+  },
+  {
+   "name": "sizeCue",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how much nearer dots look bigger"
+  },
+  {
+   "name": "fog",
+   "range": [
+    0,
+    0.5
+   ],
+   "step": 0.05,
+   "what": "far dots fade toward the ground"
+  },
+  {
+   "name": "shadowK",
+   "range": [
+    0,
+    0.4
+   ],
+   "step": 0.02,
+   "what": "strength of the contact shadow on the plate (0 = off)"
+  },
+  {
+   "name": "stag",
+   "range": [
+    0,
+    0.25
+   ],
+   "step": 0.01,
+   "what": "start delay spread between dots in a move"
+  },
+  {
+   "name": "ghostK",
+   "range": [
+    0.4,
+    0.95
+   ],
+   "step": 0.05,
+   "what": "how far a published-result picture is dimmed"
+  },
+  {
+   "name": "featHi",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "extra brightness of the followed orbit's dots"
+  },
+  {
+   "name": "shellRing",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the thin shell outlines"
+  },
+  {
+   "name": "slideA",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the five layer outlines (the glass slides)"
+  },
+  {
+   "name": "dimOthers",
+   "range": [
+    0.2,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "how far the other runs dim while one run is followed"
+  },
+  {
+   "name": "cometLen",
+   "range": [
+    3,
+    14
+   ],
+   "step": 1,
+   "what": "dots lit at once on each neuron's arc"
+  },
+  {
+   "name": "cometGrow",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how much a lit dot grows"
+  },
+  {
+   "name": "featOrbit",
+   "range": [
+    0,
+    299
+   ],
+   "step": 1,
+   "what": "which orbit's dots are brighter in the recap"
+  },
+  {
+   "name": "perS",
+   "range": [
+    2,
+    10
+   ],
+   "step": 0.5,
+   "what": "seconds per lap of the followed planet"
+  },
+  {
+   "name": "plateX",
+   "range": [
+    300,
+    900
+   ],
+   "step": 20,
+   "what": "half width of the bench plate"
+  },
+  {
+   "name": "plateZ",
+   "range": [
+    250,
+    700
+   ],
+   "step": 20,
+   "what": "half depth of the bench plate"
+  },
+  {
+   "name": "poolK",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "strength of the pool of light on the plate"
+  },
+  {
+   "name": "poolR",
+   "range": [
+    200,
+    700
+   ],
+   "step": 20,
+   "what": "radius of the pool of light"
+  },
+  {
+   "name": "gridStep",
+   "range": [
+    40,
+    160
+   ],
+   "step": 10,
+   "what": "spacing of the ruled grid on the plate"
+  },
+  {
+   "name": "gridA",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.02,
+   "what": "opacity of the ruled grid"
+  },
+  {
+   "name": "camAz",
+   "range": [
+    10,
+    50
+   ],
+   "step": 1,
+   "what": "camera azimuth in degrees (fixed all film)"
+  },
+  {
+   "name": "camEl",
+   "range": [
+    18,
+    45
+   ],
+   "step": 1,
+   "what": "camera elevation in degrees (fixed all film)"
+  },
+  {
+   "name": "camFov",
+   "range": [
+    20,
+    45
+   ],
+   "step": 1,
+   "what": "lens field of view"
+  },
+  {
+   "name": "lensX",
+   "range": [
+    0.3,
+    0.6
+   ],
+   "step": 0.01,
+   "what": "lens shift to the left (keeps clouds off the card)"
+  },
+  {
+   "name": "lensY",
+   "range": [
+    0,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "lens shift upward"
+  },
+  {
+   "name": "d1a",
+   "range": [
+    1300,
+    2200
+   ],
+   "step": 50,
+   "what": "act 1 camera distance at the start"
+  },
+  {
+   "name": "d1b",
+   "range": [
+    900,
+    1500
+   ],
+   "step": 20,
+   "what": "act 1 camera distance after its dolly"
+  },
+  {
+   "name": "cy1",
+   "range": [
+    -260,
+    -40
+   ],
+   "step": 5,
+   "what": "act 1 look-at height"
+  },
+  {
+   "name": "d2a",
+   "range": [
+    800,
+    1900
+   ],
+   "step": 50,
+   "what": "act 2 distance at the start"
+  },
+  {
+   "name": "d2b",
+   "range": [
+    500,
+    1200
+   ],
+   "step": 20,
+   "what": "act 2 distance after its dolly"
+  },
+  {
+   "name": "cy2",
+   "range": [
+    -250,
+    -40
+   ],
+   "step": 5,
+   "what": "act 2 look-at height"
+  },
+  {
+   "name": "d3",
+   "range": [
+    700,
+    1600
+   ],
+   "step": 50,
+   "what": "act 3 distance for the toy"
+  },
+  {
+   "name": "cy3",
+   "range": [
+    -120,
+    0
+   ],
+   "step": 5,
+   "what": "act 3 toy look-at height"
+  },
+  {
+   "name": "d4a",
+   "range": [
+    900,
+    1900
+   ],
+   "step": 50,
+   "what": "tree distance at its start"
+  },
+  {
+   "name": "d4b",
+   "range": [
+    600,
+    1400
+   ],
+   "step": 50,
+   "what": "tree distance after its dolly"
+  },
+  {
+   "name": "cy4",
+   "range": [
+    -180,
+    -40
+   ],
+   "step": 5,
+   "what": "tree look-at height"
+  },
+  {
+   "name": "dW",
+   "range": [
+    1100,
+    2400
+   ],
+   "step": 50,
+   "what": "Monday wide-frame distance"
+  },
+  {
+   "name": "cyW",
+   "range": [
+    -160,
+    -20
+   ],
+   "step": 5,
+   "what": "Monday look-at height"
+  },
+  {
+   "name": "tReveal",
+   "range": [
+    1,
+    6
+   ],
+   "step": 0.5,
+   "what": "seconds for the recap cloud to count in"
+  },
+  {
+   "name": "countSecs",
+   "range": [
+    3,
+    8
+   ],
+   "step": 0.5,
+   "what": "seconds for the training cloud to count in"
+  },
+  {
+   "name": "tM0a",
+   "range": [
+    10,
+    14
+   ],
+   "step": 0.5,
+   "what": "start of the un-sort and of act 1's dolly"
+  },
+  {
+   "name": "tM0b",
+   "range": [
+    17,
+    22
+   ],
+   "step": 0.5,
+   "what": "end of the un-sort"
+  },
+  {
+   "name": "tM1a",
+   "range": [
+    26,
+    30
+   ],
+   "step": 0.5,
+   "what": "start of the search sort"
+  },
+  {
+   "name": "tM1b",
+   "range": [
+    33,
+    38
+   ],
+   "step": 0.5,
+   "what": "end of the search sort"
+  },
+  {
+   "name": "tNet0",
+   "range": [
+    49,
+    52
+   ],
+   "step": 0.5,
+   "what": "cut to the training cloud"
+  },
+  {
+   "name": "tM2a",
+   "range": [
+    60,
+    64
+   ],
+   "step": 0.5,
+   "what": "start of the re-plot by the sum and of act 2's dolly"
+  },
+  {
+   "name": "tM2b",
+   "range": [
+    67,
+    72
+   ],
+   "step": 0.5,
+   "what": "end of the re-plot"
+  },
+  {
+   "name": "tM3a",
+   "range": [
+    86,
+    90
+   ],
+   "step": 0.5,
+   "what": "start of the bigger-step move"
+  },
+  {
+   "name": "tM3b",
+   "range": [
+    93,
+    97
+   ],
+   "step": 0.5,
+   "what": "end of the bigger-step move"
+  },
+  {
+   "name": "tCometA",
+   "range": [
+    79,
+    82
+   ],
+   "step": 0.5,
+   "what": "comet start"
+  },
+  {
+   "name": "tCometB",
+   "range": [
+    86,
+    88
+   ],
+   "step": 0.5,
+   "what": "comet end"
+  },
+  {
+   "name": "tToy",
+   "range": [
+    97,
+    100
+   ],
+   "step": 0.5,
+   "what": "cut to the toy"
+  },
+  {
+   "name": "toyU",
+   "range": [
+    8,
+    14
+   ],
+   "step": 1,
+   "what": "world length of one toy unit"
+  },
+  {
+   "name": "toyGap",
+   "range": [
+    40,
+    100
+   ],
+   "step": 5,
+   "what": "gap between the three big marks at first"
+  },
+  {
+   "name": "toyRowGap",
+   "range": [
+    1.3,
+    2.4
+   ],
+   "step": 0.1,
+   "what": "row spacing in block depths"
+  },
+  {
+   "name": "tTree",
+   "range": [
+    117,
+    121
+   ],
+   "step": 0.5,
+   "what": "cut to the tree and start of its dolly"
+  },
+  {
+   "name": "treeRise",
+   "range": [
+    2,
+    5
+   ],
+   "step": 0.5,
+   "what": "seconds for the tree to stand up and for its dolly"
+  },
+  {
+   "name": "treeSpread",
+   "range": [
+    140,
+    240
+   ],
+   "step": 10,
+   "what": "world width of the tree"
+  },
+  {
+   "name": "tSwap0",
+   "range": [
+    130.5,
+    133
+   ],
+   "step": 0.5,
+   "what": "start of the swap of Q2's children"
+  },
+  {
+   "name": "swapSecs",
+   "range": [
+    2,
+    4
+   ],
+   "step": 0.5,
+   "what": "seconds for the swap"
+  },
+  {
+   "name": "tMon0",
+   "range": [
+    134,
+    137
+   ],
+   "step": 0.5,
+   "what": "start of Monday's dolly back"
+  },
+  {
+   "name": "tMon1",
+   "range": [
+    139,
+    143
+   ],
+   "step": 0.5,
+   "what": "end of Monday's dolly back"
+  },
+  {
+   "name": "cardX",
+   "range": [
+    620,
+    700
+   ],
+   "step": 10,
+   "what": "left edge of the bench card"
+  }
+ ]
+}

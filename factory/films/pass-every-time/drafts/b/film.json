@@ -1,0 +1,1971 @@
+{
+ "id": "pass-every-time",
+ "title": "Pass every time",
+ "eyebrow": "CETI · agent reliability, one try versus every try",
+ "lede": "A board of 460 tries, lit 60 % of the time, is stood up, re-sorted by passes and cut by 'every try': only 44 of 115 tasks pass all four.",
+ "format": "feature-long",
+ "level": "manager",
+ "renderer": "webgl",
+ "look": {
+  "brand": "midnight-ink",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dur": 153,
+ "seed": 20261010,
+ "params": {
+  "tasks": 115,
+  "triesPer": 4,
+  "n0": 22,
+  "n1": 18,
+  "n2": 9,
+  "n3": 22,
+  "n4": 44,
+  "modelTries": 4,
+  "seed": 20261010,
+  "modelAll8": 36,
+  "paperPass8Upper": 25,
+  "prs": 296,
+  "maintainers": 4,
+  "swe": 80.9,
+  "h50h": 4,
+  "h50m": 49,
+  "h80": 27,
+  "perCubeMin": 1,
+  "perMark": 1,
+  "year": 2024,
+  "r50": 50,
+  "r80": 80
+ },
+ "commit": {
+  "enabled": false
+ },
+ "count": {
+  "at": 21
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 12,
+   "eyebrow": "HOOK",
+   "title": "Usually right"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 12,
+   "t1": 60,
+   "eyebrow": "CASE",
+   "title": "The board"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 60,
+   "t1": 135,
+   "eyebrow": "COUNT",
+   "title": "Every try"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 135,
+   "t1": 150,
+   "eyebrow": "MONDAY",
+   "title": "Ask for every time"
+  }
+ ],
+ "captions": [
+  [
+   0.8,
+   5.8,
+   "An agent that is usually right does most of the work."
+  ],
+  [
+   6.2,
+   11.6,
+   "Or does it? Count every try, task by task."
+  ],
+  [
+   12.4,
+   20.6,
+   "A customer-service test: GPT-4o on tau-bench retail."
+  ],
+  [
+   21,
+   23.4,
+   "115 tasks. One tile each."
+  ],
+  [
+   23.6,
+   28.4,
+   "Four tries per task. One cube per try."
+  ],
+  [
+   28.6,
+   30.9,
+   "That is 460 cubes."
+  ],
+  [
+   31,
+   33.9,
+   "Light every cube that passed."
+  ],
+  [
+   34,
+   36.4,
+   "278 passed. A lit cube is a pass."
+  ],
+  [
+   36.8,
+   39.8,
+   "Tries that pass: 60.4 %."
+  ],
+  [
+   40.2,
+   46.8,
+   "Stand the board up. Each task becomes a column."
+  ],
+  [
+   47.5,
+   51.8,
+   "Four tries stacked. Some lit all the way, some not."
+  ],
+  [
+   52.2,
+   59.5,
+   "Judge a task by all its tries, not by one."
+  ],
+  [
+   60.4,
+   66.5,
+   "Sort the columns by how many tries passed."
+  ],
+  [
+   68,
+   70.4,
+   "44 tasks pass all four tries."
+  ],
+  [
+   70.6,
+   72.9,
+   "22 never pass."
+  ],
+  [
+   73.2,
+   77.4,
+   "Same tasks, new question: pass every try, not one."
+  ],
+  [
+   77.7,
+   80.2,
+   "Two tries, both pass: 49.1 %."
+  ],
+  [
+   80.5,
+   83,
+   "Three tries, all pass: 43.0 %."
+  ],
+  [
+   83.3,
+   85.6,
+   "Four tries: 44 of 115 tasks pass them all."
+  ],
+  [
+   85.8,
+   88.4,
+   "All four tries pass: 38.3 %."
+  ],
+  [
+   88.7,
+   93.5,
+   "The paper's own run at eight tries: under 25 %."
+  ],
+  [
+   93.8,
+   99.5,
+   "A one-try score hides what every try shows."
+  ],
+  [
+   100.2,
+   104.8,
+   "Passing a benchmark is not the same as shipping."
+  ],
+  [
+   105,
+   107.3,
+   "296 PRs pass the tests."
+  ],
+  [
+   107.5,
+   110.3,
+   "Top SWE-bench Verified score: 80.9 %."
+  ],
+  [
+   110.6,
+   117.8,
+   "4 maintainers read them. Would they merge?"
+  ],
+  [
+   118,
+   120.9,
+   "About half would not be merged."
+  ],
+  [
+   121.2,
+   123.9,
+   "One more yardstick: how long a task can it do?"
+  ],
+  [
+   124,
+   126.4,
+   "27 minutes at the 80 % bar."
+  ],
+  [
+   126.6,
+   129.4,
+   "Another agent, same idea: one cube per minute."
+  ],
+  [
+   129.5,
+   131.9,
+   "4 h 49 min at the 50 % bar."
+  ],
+  [
+   132,
+   134.8,
+   "About 10 times longer."
+  ],
+  [
+   135.3,
+   140.8,
+   "On Monday, ask for the every-time number."
+  ]
+ ],
+ "brand": {
+  "takeaway": "A pass is not a pass every time.",
+  "at": 150
+ },
+ "sources": [
+  [
+   "S1",
+   "tau-bench README leaderboard, retail, TC (gpt-4o): Pass^1..4 = 0.604 / 0.491 / 0.430 / 0.383 (opened and read 2026-10-10) ; model GPT-4o, 2024 — https://github.com/sierra-research/tau-bench"
+  ],
+  [
+   "S2",
+   "tau-bench historical_trajectories/gpt-4o-retail.json: 460 rows = 115 tasks x 4 trials, per-task reward 0/1; tasks_test.py has 115 retail tasks (downloaded and recomputed 2026-10-10) — https://raw.githubusercontent.com/sierra-research/tau-bench/main/historical_trajectories/gpt-4o-retail.json"
+  ],
+  [
+   "S3",
+   "Yao, Shinn, Razavi, Narasimhan 2024, tau-bench, abstract: about 61 % pass^1 on retail, 'as low as ~25 % for pass^8'; paper PDF blocked by egress (403), abstract seen as quoted in search results — https://arxiv.org/abs/2406.12045"
+  ],
+  [
+   "S4",
+   "METR note 2026-03-10: 4 active maintainers, 3 SWE-bench Verified repos, 296 AI PRs, roughly half of test-passing PRs would not be merged; agents could not iterate on feedback (METR page blocked by egress; read through search-result text of the note and four outlets quoting it) — https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/"
+  ],
+  [
+   "S5",
+   "METR time-horizon measurement for Claude Opus 4.5: 50 % horizon about 4 h 49 min (95 % CI 1 h 49 min to 20 h 25 min), 80 % horizon 27 min — https://x.com/metr_evals (Dec 2025 post; reported by https://www.techmeme.com/251221/p1 and https://the-decoder.com/anthropics-claude-opus-4-5-can-tackle-some-tasks-lasting-nearly-five-hours/)"
+  ],
+  [
+   "S6",
+   "Anthropic, Claude Opus 4.5 announcement 2025-11-24: 80.9 % on SWE-bench Verified (vendor-reported; read through secondary coverage, announcement page not opened) — https://www.anthropic.com/news/claude-opus-4-5"
+  ],
+  [
+   "S7",
+   "recompute.py: beta model of the published curve, mulberry32 seed 20261010 (simulation claim) — factory/topics/pass-every-time/recompute.py"
+  ]
+ ],
+ "honest": [
+  "One 2024 model, and agents that could not revise: newer ones may do better."
+ ],
+ "libs": [
+  "lib/arsenal.gen.js"
+ ],
+ "knobs": {
+  "hookA": 0.9,
+  "hookB": 3.2,
+  "hookOut": 10.8,
+  "tagAt": 12.4,
+  "tileT0": 13,
+  "tileSpan": 7,
+  "tileDur": 0.8,
+  "cubeT0": 23.5,
+  "cubeSpan": 3.8,
+  "cubeDur": 0.9,
+  "litT0": 31,
+  "litSpan": 2.4,
+  "litFlash": 0.5,
+  "seedLit": 7,
+  "ratioAt": 36.5,
+  "hudOut": 39.6,
+  "m1Spread": 2.5,
+  "m1Lift": 5,
+  "m2T0": 60,
+  "m2T1": 66,
+  "m2Spread": 1.8,
+  "m2Lift": 4,
+  "wordsAt": 52,
+  "wordsOut": 59.4,
+  "p44At": 68,
+  "p22At": 70.5,
+  "pinsOut": 72.8,
+  "cutDimAt": 68,
+  "cutDimAmt": 0.65,
+  "cutDimOffAt": 72.9,
+  "cellPitch": 1,
+  "tilePitch": 2.5,
+  "plateW": 1,
+  "planCubeW": 0.82,
+  "flatH": 0.1,
+  "towerPitch": 1.25,
+  "cubeW": 1,
+  "cubeVPitch": 1.35,
+  "cubeH": 1.2,
+  "tierZ": 7,
+  "ghostMix": 0.38,
+  "bar1At": 74.8,
+  "bar2At": 77.6,
+  "bar3At": 80.4,
+  "bar4At": 83.2,
+  "ratio4At": 85.7,
+  "paperAt": 88.6,
+  "cutMove": 0.6,
+  "cutOffAt": 88.3,
+  "volBuild": 0.9,
+  "volStagger": 0.6,
+  "volAlpha": 0.58,
+  "volCutDim": 0.5,
+  "volW": 60,
+  "volH": 18,
+  "volD": 6,
+  "volGap": 0.3,
+  "dashLen": 0.9,
+  "dashGap": 0.6,
+  "prLead": 0.6,
+  "prSpan": 3.6,
+  "prDur": 0.6,
+  "prPitch": 1.25,
+  "prCols": 37,
+  "prGap": 5,
+  "prH": 1,
+  "m4T0": 110.5,
+  "m4T1": 117.5,
+  "m4Spread": 1.5,
+  "m4Lift": 3,
+  "sweAt": 107.5,
+  "sweOut": 110.2,
+  "halfAt": 118,
+  "minLeadA": 0.8,
+  "minSpanA": 1.6,
+  "minPitch": 1.2,
+  "minH": 1,
+  "minDur": 0.5,
+  "m27At": 124,
+  "m27Out": 126.4,
+  "m289At": 129.5,
+  "m289Out": 131.9,
+  "tenAt": 132,
+  "legendAt": 121.2,
+  "qAt": 135.3,
+  "qOut": 141,
+  "honestAt": 141.5,
+  "monLife": 0.6,
+  "hudSize": 52,
+  "resultSize": 36,
+  "pinSub": 14,
+  "labHold": 4,
+  "labLeader": 24,
+  "labPlate": 0.72,
+  "flagH": 4.5,
+  "gridOp": 0.15,
+  "floorMargin": 5,
+  "camStartEyeX": 0,
+  "camStartEyeY": -1502.5,
+  "camStartEyeZ": 26.2,
+  "camStartCenterX": 0,
+  "camStartCenterY": -2.7,
+  "camStartCenterZ": 0,
+  "camStartZoom": 12.5,
+  "camStandT0": 40,
+  "camStandT1": 47,
+  "camStandEase": "inout",
+  "camStandAz": 12,
+  "camStandEl": 38,
+  "camStandZoom": 12.5,
+  "camDriftT0": 52,
+  "camDriftT1": 60,
+  "camDriftEase": "inout",
+  "camDriftAz": 3,
+  "camVolcutT0": 73,
+  "camVolcutEase": "inout",
+  "camVolcutEyeX": 241.5,
+  "camVolcutEyeY": -569.4,
+  "camVolcutEyeZ": 1369.6,
+  "camVolcutCenterX": 0,
+  "camVolcutCenterY": -7.5,
+  "camVolcutCenterZ": 0,
+  "camVolcutZoom": 12.5,
+  "camPrcutT0": 100,
+  "camPrcutEase": "inout",
+  "camPrcutEyeX": 87.7,
+  "camPrcutEyeY": -1244.6,
+  "camPrcutEyeZ": 834.2,
+  "camPrcutCenterX": 0,
+  "camPrcutCenterY": -1,
+  "camPrcutCenterZ": 0,
+  "camPrcutZoom": 17,
+  "camMincutT0": 121,
+  "camMincutEase": "inout",
+  "camMincutEyeX": 214.7,
+  "camMincutEyeY": -464.1,
+  "camMincutEyeZ": 1412.7,
+  "camMincutCenterX": 16.2,
+  "camMincutCenterY": -0.6,
+  "camMincutCenterZ": 0,
+  "camMincutZoom": 24,
+  "camDollyT0": 126.5,
+  "camDollyT1": 129.5,
+  "camDollyEase": "inout",
+  "camDollyEyeX": 371.3,
+  "camDollyEyeY": -464.1,
+  "camDollyEyeZ": 1412.7,
+  "camDollyCenterX": 172.8,
+  "camDollyCenterY": -0.6,
+  "camDollyCenterZ": 0,
+  "camDollyZoom": 2.5,
+  "camMoncutT0": 135,
+  "camMoncutEase": "inout",
+  "camMoncutEyeX": 245.8,
+  "camMoncutEyeY": -928.2,
+  "camMoncutEyeZ": 1156.2,
+  "camMoncutCenterX": 0,
+  "camMoncutCenterY": -4.7,
+  "camMoncutCenterZ": 0,
+  "camMoncutZoom": 8.8,
+  "camMonddriftT0": 137,
+  "camMonddriftT1": 150,
+  "camMonddriftEase": "inout",
+  "camMonddriftAz": -4
+ },
+ "knobs_doc": [
+  {
+   "name": "hookA",
+   "range": [
+    0.5,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: the first line of the belief fades in over the empty floor"
+  },
+  {
+   "name": "hookB",
+   "range": [
+    2.5,
+    5
+   ],
+   "step": 0.1,
+   "what": "s: the second line of the belief fades in"
+  },
+  {
+   "name": "hookOut",
+   "range": [
+    10,
+    11.4
+   ],
+   "step": 0.1,
+   "what": "s: the belief starts to fade (gone 0.8 s later); the board is empty until 13 s"
+  },
+  {
+   "name": "tagAt",
+   "range": [
+    12,
+    13
+   ],
+   "step": 0.1,
+   "what": "s: the label GPT-4o, tau-bench retail, 2024 appears top left"
+  },
+  {
+   "name": "tileT0",
+   "range": [
+    12.6,
+    14
+   ],
+   "step": 0.1,
+   "what": "s: the first of the 115 tiles lands on the floor"
+  },
+  {
+   "name": "tileSpan",
+   "range": [
+    5,
+    7.4
+   ],
+   "step": 0.1,
+   "what": "s: from the first tile landing to the last (tileT0 + tileSpan + tileDur <= 21.0, where the count lands)"
+  },
+  {
+   "name": "tileDur",
+   "range": [
+    0.4,
+    1.2
+   ],
+   "step": 0.1,
+   "what": "s: how long one tile takes to grow in"
+  },
+  {
+   "name": "cubeT0",
+   "range": [
+    23,
+    24
+   ],
+   "step": 0.1,
+   "what": "s: the first tile splits into its four cubes"
+  },
+  {
+   "name": "cubeSpan",
+   "range": [
+    2.5,
+    4.4
+   ],
+   "step": 0.1,
+   "what": "s: from the first tile splitting to the last (the 460 count holds until the passes light)"
+  },
+  {
+   "name": "cubeDur",
+   "range": [
+    0.4,
+    1.4
+   ],
+   "step": 0.1,
+   "what": "s: how long a tile takes to rise into four cubes"
+  },
+  {
+   "name": "litT0",
+   "range": [
+    30.6,
+    31.6
+   ],
+   "step": 0.1,
+   "what": "s: the first passing cube lights gold"
+  },
+  {
+   "name": "litSpan",
+   "range": [
+    1.5,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: from the first cube lighting to the last (278 lit by litT0 + litSpan)"
+  },
+  {
+   "name": "litFlash",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.05,
+   "what": "s: how long a newly lit cube stays bright"
+  },
+  {
+   "name": "seedLit",
+   "range": [
+    0,
+    99
+   ],
+   "step": 1,
+   "what": "seed of the order in which the passing cubes light (the passes themselves are data, not random)"
+  },
+  {
+   "name": "ratioAt",
+   "range": [
+    36.3,
+    37.5
+   ],
+   "step": 0.1,
+   "what": "s: the share of tries that pass is called out (after the 278 count has held)"
+  },
+  {
+   "name": "hudOut",
+   "range": [
+    38.8,
+    39.8
+   ],
+   "step": 0.1,
+   "what": "s: the scoreboard digits and the share go away before the board stands up"
+  },
+  {
+   "name": "m1Spread",
+   "range": [
+    0.5,
+    4
+   ],
+   "step": 0.1,
+   "what": "s: stand-up: from the first tile moving to the last (the move length is the camera rig stand t0 to t1)"
+  },
+  {
+   "name": "m1Lift",
+   "range": [
+    0,
+    12
+   ],
+   "step": 0.5,
+   "what": "world units: how high a mark hops while its tile restacks into a column"
+  },
+  {
+   "name": "m2T0",
+   "range": [
+    59,
+    62
+   ],
+   "step": 0.1,
+   "what": "s: the columns start to re-sort by passes (camera still)"
+  },
+  {
+   "name": "m2T1",
+   "range": [
+    64,
+    67
+   ],
+   "step": 0.1,
+   "what": "s: the re-sort is done"
+  },
+  {
+   "name": "m2Spread",
+   "range": [
+    0.5,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: re-sort: from the first column moving to the last"
+  },
+  {
+   "name": "m2Lift",
+   "range": [
+    0,
+    12
+   ],
+   "step": 0.5,
+   "what": "world units: hop height of a column during the re-sort"
+  },
+  {
+   "name": "wordsAt",
+   "range": [
+    51,
+    53
+   ],
+   "step": 0.1,
+   "what": "s: two hard-cut words appear on two columns: ALL LIT, NONE LIT"
+  },
+  {
+   "name": "wordsOut",
+   "range": [
+    57,
+    59.6
+   ],
+   "step": 0.1,
+   "what": "s: the two words go away before the re-sort"
+  },
+  {
+   "name": "p44At",
+   "range": [
+    67.6,
+    69
+   ],
+   "step": 0.1,
+   "what": "s: the count of columns lit all four tries is pinned on the longest row"
+  },
+  {
+   "name": "p22At",
+   "range": [
+    70,
+    71.5
+   ],
+   "step": 0.1,
+   "what": "s: the count of columns that never pass is pinned on the last row"
+  },
+  {
+   "name": "pinsOut",
+   "range": [
+    72,
+    72.9
+   ],
+   "step": 0.1,
+   "what": "s: the pins go away before the cut to the volume"
+  },
+  {
+   "name": "cutDimAt",
+   "range": [
+    66,
+    69
+   ],
+   "step": 0.1,
+   "what": "s: columns that did not pass every try start to dim (dims, never removes)"
+  },
+  {
+   "name": "cutDimAmt",
+   "range": [
+    0.2,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "how far those columns dim toward the dim colour"
+  },
+  {
+   "name": "cutDimOffAt",
+   "range": [
+    72,
+    72.95
+   ],
+   "step": 0.05,
+   "what": "s: the dimming is put away just before the cut"
+  },
+  {
+   "name": "cellPitch",
+   "range": [
+    0.8,
+    1.3
+   ],
+   "step": 0.05,
+   "what": "world units: spacing of the four cubes inside one tile (plan view)"
+  },
+  {
+   "name": "tilePitch",
+   "range": [
+    2.2,
+    3
+   ],
+   "step": 0.05,
+   "what": "world units: spacing of the 115 tiles on the floor"
+  },
+  {
+   "name": "plateW",
+   "range": [
+    0.9,
+    1.3
+   ],
+   "step": 0.05,
+   "what": "world units: width of a plate while four plates form a solid tile (match cellPitch)"
+  },
+  {
+   "name": "planCubeW",
+   "range": [
+    0.5,
+    1
+   ],
+   "step": 0.02,
+   "what": "world units: edge of a cube once its tile has split (smaller = more air between the four)"
+  },
+  {
+   "name": "flatH",
+   "range": [
+    0.05,
+    0.4
+   ],
+   "step": 0.05,
+   "what": "world units: thickness of a plate"
+  },
+  {
+   "name": "towerPitch",
+   "range": [
+    1.1,
+    1.6
+   ],
+   "step": 0.05,
+   "what": "world units: spacing of the columns across the board"
+  },
+  {
+   "name": "cubeW",
+   "range": [
+    0.7,
+    1.2
+   ],
+   "step": 0.05,
+   "what": "world units: width of a cube in a column"
+  },
+  {
+   "name": "cubeVPitch",
+   "range": [
+    1.1,
+    1.6
+   ],
+   "step": 0.05,
+   "what": "world units: spacing of the four cubes up a column"
+  },
+  {
+   "name": "cubeH",
+   "range": [
+    0.8,
+    1.4
+   ],
+   "step": 0.05,
+   "what": "world units: height of a cube in a column"
+  },
+  {
+   "name": "tierZ",
+   "range": [
+    5.5,
+    9
+   ],
+   "step": 0.5,
+   "what": "world units: depth between the five rows (less hides the lower cubes of the rows behind)"
+  },
+  {
+   "name": "ghostMix",
+   "range": [
+    0.15,
+    0.5
+   ],
+   "step": 0.02,
+   "what": "how bright an unlit cube is (0 = ground, 1 = the second accent)"
+  },
+  {
+   "name": "bar1At",
+   "range": [
+    74,
+    75.6
+   ],
+   "step": 0.1,
+   "what": "s: the cut rests on the first bar (one try); its share is called out"
+  },
+  {
+   "name": "bar2At",
+   "range": [
+    77,
+    78.4
+   ],
+   "step": 0.1,
+   "what": "s: the cut rests on the second bar (two tries)"
+  },
+  {
+   "name": "bar3At",
+   "range": [
+    79.8,
+    81.2
+   ],
+   "step": 0.1,
+   "what": "s: the cut rests on the third bar (three tries)"
+  },
+  {
+   "name": "bar4At",
+   "range": [
+    82.6,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the cut rests on the fourth bar; the count of tasks is called out (the share follows 2.5 s later)"
+  },
+  {
+   "name": "ratio4At",
+   "range": [
+    85,
+    86.6
+   ],
+   "step": 0.1,
+   "what": "s: the share of tasks that pass all four tries replaces the count (at least 1.5 s after it)"
+  },
+  {
+   "name": "paperAt",
+   "range": [
+    87.8,
+    89.6
+   ],
+   "step": 0.1,
+   "what": "s: the paper's own 8-try run is drawn as a dashed outline in the eighth slot"
+  },
+  {
+   "name": "cutMove",
+   "range": [
+    0.3,
+    1.2
+   ],
+   "step": 0.1,
+   "what": "s: how long the cut plane takes to move from one bar to the next"
+  },
+  {
+   "name": "cutOffAt",
+   "range": [
+    87,
+    99.5
+   ],
+   "step": 0.1,
+   "what": "s: the cut plane is put away"
+  },
+  {
+   "name": "volBuild",
+   "range": [
+    0.4,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: the bars grow in over this long, left to right"
+  },
+  {
+   "name": "volStagger",
+   "range": [
+    0.1,
+    1
+   ],
+   "step": 0.05,
+   "what": "share of the build window one bar takes (1 = all at once)"
+  },
+  {
+   "name": "volAlpha",
+   "range": [
+    0.3,
+    0.85
+   ],
+   "step": 0.02,
+   "what": "opacity of a bar (the cut plane shows through lower values)"
+  },
+  {
+   "name": "volCutDim",
+   "range": [
+    0.1,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity factor of the bars the cut has passed"
+  },
+  {
+   "name": "volW",
+   "range": [
+    40,
+    80
+   ],
+   "step": 2,
+   "what": "world units: width of the eight slots"
+  },
+  {
+   "name": "volH",
+   "range": [
+    12,
+    30
+   ],
+   "step": 1,
+   "what": "world units: height of the tallest bar"
+  },
+  {
+   "name": "volD",
+   "range": [
+    3,
+    12
+   ],
+   "step": 1,
+   "what": "world units: depth of a bar"
+  },
+  {
+   "name": "volGap",
+   "range": [
+    0.05,
+    0.5
+   ],
+   "step": 0.05,
+   "what": "share of a slot left empty between bars"
+  },
+  {
+   "name": "dashLen",
+   "range": [
+    0.4,
+    2
+   ],
+   "step": 0.1,
+   "what": "world units: length of a dash in the paper's outline"
+  },
+  {
+   "name": "dashGap",
+   "range": [
+    0.3,
+    1.5
+   ],
+   "step": 0.1,
+   "what": "world units: gap between dashes in the paper's outline"
+  },
+  {
+   "name": "prLead",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.1,
+   "what": "s: after the cut to the PR board, the first PR lands"
+  },
+  {
+   "name": "prSpan",
+   "range": [
+    2,
+    4.2
+   ],
+   "step": 0.1,
+   "what": "s: from the first PR landing to the last (the 296 count lands by prLead + prSpan + prDur)"
+  },
+  {
+   "name": "prDur",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.1,
+   "what": "s: how long one PR takes to grow in"
+  },
+  {
+   "name": "prPitch",
+   "range": [
+    1,
+    1.6
+   ],
+   "step": 0.05,
+   "what": "world units: spacing of the PR cubes"
+  },
+  {
+   "name": "prCols",
+   "range": [
+    20,
+    74
+   ],
+   "step": 1,
+   "what": "cubes across the PR board (296 = 37 x 8; keep a divisor of 296: 8, 37, 74)"
+  },
+  {
+   "name": "prGap",
+   "range": [
+    2,
+    10
+   ],
+   "step": 0.5,
+   "what": "world units: air between the two blocks after the merge filter"
+  },
+  {
+   "name": "prH",
+   "range": [
+    0.6,
+    1.4
+   ],
+   "step": 0.05,
+   "what": "world units: height of a PR cube"
+  },
+  {
+   "name": "m4T0",
+   "range": [
+    109.5,
+    111.5
+   ],
+   "step": 0.1,
+   "what": "s: the merge filter starts: PRs travel to the two blocks"
+  },
+  {
+   "name": "m4T1",
+   "range": [
+    115,
+    118
+   ],
+   "step": 0.1,
+   "what": "s: the merge filter is done"
+  },
+  {
+   "name": "m4Spread",
+   "range": [
+    0.5,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: merge filter: from the first PR moving to the last"
+  },
+  {
+   "name": "m4Lift",
+   "range": [
+    0,
+    8
+   ],
+   "step": 0.5,
+   "what": "world units: hop height of a PR during the merge filter"
+  },
+  {
+   "name": "sweAt",
+   "range": [
+    107,
+    108.4
+   ],
+   "step": 0.1,
+   "what": "s: the top SWE-bench Verified score is called out on the PR board"
+  },
+  {
+   "name": "sweOut",
+   "range": [
+    109.5,
+    110.4
+   ],
+   "step": 0.1,
+   "what": "s: that callout goes away before the merge filter"
+  },
+  {
+   "name": "halfAt",
+   "range": [
+    117.6,
+    119
+   ],
+   "step": 0.1,
+   "what": "s: about half would not be merged is called out"
+  },
+  {
+   "name": "minLeadA",
+   "range": [
+    0.2,
+    1.4
+   ],
+   "step": 0.1,
+   "what": "s: after the cut to the minutes, the first cube lands"
+  },
+  {
+   "name": "minSpanA",
+   "range": [
+    0.8,
+    2.2
+   ],
+   "step": 0.1,
+   "what": "s: from the first minute landing to the 27th"
+  },
+  {
+   "name": "minPitch",
+   "range": [
+    1.05,
+    1.6
+   ],
+   "step": 0.05,
+   "what": "world units: spacing of the minute cubes along the row"
+  },
+  {
+   "name": "minH",
+   "range": [
+    0.6,
+    1.4
+   ],
+   "step": 0.05,
+   "what": "world units: height of a minute cube"
+  },
+  {
+   "name": "minDur",
+   "range": [
+    0.2,
+    0.9
+   ],
+   "step": 0.1,
+   "what": "s: how long one minute cube takes to grow in"
+  },
+  {
+   "name": "m27At",
+   "range": [
+    123.6,
+    125
+   ],
+   "step": 0.1,
+   "what": "s: the 80 % bar (27 minutes) is pinned on the last gold cube"
+  },
+  {
+   "name": "m27Out",
+   "range": [
+    125.8,
+    126.5
+   ],
+   "step": 0.1,
+   "what": "s: that pin goes away before the camera moves"
+  },
+  {
+   "name": "m289At",
+   "range": [
+    129.4,
+    130.4
+   ],
+   "step": 0.1,
+   "what": "s: the 50 % bar (4 h 49 min) is pinned on the end of the row (after the camera has landed)"
+  },
+  {
+   "name": "m289Out",
+   "range": [
+    131,
+    132
+   ],
+   "step": 0.1,
+   "what": "s: that pin goes away"
+  },
+  {
+   "name": "tenAt",
+   "range": [
+    131.8,
+    133
+   ],
+   "step": 0.1,
+   "what": "s: about 10 times longer is called out"
+  },
+  {
+   "name": "legendAt",
+   "range": [
+    121,
+    122
+   ],
+   "step": 0.1,
+   "what": "s: the legend (one cube = one minute; one tick = an hour) appears"
+  },
+  {
+   "name": "qAt",
+   "range": [
+    135,
+    136
+   ],
+   "step": 0.1,
+   "what": "s: Monday's question appears over the returned board"
+  },
+  {
+   "name": "qOut",
+   "range": [
+    140,
+    141.2
+   ],
+   "step": 0.1,
+   "what": "s: the question goes away"
+  },
+  {
+   "name": "honestAt",
+   "range": [
+    141.2,
+    142.5
+   ],
+   "step": 0.1,
+   "what": "s: the one honest line is set in type (no caption sits in the band during it)"
+  },
+  {
+   "name": "monLife",
+   "range": [
+    0.3,
+    1.2
+   ],
+   "step": 0.1,
+   "what": "s: the board grows back in at Monday"
+  },
+  {
+   "name": "hudSize",
+   "range": [
+    40,
+    72
+   ],
+   "step": 2,
+   "what": "sheet units: the scoreboard digits (must-read, display face)"
+  },
+  {
+   "name": "resultSize",
+   "range": [
+    32,
+    48
+   ],
+   "step": 2,
+   "what": "sheet units: a called-out result (must-read floor 28)"
+  },
+  {
+   "name": "pinSub",
+   "range": [
+    14,
+    18
+   ],
+   "step": 1,
+   "what": "sheet units: small line under a pin (secondary floor 14)"
+  },
+  {
+   "name": "labHold",
+   "range": [
+    0,
+    12
+   ],
+   "step": 1,
+   "what": "frames a pin must be pushed before it hides (gl-labels hysteresis)"
+  },
+  {
+   "name": "labLeader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "sheet units: pin leader length"
+  },
+  {
+   "name": "labPlate",
+   "range": [
+    0,
+    0.95
+   ],
+   "step": 0.02,
+   "what": "opacity of the ground-colour plate behind a pin (0 = none)"
+  },
+  {
+   "name": "flagH",
+   "range": [
+    1,
+    8
+   ],
+   "step": 0.5,
+   "what": "world units: how far above the end of the longest row the \"44 pass all four\" flag floats (keeps its label off the cubes)"
+  },
+  {
+   "name": "gridOp",
+   "range": [
+    0,
+    0.4
+   ],
+   "step": 0.01,
+   "what": "opacity of the floor grid"
+  },
+  {
+   "name": "floorMargin",
+   "range": [
+    1,
+    16
+   ],
+   "step": 1,
+   "what": "world units: floor shown around the board"
+  },
+  {
+   "name": "camStartEyeX",
+   "range": [
+    -500,
+    500
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye x"
+  },
+  {
+   "name": "camStartEyeY",
+   "range": [
+    -2002.5,
+    -1002.5
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye y"
+  },
+  {
+   "name": "camStartEyeZ",
+   "range": [
+    -473.8,
+    526.2
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye z"
+  },
+  {
+   "name": "camStartCenterX",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point x"
+  },
+  {
+   "name": "camStartCenterY",
+   "range": [
+    -202.7,
+    197.3
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point y"
+  },
+  {
+   "name": "camStartCenterZ",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point z"
+  },
+  {
+   "name": "camStartZoom",
+   "range": [
+    4.17,
+    37.5
+   ],
+   "step": 0.05,
+   "what": "camera rig · start pose: ortho magnification"
+  },
+  {
+   "name": "camStandT0",
+   "range": [
+    38,
+    42
+   ],
+   "step": 0.1,
+   "what": "camera rig · stand (orbit): start (s)"
+  },
+  {
+   "name": "camStandT1",
+   "range": [
+    45,
+    49
+   ],
+   "step": 0.1,
+   "what": "camera rig · stand (orbit): end (s)"
+  },
+  {
+   "name": "camStandEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · stand (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camStandAz",
+   "range": [
+    -28,
+    52
+   ],
+   "step": 5,
+   "what": "camera rig · stand (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "camStandEl",
+   "range": [
+    20,
+    60
+   ],
+   "step": 1,
+   "what": "camera rig · stand (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "camStandZoom",
+   "range": [
+    4.17,
+    37.5
+   ],
+   "step": 0.05,
+   "what": "camera rig · stand (orbit): ortho magnification"
+  },
+  {
+   "name": "camDriftT0",
+   "range": [
+    50,
+    54
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): start (s)"
+  },
+  {
+   "name": "camDriftT1",
+   "range": [
+    58,
+    62
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): end (s)"
+  },
+  {
+   "name": "camDriftEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · drift (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camDriftAz",
+   "range": [
+    -37,
+    43
+   ],
+   "step": 5,
+   "what": "camera rig · drift (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "camVolcutT0",
+   "range": [
+    70,
+    76
+   ],
+   "step": 0.1,
+   "what": "camera rig · volcut (cut): start (s)"
+  },
+  {
+   "name": "camVolcutEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · volcut (cut): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camVolcutEyeX",
+   "range": [
+    -258.5,
+    741.5
+   ],
+   "step": 10,
+   "what": "camera rig · volcut (cut): eye x"
+  },
+  {
+   "name": "camVolcutEyeY",
+   "range": [
+    -1069.4,
+    -69.4
+   ],
+   "step": 10,
+   "what": "camera rig · volcut (cut): eye y"
+  },
+  {
+   "name": "camVolcutEyeZ",
+   "range": [
+    869.6,
+    1869.6
+   ],
+   "step": 10,
+   "what": "camera rig · volcut (cut): eye z"
+  },
+  {
+   "name": "camVolcutCenterX",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · volcut (cut): aim point x"
+  },
+  {
+   "name": "camVolcutCenterY",
+   "range": [
+    -207.5,
+    192.5
+   ],
+   "step": 10,
+   "what": "camera rig · volcut (cut): aim point y"
+  },
+  {
+   "name": "camVolcutCenterZ",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · volcut (cut): aim point z"
+  },
+  {
+   "name": "camVolcutZoom",
+   "range": [
+    4.17,
+    37.5
+   ],
+   "step": 0.05,
+   "what": "camera rig · volcut (cut): ortho magnification"
+  },
+  {
+   "name": "camPrcutT0",
+   "range": [
+    98,
+    102
+   ],
+   "step": 0.1,
+   "what": "camera rig · prcut (cut): start (s)"
+  },
+  {
+   "name": "camPrcutEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · prcut (cut): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camPrcutEyeX",
+   "range": [
+    -412.3,
+    587.7
+   ],
+   "step": 10,
+   "what": "camera rig · prcut (cut): eye x"
+  },
+  {
+   "name": "camPrcutEyeY",
+   "range": [
+    -1744.6,
+    -744.6
+   ],
+   "step": 10,
+   "what": "camera rig · prcut (cut): eye y"
+  },
+  {
+   "name": "camPrcutEyeZ",
+   "range": [
+    334.2,
+    1334.2
+   ],
+   "step": 10,
+   "what": "camera rig · prcut (cut): eye z"
+  },
+  {
+   "name": "camPrcutCenterX",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · prcut (cut): aim point x"
+  },
+  {
+   "name": "camPrcutCenterY",
+   "range": [
+    -201,
+    199
+   ],
+   "step": 10,
+   "what": "camera rig · prcut (cut): aim point y"
+  },
+  {
+   "name": "camPrcutCenterZ",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · prcut (cut): aim point z"
+  },
+  {
+   "name": "camPrcutZoom",
+   "range": [
+    5.67,
+    51
+   ],
+   "step": 0.05,
+   "what": "camera rig · prcut (cut): ortho magnification"
+  },
+  {
+   "name": "camMincutT0",
+   "range": [
+    119,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · mincut (cut): start (s)"
+  },
+  {
+   "name": "camMincutEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · mincut (cut): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camMincutEyeX",
+   "range": [
+    -285.3,
+    714.7
+   ],
+   "step": 10,
+   "what": "camera rig · mincut (cut): eye x"
+  },
+  {
+   "name": "camMincutEyeY",
+   "range": [
+    -964.1,
+    35.9
+   ],
+   "step": 10,
+   "what": "camera rig · mincut (cut): eye y"
+  },
+  {
+   "name": "camMincutEyeZ",
+   "range": [
+    912.7,
+    1912.7
+   ],
+   "step": 10,
+   "what": "camera rig · mincut (cut): eye z"
+  },
+  {
+   "name": "camMincutCenterX",
+   "range": [
+    -183.8,
+    216.2
+   ],
+   "step": 10,
+   "what": "camera rig · mincut (cut): aim point x"
+  },
+  {
+   "name": "camMincutCenterY",
+   "range": [
+    -200.6,
+    199.4
+   ],
+   "step": 10,
+   "what": "camera rig · mincut (cut): aim point y"
+  },
+  {
+   "name": "camMincutCenterZ",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · mincut (cut): aim point z"
+  },
+  {
+   "name": "camMincutZoom",
+   "range": [
+    8,
+    72
+   ],
+   "step": 0.05,
+   "what": "camera rig · mincut (cut): ortho magnification"
+  },
+  {
+   "name": "camDollyT0",
+   "range": [
+    124,
+    128.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · dolly (key): start (s)"
+  },
+  {
+   "name": "camDollyT1",
+   "range": [
+    127.5,
+    131.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · dolly (key): end (s)"
+  },
+  {
+   "name": "camDollyEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · dolly (key): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camDollyEyeX",
+   "range": [
+    -128.7,
+    871.3
+   ],
+   "step": 10,
+   "what": "camera rig · dolly (key): eye x"
+  },
+  {
+   "name": "camDollyEyeY",
+   "range": [
+    -964.1,
+    35.9
+   ],
+   "step": 10,
+   "what": "camera rig · dolly (key): eye y"
+  },
+  {
+   "name": "camDollyEyeZ",
+   "range": [
+    912.7,
+    1912.7
+   ],
+   "step": 10,
+   "what": "camera rig · dolly (key): eye z"
+  },
+  {
+   "name": "camDollyCenterX",
+   "range": [
+    -27.2,
+    372.8
+   ],
+   "step": 10,
+   "what": "camera rig · dolly (key): aim point x"
+  },
+  {
+   "name": "camDollyCenterY",
+   "range": [
+    -200.6,
+    199.4
+   ],
+   "step": 10,
+   "what": "camera rig · dolly (key): aim point y"
+  },
+  {
+   "name": "camDollyCenterZ",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · dolly (key): aim point z"
+  },
+  {
+   "name": "camDollyZoom",
+   "range": [
+    0.83,
+    7.5
+   ],
+   "step": 0.05,
+   "what": "camera rig · dolly (key): ortho magnification"
+  },
+  {
+   "name": "camMoncutT0",
+   "range": [
+    133,
+    136
+   ],
+   "step": 0.1,
+   "what": "camera rig · moncut (cut): start (s)"
+  },
+  {
+   "name": "camMoncutEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · moncut (cut): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camMoncutEyeX",
+   "range": [
+    -254.2,
+    745.8
+   ],
+   "step": 10,
+   "what": "camera rig · moncut (cut): eye x"
+  },
+  {
+   "name": "camMoncutEyeY",
+   "range": [
+    -1428.2,
+    -428.2
+   ],
+   "step": 10,
+   "what": "camera rig · moncut (cut): eye y"
+  },
+  {
+   "name": "camMoncutEyeZ",
+   "range": [
+    656.2,
+    1656.2
+   ],
+   "step": 10,
+   "what": "camera rig · moncut (cut): eye z"
+  },
+  {
+   "name": "camMoncutCenterX",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · moncut (cut): aim point x"
+  },
+  {
+   "name": "camMoncutCenterY",
+   "range": [
+    -204.7,
+    195.3
+   ],
+   "step": 10,
+   "what": "camera rig · moncut (cut): aim point y"
+  },
+  {
+   "name": "camMoncutCenterZ",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 10,
+   "what": "camera rig · moncut (cut): aim point z"
+  },
+  {
+   "name": "camMoncutZoom",
+   "range": [
+    2.93,
+    26.4
+   ],
+   "step": 0.05,
+   "what": "camera rig · moncut (cut): ortho magnification"
+  },
+  {
+   "name": "camMonddriftT0",
+   "range": [
+    136,
+    140
+   ],
+   "step": 0.1,
+   "what": "camera rig · monddrift (orbit): start (s)"
+  },
+  {
+   "name": "camMonddriftT1",
+   "range": [
+    148,
+    152
+   ],
+   "step": 0.1,
+   "what": "camera rig · monddrift (orbit): end (s)"
+  },
+  {
+   "name": "camMonddriftEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · monddrift (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camMonddriftAz",
+   "range": [
+    -44,
+    36
+   ],
+   "step": 5,
+   "what": "camera rig · monddrift (orbit): degrees swept round the centre"
+  }
+ ]
+}
