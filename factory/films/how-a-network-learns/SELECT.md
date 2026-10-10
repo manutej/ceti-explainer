@@ -132,3 +132,35 @@ Check in round 2:
 - The eyebrow says "draft A, the laboratory". [minor; catalogue]
 - The DATA WARNING in the brief stands: iris.csv must be verified against UCI before public use. [block for public
   release; brief owner]
+
+## Round 2
+Read: the regenerated frames/ (strips, and the thumbs compared with drafts/a at 20, 28, 31-35, 46, 52, 73, 82, 87, 92 and
+101-107 s), film.json and gate.json. Gate: PASS. G5c is WARN, the same as before (the step counter, ROW 84/134).
+G8 is 116.0 KB. Purity is identical.
+
+What each round-1 change did:
+- markSize 4.4: **half.** The slab stacks now read as grids of countable marks (strip-14 c8, 82 s). The 2 lavender
+  misses are still not findable, because that is colour against neighbours, not size. Parked.
+- ribbonMix 0.85: **half.** The bands are lighter at 82 s, but at 66-81 s they are still hairlines (strip-13 c2, 73 s).
+  The width knob is the one that acts on the problem → r2 widthGain.
+- pinSize 20: **did little.** The "37 FLOWERS IN THE SHARED BAND" pin is bigger, but it is still in the mono pin
+  face, and it now runs to about 935 units, near the right edge (strip-05 c8). The knob is at its ceiling. A display
+  face for result pins is film.js → beyond scope.
+- rowPinsAt 101.4: **worked.** The pins land at 102.0 s, about 0.5 s after caption 19 fades in at 101.5 (strip-18 c0).
+- camDist0 1.7: **half.** The slice sits higher, but the two-line caption 6 still touches its lower edge
+  (strip-06 c2, 31 s) → r2 caption 6.
+- camDist1 1.56: **worked**, together with the one-line caption 9. The corner of the slice clears the caption at
+  46 s (strip-08 c8), and the descent is still the focal object.
+- Captions 9, 10, 14, 16, 17 and 19: **worked.** All six are one line, and none touches marks (46, 52, 73, 87, 92 and
+  104 s). Caption 19 now names the band that is on screen.
+
+findings.r2.json: 8 findings, 0 block, 1 major, 7 minor. The dry run accepted all 8.
+- widthGain 6 → 7.5 (B's value).
+- Seven wrapped captions (1, 2, 3, 5, 6, 7 and 20) are cut to one line. Each is shorter than before (−5 to −13
+  chars), so film.json shrinks, and they carry the same claims.
+
+Convergence: 12 → 8, no block, and no knob reversed. This is the last round. Whatever remains goes to NOTES.md:
+- The 2 misses at 82 s.
+- The result face for the band pin.
+- Everything in "Beyond scope" above.
+- The G5c WARNs.

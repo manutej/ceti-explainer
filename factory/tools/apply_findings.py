@@ -255,7 +255,10 @@ def main():
         return 0
 
     with open(fjp, "w") as f:
-        f.write(json.dumps(film, indent=1, ensure_ascii=False) + "\n")
+        # keep the file's own formatting: a compact film.json (one line, written to fit the G8 budget) stays compact
+        compact = film_json_path.read_text().count("\n") <= 2 if film_json_path.exists() else False
+        f.write((json.dumps(film, ensure_ascii=False, separators=(",", ":")) if compact
+                 else json.dumps(film, indent=1, ensure_ascii=False)) + "\n")
     L = film["look"]
     b = run([sys.executable, BUILD, fdir, "--brand", L["brand"], "--chrome", L["chrome"], "--material", L["material"]])
     page = None
