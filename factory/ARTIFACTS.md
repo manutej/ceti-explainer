@@ -19,6 +19,7 @@ hashes in tests/baselines/builds.json). Private to the owner until shared from e
 | noether-symmetry | Noether's symmetry (Wave AI-STORIES, feature-long 153 s, webgl, no commit beat) | https://claude.ai/artifact/KREgLPGEjsNL7eFhk1aTpZ |
 | who-gains | Who gains? (Wave AI-STORIES, feature-long 153 s, webgl, no commit beat) | https://claude.ai/artifact/RszkM4bvc6u7ZA9yqoaKT2 |
 | one-query | One query (Wave AI-STORIES, feature-long 153 s, webgl, no commit beat) | https://claude.ai/artifact/Cs9mPBqxCQhzmUia8sNaxj |
+| pass-every-time | Pass every time (Wave AI-STORIES, feature-long 153 s, webgl, no commit beat) | https://claude.ai/artifact/EubRyMwNZdsCHAXYda9zFe |
 | amdahl | Ten Times Faster | https://claude.ai/artifact/5fTRivvv9qeJT2EWK2r9ic |
 | streaks | Three bad months | https://claude.ai/artifact/42cYfY5FiETniDYxg1nZdg |
 | cost-of-delay | The Cost of Waiting | https://claude.ai/artifact/Xa8J7YUfhCfue7945fLq8n |
