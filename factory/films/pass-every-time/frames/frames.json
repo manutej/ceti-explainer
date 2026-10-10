@@ -434,7 +434,7 @@
    ],
    "step": 0.1,
    "what": "s: the first pull request cube arrives",
-   "value": 101
+   "value": 100.2
   },
   {
    "name": "prT1",
@@ -624,7 +624,7 @@
    ],
    "step": 0.1,
    "what": "s: callout hard-cuts to the ratio of the two horizons (about, nearest ten)",
-   "value": 132
+   "value": 132.1
   },
   {
    "name": "cRatioEnd",
@@ -1317,8 +1317,8 @@
    "value": 44
   }
  ],
- "ms_per_frame": 518,
- "s_per_frame": 0.518,
+ "ms_per_frame": 641,
+ "s_per_frame": 0.641,
  "purity": {
   "pass": true,
   "at": {
@@ -1393,7 +1393,7 @@
    "file": "thumbs/t-0001.00.jpg",
    "strip": "strip-01.png",
    "cell": 2,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1404,7 +1404,7 @@
    "file": "thumbs/t-0001.50.jpg",
    "strip": "strip-01.png",
    "cell": 3,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1415,7 +1415,7 @@
    "file": "thumbs/t-0002.00.jpg",
    "strip": "strip-01.png",
    "cell": 4,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1426,7 +1426,7 @@
    "file": "thumbs/t-0002.50.jpg",
    "strip": "strip-01.png",
    "cell": 5,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1437,7 +1437,7 @@
    "file": "thumbs/t-0003.00.jpg",
    "strip": "strip-01.png",
    "cell": 6,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1448,7 +1448,7 @@
    "file": "thumbs/t-0003.50.jpg",
    "strip": "strip-01.png",
    "cell": 7,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1459,7 +1459,7 @@
    "file": "thumbs/t-0004.00.jpg",
    "strip": "strip-01.png",
    "cell": 8,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1470,7 +1470,7 @@
    "file": "thumbs/t-0004.50.jpg",
    "strip": "strip-01.png",
    "cell": 9,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1481,7 +1481,7 @@
    "file": "thumbs/t-0005.00.jpg",
    "strip": "strip-01.png",
    "cell": 10,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1492,7 +1492,7 @@
    "file": "thumbs/t-0005.50.jpg",
    "strip": "strip-01.png",
    "cell": 11,
-   "caption": "An agent that is usually right does most of the work.",
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
@@ -1646,7 +1646,7 @@
    "file": "thumbs/t-0012.50.jpg",
    "strip": "strip-03.png",
    "cell": 1,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1657,7 +1657,7 @@
    "file": "thumbs/t-0013.00.jpg",
    "strip": "strip-03.png",
    "cell": 2,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1668,7 +1668,7 @@
    "file": "thumbs/t-0013.50.jpg",
    "strip": "strip-03.png",
    "cell": 3,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1679,7 +1679,7 @@
    "file": "thumbs/t-0014.00.jpg",
    "strip": "strip-03.png",
    "cell": 4,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1690,7 +1690,7 @@
    "file": "thumbs/t-0014.50.jpg",
    "strip": "strip-03.png",
    "cell": 5,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1701,7 +1701,7 @@
    "file": "thumbs/t-0015.00.jpg",
    "strip": "strip-03.png",
    "cell": 6,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1712,7 +1712,7 @@
    "file": "thumbs/t-0015.50.jpg",
    "strip": "strip-03.png",
    "cell": 7,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1723,7 +1723,7 @@
    "file": "thumbs/t-0016.00.jpg",
    "strip": "strip-03.png",
    "cell": 8,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1734,7 +1734,7 @@
    "file": "thumbs/t-0016.50.jpg",
    "strip": "strip-03.png",
    "cell": 9,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1745,7 +1745,7 @@
    "file": "thumbs/t-0017.00.jpg",
    "strip": "strip-03.png",
    "cell": 10,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1756,7 +1756,7 @@
    "file": "thumbs/t-0017.50.jpg",
    "strip": "strip-03.png",
    "cell": 11,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1767,7 +1767,7 @@
    "file": "thumbs/t-0018.00.jpg",
    "strip": "strip-04.png",
    "cell": 0,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1778,7 +1778,7 @@
    "file": "thumbs/t-0018.50.jpg",
    "strip": "strip-04.png",
    "cell": 1,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1789,7 +1789,7 @@
    "file": "thumbs/t-0019.00.jpg",
    "strip": "strip-04.png",
    "cell": 2,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1800,7 +1800,7 @@
    "file": "thumbs/t-0019.50.jpg",
    "strip": "strip-04.png",
    "cell": 3,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1811,7 +1811,7 @@
    "file": "thumbs/t-0020.00.jpg",
    "strip": "strip-04.png",
    "cell": 4,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -1822,7 +1822,7 @@
    "file": "thumbs/t-0020.50.jpg",
    "strip": "strip-04.png",
    "cell": 5,
-   "caption": "A customer-service test: GPT-4o on tau-bench retail.",
+   "caption": "Customer service: GPT-4o on tau-bench retail.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
@@ -4099,7 +4099,7 @@
    "file": "thumbs/t-0124.00.jpg",
    "strip": "strip-21.png",
    "cell": 8,
-   "caption": "One cube is one minute. At the 80 % bar: 27 minutes.",
+   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4110,7 +4110,7 @@
    "file": "thumbs/t-0124.50.jpg",
    "strip": "strip-21.png",
    "cell": 9,
-   "caption": "One cube is one minute. At the 80 % bar: 27 minutes.",
+   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4121,7 +4121,7 @@
    "file": "thumbs/t-0125.00.jpg",
    "strip": "strip-21.png",
    "cell": 10,
-   "caption": "One cube is one minute. At the 80 % bar: 27 minutes.",
+   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4132,7 +4132,7 @@
    "file": "thumbs/t-0125.50.jpg",
    "strip": "strip-21.png",
    "cell": 11,
-   "caption": "One cube is one minute. At the 80 % bar: 27 minutes.",
+   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4143,7 +4143,7 @@
    "file": "thumbs/t-0126.00.jpg",
    "strip": "strip-22.png",
    "cell": 0,
-   "caption": "One cube is one minute. At the 80 % bar: 27 minutes.",
+   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"

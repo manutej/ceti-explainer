@@ -90,3 +90,40 @@ cMin289 129.5 (4 h 49 min hold to 2.5 s); hook1Out 5.7 (the blank at 6.0 s); prT
    first mark of the next scene in at the cut. Partly a knob (prT0, min27T0, r1/r2).
 7. Draft a's gate ran with --quick: run the full gate (G11 at 0.5 s steps) after round 1; G1 ready-time under load is not a
    defect. Phone 390 OVERFLOW (scrollWidth 400) is the kit's, both drafts: kit2 owner.
+
+## Round 2 · 2026-10-10
+Read: findings.r1.report.json (12 applied, 0 rejected; build ok; full gate PASS incl. G11 at 0.5 s, 307 samples; G1 ready
+1451 ms; frames 0.518 s/frame, purity identical), fresh frames/ strips and thumbs, frames.json, film.json, claims.json,
+gate.json. Not read: film.js, lib/. Phone 390 scrollWidth 400 OVERFLOW unchanged (kit2's, not the film's).
+
+| # | r1 finding | landed? | evidence (film s) |
+|---|---|---|---|
+| 0 | ghostMix 0.3 -> 0.45 | YES | 47.5 and 52.5 s: unlit cubes read slate-blue, every column reads as four tries; 68.5/72 s the sort shows partial columns; 37.0 s the plan field still reads about 60 % gold (lit dominates) |
+| 1 | plateMix 0.16 -> 0.3 | YES | 20.0 s: 115 tiles a countable grid; 72.0 s the 22 empty plates visible at the back under "22 tasks never pass"; under the plane (77-79 s) they are dim but present |
+| 2-3 | m3T1 75.5, c44of 77.0 | YES | plane at rest 75.5 s; "44 of 115" 77.0-79.0, "38.3 %" replaces it at 79.5 (2.5 s hold) |
+| 4-7 | min27T0 123, min27T1 125, cMin27 124.5-127.0 | YES | 123.5 s first cubes; 124.5 pin lands on a two-thirds-built column, full by 125.0; pin gone at 127.0 as the 289 column starts (126.6-127), no collision |
+| 8 | c22End 73.0 | YES | "22" visible 72.5, gone at 73.0 as the plane starts |
+| 9-10 | qIn 137.0, bookT1 138.0 | YES | 136.5 s field still rising, no type; 137.0 plan pose nearly settled, question in from 137.0 above the field; 137.5/138.0 no overprint |
+| 11 | caption 29 | YES | 135.3-140.8 "On Monday, ask for the every-time number." one line, under the stage question |
+
+findings.r2.json: 5 findings, 0 block, 0 major, 5 minor; dry run accepted 5 of 5 (findings.r2.report.json):
+captions 0, 2, 25 to one line (44, 45, 46 chars; no new digits); cRatio 132.1 ("4 h 49 min" hold 2.5 s, ratio with
+caption 28); prT0 100.2 (the PR sheet starts under the cut instead of 1.5 s of empty floor). Left as is: the 0.5 s blank
+at 6.0 s between belief and doubt (a breath, not a fault); cMin27 pin at 124.5 lands 0.5 s before its column is full
+(within the r1 intent).
+
+## Beyond scope after round 2 (film.js; tier-2 revision), ordered by what it buys a viewer
+1. The ladder row 82.6-91 s (89.0 s: 60.4 / 49.1 / 43.0 / 38.3 all in display face). Four results at once (R2: two);
+   49.1 % and 43.0 % have no count on stage. Keep 60.4 % one try against 38.3 % every try over the cut field; move
+   49.1 / 43.0 to captions 14-15 or drop them. Buys: the one comparison the film is about. Unchanged from r1.
+2. Monday bookend (137-141 s): the plan pose is small (bookDist 1000) and mondayDim 0.5 mutes the 44 lit columns to
+   khaki; land it on the opening plan framing and scale, the 44 columns gold, the rest at ghost, so 37.0 s (60 % lit)
+   and the close (38 % all the way) are the same frame. Buys: the R-E return-to-view-1 callback.
+3. Re-sort layout from draft b (60-72 s): rows by passes (4, 3, 2, 1, 0) with the 44 as one front row. At 68.5 s the
+   44 are a gold wedge at the front-left, legible but not a shape you can count. Buys: the 44 lands as a shape.
+4. "27 min" pin in the smallest face beside "about 10x" (132-135 s, 132.0 thumb): set it secondary or drop it once
+   "about 10x" lands. Buys: the 10x comparison reads at phone size.
+5. Empty floor 121.0-123.4 under caption 24 (min27T0 already at its 123.0 floor): bring the first minute cube or the
+   floor axis in at the cut. Buys: no dead stage after "About half".
+6. Item 2 of r1 (outline on unlit cubes) is no longer needed: ghostMix 0.45 carries the four-high column.
+7. Phone 390 OVERFLOW (scrollWidth 400): kit2 owner, not this film.
