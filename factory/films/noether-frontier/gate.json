@@ -2,16 +2,16 @@
   "film": "noether-frontier",
   "page": "/home/user/ceti-explainer/factory/films/noether-frontier/build/noether-frontier.ceti-coastal-dark.none.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/noether-frontier",
-  "date": "2026-10-10T20:04:27.084Z",
+  "date": "2026-10-10T20:16:38.785Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 2114 ms; stage sd 30.6s:28.7 76.5s:24.4 122.4s:28.5",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 2465 ms; stage sd 30.6s:28.7 76.5s:24.4 122.4s:28.5",
       "data": {
-        "readyMs": 2114,
+        "readyMs": 2465,
         "stats": [
           {
             "t": 30.6,

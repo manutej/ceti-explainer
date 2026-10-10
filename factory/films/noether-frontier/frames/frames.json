@@ -154,7 +154,7 @@
    ],
    "step": 1,
    "what": "length of the comet of light that runs along each neuron's arc, in recorded moments",
-   "value": 8
+   "value": 4
   },
   {
    "name": "cometDim",
@@ -314,7 +314,7 @@
    ],
    "step": 0.1,
    "what": "row pitch in box depths",
-   "value": 1.5
+   "value": 1.9
   },
   {
    "name": "plateW",
@@ -334,7 +334,7 @@
    ],
    "step": 10,
    "what": "depth of the plate under the toy",
-   "value": 150
+   "value": 190
   },
   {
    "name": "rowStep",
@@ -974,7 +974,7 @@
    ],
    "step": 2,
    "what": "baseline of the first Monday line",
-   "value": 372
+   "value": 390
   },
   {
    "name": "honY",
@@ -1007,8 +1007,8 @@
    "value": 38
   }
  ],
- "ms_per_frame": 271,
- "s_per_frame": 0.271,
+ "ms_per_frame": 276,
+ "s_per_frame": 0.276,
  "purity": {
   "pass": true,
   "at": {

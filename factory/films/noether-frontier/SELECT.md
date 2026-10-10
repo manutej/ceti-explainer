@@ -141,3 +141,59 @@ findings.r1.report.json.
    seat.
 6. **The followed run at 78.5-80 s** (strip-14 c1-c3). The one run that brightens is not distinguishable before the
    comet starts. Either merge the follow into the comet or drop the beat. Tier 2.
+
+## Round 2
+Read: findings.r1.report.json (9 of 9 applied, build ok, gate PASS), the new frames/ thumbs and frames.json, film.json,
+claims.json, gate.json and the brief. Not read: film.js, lib/. No browser. The gate PASSes G1-G11 with no WARN, the page
+is 1.261 MB (unchanged), and the rebuild runs at 0.271 s/frame with purity identical at 30.6, 76.5 and 122.4 s.
+
+### Did round 1 land?
+| # | change | landed? | evidence (film seconds) |
+|---|---|---|---|
+| 0 | cometDim 0.25 → 0.55 | applied, but the beat still fails | 80.5-87.0 s: each layer turns into one even grey band and the layer colours return only at 87.5 s. The five plates still read as five layers. |
+| 1 | growComet 1.5 → 2.2 | applied, but the beat still fails | 81.5-86 s: the lit dots are bigger, but with 8 lit moments per arc they merge into a bar. No single head can be followed. Fix: finding r2 #0. |
+| 2 | treeD 70 → 90 | yes, with one regression | At 132.0 s and 133.0 s the two children and their subtrees cross as two separate groups, and the row below stays put. At 132.5 s they overlap at the crossing point, which is inherent to a depth step. The CANDIDATE leader meets the ring at 132-150 s. Regression: at 135.3-136.0 s the plate's front edge meets line 1 of the Monday type. Fix: r2 #3. |
+| 3 | treeBox 20 → 24 | yes | 122-131 s: the 4 · 8 · 7 layers can be counted at thumb size, and the ring is now larger than the caption's letters. |
+| 4 | toyH 14 → 20 | yes | 99.5-106 s: three blocks, with the lengths 4, 7 and 9 clear. |
+| 5 | toyBoxD 12 → 16 | partly | 109.5-111 s: the taller fronts now cover the gap between rows at elevation 40, so the six rows read as a slab with seams. Fix: r2 #1 and #2. |
+| 6 | ringW 1.3 → 1.8 | partly | At 5-11 s and at 36-38 s the outer three or four shells read as white rings, and the inner ones merge with the tangle. At 45 s, in the ghost, all six read. This is good enough; no change. |
+| 7 | caption 25 | yes | 112.1-114.95 s, on one line at 113.5 s. |
+| 8 | caption 32 | yes | 135.3-140.8 s, on one line at 136 s and at 139 s. |
+The training slide (80-88 s) is still the one part of the arc that the pictures alone do not carry. The other three
+parts of the arc, and the tags, panel, honest line (141.5-150 s) and card (151.5 s), are unchanged and still hold.
+
+### Round-2 findings (findings.r2.json: 4, of which 2 are major and 2 minor; the dry run accepted 4 of 4)
+- **cometLen 8 → 4** (major, 80-88 s). This halves the number of lit, grown dots on each arc, so the heads can stand
+  apart from their arcs. It is the last knob for this beat. If 4 still shows no moving head, go to Beyond scope 2.
+- **toyRow 1.5 → 1.9** (minor, 108-114 s). This puts a strip of plate between rows.
+- **plateD 150 → 190** (minor). At the new pitch the six rows span 168 units, and 190 keeps them on the plate.
+- **monY 372 → 390** (major, 135.3-136 s). This moves the Monday type off the tree's plate edge. Line 2 then sits at
+  428 with descenders at about 436, above the caption mark at about 444, and G11 will confirm.
+- **What to check in round 3 (if any):**
+  - At 80-88 s, whether a head can be followed.
+  - At 109-114 s, whether there are six rows with plate between them and no row overhangs the plate.
+  - At 135-141 s, whether the Monday type clears both the plate and the caption, and G11 is clean.
+
+## Beyond scope, updated (ordered by what it buys a viewer; the tier-2 film.js revision reads this)
+1. **The slide in the training beat as a mark, not a light** (80-88 s). This is now first. Two knob rounds
+   (cometDim, growComet, and now cometLen) have not made a head you can follow at thumb size. At 80.5 s the layers
+   lose their colour into a grey bar. Draw one followed neuron per layer, or a single one, as a bright head that
+   travels its arc over a faint trail, as the planet does in the HOOK. Keep the other dots in their layer colour,
+   sunk, instead of greying them. That is new mark logic in film.js. Tier 2 (Opus).
+2. **The panel contradicts the picture during the leak, 88-96 s** (unchanged from round 1). "8 fixed sums" in accent
+   stays up while the layers visibly leak at 93-95 s, and "exact only for tiny steps" arrives only at 96.0 s. Dim
+   "8 fixed sums" from 88 s, or bring the qualifier in at M3's start. This is film.json `panel` data, outside the
+   knobs. Tier 2.
+3. **The answer cube in the toy** (b, 110-114 s). Add one mark at the end of each row: one colour in all six rows
+   for the sound total, six colours for the order-sensitive model. Even with the row gap fixed, a whole-row recolour
+   asks the eye to compare 18 blocks, while one cube per row asks it to compare 6. New mark. Tier 2.
+4. **Tree and Monday frame spacing** (135-141 s). The Monday type sits in the narrow gap between the tree's plate and
+   the caption band, and monY fixes it only by a few units. A tree frame that lifts the plate (camTreeZ, or a smaller
+   plate margin in film.js) would give the type real room. Tier 2, if round 3 shows the type still tight.
+5. **The tree swap at the crossing** (132.5 s). The two children overlap for one half-second at the midpoint of a
+   depth step. A small lift in y, or a step toward the camera, would keep them apart. This is cosmetic now that
+   132.0 s and 133.0 s read. Tier 2, optional.
+6. **The followed run at 78.5-80 s.** It is still not distinguishable before the comet starts, and it gets folded
+   into item 1 if that is taken. Tier 2.
+7. **A standing tree** (b, 122 s). With treeBox 24 the flat tree now reads and can be counted, so this has dropped
+   to last. Director's seat.
