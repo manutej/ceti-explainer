@@ -180,10 +180,10 @@
   {
    "id": "noether-symmetry",
    "title": "Noether's symmetry",
-   "eyebrow": "CETI · AI-STORIES · Noether's symmetry",
+   "eyebrow": "CETI · AI-STORIES · Noether's symmetry · part 1",
    "dur": 153,
    "chapters": 4,
-   "captions": 38,
+   "captions": 45,
    "sources": 12,
    "claims": 40,
    "takeaway": "Every symmetry hides something that stays.",
@@ -198,19 +198,19 @@
    },
    "page": {
     "path": "factory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html",
-    "bytes": 1292541,
-    "sha256": "d23365c6b2ce5c85be82bea65b8aa8ab26d3b6ab90ff3eeeaa802e1462e78fa6"
+    "bytes": 1249649,
+    "sha256": "bca636e1e6c971609403eeaf3255be5b7166ecaf6024e734c051b89472bbd094"
    }
   },
   {
    "id": "one-query",
    "title": "One query",
-   "eyebrow": "CETI · AI and energy, by the numbers · draft B (the denominator)",
+   "eyebrow": "CETI · AI and energy, by the numbers",
    "dur": 153,
    "chapters": 4,
-   "captions": 28,
+   "captions": 29,
    "sources": 7,
-   "claims": 61,
+   "claims": 71,
    "takeaway": "Small per query, large per grid. Divided by what?",
    "folder": "factory/films/one-query",
    "gate": {
@@ -223,8 +223,8 @@
    },
    "page": {
     "path": "factory/films/one-query/build/one-query.ceti-boardwalk-dark.none.html",
-    "bytes": 1286838,
-    "sha256": "016f3bdb9b00c90ae71c882c59c90493da3549f6ad861a1022e34e4e634ac999"
+    "bytes": 1293898,
+    "sha256": "5cb037cb569a8941506e8afd8c5c893f6bb9e24ecad20d141c6981f356b43d60"
    }
   },
   {
@@ -248,8 +248,8 @@
    },
    "page": {
     "path": "factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.html",
-    "bytes": 1241054,
-    "sha256": "2785f65690b5a66a9079b59edf2f7a45bc09190bee5f35c2c0656970ebd45378"
+    "bytes": 1243700,
+    "sha256": "b9407025ff48a44647502ccab421fe941ecca13ff918f3bdbe415c6f26368356"
    }
   },
   {
