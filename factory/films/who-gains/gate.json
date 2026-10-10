@@ -1,0 +1,217 @@
+{
+  "film": "who-gains",
+  "page": "/home/user/ceti-explainer/factory/films/who-gains/build/who-gains.ceti-neosage-dark.none.html",
+  "filmDir": "/home/user/ceti-explainer/factory/films/who-gains",
+  "date": "2026-10-10T17:44:22.800Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 3020 ms; stage sd 30.6s:36.1 76.5s:20.5 122.4s:40.7",
+      "data": {
+        "readyMs": 3020,
+        "stats": [
+          {
+            "t": 30.6,
+            "mean": 39.074640075231585,
+            "sd": 36.063161678304446
+          },
+          {
+            "t": 76.5,
+            "mean": 29.951925347221596,
+            "sd": 20.490172603546654
+          },
+          {
+            "t": 122.4,
+            "mean": 43.756885329860665,
+            "sd": 40.73928451907813
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 15.3, 45.9, 76.5, 107.1, 137.7 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, gl-post.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 153 s; material 150 s (want 140–180, format feature-long) + brand 3 s; total ≤ 183"
+    },
+    {
+      "id": "G4b",
+      "name": "format · beats",
+      "status": "PASS",
+      "evidence": "order HOOK → CASE → COUNT → MONDAY; t0 H0 C12 C60 M135"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit {\"enabled\":false}"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Averages hide who gains. Split by experience first.\"; frame at 152 s sd 15.5; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Three studies, earlier tools, different tasks; the journal version rounds differ\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "4 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "25 claims, 4 with formula, 4 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 23 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "17 visible number(s) not in claims (chrome?): 351 @13s \"351\"; 937 @14s \"937\"; 1,522 @15s \"1,522\"; 2,693 @17s \"2,693\"; 3,279 @18s \"3,279\"; 3,864 @19s \"3,864\"",
+      "data": {
+        "unknown": [
+          "351 @13s \"351\"",
+          "937 @14s \"937\"",
+          "1,522 @15s \"1,522\"",
+          "2,693 @17s \"2,693\"",
+          "3,279 @18s \"3,279\"",
+          "3,864 @19s \"3,864\"",
+          "4,449 @20s \"4,449\"",
+          "35 @21s \"5,035\"",
+          "422 @77s \"422\"",
+          "1,125 @78s \"1,125\"",
+          "1,828 @79s \"1,828\"",
+          "2,531 @80s \"2,531\"",
+          "3,234 @81s \"3,234\"",
+          "3,937 @82s \"3,937\"",
+          "64 @83s \"4,640\"",
+          "25 @102s \"SOURCE · METR · 2025\"",
+          "123 @106s \"123\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "14 must-read / 14 secondary / 29 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 14,
+          "secondary": 14,
+          "chrome": 29
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 22 s (count.at); first ratio \"On average: +14 % issues resolved per ho\" at 26 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 89.8 KB (film.js 57.9, film.json 22.8, claims.json 9.2) < 120 KB; page 1.299 MB < 1.3 MB",
+      "data": {
+        "code": 91997,
+        "page": 1298912
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand ceti-neosage-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "ceti-neosage-dark",
+          "chrome": "none",
+          "material": "ink",
+          "texture": "none",
+          "texture_declared": "none",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    },
+    {
+      "id": "G11",
+      "name": "text overlap",
+      "status": "PASS",
+      "evidence": "307 samples every 0.5 s, 93 distinct texts (texts with data-role), caption showing at 266; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
+      "data": {
+        "step": 0.5,
+        "samples": 307,
+        "mode": "texts with data-role",
+        "canvasText": "not seen",
+        "fail": 0,
+        "warn": 0,
+        "instances": []
+      }
+    }
+  ]
+}
