@@ -55,3 +55,6 @@ factory/**/frames/*
 # MP4 exports and their frame dumps are not committed (regenerate with arsenal/tools/export.mjs)
 factory/**/sample/
 factory/**/export/
+
+# handoff zips are built on demand
+factory/exports/
