@@ -3,6 +3,31 @@
  "generated_by": "factory/tools/catalogue.py",
  "films": [
   {
+   "id": "a-bell-from-dice",
+   "title": "A bell from dice",
+   "eyebrow": "CETI · the central limit theorem, with dice",
+   "dur": 123,
+   "chapters": 4,
+   "captions": 23,
+   "sources": 5,
+   "claims": 163,
+   "takeaway": "Add many small chances and the middle wins.",
+   "folder": "factory/films/a-bell-from-dice",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/a-bell-from-dice/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
+   "page": {
+    "path": "factory/films/a-bell-from-dice/build/a-bell-from-dice.midnight-ink.none.html",
+    "bytes": 1268875,
+    "sha256": "191d92699104d87bfbb78368428dbedf7218cc582946b5a9f19b5d0fc5173d2d"
+   }
+  },
+  {
    "id": "amdahl",
    "title": "Ten Times Faster",
    "eyebrow": "CETI · Case · Amdahl's law",
@@ -128,6 +153,31 @@
    }
   },
   {
+   "id": "how-a-network-learns",
+   "title": "How a Network Learns",
+   "eyebrow": "CETI · the two-minute feature · a network learning Fisher's irises · draft A, the laboratory",
+   "dur": 123,
+   "chapters": 4,
+   "captions": 22,
+   "sources": 6,
+   "claims": 69,
+   "takeaway": "Fast at first. The last few cost the most.",
+   "folder": "factory/films/how-a-network-learns",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/how-a-network-learns/gate.json",
+    "failed_of_total": [
+     0,
+     19
+    ]
+   },
+   "page": {
+    "path": "factory/films/how-a-network-learns/build/how-a-network-learns.ceti-neosage-dark.none.html",
+    "bytes": 1293129,
+    "sha256": "9fbe415629cca419d274a6e0e93df948871aa7b0af80d6ab920b57f7221d708d"
+   }
+  },
+  {
    "id": "queues",
    "title": "Busy is not fast",
    "eyebrow": "CETI case · utilisation and waiting",
@@ -246,11 +296,7 @@
      18
     ]
    },
-   "page": {
-    "path": "factory/films/simpsons-3d/build/simpsons-3d.ceti-boardwalk-dark.none.html",
-    "bytes": 1269544,
-    "sha256": "9d5fccdd1dc8072f937582b0c974ed5693093a660bf8e9ecdbf739bdaddfbb60"
-   }
+   "page": null
   },
   {
    "id": "simpsons",
@@ -421,10 +467,31 @@
      19
     ]
    },
+   "page": null
+  },
+  {
+   "id": "women-and-children",
+   "title": "Women and children first",
+   "eyebrow": "CETI · a data film · the Titanic, April 1912",
+   "dur": 123,
+   "chapters": 4,
+   "captions": 20,
+   "sources": 5,
+   "claims": 139,
+   "takeaway": "True on average is not true for every group.",
+   "folder": "factory/films/women-and-children",
+   "gate": {
+    "verdict": "PASS",
+    "file": "factory/films/women-and-children/gate.json",
+    "failed_of_total": [
+     0,
+     18
+    ]
+   },
    "page": {
-    "path": "factory/films/wiring-and-the-whole/build/wiring-and-the-whole.midnight-ink.none.html",
-    "bytes": 1265027,
-    "sha256": "874c3957a2e92241a98cc4b206450fc085f88eef2036f4864cdedd7320f8008a"
+    "path": "factory/films/women-and-children/build/women-and-children.ceti-boardwalk-dark.none.html",
+    "bytes": 1282677,
+    "sha256": "9889710e014db71d418bb5d12b98a1841d68aa4c4b0a067cc6f776f6054f168b"
    }
   }
  ]

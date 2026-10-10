@@ -13,6 +13,8 @@ hashes in tests/baselines/builds.json). Private to the owner until shared from e
 | simpsons | Worse Overall | https://claude.ai/artifact/AhJ9CpYVewB8cwZmsQm4Nm |
 | simpsons-3d | Worse Overall, Turned (P1, webgl, three drafts, two evaluator rounds) | https://claude.ai/artifact/QmV53zihBx8Wn3gHnPA4HC |
 | wiring-and-the-whole | The Wiring and the Whole (showcase, feature format) | https://claude.ai/artifact/P7aFQNHsGxEEoEooYeagdJ |
+| how-a-network-learns | How a Network Learns (Wave FILMS-GL, feature 123 s, webgl, no commit beat) | https://claude.ai/artifact/D8kGgCMvmxS193ZpAgWT9D |
+| women-and-children | Women and Children (Wave FILMS-GL, feature 123 s, webgl, no commit beat) | https://claude.ai/artifact/WyPAparWjvvoZEqXBFZAYg |
 | amdahl | Ten Times Faster | https://claude.ai/artifact/5fTRivvv9qeJT2EWK2r9ic |
 | streaks | Three bad months | https://claude.ai/artifact/42cYfY5FiETniDYxg1nZdg |
 | cost-of-delay | The Cost of Waiting | https://claude.ai/artifact/Xa8J7YUfhCfue7945fLq8n |
