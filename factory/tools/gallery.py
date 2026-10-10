@@ -20,7 +20,7 @@ OUT = ROOT / 'factory' / 'gallery.html'
 DOCS = [
     ('p5.js 2.x documentation (the atlas)', 'references/atlas/pages/index.md', '300 cited pages, five hubs; reader at references/atlas/atlas.html'),
     ('need → page → module index', 'skills/atelier-draft/references/p5-index.md', 'two hops from a visual need to the atlas page and the arsenal module'),
-    ('the arsenal', 'arsenal/README.md', '24 lanes with cards, demos, contact sheets; chain recipes in skills/atelier-draft/references/chain-recipes.md'),
+    ('the arsenal', 'arsenal/README.md', '37 lanes with cards, demos, contact sheets; chain recipes in skills/atelier-draft/references/chain-recipes.md'),
     ('the kit', 'factory/kit2/README.md', 'film.json, the K API, WebGL, knobs, libs'),
     ('the format and the laws', 'factory/FORMAT.md', 'with CLAUDE.md and docs/DECISIONS.md'),
     ('the pipeline', 'factory/PIPELINE.md', 'draft ×3 → select → fix ×2 → ship; skills under skills/atelier-*'),

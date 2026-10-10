@@ -107,7 +107,7 @@ tests/                       proofs.sh, node/ (unit tests), baselines/ (gate, ch
 factory/                     the 75-second case factory: FORMAT.md, kit/, kit2/ (the default build: brand, chrome, material
                              injected), tools/ (gate.mjs, catalogue.py, new_topic.py, repo_topic.py: a git repo to a topic),
                              topics/, films/ (15 shipped), CATALOGUE.md; README: factory/README.md
-arsenal/                     pattern and material library (24 lanes), core/ (timeline, generator), structures/, 22 brand packs
+arsenal/                     pattern and material library (37 lanes), core/ (timeline, generator), structures/, 22 brand packs
                              in brands/, tools/ (shoot, export, brand_check, tweak, ds_bundle), ds-bundle/; index: arsenal/README.md
 references/atlas/            the p5 atlas: pages/<slug>.md that the arsenal cards cite
 docs/                        DECISIONS.md (binding: D1 to D10, Q1 to Q15), study/

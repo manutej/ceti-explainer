@@ -1,13 +1,13 @@
 # chain-recipes · which arsenal modules to chain, by visual job
 
 Read when you must choose and wire p5 modules for a film. Topic-agnostic: recipes are keyed by what the picture does.
-Sources: arsenal/{README,BRIEF,SWEEP,SEATS}.md, every lane card.md, core/{timeline,generator}.js and structures.js headers, the
+Sources: arsenal/{README,BRIEF,SWEEP,SEATS,WAVE-GL}.md, every lane card.md, core/{timeline,generator}.js and structures.js headers, the
 shipped chains (factory/films/wiring-and-the-whole/lib, factory/films/simpsons-3d/drafts/{a,b,c}/lib, PROTOTYPE.md).
 Companion: kit2-contract.md (film.json, K API, gate rows). Paths below are relative to the repo root.
 
 ## Contents
 1. Module table (ids, signatures, exports, renderer, cost, brand fidelity, card)
-2. Recipes by visual job (R1-R16)
+2. Recipes by visual job (R1-R28; R17-R28 are Wave GL)
 3. Assembly: lib/ + assemble.py, or kit2 `libs`
 4. Costs and limits
 
@@ -57,6 +57,19 @@ never swept with other tokens inside a film, so check one light pack (`--brand s
 | timeline (demo) | one scene re-timed three ways | `rhythm slow\|fast\|stagger`, `dots bars fade` | none; use core/timeline instead | p2d | medium | 4 | patterns/timeline/card.md |
 | materials-demo | the six drawn materials on one scene | `material` | none; use materials/drawn | p2d | medium | none | patterns/materials-demo/card.md |
 | explorable | slider/chip explorer, not a film (own instance, DOM, ignores t) | `vals` | none; do not chain | p2d | medium | 4 | patterns/explorable/card.md |
+| gl-instances | 10k-100k marks (dot, square, box, bar) as ONE draw, counted in on t; `pick` lights a subset by id | `layout scatter\|waffle\|stack\|field`, `mark`, `render marks\|density`, `n`, `countIn`, `win`, `size`, `alpha`, `dim`, `brush{rect,span,role}`, `pick{ids\|n,span,role,label}`, `exposure`, `cam{proj,az,el,zoom}`; `data` rows `{x,y,c,s,a}` / `{c,a}` / `{k}` / matrix | `count(t,st,params)`, `picked(t,st,params)`, `pick(p,st,ids)`; `draw` returns `{k,n,brushed,picked}` | webgl (WebGL2) | heavy: 0.14-1.21 s (flat-100k 0.25) | ALL (swiss-grid shoot: 0 errors, identical) | patterns/gl-instances/card.md |
+| gl-heightfield | a matrix as a lit terrain with contours and a travelling section cut | `data` matrix, `hscale`, `contours`, `cutMode band\|section\|off`, `cutStart/cutEnd`, `reveal`, `camAz/camEl/camDist` keys, `pins`, `ramp` (3 roles) | `count(t,st,params)` -> `{cells,of,rows,cols,contours,cutCol,cutPeak}`; pins drawn flat | webgl | heavy: 0.06-0.37 s | ALL (swiss-grid shoot ok) | patterns/gl-heightfield/card.md |
+| gl-ribbons | flows as 3D ribbons/tubes between node slabs, width = quantity, units riding as counted marks; a queue model | `data [[s,t,q,role]]` \| `{nodes,links}` \| `{arrivals}`, `model flow\|queue`, `shape band\|tube`, `unit`, `zSpread`, `curv`, `thick`, `markSize`, `lead/grow/travel`, `stripes`, `fogK`, `cam` keys | `count(t)` (marks riding, units landed per node/link, queue waits); draw returns `pins`, `readout`, `unitLine` | webgl | heavy: 0.16-0.51 s | ALL (swiss-grid renders correctly) | patterns/gl-ribbons/card.md |
+| gl-pointcloud | 3D scatter with depth cue (size, fog), a brush that arrives on t, pins; optional DoF | `data [{x,y,z,group,label}]`, `r`, `sizeCue`, `fog`, `reveal`, `brush{box\|group\|field}`, `brushAt`, `dim`, `pinsAt`, `cam{yaw,pitch,dist,follow}`, `dof{focus,maxR}` | `count(t,st,params)` -> `{shown,brushed,total,inBrush}`; draw returns `pins [{label,x,y,op}]` (sheet px) | webgl | heavy: 0.07-0.40 s; DoF 0.4-1.45 s | ALL (swiss-grid shoot ok) | patterns/gl-pointcloud/card.md |
+| gl-stack-city | same boxes, new partition: stacked bars / treemap city, pooled -> split by category, LOD | `data{groups,cats,n[g][c],hit,unit}`, `layout bars\|treemap`, `split rate\|count`, `k`, `budget`, `dur`, `beats`, `stagger`, `lift`, `az/elev`, `tag`, `labels` | `count(t,st,params)` -> `{boxes,k,units,phase,move,reversals}`; `check(t,st,params)` asserts every in-between frame is a valid chart | webgl | heavy: 0.27-1.11 s | ALL (light packs: misses read pale, legend says DIM) | patterns/gl-stack-city/card.md |
+| gl-camera-rig | keyframed camera instrument: orbit, dolly, dolly-zoom, crane, look-at, focus-pull; serialises to knobs | `script{proj,start,moves:[{id,move,t0,t1,ease,az,el,r,dist,fov,zoom,aperture,focus,target}]}`, `rig` name, `knobs`, `data` | `rig` = `{compile,at,apply,worldToScreen,pxPerUnit,dof,sample,toKnobs,fromKnobs}`; `count(t,st)` = boxes in frame | webgl | heavy: 0.32-1.7 s (demo field) | ALL (swiss-grid shoot ok) | patterns/gl-camera-rig/card.md |
+| gl-post | linear-light post stack: dof -> bloom -> chroma -> TONEMAP -> vignette -> grain, gains per pass | `postLevel exec\|manager\|engineer`, `bloomGain`, `dofGain`, `dofFocus`, `vignetteGain`, `grainGain`, `chromaGain`, `exposure`, `ramp{pass:[t0,t1]}`, `fuse` | `ARSENAL.post['gl-post']` `{setup,apply,toScene,toSceneLinear,gains,renderAccumulated,jitter}` | webgl | heavy: tone map 0.24 s, reveal 0.97, accum 3.9-6 (offline) | ALL; tone map dE 0 on 18 of 22 packs; bloom skipped on light grounds | patterns/gl-post/card.md |
+| gl-volume | a distribution as a cloud/slabs of counted cells, depth-sorted transparency, a travelling cut plane and a tail count | `data` samples or counts (1-3 D), `dims`, `bins`, `range`, `tail`, `tailAxis x\|r`, `tailIn`, `ratioAt`, `cutIn`, `cutFrom/cutTo`, `cutDim`, `orbit`, `elev`, `inset` | `count(t,st,params)` -> `{cells,samples,total,outside,tailCells,tailSamples,cutOn,slice,sliceSamples}` | webgl (raw GL) | heavy: 0.11-0.83 s | ALL (swiss-grid shoot ok) | patterns/gl-volume/card.md |
+| gl-labels | temporally coherent labels for WEBGL scenes: occlusion, collision, hysteresis, a hard-cutting callout | `solve(t,camera,anchors[{id,x,y,z,text,role,priority}],{hold,leader,maxShown,occluders,reserve,sticky,callout{schedule}})` | `solve` -> `{placements,counts,why}`; `drawGL(p,placements,tk,fonts,hud)`; `kit(K,placements,'labels')` | webgl demo; solver renderer-free | heavy in demo 0.17-0.80 s; solver <= 2 ms warm | ALL (swiss-grid shoot ok) | patterns/gl-labels/card.md |
+| uncertainty-hop | uncertainty as frequency: HOP (hard cuts), quantile dotplot 20/50, ensemble, commit pairing | `show hop\|qdots\|ensemble`, `data` or `dist`, `K`, `dots`, `rate`, `commit`, `estimate`, `threshold`, `title`, `limits`, `zero/domain` | `ARSENAL.uncertaintyHop` `{count,countAt,stageAt,timing,sampleTable,quantiles,mulberry32}`; `pattern.count(t,params,state)` | p2d | cheap: 3-4 ms | ALL (swiss-grid shoot ok) | patterns/uncertainty-hop/card.md |
+| formula-bind | a formula whose terms keep a role colour and fly into the marks that compute them | `form ratio\|product\|sum`, `terms[{id,text,role}]`, `marks{id:{count}\|{values}\|{count,of}}`, `result`, `beats`, `lift`, `lag`, `land`, `face`, `caption` | `count(t,st,params)` -> `{phase,shown,lit,perSet,result,resultText}` | p2d | cheap: 3.5-5 ms | ALL (swiss-grid reads cleanly; ceti-dark accent2 dots low contrast) | patterns/formula-bind/card.md |
+| track-unit | tag a unit, trace it as a comet through a re-partition; congruence lint; numerator/denominator lamp | `data [{id,group,category,value,hit}]` \| preset, `from`/`to` layouts, `move`, `stagger`, `arc`, `tags[{pick,label}]`, `trail`, `lamp{base,hit,t0,baseDur,hitAt,ratioAt}`, `areaBy`, `sizeMode` | `count(t)`, `positions(t)`, `check(t)`, `lint()`; needs structures.js loaded first | p2d | cheap: 1-5 ms | ALL (swiss-grid lint passes, area error 0) | patterns/track-unit/card.md |
+| scale-anchor | log zoom 1 to 10^5 units against a constant-size anchor (ruler or silhouettes), LOD tiles | `anchor ruler\|silhouettes`, `mark`, `dwell`, `move`, `top`, `budget`, `tile`, `flagFrac`, `data` (0/1 per unit), `m2PerPerson`, `note` | `count(t,params)`, `timeline(params)` -> `{dur,rungs}`, `level`, `lodAlpha`; draw returns `{count,flagged,pitch,lod,tiles,batch}` | p2d | cheap: 3-6 ms | ALL (light packs verified, swiss-grid) | patterns/scale-anchor/card.md |
 
 Facts the table cannot hold. (1) Unpatched exports: morph-type has none, webgl-scene has none (it has `load(p)` only), shader exposes
 `shaders`; both simpsons-3d drafts that chained them added an export in `lib/assemble.py` CUTS or one line in the copy (section 3).
@@ -64,7 +77,7 @@ Facts the table cannot hold. (1) Unpatched exports: morph-type has none, webgl-s
 (arsenal/fonts/fonts.js, alias `MORPH_FONTS`) or kit2 `fonts3d`. Keys: Big Shoulders Display|600, IBM Plex Mono|400, Jost|600,
 Red Hat Mono|400, Sofia Sans Extra Condensed|700, Space Mono|400. No Fraunces: a Fraunces numeral needs a fontTools subset to TTF
 (draft B: `headline-font.js`, 3.9 KB). (3) Exec level (Q6): ink material, no post, no grain; shader, neon and webgl are `manager`.
-(4) SEATS: no gate row reads material or texture, so `--material chalk` passes G10 while breaching Q6; you hold that line.
+(4) Wave GL (R17-R28): a move goes 3D only when one of the five GPU-earning rows of arsenal/WAVE-GL.md "Rule for films" holds (marks beyond Canvas2D, parallax or place is the claim, depth paces the reveal); otherwise ship the flat lane. gl-* lanes need `renderer: webgl` + material ink; brand "ALL" = the demo takes `?brand=<id>` over all 22 packs. (5) SEATS: no gate row reads material or texture, so `--material chalk` passes G10 while breaching Q6; you hold that line.
 
 ---
 
@@ -193,6 +206,78 @@ Pitfalls: never leave a number to be read mid-transition (commit before it start
 canvas pixels (multiply by density).
 Fallback: `scene(...)` cross-fade only (`fade: 0.5`), which wiring used for all 10 cuts.
 
+**R17 count 100k at true scale.** Chain: gl-instances `flat-100k` (ortho, screen-aligned, no depth, waffle) -> `pick` (subset by id, exact count) -> `K.tx` readout from `count`/`picked` -> [scale-anchor for the zoom-in].
+Adds: every person is its own mark in ONE draw (`model(geom, n)`, float data texture, chunked instances); `count(t)` is the instance range, so the caption is exact; `density` renders overlap as a distribution.
+Knobs: `countIn`, `countEase`, `win`, `size`, `alpha`, `dim`, `pick` (`ids`/`n`, `span`, `role`, `label`), `brush`, `exposure` (density). N is a claim, never a knob.
+Pitfalls (card WARNs): p5 leaves `UNPACK_PREMULTIPLY_ALPHA` on for Float32 uploads (upload with it false); SwiftShader pays per instance, so keep the 1,024-quad chunk; MSAA doubles fill (`antialias` false for count layers >= 50k; kit2 not changed); bars-100k 1.21 s with 4 faces, 6 s with 6; WebGL2 required; fewer than ~2,000 marks use p2d.
+Fallback: `mass` canvas2d to 50k (R1), batching with k as a claim; no WebGL2 means no fallback inside the module.
+
+**R18 a matrix as terrain.** Chain: gl-heightfield `plan-80x50` (top-down heatmap, then tilts into 3D) | `section-120x80` (clip + 2D profile) -> pins via `K.tx` from `count` -> committed-number caption.
+Adds: height = value with contours, Lambert from three pack roles, a section cut that snaps to a real column (the profile is data); pins on the max and cut peak.
+Knobs: `hscale`, `contours`, `camSwing`, `camEl`, `cutStart`, `cutMode`; `vmin`/`vmax` fix the scale across scenes. Digits are data values or counts.
+Pitfalls: a leaked `noFill()` makes `model()` draw nothing while purity still says identical (shoot 2+ times); perspective hides cell values (exact values: flat heatmap); > ~65k cells; categorical matrices; pins ignore occlusion; section clip needs `camAz` negative; contour widths are in world units.
+Fallback: maps-matrices `heatmap` (R9) or the `plan` view only.
+
+**R19 a flow in depth.** Chain: gl-ribbons (`funnel-two-layer` | `sankey-multistage` | `queue-arrivals`) -> `readout`/`pins`/`unitLine` via `K.tx` (labels `none`, `clear:false`).
+Adds: band width = quantity, 1 mark = `unit` units riding the ribbons, target slabs fill as marks land; the queue model reports arrived/waiting/served/head-of-line wait.
+Knobs: `zSpread`, `travel`, `grow`, `markSize`, `stripes` (0 at exec), `fogK` (<= 0.35 at exec), `curv`; the data (links, arrivals) are claims.
+Pitfalls: sankey t=0 pin overlaps the readout ~1 s (retime the camera key); middle-layer pins cross ribbons; queue slots jump per service (ease film-side); tubes deeper than `slabD` poke through; no cycles or back edges; > ~10k marks on screen is the unbuilt shader route (3,000 marks = 0.38 s).
+Fallback: structures.columns + reveal paths as a flat sankey (R4/R6).
+
+**R20 a 3D scatter with a brushed subset.** Chain: gl-pointcloud (`brushed-pins`) -> [gl-camera-rig for the dolly] -> [gl-post `dof` at manager] -> pins via `K.tx` from `draw().pins`.
+Adds: depth through perspective, size cue and fog; the brush arrives on t nearest-centre first and `count` gives `{brushed,total}` for "1,219 of 6,000"; named rows carry pins.
+Knobs: `pointR`, `sizeCue`, `fog`, `revealAt`, `brushAt`, `dim`, `pinsAt`, `camSwing`, `dolly`, `dofMaxR` (0 = off).
+Pitfalls: draw the cloud with `fill()` set (after `noFill()` `model()` draws nothing); discs are hard-edged, no alpha; a framebuffer plane is NOT y-flipped; pins ignore occlusion and run off past ~5 per side; DoF +0.3-0.8 s; WEBGL `text()` ~0.1 s (draw pins as SVG); exec: `dof:null`, `fog <= 0.3`; a third axis only if depth is the point.
+Fallback: gl-instances `brushed-50k` (flat) or data-marks scatter + `highlight` (R1/R2).
+
+**R21 pooled -> split as a city.** Chain (evidence-first default, flat): track-unit `pooled-split` (structures layouts + `transition`, comet tag, `check` lint). Chain (3D, when the register wants a sculpture and the turn is the beat): gl-stack-city `bars-2x6` | `treemap-4x8` | `big-12x12-lod` -> `K.tx` labels from `count`.
+Adds: one geometry holds both homes per box, so no dissolve and no re-bake (object constancy); `check(t)` / `lint()` assert every in-between frame keeps count and area; hits sit at the slab base so lit height = rate.
+Knobs: stack-city `k`, `budget`, `dur`, `beats`, `stagger`, `lift`, `orderMix`, `az`, `elev`, `tag`; track-unit `move_s`, `stagger` (<= 0.06), `arc`, `trail`, `tagAt`.
+Pitfalls: stack-city rounding at k > 1 (`unitsResidual`; labels print exact units); user vertex properties are a private p5 API (re-test on upgrade); never view from below; WARN framing: the right split label touches the check line, big-12x12 front corner runs under the readout (retune `fit`/`lookY`); light packs dim = pale; track-unit marks 4.8 units sit below the 7-unit floor (true scale), tag labels can cover a slab count; staggering adds little (R-D S34).
+Fallback: R3's 2D chain (columns -> transition -> rows) or track-unit alone.
+
+**R22 the camera move as the argument.** Chain: gl-camera-rig (`compile` script from `fromKnobs`) -> gl-labels `solve(t, t => rig.at(rig,t), anchors)` for the pins -> gl-post `dof` at manager (`rig.dof(pose, rig)` feeds focus/aperture).
+Adds: moves (orbit, dolly, vertigo, crane, look-at, focus-pull) are data eased on t and retuned as knobs with no code; labels stay attached, debounced and out of each other's way as the camera moves; the focus pull is the claim's emphasis.
+Knobs: rig `cam<Id>t0/t1` + the shape knob (`az`, `dist`, `rise`, `target`, `fov`) via `toKnobs`; labels `hold`, `leader`, `maxShown`; post `dofGain`, `dofFocus`. Camera moves never carry a number.
+Pitfalls: slerp < 180 deg per key (use `orbit` for wide sweeps); `lookat` `dist` above `hmax` or the eye sits among the boxes; a focus target behind the eye clamps; labels: grace overlap ~5 % of label-frames, entry lags `hold` frames, cold seek is O(t*fps) (use `sticky:'window'` on long films), pass the SAME anchors array and camera function every frame, occluder AABBs must match the drawn geometry; full-screen fills dominate cost (closest dolly frames 1.5-1.7 s under load).
+Fallback: `camera` p2d keyed zoom (R5) with `K.tx` pins, or webgl-scene `mkCam`/`pathAt` (R8).
+
+**R23 the reveal as a moment.** Chain: scene in linear light into `st.hdr` (`post.toScene` colours, one emissive claim) -> gl-post `apply` in its fixed order dof -> bloom -> chroma -> TONEMAP -> vignette -> grain -> labels drawn AFTER `apply`, flat, never blurred or grained.
+Adds: one glow on the one claim, a focus pull to a data point, a hero/social finish; `ramp{pass:[t0,t1]}` windows each pass; `gains(params,t)` is loggable.
+Knobs: `postLevel`, `bloomGain` (0.04-0.12), `dofGain`, `dofFocus`, `vignetteGain`, `grainGain`, `chromaGain`, `exposure`. Exec rule (Q6): `exec` = tone map only (the output colour transform, not a look); `manager` adds dof, bloom, vignette; `engineer` all; grain and vignette for hero/teaser cuts only.
+Pitfalls: no float colour buffer, so LDR with 2 stops headroom (dark roles band; `?ldr=1`); light grounds skip bloom (`bloom:light-ground`); saturated roles leave the curve's gamut (neon-lab, blueprint, terminal, high-vis fail dE < 2); `worldToScreen` inside a framebuffer is y from the bottom (use `h - y`); accum-8/16 = 3.9-6 s, offline only; reveal 0.97 s; no depth means DoF is skipped (`dof:no-depth`).
+Fallback: exec frame = tone map alone (0.24 s); or materials/shader neon over the reveal window only (R11, manager).
+
+**R24 a distribution with a cut.** Chain: gl-volume (`hist-1d-extruded` | `hist-2d-slabs` | `cloud-3d-cut`) -> `K.tx` tail COUNT then ratio from `count` (`tailSamples`, `total`) -> committed-number caption before the cells grow.
+Adds: exact integer counts per cell, depth-sorted transparency from any angle, a cut plane on t with a flat slice/profile/LEFT-RIGHT counts, a tail threshold snapped to a bin edge.
+Knobs: `volTail`, `volCutTo`, `volCutIn`, `volOrbit`, `volCutDim`. Never a knob: any count.
+Pitfalls: t=0 shows only floor and frame (build starts at 0.03 of dur), so commit first; raw GL on `p._renderer.GL` (a p5 upgrade can break it: re-shoot); sorting is per cell centre; radial tail uses centres (caption says so); mono faces lack `>=` glyphs (ASCII); fewer than ~5 bins per axis use data-marks; only the z cut of a 3D volume; samples outside `range` are named, not drawn.
+Fallback: data-marks bars + annotations bracket (R2); no fallback inside the module.
+
+**R25 uncertainty before the commit.** Chain: uncertainty-hop `commit` | `commit-qdots` (draws, a frozen estimate window with no result, the count, then the ratio) inside the kit2 sealed commit.
+Adds: the viewer integrates draws by counting (hard cuts of 100-400 ms; R-D S19-S23), so the estimate they commit is formed from frequency, not an error bar; `count(t)` = draws shown.
+Knobs: `uh.show`, `uh.data`/`uh.dist`, `uh.K`, `uh.dots`, `uh.rate` (2.5-10), `uh.commit`, `uh.estimate`, `uh.threshold`, `uh.title`, `uh.limits`.
+Pitfalls: no tweens, no easing, no stagger on draws (never through the tween engine); the freeze shows no count or ratio (do not caption the result into it); qdots dots sit at bin centres (count uses the true quantile); domain is fitted to shown draws (pass `domain` across films); supplied `data` is permuted; one 1D quantity only, no trend HOPs; counts come from the shown sample, which the limits line says.
+Fallback: a static quantile dotplot from structures.grid + data-marks dots (R2), or leave `commit` off for audiences who cannot pause.
+
+**R26 a formula that computes on screen.** Chain: formula-bind (`ratio` | `product` | `sum`: set -> bind -> fly -> compute -> return) with the commit placed between bind and compute -> data-marks or `K.tx` for the claim line.
+Adds: terms keep a role colour and travel by id into the marks they count (no cross-fade; congruence, R-D S18/S29); the result is computed from the sets, never typed.
+Knobs: `fbLift`, `fbLag`, `fbLand`, `fbBindS`, `fbComputeS`, `fbFace`. Terms, marks and result are claims.
+Pitfalls: no TeX parser (ratio, product, sum; <= 4 terms); `?` stays until `beats.compute`; mid-flight lag > 0.2 strings words out (keep 0.1-0.15, 0 at exec); numerals cross labels in transit; a third term takes `ink`, the sum result `chalk` (near ink in ceti-dark); ceti-dark accent2 dots are low contrast at 0.55 alpha; the ratio subset is seeded, illustrative; text is p5 `textToContours` (TTF from fonts.js).
+Fallback: handwriting arithmetic + morph-type ticker (R7).
+
+**R27 follow one unit through a re-partition.** Chain: structures layouts -> track-unit (tagged comets, ghost at the origin, `lint()`) with the `lamp` (counts the base units, then the counted units, then prints the ratio) -> commit prompt placed before the lamp.
+Adds: object constancy with proof (every frame keeps count, ids and total area); the comet and ghost let the eye keep the unit; natural-frequency ratio only after both counts.
+Knobs: `move_s`, `stagger` (<= 0.15), `arc`, `trail`, `tagAt`, `lamp_baseDur`.
+Pitfalls: `sizeMode:'own'` breaks the area lint (negative control); `check` measures drawn area and allows mid-move overlap; lamp order is reading order in `from`; tag labels can cover a slab count or bar name (set `nth` or the label offset); above ~20k units use gl-instances/gl-stack-city; not for chart-type morphs or HOPs; the film must put its commit before the lamp.
+Fallback: structures.transition + `highlight` (R1/R3).
+
+**R28 one unit to 100,000.** Chain: scale-anchor (`dots-ruler` | `people-ladder` | `tiles-lod`) -> `timeline(params).rungs` as caption windows -> [gl-instances `flat-100k` for the last rung] -> committed guess before the 10^5 rung.
+Adds: a continuous log zoom with a constant-size anchor (ruler tick or 1.7 m / 2 m / 4.5 m / 12 m silhouettes), exact `count(t)` and flagged count, LOD tiles with the swap itself shown, pause rungs for captions.
+Knobs: `dwell`, `move`, `budget`, `tile`, `flagFrac`, `data` (0/1 per unit, spiral order). N is a claim.
+Pitfalls: units appear in spiral order (say "10 times as many", not "camera moves"); the anchor equals one mark only at L = 0; silhouette sizes are typical, not sourced, and `m2PerPerson` is an assumption to set from data; below ~1.3 px pitch the picture is a texture; budget 2,500 with tile 4 leaves a visible grid near n = 3,000; text >= 11 px; NMAX 10^5.
+Fallback: structures.grid with a batching claim, or `mass` (R1).
+
 ---
 
 ### Pitfalls met in films (not visible from the demos)
@@ -265,4 +350,4 @@ lib bytes do NOT count toward G8 film code (film.js + film.json + claims.json) b
 | duration | case 60-75 s, feature 90-120 s (G format), 3 s brand card | wiring 112 s + card | physics keyframe memory beyond ~60 s |
 
 Cap the chain: one lead module per beat (the thing the viewer reads), at most two supporting modules, one backdrop; every module past six is a code-budget decision. Cheapest first: structures + timeline +
-reveal + annotations is the 2D spine that shipped 112 s at 95 KB; add glyphs-iso, camera, morph-type only when a beat needs them; reach for webgl only when depth is the claim, and then choose `manager`.
+reveal + annotations is the 2D spine that shipped 112 s at 95 KB; add glyphs-iso, camera, morph-type only when a beat needs them; reach for webgl only when depth is the claim (the five GPU-earning rows of arsenal/WAVE-GL.md), and then choose `manager`; the Wave GL lanes cost 0.1-1.7 s/frame each, flat ones (R25-R28) under 10 ms.

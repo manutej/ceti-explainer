@@ -23,8 +23,18 @@ true, silent, captioned explainer film on a pure clock, and ships it as a standa
 | layer | where | what |
 |---|---|---|
 | the factory | factory/ | FORMAT.md (the 75-second case), kit and kit2 (build), tools (gate, catalogue, new_topic, repo_topic), topics/ and films/ (15 shipped films + the showcase), chromes/, README, SHIP.md, SEATS.md, CATALOGUE.md |
-| the arsenal | arsenal/ | 24 pattern and material lanes, the timeline and generator cores, structures, 22 brand packs with a contrast checker and a tweak tool, the shoot/sweep/export tools, the design-system bundle |
+| the arsenal | arsenal/ | 37 pattern and material lanes (24 plus the 13 of Wave GL), the timeline and generator cores, structures, 22 brand packs with a contrast checker and a tweak tool, the shoot/sweep/export tools, the design-system bundle |
 | the record | docs/ | DECISIONS.md (D1–D10, Q1–Q15: binding), study/ (readers, consults, BLUEPRINT.md, phase-zero proof) |
+
+Wave GL (2026-10-10) added 13 lanes under arsenal/patterns/ (37 in all): eight WebGL data-visualisation lanes (gl-instances,
+gl-heightfield, gl-ribbons, gl-pointcloud, gl-stack-city, gl-camera-rig, gl-post, gl-volume), the label solver gl-labels, and four flat
+perception lanes (uncertainty-hop, formula-bind, track-unit, scale-anchor). All re-seek identical, take `?brand=`, and cost 0.1-1.7 s/frame
+in WebGL (flat ones under 10 ms). The brief is arsenal/WAVE-GL.md; the research is arsenal/frontier/ (R-A GPU dataviz, R-B p5 GPU,
+R-C cinematic, R-D moves, PROBE-gl-backend); the evaluation seats are SEATS-GL.md (landing; arsenal/SEATS.md holds the earlier seats);
+recipes R17-R28 are in skills/atelier-draft/references/chain-recipes.md. Rule for films (WAVE-GL, from R-D section 2): a move goes 3D
+only when one of the five GPU-earning rows holds (marks beyond what Canvas2D can draw, parallax or place is the claim, or depth paces
+the reveal); otherwise it ships flat, and the evidence-first default for pooled-to-split is track-unit, not gl-stack-city. Exec level
+stays ink: gl-post at exec is tone map only.
 
 Older material kept and still building: the Atelier runtime and eight chromes under runtime/ and chromes/, the
 System 1 plan library under library/, the SVG episode engine under skills/ceti-explainer, films/opera-house (the
