@@ -26,7 +26,7 @@ pick workstream W1 — the others depend on its items file.
 
 ## 0 · The toolchain is in this branch, and it runs
 
-`RUN.md` promises that cloning this repo gets you a working engine. Until this branch that
+`RUN.md` (now skills/ceti-explainer/RUN.md) promises that cloning this repo gets you a working engine. Until this branch that
 was false — seven listed assets and all of `reference/` were missing. They are now here:
 `engine.js`, `gate.mjs`, `snapshot.mjs`, `shell.template.html`, `ceti-tokens.css`,
 `_episode-template.js`, and the four reference episodes.
@@ -57,8 +57,8 @@ Run them from `skills/ceti-explainer/`. Nothing to install.
 | 3 | `JEV-works/LESSONS.md` | 22+ lessons as happened / why / rule. **The anti-pattern registry you inherit** |
 | 4 | `JEV-works/kit/README.md` | The runner. One JSON spec in, a measured report out |
 | 5 | `skills/ceti-explainer/SKILL.md` | The 8-beat contract and the MUST NOT list. The craft bar |
-| 6 | `contrib/operadic-interview/SKILL.md` | The question instrument. Just uploaded alongside this handoff |
-| 7 | `REQUIREMENTS.md`, `contrib/EXPERIMENT-E0.md`, `contrib/SKILLS.md` | The product contract and this repo's inventory |
+| 6 | `archive/contrib/operadic-interview/SKILL.md` | The question instrument. Just uploaded alongside this handoff |
+| 7 | `archive/notes/REQUIREMENTS.md`, `archive/contrib/EXPERIMENT-E0.md`, `archive/contrib/SKILLS.md` | The product contract and this repo's inventory |
 
 **The one thing to internalise before writing any question** — from `LESSONS.md`, and it
 is the reason this lane exists:
@@ -124,8 +124,8 @@ pixels will come back confident and useless — `LESSONS.md` L5. [measured]
 
 The grid should be the episode's own clock, not an arbitrary sample rate: one frame per
 beat midpoint gives 8 items per episode and every item sits inside a single beat, so no
-item straddles a transition. That is what **`eval/frame-items.mjs`** does — shipped in this
-branch, with `eval/README.md` beside it.
+item straddles a transition. That is what **`archive/eval/frame-items.mjs`** does — shipped in this
+branch, with `archive/eval/README.md` beside it.
 
 ```bash
 cd skills/ceti-explainer
@@ -447,7 +447,7 @@ it must not assume they are clean either, since the gate is only run if someone 
   with it every per-frame guarantee this handoff relies on.
 - Hype words: unlock, supercharge, revolutionize, powerful, seamless, game-changing.
 
-### 7.3 Instrument-decay anti-pattern [measured — `contrib/operadic-interview/SKILL.md`]
+### 7.3 Instrument-decay anti-pattern [measured — `archive/contrib/operadic-interview/SKILL.md`]
 
 **Question-ness is not conserved across regeneration.** The skill's founding escape was
 exactly this: a regenerated tree whose mid-level nodes had decayed from questions into

@@ -1,6 +1,6 @@
-# eval/ — frame-level evaluation of episodes
+# archive/eval/ — frame-level evaluation of episodes
 
-Turns an episode into a corpus you can measure. See `../HANDOFF-JEV-EVAL.md` for the
+Turns an episode into a corpus you can measure. See `HANDOFF-JEV-EVAL.md` (beside this file) for the
 workstreams, the question design rules, and the anti-pattern registry.
 
 ## `frame-items.mjs`
