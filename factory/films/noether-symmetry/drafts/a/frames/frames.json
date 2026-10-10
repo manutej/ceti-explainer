@@ -1,0 +1,5027 @@
+{
+ "page": "factory/films/noether-symmetry/drafts/a/build/noether-symmetry.ceti-coastal-dark.none.html",
+ "film": "noether-symmetry",
+ "dur": 153,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-coastal-dark",
+ "axes": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "sP",
+   "range": [
+    10,
+    40
+   ],
+   "step": 1,
+   "what": "world units per orbit unit: size of the position-space tangle",
+   "value": 24
+  },
+  {
+   "name": "sL",
+   "range": [
+    80,
+    200
+   ],
+   "step": 5,
+   "what": "world units per unit of spin length: the radius of the six shells",
+   "value": 140
+  },
+  {
+   "name": "sW",
+   "range": [
+    30,
+    90
+   ],
+   "step": 2,
+   "what": "world units per unit of the weight-space picture (the network, before the move)",
+   "value": 58
+  },
+  {
+   "name": "sC",
+   "range": [
+    80,
+    200
+   ],
+   "step": 5,
+   "what": "world units per unit of the network's fixed sums: the radius of its three shells",
+   "value": 140
+  },
+  {
+   "name": "layerGap",
+   "range": [
+    20,
+    60
+   ],
+   "step": 2,
+   "what": "world units between the five energy layers",
+   "value": 38
+  },
+  {
+   "name": "dotR",
+   "range": [
+    1,
+    5
+   ],
+   "step": 0.1,
+   "what": "dot radius of the orbit cloud, world units (bigger reads closer)",
+   "value": 2.6
+  },
+  {
+   "name": "dotRNet",
+   "range": [
+    1,
+    5
+   ],
+   "step": 0.1,
+   "what": "dot radius of the training cloud, world units",
+   "value": 2.6
+  },
+  {
+   "name": "speckGrow",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how much larger the dots grow once they sit on their specks (ten dots share one speck)",
+   "value": 0.4
+  },
+  {
+   "name": "hiGrow",
+   "range": [
+    0,
+    1.5
+   ],
+   "step": 0.1,
+   "what": "how much a lit dot (featured orbit, cut set) swells beyond its size",
+   "value": 0.6
+  },
+  {
+   "name": "sizeCue",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "depth cue: nearer dots are larger (0 = none)",
+   "value": 0.5
+  },
+  {
+   "name": "fog",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.05,
+   "what": "fog toward the sky for the far side of a cloud (manager level cap 0.3)",
+   "value": 0.25
+  },
+  {
+   "name": "featDim",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.02,
+   "what": "how far the rest of the cloud sinks while the followed orbit or run is lit",
+   "value": 0.62
+  },
+  {
+   "name": "stag",
+   "range": [
+    0,
+    0.25
+   ],
+   "step": 0.01,
+   "what": "delay between orbits as the dots travel (0 = all at once; cap 0.25)",
+   "value": 0.18
+  },
+  {
+   "name": "dimEarth",
+   "range": [
+    0.5,
+    0.98
+   ],
+   "step": 0.02,
+   "what": "how far the orbit cloud sinks into the sky while Earth's fixture is on stage",
+   "value": 0.9
+  },
+  {
+   "name": "dimGhost",
+   "range": [
+    0.5,
+    0.95
+   ],
+   "step": 0.02,
+   "what": "how far the orbit cloud sinks while the network is on stage",
+   "value": 0.82
+  },
+  {
+   "name": "starN",
+   "range": [
+    0,
+    900
+   ],
+   "step": 20,
+   "what": "number of faint stars in the sky",
+   "value": 420
+  },
+  {
+   "name": "starR",
+   "range": [
+    3,
+    14
+   ],
+   "step": 0.5,
+   "what": "star radius, world units (they sit 3,000 away)",
+   "value": 7
+  },
+  {
+   "name": "starDim",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "star brightness: 0 = full muted, higher sinks them into the sky",
+   "value": 0.45
+  },
+  {
+   "name": "wireR",
+   "range": [
+    0.5,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "radius of the dotted guide rings and ellipses",
+   "value": 1.1
+  },
+  {
+   "name": "wireDim",
+   "range": [
+    0.2,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "how faint the dotted guides are (higher = fainter)",
+   "value": 0.45
+  },
+  {
+   "name": "plate",
+   "range": [
+    0.4,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the ground plate behind pins and set type",
+   "value": 0.8
+  },
+  {
+   "name": "swayDeg",
+   "range": [
+    0,
+    4
+   ],
+   "step": 0.25,
+   "what": "degrees: calm sway of the camera about its aim point (0 = still between moves)",
+   "value": 2
+  },
+  {
+   "name": "swayPeriod",
+   "range": [
+    20,
+    90
+   ],
+   "step": 2,
+   "what": "s: period of the sway",
+   "value": 44
+  },
+  {
+   "name": "hold",
+   "range": [
+    0,
+    15
+   ],
+   "step": 1,
+   "what": "frames a pin must be pushed before it hides (gl-labels)",
+   "value": 4
+  },
+  {
+   "name": "leader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "length of a pin's leader, sheet units",
+   "value": 22
+  },
+  {
+   "name": "pinHold",
+   "range": [
+    2.5,
+    4
+   ],
+   "step": 0.1,
+   "what": "s: how long a new number stays still (floor 2.5)",
+   "value": 2.5
+  },
+  {
+   "name": "pinFade",
+   "range": [
+    0.1,
+    0.5
+   ],
+   "step": 0.05,
+   "what": "s: fade of a pin in and out",
+   "value": 0.2
+  },
+  {
+   "name": "dispAdv",
+   "range": [
+    0.4,
+    0.6
+   ],
+   "step": 0.02,
+   "what": "width of one display-face character in ems, for placing pins",
+   "value": 0.5
+  },
+  {
+   "name": "honestSize",
+   "range": [
+    22,
+    32
+   ],
+   "step": 1,
+   "what": "size of the honest line on stage, sheet units",
+   "value": 26
+  },
+  {
+   "name": "featOrbit",
+   "range": [
+    0,
+    299
+   ],
+   "step": 1,
+   "what": "which of the 300 orbits is followed (its ten dots, its ellipse, its spin arrow)",
+   "value": 248
+  },
+  {
+   "name": "featRun",
+   "range": [
+    0,
+    99
+   ],
+   "step": 1,
+   "what": "which of the 100 training runs is followed",
+   "value": 4
+  },
+  {
+   "name": "cutBandPct",
+   "range": [
+    10,
+    30
+   ],
+   "step": 1,
+   "what": "percent: the cut keeps orbits whose spin points within this share of the equator plane (changes the lit count)",
+   "value": 20
+  },
+  {
+   "name": "cutTop",
+   "range": [
+    150,
+    320
+   ],
+   "step": 10,
+   "what": "world units: height the cut plane starts from",
+   "value": 230
+  },
+  {
+   "name": "earthTheta",
+   "range": [
+    0,
+    360
+   ],
+   "step": 5,
+   "what": "degrees: where on the page the closest point sits",
+   "value": 35
+  },
+  {
+   "name": "arrowK",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "world units of arrow per km/s (both arrows share it, so their lengths stay in true proportion)",
+   "value": 2
+  },
+  {
+   "name": "earthDot",
+   "range": [
+    3,
+    9
+   ],
+   "step": 0.5,
+   "what": "radius of Earth's two dots and the Sun, world units",
+   "value": 4.5
+  },
+  {
+   "name": "fbY0",
+   "range": [
+    80,
+    110
+   ],
+   "step": 2,
+   "what": "sheet y of the first formula line",
+   "value": 96
+  },
+  {
+   "name": "fbY1",
+   "range": [
+    130,
+    170
+   ],
+   "step": 2,
+   "what": "sheet y of the second formula line",
+   "value": 150
+  },
+  {
+   "name": "fbSize",
+   "range": [
+    56,
+    80
+   ],
+   "step": 2,
+   "what": "size of the formula type, sheet units",
+   "value": 60
+  },
+  {
+   "name": "fbBind",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.05,
+   "what": "s after a run starts: the terms take their colours",
+   "value": 0.5
+  },
+  {
+   "name": "fbFly",
+   "range": [
+    0.8,
+    1.6
+   ],
+   "step": 0.05,
+   "what": "s after a run starts: the first word flies to its mark",
+   "value": 1
+  },
+  {
+   "name": "fbFlyS",
+   "range": [
+    0.3,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "s: length of a word's flight",
+   "value": 0.5
+  },
+  {
+   "name": "fbComp",
+   "range": [
+    1.8,
+    2.8
+   ],
+   "step": 0.05,
+   "what": "s after a run starts: the first number flies back into the formula",
+   "value": 2.1
+  },
+  {
+   "name": "fbCompS",
+   "range": [
+    0.3,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "s: length of a number's flight",
+   "value": 0.5
+  },
+  {
+   "name": "fbGap",
+   "range": [
+    0.3,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "s between the first and the second flight (words and numbers never cross)",
+   "value": 0.5
+  },
+  {
+   "name": "fbRes",
+   "range": [
+    2.6,
+    3.6
+   ],
+   "step": 0.05,
+   "what": "s after a run starts: the product starts to count up",
+   "value": 3.1
+  },
+  {
+   "name": "fbResS",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.05,
+   "what": "s: length of the count-up",
+   "value": 0.5
+  },
+  {
+   "name": "fbLift",
+   "range": [
+    0,
+    60
+   ],
+   "step": 2,
+   "what": "sheet units: arc of a flying term (0 = straight)",
+   "value": 28
+  },
+  {
+   "name": "ringR",
+   "range": [
+    70,
+    170
+   ],
+   "step": 5,
+   "what": "world units: radius of the smoke ring",
+   "value": 120
+  },
+  {
+   "name": "ringTube",
+   "range": [
+    20,
+    60
+   ],
+   "step": 2,
+   "what": "world units: radius of the ring's tube",
+   "value": 38
+  },
+  {
+   "name": "ringW",
+   "range": [
+    0.3,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "radians per second the air circles round the tube",
+   "value": 1.1
+  },
+  {
+   "name": "ringV",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "world units per second the ring travels",
+   "value": 9
+  },
+  {
+   "name": "tReveal0",
+   "range": [
+    13.5,
+    16
+   ],
+   "step": 0.1,
+   "what": "s: the first orbit's dots count in",
+   "value": 14
+  },
+  {
+   "name": "tReveal1",
+   "range": [
+    23,
+    26
+   ],
+   "step": 0.1,
+   "what": "s: the 3,000th dot is in (the count lands; keep <= 26.0)",
+   "value": 26
+  },
+  {
+   "name": "tFeat0",
+   "range": [
+    18,
+    22
+   ],
+   "step": 0.1,
+   "what": "s: the followed orbit's ten dots start to light, one by one",
+   "value": 20.5
+  },
+  {
+   "name": "tFeat1",
+   "range": [
+    23,
+    25.8
+   ],
+   "step": 0.1,
+   "what": "s: the tenth dot is lit",
+   "value": 25.2
+  },
+  {
+   "name": "tPFeat",
+   "range": [
+    21,
+    25
+   ],
+   "step": 0.1,
+   "what": "s: the pin 'ONE ORBIT' appears",
+   "value": 22.5
+  },
+  {
+   "name": "tPCount",
+   "range": [
+    26,
+    27
+   ],
+   "step": 0.1,
+   "what": "s: the first count lands: '3,000 moments, 300 orbits' (never before 26.0)",
+   "value": 26
+  },
+  {
+   "name": "tPRp",
+   "range": [
+    33,
+    36
+   ],
+   "step": 0.1,
+   "what": "s: the closest distance lands (hold 2.5)",
+   "value": 34
+  },
+  {
+   "name": "tPVp",
+   "range": [
+    35,
+    38.5
+   ],
+   "step": 0.1,
+   "what": "s: the speed there lands",
+   "value": 36.5
+  },
+  {
+   "name": "tPRa",
+   "range": [
+    38,
+    41
+   ],
+   "step": 0.1,
+   "what": "s: the farthest distance lands",
+   "value": 39
+  },
+  {
+   "name": "tPVa",
+   "range": [
+    40,
+    43.5
+   ],
+   "step": 0.1,
+   "what": "s: the speed there lands",
+   "value": 41.5
+  },
+  {
+   "name": "tRun1",
+   "range": [
+    43.5,
+    46
+   ],
+   "step": 0.1,
+   "what": "s: the formula runs for the closest point (set, bind, fly, compute)",
+   "value": 44
+  },
+  {
+   "name": "tRun2",
+   "range": [
+    47.5,
+    51
+   ],
+   "step": 0.1,
+   "what": "s: the formula runs again for the farthest point",
+   "value": 49
+  },
+  {
+   "name": "tCall",
+   "range": [
+    53.5,
+    55
+   ],
+   "step": 0.1,
+   "what": "s: 'only 0.011 % apart' lands (a ratio, after both products)",
+   "value": 53.5
+  },
+  {
+   "name": "tSpin",
+   "range": [
+    57.6,
+    59.5
+   ],
+   "step": 0.1,
+   "what": "s: the spin arrow of the followed orbit and its pin appear",
+   "value": 58.5
+  },
+  {
+   "name": "tPSame",
+   "range": [
+    68,
+    69.5
+   ],
+   "step": 0.1,
+   "what": "s: pin 'the same dots' lands",
+   "value": 68.2
+  },
+  {
+   "name": "tPSpecks",
+   "range": [
+    69.5,
+    72
+   ],
+   "step": 0.1,
+   "what": "s: pin '300 specks' lands",
+   "value": 70.5
+  },
+  {
+   "name": "tPShells",
+   "range": [
+    72,
+    75
+   ],
+   "step": 0.1,
+   "what": "s: pin '6 shells' lands",
+   "value": 73
+  },
+  {
+   "name": "tPTrill",
+   "range": [
+    74.5,
+    77
+   ],
+   "step": 0.1,
+   "what": "s: the callout 'under 1 in a trillion' lands",
+   "value": 75.5
+  },
+  {
+   "name": "tPCut",
+   "range": [
+    84,
+    86
+   ],
+   "step": 0.1,
+   "what": "s: the lit count lands: '62 orbits lit'",
+   "value": 85
+  },
+  {
+   "name": "tPLay",
+   "range": [
+    96.5,
+    99
+   ],
+   "step": 0.1,
+   "what": "s: pin '5 layers' lands",
+   "value": 97.5
+  },
+  {
+   "name": "tTable",
+   "range": [
+    99.5,
+    101
+   ],
+   "step": 0.1,
+   "what": "s: the table (turn: spin, shells; day: energy, layers) appears",
+   "value": 100
+  },
+  {
+   "name": "tNet0",
+   "range": [
+    102.5,
+    104.5
+   ],
+   "step": 0.1,
+   "what": "s: the first training step counts in",
+   "value": 103.5
+  },
+  {
+   "name": "tNet1",
+   "range": [
+    106,
+    108.5
+   ],
+   "step": 0.1,
+   "what": "s: the 3,000th training dot is in",
+   "value": 108.5
+  },
+  {
+   "name": "tFRun0",
+   "range": [
+    103.6,
+    106
+   ],
+   "step": 0.1,
+   "what": "s: the followed run's thirty dots start to light, one by one",
+   "value": 104.6
+  },
+  {
+   "name": "tPFRun",
+   "range": [
+    104,
+    106.5
+   ],
+   "step": 0.1,
+   "what": "s: the pin 'ONE RUN' appears",
+   "value": 105
+  },
+  {
+   "name": "tPNet",
+   "range": [
+    108.5,
+    109.5
+   ],
+   "step": 0.1,
+   "what": "s: the second count lands: '3,000 steps, 100 runs'",
+   "value": 108.5
+  },
+  {
+   "name": "tPlateNet",
+   "range": [
+    110.5,
+    112
+   ],
+   "step": 0.1,
+   "what": "s: the plate with the sum that should not change appears",
+   "value": 111
+  },
+  {
+   "name": "tPN3",
+   "range": [
+    120,
+    122.5
+   ],
+   "step": 0.1,
+   "what": "s: pin '3 shells' lands",
+   "value": 121
+  },
+  {
+   "name": "tPW",
+   "range": [
+    122.5,
+    125
+   ],
+   "step": 0.1,
+   "what": "s: pin 'the weights travelled' lands",
+   "value": 123.5
+  },
+  {
+   "name": "tPC",
+   "range": [
+    125,
+    127.5
+   ],
+   "step": 0.1,
+   "what": "s: pin 'the fixed sum moved' lands",
+   "value": 126
+  },
+  {
+   "name": "tPRatio",
+   "range": [
+    128,
+    129.5
+   ],
+   "step": 0.1,
+   "what": "s: the callout 'about 250 times less' lands",
+   "value": 128.5
+  },
+  {
+   "name": "tRing0",
+   "range": [
+    131,
+    132.5
+   ],
+   "step": 0.1,
+   "what": "s: the wordless smoke-ring plate starts",
+   "value": 131.5
+  },
+  {
+   "name": "tSwap",
+   "range": [
+    132.2,
+    134.5
+   ],
+   "step": 0.1,
+   "what": "s: the two airs swap colours (the swirl stays)",
+   "value": 133.3
+  },
+  {
+   "name": "tQ",
+   "range": [
+    135.5,
+    138
+   ],
+   "step": 0.1,
+   "what": "s: the question for Monday appears",
+   "value": 136.2
+  },
+  {
+   "name": "tHonest",
+   "range": [
+    141.5,
+    143
+   ],
+   "step": 0.1,
+   "what": "s: the honest line appears on stage",
+   "value": 141.6
+  },
+  {
+   "name": "camStartEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam start pose: eye x",
+   "value": -429
+  },
+  {
+   "name": "camStartEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam start pose: eye y",
+   "value": -367
+  },
+  {
+   "name": "camStartEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam start pose: eye z",
+   "value": 807
+  },
+  {
+   "name": "camStartCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam start pose: aim point x",
+   "value": 0
+  },
+  {
+   "name": "camStartCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam start pose: aim point y",
+   "value": 40
+  },
+  {
+   "name": "camStartCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam start pose: aim point z",
+   "value": 0
+  },
+  {
+   "name": "camStartFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "cam start pose: vertical field of view (deg)",
+   "value": 30
+  },
+  {
+   "name": "camOrbT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam orb: s: start",
+   "value": 12
+  },
+  {
+   "name": "camOrbT1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam orb: s: end",
+   "value": 31
+  },
+  {
+   "name": "camOrbAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "cam orb: degrees swept round the aim point",
+   "value": 22
+  },
+  {
+   "name": "camOrbEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "cam orb: end elevation (deg above the centre)",
+   "value": 27
+  },
+  {
+   "name": "camOrbR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "cam orb: end radius as a factor of the start",
+   "value": 1
+  },
+  {
+   "name": "camEarthT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam earth: s: start",
+   "value": 31
+  },
+  {
+   "name": "camEarthT1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam earth: s: end",
+   "value": 34
+  },
+  {
+   "name": "camEarthEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam earth: eye x",
+   "value": -994
+  },
+  {
+   "name": "camEarthEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam earth: eye y",
+   "value": -274
+  },
+  {
+   "name": "camEarthEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam earth: eye z",
+   "value": 440
+  },
+  {
+   "name": "camEarthCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam earth: aim point x",
+   "value": -900
+  },
+  {
+   "name": "camEarthCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam earth: aim point y",
+   "value": -14
+  },
+  {
+   "name": "camEarthCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam earth: aim point z",
+   "value": 0
+  },
+  {
+   "name": "camBackT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam back: s: start",
+   "value": 56.5
+  },
+  {
+   "name": "camBackEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam back: eye x",
+   "value": -93
+  },
+  {
+   "name": "camBackEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam back: eye y",
+   "value": -414
+  },
+  {
+   "name": "camBackEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam back: eye z",
+   "value": 886
+  },
+  {
+   "name": "camBackCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam back: aim point x",
+   "value": 0
+  },
+  {
+   "name": "camBackCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam back: aim point y",
+   "value": 40
+  },
+  {
+   "name": "camBackCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam back: aim point z",
+   "value": 0
+  },
+  {
+   "name": "camM1T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam m1: s: start",
+   "value": 60
+  },
+  {
+   "name": "camM1T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam m1: s: end",
+   "value": 68
+  },
+  {
+   "name": "camM1Az",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "cam m1: degrees swept round the aim point",
+   "value": 70
+  },
+  {
+   "name": "camM1El",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "cam m1: end elevation (deg above the centre)",
+   "value": 20
+  },
+  {
+   "name": "camM1R",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "cam m1: end radius as a factor of the start",
+   "value": 1
+  },
+  {
+   "name": "camM3T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam m3: s: start",
+   "value": 78.5
+  },
+  {
+   "name": "camM3T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam m3: s: end",
+   "value": 83.5
+  },
+  {
+   "name": "camM3Az",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "cam m3: degrees swept round the aim point",
+   "value": 8
+  },
+  {
+   "name": "camM3El",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "cam m3: end elevation (deg above the centre)",
+   "value": 13
+  },
+  {
+   "name": "camM3R",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "cam m3: end radius as a factor of the start",
+   "value": 1
+  },
+  {
+   "name": "camM2T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam m2: s: start",
+   "value": 88
+  },
+  {
+   "name": "camM2T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam m2: s: end",
+   "value": 96
+  },
+  {
+   "name": "camM2Az",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "cam m2: degrees swept round the aim point",
+   "value": 55
+  },
+  {
+   "name": "camM2El",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "cam m2: end elevation (deg above the centre)",
+   "value": 0.5
+  },
+  {
+   "name": "camM2R",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "cam m2: end radius as a factor of the start",
+   "value": 0.8
+  },
+  {
+   "name": "camNetcutT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam netcut: s: start",
+   "value": 102
+  },
+  {
+   "name": "camNetcutEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam netcut: eye x",
+   "value": 314
+  },
+  {
+   "name": "camNetcutEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam netcut: eye y",
+   "value": -337
+  },
+  {
+   "name": "camNetcutEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam netcut: eye z",
+   "value": 669
+  },
+  {
+   "name": "camNetcutCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam netcut: aim point x",
+   "value": 700
+  },
+  {
+   "name": "camNetcutCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam netcut: aim point y",
+   "value": 40
+  },
+  {
+   "name": "camNetcutCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam netcut: aim point z",
+   "value": 0
+  },
+  {
+   "name": "camDrift1T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam drift1: s: start",
+   "value": 103.5
+  },
+  {
+   "name": "camDrift1T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam drift1: s: end",
+   "value": 111.5
+  },
+  {
+   "name": "camDrift1Az",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "cam drift1: degrees swept round the aim point",
+   "value": 8
+  },
+  {
+   "name": "camDrift1El",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "cam drift1: end elevation (deg above the centre)",
+   "value": 27
+  },
+  {
+   "name": "camDrift1R",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "cam drift1: end radius as a factor of the start",
+   "value": 1
+  },
+  {
+   "name": "camM4T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam m4: s: start",
+   "value": 112
+  },
+  {
+   "name": "camM4T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam m4: s: end",
+   "value": 119
+  },
+  {
+   "name": "camM4Az",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "cam m4: degrees swept round the aim point",
+   "value": 60
+  },
+  {
+   "name": "camM4El",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "cam m4: end elevation (deg above the centre)",
+   "value": 20
+  },
+  {
+   "name": "camM4R",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "cam m4: end radius as a factor of the start",
+   "value": 1
+  },
+  {
+   "name": "camDrift2T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam drift2: s: start",
+   "value": 121
+  },
+  {
+   "name": "camDrift2T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam drift2: s: end",
+   "value": 131
+  },
+  {
+   "name": "camDrift2Az",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "cam drift2: degrees swept round the aim point",
+   "value": 8
+  },
+  {
+   "name": "camDrift2El",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "cam drift2: end elevation (deg above the centre)",
+   "value": 20
+  },
+  {
+   "name": "camDrift2R",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "cam drift2: end radius as a factor of the start",
+   "value": 1
+  },
+  {
+   "name": "camWideT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "cam wide: s: start",
+   "value": 135
+  },
+  {
+   "name": "camWideEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam wide: eye x",
+   "value": 154
+  },
+  {
+   "name": "camWideEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam wide: eye y",
+   "value": -331
+  },
+  {
+   "name": "camWideEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam wide: eye z",
+   "value": 1393
+  },
+  {
+   "name": "camWideCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam wide: aim point x",
+   "value": 350
+  },
+  {
+   "name": "camWideCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam wide: aim point y",
+   "value": 20
+  },
+  {
+   "name": "camWideCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "cam wide: aim point z",
+   "value": 0
+  }
+ ],
+ "ms_per_frame": 183,
+ "s_per_frame": 0.183,
+ "purity": {
+  "pass": true,
+  "at": {
+   "30.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "76.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "122.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png",
+  "strip-22.png",
+  "strip-23.png",
+  "strip-24.png",
+  "strip-25.png",
+  "strip-26.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "Everything moves. A few things never change.",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "A rule handed down, or something that follows?",
+   "chapter": {
+    "id": "hook",
+    "title": "Handed down, or following?"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "In 1918, Emmy Noether found where such rules come from.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "3,000 dots: ten moments of each of 300 orbits.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "3,000 dots: ten moments of each of 300 orbits.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "3,000 dots: ten moments of each of 300 orbits.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "3,000 dots: ten moments of each of 300 orbits.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "3,000 dots: ten moments of each of 300 orbits.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "Simulated orbits: tangled, no pattern.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "Simulated orbits: tangled, no pattern.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "Simulated orbits: tangled, no pattern.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "Simulated orbits: tangled, no pattern.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "Now one real orbit: Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "Now one real orbit: Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "Now one real orbit: Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "Now one real orbit: Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "Now one real orbit: Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "Closest to the Sun: 147.095 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "Closest to the Sun: 147.095 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "Closest to the Sun: 147.095 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "Closest to the Sun: 147.095 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "Closest to the Sun: 147.095 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Speed there: 30.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "Speed there: 30.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Speed there: 30.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Speed there: 30.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Farthest: 152.100 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "Farthest: 152.100 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Farthest: 152.100 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Farthest: 152.100 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "Speed there: 29.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "Speed there: 29.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "Speed there: 29.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "Speed there: 29.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "Multiply distance by speed.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "Multiply distance by speed.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "Multiply distance by speed.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "Multiply distance by speed.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "Multiply distance by speed.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "Multiply distance by speed.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "Closest: 4,455.5.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "Closest: 4,455.5.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "Closest: 4,455.5.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Now the same at the farthest point.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "Now the same at the farthest point.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "Farthest: 4,455.0.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "Farthest: 4,455.0.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "Farthest: 4,455.0.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "Farthest: 4,455.0.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "Only 0.011 % apart.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "Only 0.011 % apart.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "Only 0.011 % apart.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "Only 0.011 % apart.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "Only 0.011 % apart.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "Why? Each orbit has a spin: how much it swirls.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "Why? Each orbit has a spin: how much it swirls.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "Why? Each orbit has a spin: how much it swirls.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "Why? Each orbit has a spin: how much it swirls.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "Why? Each orbit has a spin: how much it swirls.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "Why? Each orbit has a spin: how much it swirls.",
+   "chapter": {
+    "id": "case",
+    "title": "Two cases: made-up orbits, and Earth"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Re-plot each orbit by its spin, not its place.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Same 3,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Same 3,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Same 3,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "Same 3,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "300 orbits, 300 specks.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "300 orbits, 300 specks.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": "300 orbits, 300 specks.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "300 orbits, 300 specks.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "The specks sit on 6 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "The specks sit on 6 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "The specks sit on 6 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "The specks sit on 6 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Spin and energy: under 1 in a trillion apart.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Spin and energy: under 1 in a trillion apart.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Spin and energy: under 1 in a trillion apart.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Spin and energy: under 1 in a trillion apart.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Spin and energy: under 1 in a trillion apart.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Slice through the shells. Each cut shows rings.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Slice through the shells. Each cut shows rings.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Slice through the shells. Each cut shows rings.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Slice through the shells. Each cut shows rings.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Slice through the shells. Each cut shows rings.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Slice through the shells. Each cut shows rings.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "Slice through the shells. Each cut shows rings.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": "Slice through the shells. Each cut shows rings.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "Slice through the shells. Each cut shows rings.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "The cut keeps the orbits near the equator lit.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "The cut keeps the orbits near the equator lit.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "The cut keeps the orbits near the equator lit.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "The cut keeps the orbits near the equator lit.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "The cut keeps the orbits near the equator lit.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "Regroup the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "Energy sorts them into 5 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "Energy sorts them into 5 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "Energy sorts them into 5 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "Energy sorts them into 5 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "Rotation gives shells. Time gives layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "Rotation gives shells. Time gives layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "Rotation gives shells. Time gives layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "Now no planets: a tiny network learning.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "Now no planets: a tiny network learning.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "Now no planets: a tiny network learning.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "Each dot is one step of training.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "Each dot is one step of training.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "Each dot is one step of training.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": "Each dot is one step of training.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "Each dot is one step of training.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "Each dot is one step of training.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "Each dot is one step of training.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": "Each dot is one step of training.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": "3,000 steps from 100 runs.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "3,000 steps from 100 runs.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "3,000 steps from 100 runs.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "3,000 steps from 100 runs.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "Known since 2018: some sums stay fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": "Known since 2018: some sums stay fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "Known since 2018: some sums stay fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "Known since 2018: some sums stay fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "Known since 2018: some sums stay fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "Re-plot each run by the sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": "The same picture: 3 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": "The same picture: 3 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": "The same picture: 3 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": "The same picture: 3 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 123,
+   "file": "thumbs/t-0123.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": "The same picture: 3 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 123.5,
+   "file": "thumbs/t-0123.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 124,
+   "file": "thumbs/t-0124.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 8,
+   "caption": "The weights travel 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 124.5,
+   "file": "thumbs/t-0124.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 9,
+   "caption": "The weights travel 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 125,
+   "file": "thumbs/t-0125.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 10,
+   "caption": "The weights travel 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 125.5,
+   "file": "thumbs/t-0125.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 11,
+   "caption": "The weights travel 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 126,
+   "file": "thumbs/t-0126.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 126.5,
+   "file": "thumbs/t-0126.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 1,
+   "caption": "The fixed sum moves 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 127,
+   "file": "thumbs/t-0127.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 2,
+   "caption": "The fixed sum moves 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 127.5,
+   "file": "thumbs/t-0127.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 3,
+   "caption": "The fixed sum moves 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 128,
+   "file": "thumbs/t-0128.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 4,
+   "caption": "The fixed sum moves 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 128.5,
+   "file": "thumbs/t-0128.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 129,
+   "file": "thumbs/t-0129.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 6,
+   "caption": "About 250 times less.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 129.5,
+   "file": "thumbs/t-0129.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 7,
+   "caption": "About 250 times less.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 130,
+   "file": "thumbs/t-0130.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 8,
+   "caption": "About 250 times less.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 130.5,
+   "file": "thumbs/t-0130.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 9,
+   "caption": "About 250 times less.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 131,
+   "file": "thumbs/t-0131.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 10,
+   "caption": "About 250 times less.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 131.5,
+   "file": "thumbs/t-0131.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 132,
+   "file": "thumbs/t-0132.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 0,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 132.5,
+   "file": "thumbs/t-0132.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 1,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 133,
+   "file": "thumbs/t-0133.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 2,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 133.5,
+   "file": "thumbs/t-0133.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 3,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 134,
+   "file": "thumbs/t-0134.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 4,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 134.5,
+   "file": "thumbs/t-0134.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 5,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-plot by what stays"
+   }
+  },
+  {
+   "t": 135,
+   "file": "thumbs/t-0135.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 135.5,
+   "file": "thumbs/t-0135.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 7,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 136,
+   "file": "thumbs/t-0136.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 8,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 136.5,
+   "file": "thumbs/t-0136.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 9,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 137,
+   "file": "thumbs/t-0137.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 10,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 137.5,
+   "file": "thumbs/t-0137.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 11,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 138,
+   "file": "thumbs/t-0138.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 0,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 138.5,
+   "file": "thumbs/t-0138.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 1,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 139,
+   "file": "thumbs/t-0139.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 2,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 139.5,
+   "file": "thumbs/t-0139.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 3,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 140,
+   "file": "thumbs/t-0140.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 4,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 140.5,
+   "file": "thumbs/t-0140.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 5,
+   "caption": "Monday: what stays fixed in your data while it moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 141,
+   "file": "thumbs/t-0141.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 141.5,
+   "file": "thumbs/t-0141.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 142,
+   "file": "thumbs/t-0142.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 142.5,
+   "file": "thumbs/t-0142.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 143,
+   "file": "thumbs/t-0143.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 143.5,
+   "file": "thumbs/t-0143.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 144,
+   "file": "thumbs/t-0144.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 144.5,
+   "file": "thumbs/t-0144.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 145,
+   "file": "thumbs/t-0145.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 145.5,
+   "file": "thumbs/t-0145.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 146,
+   "file": "thumbs/t-0146.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 146.5,
+   "file": "thumbs/t-0146.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 147,
+   "file": "thumbs/t-0147.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 147.5,
+   "file": "thumbs/t-0147.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 148,
+   "file": "thumbs/t-0148.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 148.5,
+   "file": "thumbs/t-0148.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 149,
+   "file": "thumbs/t-0149.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 149.5,
+   "file": "thumbs/t-0149.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 150,
+   "file": "thumbs/t-0150.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 150.5,
+   "file": "thumbs/t-0150.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 151,
+   "file": "thumbs/t-0151.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 151.5,
+   "file": "thumbs/t-0151.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 152,
+   "file": "thumbs/t-0152.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 152.5,
+   "file": "thumbs/t-0152.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 152.99,
+   "file": "thumbs/t-0152.99.jpg",
+   "strip": "strip-26.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  }
+ ]
+}

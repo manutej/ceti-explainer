@@ -1,0 +1,595 @@
+{
+ "film": "noether-symmetry",
+ "params": {
+  "lShells": 6,
+  "eLevels": 5,
+  "orientations": 10,
+  "perOrbit": 10,
+  "seed": 20261010,
+  "netRuns": 100,
+  "netPerRun": 30,
+  "netShells": 3,
+  "hidden": 16,
+  "lr": 0.01,
+  "netSteps": 986,
+  "rp": 147.095,
+  "ra": 152.1,
+  "vp": 30.29,
+  "va": 29.29,
+  "vavg": 29.78,
+  "ecc": 0.0167,
+  "GMsun": 132712440018.0,
+  "rv_roundKms": 0.005,
+  "cutOrbits": 62,
+  "cutMarks": 620,
+  "cutBandPct": 20,
+  "wMove": 0.237,
+  "cMove": 0.000952,
+  "lossFirst": 1.93,
+  "lossLast": 0.002,
+  "posRelPct": 54,
+  "speedRelPct": 57,
+  "lWorst": 2.6e-15,
+  "eWorst": 1.4e-13,
+  "verletL": 1.4e-13,
+  "verletE": 0.00053,
+  "trillion": 1000000000000.0
+ },
+ "rounding": "grades: A = primary table or paper returned consistently by more than one extraction, or recomputed here from the seeded simulation; B = reputable secondary or primary seen once (egress blocked every fetch, so no page was opened; see factory/research/NOETHER-NONQUANTUM.md); nothing C is on screen. Percentages are shown to the digits written in renders.",
+ "sources": {
+  "S1": "NASA NSSDC Earth Fact Sheet (perihelion 147.095, aphelion 152.100 million km, eccentricity 0.0167, average orbital velocity 29.78 km/s): https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html ; planetary sheet (rounded 147.1 / 152.1): https://nssdc.gsfc.nasa.gov/planetary/factsheet/ . Not opened (egress); read through two WebSearch extractions that agree.",
+  "S2": "Wikipedia, Earth's orbit (speed at perihelion 30.29 km/s, at aphelion 29.29 km/s, average 29.78 km/s): https://en.wikipedia.org/wiki/Earth's_orbit . Secondary; primary behind the two speeds not named. Cross-checked against vis-viva with S1 distances and S3 (agree to 0.01 %).",
+  "S3": "IAU 2015 Resolution B3, nominal solar mass parameter GM_sun = 1.3271244e20 m^3/s^2 (stored here in km^3/s^2): https://www.iau.org/static/resolutions/IAU2015_English.pdf . From memory, not fetched this session.",
+  "S4": "Noether, Invariante Variationsprobleme, Nachr. Ges. Wiss. Goettingen, Math.-phys. Kl. 1918, 235-257 (Tavel translation 1971): context and translation pointers in Kosmann-Schwarzbach, The Noether theorems in context, https://arxiv.org/abs/2004.09254 ; https://arxiv.org/pdf/1902.01989 . Paper not opened.",
+  "S5": "Hanc, Tuleja, Hancova, Symmetries and conservation laws: consequences of Noether's theorem, Am. J. Phys. 72, 428-435 (2004), doi 10.1119/1.1591764 : https://ui.adsabs.harvard.edu/abs/2004AmJPh..72..428H",
+  "S6": "Du, Hu, Lee, Algorithmic regularization in learning deep homogeneous models: layers are automatically balanced, NeurIPS 2018, arXiv 1806.00900 : https://arxiv.org/abs/1806.00900 ; https://proceedings.neurips.cc/paper/2018/hash/fe131d7f5a6b38b23cc967316c13dae2-Abstract.html",
+  "S7": "Kunin, Sagastuy-Brena, Ganguli, Yamins, Tanaka, Neural mechanics: symmetry and broken conservation laws in deep learning dynamics, ICLR 2021, arXiv 2012.04728 : https://arxiv.org/abs/2012.04728",
+  "S8": "Tanaka and Kunin, Noether's learning dynamics: role of symmetry breaking in neural networks, NeurIPS 2021, arXiv 2105.02716 : https://arxiv.org/abs/2105.02716",
+  "S9": "Salmon, Hamiltonian fluid mechanics, Annu. Rev. Fluid Mech. 20, 225-256 (1988), doi 10.1146/annurev.fl.20.010188.001301 : http://adsabs.harvard.edu/abs/1988AnRFM..20..225S ; Salmon 2013 (relabelling corresponds by Noether to vorticity conservation laws): https://pordlabs.ucsd.edu/rsalmon/salmon.2013.pdf ; Kelvin 1869 (circulation theorem, from memory). Not opened.",
+  "S10": "Samuelson, Law of conservation of the capital-output ratio, PNAS 67(3):1477-1479 (1970), doi 10.1073/pnas.67.3.1477 : https://www.pnas.org/doi/10.1073/pnas.67.3.1477 ; Sato and Ramachandran (eds.), Conservation Laws and Symmetry: Applications to Economics and Finance, Kluwer 1990: https://link.springer.com/book/10.1007/978-94-017-1145-6",
+  "S11": "factory/topics/noether-symmetry/recompute.py, seed 20261010 (numpy; exact Kepler states, velocity-Verlet check, 2-layer ReLU net by gradient descent). A simulation, labelled MODEL on stage."
+ },
+ "claims": [
+  {
+   "id": "noetherYear",
+   "text": "Noether proved the theorem in 1918",
+   "value": 1918,
+   "formula": null,
+   "source": "S4",
+   "grade": "B",
+   "onscreen": true,
+   "where": "HOOK none (no digit in HOOK); CASE 12-20 s plate; MONDAY",
+   "renders": [
+    "1918"
+   ]
+  },
+  {
+   "id": "lShells",
+   "text": "the 300 orbits fall on 6 shells of equal angular momentum |L|",
+   "value": 6,
+   "formula": "lShells",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 64-76 s pin '6 shells'",
+   "renders": [
+    "6 shells",
+    "6"
+   ]
+  },
+  {
+   "id": "eLevels",
+   "text": "the orbits sit at 5 energy levels E (colour)",
+   "value": 5,
+   "formula": "eLevels",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 78-86 s re-partition pin '5 layers'",
+   "renders": [
+    "5 layers",
+    "5"
+   ]
+  },
+  {
+   "id": "orbits",
+   "text": "300 simulated two-body orbits = 6 L shells x 5 energy levels x 10 orientations",
+   "value": 300,
+   "formula": "lShells*eLevels*orientations",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 66 s pin '300 orbits'",
+   "renders": [
+    "300 orbits",
+    "300"
+   ]
+  },
+  {
+   "id": "perOrbit",
+   "text": "10 states (moments) recorded per orbit",
+   "value": 10,
+   "formula": "perOrbit",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 24 s caption 'ten moments per orbit'",
+   "renders": [
+    "10",
+    "ten"
+   ]
+  },
+  {
+   "id": "states",
+   "text": "3,000 states, one mark each: 300 orbits x 10 moments (the first count; lands before any ratio)",
+   "value": 3000,
+   "formula": "orbits*perOrbit",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE count-in lands 26.0 s; caption; COUNT 66 s",
+   "renders": [
+    "3,000",
+    "3000"
+   ]
+  },
+  {
+   "id": "posRelPct",
+   "text": "inside one orbit a position coordinate (x) swings by about half its own size: median over 300 orbits of sd/rms = 54 %",
+   "value": 54,
+   "formula": null,
+   "source": "S11",
+   "grade": "A",
+   "onscreen": false,
+   "where": "COUNT 70 s caption 'positions swing by about half' (no digit shown unless this claim is placed)",
+   "renders": [
+    "54 %",
+    "about half"
+   ]
+  },
+  {
+   "id": "speedRelPct",
+   "text": "inside one orbit the speed swings by 57 % of its own size (median sd/rms)",
+   "value": 57,
+   "formula": null,
+   "source": "S11",
+   "grade": "A",
+   "onscreen": false,
+   "where": "COUNT 70 s optional",
+   "renders": [
+    "57 %"
+   ]
+  },
+  {
+   "id": "lWorst",
+   "text": "worst relative spread of the angular-momentum length |L| inside any one orbit = 2.6e-15 (round-off of the exact solution)",
+   "value": 2.6e-15,
+   "formula": null,
+   "source": "S11",
+   "grade": "A",
+   "onscreen": false,
+   "where": "COUNT 72-76 s: shown as 'less than one part in a trillion'",
+   "tolerance": 1e-15
+  },
+  {
+   "id": "eWorst",
+   "text": "worst relative spread of the energy E inside any one orbit = 1.4e-13",
+   "value": 1.4e-13,
+   "formula": null,
+   "source": "S11",
+   "grade": "A",
+   "onscreen": false,
+   "where": "COUNT 72-76 s: 'less than one part in a trillion'",
+   "tolerance": 1e-13
+  },
+  {
+   "id": "trillion",
+   "text": "'one part in a trillion' = 1e-12; both lWorst and eWorst are below it",
+   "value": 1000000000000,
+   "formula": "1e12",
+   "source": "derived",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 74 s pin 'L and E: under 1 in a trillion'",
+   "renders": [
+    "1 in a trillion",
+    "a trillion",
+    "1,000,000,000,000"
+   ],
+   "note": "lWorst < 1/trillion and eWorst < 1/trillion are checked in recompute.py (printed spread)"
+  },
+  {
+   "id": "cutOrbits",
+   "text": "a cut plane at Lz=0 with band |Lz| < 20 % of |L| lights 62 of the 300 orbits (620 of 3,000 marks); 6 rings, one per shell (13, 9, 13, 11, 6, 10)",
+   "value": 62,
+   "formula": null,
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 88-94 s cut-plane pin '62 orbits'",
+   "renders": [
+    "62 orbits",
+    "62"
+   ]
+  },
+  {
+   "id": "cutMarks",
+   "text": "marks lit by that cut: 620 of 3,000 (62 orbits x 10 states)",
+   "value": 620,
+   "formula": "cutOrbits*perOrbit",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 94 s readout '620 of 3,000'",
+   "renders": [
+    "620"
+   ]
+  },
+  {
+   "id": "rp",
+   "text": "Earth perihelion distance 147.095 million km",
+   "value": 147.095,
+   "formula": null,
+   "source": "S1",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 32-38 s pin 'closest 147.095 million km'",
+   "renders": [
+    "147.095",
+    "147.1"
+   ]
+  },
+  {
+   "id": "ra",
+   "text": "Earth aphelion distance 152.100 million km",
+   "value": 152.1,
+   "formula": null,
+   "source": "S1",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 32-38 s pin 'farthest 152.100 million km'",
+   "renders": [
+    "152.100",
+    "152.1"
+   ]
+  },
+  {
+   "id": "vp",
+   "text": "Earth speed at perihelion 30.29 km/s (Wikipedia; matches vis-viva 30.287)",
+   "value": 30.29,
+   "formula": null,
+   "source": "S2",
+   "grade": "B",
+   "onscreen": true,
+   "where": "CASE 38 s pin '30.29 km/s'",
+   "renders": [
+    "30.29"
+   ]
+  },
+  {
+   "id": "va",
+   "text": "Earth speed at aphelion 29.29 km/s (Wikipedia; matches vis-viva 29.291)",
+   "value": 29.29,
+   "formula": null,
+   "source": "S2",
+   "grade": "B",
+   "onscreen": true,
+   "where": "CASE 38 s pin '29.29 km/s'",
+   "renders": [
+    "29.29"
+   ]
+  },
+  {
+   "id": "rvPeri",
+   "text": "distance x speed at perihelion = 147.095 x 30.29 = 4,455.5 (million km x km/s)",
+   "value": 4455.5,
+   "formula": "rp*vp",
+   "source": "S2",
+   "grade": "B",
+   "onscreen": true,
+   "where": "CASE 42-46 s formula-bind product, left",
+   "renders": [
+    "4,455.5",
+    "4455.5",
+    "4,455"
+   ],
+   "tolerance": 0.1
+  },
+  {
+   "id": "rvAph",
+   "text": "distance x speed at aphelion = 152.100 x 29.29 = 4,455.0",
+   "value": 4455.0,
+   "formula": "ra*va",
+   "source": "S2",
+   "grade": "B",
+   "onscreen": true,
+   "where": "CASE 42-46 s formula-bind product, right",
+   "renders": [
+    "4,455.0",
+    "4455.0",
+    "4,455"
+   ],
+   "tolerance": 0.1
+  },
+  {
+   "id": "rvDiffPct",
+   "text": "the two products differ by 0.011 % (1 part in about 9,000), inside the +/-0.017 % rounding of the published speeds",
+   "value": 0.011,
+   "formula": "100*(rvPeri-rvAph)/rvAph",
+   "source": "S2",
+   "grade": "B",
+   "onscreen": true,
+   "where": "CASE 50 s callout 'only 0.011 % apart' (a ratio: after the count lands at 26.0 s)",
+   "renders": [
+    "0.011 %",
+    "0.011%"
+   ],
+   "tolerance": 0.002
+  },
+  {
+   "id": "distSwingPct",
+   "text": "from closest to farthest the distance grows 3.40 %",
+   "value": 3.4,
+   "formula": "100*(ra-rp)/rp",
+   "source": "S1",
+   "grade": "A",
+   "onscreen": false,
+   "where": "CASE 46 s caption (optional)",
+   "renders": [
+    "3.4 %",
+    "3.40 %"
+   ],
+   "tolerance": 0.02
+  },
+  {
+   "id": "speedSwingPct",
+   "text": "from closest to farthest the speed falls 3.41 % (published speeds)",
+   "value": 3.41,
+   "formula": "100*(vp-va)/va",
+   "source": "S2",
+   "grade": "B",
+   "onscreen": false,
+   "where": "CASE 46 s caption (optional)",
+   "renders": [
+    "3.4 %",
+    "3.41 %"
+   ],
+   "tolerance": 0.02
+  },
+  {
+   "id": "aMkm",
+   "text": "Earth semi-major axis from the two distances: 149.5975 million km",
+   "value": 149.5975,
+   "formula": "(rp+ra)/2",
+   "source": "S1",
+   "grade": "A",
+   "onscreen": false,
+   "where": "derived input to vis-viva (not shown)",
+   "tolerance": 0.001
+  },
+  {
+   "id": "vpVV",
+   "text": "vis-viva speed at perihelion from S1 distances and S3 GM: 30.287 km/s",
+   "value": 30.2872,
+   "formula": "sqrt(GMsun*(2/(rp*1e6)-1/(aMkm*1e6)))",
+   "source": "derived",
+   "grade": "A",
+   "onscreen": false,
+   "where": "NOTES cross-check (not shown)",
+   "tolerance": 0.01
+  },
+  {
+   "id": "vaVV",
+   "text": "vis-viva speed at aphelion: 29.291 km/s",
+   "value": 29.2906,
+   "formula": "sqrt(GMsun*(2/(ra*1e6)-1/(aMkm*1e6)))",
+   "source": "derived",
+   "grade": "A",
+   "onscreen": false,
+   "where": "NOTES cross-check (not shown)",
+   "tolerance": 0.01
+  },
+  {
+   "id": "rvVVDiffPct",
+   "text": "with vis-viva speeds r x v is the same at both ends to 5 decimals (0.00000 %); published speeds agree with vis-viva to 0.01 %",
+   "value": 0.0,
+   "formula": "100*(ra*vaVV-rp*vpVV)/(rp*vpVV)",
+   "source": "derived",
+   "grade": "A",
+   "onscreen": false,
+   "where": "NOTES cross-check (not shown)",
+   "tolerance": 0.001
+  },
+  {
+   "id": "netRuns",
+   "text": "100 training runs of a tiny network from 100 different starts",
+   "value": 100,
+   "formula": "netRuns",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 98-104 s pin '100 runs'",
+   "renders": [
+    "100 runs",
+    "100"
+   ]
+  },
+  {
+   "id": "netPerRun",
+   "text": "30 recorded steps per run (every 34th step of 986)",
+   "value": 30,
+   "formula": "netPerRun",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 100 s caption",
+   "renders": [
+    "30"
+   ]
+  },
+  {
+   "id": "netStates",
+   "text": "second count: 100 runs x 30 recorded steps = 3,000 marks, one per recorded step",
+   "value": 3000,
+   "formula": "netRuns*netPerRun",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT lands 104.0 s",
+   "renders": [
+    "3,000",
+    "3000"
+   ]
+  },
+  {
+   "id": "netShells",
+   "text": "the 100 runs start on 3 shells of the conserved triple (c0, c1, c2): radius 0.4, 0.8, 1.2",
+   "value": 3,
+   "formula": "netShells",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 112 s pin '3 shells'",
+   "renders": [
+    "3 shells",
+    "3"
+   ]
+  },
+  {
+   "id": "hidden",
+   "text": "hidden units in the tiny network: 16",
+   "value": 16,
+   "formula": "hidden",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 98 s caption 'a tiny network, 16 units'",
+   "renders": [
+    "16"
+   ]
+  },
+  {
+   "id": "wMove",
+   "text": "median distance a run's weights travel in the weight-space picture: 0.24 (0.237)",
+   "value": 0.24,
+   "formula": null,
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 116 s pin 'weights move 0.24'",
+   "renders": [
+    "0.24"
+   ],
+   "tolerance": 0.005
+  },
+  {
+   "id": "cMove",
+   "text": "median distance the conserved triple moves inside a run: 0.00095",
+   "value": 0.00095,
+   "formula": null,
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 118 s pin 'conserved: 0.00095'",
+   "renders": [
+    "0.00095"
+   ],
+   "tolerance": 1e-05
+  },
+  {
+   "id": "netRatio",
+   "text": "the weights move about 250 times more than the conserved triple (249 exact; median over 100 runs)",
+   "value": 250,
+   "formula": "round(wMove/cMove/10)*10",
+   "source": "S11",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 122 s callout 'about 250 times' (ratio, after both counts)",
+   "renders": [
+    "about 250 times",
+    "250 times",
+    "250"
+   ],
+   "tolerance": 5
+  },
+  {
+   "id": "lossDrop",
+   "text": "training works while the invariant stays: mean loss 1.93 at step 0, 0.002 at step 986",
+   "value": 1.93,
+   "formula": null,
+   "source": "S11",
+   "grade": "A",
+   "onscreen": false,
+   "where": "COUNT 106 s caption (optional)",
+   "renders": [
+    "1.93"
+   ],
+   "tolerance": 0.01
+  },
+  {
+   "id": "duYear",
+   "text": "Du, Hu, Lee 2018: layers are automatically balanced under gradient flow (NeurIPS)",
+   "value": 2018,
+   "formula": null,
+   "source": "S6",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 110 s source plate",
+   "renders": [
+    "2018"
+   ]
+  },
+  {
+   "id": "kuninYear",
+   "text": "Kunin et al. 2021 (ICLR) and Tanaka and Kunin 2021 (NeurIPS): the Noether-style conservation laws of learning, broken by weight decay and finite learning rate",
+   "value": 2021,
+   "formula": null,
+   "source": "S7",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 110 s source plate; MONDAY honest line",
+   "renders": [
+    "2021"
+   ]
+  },
+  {
+   "id": "kelvinYear",
+   "text": "Kelvin's circulation theorem, 1869; it follows from relabelling symmetry by Noether's theorem (Salmon 1988)",
+   "value": 1869,
+   "formula": null,
+   "source": "S9",
+   "grade": "B",
+   "onscreen": true,
+   "where": "COUNT 128 s plate 'smoke rings keep their swirl: Kelvin, 1869'",
+   "renders": [
+    "1869"
+   ]
+  },
+  {
+   "id": "salmonYear",
+   "text": "Salmon 1988: Hamiltonian fluid mechanics, relabelling symmetry",
+   "value": 1988,
+   "formula": null,
+   "source": "S9",
+   "grade": "B",
+   "onscreen": true,
+   "where": "COUNT 130 s plate",
+   "renders": [
+    "1988"
+   ]
+  },
+  {
+   "id": "samuelsonYear",
+   "text": "Samuelson 1970: a conservation law for the capital-output ratio in an idealised growth model (analogy to energy; Noether framing is later)",
+   "value": 1970,
+   "formula": null,
+   "source": "S10",
+   "grade": "B",
+   "onscreen": false,
+   "where": "COUNT 132 s one-word plate, optional; not a claim about real economies",
+   "renders": [
+    "1970"
+   ]
+  }
+ ]
+}
