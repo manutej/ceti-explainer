@@ -24,7 +24,7 @@ and k > 1 (small cells round to 1 box, see pitfalls); occlusion-aware labels (pi
 - `size` 3-12, `gap` 0.4-2 (pitch = size + gap); `foot` [4-16, 4-16] pooled cells; `slabFoot` [2-6, 2-6]; `layers` 8-30; `depth` 2-6
 - `slabGap` 6-30, `pairGap` 2-12, `groupGap` 10-60; treemap `cityLayers` 3-12, `slack` 1.1-1.6, `aspect` 0.7-1.6, `street` 4-20
 - `pooledSort` hit-cat | cat-hit | hit-seeded; `colorBy` group | cat | none; `dim` 0.4-0.75; `maskDim` 0.5-0.9
-- K `dur` 8-40 s; K `beats` {arrive, lit, move, reveal} fractions of dur; K `stagger` 0-0.6 (0.25: minimal, each box still on its own path)
+- K `dur` 8-40 s (default 18); K `ratioDelay` 1.5-5 s (floor 1.5); K `beats` {arrive, lit, move, reveal} fractions of dur (default move [0.52, 0.74], reveal [0.90, 0.95]); K `stagger` 0-0.6 (0.25: minimal, each box still on its own path)
 - K `lift` 0-40 (arc height); `drop` 0-100 (arrival fall); `arrW` 0.01-0.1; K `orderMix` 0-1 (0 seeded order, 1 category order)
 - K `az` [deg, deg], K `elev` [deg, deg], `drift` 0-10 deg, `fit` [0.8-1.4, 0.8-1.4], `lookY` 0.3-0.6
 - `reveal` reversal | none (auto: groups with the highest and lowest pooled rate; categories where the low group wins)
@@ -45,6 +45,12 @@ and k > 1 (small cells round to 1 box, see pitfalls); occlusion-aware labels (pi
 (keyed orbit set every frame, no slerp needed for one arc); [[frontier-2026]] S10 S275.
 
 ## Pitfalls and WARNs
+- Counts before ratios (fixed after the seat's REVISE): a pin's count lands first and its % waits `ratioDelay` s (floor 1.5) more, as a line with its own
+  opacity; pooled also waits for the lit beat. Pooled pins: % 26 and count 26 (equal faces); split slab pins: % 18 and count 18. The split % lands
+  at move end + 0.04 + ratioDelay, so the reveal beat sits after it (default 0.90). A film that shortens `dur` must keep the beats in order
+  (`count(t).ratioAt` returns the u at which each % appears); at dur 14 the pooled % has under 1 s to be read.
+- Results never in the smallest face: the pooled pair "POOLED 30% vs 45%" is now `disp` 28 (headline 30 above it); the 10 px caption
+  "SAME BOXES, NEW PARTITION" is not a result.
 - Per-cell rounding at k > 1: boxes = round(n / k), min 1 for n > 0; `unitsResidual` (boxes x k - units) is reported by check(); labels always print exact units.
 - User vertex properties: `geo.vertexProperty()` pushes with spread (stack overflow above ~100k values); the module creates the
   property with `_userVertexPropertyHelper` and assigns `geo[name + 'Src']` directly. Private p5 API: re-test on a p5 upgrade.
@@ -53,23 +59,25 @@ and k > 1 (small cells round to 1 box, see pitfalls); occlusion-aware labels (pi
 - The tag outline is drawn after a depth clear so it shows through slabs: it reads as "inside here", by design.
 - Labels: slab mode staggers odd groups 44 px; tiny slabs (Berkeley B women, 25) still crowd. Axis mode labels names, not every bar.
 - Synthetic data (variants 3-4) prints its source line as ILLUSTRATIVE; a film feeds its own matrix and source.
+- WARN pins (still open, staging not law): in `bars-2x6` the 12 split pins at 18 px crowd where slabs are small (B women, C/D/E pairs overlap their neighbours' % at t = 14.4);
+  the 34 %/35 %/24 % pins can touch the CHECK line (turn `checkLine` off in a film). The tag label "ONE BOX = k" is still buried in the treemap and big city.
 - WARN framing: in `bars-2x6` the right-most split label can touch the check line; in `big-12x12-lod` the city's front corner
   runs under the count readout and the category axis labels at t = end. Retune `fit`/`lookY` per film, or turn `checkLine` off.
 - WARN light packs: misses are mixed toward a white bg, so dim reads as pale (swiss-grid); fine, but say DIM in the legend (it does).
 - Fonts: the pack's disp/mono from arsenal/fonts/fonts.js; a family missing there falls back (st.faceNote says which).
 
-## Cost (s/frame, 960x540 x2, SwiftShader, readPixels-synced, mean/max of 6 frames; machine shared with other lanes)
+## Cost (s/frame, 960x540 x2, SwiftShader, readPixels-synced, mean/max of 6 frames; machine less loaded than the first measurement, re-run after the ratio fix: the earlier 0.47/0.76/0.44 were under load)
 | variant | boxes | vertices | k | mean | max | setup |
 |---|---|---|---|---|---|---|
-| bars-2x6 | 4,526 | 90,520 | 1 | 0.47 | 0.70 | 0.26 s |
-| bars-2x6-k10 (cheap) | 454 | 9,080 | 10 | 0.27 | 0.39 | 0.01 s |
-| treemap-4x8 (heaviest) | 6,400 | 128,000 | 1 | 0.76 | 1.11 | 0.29 s |
-| big-12x12-lod | 11,431 | 228,620 | 21 (LOD) | 0.44 | 0.53 | 0.28 s |
+| bars-2x6 | 4,526 | 90,520 | 1 | 0.20 | 0.26 | 0.26 s |
+| bars-2x6-k10 (cheap) | 454 | 9,080 | 10 | 0.12 | 0.17 | 0.01 s |
+| treemap-4x8 (heaviest) | 6,400 | 128,000 | 1 | 0.28 | 0.35 | 0.29 s |
+| big-12x12-lod | 11,431 | 228,620 | 21 (LOD) | 0.21 | 0.28 | 0.28 s |
 
 Fill is the cost (large faces near the camera), not vertex count: the treemap's flat roofs fill the frame. Labels (p5 WEBGL
-text) add ~0.05-0.1 s. shoot.mjs ms_per_frame is honest here (the demo syncs with a 1-px readPixels): 548 dark, 598 swiss-grid.
-Purity identical on all 4 variants, both packs. check(t) sweep (61 samples per variant, every frame of the move) all OK;
-in report.json under `check`, `cost`, `stats`. Units residual from rounding: 0, 14 (k10), 0, 49 of 240,002 (big).
+text) add ~0.05-0.1 s. shoot.mjs ms_per_frame is honest here (the demo syncs with a 1-px readPixels): 221 dark, 228 swiss-grid (times 0,0.4,0.8,1).
+Purity identical on all 4 variants, both packs. check(t) sweep (61 samples per variant, over dur 18) all OK;
+(sweep and bench run via the demo's checkSweep and bench; shots/report.json holds purity and errors). Units residual from rounding: 0, 14 (k10), 0, 49 of 240,002 (big).
 
 ## Renderer / fallback
 `webgl`. If user vertex properties break: pack homes into uv + vertexColors as simpsons-3d does (lattice-recovered centres).

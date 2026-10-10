@@ -199,3 +199,11 @@ label solver is used by no lane. The 100k layer cannot re-partition. The flagshi
 lets a brand change the numbers. DoF and instancing exist in two and four forms. Baked AO, the reframe contract and lens-accumulation
 DoF are absent. None of the thirteen lanes has yet been hosted in a kit2 film and gated, so the frontier is proven on contact sheets,
 not on a film.
+
+
+## After the fix round (2026-10-10, orchestrator)
+- gl-stack-city: REVISE → SHIP-WITH-NOTES. Every % now lands ≥ 1.5 s after its count (`ratioDelay`), counts in the larger
+  or equal face, the pooled readout at disp 28; check(t) OK on 61 samples per variant; purity identical; 0.12–0.28 s/frame.
+  Open: split pins crowd at 18 px; the tag label is buried in the treemap and big variants.
+- scale-anchor: REVISE → SHIP. The count at any t is the same under every pack (zoom timing from the module's own `ease`,
+  not `tokens.tempo`); pairs recorded in the card.

@@ -356,6 +356,14 @@ void main(){
     p.resetShader();
   }
 
+  /* ratio opacities. Law: counts before ratios. The count lands at the end of its fade (pooled: arrive end + 0.03; split: move end + 0.04);
+     the ratio waits `ratioDelay` seconds more (floor 1.5 s, so the count is read first) and, for the pooled pins, the lit beat. */
+  function ratioOps(params, ph) {
+    const B = params.beats, dr = Math.max(1.5, params.ratioDelay) / params.dur;
+    const aP = Math.max(B.arrive[1] + 0.03 + dr, B.lit[1]), aS = B.move[1] + 0.04 + dr;
+    return { pooled: seg(ph.u, aP, aP + 0.03), split: seg(ph.u, aS, aS + 0.03), pooledAt: aP, splitAt: aS };
+  }
+
   /* pins: label anchors in world space, with their text and opacity (built from t only) */
   function pins(st, params, tk, ph) {
     const D = st.data, P = st.P, out = [], c = tk.color, R = st.rev;
@@ -364,17 +372,18 @@ void main(){
     const opSplit = seg(ph.u, params.beats.move[1] - 0.005, params.beats.move[1] + 0.04);
     const L = params.labels;
     if (L === 'none') return out;
+    const rt = ratioOps(params, ph);   // counts before ratios: a pin's % is a fifth element (its own opacity), later than its count
     if (opPool > 0) for (let g = 0; g < st.G; g++) {
       const n = sum(D.n[g]), h = D.hit ? sum(D.hit[g]) : null, s = st.pooled[g];
       const big = h != null ? fmt(h) + ' / ' + fmt(n) : fmt(n);
-      const rate = h != null && ph.lit >= 1 ? Math.round(100 * h / n) + '%' : '';
+      const rate = h != null && ph.lit >= 1 ? Math.round(100 * h / n) + '%' : '';   // % only after the lit beat AND ratioDelay past the count
       if (L === 'axis') { out.push({ p: top(s), lines: [[fmt(n), 'disp', 13, c.ink], [D.groups[g], 'mono', 9, c.muted]], op: opPool, dy: (g % 2) * 26 }); continue; }
-      out.push({ p: top(s), lines: [[rate, 'disp', 26, c.ink], [big, 'disp', 17, c.ink], [D.groups[g] + (h != null ? ' \u00b7 ' + D.hitWord + ' / ALL' : ''), 'mono', 10, c.muted]].filter((x) => x[0]), op: opPool, lead: true });
+      out.push({ p: top(s), lines: [[rate, 'disp', 26, c.ink, rt.pooled], [big, 'disp', 26, c.ink], [D.groups[g] + (h != null ? ' \u00b7 ' + D.hitWord + ' / ALL' : ''), 'mono', 10, c.muted]].filter((x) => x[0]), op: opPool, lead: true });
     }
     if (opSplit > 0) {
       if (L === 'slab') for (let cc = 0; cc < st.C; cc++) for (let g = 0; g < st.G; g++) {
         const n = D.n[g][cc], h = D.hit ? D.hit[g][cc] : null, s = st.split[cc][g], m = ph.rev > 0 && R && !R.cats[cc] ? 1 - 0.7 * ph.rev : 1;
-        out.push({ p: top(s), lines: [[h != null ? Math.round(100 * h / n) + '%' : fmt(n), 'disp', 19, c.ink], [h != null ? fmt(h) + '/' + fmt(n) : '', 'disp', 12, c.ink], [D.cats[cc] + ' \u00b7 ' + D.groups[g], 'mono', 9, c.muted]].filter((x) => x[0]), op: opSplit * m, dy: (g % 2) * 44 });
+        out.push({ p: top(s), lines: [[h != null ? Math.round(100 * h / n) + '%' : fmt(n), 'disp', 18, c.ink, h != null ? rt.split : 1], [h != null ? fmt(h) + '/' + fmt(n) : '', 'disp', 18, c.ink], [D.cats[cc] + ' \u00b7 ' + D.groups[g], 'mono', 9, c.muted]].filter((x) => x[0]), op: opSplit * m, dy: (g % 2) * 44 });
       }
       if (L === 'block') for (let cc = 0; cc < st.C; cc++) {
         const ss = st.split[cc], n = sum(D.n.map((r) => r[cc])), x = sum(ss.map((s) => s.cx * s.n)) / Math.max(1, sum(ss.map((s) => s.n))), z = sum(ss.map((s) => s.cz * s.n)) / Math.max(1, sum(ss.map((s) => s.n)));
@@ -412,7 +421,7 @@ void main(){
       let y = q.y - (q.flat ? -12 : 6) - (q.dy || 0);
       if (q.lead || q.dy) { const lc = p.color(c.muted); lc.setAlpha(255 * q.op); p.stroke(lc); p.strokeWeight(1); p.line(q.x + ox, q.y + oy, q.x + ox, q.y - 14 - (q.dy || 0) + oy); y -= 14; }
       const ls = q.flat ? q.lines : q.lines.slice().reverse();
-      for (const [s, font, size, col] of ls) { txt(s, q.x, y, size, col, font, q.right ? 'R' : 'C', q.op); y += q.flat ? size + 3 : -(size + 3); }
+      for (const [s, font, size, col, lo] of ls) { txt(s, q.x, y, size, col, font, q.right ? 'R' : 'C', q.op * (lo == null ? 1 : lo)); y += q.flat ? size + 3 : -(size + 3); }
     }
     // legend (colour = group, or category)
     const by = params.colorBy, names = by === 'cat' ? D.cats : by === 'none' ? [] : D.groups, pal = palette(p, tk, by === 'cat' ? st.C : st.G);
@@ -429,8 +438,10 @@ void main(){
     if (D.source) txt(D.source, W - 36, H - 24, 9, c.muted, 'mono', 'R');
     if (ph.rev > 0 && st.rev) {
       const R = st.rev;
-      txt(D.groups[R.lo] + ' HIGHER IN ' + R.count + ' OF ' + st.C, W - 36, H - 62, 30, c.accent, 'disp', 'R', ph.rev);
-      txt('POOLED: ' + Math.round(100 * R.pooledLo) + '% vs ' + Math.round(100 * R.pooledHi) + '% · SAME BOXES, NEW PARTITION', W - 36, H - 42, 10, c.muted, 'mono', 'R', ph.rev);
+      // results in the display face: the headline (30) over the pooled pair (28, the secondary size); the caption is not a result
+      txt(D.groups[R.lo] + ' HIGHER IN ' + R.count + ' OF ' + st.C, W - 36, H - 96, 30, c.accent, 'disp', 'R', ph.rev);
+      txt('POOLED ' + Math.round(100 * R.pooledLo) + '% vs ' + Math.round(100 * R.pooledHi) + '%', W - 36, H - 62, 28, c.ink, 'disp', 'R', ph.rev);
+      txt('SAME BOXES, NEW PARTITION', W - 36, H - 42, 10, c.muted, 'mono', 'R', ph.rev);
     }
     p.pop();
   }
@@ -452,8 +463,9 @@ void main(){
       pooledSort: 'hit-cat',      // hit-cat | cat-hit | hit-seeded
       colorBy: 'group',           // group | cat | none
       dim: 0.58, maskDim: 0.78,   // misses mixed toward bg; masked categories at the reveal
-      dur: 14,
-      beats: { arrive: [0.03, 0.24], lit: [0.25, 0.31], move: [0.42, 0.72], reveal: [0.82, 0.88] },
+      dur: 18,                    // longer than 14 so each % can wait ratioDelay after its count and still be read before the next beat
+      ratioDelay: 1.5,            // s a count holds before its % appears (floor 1.5: counts before ratios)
+      beats: { arrive: [0.03, 0.24], lit: [0.25, 0.31], move: [0.52, 0.74], reveal: [0.90, 0.95] },
       arrW: 0.04, drop: 60, stagger: 0.25, lift: 22, orderMix: 0.5,
       az: [28, 104], elev: [26, 16], drift: 6, fit: [1.22, 1.0], lookY: 0.45,
       reveal: 'reversal',         // reversal | none
@@ -472,7 +484,7 @@ void main(){
     check(t, st, params) { return Object.assign({ t }, check(st, params, phase(st, params, t))); },
     count(t, st, params) {
       const ph = phase(st, params, t);
-      return { boxes: ph.boxes, k: st.k, unitsApprox: Math.min(st.units, ph.boxes * st.k), units: st.units, phase: ph.name, move: ph.move, reversals: st.rev ? st.rev.count : null };
+      return { boxes: ph.boxes, k: st.k, unitsApprox: Math.min(st.units, ph.boxes * st.k), units: st.units, phase: ph.name, move: ph.move, ratioAt: ratioOps(params, ph), reversals: st.rev ? st.rev.count : null };
     },
     async setup(p, ctx, params) {
       const st = { seed: ctx.seed == null ? 7 : ctx.seed };
@@ -494,7 +506,8 @@ void main(){
       const pl = pins(st, params, tk, ph).concat(tg).map((q) => { const v = p.worldToScreen(new p5.Vector(q.p[0], q.p[1], q.p[2])); return Object.assign(q, { x: v.x, y: v.y }); });
       const ck = params.checkLine ? check(st, params, ph) : null;
       hud(p, st, params, tk, ph, pl, ck);
-      return { boxes: ph.boxes, k: st.k, phase: ph.name, move: +ph.move.toFixed(3), check: ck && ck.ok };
+      const ro = ratioOps(params, ph);
+      return { boxes: ph.boxes, k: st.k, phase: ph.name, move: +ph.move.toFixed(3), check: ck && ck.ok, ratio: { pooled: +ro.pooled.toFixed(3), split: +ro.split.toFixed(3) } };
     },
   };
   A.patterns[ID] = PAT;
