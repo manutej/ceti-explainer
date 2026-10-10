@@ -78,7 +78,7 @@ return[0,1,2].map((k)=>{const a=r.h[k]+(t1[k]- r.h[k])*e1;return a +(t2[k]- a)*e
 count(st,o){const n=Math.min(st.N,Math.max(0,Math.ceil((o.shown==null?1e9:o.shown)- 1e-9)));return{shown:n,total:st.N};},
 };
 })();
-/* lib/gl-boxes.js sha256 c8359f1c8f6a678c */
+/* lib/gl-boxes.js sha256 836d9240ace72266 */
 (function(){
 const A=(window.ARSENAL=window.ARSENAL||{patterns:{},structures:{},materials:{},brands:{}});
 const VERT=`precision highp float;
@@ -100,7 +100,7 @@ id:'gl-boxes',renderer:'webgl',
 make(p){return{geom:unit(p),sh:p.createShader(VERT,FRAG)};},
 draw(p,st,b,bg){
 if(!(b.size[0]>1e-4&&b.size[1]>1e-4&&b.size[2]>1e-4))return;
-p.push();p.translate(b.pos[0],b.pos[1],b.pos[2]);if(b.rot)p.rotateY(b.rot);p.scale(b.size[0],b.size[1],b.size[2]);
+p.push();p.translate(b.pos[0],b.pos[1],b.pos[2]);if(b.rot)p.rotateY(b.rot);if(b.tilt)p.rotateZ(b.tilt);p.scale(b.size[0],b.size[1],b.size[2]);
 p.noStroke();p.fill(255);p.shader(st.sh);st.sh.setUniform('uCol',b.col);st.sh.setUniform('uBg',bg);st.sh.setUniform('uDim',b.dim||0);
 p.model(st.geom);p.resetShader();p.pop();
 },
@@ -161,7 +161,7 @@ S[k].push(w);
 }
 return{sA:S[0],sB:S[1],bA:S[2],bB:S[3]};
 }
-let C,SHD,BXS,BG,HI,CAM,ORBS,NET,REC,TRN,FO,FR,TREE,TOY,COL={},ROW=[],LAST={},SH,ORDER=[];
+let C,SHD,BXS,BG,HI,CAM,ORBS,NET,REC,TRN,FO,FOL=[],TREE,TOY,COL={},ROW=[],LAST={},SH,ORDER=[];
 function colours(){
 const soft=hex3(C.soft),acc=hex3(C.accent),ink=hex3(C.ink),mut=hex3(C.muted),one=(c)=>[c,c,c,c,c,c].flat();
 const sand=[ink[0],ink[1]*0.8,ink[2]*0.56];
@@ -186,21 +186,34 @@ REC=PC.make(p,rows);
 }
 function buildTrain(p,K){
 const n=P.runs*P.neurons*P.recSteps,ord=K.shuffle(Array.from({length:n},(_,i)=>i),K.SEED + 2),rows=[],s0=KN.sA,s1=KN.sC,c0=0.9;
-FR=KN.featRun;
+const fol=[0,1,2,3,4].map((l)=>KN['follow' + l]);
+FOL=[];
 for(let u=0;u<P.runs*P.neurons;u++){
-const lvl=clamp(Math.round((NET.sA[u][0]*NET.sA[u][0]- NET.sB[u][0]*NET.sB[u][0]+ 1)/ 0.5),0,4);
+const lvl=clamp(Math.round((NET.sA[u][0]*NET.sA[u][0]- NET.sB[u][0]*NET.sB[u][0]+ 1)/ 0.5),0,4),fo=fol.indexOf(u)>=0,R=[];
 for(let s=0;s<P.recSteps;s++){
 const a=NET.sA[u][s],b=NET.sB[u][s],a2=NET.bA[u][s],b2=NET.bB[u][s];
-rows.push({h:[(a - c0)*s0,-(s /(P.recSteps - 1)- 0.5)*KN.hT,(b - c0)*s0],t1:[(a - c0)*s0,-(a*a - b*b)*s1,(b - c0)*s0],t2:[(a2 - c0)*s0,-(a2*a2 - b2*b2)*s1,(b2 - c0)*s0],
-lvl,size:0.5,order:ord[u*P.recSteps + s],feat:s,cut:Math.floor(u / P.neurons)===FR?1:0,delay:delayOf(u)});
+R.push({h:[(a - c0)*s0,-(s /(P.recSteps - 1)- 0.5)*KN.hT,(b - c0)*s0],t1:[(a - c0)*s0,-(a*a - b*b)*s1,(b - c0)*s0],t2:[(a2 - c0)*s0,-(a2*a2 - b2*b2)*s1,(b2 - c0)*s0],
+lvl,size:0.5,order:ord[u*P.recSteps + s],feat:-1,cut:fo?1:0,delay:delayOf(u)});
 }
+if(fo){
+const cum=[0];for(let s=1;s<R.length;s++)cum.push(cum[s - 1]+ len3(sub(R[s].t1,R[s - 1].t1)));
+const L=cum[cum.length - 1]||1;R.forEach((r,s)=>{r.feat=100*cum[s]/ L;});
+FOL.push({u,R,pos:cum.map((c)=>100*c / L)});
+}
+R.forEach((r)=>rows.push(r));
 }
 TRN=PC.make(p,rows);
 }
+function headAt(fo,f,m1,m2){
+const q=fo.pos;let s=0;while(s<q.length - 2&&q[s + 1]<f)s++;
+const u=clamp((f - q[s])/ Math.max(1e-6,q[s + 1]- q[s])),A0=PC.at(fo.R[s],m1,m2,KN.stag,fo.R[s].delay),A1=PC.at(fo.R[s + 1],m1,m2,KN.stag,fo.R[s + 1].delay);
+return[0,1,2].map((k)=>lerp(A0[k],A1[k],u));
+}
 function buildBoxes(K){
 TOY={ord:DATA.toy.o.split('').map(Number).reduce((a,d,i)=>{(a[Math.floor(i / 3)]=a[Math.floor(i / 3)]||[]).push(d);return a;},[]),val:DATA.toy.v.map((v)=>v / 10)};
-const sub=[P.toyA,P.toyB,P.toyC],tk=KN.toyK,g=KN.toyGap*tk,tot=(sub[0]+ sub[1]+ sub[2])*tk + 2*g;
-ROW=TOY.ord.map((o,r)=>{let x=-tot / 2;return o.map((d)=>{const w=sub[d]*tk,c={id:d,r,x:x + w / 2,w};x +=w + g;return c;});});
+const sub=[P.toyA,P.toyB,P.toyC],tk=KN.toyK,g=KN.toyGap*tk,tot=(sub[0]+ sub[1]+ sub[2])*tk + 2*g,ans=KN.ansGap*tk + KN.ansS;
+TOY.ansX=(tot - ans)/ 2 + KN.ansGap*tk + KN.ansS / 2;
+ROW=TOY.ord.map((o,r)=>{let x=-(tot + ans)/ 2;return o.map((d)=>{const w=sub[d]*tk,c={id:d,r,x:x + w / 2,w};x +=w + g;return c;});});
 const rk=TOY.val.map((v,i)=>TOY.val.filter((q)=>q<v).length);
 TOY.rank=rk;
 const T=DATA.tree,W=KN.treeW;TREE=T.l.map((l,i)=>({i,l,par:T.p[i],x:T.x[i]/ 100*W,z:(l - 2)*KN.treeD}));
@@ -270,9 +283,15 @@ LV.forEach((L,i)=>{const ro=(T.ringOp*sm(seg(t,T.tReveal*i / 6,T.tReveal*i / 6 +
 }
 if(inNet){
 const m1=seg(t,T.tM2,T.tM2e),m2=seg(t,T.tM3,T.tM3e),shown=Math.floor(P.netDots*seg(t,T.tNet,T.tNetC)+ 1e-9);
-const cut=sm(seg(t,T.tFollow,T.tFollow + 1.5)),cm=seg(t,T.tComet,T.tCometE),head=lerp(-1.5,P.recSteps + T.cometLen,cm);
-LAST.net={shown,m1,m2};
-draw(TRN,{col:COL.energy,r:T.dotRNet,shown,m1,m2,cut,cutDim:T.dimOthers,grow:T.growComet,f:cm>0&&cm<1?head:-1e3,fLen:T.cometLen,fdim:cm>0&&cm<1?T.cometDim:0});
+const cut=sm(seg(t,T.tFollow,T.tFollow + 1.5)),cs=seg(t,T.tComet,T.tCometE),hf=100*(0.5*cs + 0.5*sm(cs));
+LAST.net={shown,m1,m2,head:hf};
+draw(TRN,{col:COL.energy,r:T.dotRNet,shown,m1,m2,cut,cutDim:T.dimOthers,grow:T.growComet*cut,f:cs>0?hf:-1e3,fLen:T.cometLen,fBase:T.pathBase*cut,fdim:0});
+if(cut>0.01){
+p.noStroke();p.fill(HI[0]*255,HI[1]*255,HI[2]*255,255*cut);
+const hs=FOL.map((fo)=>headAt(fo,hf,m1,m2));
+hs.forEach((h)=>{p.push();p.translate(h[0],h[1],h[2]);p.sphere(T.headR,12,8);p.pop();});
+if(T.headRing>0)hs.forEach((h)=>loop3(p,sil(pose.eye,h,T.headR*T.headRing),HI,1.2,0.75*cut));
+}
 const pl=T.plateOp*sm(seg(t,T.tM2e - 1,T.tM2e)),R=KN.sA*1.0;
 if(pl>0.01)[-1,-0.5,0,0.5,1].forEach((c)=>loop3(p,[[-R,-c*KN.sC,-R],[R,-c*KN.sC,-R],[R,-c*KN.sC,R],[-R,-c*KN.sC,R]],HI,1.0,pl));
 }
@@ -286,21 +305,21 @@ ROW.forEach((row,r)=>{
 const t0=r===0?T.tToy + 0.2:T.tRows +(r - 1)*T.rowStep,z=(r - 2.5)*T.toyBoxD*T.toyRow;
 row.forEach((c,j)=>{
 const g=sm(seg(t,t0 +(r===0?j*0.25:0),t0 +(r===0?j*0.25:0)+ 0.6)),id=[COL.acc,COL.soft,COL.sand][c.id];
-const rc=mx3(mx3(id,COL.acc,same),COL.ramp[TOY.rank[r]],six);
-BX.draw(p,BXS,{pos:[c.x,-T.toyH*g / 2,z],size:[c.w,T.toyH*g,T.toyBoxD],col:rc,dim:ghT},BG);
+BX.draw(p,BXS,{pos:[c.x,-T.toyH*g / 2,z],size:[c.w,T.toyH*g,T.toyBoxD],col:id,dim:ghT},BG);
 });
+if(same>0.001){const s=KN.ansS*same;BX.draw(p,BXS,{pos:[TOY.ansX,-s / 2,z],size:[s,s,T.toyBoxD],col:mx3(COL.ink,COL.ramp[TOY.rank[r]],six),dim:ghT},BG);}
 });
 }
 if(inTree){
 const sw=sm(seg(t,T.tSwap,T.tSwap + T.swapSecs)),bw=KN.treeBox;
 const grp=(i)=>(i===7||i===8||i===9?1:i===10||i===11||i===12?-1:0);
-const place=(n)=>{const g=grp(n.i),u=Math.sin(Math.PI*sw);return[n.x + g*0.4*KN.treeW*sw,n.z + g*T.swapArc*u];};
+const place=(n)=>{const g=grp(n.i),u=Math.sin(Math.PI*sw);return[n.x + g*0.4*KN.treeW*sw,n.z +(g>0?T.swapArc*u:0),g<0?T.swapLift*u:0];};
 const pos=TREE.map(place),when=(n)=>T.tTree + n.i*(T.treeIn / TREE.length),grow=(n)=>sm(seg(t,when(n),when(n)+ 0.6));
 TREE.forEach((n)=>{
-if(n.par<0)return;const a=pos[n.par],b=pos[n.i],g=Math.min(grow(n),grow(TREE[n.par])),dx=b[0]- a[0],dz=b[1]- a[1];
-BX.draw(p,BXS,{pos:[(a[0]+ b[0])/ 2,-0.6,(a[1]+ b[1])/ 2],size:[Math.hypot(dx,dz)*g,1.2,T.linkW],rot:-Math.atan2(dz,dx),col:COL.link,dim:0},BG);
+if(n.par<0)return;const a=pos[n.par],b=pos[n.i],g=Math.min(grow(n),grow(TREE[n.par])),dx=b[0]- a[0],dz=b[1]- a[1],dy=-(b[2]- a[2]),hz=Math.hypot(dx,dz);
+BX.draw(p,BXS,{pos:[(a[0]+ b[0])/ 2,-0.6 -(a[2]+ b[2])/ 2,(a[1]+ b[1])/ 2],size:[Math.hypot(hz,dy)*g,1.2,T.linkW],rot:-Math.atan2(dz,dx),tilt:Math.atan2(dy,hz),col:COL.link,dim:0},BG);
 });
-TREE.forEach((n)=>{const g=grow(n),h=bw*0.7*g;BX.draw(p,BXS,{pos:[pos[n.i][0],-h / 2,pos[n.i][1]],size:[bw,h,bw],col:n.l===1?COL.acc:n.l===2?COL.soft:COL.sand,dim:0},BG);});
+TREE.forEach((n)=>{const g=grow(n),h=bw*0.7*g;BX.draw(p,BXS,{pos:[pos[n.i][0],-h / 2 - pos[n.i][2],pos[n.i][1]],size:[bw,h,bw],col:n.l===1?COL.acc:n.l===2?COL.soft:COL.sand,dim:0},BG);});
 const rg=sm(seg(t,T.tSwap - 0.4,T.tSwap + 0.4));
 if(rg>0.01){const c=pos[6],q=[];for(let i=0;i<48;i++){const a=TAU*i / 48;q.push([c[0]+ Math.cos(a)*bw*1.1,-1.5,c[1]+ Math.sin(a)*bw*1.1]);}loop3(p,q,COL.acc,2.4,rg);LAST.ring=pos[6];}
 }
@@ -312,7 +331,7 @@ K.rc('tag.m','chrome',48,28,11,11,{fill:C[r[2]],op});K.tx('tag','chrome',66,40,r
 (F.lay||[]).forEach((r,i)=>{if(t>=r[0]&&t<r[1])K.tx('lay','chrome',48,64,r[2],{size:14,fill:C.muted,role:'secondary',ls:1,op:1});});
 const X=T.pX,fin=(a)=>sm(seg(t,a,a + 0.4)),fout=(b)=>1 - sm(seg(t,b - 0.25,b));
 F.panel.forEach((r,i)=>{
-if(t<r[0]||t>=r[1])return;const op=fin(r[0])*fout(r[1]),big=r[2]==='num';
+if(t<r[0]||t>=r[1])return;const op=fin(r[0])*fout(r[1])*(r[8]!=null?lerp(1,r[9],sm(seg(t,r[8],r[8]+ 0.6))):1),big=r[2]==='num';
 K.tx('pn.' + i,'labels',X +(r[7]||0),r[4],r[3],big?{fam:'disp',size:r[6]||36,fill:r[5]==='sand'?COL.sandHex:C[r[5]],role:'must-read',op}:{size:14,fill:C[r[5]],role:'secondary',ls:1,op});
 });
 const pinT=[T.tSwap + 1,T.tMon];

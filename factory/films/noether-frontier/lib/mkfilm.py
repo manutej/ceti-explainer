@@ -2,6 +2,10 @@
 """lib/mkfilm.py (noether-frontier draft A) -> ../film.json. The source of truth for knobs, captions, tags, lay words, the panel schedule and the
 stage type. Captions are the brief's (beats.md c1-c33), verbatim. Run, then lib/assemble.py, then factory/kit2/build.py."""
 import json, os
+import sys
+if "--overwrite-film-json" not in sys.argv:   # tier-2 guard: film.json is the source since rounds 1-2; this script holds draft A's defaults only
+    sys.exit("mkfilm.py: refused. film.json is the source of truth (edited in place by rounds 1-2 and the tier-2 revision); "
+             "running this would overwrite it with draft A's defaults. Pass --overwrite-film-json only to start over from draft A.")
 HERE = os.path.dirname(os.path.abspath(__file__)); D = os.path.join(HERE, "..")
 claims = json.load(open(os.path.join(D, "claims.json")))
 

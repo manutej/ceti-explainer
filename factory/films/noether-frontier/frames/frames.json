@@ -143,28 +143,18 @@
     0.8
    ],
    "step": 0.05,
-   "what": "how far the other 59 runs sink while one run's neurons are followed",
-   "value": 0.4
+   "what": "how far the dots of the other 475 neurons sink while one neuron per layer is followed (they keep their layer colour)",
+   "value": 0.6
   },
   {
    "name": "cometLen",
    "range": [
-    3,
-    16
+    5,
+    60
    ],
    "step": 1,
-   "what": "length of the comet of light that runs along each neuron's arc, in recorded moments",
-   "value": 4
-  },
-  {
-   "name": "cometDim",
-   "range": [
-    0,
-    0.6
-   ],
-   "step": 0.05,
-   "what": "how far dots out of the comet sink while it runs",
-   "value": 0.55
+   "what": "length of the lit trail behind each followed head, in per cent of that neuron's path",
+   "value": 25
   },
   {
    "name": "growComet",
@@ -173,8 +163,88 @@
     2.5
    ],
    "step": 0.1,
-   "what": "how much bigger a dot in the comet (or in the followed run) is drawn",
+   "what": "how much bigger the dots of a followed neuron's path are drawn (the head is drawn separately, headR)",
+   "value": 1
+  },
+  {
+   "name": "pathBase",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "how lit the whole path of a followed neuron is (its 50 moments), ahead of and behind the head",
+   "value": 0.45
+  },
+  {
+   "name": "headR",
+   "range": [
+    1.5,
+    6
+   ],
+   "step": 0.1,
+   "what": "radius of the drawn head of a followed neuron (world units): its place at the current moment of the slide",
+   "value": 4.5
+  },
+  {
+   "name": "headRing",
+   "range": [
+    0,
+    4
+   ],
+   "step": 0.1,
+   "what": "radius of the thin ring round each head, in head radii (0 = no ring)",
    "value": 2.2
+  },
+  {
+   "name": "follow0",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 1, counted from the most negative sum; a long, smooth path",
+   "value": 115
+  },
+  {
+   "name": "follow1",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 2, counted from the most negative sum; a long, smooth path",
+   "value": 51
+  },
+  {
+   "name": "follow2",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 3, counted from the most negative sum; a long, smooth path",
+   "value": 32
+  },
+  {
+   "name": "follow3",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 4, counted from the most negative sum; a long, smooth path",
+   "value": 368
+  },
+  {
+   "name": "follow4",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 5, counted from the most negative sum; a long, smooth path",
+   "value": 314
   },
   {
    "name": "recLen",
@@ -247,16 +317,6 @@
    "value": 272
   },
   {
-   "name": "featRun",
-   "range": [
-    0,
-    59
-   ],
-   "step": 1,
-   "what": "which of the 60 training runs is followed (its 8 neurons stay bright, the rest sink)",
-   "value": 11
-  },
-  {
    "name": "perS",
    "range": [
     3,
@@ -317,6 +377,26 @@
    "value": 1.9
   },
   {
+   "name": "ansS",
+   "range": [
+    10,
+    30
+   ],
+   "step": 1,
+   "what": "side of the answer cube at the end of each toy row",
+   "value": 22
+  },
+  {
+   "name": "ansGap",
+   "range": [
+    0.6,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "gap before the answer cube, in units of a sub-answer",
+   "value": 1.4
+  },
+  {
    "name": "plateW",
    "range": [
     280,
@@ -324,7 +404,7 @@
    ],
    "step": 10,
    "what": "width of the plate under the toy",
-   "value": 320
+   "value": 380
   },
   {
    "name": "plateD",
@@ -403,8 +483,18 @@
     60
    ],
    "step": 2,
-   "what": "how far the two swapping children step out of each other's way (depth)",
-   "value": 36
+   "what": "how far the near-going child steps toward the camera while the two children swap (depth)",
+   "value": 24
+  },
+  {
+   "name": "swapLift",
+   "range": [
+    0,
+    80
+   ],
+   "step": 2,
+   "what": "how high the far-going child and its subtree lift off the plate while the two children swap",
+   "value": 32
   },
   {
    "name": "swapSecs",
@@ -594,7 +684,7 @@
    ],
    "step": 25,
    "what": "toy, camera distance",
-   "value": 800
+   "value": 925
   },
   {
    "name": "camToyZ",
@@ -644,7 +734,7 @@
    ],
    "step": 5,
    "what": "tree, look-at depth",
-   "value": 0
+   "value": 25
   },
   {
    "name": "camWideAz",
@@ -684,7 +774,7 @@
    ],
    "step": 5,
    "what": "Monday wide frame, look-at depth (moves the tree up or down the stage)",
-   "value": 0
+   "value": 30
   },
   {
    "name": "tReveal",
@@ -1007,8 +1097,8 @@
    "value": 38
   }
  ],
- "ms_per_frame": 276,
- "s_per_frame": 0.276,
+ "ms_per_frame": 248,
+ "s_per_frame": 0.248,
  "purity": {
   "pass": true,
   "at": {
@@ -2799,7 +2889,7 @@
    "file": "thumbs/t-0079.00.jpg",
    "strip": "strip-14.png",
    "cell": 2,
-   "caption": "Now let it train. Every dot starts to slide.",
+   "caption": "Now let it train. Follow one neuron per layer.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2810,7 +2900,7 @@
    "file": "thumbs/t-0079.50.jpg",
    "strip": "strip-14.png",
    "cell": 3,
-   "caption": "Now let it train. Every dot starts to slide.",
+   "caption": "Now let it train. Follow one neuron per layer.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2821,7 +2911,7 @@
    "file": "thumbs/t-0080.00.jpg",
    "strip": "strip-14.png",
    "cell": 4,
-   "caption": "Now let it train. Every dot starts to slide.",
+   "caption": "Now let it train. Follow one neuron per layer.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2832,7 +2922,7 @@
    "file": "thumbs/t-0080.50.jpg",
    "strip": "strip-14.png",
    "cell": 5,
-   "caption": "Now let it train. Every dot starts to slide.",
+   "caption": "Now let it train. Follow one neuron per layer.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2843,7 +2933,7 @@
    "file": "thumbs/t-0081.00.jpg",
    "strip": "strip-14.png",
    "cell": 6,
-   "caption": "Now let it train. Every dot starts to slide.",
+   "caption": "Now let it train. Follow one neuron per layer.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2854,7 +2944,7 @@
    "file": "thumbs/t-0081.50.jpg",
    "strip": "strip-14.png",
    "cell": 7,
-   "caption": "Now let it train. Every dot starts to slide.",
+   "caption": "Now let it train. Follow one neuron per layer.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2865,7 +2955,7 @@
    "file": "thumbs/t-0082.00.jpg",
    "strip": "strip-14.png",
    "cell": 8,
-   "caption": "Now let it train. Every dot starts to slide.",
+   "caption": "Now let it train. Follow one neuron per layer.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2887,7 +2977,7 @@
    "file": "thumbs/t-0083.00.jpg",
    "strip": "strip-14.png",
    "cell": 10,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2898,7 +2988,7 @@
    "file": "thumbs/t-0083.50.jpg",
    "strip": "strip-14.png",
    "cell": 11,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2909,7 +2999,7 @@
    "file": "thumbs/t-0084.00.jpg",
    "strip": "strip-15.png",
    "cell": 0,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2920,7 +3010,7 @@
    "file": "thumbs/t-0084.50.jpg",
    "strip": "strip-15.png",
    "cell": 1,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2931,7 +3021,7 @@
    "file": "thumbs/t-0085.00.jpg",
    "strip": "strip-15.png",
    "cell": 2,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2942,7 +3032,7 @@
    "file": "thumbs/t-0085.50.jpg",
    "strip": "strip-15.png",
    "cell": 3,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2953,7 +3043,7 @@
    "file": "thumbs/t-0086.00.jpg",
    "strip": "strip-15.png",
    "cell": 4,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2964,7 +3054,7 @@
    "file": "thumbs/t-0086.50.jpg",
    "strip": "strip-15.png",
    "cell": 5,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2975,7 +3065,7 @@
    "file": "thumbs/t-0087.00.jpg",
    "strip": "strip-15.png",
    "cell": 6,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
@@ -2986,7 +3076,7 @@
    "file": "thumbs/t-0087.50.jpg",
    "strip": "strip-15.png",
    "cell": 7,
-   "caption": "They slide, but never change layer.",
+   "caption": "Each slides along its layer and never leaves it.",
    "chapter": {
     "id": "count",
     "title": "Training, questions and a tree"
