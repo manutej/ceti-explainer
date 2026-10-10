@@ -67,3 +67,9 @@ Record:    factory/films/<id>/variants/<name>/{pack.json?, gate.json, contact.pn
 - `references/brand-packs.md` — schema roles and what each drives, the 22 packs, twins, vendored faces, contrast gate.
 - `references/tweak-recipes.md` — tweak.py transforms and recipes for the common client asks; shoot/sweep usage.
 - `${CLAUDE_PLUGIN_ROOT}/factory/films/simpsons-3d/PROTOTYPE.md` §P3 — a measured brand switch to calibrate against.
+
+## Documentation and artifacts
+
+The family index `skills/ATELIER.md` §Index names where p5.js 2.x documentation (the atlas under `references/atlas/`,
+mapped by `skills/atelier-draft/references/p5-index.md`), the arsenal cards, the kit contract and every published
+artifact live. Cite the atlas page when you write a card; publish what you ship and record it in `factory/ARTIFACTS.md`.

@@ -71,3 +71,9 @@ Hand back ≤ 150 words: winner, the two-line why, findings per severity, and th
 - `references/frame-rubric.md` — per-beat checklist, law checks from frames, craft checks, defect vocabulary, how to rank.
 - `references/findings-schema.md` — the JSON apply_findings.py accepts, constraints, dry run, stop rules.
 - `factory/films/simpsons-3d/SELECT.md` — a filled SELECT.md to pattern-match shape, not content.
+
+## Documentation and artifacts
+
+The family index `skills/ATELIER.md` §Index names where p5.js 2.x documentation (the atlas under `references/atlas/`,
+mapped by `skills/atelier-draft/references/p5-index.md`), the arsenal cards, the kit contract and every published
+artifact live. Cite the atlas page when you write a card; publish what you ship and record it in `factory/ARTIFACTS.md`.

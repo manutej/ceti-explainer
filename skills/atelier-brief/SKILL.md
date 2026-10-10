@@ -94,3 +94,9 @@ not fill with a sourced value (that is a finding the user must resolve before dr
 - `references/claims-shape.md` — the one claims.json shape the gate recomputes; roles; what the drafter converts.
 - `${CLAUDE_PLUGIN_ROOT}/factory/FORMAT.md` — binding format; `factory/topics/simpsons/` is a filled package to
   pattern-match the shape (not the content).
+
+## Documentation and artifacts
+
+The family index `skills/ATELIER.md` §Index names where p5.js 2.x documentation (the atlas under `references/atlas/`,
+mapped by `skills/atelier-draft/references/p5-index.md`), the arsenal cards, the kit contract and every published
+artifact live. Cite the atlas page when you write a card; publish what you ship and record it in `factory/ARTIFACTS.md`.

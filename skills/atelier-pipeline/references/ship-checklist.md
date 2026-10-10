@@ -12,7 +12,8 @@
    one row per lane from the task notifications, a total row, page bytes, gate verdict and WARN rows, s/frame, and
    the success criteria of the brief answered yes/no.
 5. `python3 factory/tools/catalogue.py` (records the page hash); `sh scripts/doctor.sh`; `sh tests/proofs.sh all`.
-6. Publish build/<page> as a private artifact (icon film, title = film title); add the link to factory/ARTIFACTS.md.
+6. Publish build/<page> as a private artifact (icon film, title = film title); add the link to factory/ARTIFACTS.md;
+   `python3 factory/tools/gallery.py` and republish factory/gallery.html to the gallery URL in ARTIFACTS.md ("Gallery:").
 7. Commit per lane as it lands, then the ship commit. Message pattern (first line ≤ 110 chars, body optional):
 
    ```

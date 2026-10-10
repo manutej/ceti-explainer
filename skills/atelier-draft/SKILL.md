@@ -93,3 +93,9 @@ byte-reproducible from lib/ (run assemble.py twice: identical film.js).
 - `references/gate-rows.md` — G1–G10: what each checks, the usual cause, the fix that keeps the laws.
 - Shipped examples to pattern-match shape, not content: `factory/films/simpsons-3d/` (webgl chain),
   `factory/films/wiring-and-the-whole/` (2D layers chain), `factory/kit2/smoke-webgl/` (minimal webgl).
+
+## Documentation and artifacts
+
+The family index `skills/ATELIER.md` §Index names where p5.js 2.x documentation (the atlas under `references/atlas/`,
+mapped by `skills/atelier-draft/references/p5-index.md`), the arsenal cards, the kit contract and every published
+artifact live. Cite the atlas page when you write a card; publish what you ship and record it in `factory/ARTIFACTS.md`.
