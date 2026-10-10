@@ -6,7 +6,7 @@ Run:  python3 -I factory/topics/noether-symmetry/recompute.py [--write]
 numpy only, fixed seed (SEED = 20261010), no network. Three parts.
 
 A. ORBITS. 300 two-body orbits (G*M = 1, the reduced two-body problem = one body in an inverse-square field),
-   6 angular-momentum levels |L| x 5 energy levels E x 10 orientations; 10 states per orbit = 3,000 states.
+   6 angular-momentum levels |L| x 5 energy levels E x 10 orientations; 100 states per orbit = 30,000 states (v2; was 10 and 3,000).
    States come from the exact Kepler solution (mean anomaly -> eccentric anomaly -> position, velocity), with a random
    phase offset per orbit and a random orientation in 3-D (so L is a vector (Lx, Ly, Lz) and its length is |L|).
    Independent check: every orbit is also integrated numerically (velocity-Verlet, dt = T/20000) and compared.
@@ -26,8 +26,8 @@ C. NETWORK. A 2-layer ReLU net f(x) = sum_i w2_i * relu(w1_i . x), no biases, 2 
    full-batch gradient descent on 128 seeded points (teacher: 3 ReLU units) with lr = 0.01. Scale symmetry
    (w1_i, w2_i) -> (a*w1_i, w2_i/a) leaves f unchanged, so for every hidden unit i
        c_i = |w1_i|^2 - w2_i^2
-   is conserved by gradient flow (Du, Hu & Lee 2018; Kunin et al. 2021). 100 runs x 30 recorded steps (every 34th step,
-   steps 0..986) = 3,000 states. Init is built so the first three c_i (c0, c1, c2) of a run sit at a chosen radius rho from the
+   is conserved by gradient flow (Du, Hu & Lee 2018; Kunin et al. 2021). 100 runs x 100 recorded steps (v2; steps
+   round(linspace(0, 986, 100))) = 10,000 states. Init is built so the first three c_i (c0, c1, c2) of a run sit at a chosen radius rho from the
    origin: 3 shells (rho = 0.4, 0.8, 1.2), 33-34 runs per shell, random direction on the shell.
    Two views of the same 3,000 marks:
      weight space   W = top-3 PCA of the 48 weights over all states (deterministic SVD)  -> streaks, looks like noise
@@ -47,7 +47,7 @@ GM = 1.0
 L_LEVELS = [0.55, 0.70, 0.85, 1.00, 1.15, 1.30]          # |L| shells
 A_LEVELS = [1.8, 2.3, 2.9, 3.5, 4.2]                      # semi-major axes -> E = -GM/(2a)
 ORIENT = 10
-PER_ORBIT = 10
+PER_ORBIT = 100                                          # v2 (2026-10-10): 10 -> 100 moments per orbit (30,000 states)
 
 
 def rot_from_axis(u, omega):
@@ -148,8 +148,10 @@ def part_b():
 
 # ---------------------------------------------------------------- C. network
 H, D, NDATA = 16, 2, 128
-LR, EVERY, NREC, RUNS = 0.01, 34, 30, 100
-STEPS = EVERY * (NREC - 1)             # 986: states recorded at steps 0, 34, ..., 986
+LR, NREC, RUNS = 0.01, 100, 100
+STEPS = 986                            # v2: the same 986 training steps; 100 states recorded per run (was 30, every 34th)
+REC = [int(x) for x in np.round(np.linspace(0, STEPS, NREC))]   # steps 0, 10, 20, ..., 986 (spacing 9-10)
+RECI = {s: i for i, s in enumerate(REC)}
 RHOS = [0.4, 0.8, 1.2]
 
 
@@ -172,9 +174,9 @@ def part_c():
         c_hist, loss_hist = [], []
         for s in range(STEPS + 1):
             Z = X @ W1.T; A = np.maximum(Z, 0); pred = A @ w2; err = pred - y
-            if s % EVERY == 0 and s // EVERY < NREC:
+            if s in RECI:
                 c = (W1 ** 2).sum(1) - w2 ** 2
-                states.append((r, shell, s // EVERY, np.concatenate([W1.ravel(), w2]), c, float(0.5 * np.mean(err ** 2))))
+                states.append((r, shell, RECI[s], np.concatenate([W1.ravel(), w2]), c, float(0.5 * np.mean(err ** 2))))
             gw2 = A.T @ err / NDATA
             gW1 = ((err[:, None] * (Z > 0)) * w2[None, :]).T @ X / NDATA
             W1 = W1 - LR * gW1; w2 = w2 - LR * gw2

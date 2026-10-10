@@ -2,11 +2,12 @@
 """lib/mkdata.py (noether-symmetry draft A) · reads factory/topics/noether-symmetry/data/{orbit_table,network}.json and writes
 lib/data.js (compact strings the film decodes in setup). No randomness. Orbits: spin direction u (3), in-plane angle omega, phase u0,
 12 bits each (2 base-64 chars). Network: per run the conserved triple (1/1000) and the 30 weight-space points (1/100, delta coded,
-zigzag + 5-bit continuation chars). Prints the round-trip errors and the claims the rebuilt data must keep (cut 62 / 620)."""
+zigzag + 5-bit continuation chars; v2: 100 runs x 100 steps, first point and first difference as vlq, then
+second differences, one char per step when all three are in -1..1). Prints the round-trip errors and the claims the rebuilt data must keep (cut 62 / 620)."""
 import json, os, sys, math
 import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
-TOP = os.path.join(HERE, "..", "..", "..", "..", "..", "topics", "noether-symmetry", "data")
+TOP = os.path.join(HERE, "..", "..", "..", "topics", "noether-symmetry", "data")
 AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-"
 def b64_2(q): return AB[(q >> 6) & 63] + AB[q & 63]
 def vlq(n):
@@ -43,19 +44,20 @@ def main():
         near = min(near, abs(abs(u2[2]) - 0.2))
     print("orbits chars", len(orb), "worst |du|", worst_u, "cut orbits (quantised)", cut, "nearest to the band edge", near)
     nt = json.load(open(os.path.join(TOP, "network.json"))); nr = np.array(nt["rows"])
-    run = nr[:, 0].astype(int); N = 100; P = 30
+    N = 100; P = len(nr) // N                      # v2: 100 runs x 100 recorded steps
     W = nr[:, 3:6].reshape(N, P, 3); C = nr[:, 6:9].reshape(N, P, 3)
     cm = C.mean(1)
-    net = ""; cs = ""
-    prev = np.zeros(3, int); worst = 0
+    net = ""; cs = ""; worst = 0; esc = 0
     for r in range(N):
         cs += "".join(vlq(int(round(cm[r, k] * 1000))) for k in range(3))
         q = np.round(W[r] / 0.01).astype(int)
         worst = max(worst, float(np.abs(q * 0.01 - W[r]).max()))
-        for s in range(P):
-            d = q[s] - (prev if s == 0 else q[s - 1])
-            net += "".join(vlq(int(x)) for x in d)
-    print("net chars", len(net), "c chars", len(cs), "worst w err", worst)
+        net += "".join(vlq(int(x)) for x in q[0]) + "".join(vlq(int(x)) for x in q[1] - q[0])
+        for s in range(2, P):                     # second differences: one char when all three are in -1..1, else '-' + three vlq
+            d = q[s] - 2 * q[s - 1] + q[s - 2]
+            if np.abs(d).max() <= 1: net += AB[int((d[0] + 1) * 9 + (d[1] + 1) * 3 + d[2] + 1)]
+            else: net += "-" + "".join(vlq(int(x)) for x in d); esc += 1
+    print("net states", N * P, "chars", len(net), "escapes", esc, "c chars", len(cs), "worst w err", worst)
     js = "window.NOETHER_DATA={orb:%s,net:%s,netc:%s};\n" % (json.dumps(orb), json.dumps(net), json.dumps(cs))
     open(os.path.join(HERE, "data.js"), "w").write(js)
     print("data.js", len(js), "bytes")

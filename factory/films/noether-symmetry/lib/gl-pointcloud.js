@@ -1,4 +1,4 @@
-/* gl-pointcloud · PATCHED COPY for noether-symmetry draft A ("the observatory").
+/* gl-pointcloud · PATCHED COPY for noether-symmetry (draft A, kept in v2: 30,000 + 10,000 points, grow 0, the shell index lights one shell).
    Original: arsenal/patterns/gl-pointcloud/pattern.js (kept from it: ONE p5.Geometry with 4 billboard corners per point, ONE model() call per
    cloud under a custom billboard shader, per-point data in vertex properties, size-by-depth cue and fog toward the ground, round hard-edged discs,
    fill() set before model(), the p5.Geometry bake). The film owns the camera (gl-camera-rig) and the type (gl-labels + the kit), so the module's

@@ -53,3 +53,11 @@ lay axis words, cut rings, text off the marks, 16-unit tag, no blank frames). bu
 claims.json are the source of truth; lib/mkfilm.py is history. Director seat in seat.json; measures in MEASURES.md.
 Data caveat: the orbit and network states are the film's own simulation (recompute.py); Earth's two moments are NASA fact-sheet values. Nothing on screen
 comes from a search snippet.
+
+## v2 (2026-10-10, owner feedback; Part 1 of 3) · supersedes the above where they differ
+Spine, text rules and point cloud per factory/topics/noether-symmetry/v2-director-note.md; what changed, what was left and the
+warnings: REVISION-v2.md. In short: one readout panel + one corner tag + at most one pin, nothing moves; 30,000 orbit dots
+(300 × 100) and 10,000 network states (100 × 100); sorts keep each dot's direction and set its distance to the fixed number;
+'speed around the sun' (not 'speed') so the flat bar is a true claim; cut plane, formula flights, set type, gl-camera-rig and
+gl-labels dropped (lib/ keeps the unused files). Gate PASS on every row, G11 clean; film code 73.9 KB, page 1.250 MB.
+Rebuild: python3 -I factory/topics/noether-symmetry/recompute.py --write; python3 lib/mkdata.py; sh build.sh.

@@ -4,10 +4,10 @@
   "lShells": 6,
   "eLevels": 5,
   "orientations": 10,
-  "perOrbit": 10,
+  "perOrbit": 100,
   "seed": 20261010,
   "netRuns": 100,
-  "netPerRun": 30,
+  "netPerRun": 100,
   "netShells": 3,
   "hidden": 16,
   "lr": 0.01,
@@ -21,19 +21,21 @@
   "GMsun": 132712440018.0,
   "rv_roundKms": 0.005,
   "cutOrbits": 62,
-  "cutMarks": 620,
+  "cutMarks": 6200,
   "cutBandPct": 20,
-  "wMove": 0.237,
+  "wMove": 0.238,
   "cMove": 0.000952,
   "lossFirst": 1.93,
   "lossLast": 0.002,
   "posRelPct": 54,
-  "speedRelPct": 57,
-  "lWorst": 2.6e-15,
-  "eWorst": 1.4e-13,
-  "verletL": 1.4e-13,
-  "verletE": 0.00053,
-  "trillion": 1000000000000.0
+  "speedRelPct": 61,
+  "lWorst": 3e-15,
+  "eWorst": 1.5e-13,
+  "verletL": 1.6e-13,
+  "verletE": 0.00056,
+  "trillion": 1000000000000.0,
+  "states": 30000,
+  "netStates": 10000
  },
  "rounding": "grades: A = primary table or paper returned consistently by more than one extraction, or recomputed here from the seeded simulation; B = reputable secondary or primary seen once (egress blocked every fetch, so no page was opened; see factory/research/NOETHER-NONQUANTUM.md); nothing C is on screen. Percentages are shown to the digits written in renders.",
  "sources": {
@@ -58,7 +60,7 @@
    "source": "S4",
    "grade": "B",
    "onscreen": true,
-   "where": "HOOK none (no digit in HOOK); CASE 12-20 s plate; MONDAY",
+   "where": "CASE 56.8-59.8 s caption 'Noether, 1918: each symmetry fixes one number.'",
    "renders": [
     "1918"
    ]
@@ -71,7 +73,7 @@
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 64-76 s pin '6 shells'",
+   "where": "COUNT 78.2-81.0 s pin '6 shells' and caption",
    "renders": [
     "6 shells",
     "6"
@@ -85,7 +87,7 @@
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 78-86 s re-partition pin '5 layers'",
+   "where": "COUNT 97.2-100.0 s pin '5 layers' and caption",
    "renders": [
     "5 layers",
     "5"
@@ -99,7 +101,7 @@
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 66 s pin '300 orbits'",
+   "where": "COUNT 60.3 s caption '300 made-up planets'; panel '300 PLANETS × 100 MOMENTS'",
    "renders": [
     "300 orbits",
     "300"
@@ -107,30 +109,29 @@
   },
   {
    "id": "perOrbit",
-   "text": "10 states (moments) recorded per orbit",
-   "value": 10,
+   "text": "100 states (moments) recorded per orbit (v2; was 10)",
+   "value": 100,
    "formula": "perOrbit",
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "CASE 24 s caption 'ten moments per orbit'",
+   "where": "COUNT 60.3 s caption; panel; pin 'ITS 100 MOMENTS'; caption 81 s 'Our planet's 100 dots'",
    "renders": [
-    "10",
-    "ten"
+    "100"
    ]
   },
   {
    "id": "states",
-   "text": "3,000 states, one mark each: 300 orbits x 10 moments (the first count; lands before any ratio)",
-   "value": 3000,
+   "text": "30,000 states, one mark each: 300 orbits x 100 moments (v2; was 3,000)",
+   "value": 30000,
    "formula": "orbits*perOrbit",
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "CASE count-in lands 26.0 s; caption; COUNT 66 s",
+   "where": "COUNT count-in lands 63.2 s (panel '30,000 dots', caption); tag 'SAME 30,000 DOTS' during both sorts",
    "renders": [
-    "3,000",
-    "3000"
+    "30,000",
+    "30000"
    ]
   },
   {
@@ -149,7 +150,7 @@
   },
   {
    "id": "speedRelPct",
-   "text": "inside one orbit the speed swings by 57 % of its own size (median sd/rms)",
+   "text": "inside one orbit the speed swings by 61 % of its own size (median sd/rms over 300 orbits, 100 moments each)",
    "value": 57,
    "formula": null,
    "source": "S11",
@@ -162,24 +163,24 @@
   },
   {
    "id": "lWorst",
-   "text": "worst relative spread of the angular-momentum length |L| inside any one orbit = 2.6e-15 (round-off of the exact solution)",
+   "text": "worst relative spread of the angular-momentum length |L| inside any one orbit = 3.0e-15 (round-off of the exact solution; 100 moments per orbit)",
    "value": 2.6e-15,
    "formula": null,
    "source": "S11",
    "grade": "A",
    "onscreen": false,
-   "where": "COUNT 72-76 s: shown as 'less than one part in a trillion'",
+   "where": "not on screen (v2 dropped the 'under 1 in a trillion' pin)",
    "tolerance": 1e-15
   },
   {
    "id": "eWorst",
-   "text": "worst relative spread of the energy E inside any one orbit = 1.4e-13",
+   "text": "worst relative spread of the energy E inside any one orbit = 1.5e-13",
    "value": 1.4e-13,
    "formula": null,
    "source": "S11",
    "grade": "A",
    "onscreen": false,
-   "where": "COUNT 72-76 s: 'less than one part in a trillion'",
+   "where": "not on screen (v2)",
    "tolerance": 1e-13
   },
   {
@@ -189,8 +190,8 @@
    "formula": "1e12",
    "source": "derived",
    "grade": "A",
-   "onscreen": true,
-   "where": "COUNT 74 s pin 'L and E: under 1 in a trillion'",
+   "onscreen": false,
+   "where": "not on screen in v2 (kept for the record)",
    "renders": [
     "1 in a trillion",
     "a trillion",
@@ -200,13 +201,13 @@
   },
   {
    "id": "cutOrbits",
-   "text": "a cut plane at Lz=0 with band |Lz| < 20 % of |L| lights 62 of the 300 orbits (620 of 3,000 marks); 6 rings, one per shell (13, 9, 13, 11, 6, 10)",
+   "text": "a cut plane at Lz=0 with band |Lz| < 20 % of |L| lights 62 of the 300 orbits (6,200 of 30,000 marks); v2 drops the cut plane",
    "value": 62,
    "formula": null,
    "source": "S11",
    "grade": "A",
-   "onscreen": true,
-   "where": "COUNT 88-94 s cut-plane pin '62 orbits'",
+   "onscreen": false,
+   "where": "not on screen in v2",
    "renders": [
     "62 orbits",
     "62"
@@ -214,15 +215,15 @@
   },
   {
    "id": "cutMarks",
-   "text": "marks lit by that cut: 620 of 3,000 (62 orbits x 10 states)",
-   "value": 620,
+   "text": "marks lit by that cut: 6,200 of 30,000 (62 orbits x 100 states)",
+   "value": 6200,
    "formula": "cutOrbits*perOrbit",
    "source": "S11",
    "grade": "A",
-   "onscreen": true,
-   "where": "COUNT 94 s readout '620 of 3,000'",
+   "onscreen": false,
+   "where": "not on screen in v2",
    "renders": [
-    "620"
+    "6,200"
    ]
   },
   {
@@ -233,7 +234,7 @@
    "source": "S1",
    "grade": "A",
    "onscreen": true,
-   "where": "CASE 32-38 s pin 'closest 147.095 million km'",
+   "where": "CASE 15.0 s panel and caption",
    "renders": [
     "147.095",
     "147.1"
@@ -247,7 +248,7 @@
    "source": "S1",
    "grade": "A",
    "onscreen": true,
-   "where": "CASE 32-38 s pin 'farthest 152.100 million km'",
+   "where": "CASE 20.6 s panel and caption",
    "renders": [
     "152.100",
     "152.1"
@@ -261,7 +262,7 @@
    "source": "S2",
    "grade": "B",
    "onscreen": true,
-   "where": "CASE 38 s pin '30.29 km/s'",
+   "where": "CASE 17.8 s panel and caption",
    "renders": [
     "30.29"
    ]
@@ -274,7 +275,7 @@
    "source": "S2",
    "grade": "B",
    "onscreen": true,
-   "where": "CASE 38 s pin '29.29 km/s'",
+   "where": "CASE 23.4 s panel and caption",
    "renders": [
     "29.29"
    ]
@@ -287,7 +288,7 @@
    "source": "S2",
    "grade": "B",
    "onscreen": true,
-   "where": "CASE 42-46 s formula-bind product, left",
+   "where": "CASE 26.2 s panel '= 4,455.5' and caption",
    "renders": [
     "4,455.5",
     "4455.5",
@@ -303,7 +304,7 @@
    "source": "S2",
    "grade": "B",
    "onscreen": true,
-   "where": "CASE 42-46 s formula-bind product, right",
+   "where": "CASE 26.2 s panel '= 4,455.0' and caption",
    "renders": [
     "4,455.0",
     "4455.0",
@@ -319,7 +320,7 @@
    "source": "S2",
    "grade": "B",
    "onscreen": true,
-   "where": "CASE 50 s callout 'only 0.011 % apart' (a ratio: after the count lands at 26.0 s)",
+   "where": "CASE 29.2 s panel 'only 0.011 % apart' and caption (the first ratio; after the raw numbers from 15.0 s)",
    "renders": [
     "0.011 %",
     "0.011%"
@@ -408,7 +409,7 @@
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 98-104 s pin '100 runs'",
+   "where": "COUNT 109.2 s caption and panel '100 RUNS × 100 STEPS'",
    "renders": [
     "100 runs",
     "100"
@@ -416,29 +417,29 @@
   },
   {
    "id": "netPerRun",
-   "text": "30 recorded steps per run (every 34th step of 986)",
-   "value": 30,
+   "text": "100 recorded steps per run (v2: steps round(linspace(0, 986, 100)); was 30, every 34th)",
+   "value": 100,
    "formula": "netPerRun",
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 100 s caption",
+   "where": "COUNT 109.2 s caption and panel",
    "renders": [
     "30"
    ]
   },
   {
    "id": "netStates",
-   "text": "second count: 100 runs x 30 recorded steps = 3,000 marks, one per recorded step",
-   "value": 3000,
+   "text": "second count: 100 runs x 100 recorded steps = 10,000 marks, one per recorded step (v2; was 3,000)",
+   "value": 10000,
    "formula": "netRuns*netPerRun",
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT lands 104.0 s",
+   "where": "COUNT 109.2 s panel '10,000 dots' and caption; tag 'SAME 10,000 DOTS'",
    "renders": [
-    "3,000",
-    "3000"
+    "10,000",
+    "10000"
    ]
   },
   {
@@ -449,7 +450,7 @@
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 112 s pin '3 shells'",
+   "where": "COUNT 120.2 s pin '3 shells' and caption",
    "renders": [
     "3 shells",
     "3"
@@ -463,20 +464,20 @@
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 98 s caption 'a tiny network, 16 units'",
+   "where": "COUNT 106-127.8 s corner tag 'A TINY NETWORK, 16 UNITS'",
    "renders": [
     "16"
    ]
   },
   {
    "id": "wMove",
-   "text": "median distance a run's weights travel in the weight-space picture: 0.24 (0.237)",
+   "text": "median distance a run's weights travel in the weight-space picture: 0.24 (0.238 with 100 recorded steps per run)",
    "value": 0.24,
    "formula": null,
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 116 s pin 'weights move 0.24'",
+   "where": "COUNT 122.6 s panel '0.24' and caption",
    "renders": [
     "0.24"
    ],
@@ -484,13 +485,13 @@
   },
   {
    "id": "cMove",
-   "text": "median distance the conserved triple moves inside a run: 0.00095",
+   "text": "median distance the conserved triple moves inside a run: 0.00095 (0.000952)",
    "value": 0.00095,
    "formula": null,
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 118 s pin 'conserved: 0.00095'",
+   "where": "COUNT 124.4 s panel '0.00095' and caption",
    "renders": [
     "0.00095"
    ],
@@ -498,13 +499,13 @@
   },
   {
    "id": "netRatio",
-   "text": "the weights move about 250 times more than the conserved triple (249 exact; median over 100 runs)",
+   "text": "the weights move about 250 times more than the conserved triple (249.8 exact; median over 100 runs)",
    "value": 250,
    "formula": "round(wMove/cMove/10)*10",
    "source": "S11",
    "grade": "A",
    "onscreen": true,
-   "where": "COUNT 122 s callout 'about 250 times' (ratio, after both counts)",
+   "where": "COUNT 126.0 s panel 'about 250 times less' and caption (ratio, after both counts)",
    "renders": [
     "about 250 times",
     "250 times",
@@ -514,7 +515,7 @@
   },
   {
    "id": "lossDrop",
-   "text": "training works while the invariant stays: mean loss 1.93 at step 0, 0.002 at step 986",
+   "text": "training works while the invariant stays: mean loss 1.93 at step 0, 0.002 at step 986 (unchanged in v2)",
    "value": 1.93,
    "formula": null,
    "source": "S11",
@@ -533,8 +534,8 @@
    "formula": null,
    "source": "S6",
    "grade": "A",
-   "onscreen": true,
-   "where": "COUNT 110 s source plate",
+   "onscreen": false,
+   "where": "not on screen in v2 (source of the network's conservation law; Part 2)",
    "renders": [
     "2018"
    ]
@@ -546,8 +547,8 @@
    "formula": null,
    "source": "S7",
    "grade": "A",
-   "onscreen": true,
-   "where": "COUNT 110 s source plate; MONDAY honest line",
+   "onscreen": false,
+   "where": "not on screen in v2 (Part 2)",
    "renders": [
     "2021"
    ]
@@ -559,8 +560,8 @@
    "formula": null,
    "source": "S9",
    "grade": "B",
-   "onscreen": true,
-   "where": "COUNT 128 s plate 'smoke rings keep their swirl: Kelvin, 1869'",
+   "onscreen": false,
+   "where": "COUNT 127.9-134.8 s wordless plate; no digit on screen",
    "renders": [
     "1869"
    ]
@@ -572,8 +573,8 @@
    "formula": null,
    "source": "S9",
    "grade": "B",
-   "onscreen": true,
-   "where": "COUNT 130 s plate",
+   "onscreen": false,
+   "where": "not on screen (plate is wordless)",
    "renders": [
     "1988"
    ]
