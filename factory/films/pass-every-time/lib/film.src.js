@@ -45,7 +45,18 @@ const QS = TR.map((m) => bits(m).reduce((a, b) => a + b, 0));
 const ORDER = TR.map((_, i) => i).sort((a, b) => QS[b] - QS[a] || a - b);   // M2: passes 4,3,2,1,0, stable by task id
 const SRANK = []; ORDER.forEach((id, j) => { SRANK[id] = j; });
 const posId = (i) => [(i % COLS - (COLS - 1) / 2) * TP, (Math.floor(i / COLS) - (ROWS - 1) / 2) * TP];
-const posSorted = (j) => [(Math.floor(j / ROWS) - (COLS - 1) / 2) * TP, (j % ROWS - (ROWS - 1) / 2) * TP];
+/* M2 layout (tier-2 revision): one band per number of tries passed (4, 3, 2, 1, 0) left to right, each band SR columns deep and
+   filled front to back, an aisle between bands; with SR = 11 the 44 full columns are one 4 x 11 block of their own */
+const SR = KN.sortRows, AIS = KN.sortAisle * TP, SD = SR * TP / 2, SLOT = [];
+let SW = 0;
+{
+  const live = [4, 3, 2, 1, 0].map((q) => QS.filter((x) => x === q).length).filter((n) => n > 0);
+  const NS = live.reduce((a, n) => a + Math.ceil(n / SR), 0), WT = NS * TP + (live.length - 1) * AIS;
+  let j = 0, s0 = 0, bi = 0;
+  for (const n of live) { for (let k = 0; k < n; k++) SLOT[j++] = [-WT / 2 + TP / 2 + (s0 + Math.floor(k / SR)) * TP + bi * AIS, ((SR - 1) / 2 - (k % SR)) * TP]; s0 += Math.ceil(n / SR); bi++; }
+  SW = WT / 2;
+}
+const posSorted = (j) => SLOT[j];
 const topY = -(TH + 3 * PC + E);                                              // top face of a four-cube column
 const colTop = (id, sorted) => { const q = sorted ? posSorted(SRANK[id]) : posId(id); return [q[0], topY, q[1] + 0.0]; };
 
@@ -114,7 +125,7 @@ function bake(p, K) {
 const VERT = `precision highp float;
 attribute vec3 aPosition; attribute vec3 aNormal; attribute vec3 aA; attribute vec3 aB; attribute vec3 aC; attribute vec4 aInfo; attribute vec4 aInfo2;
 uniform mat4 uModelViewMatrix; uniform mat4 uProjectionMatrix;
-uniform float uArr[5]; uniform float uMa[5]; uniform float uMb[5]; uniform vec3 uSz[5]; uniform vec3 uCol[20]; uniform vec3 uBg;
+uniform float uArr[5]; uniform float uMa[5]; uniform float uMb[5]; uniform float uBk[5]; uniform vec3 uSz[5]; uniform vec3 uCol[20]; uniform vec3 uBg;
 uniform float uArrW, uDrop, uLift, uLift2, uStag, uLitP, uCut, uCutDim, uGhost, uGlobal;
 varying vec3 vCol;
 float ez(float u){ return u * u * u * (u * (u * 6.0 - 15.0) + 10.0); }
@@ -123,8 +134,9 @@ void main(){
   float a = clamp((uArr[kind] - aInfo.z) / uArrW, 0.0, 1.0);
   float u1 = clamp(uMa[kind] * (1.0 + uStag) - aInfo2.y * uStag, 0.0, 1.0);
   float u2 = clamp(uMb[kind] * (1.0 + uStag) - aInfo2.w * uStag, 0.0, 1.0);
-  vec3 c = mix(mix(aA, aB, ez(u1)), aC, ez(u2));
-  c.y -= sin(3.14159265 * u1) * uLift + sin(3.14159265 * u2) * uLift2 * (0.4 + 0.6 * aInfo2.w) + (1.0 - a) * (1.0 - a) * uDrop;
+  float u3 = clamp(uBk[kind] * (1.0 + uStag) - aInfo2.w * uStag, 0.0, 1.0);
+  vec3 c = mix(mix(mix(aA, aB, ez(u1)), aC, ez(u2)), aA, ez(u3));
+  c.y -= sin(3.14159265 * u1) * uLift + (sin(3.14159265 * u2) + sin(3.14159265 * u3)) * uLift2 * (0.4 + 0.6 * aInfo2.w) + (1.0 - a) * (1.0 - a) * uDrop;
   vec3 pos = c + aPosition * uSz[kind] * (0.35 + 0.65 * a);
   int fi = aNormal.y < -0.5 ? 0 : (aNormal.z > 0.5 ? 1 : (aNormal.z < -0.5 ? 2 : (aNormal.x > 0.5 ? 3 : 4)));
   float cls = aInfo.y;
@@ -157,7 +169,7 @@ function rigScript() {
       { id: 'toPR', move: 'cut', t0: KN.prCut, eye: sph(CPR, 0, el, KN.camPrDist), center: CPR },
       { id: 'toMin', move: 'cut', t0: KN.minCut, eye: sph(CMIN, KN.camMinAz, KN.camMinEl, KN.camMinDist), center: CMIN },
       { id: 'toTau', move: 'cut', t0: KN.tauCut, eye: sph(CSIDE, side[0], side[1], side[2]), center: CSIDE },
-      { id: 'book', move: 'orbit', t0: KN.bookT0, t1: KN.bookT1, az: -KN.camSideAz, el: KN.camPlanEl, r: KN.bookDist / (d0 * KN.camSideR), ease: 'inout', around: [0, -5, KN.bookLookZ] },
+      { id: 'book', move: 'orbit', t0: KN.bookT0, t1: KN.bookT1, az: -KN.camSideAz, el: KN.camPlanEl, r: 1 / KN.camSideR, ease: 'inout', around: CTAU },
     ] };
 }
 function poseAt(t) { return RIG.at(RIGC, t); }
@@ -190,7 +202,7 @@ function floorDraw(p, sc) {
 const cutLevel = (t) => P.triesPer * sm(seg(t, KN.m3T0, KN.m3T1));
 function planeDraw(p, t) {
   const op = win(t, KN.m3T0 - 0.3, KN.m3T0 + 0.4, KN.planeOut, KN.planeOut + 0.8); if (op <= 0.01) return;
-  const y = -(TH + cutLevel(t) * PC - 0.6), w = HW + KN.planeMargin, d = HD + KN.planeMargin;
+  const y = -(TH + cutLevel(t) * PC - 0.6), w = SW + KN.planeMargin, d = SD + KN.planeMargin;
   p.resetShader(); p.noStroke(); p.fill(PLANEC[0], PLANEC[1], PLANEC[2], 255 * KN.planeAlpha * op);
   p.push(); p.translate(0, y, 0); p.rotateX(Math.PI / 2); p.plane(2 * w, 2 * d); p.pop();
   p.stroke(PLANEC[0], PLANEC[1], PLANEC[2], 255 * op); p.strokeWeight(1.6);
@@ -201,7 +213,8 @@ function cubesDraw(p, t) {
   p.shader(SH); p.noStroke(); p.fill(255);
   const m1 = seg(t, KN.m1T0, KN.m1T1), m2 = seg(t, KN.m2T0, KN.m2T1), m4 = seg(t, KN.m4T0, KN.m4T1);
   U('uArr', [ap(KN.tileT0, KN.tileT1), ap(KN.cubeT0, KN.cubeT1), ap(KN.prT0, KN.prT1), ap(KN.min27T0, KN.min27T1), ap(KN.min289T0, KN.min289T1)]);
-  U('uMa', [0, m1, m4, 0, 0]); U('uMb', [m2, m2, 0, 0, 0]);
+  const bk = seg(t, KN.bookT0, KN.bookT1);
+  U('uMa', [0, m1, m4, 0, 0]); U('uMb', [m2, m2, 0, 0, 0]); U('uBk', [bk, bk, 0, 0, 0]);
   U('uSz', [TW, TH, TW, E, E, E, E, E, E, E, E, E, E, E, E]);
   U('uCol', PAL); U('uBg', BGC); U('uArrW', W); U('uDrop', KN.drop); U('uLift', KN.lift1); U('uLift2', KN.lift2); U('uStag', KN.stagger);
   U('uLitP', seg(t, KN.litT0, KN.litT1)); U('uCut', cutLevel(t)); U('uCutDim', KN.cutDim);
@@ -234,16 +247,17 @@ function setupLabels() {
   RECT = {
     plan: rectOf(tPlan, -HW, HW, -(TH + E), 0, -HD, HD, 6),
     side: rectOf(tSide, -HW, HW, ym, 0, -HD, HD, 6),
+    sorted: rectOf(KN.c44, -SW, SW, ym, 0, -SD, SD, 6),
     pr: rectOf(tPr, -(PRC * PC) / 2, (PRC * PC) / 2, -E, 0, ZP - (PRR * PC) / 2, ZP + (PRR * PC) / 2, 8),
     prA: rectOf(tPr, -(PRC * PC) / 2, (PRC * PC) / 2, -E, 0, ZP - hgp - PRR * PC / 2, ZP - hgp, 6),
     prB: rectOf(tPr, -(PRC * PC) / 2, (PRC * PC) / 2, -E, 0, ZP + hgp, ZP + hgp + PRR * PC / 2, 6),
     minA: rectOf(tMin, XM - BW * PC - KN.barGap * PC / 2, XM - KN.barGap * PC / 2, -(Math.ceil(P.h80 / BW) * PC), 0, -E, E, 0),
     minB: rectOf(tMin, XM + KN.barGap * PC / 2, XM + KN.barGap * PC / 2 + BW * PC, -(Math.ceil(P.h50 / BW) * PC), 0, -E, E, 0),
   };
-  const mk = (id, x, y, z, text, sub, role, pr) => ({ id, x, y, z, text, sub, role: role || 'secondary', size: role === 'result' ? KN.calloutSize : 0, priority: pr || 0 });
+  const mk = (id, x, y, z, text, sub, role, pr, sty) => Object.assign({ id, x, y, z, text, sub, role: role || 'secondary', size: role === 'result' ? KN.calloutSize : 0, priority: pr || 0 }, sty || {});
   const yTop = -(TH + E) / 2;
     const back = (q) => { for (let c = COLS - 1; c >= 0; c--) if (QS[c] === q) return c; return 0; };
-  const ca = colTop(back(4), false), cn = colTop(back(0), false), sf = colTop(ORDER[3 * ROWS], true), sn = colTop(ORDER[10 * ROWS], true);
+  const ca = colTop(back(4), false), cn = colTop(back(0), false), sf = colTop(ORDER[Math.min(P.n4, 4 * SR) - 1], true), sn = colTop(ORDER[NT - P.n0 + Math.min(P.n0, SR) - 1], true);
   const LST = {
     case: [mk('a.tasks', HW + 6, yTop, -HD * 0.5, '', '', 'result'), mk('a.tries', HW + 6, yTop, -HD * 0.05, '', '', 'result'), mk('a.pass', HW + 6, yTop, HD * 0.4, '', '', 'result'), mk('a.pct', HW + 6, yTop, HD * 0.85, '', '', 'result')],
     side: [mk('c.all', ca[0], ca[1], ca[2], '', '', 'result'), mk('c.none', cn[0], cn[1], cn[2], '', '', 'result'), mk('s.full', sf[0], sf[1], sf[2], '', '', 'result'), mk('s.none', sn[0], sn[1], sn[2], '', '', 'result')],
@@ -251,8 +265,8 @@ function setupLabels() {
     prB: [mk('r.half', (PRC * PC) / 4, -E / 2, ZP + hgp + PC / 2, '', '', 'result')],
   };
   AN = {
-    bar: [mk('p.bar', HW + KN.planeMargin, ym, HD + KN.planeMargin, 'THE ALL-FOUR BAR', null, 'secondary', 1)],
-    min: [mk('m.27', ...topOfBar(XM - (BW * PC + KN.barGap * PC) / 2, P.h80), P.h80 + ' min', null, 'secondary', 1), mk('m.289', ...topOfBar(XM + (BW * PC + KN.barGap * PC) / 2, P.h50), P.h50h + ' h ' + P.h50m + ' min', null, 'secondary', 1)],
+    bar: [mk('p.bar', SW + KN.planeMargin, ym, SD + KN.planeMargin, 'THE ALL-FOUR BAR', null, 'secondary', 1)],
+    min: [mk('m.27', ...topOfBar(XM - (BW * PC + KN.barGap * PC) / 2, P.h80), P.h80 + ' min', null, 'secondary', 1, { fam: 'disp', size: KN.refPinSize, color: 'accent' }), mk('m.289', ...topOfBar(XM + (BW * PC + KN.barGap * PC) / 2, P.h50), P.h50h + ' h ' + P.h50m + ' min', null, 'secondary', 1)],
   };
   // callout-only scenes: the anchor list is a function of t that returns just the anchor the callout follows (an ordinary label for it is suppressed
   // by gl-labels while the callout is on it, and no other anchor exists), so nothing but the callout is ever drawn
@@ -273,11 +287,11 @@ function setupLabels() {
     case: Object.assign({}, base, { reserve: [BAND, CAP, LEG, RECT.plan], callout: co([S(0, null),
       S(KN.cTasks, 'a.tasks', '' + P.tasks, 'TASKS · ONE TILE EACH'), S(KN.cTries, 'a.tries', '' + P.tries, 'TRIES · ONE CUBE EACH'),
       S(KN.cPass, 'a.pass', '' + P.passed, 'PASSED · A LIT CUBE'), S(KN.cPct, 'a.pct', pc1(P.pass1), 'OF TRIES PASS'), S(KN.cPctEnd, null)]) }),
-    side: Object.assign({}, base, { reserve: [BAND, CAP, LEG, RECT.side], callout: co([S(0, null),
+    side: Object.assign({}, base, { reserve: [BAND, CAP, LEG, RECT.side, RECT.sorted], callout: co([S(0, null),
       S(KN.cAll, 'c.all', 'All four lit', 'ONE TASK · FOUR TRIES'), S(KN.cNone, 'c.none', 'None lit', 'ONE TASK · NONE PASSED'), S(KN.cNoneEnd, null),
       S(KN.c44, 's.full', '' + P.n4, 'TASKS PASS ALL FOUR TRIES'), S(KN.c22, 's.none', '' + P.n0, 'TASKS NEVER PASS'), S(KN.c22End, null),
       S(KN.c44of, 's.full', P.n4 + ' of ' + P.tasks, 'COLUMNS LIT ALL THE WAY'), S(KN.c383, 's.full', pc1(P.pass4), 'PASS ALL FOUR TRIES'), S(KN.c383End, null)]) }),
-    bar: Object.assign({}, base, { reserve: [BAND, CAP, LEG, [150, 56, 810, 126], RECT.side], callout: null }),
+    bar: Object.assign({}, base, { reserve: [BAND, CAP, LEG, [150, 56, 810, 126], RECT.side, RECT.sorted], callout: null }),
     pr: Object.assign({}, base, { reserve: [BAND, CAP, LEG, SCH, RECT.pr], callout: co([S(0, null),
       S(KN.cPrs, 'r.prs', '' + P.prs, 'PULL REQUESTS PASS THE TESTS'), S(KN.cSwe, 'r.swe', pc1(P.swe), 'TOP SWE-BENCH VERIFIED SCORE'), S(KN.cSweEnd, null)]) }),
     prB: Object.assign({}, base, { reserve: [BAND, CAP, LEG, SCH, RECT.prA, RECT.prB], callout: co([S(0, null),
@@ -319,8 +333,12 @@ function stageText(K, t) {
     lg('lg.m', 62, 'GPT-4o · tau-bench retail · 2024', KN.tileT0 - 0.4, e);
     lg('lg.1', 84, 'ONE TILE = ONE TASK', KN.cTasks - 0.3, e); lg('lg.2', 104, 'ONE CUBE = ONE TRY', KN.cTries - 0.3, e); lg('lg.3', 124, 'GOLD = THE TRY PASSED', KN.litT0, e);
   }
-  if (t >= KN.prT0 - 0.5 && t < KN.minCut) lg('lg.pr', 62, 'ONE CUBE = ONE PULL REQUEST', KN.prT0 - 0.3, KN.minCut - 0.6);
-  if (t >= KN.minCut && t < KN.tauCut) lg('lg.mi', 62, 'ONE CUBE = ONE MINUTE', KN.minCut + 0.4, KN.tauCut - 0.6);
+  if (t >= KN.prCut && t < KN.minCut) lg('lg.pr', 62, 'ONE CUBE = ONE PULL REQUEST', KN.prCut - 0.5, KN.minCut - 0.6);
+  if (t >= KN.minCut && t < KN.tauCut) lg('lg.mi', 62, 'ONE CUBE = ONE MINUTE', KN.minCut - 0.5, KN.tauCut - 0.6);
+  if (t >= KN.bookT1) {   // the bookend: the opening frame, read again (same legend corner, the new meaning of gold)
+    lg('lg.cm', 62, 'GPT-4o · tau-bench retail · 2024', KN.bookT1, KN.qOut); lg('lg.c1', 84, 'ONE TILE = ONE TASK', KN.bookT1, KN.qOut);
+    lg('lg.c2', 104, 'GOLD = PASSED ALL FOUR TRIES', KN.bookT1, KN.qOut);
+  }
 
   // callouts and pins through gl-labels (screen space, hysteresis, hard cuts; labels are off while a move runs)
   const keepAll = null;
@@ -334,19 +352,20 @@ function stageText(K, t) {
   if (sc === 'pr') drawPl(K, 'pr.', t < KN.m4T0 ? GLL.solve(t, CAMFN, AN.pr, OPT.pr) : GLL.solve(t, CAMFN, AN.prB, OPT.prB), 1, keepAll);
   if (sc === 'min') {
     const sol = GLL.solve(t, CAMFN, AN.min, OPT.min);
-    drawPl(K, 'mn.', sol, 1, (q) => q.callout || (q.id === 'm.27' ? t >= KN.min27T1 : t >= KN.min289T1));
+    drawPl(K, 'mn.', sol, 1, (q) => q.callout || (q.id === 'm.27' ? t >= KN.min27T1 : t >= KN.cMin289));
   }
 
   // COUNT: the ladder (one row of ratios, each after the counts it comes from) and the paper's own sentence
-  const lad = [['ONE TRY', pc1(P.pass1), KN.lad1], ['BOTH OF TWO', pc1(P.pass2), KN.lad2], ['ALL OF THREE', pc1(P.pass3), KN.lad3], ['ALL FOUR', pc1(P.pass4), KN.lad4]];
+  const lad = [['ONE TRY · ' + P.passed + ' OF ' + P.tries + ' TRIES', pc1(P.pass1), KN.lad1, KN.ladXL, C.ink], ['EVERY TRY · ' + P.n4 + ' OF ' + P.tasks + ' TASKS', pc1(P.pass4), KN.lad4, KN.ladXR, C.accent]];
   lad.forEach((r, i) => {
-    const o = win(t, r[2], r[2] + 0.5, KN.ladOut, KN.ladOut + 0.5), x = 330 + i * 160, hot = i === 3 ? C.accent : C.ink;
-    if (o > 0.01) { K.tx('ld.v' + i, 'labels', x, 94, r[1], { fam: 'disp', size: KN.ladSize, fill: hot, role: 'must-read', anchor: 'middle', op: o }); K.tx('ld.k' + i, 'labels', x, 114, r[0], { size: 14, fill: C.muted, role: 'secondary', anchor: 'middle', ls: 1, op: o }); }
+    const ok = win(t, r[2], r[2] + 0.5, KN.ladOut, KN.ladOut + 0.5), ov = win(t, r[2] + KN.ladLead, r[2] + KN.ladLead + 0.5, KN.ladOut, KN.ladOut + 0.5);
+    if (ov > 0.01) K.tx('ld.v' + i, 'labels', r[3], 86, r[1], { fam: 'disp', size: KN.ladSize, fill: r[4], role: 'must-read', anchor: 'middle', op: ov });
+    if (ok > 0.01) K.tx('ld.k' + i, 'labels', r[3], 106, r[0], { size: 14, fill: C.muted, role: 'secondary', anchor: 'middle', ls: 0.5, op: ok });
   });
   const pp = win(t, KN.paperIn, KN.paperIn + 0.6, KN.paperOut, KN.paperOut + 0.6);
   if (pp > 0.01) {
-    K.tx('pp.v', 'labels', 480, 96, 'under ' + P.paperPass8Upper + ' %', { fam: 'disp', size: KN.plateSize, fill: C.accent, role: 'must-read', anchor: 'middle', op: pp });
-    K.tx('pp.k', 'labels', 480, 118, 'THE PAPER’S OWN RUN · ALL EIGHT TRIES PASS · NOT THESE CUBES', { size: 14, fill: C.muted, role: 'secondary', anchor: 'middle', ls: 1, op: pp });
+    K.tx('pp.v', 'labels', 480, 88, 'under ' + P.paperPass8Upper + ' %', { fam: 'disp', size: KN.plateSize, fill: C.accent, role: 'must-read', anchor: 'middle', op: pp });
+    K.tx('pp.k', 'labels', 480, 109, 'THE PAPER’S OWN RUN · ALL EIGHT TRIES PASS · NOT THESE CUBES', { size: 14, fill: C.muted, role: 'secondary', anchor: 'middle', ls: 1, op: pp });
   }
 
   // M4: "schematic" tag while the PRs travel (the split is two equal blocks, not a count)
@@ -354,15 +373,15 @@ function stageText(K, t) {
   if (sch > 0.01) K.tx('sc.t', 'labels', 920, 62, 'SCHEMATIC SPLIT · TWO EQUAL BLOCKS', { size: 14, fill: C.muted, role: 'secondary', anchor: 'end', op: sch });
 
   // MONDAY: the question, then the one honest line, both as set type in the free top band
-  const q = win(t, KN.qIn, KN.qIn + 0.7, KN.qOut, KN.qOut + 0.5);
+  const q = win(t, KN.qIn, KN.qIn + 0.7, KN.qOut, KN.qOut + 0.5), xl = 40, xr = RECT.plan[2] + KN.colPad, wl = RECT.plan[0] - KN.colPad - xl, wr = 920 - xr;
   if (q > 0.01) {
-    K.tx('mo.e', 'labels', 480, 78, 'MONDAY', { size: 12, fill: C.muted, role: 'chrome', anchor: 'middle', ls: 3, op: q });
-    K.wrap('How often does it pass when it has to pass every time, and who checks the merge?', 800, KN.mondaySize, 'disp').forEach((s, i) => K.tx('mo.q' + i, 'labels', 480, 118 + i * KN.mondaySize * 1.25, s, { fam: 'disp', size: KN.mondaySize, fill: C.ink, role: 'must-read', anchor: 'middle', op: q }));
+    K.tx('mo.e', 'labels', xl, KN.monY - 40, 'MONDAY', { size: 12, fill: C.muted, role: 'chrome', ls: 3, op: q });
+    K.wrap('How often does it pass when it has to pass every time, and who checks the merge?', wl, KN.mondaySize, 'disp').forEach((s, i) => K.tx('mo.q' + i, 'labels', xl, KN.monY + i * KN.mondaySize * 1.2, s, { fam: 'disp', size: KN.mondaySize, fill: C.ink, role: 'must-read', op: q }));
   }
-  const hn = win(t, KN.honestIn, KN.honestIn + 0.8, 1e6, 1e6 + 1);
+  const hn = win(t, KN.honestIn, KN.honestIn + 0.8, KN.qOut, KN.qOut + 0.5);
   if (hn > 0.01) {
-    K.tx('mo.h', 'labels', 480, 78, 'ONE LIMIT', { size: 12, fill: C.muted, role: 'chrome', anchor: 'middle', ls: 3, op: hn });
-    K.wrap('One ' + P.year + ' model, and agents that could not revise: newer ones may do better.', 800, KN.honestSize, 'disp').forEach((s, i) => K.tx('mo.h' + i, 'labels', 480, 118 + i * KN.honestSize * 1.25, s, { fam: 'disp', size: KN.honestSize, fill: C.accent, role: 'must-read', anchor: 'middle', op: hn }));
+    K.tx('mo.h', 'labels', xr, KN.monY - 40, 'ONE LIMIT', { size: 12, fill: C.muted, role: 'chrome', ls: 3, op: hn });
+    K.wrap('One ' + P.year + ' model, and agents that could not revise: newer ones may do better.', wr, KN.honestSize, 'disp').forEach((s, i) => K.tx('mo.h' + i, 'labels', xr, KN.monY + i * KN.honestSize * 1.2, s, { fam: 'disp', size: KN.honestSize, fill: C.accent, role: 'must-read', op: hn }));
   }
 }
 

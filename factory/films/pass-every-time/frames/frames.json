@@ -333,38 +333,18 @@
     83.5
    ],
    "step": 0.1,
-   "what": "s: the ratio row opens with one try",
+   "what": "s: the pair opens: the one-try count line (278 of 460), its ratio follows after ladLead",
    "value": 82.6
-  },
-  {
-   "name": "lad2",
-   "range": [
-    82.5,
-    84
-   ],
-   "step": 0.1,
-   "what": "s: both of two tries",
-   "value": 82.9
-  },
-  {
-   "name": "lad3",
-   "range": [
-    84.5,
-    87
-   ],
-   "step": 0.1,
-   "what": "s: all of three tries",
-   "value": 85.6
   },
   {
    "name": "lad4",
    "range": [
-    87,
+    84.5,
     89.5
    ],
    "step": 0.1,
-   "what": "s: all four tries (gold)",
-   "value": 88.2
+   "what": "s: the every-try count line (44 of 115), its ratio (gold) follows after ladLead",
+   "value": 85.6
   },
   {
    "name": "ladOut",
@@ -373,7 +353,7 @@
     93
    ],
    "step": 0.1,
-   "what": "s: the ratio row starts to fade",
+   "what": "s: the pair starts to fade",
    "value": 91
   },
   {
@@ -429,12 +409,12 @@
   {
    "name": "prT0",
    "range": [
-    100,
+    99.5,
     102
    ],
    "step": 0.1,
-   "what": "s: the first pull request cube arrives",
-   "value": 100.2
+   "what": "s: the first pull request cube arrives (0.2 s before the cut, so the cut lands on the first row)",
+   "value": 99.8
   },
   {
    "name": "prT1",
@@ -549,12 +529,12 @@
   {
    "name": "min27T0",
    "range": [
-    123,
+    120.5,
     125
    ],
    "step": 0.1,
-   "what": "s: the first minute cube of the 80 % column arrives",
-   "value": 123
+   "what": "s: the first minute cube of the 80 % column arrives (0.2 s before the cut, so the cut lands on it)",
+   "value": 120.8
   },
   {
    "name": "min27T1",
@@ -653,7 +633,7 @@
     137
    ],
    "step": 0.1,
-   "what": "s: the camera rises back to the plan pose of the opening",
+   "what": "s: the bookend starts: the camera rises back to the opening plan pose and the cubes return to their tiles",
    "value": 135.4
   },
   {
@@ -663,8 +643,8 @@
     141
    ],
    "step": 0.1,
-   "what": "s: the camera is back in plan",
-   "value": 138
+   "what": "s: the bookend lands: the opening frame, only the tasks that passed all four tries still gold",
+   "value": 139.4
   },
   {
    "name": "dimT0",
@@ -679,32 +659,32 @@
   {
    "name": "qIn",
    "range": [
-    135,
-    137
+    137,
+    141
    ],
    "step": 0.1,
-   "what": "s: the Monday question fades in",
-   "value": 137
+   "what": "s: the Monday question fades in (left column, beside the field)",
+   "value": 139.6
   },
   {
    "name": "qOut",
    "range": [
-    139.5,
-    141.4
+    143,
+    149.4
    ],
    "step": 0.1,
-   "what": "s: the question starts to fade",
-   "value": 141
+   "what": "s: the Monday columns and the bookend legend start to fade (gone before the card at 150; the card type crosses the right column)",
+   "value": 149.3
   },
   {
    "name": "honestIn",
    "range": [
-    141.2,
-    143
+    141,
+    146
    ],
    "step": 0.1,
-   "what": "s: the one honest-limits line fades in (stage type; no caption shows after 141)",
-   "value": 141.5
+   "what": "s: the one honest-limits line fades in (right column; stage type; no caption shows after 139.4)",
+   "value": 143.6
   },
   {
    "name": "mondaySize",
@@ -714,7 +694,7 @@
    ],
    "step": 1,
    "what": "sheet units: the Monday question",
-   "value": 36
+   "value": 28
   },
   {
    "name": "honestSize",
@@ -724,7 +704,7 @@
    ],
    "step": 1,
    "what": "sheet units: the honest-limits line",
-   "value": 32
+   "value": 28
   },
   {
    "name": "mondayDim",
@@ -733,8 +713,8 @@
     0.8
    ],
    "step": 0.05,
-   "what": "0-1: how far the floor is mixed toward the ground under the Monday type",
-   "value": 0.5
+   "what": "0-1: how far the floor is mixed toward the ground under the Monday type (0: the type sits beside the field)",
+   "value": 0
   },
   {
    "name": "camFov",
@@ -875,26 +855,6 @@
    "step": 5,
    "what": "world units: height the horizon view aims at",
    "value": 125
-  },
-  {
-   "name": "bookDist",
-   "range": [
-    600,
-    1500
-   ],
-   "step": 10,
-   "what": "world units: eye distance of the bookend plan pose (farther than the opening so the top band is free for type)",
-   "value": 1000
-  },
-  {
-   "name": "bookLookZ",
-   "range": [
-    -200,
-    100
-   ],
-   "step": 1,
-   "what": "world units: aim point along z in the bookend (negative lowers the field on screen)",
-   "value": -35
   },
   {
    "name": "driftDeg",
@@ -1315,10 +1275,90 @@
    "step": 1,
    "what": "sheet units: the paper's eight-try sentence",
    "value": 44
+  },
+  {
+   "name": "ladLead",
+   "range": [
+    0.3,
+    1.5
+   ],
+   "step": 0.1,
+   "what": "s: a count line leads the ratio above it (counts before ratios, on stage)",
+   "value": 0.8
+  },
+  {
+   "name": "ladXL",
+   "range": [
+    250,
+    450
+   ],
+   "step": 1,
+   "what": "sheet units: centre of the one-try half of the pair",
+   "value": 370
+  },
+  {
+   "name": "ladXR",
+   "range": [
+    510,
+    710
+   ],
+   "step": 1,
+   "what": "sheet units: centre of the every-try half of the pair",
+   "value": 630
+  },
+  {
+   "name": "sortRows",
+   "range": [
+    8,
+    14
+   ],
+   "step": 1,
+   "what": "columns per band slice front to back after M2 (11: the 44 full columns are one 4 x 11 block)",
+   "value": 11
+  },
+  {
+   "name": "sortAisle",
+   "range": [
+    0,
+    1.5
+   ],
+   "step": 0.05,
+   "what": "tile pitches: aisle between the bands (4, 3, 2, 1, 0 tries passed) after M2",
+   "value": 0.7
+  },
+  {
+   "name": "colPad",
+   "range": [
+    8,
+    40
+   ],
+   "step": 1,
+   "what": "sheet units: air between the opening field box and the Monday columns",
+   "value": 16
+  },
+  {
+   "name": "monY",
+   "range": [
+    140,
+    240
+   ],
+   "step": 1,
+   "what": "sheet units: first baseline of the Monday columns",
+   "value": 186
+  },
+  {
+   "name": "refPinSize",
+   "range": [
+    14,
+    34
+   ],
+   "step": 1,
+   "what": "sheet units: the 27 min reference pin (display face, gold) beside the 289 column",
+   "value": 24
   }
  ],
- "ms_per_frame": 641,
- "s_per_frame": 0.641,
+ "ms_per_frame": 1235,
+ "s_per_frame": 1.235,
  "purity": {
   "pass": true,
   "at": {
@@ -3197,7 +3237,7 @@
    "file": "thumbs/t-0083.00.jpg",
    "strip": "strip-14.png",
    "cell": 10,
-   "caption": "One try: 60.4 %. Both of two must pass: 49.1 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3208,7 +3248,7 @@
    "file": "thumbs/t-0083.50.jpg",
    "strip": "strip-14.png",
    "cell": 11,
-   "caption": "One try: 60.4 %. Both of two must pass: 49.1 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3219,7 +3259,7 @@
    "file": "thumbs/t-0084.00.jpg",
    "strip": "strip-15.png",
    "cell": 0,
-   "caption": "One try: 60.4 %. Both of two must pass: 49.1 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3230,7 +3270,7 @@
    "file": "thumbs/t-0084.50.jpg",
    "strip": "strip-15.png",
    "cell": 1,
-   "caption": "One try: 60.4 %. Both of two must pass: 49.1 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3241,7 +3281,7 @@
    "file": "thumbs/t-0085.00.jpg",
    "strip": "strip-15.png",
    "cell": 2,
-   "caption": "One try: 60.4 %. Both of two must pass: 49.1 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3263,7 +3303,7 @@
    "file": "thumbs/t-0086.00.jpg",
    "strip": "strip-15.png",
    "cell": 4,
-   "caption": "All of three must pass: 43.0 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3274,7 +3314,7 @@
    "file": "thumbs/t-0086.50.jpg",
    "strip": "strip-15.png",
    "cell": 5,
-   "caption": "All of three must pass: 43.0 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3285,7 +3325,7 @@
    "file": "thumbs/t-0087.00.jpg",
    "strip": "strip-15.png",
    "cell": 6,
-   "caption": "All of three must pass: 43.0 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3296,7 +3336,7 @@
    "file": "thumbs/t-0087.50.jpg",
    "strip": "strip-15.png",
    "cell": 7,
-   "caption": "All of three must pass: 43.0 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3318,7 +3358,7 @@
    "file": "thumbs/t-0088.50.jpg",
    "strip": "strip-15.png",
    "cell": 9,
-   "caption": "All four: 38.3 %. Each extra try lowers it.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3329,7 +3369,7 @@
    "file": "thumbs/t-0089.00.jpg",
    "strip": "strip-15.png",
    "cell": 10,
-   "caption": "All four: 38.3 %. Each extra try lowers it.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3340,7 +3380,7 @@
    "file": "thumbs/t-0089.50.jpg",
    "strip": "strip-15.png",
    "cell": 11,
-   "caption": "All four: 38.3 %. Each extra try lowers it.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3351,7 +3391,7 @@
    "file": "thumbs/t-0090.00.jpg",
    "strip": "strip-16.png",
    "cell": 0,
-   "caption": "All four: 38.3 %. Each extra try lowers it.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3362,7 +3402,7 @@
    "file": "thumbs/t-0090.50.jpg",
    "strip": "strip-16.png",
    "cell": 1,
-   "caption": "All four: 38.3 %. Each extra try lowers it.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4440,7 +4480,7 @@
    "file": "thumbs/t-0139.50.jpg",
    "strip": "strip-24.png",
    "cell": 3,
-   "caption": "On Monday, ask for the every-time number.",
+   "caption": null,
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
@@ -4451,7 +4491,7 @@
    "file": "thumbs/t-0140.00.jpg",
    "strip": "strip-24.png",
    "cell": 4,
-   "caption": "On Monday, ask for the every-time number.",
+   "caption": null,
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
@@ -4462,7 +4502,7 @@
    "file": "thumbs/t-0140.50.jpg",
    "strip": "strip-24.png",
    "cell": 5,
-   "caption": "On Monday, ask for the every-time number.",
+   "caption": null,
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"

@@ -200,6 +200,14 @@ SOURCES = [
 ]
 
 def main():
+    # RETIRED 2026-10-10 (tier-2 revision): film.json carries findings rounds 1-2 and the tier-2 edits (lib/revise_t2.py), all made
+    # IN PLACE. Regenerating it from the table above would revert them, so this script refuses to write ../film.json.
+    # To see the draft's original table output, pass --out <path> (never ../film.json).
+    import sys
+    out = sys.argv[sys.argv.index("--out") + 1] if "--out" in sys.argv else None
+    if not out or os.path.abspath(out) == os.path.abspath(OUT):
+        raise SystemExit("make_film_json.py is retired: film.json is edited in place (findings r1/r2, lib/revise_t2.py). Use --out <other path>.")
+    globals()["OUT"] = out
     claims = json.load(open(os.path.join(HERE, "..", "claims.json")))
     trials = json.load(open(os.path.join(TOPIC, "data", "tau_retail_trials.json")))["tasks"]
     params = dict(claims["params"]); params.update(PARAMS_EXTRA)
