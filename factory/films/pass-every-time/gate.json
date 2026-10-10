@@ -1,27 +1,27 @@
 {
   "film": "pass-every-time",
-  "page": "factory/films/pass-every-time/drafts/a/build/pass-every-time.midnight-ink.none.html",
-  "filmDir": "factory/films/pass-every-time/drafts/a",
-  "date": "2026-10-10T17:40:58.001Z",
+  "page": "/home/user/ceti-explainer/factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.html",
+  "filmDir": "/home/user/ceti-explainer/factory/films/pass-every-time",
+  "date": "2026-10-10T18:08:17.286Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 3323 ms; stage sd 30.6s:20.1 76.5s:34.8 122.4s:18.3",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1451 ms; stage sd 30.6s:25.0 76.5s:35.0 122.4s:18.3",
       "data": {
-        "readyMs": 3323,
+        "readyMs": 1451,
         "stats": [
           {
             "t": 30.6,
-            "mean": 39.84856392747078,
-            "sd": 20.068743437252728
+            "mean": 43.758304407795436,
+            "sd": 24.96657476653457
           },
           {
             "t": 76.5,
-            "mean": 48.12987446952331,
-            "sd": 34.778723952839556
+            "mean": 48.691628539740215,
+            "sd": 34.96556949806531
           },
           {
             "t": 122.4,
@@ -54,7 +54,7 @@
       "id": "G3",
       "name": "clock scan",
       "status": "PASS",
-      "evidence": "clean: film.js, commit-off.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "evidence": "clean: film.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
       "data": {
         "hits": []
       }
@@ -127,7 +127,7 @@
       "id": "G6",
       "name": "legibility",
       "status": "PASS",
-      "evidence": "11 must-read / 19 secondary / 13 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 400/390 OVERFLOW, shot factory/films/pass-every-time/drafts/a/shots/phone-390.png",
+      "evidence": "11 must-read / 19 secondary / 13 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 400/390 OVERFLOW",
       "data": {
         "fails": [],
         "warns": [],
@@ -150,8 +150,8 @@
       "status": "PASS",
       "evidence": "film code 90.8 KB (film.js 57.8, film.json 20.4, claims.json 12.6) < 120 KB; page 1.241 MB < 1.3 MB",
       "data": {
-        "code": 92986,
-        "page": 1241090
+        "code": 92973,
+        "page": 1241076
       }
     },
     {
@@ -184,22 +184,16 @@
       "id": "G11",
       "name": "text overlap",
       "status": "PASS",
-      "evidence": "154 samples every 1 s, 73 distinct texts (texts with data-role), caption showing at 119; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
+      "evidence": "307 samples every 0.5 s, 73 distinct texts (texts with data-role), caption showing at 244; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
       "data": {
-        "step": 1,
-        "samples": 154,
+        "step": 0.5,
+        "samples": 307,
         "mode": "texts with data-role",
         "canvasText": "not seen",
         "fail": 0,
         "warn": 0,
         "instances": []
       }
-    },
-    {
-      "id": "SHOTS",
-      "name": "stills",
-      "status": "INFO",
-      "evidence": "8 stills at 1, 21.27, 41.53, 61.8, 82.07, 102.33, 122.6, 153 s → factory/films/pass-every-time/drafts/a/shots"
     }
   ]
 }
