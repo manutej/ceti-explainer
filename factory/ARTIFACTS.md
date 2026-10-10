@@ -30,6 +30,11 @@ Gallery: https://claude.ai/artifact/JfpqFssCZJ3QinKwn5RWof
 
 Contact sheets of every lane and the kit2 brand-by-chrome matrices: https://claude.ai/artifact/J93CprjrRRKfEG5VcKuwyj
 
+## Wave GL gallery
+
+Contact sheets of the thirteen frontier lanes (eight WebGL, four flat comprehension moves), with the research and seats
+behind them: https://claude.ai/artifact/PYyawK1MaBAH23CW1Bh2Ez
+
 ## Showcase film
 
 The Wiring and the Whole (feature format, 100 s, brand midnight-ink, chrome none): https://claude.ai/artifact/P7aFQNHsGxEEoEooYeagdJ

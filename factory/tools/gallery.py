@@ -35,6 +35,7 @@ def links_from_artifacts(text):
     extra = {}
     for key, pat in (('arsenal', r'## Arsenal gallery\s*\n+.*?(https://claude\.ai/artifact/\S+)'),
                      ('showcase', r'## Showcase film\s*\n+.*?(https://claude\.ai/artifact/\S+)'),
+                     ('wavegl', r'## Wave GL gallery\s*\n+.*?(https://claude\.ai/artifact/\S+)'),
                      ('gallery', r'^Gallery:\s*(https://claude\.ai/artifact/\S+)')):
         m = re.search(pat, text, re.S | re.M)
         if m: extra[key] = m.group(1)
@@ -60,6 +61,8 @@ def render():
         extras.append(f'<a class="card" href="{e(extra["showcase"])}" target="_blank" rel="noopener"><div class="eb">showcase · feature</div><h2>The Wiring and the Whole</h2><p>Why one repository is worth funding, shown not told.</p></a>')
     if 'opera-house' in rows:
         extras.append(f'<a class="card" href="{e(rows["opera-house"][1])}" target="_blank" rel="noopener"><div class="eb">gold standard · 269 s</div><h2>The Opera House</h2><p>Case file 23, the planning fallacy. The exec-room film every case is derived from.</p></a>')
+    if 'wavegl' in extra:
+        extras.append(f'<a class="card" href="{e(extra["wavegl"])}" target="_blank" rel="noopener"><div class="eb">arsenal · wave gl</div><h2>Thirteen frontier lanes</h2><p>Instanced marks at 100k, terrain, ribbons, point clouds, the stack city, a camera rig, a post stack, volumes, labels, and the flat comprehension moves.</p></a>')
     if 'arsenal' in extra:
         extras.append(f'<a class="card" href="{e(extra["arsenal"])}" target="_blank" rel="noopener"><div class="eb">arsenal</div><h2>Pattern and material gallery</h2><p>Contact sheets of every lane and the kit2 brand-by-chrome matrices.</p></a>')
     docs = ''.join(f'<tr><td>{e(a)}</td><td><code>{e(b)}</code></td><td>{e(c)}</td></tr>' for a, b, c in DOCS)
