@@ -43,3 +43,17 @@ cost table (s/frame per variant, headless); pitfalls; fallbacks. Demo loads ../.
 | gl-volume | a distribution as a 3D histogram cloud / slabs with transparency sorting; counts in cells; a cut plane that travels | distributions and tails |
 
 Every lane records the ms/frame of the heaviest variant and keeps a cheap variant under 0.3 s/frame.
+
+## Perception lanes, added 2026-10-10 from arsenal/frontier/R-D-moves.md
+The research on explainer moves found that the evidence for UNDERSTANDING sits in 2D moves the arsenal lacks, while
+GPU 3D earns its place only where marks exceed what Canvas2D can draw, where parallax or place is the claim, or where
+depth paces the reveal. So the wave gains four flat lanes, built to the same contract (arsenal/BRIEF.md), renderer p2d:
+
+| id | job | the evidence it rests on |
+|---|---|---|
+| uncertainty-hop | hypothetical outcome plots and quantile dotplots: draw k = floor(t·rate) indexes a seeded sample table; hard cuts (100–400 ms), never tweens; fading ensemble variant; count(t) = draws shown; pairs with the commit law (show draws, then ask) | HOPs beat error bars and violins for untrained viewers; quantile dots lower estimation variance (R-D S19–S23) |
+| formula-bind | a formula whose symbols keep a role colour and fly into the marks that compute them (TransformMatchingTex-style term matching, not cross-fade); the visual carrier of "every digit is a claim with a formula" | congruence (R-D S18, S29) |
+| track-unit | tag one unit, trace it as a comet from the pooled to the split partition, ghost its origin; a congruence lint that every in-between frame keeps count and area valid; the numerator/denominator lamp for count-then-ratio | object constancy (Heer and Robertson; R-D S3, S4, S24); gl-stack-city reuses it |
+| scale-anchor | a human-scale silhouette or ruler kept on screen while a continuous log zoom goes from one unit to 10^5 with LOD; count(t) | resolution of scale and the anthropocentric anchor (R-D S13, S27) |
+
+Rule for films (from R-D §2): a move goes 3D only when one of the five GPU-earning rows holds; otherwise it ships flat.
