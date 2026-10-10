@@ -16,6 +16,7 @@ hashes in tests/baselines/builds.json). Private to the owner until shared from e
 | how-a-network-learns | How a Network Learns (Wave FILMS-GL, feature 123 s, webgl, no commit beat) | https://claude.ai/artifact/D8kGgCMvmxS193ZpAgWT9D |
 | women-and-children | Women and Children (Wave FILMS-GL, feature 123 s, webgl, no commit beat) | https://claude.ai/artifact/WyPAparWjvvoZEqXBFZAYg |
 | a-bell-from-dice | A Bell from Dice (Wave FILMS-GL, feature 123 s, webgl, no commit beat) | https://claude.ai/artifact/2Nad7CtsSqJi56eCyu5A14 |
+| noether-symmetry | Noether's symmetry (Wave AI-STORIES, feature-long 153 s, webgl, no commit beat) | https://claude.ai/artifact/KREgLPGEjsNL7eFhk1aTpZ |
 | amdahl | Ten Times Faster | https://claude.ai/artifact/5fTRivvv9qeJT2EWK2r9ic |
 | streaks | Three bad months | https://claude.ai/artifact/42cYfY5FiETniDYxg1nZdg |
 | cost-of-delay | The Cost of Waiting | https://claude.ai/artifact/Xa8J7YUfhCfue7945fLq8n |
