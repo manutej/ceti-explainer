@@ -1,17 +1,17 @@
 {
   "film": "noether-frontier",
-  "page": "factory/films/noether-frontier/drafts/a/build/noether-frontier.ceti-coastal-dark.none.html",
-  "filmDir": "factory/films/noether-frontier/drafts/a",
-  "date": "2026-10-10T19:30:56.448Z",
+  "page": "/home/user/ceti-explainer/factory/films/noether-frontier/build/noether-frontier.ceti-coastal-dark.none.html",
+  "filmDir": "/home/user/ceti-explainer/factory/films/noether-frontier",
+  "date": "2026-10-10T20:04:27.084Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 4287 ms; stage sd 30.6s:28.7 76.5s:24.4 122.4s:24.8",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 2114 ms; stage sd 30.6s:28.7 76.5s:24.4 122.4s:28.5",
       "data": {
-        "readyMs": 4287,
+        "readyMs": 2114,
         "stats": [
           {
             "t": 30.6,
@@ -25,8 +25,8 @@
           },
           {
             "t": 122.4,
-            "mean": 33.11218404706994,
-            "sd": 24.805614819053282
+            "mean": 35.06752213541882,
+            "sd": 28.468106094374356
           }
         ],
         "filmErrs": [],
@@ -54,7 +54,7 @@
       "id": "G3",
       "name": "clock scan",
       "status": "PASS",
-      "evidence": "clean: film.js, commit-off.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "evidence": "clean: film.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
       "data": {
         "hits": []
       }
@@ -150,8 +150,8 @@
       "status": "PASS",
       "evidence": "film code 82.4 KB (film.js 47.1, film.json 19.9, claims.json 15.4) < 120 KB; page 1.261 MB < 1.3 MB",
       "data": {
-        "code": 84349,
-        "page": 1260717
+        "code": 84364,
+        "page": 1260731
       }
     },
     {
