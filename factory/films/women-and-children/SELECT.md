@@ -127,3 +127,37 @@ Left for round 2: caption 6 (62 characters, three counts). A safe ≤ 60 wording
   is not filed.
 - Data: claims.json `verified: false`. The 32 Dawson cells were transcribed from memory and must be checked against
   the published table before any public use (brief). No on-stage label says so: the brief lane and the coordinator.
+
+## Round 2 (after round 1 was applied, 2026-10-10)
+Read the regenerated frames/ (strips, 1 s contact sheets, full-size thumbs at 40, 61, 99.5 and 104 s) and gate.json.
+- The gate passes; the only WARN is G5c for the running counters.
+- Purity is identical.
+- Cost fell to 0.229 s/frame.
+
+Each round-1 change, as it reads in the picture:
+
+| # | Change | Result | Evidence |
+|---|---|---|---|
+| 1-3 | crewAt 99, revealEnd0 97, revealEnd1 98.5 | Half | The reveal is gone by 98 s (strip-17 cell 4). The 192 OF 862 callout is up at 100 s, not 101 (strip-17 cell 8). The crew caption still starts at 96 s, so it runs about 4 s ahead (it was 5). Every knob is at its documented limit; caption timing is beyond scope. |
+| 4 | groupGap 76 | Half | The columns stand wider apart (strip-07 cell 8, 40 s). The women's plate now covers only the unlit top of the children's column, not its lit share. |
+| 5 | pinSize 18 | Worked | The slab pins read at full size (strip-11 cell 2, 61 s). Overprint is no worse: "6 OF 6" still sits on the second-class slabs, as before. |
+| 6 | chromeDim 0.25 | Worked | 192 OF 862 is the one bright label at 100-108 s (strip-17/18). |
+| 7 | tag1 56 | Worked | The edge-cut "…FIRST CLASS · LIVED" tag is gone by 57 s. Half: its trail still dips into the caption band at 52-56 s. |
+| 8 | captions 9, 14, 15, 17, 18 | Worked | Each is now one line (54 s, 86 s, 91 s, 103 s, 109 s). |
+
+Nothing backfired and no knob was reversed.
+
+findings.r2.json holds 6 findings: 0 block, 0 major, 6 minor. The dry run accepted 6 and rejected 0. All six are
+one-line caption edits that keep their digits:
+- caption 6, which brings the last caption over 60 characters under the limit;
+- captions 0, 2, 10, 12 and 16, which wrapped at 52-57 characters.
+
+Convergence: 12 findings in round 1, then 6, with no block. This is the last round.
+
+Still beyond scope, to park in NOTES.md:
+- Everything in "Beyond scope" above. That includes the honest line, which is still absent from the MONDAY stage, and
+  the reversed order of the "3 in 10" sub-label.
+- The crew caption leads its picture by about 4 s. It needs caption timing or a crew beat in film.js.
+- The women's pooled plate overlaps the children's column. It needs label placement in film.js.
+- The tag trail sits in the caption band at 52-56 s.
+- Captions 7, 8 and 19 are 60 characters. They meet the law but still wrap.

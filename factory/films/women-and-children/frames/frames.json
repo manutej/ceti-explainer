@@ -1007,8 +1007,8 @@
    "value": 36
   }
  ],
- "ms_per_frame": 229,
- "s_per_frame": 0.229,
+ "ms_per_frame": 247,
+ "s_per_frame": 0.247,
  "purity": {
   "pass": true,
   "at": {
@@ -1078,7 +1078,7 @@
    "file": "thumbs/t-0001.00.jpg",
    "strip": "strip-01.png",
    "cell": 2,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1089,7 +1089,7 @@
    "file": "thumbs/t-0001.50.jpg",
    "strip": "strip-01.png",
    "cell": 3,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1100,7 +1100,7 @@
    "file": "thumbs/t-0002.00.jpg",
    "strip": "strip-01.png",
    "cell": 4,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1111,7 +1111,7 @@
    "file": "thumbs/t-0002.50.jpg",
    "strip": "strip-01.png",
    "cell": 5,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1122,7 +1122,7 @@
    "file": "thumbs/t-0003.00.jpg",
    "strip": "strip-01.png",
    "cell": 6,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1133,7 +1133,7 @@
    "file": "thumbs/t-0003.50.jpg",
    "strip": "strip-01.png",
    "cell": 7,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1144,7 +1144,7 @@
    "file": "thumbs/t-0004.00.jpg",
    "strip": "strip-01.png",
    "cell": 8,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1155,7 +1155,7 @@
    "file": "thumbs/t-0004.50.jpg",
    "strip": "strip-01.png",
    "cell": 9,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1166,7 +1166,7 @@
    "file": "thumbs/t-0005.00.jpg",
    "strip": "strip-01.png",
    "cell": 10,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1177,7 +1177,7 @@
    "file": "thumbs/t-0005.50.jpg",
    "strip": "strip-01.png",
    "cell": 11,
-   "caption": "“Women and children first.” The rule everyone remembers.",
+   "caption": "“Women and children first.” The rule we remember.",
    "chapter": {
     "id": "hook",
     "title": "The rule, as remembered"
@@ -1331,7 +1331,7 @@
    "file": "thumbs/t-0012.50.jpg",
    "strip": "strip-03.png",
    "cell": 1,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1342,7 +1342,7 @@
    "file": "thumbs/t-0013.00.jpg",
    "strip": "strip-03.png",
    "cell": 2,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1353,7 +1353,7 @@
    "file": "thumbs/t-0013.50.jpg",
    "strip": "strip-03.png",
    "cell": 3,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1364,7 +1364,7 @@
    "file": "thumbs/t-0014.00.jpg",
    "strip": "strip-03.png",
    "cell": 4,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1375,7 +1375,7 @@
    "file": "thumbs/t-0014.50.jpg",
    "strip": "strip-03.png",
    "cell": 5,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1386,7 +1386,7 @@
    "file": "thumbs/t-0015.00.jpg",
    "strip": "strip-03.png",
    "cell": 6,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1397,7 +1397,7 @@
    "file": "thumbs/t-0015.50.jpg",
    "strip": "strip-03.png",
    "cell": 7,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1408,7 +1408,7 @@
    "file": "thumbs/t-0016.00.jpg",
    "strip": "strip-03.png",
    "cell": 8,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1419,7 +1419,7 @@
    "file": "thumbs/t-0016.50.jpg",
    "strip": "strip-03.png",
    "cell": 9,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1430,7 +1430,7 @@
    "file": "thumbs/t-0017.00.jpg",
    "strip": "strip-03.png",
    "cell": 10,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1441,7 +1441,7 @@
    "file": "thumbs/t-0017.50.jpg",
    "strip": "strip-03.png",
    "cell": 11,
-   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "caption": "Titanic, April 1912. One box is one person aboard.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1848,7 +1848,7 @@
    "file": "thumbs/t-0036.00.jpg",
    "strip": "strip-07.png",
    "cell": 0,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1859,7 +1859,7 @@
    "file": "thumbs/t-0036.50.jpg",
    "strip": "strip-07.png",
    "cell": 1,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1870,7 +1870,7 @@
    "file": "thumbs/t-0037.00.jpg",
    "strip": "strip-07.png",
    "cell": 2,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1881,7 +1881,7 @@
    "file": "thumbs/t-0037.50.jpg",
    "strip": "strip-07.png",
    "cell": 3,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1892,7 +1892,7 @@
    "file": "thumbs/t-0038.00.jpg",
    "strip": "strip-07.png",
    "cell": 4,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1903,7 +1903,7 @@
    "file": "thumbs/t-0038.50.jpg",
    "strip": "strip-07.png",
    "cell": 5,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1914,7 +1914,7 @@
    "file": "thumbs/t-0039.00.jpg",
    "strip": "strip-07.png",
    "cell": 6,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1925,7 +1925,7 @@
    "file": "thumbs/t-0039.50.jpg",
    "strip": "strip-07.png",
    "cell": 7,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1936,7 +1936,7 @@
    "file": "thumbs/t-0040.00.jpg",
    "strip": "strip-07.png",
    "cell": 8,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1947,7 +1947,7 @@
    "file": "thumbs/t-0040.50.jpg",
    "strip": "strip-07.png",
    "cell": 9,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1958,7 +1958,7 @@
    "file": "thumbs/t-0041.00.jpg",
    "strip": "strip-07.png",
    "cell": 10,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -1969,7 +1969,7 @@
    "file": "thumbs/t-0041.50.jpg",
    "strip": "strip-07.png",
    "cell": 11,
-   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "caption": "316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
    "chapter": {
     "id": "case",
     "title": "The manifest, pooled"
@@ -2343,7 +2343,7 @@
    "file": "thumbs/t-0058.50.jpg",
    "strip": "strip-10.png",
    "cell": 9,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2354,7 +2354,7 @@
    "file": "thumbs/t-0059.00.jpg",
    "strip": "strip-10.png",
    "cell": 10,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2365,7 +2365,7 @@
    "file": "thumbs/t-0059.50.jpg",
    "strip": "strip-10.png",
    "cell": 11,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2376,7 +2376,7 @@
    "file": "thumbs/t-0060.00.jpg",
    "strip": "strip-11.png",
    "cell": 0,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2387,7 +2387,7 @@
    "file": "thumbs/t-0060.50.jpg",
    "strip": "strip-11.png",
    "cell": 1,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2398,7 +2398,7 @@
    "file": "thumbs/t-0061.00.jpg",
    "strip": "strip-11.png",
    "cell": 2,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2409,7 +2409,7 @@
    "file": "thumbs/t-0061.50.jpg",
    "strip": "strip-11.png",
    "cell": 3,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2420,7 +2420,7 @@
    "file": "thumbs/t-0062.00.jpg",
    "strip": "strip-11.png",
    "cell": 4,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2431,7 +2431,7 @@
    "file": "thumbs/t-0062.50.jpg",
    "strip": "strip-11.png",
    "cell": 5,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2442,7 +2442,7 @@
    "file": "thumbs/t-0063.00.jpg",
    "strip": "strip-11.png",
    "cell": 6,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2453,7 +2453,7 @@
    "file": "thumbs/t-0063.50.jpg",
    "strip": "strip-11.png",
    "cell": 7,
-   "caption": "Each slab: how many were aboard, and how many lived.",
+   "caption": "Each slab: how many were aboard, how many lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2596,7 +2596,7 @@
    "file": "thumbs/t-0070.00.jpg",
    "strip": "strip-12.png",
    "cell": 8,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2607,7 +2607,7 @@
    "file": "thumbs/t-0070.50.jpg",
    "strip": "strip-12.png",
    "cell": 9,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2618,7 +2618,7 @@
    "file": "thumbs/t-0071.00.jpg",
    "strip": "strip-12.png",
    "cell": 10,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2629,7 +2629,7 @@
    "file": "thumbs/t-0071.50.jpg",
    "strip": "strip-12.png",
    "cell": 11,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2640,7 +2640,7 @@
    "file": "thumbs/t-0072.00.jpg",
    "strip": "strip-13.png",
    "cell": 0,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2651,7 +2651,7 @@
    "file": "thumbs/t-0072.50.jpg",
    "strip": "strip-13.png",
    "cell": 1,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2662,7 +2662,7 @@
    "file": "thumbs/t-0073.00.jpg",
    "strip": "strip-13.png",
    "cell": 2,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2673,7 +2673,7 @@
    "file": "thumbs/t-0073.50.jpg",
    "strip": "strip-13.png",
    "cell": 3,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2684,7 +2684,7 @@
    "file": "thumbs/t-0074.00.jpg",
    "strip": "strip-13.png",
    "cell": 4,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2695,7 +2695,7 @@
    "file": "thumbs/t-0074.50.jpg",
    "strip": "strip-13.png",
    "cell": 5,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2706,7 +2706,7 @@
    "file": "thumbs/t-0075.00.jpg",
    "strip": "strip-13.png",
    "cell": 6,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -2717,7 +2717,7 @@
    "file": "thumbs/t-0075.50.jpg",
    "strip": "strip-13.png",
    "cell": 7,
-   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "caption": "Third-class children: 27 of 79 lived. 52 did not.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3168,7 +3168,7 @@
    "file": "thumbs/t-0096.00.jpg",
    "strip": "strip-17.png",
    "cell": 0,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3179,7 +3179,7 @@
    "file": "thumbs/t-0096.50.jpg",
    "strip": "strip-17.png",
    "cell": 1,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3190,7 +3190,7 @@
    "file": "thumbs/t-0097.00.jpg",
    "strip": "strip-17.png",
    "cell": 2,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3201,7 +3201,7 @@
    "file": "thumbs/t-0097.50.jpg",
    "strip": "strip-17.png",
    "cell": 3,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3212,7 +3212,7 @@
    "file": "thumbs/t-0098.00.jpg",
    "strip": "strip-17.png",
    "cell": 4,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3223,7 +3223,7 @@
    "file": "thumbs/t-0098.50.jpg",
    "strip": "strip-17.png",
    "cell": 5,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3234,7 +3234,7 @@
    "file": "thumbs/t-0099.00.jpg",
    "strip": "strip-17.png",
    "cell": 6,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3245,7 +3245,7 @@
    "file": "thumbs/t-0099.50.jpg",
    "strip": "strip-17.png",
    "cell": 7,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3256,7 +3256,7 @@
    "file": "thumbs/t-0100.00.jpg",
    "strip": "strip-17.png",
    "cell": 8,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3267,7 +3267,7 @@
    "file": "thumbs/t-0100.50.jpg",
    "strip": "strip-17.png",
    "cell": 9,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3278,7 +3278,7 @@
    "file": "thumbs/t-0101.00.jpg",
    "strip": "strip-17.png",
    "cell": 10,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
@@ -3289,7 +3289,7 @@
    "file": "thumbs/t-0101.50.jpg",
    "strip": "strip-17.png",
    "cell": 11,
-   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "caption": "Crew: 885 people, 40 % of all aboard. 212 lived.",
    "chapter": {
     "id": "count",
     "title": "Re-berthed by class"
