@@ -69,7 +69,7 @@ PASS demo 1 mass-reseat-cabs · PASS demo 1 recap-retrieve-anchoring · PASS dem
 node --test tests/node/*.test.mjs   # pass 4, fail 0
 ```
 
-Also built from the repo, without being part of the proofs: `chromes/run`, `chromes/exposure` and `chromes/margin` shared
+Also built from the repo, without being part of the proofs: `chromes/run`, `archive/chromes/exposure` and `archive/chromes/margin` shared
 films (their faces are all vendored), `runtime/examples/smoke-2d` (plus `render.py` stills, a contact sheet and a 2 s MP4
 with burned captions), and `films/typesafe` both cuts (`typesafe.svg.html` 299,090 bytes, same as shipped;
 `typesafe.p5.html` 1,380,132 vs 1,380,100 shipped, the difference being the recovered `studio.js`).
@@ -107,7 +107,7 @@ Other small fixes from C2 (e):
 Docs (path references only, C2 (c)9):
 - `skills/p5-*/**/*.md`: `../../references/` → `${CLAUDE_PLUGIN_ROOT}/references/`; `../../runtime/studio.js` and `$P5|$STUDIO/runtime/studio.js` → `…/runtime/src/studio/studio.js`; `../../atelier/runtime` → `${CLAUDE_PLUGIN_ROOT}/runtime`; `../../atelier/modules` → `…/library` (README/OPERAD → `library/operad/`); `../../atelier/chromes` → `…/chromes`; `../../atelier/{research,crit,BUILDER.md,ART-DIRECTION-v1.md}` → `…/references/{research,atelier/crit,atelier/…}`; `../../scripts/`, `../../templates/` → `${CLAUDE_PLUGIN_ROOT}/…`. `short-tier.md:5` `$CE=/root/.claude/skills/synced/*/ceti-explainer`, `$P5=/home/claude/p5studio/ceti-p5-studio` → `$CE=${CLAUDE_PLUGIN_ROOT}/skills/ceti-explainer`, `$P5=${CLAUDE_PLUGIN_ROOT}`. `p5-explainer/SKILL.md` Atelier command block rewritten to `runtime/tools`, `library/operad/check.mjs`, `library/tools/build_film.py`, `films/grasp/`; `references/atelier.md` §5 steps likewise.
 - `films/typesafe/CONTRACT.md:5,72-75` `../../assets/` → `../../skills/p5-explainer/assets/`; `../../../../scripts/` → `../../scripts/`.
-- Moves to `contrib/` (with `git mv`): `skills/noether-harness`, `skills/sheaf-*` (6), `skills/operadic-interview`, `EXPERIMENT-E0.md`, `skills/ceti-explainer/COURSE-E0.md`, `SKILLS.md`. Pointers updated in `README.md`, `RUN.md:38`, `HANDOFF.md:6,17`, `HANDOFF-JEV-EVAL.md:60-61,450`, `skills/ceti-explainer/SKILL.md:24,157,174`.
+- Moves to `contrib/` (with `git mv`; since 2026-10-10 in `archive/contrib/`, D12): `skills/noether-harness`, `skills/sheaf-*` (6), `skills/operadic-interview`, `EXPERIMENT-E0.md`, `skills/ceti-explainer/COURSE-E0.md`, `SKILLS.md`. Pointers updated in `README.md`, `RUN.md:38`, `HANDOFF.md:6,17`, `HANDOFF-JEV-EVAL.md:60-61,450`, `skills/ceti-explainer/SKILL.md:24,157,174`.
 
 ## What is where (provenance)
 

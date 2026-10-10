@@ -1,5 +1,5 @@
 #!/bin/sh
-# tests/proofs.sh — the six "builds from the repo" proofs of the merge (MERGE-NOTES.md). Run from anywhere:
+# tests/proofs.sh — the six "builds from the repo" proofs of the merge (archive/notes/MERGE-NOTES.md). Run from anywhere:
 #   sh tests/proofs.sh [i|ii|iii|iv|v|vi|vii|all]   (default all; exit 1 on the first failure)
 # Needs: Python 3.10+ with scripts/requirements.txt, Node 18+, a Playwright Chromium (proof i; set PLAYWRIGHT_BROWSERS_PATH).
 set -e

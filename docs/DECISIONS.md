@@ -2,7 +2,7 @@
 
 A dated log of the decisions that shape the plugin. Each entry names the decision, the reason it
 was taken, and what it changes in the laws, the gates or the roadmap. BLUEPRINT.md and
-MERGE-NOTES.md refer to the numbers here. Reverse a decision by adding a new dated entry, not
+archive/notes/MERGE-NOTES.md refer to the numbers here. Reverse a decision by adding a new dated entry, not
 by editing an old one.
 
 ## 2026-10-08 · after the merge of the two explainer systems
@@ -17,7 +17,7 @@ milestones M1 to M7.
 |---|----------|---------|
 | D1 | One runtime. The SVG episode engine becomes a renderer on the Atelier clock, not a sibling engine. | M1 splits the runtime; M3 ports the four episodes through an adapter with zero source edits. Acceptance: snapshots identical at forty times. |
 | D2 | CETI dark on role tokens is the default look; cream, vermillion and ink is a named preset. | Token file carries both presets; the gate checks semantic roles only. |
-| D3 | Page size is budgeted per tier: episode 110 KB of code, feature 260 KB, atelier 330 KB of code and 1.7 MB offline. | REQUIREMENTS.md is rewritten to the tier table in commit two; the single 110 KB rule is retired. |
+| D3 | Page size is budgeted per tier: episode 110 KB of code, feature 260 KB, atelier 330 KB of code and 1.7 MB offline. | archive/notes/REQUIREMENTS.md is rewritten to the tier table in commit two; the single 110 KB rule is retired. |
 | D4 | The noether harness and the sheaf family live in contrib/ and are not shipped. The operadic interview stays in the plugin. | Already done in commit one. |
 | D5 | The truth veto outranks the craft juror. | G4 and the pedagogy seat; a vetoed film leaves the ranking whatever its score. |
 | D6 | Three flagships, four reworks, three kernels kept without their films. | See D11. |
@@ -46,7 +46,7 @@ milestones M1 to M7.
 
 ### What this changes in the roadmap
 
-- Commit two: tier table in REQUIREMENTS.md (D3); films lock file (D8); the audio row removed from
+- Commit two: tier table in archive/notes/REQUIREMENTS.md (D3); films lock file (D8); the audio row removed from
   gate.py and the acceptance bar (Q3); the level profile field in film-def v2 (Q6).
 - M2 hardening: the cap-handling rule drops the transfer beat first (Q2); the ink-for-exec rule (Q6).
 - M4: the commit hold and the timed countdown as two gated behaviours of one film (Q13); the brand
@@ -72,3 +72,12 @@ milestones M1 to M7.
 | # | Decision | Changes |
 |---|----------|---------|
 | D11 | The commit beat is optional and off by default (film.json `commit.enabled`, default false for new films); the law "the viewer commits a number before any number is shown" applies only to films that enable it; counts before ratios, the honest line and the card still bind. | A film with `commit` absent or `commit.enabled: false` plays straight through: kit2 draws no commit box, no countdown ring, no hold, no try-it panel and no film-mode default, and publishes `window.__film.info.commit = {enabled: false}`; build.py does not ask for commit.at/prompt/default and no COMMIT chapter is needed. Gate G4b accepts HOOK → [COMMIT] → CASE → COUNT → MONDAY; G4c passes as "commit disabled (D11)"; G7 keeps counts first. new_topic.py scaffolds four beats (`--commit` restores five). Films whose `commit` object has no `enabled` key (every film shipped before this date) keep the beat; their pages rebuild byte-identical. Narrows Q13 to the films that enable the beat. (D6's "See D11" was written before this row and does not refer to it.) |
+
+## 2026-10-10 · dead and referenced-only layers move to archive/
+
+The owner approved option (e) of docs/ARCHITECTURE-AUDIT.md: layers that nothing builds or tests move, with their
+history, into archive/ (one row each in archive/README.md, with the evidence and how to restore). Nothing is deleted.
+
+| # | Decision | Changes |
+|---|----------|---------|
+| D12 | archive/ holds the layers that proofs i–vii and doctor.sh never open. The contrib folder that D4 names moves to archive/contrib/. D4 stands (the noether harness and the sheaf family are not shipped); only their location changes. That folder was never in the plugin's skill list. | Moves per archive/MOVES.md (audit §5). The p5 studio skills (p5-concept, p5-forge, p5-ship, p5-studio, p5-crit) and ceti-brand leave the plugin's skill list. MERGE-NOTES.md and REQUIREMENTS.md move to archive/notes/ (D3's tier table now lives in archive/notes/REQUIREMENTS.md; the live size check is kit2's 1.3 MB / 120 KB budget, audit §2); scripts/channels moves to archive/scripts/channels, so the channels gate named in Q8 has no live implementation until it is restored; RUN.md moves to skills/ceti-explainer/RUN.md. Restore any entry by moving it back to the path in archive/README.md. |
