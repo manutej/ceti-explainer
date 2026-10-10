@@ -1,0 +1,118 @@
+{
+ "film": "noether-applied",
+ "findings": "factory/films/noether-applied/findings.r1.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "caption:6",
+   "old": "From above: two rings round the sun.",
+   "new": "From above, the two look the same.",
+   "finding": {
+    "t": 32.5,
+    "frame": "drafts/a strip-06.png cell 5 (thumbs/t-0032.50.jpg)",
+    "severity": "major",
+    "what": "The belief is never said: caption 6 describes the picture (two rings round the sun) instead of the claim the sort is about to overturn. The two coloured columns do coincide at 32.5 s, so the belief is true on screen.",
+    "why": "Borrowed from draft b (same slot, 31.4-33.8 s): states the belief in lay words right before M1 reverses it. No digit.",
+    "caption_index": 6,
+    "proposed_value": "From above, the two look the same."
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:arrowLen",
+   "old": 24,
+   "new": 30,
+   "finding": {
+    "t": 129.0,
+    "frame": "drafts/a strip-22.png cells 4-11 (thumbs/t-0128.00.jpg, t-0130.00.jpg, t-0132.00.jpg)",
+    "severity": "major",
+    "what": "Idea 4 (an answer that turns with its input) rests on the answer arrows, and at thumb size none can be seen: the chain turns against its ghost, but nothing shows the output turning with it.",
+    "why": "The longest arrow at the top of its range (24 -> 30 world units) is the one lever on the arrows that exists; round 2 checks whether they read at 480 px.",
+    "knob": "arrowLen",
+    "proposed_value": 30
+   }
+  },
+  {
+   "n": 2,
+   "target": "caption:29",
+   "old": "Turn the protein. The answer turns with it.",
+   "new": "Turn the chain. Its answer arrows turn with it.",
+   "finding": {
+    "t": 129.0,
+    "frame": "drafts/a strip-22.png cell 4 (thumbs/t-0128.00.jpg)",
+    "severity": "major",
+    "what": "Caption 29 says 'the protein' while the tag says 'a stand-in chain', and 'the answer' names nothing on screen; a 10-year-old cannot point to it.",
+    "why": "Names the marks that turn (the arrows) and the object the tag names (the chain). No digit, 48 chars.",
+    "caption_index": 29,
+    "proposed_value": "Turn the chain. Its answer arrows turn with it."
+   }
+  },
+  {
+   "n": 3,
+   "target": "knob:runDim",
+   "old": 0.4,
+   "new": 0.6,
+   "finding": {
+    "t": 84.0,
+    "frame": "drafts/a strip-15.png cells 0 and 6 (thumbs/t-0084.00.jpg, t-0087.00.jpg)",
+    "severity": "major",
+    "what": "'GAP SHELL · ONE RUN STAYS' points at a run that looks like the other 99: the followed run is not picked out, so 'a dot that cannot leave its shell' (part 1's picture) is told, not shown.",
+    "why": "Sink the other 99 runs further (0.40 -> 0.60, range 0-0.8) so the followed run is the brightest streak on its shell; check in round 2 that the three shells still read.",
+    "knob": "runDim",
+    "proposed_value": 0.6
+   }
+  },
+  {
+   "n": 4,
+   "target": "knob:pinN0",
+   "old": 81.8,
+   "new": 82.5,
+   "finding": {
+    "t": 81.8,
+    "frame": "drafts/a strip-14.png cells 7-8 (thumbs/t-0081.50.jpg, t-0082.00.jpg)",
+    "severity": "major",
+    "what": "The shell pin comes on 0.3 s after M3 lands at 81.5 s; R5 asks labels to cut on only after a settle of at least 1.0 s.",
+    "why": "82.5 s gives the 1.0 s settle and still lands before the 0.24 row at 83.0 s (one new text per beat).",
+    "knob": "pinN0",
+    "proposed_value": 82.5
+   }
+  },
+  {
+   "n": 5,
+   "target": "knob:cin4T0",
+   "old": 123.0,
+   "new": 122.5,
+   "finding": {
+    "t": 122.5,
+    "frame": "drafts/a strip-21.png cell 5 (thumbs/t-0122.50.jpg)",
+    "severity": "minor",
+    "what": "After the cut to the chain the stage is empty except the tag (122.5-123.0 s), with no caption: reads as a dropped frame.",
+    "why": "Start the chain's count-in on the cut (123.0 -> 122.5) so the cut lands on marks.",
+    "knob": "cin4T0",
+    "proposed_value": 122.5
+   }
+  },
+  {
+   "n": 6,
+   "target": "knob:chainR",
+   "old": 130,
+   "new": 150,
+   "finding": {
+    "t": 125.5,
+    "frame": "drafts/a strip-21.png cell 11 (thumbs/t-0125.50.jpg)",
+    "severity": "minor",
+    "what": "The chain is the smallest cloud in the film (about 110 px wide at thumb, a quarter of the free stage), so its turn and its ghost are hard to compare.",
+    "why": "130 -> 150 world units grows it about 15 %; its right edge stays near x = 200 px, far from the panel at about 326 px. Round 2 checks the tag and the caption band stay clear.",
+    "knob": "chainR",
+    "proposed_value": 150
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": true
+}
