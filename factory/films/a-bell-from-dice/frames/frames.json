@@ -124,7 +124,7 @@
    ],
    "step": 2,
    "what": "world units: air between the six first-die stacks",
-   "value": 50
+   "value": 60
   },
   {
    "name": "sumW",
@@ -764,7 +764,7 @@
    ],
    "step": 5,
    "what": "camera rig · plan (orbit): degrees swept round the centre",
-   "value": 18
+   "value": 0
   },
   {
    "name": "camPlanEl",
@@ -959,7 +959,7 @@
    ],
    "step": 0.05,
    "what": "camera rig · wide (lookat): ortho magnification",
-   "value": 0.85
+   "value": 0.75
   },
   {
    "name": "camTiltT0",
@@ -1072,8 +1072,8 @@
    "value": 3
   }
  ],
- "ms_per_frame": 803,
- "s_per_frame": 0.803,
+ "ms_per_frame": 1115,
+ "s_per_frame": 1.115,
  "purity": {
   "pass": true,
   "at": {

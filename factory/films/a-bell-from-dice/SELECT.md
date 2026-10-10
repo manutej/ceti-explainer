@@ -137,3 +137,35 @@ Check in round 2:
   film shows 1.7 %, which agrees with the value. Owner: the BRIEF lane, to fix the renders and the brief text. Do
   not edit claims.json in the findings rounds.
 - **G5c WARN, ships.** The running counter at 12 to 22 s (10 values) is expected.
+
+## Round 2
+I re-read the regenerated frames/ (strips and thumbs) after round 1. Gate PASS, with only the expected G5c WARN.
+Film code is now 90.6 KB (was 96.3), and frames measured 0.80 s/frame.
+
+What each round-1 change did in the picture:
+| # | change | result | frame |
+|---|---|---|---|
+| 0 | `fdGap` 24 → 50 | Half. 4 of 6 pins now (16,736, 16,653, 16,665, 16,797). 16,630 and 16,519 are still missing, and two pins overprint their stacks. | t-0036.00 (strip-07 cell 0) |
+| 1 | `camObliqueAz` -18 → 0 | Worked on its target: the six tops are level on the dashed 16,667 line, 35-39.5 s. It backfired downstream: the plan sweep (+18) now lands diagonal, 42-52.5 s, and later poses carry the extra 18 deg. | t-0036.00; t-0048.00 (strip-09 cell 0) |
+| 2 | `camObliqueZoom` 1.5 → 1.15 | Worked. During the shuffle the field sits above the caption band, and "Sort the same rolls" reads at 29-31.5 s. | t-0030.00 (strip-06 cell 0) |
+| 3 | `camSideT0` 50 → 52 | Worked. The plan holds to 52.5 s under "From above". The bell rises at 53-54 s and the side view lands at 55 s under "From the side", held to 58 s. | strip-09 cells 8-11, strip-10 cells 2-7 |
+| 4 | `camWideZoom` 1 → 0.85 | Half. The readout is in frame from 73 s, but it is still clipped at 71-72.5 s. | t-0071.50 (strip-12 cell 11) |
+| 5 | `readSize` 56 → 76 | Worked. 1,655 is now the largest number at 77-107 s, with no collision with "= 1.7 %". As a side effect, "EQUAL ODDS: 19,231" no longer overprints the bars. | t-0089.50 (strip-15 cell 11) |
+| 6 | `camTailZoom` 2 → 2.3 | Worked. All five tail pins show at 61-66 s, including 462. | t-0062.00 (strip-11 cell 4) |
+| 7-9 | captions 11, 21, 22 | Worked. All three are on one line. | strip-10, strip-19, strip-20 |
+
+findings.r2.json has 3 findings: 0 block, 2 major, 1 minor. The dry run accepted 3 of 3. That converges from 10 to
+3, with no block and no reversal of a round-1 value.
+- **`camPlanAz` 18 → 0.** This undoes the downstream effect of #1. The sweeps add up, so the plan view returns to
+  square. It is a different knob from #1, not a reversal.
+- **`fdGap` 50 → 60.** This is the top of the knob's range. If the pins still read 4 of 6, the cause is the label
+  solver (film.js). Park it in NOTES.md: caption 7 names 16,519 and 16,797, which would still not be pinned.
+- **`camWideZoom` 0.85 → 0.75.** Last step, to clear the readout at 71-72.5 s.
+
+Still beyond scope after round 2 (for NOTES.md), plus every item in the round-1 list above:
+- the 10,034 pin overprint at 56-57 s
+- the per-sum cut readout instead of a running tally
+- the 24 s count in a small face
+- the agreement lines in the smallest face
+- the honest line not on stage
+- the tailPctSim renders "1.6 %" mismatch in claims.json and the brief

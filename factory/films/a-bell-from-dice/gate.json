@@ -2,16 +2,16 @@
   "film": "a-bell-from-dice",
   "page": "/home/user/ceti-explainer/factory/films/a-bell-from-dice/build/a-bell-from-dice.midnight-ink.none.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/a-bell-from-dice",
-  "date": "2026-10-10T10:11:44.175Z",
+  "date": "2026-10-10T10:23:24.560Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 997 ms; stage sd 24.6s:61.5 61.5s:60.9 98.4s:31.7",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1620 ms; stage sd 24.6s:61.5 61.5s:59.6 98.4s:29.6",
       "data": {
-        "readyMs": 997,
+        "readyMs": 1620,
         "stats": [
           {
             "t": 24.6,
@@ -20,13 +20,13 @@
           },
           {
             "t": 61.5,
-            "mean": 65.26804475309616,
-            "sd": 60.900364861867395
+            "mean": 64.15002553048679,
+            "sd": 59.57106348391505
           },
           {
             "t": 98.4,
-            "mean": 42.110488599542315,
-            "sd": 31.671343788991898
+            "mean": 39.68450936535966,
+            "sd": 29.602773373644908
           }
         ],
         "filmErrs": [],
@@ -161,8 +161,8 @@
       "status": "PASS",
       "evidence": "film code 90.6 KB (film.js 29.6, film.json 18.3, claims.json 42.7) < 120 KB; page 1.269 MB < 1.3 MB",
       "data": {
-        "code": 92734,
-        "page": 1268875
+        "code": 92733,
+        "page": 1268874
       }
     },
     {
