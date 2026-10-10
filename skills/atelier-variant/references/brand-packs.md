@@ -83,6 +83,14 @@ build.py or apply_findings (see tweak-recipes.md): pass the path or copy the fil
 - Wider display faces: kit2 sets display text smaller by the measured advance ratio (floors 28 / 14 / 12 units), so a
   switch to a wider face can crowd at the floors; look.
 
+## Face classes (vendored set; `python3 arsenal/tools/tweak.py --fonts` prints weights)
+| ask | faces to choose from | notes |
+|---|---|---|
+| grotesk / sans / "clean" | Barlow 300–600, DM Sans 400–600, Jost 400–700, Alegreya Sans 400–500, IBM Plex Sans Condensed 400–600 | DM Sans and Jost carry body too |
+| condensed display | Big Shoulders Display 600, Sofia Sans Extra Condensed 500–700, Barlow Semi Condensed 500–600 | headline numbers; 3D cuts exist for Big Shoulders and Sofia |
+| serif / editorial | Newsreader 400–600, IM Fell English 400 | Fraunces and Cormorant are italic-only here: kit2 embeds non-italic only, so a serif disp must be Newsreader or IM Fell |
+| mono (numbers, captions) | IBM Plex Mono 400–500, Space Mono 400–700, Red Hat Mono 400–500, DM Mono 400 | the count and the captions live here; keep one mono per pack |
+
 ## brand_check.py, the contrast gate
 `python3 arsenal/tools/brand_check.py arsenal/brands/<id>.json [more...] [--emit-js arsenal/brands/packs.js]`
 Checks: schema; id equals the file stem; each type face in the lock; WCAG 2.x ratios ink/bg >= 4.5, chalk/panel >= 4.5,

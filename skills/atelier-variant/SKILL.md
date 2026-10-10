@@ -28,7 +28,10 @@ Record:    factory/films/<id>/variants/<name>/{pack.json?, gate.json, contact.pn
 
 ## Procedure
 
-1. **Resolve the ask to a pack.** An existing id: use it. A client spec: derive with
+1. **Find the base pack the page was really built from**, then resolve the ask. The base is
+   `factory/films/<id>/brand.<look.brand>.json` when that file exists (a film-local copy, usually because the library
+   pack's display face is italic-only or unvendored), else `arsenal/brands/<look.brand>.json`; record the path you used
+   in SEAT.md. An existing id for the ask: use it. A client spec: derive with
    `python3 arsenal/tools/tweak.py <base> <transforms> --out <dir>` (recipes in `references/tweak-recipes.md`),
    check it with `python3 arsenal/tools/brand_check.py <pack>` (WCAG and vendored faces). A pack whose display face
    is not vendored non-italic needs a film-local copy with a vendored face (`brand.<id>.json` in the film dir; pass
@@ -36,19 +39,27 @@ Record:    factory/films/<id>/variants/<name>/{pack.json?, gate.json, contact.pn
 2. **Build and gate**: `python3 factory/kit2/build.py factory/films/<id> --brand <pack|path> --chrome <chrome>
    [--material m]`; `node factory/tools/gate.mjs <page> --film factory/films/<id> --kit factory/kit2 --quick --json
    <record>/gate.json`. Exec level refuses non-ink materials and textures (G10); do not fight it.
-3. **Shoot the contact sheet** at the front view, the reveal and the card:
-   `node arsenal/tools/shoot.mjs <page> --out <record> --times <f1,f2,f3>` with times as FRACTIONS of the duration
-   (0.4, 0.69, 0.75 on a 75 s case). Keep contact.png and report.json; delete the full stills.
+3. **Shoot the contact sheet** at three times computed from film.json (`dur`, `chapters`, `count.at`), never guessed:
+   the CASE picture (midpoint of the CASE chapter), the reveal (`count.at` + 2 s, or the COUNT chapter's last third),
+   and the brand card (`dur - 1.5`). `node arsenal/tools/shoot.mjs <page> --out <record> --times <f1,f2,f3>` takes
+   FRACTIONS of `dur` (t / dur, three decimals). Keep contact.png and report.json; delete the full stills.
 4. **Seat the brand** from the contact sheet: do the box or mark colours follow accent / accent2 / muted, do
    pins and captions stay legible on the new bg, does the reveal read (a glow on dark, plain on paper is by
    design), does the type role (disp / mono / body) carry. Verdict SHIP or REVISE with the role that fails.
-5. **Record and hand back** (≤ 120 words): look, page bytes, gate verdict, seat verdict, the pack path, and
-   whether the derived pack should be promoted to arsenal/brands/derived/.
+5. **Record and hand back** (≤ 120 words): look, page path and bytes (the page stays in `build/`, decision D10; the
+   record holds its path and sha256 in SEAT.md, never a copy), gate verdict, seat verdict, the pack path, and whether
+   the derived pack is promoted: promote to `arsenal/brands/derived/` only when it is not client-confidential, passes
+   brand_check.py and reads well on one other film; a client pack stays film-local, with its `id` renamed to
+   `<client>-<light|dark>` and its `name`/`notes` rewritten for the client (tweak.py inherits the base's notes).
 
 ## Rules
 
 - Zero edits to film.js, film.json claims, captions or knobs; a variant that needs one is a new draft.
 - A derived pack is named `<base>--<transforms>` and carries `voice.derived` (tweak.py does this).
+- A light twin of a dark pack keeps the base hue in its ground (a navy base gives a lavender paper); when the client
+  wants neutral paper, set `bg`, `panel` and `line` by hand to a paper triple from an existing light pack (recipe in
+  tweak-recipes.md) and re-run brand_check.py.
+- Face classes for "grotesk / serif / mono" asks are in brand-packs.md; pick within the vendored set only.
 - A 9:16 cut is not available until kit2 has a portrait basis (docs/PROTOTYPES.md P2); say so instead of cropping.
 
 ## References (read on demand)

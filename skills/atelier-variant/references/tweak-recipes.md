@@ -56,6 +56,12 @@ the first, so use `--out` or run one at a time. A client pack gets a client id b
     `tweak.py ceti-dark--light-acc2255ff-paper-typenewsreader --hue 20` (accent before hue rotates the accent you set).
 After any recipe: `python3 arsenal/tools/brand_check.py <file>` (needs file stem = id), then build and look.
 
+## Neutral paper for a light twin of a dark pack
+`--light` inverts lightness and keeps hue, so a navy base gives a lavender ground. When the client wants plain paper,
+set the ground triple by hand after tweak.py and re-run brand_check.py: `bg`, `panel`, `line` copied from a light pack of
+the same temperature (warm: editorial-serif or newsprint; cool: swiss-grid; neutral: ceti-marketing). Keep `ink`, `accent`,
+`accent2`, `muted` from the twin. Record the hand edit in `voice.derived.transforms` as "ground: <pack>".
+
 ## Where a film-local pack lives, and why
 Put a client or hand-edited pack at `factory/films/<film-id>/brand.<pack-id>.json` (precedent: wiring-and-the-whole). Keep the
 shared `arsenal/brands/` for the 22 library packs: `sweep.mjs`, packs.js, the palette demo and `--matrix` read every file
@@ -85,8 +91,8 @@ Convert a reveal at 54.5 s to 54.5 / 75 = 0.727. Choose one still per beat: hook
 the reveal frame, the brand card (0.98, since the card holds the last 3 s). It writes stills `default-tSS.SS.png`,
 `contact.png` (Pillow; one row per variant, half size) and `report.json` (console errors, purity identical or DIFF); exit
 1 on any console error. `--query 'brand=<id>'` is appended to the page URL for arsenal demos that read it (a kit page ignores it).
-Then gate each page: `node factory/tools/gate.mjs <page> --film factory/films/<id> --quick --kit factory/kit2/kit2.js --kit
-factory/kit2/player.js` and for a full strip `node factory/tools/frames.mjs <page> --every 0.5 --out <scratch>`.
+Then gate each page: `node factory/tools/gate.mjs <page> --film factory/films/<id> --quick --kit factory/kit2`
+and for a full strip `node factory/tools/frames.mjs <page> --every 0.5 --out <scratch>`.
 `arsenal/tools/sweep.mjs <demo.html> [--brands all|a,b] [--variant v] [--t seconds|mid] [--out dir]` is for arsenal demos, not
 kit films: one variant at one time under every library pack (never derived or film-local) -> `sweep.png` (a row per
 pack) and `sweep.json` (applied = the frame differs from the ceti-dark render and 2 of 4 corner pixels match the pack's bg).
