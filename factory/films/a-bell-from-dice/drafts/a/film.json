@@ -1,0 +1,1382 @@
+{
+ "id": "a-bell-from-dice",
+ "title": "A bell from dice",
+ "eyebrow": "CETI · the central limit theorem, with dice",
+ "lede": "100,000 rolls of five dice land on a felt table as a flat field; seen from the side, sorted by their sum, they make a bell, and the count of the tail agrees with the exact count of ways.",
+ "format": "feature",
+ "level": "manager",
+ "renderer": "webgl",
+ "look": {
+  "brand": "midnight-ink",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dur": 123,
+ "seed": 1733,
+ "params": {
+  "rolls": 100000,
+  "dice": 5,
+  "faces": 6,
+  "seed": 1733,
+  "tailCut": 25,
+  "ways5": 1,
+  "ways6": 5,
+  "ways7": 15,
+  "ways8": 35,
+  "ways9": 70,
+  "ways10": 126,
+  "ways11": 205,
+  "ways12": 305,
+  "ways13": 420,
+  "ways14": 540,
+  "ways15": 651,
+  "ways16": 735,
+  "ways17": 780,
+  "ways18": 780,
+  "ways19": 735,
+  "ways20": 651,
+  "ways21": 540,
+  "ways22": 420,
+  "ways23": 305,
+  "ways24": 205,
+  "ways25": 126,
+  "ways26": 70,
+  "ways27": 35,
+  "ways28": 15,
+  "ways29": 5,
+  "ways30": 1,
+  "sim5": 21,
+  "sim6": 62,
+  "sim7": 173,
+  "sim8": 460,
+  "sim9": 872,
+  "sim10": 1571,
+  "sim11": 2603,
+  "sim12": 3925,
+  "sim13": 5429,
+  "sim14": 7031,
+  "sim15": 8345,
+  "sim16": 9419,
+  "sim17": 10034,
+  "sim18": 10091,
+  "sim19": 9517,
+  "sim20": 8340,
+  "sim21": 6996,
+  "sim22": 5404,
+  "sim23": 3936,
+  "sim24": 2555,
+  "sim25": 1561,
+  "sim26": 939,
+  "sim27": 462,
+  "sim28": 176,
+  "sim29": 63,
+  "sim30": 15,
+  "first1": 16736,
+  "first2": 16653,
+  "first3": 16665,
+  "first4": 16797,
+  "first5": 16630,
+  "first6": 16519,
+  "tailFirst1": 0,
+  "tailFirst2": 12,
+  "tailFirst3": 71,
+  "tailFirst4": 201,
+  "tailFirst5": 445,
+  "tailFirst6": 926,
+  "simMean": 17.50158,
+  "simSd": 3.8074949118285106,
+  "roll0Sum": 18,
+  "beliefEach": 3846,
+  "beliefTail": 19231,
+  "beliefTimes": 12,
+  "expTailRound": 1620,
+  "expect10": 1620.3703703703704,
+  "expect11": 2636.3168724279835,
+  "expect12": 3922.3251028806585,
+  "expect13": 5401.234567901234,
+  "expect14": 6944.444444444444,
+  "expect15": 8371.913580246914,
+  "expect16": 9452.160493827161,
+  "expect17": 10030.864197530864,
+  "expect18": 10030.864197530864,
+  "expect19": 9452.160493827161,
+  "expect20": 8371.913580246914,
+  "expect21": 6944.444444444444,
+  "expect22": 5401.234567901234,
+  "expect23": 3922.3251028806585,
+  "expect24": 2636.3168724279835,
+  "expect25": 1620.3703703703704,
+  "expect26": 900.2057613168724,
+  "expect27": 450.1028806584362,
+  "expect28": 192.90123456790124,
+  "expect29": 64.30041152263375,
+  "expect30": 12.860082304526749,
+  "expect5": 12.860082304526749,
+  "expect6": 64.30041152263375,
+  "expect7": 192.90123456790124,
+  "expect8": 450.1028806584362,
+  "expect9": 900.2057613168724,
+  "firstExpect": 16666.666666666668,
+  "maxGapPts": 0.09,
+  "maxGapSum": 14,
+  "meanExact": 17.5,
+  "midHi": 21,
+  "midLo": 14,
+  "modeHi": 18,
+  "modeLo": 17,
+  "outcomes": 7776,
+  "sdExact": 3.8188130791298667,
+  "simMidPct": 69.8,
+  "tailPctExact": 1.6,
+  "tailPctSim": 1.7,
+  "waysTail": 126
+ },
+ "commit": {
+  "enabled": false
+ },
+ "count": {
+  "at": 24
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 12,
+   "eyebrow": "HOOK",
+   "title": "One throw"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 12,
+   "t1": 58,
+   "eyebrow": "CASE",
+   "title": "The table"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 58,
+   "t1": 108,
+   "eyebrow": "COUNT",
+   "title": "The tail"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 108,
+   "t1": 120,
+   "eyebrow": "MONDAY",
+   "title": "Plan for the middle"
+  }
+ ],
+ "captions": [
+  [
+   0.4,
+   3.8,
+   "Random means anything can happen. Right?"
+  ],
+  [
+   4,
+   7.8,
+   "Roll five dice and add them. This roll makes 18."
+  ],
+  [
+   8,
+   11.8,
+   "Is a sum above 25 as likely as one in the middle?"
+  ],
+  [
+   12.2,
+   17.8,
+   "Now roll them 100,000 times. One mark is one roll."
+  ],
+  [
+   18,
+   23.8,
+   "Every roll counted in, in the order it was thrown."
+  ],
+  [
+   24,
+   27.8,
+   "100,000 rolls. Nothing smoothed, nothing left out."
+  ],
+  [
+   28,
+   33.8,
+   "Sort the same rolls by the first die alone."
+  ],
+  [
+   34,
+   39.8,
+   "Six piles, each between 16,519 and 16,797. Flat."
+  ],
+  [
+   40,
+   43.8,
+   "One die really is anything-can-happen."
+  ],
+  [
+   44,
+   49.8,
+   "Now sort by the sum: 26 piles, from 5 to 30."
+  ],
+  [
+   50,
+   53.8,
+   "From above, every sum looks just as likely."
+  ],
+  [
+   54,
+   57.8,
+   "From the side: 17 and 18 tower, the ends almost vanish."
+  ],
+  [
+   58.2,
+   62.8,
+   "Push in on the right edge: sums from 26 to 30."
+  ],
+  [
+   63,
+   67.8,
+   "Five thin piles. Now count every roll in them."
+  ],
+  [
+   68,
+   75.8,
+   "A cut travels along the sums, counting as it goes."
+  ],
+  [
+   76,
+   81.8,
+   "Above 25: 1,655 rolls out of 100,000."
+  ],
+  [
+   82,
+   87.8,
+   "That is 1.7 %. Equal odds would put 19,231 there."
+  ],
+  [
+   88,
+   91.8,
+   "Equal odds over-count the tail about 12 times."
+  ],
+  [
+   92,
+   97.8,
+   "Count the ways instead: 126 of 7,776 outcomes."
+  ],
+  [
+   98,
+   101.8,
+   "That predicts 1,620. The dice gave 1,655."
+  ],
+  [
+   102,
+   107.8,
+   "All 26 sums agree within 0.09 points. Mean 17.5."
+  ],
+  [
+   108.2,
+   113.8,
+   "Monday: is your total a sum of many small, separate parts?"
+  ],
+  [
+   114,
+   119.8,
+   "Fair, independent dice. Parts that move together break it."
+  ]
+ ],
+ "brand": {
+  "takeaway": "Add many small chances and the middle wins.",
+  "at": 120
+ },
+ "sources": [
+  [
+   "S1",
+   "Abraham de Moivre, The Doctrine of Chances (2nd ed., with the 1733 approximation of the binomial by the normal curve) (1738). London: Woodfall"
+  ],
+  [
+   "S2",
+   "Pierre-Simon Laplace, Theorie analytique des probabilites (sums of many independent errors tend to the normal law) (1812). Paris: Courcier"
+  ],
+  [
+   "S3",
+   "Charles M. Grinstead, J. Laurie Snell, Introduction to Probability, 2nd rev. ed.: ch. 7 (sums of independent random variables, convolution of dice), ch. 9 (central limit theorem) (1997). American Mathematical Society; free PDF (GNU FDL)"
+  ],
+  [
+   "S4",
+   "Tommy Ettinger, Mulberry32, a 32-bit state PRNG (public domain) (2017). gist by tommyettinger; the arsenal's copy in arsenal/patterns/*/pattern.js"
+  ],
+  [
+   "S5",
+   "this package, factory/topics/a-bell-from-dice/recompute.py (the simulation; seed 1733) (2026). python3 factory/topics/a-bell-from-dice/recompute.py"
+  ]
+ ],
+ "honest": [
+  "Fair dice rolled independently; parts that move together, or one part that dwarfs the rest, do not make this bell."
+ ],
+ "knobs": {
+  "countT0": 12.4,
+  "countT1": 23.6,
+  "countWin": 0.02,
+  "hotFlash": 1,
+  "waffPitch": 1.5,
+  "waffFill": 0.7,
+  "cubePitch": 2,
+  "cubeFill": 0.8,
+  "fdW": 20,
+  "fdD": 12,
+  "fdGap": 24,
+  "sumW": 12,
+  "sumD": 5,
+  "sumGap": 8,
+  "fd0": 28,
+  "fdSpread": 3.4,
+  "fdFly": 1.6,
+  "fdLift": 34,
+  "sum0": 44,
+  "sumSpread": 1.8,
+  "sumFly": 1.2,
+  "sumLift": 46,
+  "diceT0": 2,
+  "diceStep": 0.4,
+  "diceSize": 62,
+  "sumAt": 4.2,
+  "flatAt": 8.2,
+  "hookOut": 11.4,
+  "landAt": 24,
+  "pinsFirstAt": 34,
+  "pinsFirstOut": 39.6,
+  "equalAt": 47,
+  "pinsSumAt": 55.4,
+  "tailLitAt": 58.4,
+  "pinsTailAt": 60.4,
+  "volIn": 66,
+  "volFade": 0.6,
+  "volBuild": 0.9,
+  "volStagger": 0.6,
+  "volAlpha": 0.55,
+  "volCutDim": 0.45,
+  "cutT0": 70,
+  "cutT1": 76,
+  "tailAt": 76,
+  "ratioAt": 82,
+  "beliefAt": 86,
+  "timesAt": 88,
+  "exactT0": 92,
+  "exactT1": 96,
+  "waysAt": 96,
+  "tailExactAt": 98,
+  "agreeAt": 102,
+  "cutOffAt": 80,
+  "mondayAt": 107.6,
+  "bandAt": 109,
+  "bandDim": 0.72,
+  "feltMargin": 70,
+  "readSize": 56,
+  "ratioSize": 32,
+  "pinSub": 14,
+  "labHold": 4,
+  "labLeader": 22,
+  "exactW": 2.2,
+  "camStartZoom": 1.05,
+  "camObliqueT0": 26,
+  "camObliqueT1": 31,
+  "camObliqueEase": "inout",
+  "camObliqueAz": -18,
+  "camObliqueEl": 24,
+  "camObliqueZoom": 1.5,
+  "camPlanT0": 40,
+  "camPlanT1": 43,
+  "camPlanEase": "inout",
+  "camPlanAz": 18,
+  "camPlanEl": 89,
+  "camPlanZoom": 1,
+  "camSideT0": 50,
+  "camSideT1": 55,
+  "camSideEase": "inout",
+  "camSideEl": 4,
+  "camTailT0": 58,
+  "camTailT1": 63,
+  "camTailEase": "inout",
+  "camTailTarget": 21,
+  "camTailDist": 2400,
+  "camTailZoom": 2,
+  "camWideT0": 66.6,
+  "camWideT1": 70,
+  "camWideEase": "inout",
+  "camWideTarget": 26,
+  "camWideDist": 2400,
+  "camWideZoom": 1,
+  "camTiltT0": 70,
+  "camTiltT1": 76,
+  "camTiltEase": "inout",
+  "camTiltAz": -20,
+  "camTiltEl": 14,
+  "camFlatT0": 86,
+  "camFlatT1": 91.5,
+  "camFlatEase": "inout",
+  "camFlatAz": 20,
+  "camFlatEl": 3
+ },
+ "knobs_doc": [
+  {
+   "name": "countT0",
+   "range": [
+    12.2,
+    13
+   ],
+   "step": 0.1,
+   "what": "s: second the first roll lands on the table (the lane is empty before it)"
+  },
+  {
+   "name": "countT1",
+   "range": [
+    21.5,
+    23.8
+   ],
+   "step": 0.1,
+   "what": "s: second the last of the rolls lands (the count reads all of them by 24.0)"
+  },
+  {
+   "name": "countWin",
+   "range": [
+    0.005,
+    0.06
+   ],
+   "step": 0.005,
+   "what": "share of the rolls that are still settling at once during the count-in (larger = softer front)"
+  },
+  {
+   "name": "hotFlash",
+   "range": [
+    0.5,
+    2
+   ],
+   "step": 0.1,
+   "what": "how long a newly landed roll stays bright, as a factor of the settling window"
+  },
+  {
+   "name": "waffPitch",
+   "range": [
+    1.2,
+    1.8
+   ],
+   "step": 0.05,
+   "what": "world units: spacing of the 500 x 200 field of rolls on the table"
+  },
+  {
+   "name": "waffFill",
+   "range": [
+    0.4,
+    0.95
+   ],
+   "step": 0.05,
+   "what": "share of the field spacing a mark fills (smaller = more felt between marks)"
+  },
+  {
+   "name": "cubePitch",
+   "range": [
+    1.6,
+    2.6
+   ],
+   "step": 0.1,
+   "what": "world units: spacing of the stacked marks (one box per roll); scales every stack"
+  },
+  {
+   "name": "cubeFill",
+   "range": [
+    0.5,
+    0.95
+   ],
+   "step": 0.05,
+   "what": "share of the stack spacing a box fills (smaller = a visible seam between rolls)"
+  },
+  {
+   "name": "fdW",
+   "range": [
+    12,
+    28
+   ],
+   "step": 1,
+   "what": "boxes across one first-die stack (the six stacks)"
+  },
+  {
+   "name": "fdD",
+   "range": [
+    6,
+    16
+   ],
+   "step": 1,
+   "what": "boxes deep in one first-die stack"
+  },
+  {
+   "name": "fdGap",
+   "range": [
+    10,
+    60
+   ],
+   "step": 2,
+   "what": "world units: air between the six first-die stacks"
+  },
+  {
+   "name": "sumW",
+   "range": [
+    8,
+    16
+   ],
+   "step": 1,
+   "what": "boxes across one sum stack (26 stacks; with sumGap it sets the width of the bell)"
+  },
+  {
+   "name": "sumD",
+   "range": [
+    3,
+    8
+   ],
+   "step": 1,
+   "what": "boxes deep in one sum stack (fewer = taller bell)"
+  },
+  {
+   "name": "sumGap",
+   "range": [
+    4,
+    16
+   ],
+   "step": 1,
+   "what": "world units: air between the 26 sum stacks"
+  },
+  {
+   "name": "fd0",
+   "range": [
+    27,
+    29
+   ],
+   "step": 0.1,
+   "what": "s: the first roll leaves the field for its first-die stack (arrival order)"
+  },
+  {
+   "name": "fdSpread",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.1,
+   "what": "s: from the first roll leaving to the last roll leaving (fd0 + fdSpread + fdFly <= 33.6)"
+  },
+  {
+   "name": "fdFly",
+   "range": [
+    0.6,
+    2.4
+   ],
+   "step": 0.1,
+   "what": "s: flight time of one roll from the field to its stack"
+  },
+  {
+   "name": "fdLift",
+   "range": [
+    0,
+    80
+   ],
+   "step": 2,
+   "what": "world units: hop height of a roll in flight to the first-die stacks"
+  },
+  {
+   "name": "sum0",
+   "range": [
+    43.2,
+    45
+   ],
+   "step": 0.1,
+   "what": "s: the first roll leaves its first-die stack for its sum stack"
+  },
+  {
+   "name": "sumSpread",
+   "range": [
+    0.8,
+    2.4
+   ],
+   "step": 0.1,
+   "what": "s: from the first roll leaving to the last (sum0 + sumSpread + sumFly <= 47.4)"
+  },
+  {
+   "name": "sumFly",
+   "range": [
+    0.5,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: flight time of one roll to its sum stack"
+  },
+  {
+   "name": "sumLift",
+   "range": [
+    0,
+    100
+   ],
+   "step": 2,
+   "what": "world units: hop height of a roll in flight to the sum stacks"
+  },
+  {
+   "name": "diceT0",
+   "range": [
+    1.4,
+    2.6
+   ],
+   "step": 0.1,
+   "what": "s: the first of the five dice lands"
+  },
+  {
+   "name": "diceStep",
+   "range": [
+    0.2,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "s: between one die landing and the next"
+  },
+  {
+   "name": "diceSize",
+   "range": [
+    44,
+    80
+   ],
+   "step": 2,
+   "what": "sheet units: edge of a die in the hook"
+  },
+  {
+   "name": "sumAt",
+   "range": [
+    4,
+    5
+   ],
+   "step": 0.1,
+   "what": "s: the sum of the throw appears"
+  },
+  {
+   "name": "flatAt",
+   "range": [
+    8,
+    9
+   ],
+   "step": 0.1,
+   "what": "s: the belief's flat line appears over the empty 5-30 axis"
+  },
+  {
+   "name": "hookOut",
+   "range": [
+    10.8,
+    11.8
+   ],
+   "step": 0.1,
+   "what": "s: the hook throw starts to fade (gone 0.8 s later)"
+  },
+  {
+   "name": "landAt",
+   "range": [
+    24,
+    24.4
+   ],
+   "step": 0.1,
+   "what": "s: the running counter is replaced by the landed count (never before the count-in ends)"
+  },
+  {
+   "name": "pinsFirstAt",
+   "range": [
+    33.6,
+    35
+   ],
+   "step": 0.1,
+   "what": "s: the six first-die counts pin on their stacks"
+  },
+  {
+   "name": "pinsFirstOut",
+   "range": [
+    38.5,
+    40
+   ],
+   "step": 0.1,
+   "what": "s: the first-die pins start to fade"
+  },
+  {
+   "name": "equalAt",
+   "range": [
+    46.5,
+    48
+   ],
+   "step": 0.1,
+   "what": "s: the equal-odds line (3,846 per sum) appears over the sum stacks"
+  },
+  {
+   "name": "pinsSumAt",
+   "range": [
+    55,
+    56
+   ],
+   "step": 0.1,
+   "what": "s: the peak and end counts pin on their stacks (after the side view lands)"
+  },
+  {
+   "name": "tailLitAt",
+   "range": [
+    58,
+    59.5
+   ],
+   "step": 0.1,
+   "what": "s: the five tail stacks start to turn accent (1.2 s ramp)"
+  },
+  {
+   "name": "pinsTailAt",
+   "range": [
+    59.5,
+    62
+   ],
+   "step": 0.1,
+   "what": "s: the five tail counts pin on their stacks"
+  },
+  {
+   "name": "volIn",
+   "range": [
+    66,
+    66.6
+   ],
+   "step": 0.1,
+   "what": "s: the cross-fade from the stacks to the counted cells starts"
+  },
+  {
+   "name": "volFade",
+   "range": [
+    0.3,
+    1.2
+   ],
+   "step": 0.1,
+   "what": "s: length of that cross-fade"
+  },
+  {
+   "name": "volBuild",
+   "range": [
+    0.4,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: the cells grow in over this long, left to right"
+  },
+  {
+   "name": "volStagger",
+   "range": [
+    0.1,
+    1
+   ],
+   "step": 0.05,
+   "what": "share of the build window one cell takes (1 = all at once)"
+  },
+  {
+   "name": "volAlpha",
+   "range": [
+    0.3,
+    0.85
+   ],
+   "step": 0.05,
+   "what": "opacity of a counted cell (the cut plane shows through lower values)"
+  },
+  {
+   "name": "volCutDim",
+   "range": [
+    0.1,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity factor of the cells the cut has passed"
+  },
+  {
+   "name": "cutT0",
+   "range": [
+    69,
+    71
+   ],
+   "step": 0.1,
+   "what": "s: the cut starts at sum 5"
+  },
+  {
+   "name": "cutT1",
+   "range": [
+    75,
+    76
+   ],
+   "step": 0.1,
+   "what": "s: the cut reaches the 25 / 26 edge (the tail count lands at tailAt)"
+  },
+  {
+   "name": "tailAt",
+   "range": [
+    76,
+    77
+   ],
+   "step": 0.1,
+   "what": "s: the tail cells light and the tail count lands (count 2)"
+  },
+  {
+   "name": "ratioAt",
+   "range": [
+    80,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the share appears under the tail count (always after it)"
+  },
+  {
+   "name": "beliefAt",
+   "range": [
+    85,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: the equal-odds line and its tail box return"
+  },
+  {
+   "name": "timesAt",
+   "range": [
+    87,
+    90
+   ],
+   "step": 0.1,
+   "what": "s: \"about 12 times too many\" appears"
+  },
+  {
+   "name": "exactT0",
+   "range": [
+    91.5,
+    93
+   ],
+   "step": 0.1,
+   "what": "s: the exact bell (expected rolls per sum) starts drawing, left to right"
+  },
+  {
+   "name": "exactT1",
+   "range": [
+    94,
+    97
+   ],
+   "step": 0.1,
+   "what": "s: the exact bell is drawn"
+  },
+  {
+   "name": "waysAt",
+   "range": [
+    95,
+    97
+   ],
+   "step": 0.1,
+   "what": "s: the ways of 7,776 appear"
+  },
+  {
+   "name": "tailExactAt",
+   "range": [
+    97.5,
+    99
+   ],
+   "step": 0.1,
+   "what": "s: the exact tail (126 ways predict 1,620) appears"
+  },
+  {
+   "name": "agreeAt",
+   "range": [
+    101.5,
+    103
+   ],
+   "step": 0.1,
+   "what": "s: the agreement lines (largest gap, mean, sd) appear"
+  },
+  {
+   "name": "cutOffAt",
+   "range": [
+    78,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the cut plane is put away (the passed cells undim; the tail stays lit)"
+  },
+  {
+   "name": "mondayAt",
+   "range": [
+    107,
+    108
+   ],
+   "step": 0.1,
+   "what": "s: the cells fade and the rolls return for Monday"
+  },
+  {
+   "name": "bandAt",
+   "range": [
+    108.5,
+    111
+   ],
+   "step": 0.1,
+   "what": "s: the middle band (sums 14 to 21) lights"
+  },
+  {
+   "name": "bandDim",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.02,
+   "what": "how far rolls outside the band fade toward muted (1 = all the way)"
+  },
+  {
+   "name": "feltMargin",
+   "range": [
+    20,
+    160
+   ],
+   "step": 5,
+   "what": "world units: felt around the field of rolls"
+  },
+  {
+   "name": "readSize",
+   "range": [
+    40,
+    80
+   ],
+   "step": 2,
+   "what": "sheet units: the tail count (must-read, display face)"
+  },
+  {
+   "name": "ratioSize",
+   "range": [
+    28,
+    44
+   ],
+   "step": 2,
+   "what": "sheet units: the share under the tail count (must-read)"
+  },
+  {
+   "name": "pinSub",
+   "range": [
+    14,
+    18
+   ],
+   "step": 1,
+   "what": "sheet units: small line under a pin (secondary floor 14)"
+  },
+  {
+   "name": "labHold",
+   "range": [
+    0,
+    12
+   ],
+   "step": 1,
+   "what": "frames a pin must be pushed before it hides (gl-labels hysteresis)"
+  },
+  {
+   "name": "labLeader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "sheet units: pin leader length"
+  },
+  {
+   "name": "exactW",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.2,
+   "what": "sheet units: stroke of the exact bell line"
+  },
+  {
+   "name": "camStartZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · start pose: ortho magnification"
+  },
+  {
+   "name": "camObliqueT0",
+   "range": [
+    24.5,
+    34
+   ],
+   "step": 0.1,
+   "what": "camera rig · oblique (orbit): start (s)"
+  },
+  {
+   "name": "camObliqueT1",
+   "range": [
+    24.5,
+    34
+   ],
+   "step": 0.1,
+   "what": "camera rig · oblique (orbit): end (s)"
+  },
+  {
+   "name": "camObliqueEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · oblique (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camObliqueAz",
+   "range": [
+    -58,
+    22
+   ],
+   "step": 5,
+   "what": "camera rig · oblique (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "camObliqueEl",
+   "range": [
+    5,
+    45
+   ],
+   "step": 1,
+   "what": "camera rig · oblique (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "camObliqueZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · oblique (orbit): ortho magnification"
+  },
+  {
+   "name": "camPlanT0",
+   "range": [
+    39,
+    44
+   ],
+   "step": 0.1,
+   "what": "camera rig · plan (orbit): start (s)"
+  },
+  {
+   "name": "camPlanT1",
+   "range": [
+    39,
+    44
+   ],
+   "step": 0.1,
+   "what": "camera rig · plan (orbit): end (s)"
+  },
+  {
+   "name": "camPlanEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · plan (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camPlanAz",
+   "range": [
+    -22,
+    58
+   ],
+   "step": 5,
+   "what": "camera rig · plan (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "camPlanEl",
+   "range": [
+    70,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · plan (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "camPlanZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · plan (orbit): ortho magnification"
+  },
+  {
+   "name": "camSideT0",
+   "range": [
+    48,
+    58
+   ],
+   "step": 0.1,
+   "what": "camera rig · side (orbit): start (s)"
+  },
+  {
+   "name": "camSideT1",
+   "range": [
+    48,
+    58
+   ],
+   "step": 0.1,
+   "what": "camera rig · side (orbit): end (s)"
+  },
+  {
+   "name": "camSideEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · side (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camSideEl",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "camera rig · side (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "camTailT0",
+   "range": [
+    58,
+    66
+   ],
+   "step": 0.1,
+   "what": "camera rig · tail (lookat): start (s)"
+  },
+  {
+   "name": "camTailT1",
+   "range": [
+    58,
+    66
+   ],
+   "step": 0.1,
+   "what": "camera rig · tail (lookat): end (s)"
+  },
+  {
+   "name": "camTailEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · tail (lookat): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camTailTarget",
+   "range": [
+    0,
+    26
+   ],
+   "step": 1,
+   "what": "camera rig · tail (lookat): data index the camera aims or focuses at"
+  },
+  {
+   "name": "camTailDist",
+   "range": [
+    1500,
+    4000
+   ],
+   "step": 10,
+   "what": "camera rig · tail (lookat): distance to the centre / target (world units; lookat 0 = pan from the eye)"
+  },
+  {
+   "name": "camTailZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · tail (lookat): ortho magnification"
+  },
+  {
+   "name": "camWideT0",
+   "range": [
+    66,
+    70.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · wide (lookat): start (s)"
+  },
+  {
+   "name": "camWideT1",
+   "range": [
+    66,
+    70.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · wide (lookat): end (s)"
+  },
+  {
+   "name": "camWideEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · wide (lookat): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camWideTarget",
+   "range": [
+    0,
+    26
+   ],
+   "step": 1,
+   "what": "camera rig · wide (lookat): data index the camera aims or focuses at"
+  },
+  {
+   "name": "camWideDist",
+   "range": [
+    1500,
+    4000
+   ],
+   "step": 10,
+   "what": "camera rig · wide (lookat): distance to the centre / target (world units; lookat 0 = pan from the eye)"
+  },
+  {
+   "name": "camWideZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · wide (lookat): ortho magnification"
+  },
+  {
+   "name": "camTiltT0",
+   "range": [
+    70,
+    77
+   ],
+   "step": 0.1,
+   "what": "camera rig · tilt (orbit): start (s)"
+  },
+  {
+   "name": "camTiltT1",
+   "range": [
+    70,
+    77
+   ],
+   "step": 0.1,
+   "what": "camera rig · tilt (orbit): end (s)"
+  },
+  {
+   "name": "camTiltEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · tilt (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camTiltAz",
+   "range": [
+    -60,
+    20
+   ],
+   "step": 5,
+   "what": "camera rig · tilt (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "camTiltEl",
+   "range": [
+    5,
+    45
+   ],
+   "step": 1,
+   "what": "camera rig · tilt (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "camFlatT0",
+   "range": [
+    84,
+    92
+   ],
+   "step": 0.1,
+   "what": "camera rig · flat (orbit): start (s)"
+  },
+  {
+   "name": "camFlatT1",
+   "range": [
+    84,
+    92
+   ],
+   "step": 0.1,
+   "what": "camera rig · flat (orbit): end (s)"
+  },
+  {
+   "name": "camFlatEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · flat (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camFlatAz",
+   "range": [
+    -20,
+    60
+   ],
+   "step": 5,
+   "what": "camera rig · flat (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "camFlatEl",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "camera rig · flat (orbit): end elevation (deg above the centre)"
+  }
+ ],
+ "libs": [
+  "lib/arsenal.gen.js"
+ ]
+}
