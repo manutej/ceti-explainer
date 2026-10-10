@@ -33,9 +33,9 @@ Other references: `oauth.js` (process), `tcp.js` (state machine),
 
 All present as of the engine-assets commit. Also `assets/snapshot.mjs`
 (`node assets/snapshot.mjs <episode.js> <t> out.svg`) for a headless frame at any
-time t — used by `eval/frame-items.mjs`. All four references gate PASS.
+time t — used by `archive/eval/frame-items.mjs`. All four references gate PASS.
 
-Course-film occupancy is separate: see `contrib/COURSE-E0.md`.
+Course-film occupancy is separate: see `archive/contrib/COURSE-E0.md`.
 Command: `/sheaf-run course`
 
 ## Constraints
