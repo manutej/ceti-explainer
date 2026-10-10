@@ -1,0 +1,198 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/demo.html",
+ "errors": [],
+ "variants": {
+  "bars-2x6": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-t4.62.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-t9.38.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-t14.00.png"
+   ],
+   "purity": "identical"
+  },
+  "bars-2x6-k10": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-k10-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-k10-t4.62.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-k10-t9.38.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/bars-2x6-k10-t14.00.png"
+   ],
+   "purity": "identical"
+  },
+  "treemap-4x8": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/treemap-4x8-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/treemap-4x8-t4.62.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/treemap-4x8-t9.38.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/treemap-4x8-t14.00.png"
+   ],
+   "purity": "identical"
+  },
+  "big-12x12-lod": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/big-12x12-lod-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/big-12x12-lod-t4.62.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/big-12x12-lod-t9.38.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/big-12x12-lod-t14.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 547.8,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-stack-city/shots/contact.png",
+ "check": {
+  "bars-2x6": {
+   "v": "bars-2x6",
+   "samples": 61,
+   "ok": true,
+   "fails": [],
+   "maxInFlight": 4526,
+   "unitsResidual": 0,
+   "k": 1,
+   "homes": {
+    "pooled": true,
+    "split": true
+   }
+  },
+  "bars-2x6-k10": {
+   "v": "bars-2x6-k10",
+   "samples": 61,
+   "ok": true,
+   "fails": [],
+   "maxInFlight": 454,
+   "unitsResidual": 14,
+   "k": 10,
+   "homes": {
+    "pooled": true,
+    "split": true
+   }
+  },
+  "treemap-4x8": {
+   "v": "treemap-4x8",
+   "samples": 61,
+   "ok": true,
+   "fails": [],
+   "maxInFlight": 6400,
+   "unitsResidual": 0,
+   "k": 1,
+   "homes": {
+    "pooled": true,
+    "split": true
+   }
+  },
+  "big-12x12-lod": {
+   "v": "big-12x12-lod",
+   "samples": 61,
+   "ok": true,
+   "fails": [],
+   "maxInFlight": 11431,
+   "unitsResidual": 49,
+   "k": 21,
+   "homes": {
+    "pooled": true,
+    "split": true
+   }
+  }
+ },
+ "stats": {
+  "bars-2x6": {
+   "boxes": 4526,
+   "verts": 90520,
+   "k": 1,
+   "units": 4526,
+   "G": 2,
+   "C": 6,
+   "rev": 4,
+   "faceNote": "",
+   "setup_ms": 260
+  },
+  "bars-2x6-k10": {
+   "boxes": 454,
+   "verts": 9080,
+   "k": 10,
+   "units": 4526,
+   "G": 2,
+   "C": 6,
+   "rev": 4,
+   "faceNote": "",
+   "setup_ms": 11
+  },
+  "treemap-4x8": {
+   "boxes": 6400,
+   "verts": 128000,
+   "k": 1,
+   "units": 6400,
+   "G": 4,
+   "C": 8,
+   "rev": 0,
+   "faceNote": "",
+   "setup_ms": 288
+  },
+  "big-12x12-lod": {
+   "boxes": 11431,
+   "verts": 228620,
+   "k": 21,
+   "units": 240002,
+   "G": 12,
+   "C": 12,
+   "rev": 0,
+   "faceNote": "",
+   "setup_ms": 277
+  }
+ },
+ "cost": {
+  "bars-2x6": {
+   "v": "bars-2x6",
+   "ms": [
+    262,
+    422,
+    438,
+    396,
+    605,
+    698
+   ],
+   "mean_s": 0.47,
+   "max_s": 0.698
+  },
+  "bars-2x6-k10": {
+   "v": "bars-2x6-k10",
+   "ms": [
+    221,
+    233,
+    210,
+    197,
+    337,
+    389
+   ],
+   "mean_s": 0.265,
+   "max_s": 0.389
+  },
+  "treemap-4x8": {
+   "v": "treemap-4x8",
+   "ms": [
+    530,
+    1057,
+    1107,
+    624,
+    567,
+    685
+   ],
+   "mean_s": 0.762,
+   "max_s": 1.107
+  },
+  "big-12x12-lod": {
+   "v": "big-12x12-lod",
+   "ms": [
+    323,
+    460,
+    414,
+    439,
+    528,
+    503
+   ],
+   "mean_s": 0.444,
+   "max_s": 0.528
+  }
+ }
+}
