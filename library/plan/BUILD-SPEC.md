@@ -3,7 +3,7 @@
 **Version:** 1.0 (2026-10-08). Implements `MODULE-OPERAD.md` under `METHOD.md`'s laws, without breaking the engine
 contract. The contract still holds: one clock; every frame is a pure function of `(t, state)`; build once, mutate
 only; SVG carries type and labels; p5 Canvas2D carries mass and fields; the viewBox is 960×540
-(`films/typesafe/CONTRACT.md`, `SKILL.md`). The feature engine, bridge, `build_feature.py`, `film_render.py` and
+(`archive/films/typesafe/CONTRACT.md`, `SKILL.md`). The feature engine, bridge, `build_feature.py`, `film_render.py` and
 `feature_gate.py` are reused. The library adds a layer that *produces* a `window.FEATURE` from a plan. It closes the
 blind run's top gaps: no scaffold, copied helpers, a non-shared brand asset, and an inconsistent colour vocabulary
 (BLIND-LOG gaps 1–4).

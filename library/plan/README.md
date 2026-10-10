@@ -11,9 +11,10 @@ Plans in, film pages out. `BUILD-SPEC.md` is the contract; `MODULE-OPERAD.md` th
 Combinators (`commit-predict-reveal`, `trap-and-correct`, `contrast-split`) take module specs in their slots
 (`inner` / `right`) and are expanded by `Film.compile` into ordinary definitions (core/wrap.js: nested phases, the
 inner's clock, sub-contexts via `ctx.sub`). `core/gates.js` makes the live page wait for a CPR commit.
-Channels: `python3 channels/channels.py <plan.json> --channel reel|carousel|linkedin-pdf|linkedin-video|blog|newsletter|all`
+Channels (archived 2026-10-10 in archive/scripts/channels; restore it as archive/README.md says, then run):
+`python3 channels.py <plan.json> --channel reel|carousel|linkedin-pdf|linkedin-video|blog|newsletter|all`
 — one plan → IG reel (9:16), IG carousel (4:5), LinkedIn PDF + video (4:5), blog (16:9 + OG), email (600 px); every
-module re-composes at 9:16 · 4:5 · 1:1 (core/layout.js, `build_plan.py --aspect`); frames.json + qa.json. See channels/README.md.
+module re-composes at 9:16 · 4:5 · 1:1 (core/layout.js, `build_plan.py --aspect`); frames.json + qa.json. See archive/scripts/channels/README.md.
 Films: `films/base-rate/plan.json` (Kahneman ch. 16, 2:04, Field Notebook) — built only from library modules.
 
 core/: module.js (registry) · compile.js (Film.compile: windows, PO hand-over, clock maps, FEATURE, p5 layers) ·

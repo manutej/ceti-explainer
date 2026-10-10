@@ -9,7 +9,7 @@
         "lede": "One junction of a constrained decoder. 1,000 marks carry the model’s odds; the schema closes four tracks, and their weight re-seats on the open ones with every ratio intact.",
         "synthTitle": "What the module carries",
         "synthesis": "Mass-reseat makes a conserved quantity visible: the marks are counted, never drawn as bars, and the closed bins’ marks travel to the kept ones instead of vanishing. The printed p′ is the same function the marks obey (p ÷ Σkept). Generalised from the type-safe film’s M3 throat.",
-        "sources": [["SB M3", "films/typesafe — the switchyard throat (the production cut this module generalises)", "../../../films/typesafe/STORYBOARD.md"], ["S2/S3", "Outlines · XGrammar — masks precomputed per grammar state", "https://arxiv.org/abs/2411.15100"]]
+        "sources": [["SB M3", "archive/films/typesafe — the switchyard throat (the production cut this module generalises)", "../../../archive/films/typesafe/STORYBOARD.md"], ["S2/S3", "Outlines · XGrammar — masks precomputed per grammar state", "https://arxiv.org/abs/2411.15100"]]
       },
       "type": { "primary": "T1", "secondary": "T5" },
       "roles": { "mass": "neutral", "kept": "machine", "dropped": "neutral", "answer": "machine" },

@@ -14,7 +14,7 @@ house rules, SKILL.md, the storyboard as built. `Compose:` states the rule and t
 pointer (`file §`). `[inferred]` marks a placement the evidence implies but does not state. Empty slots stay empty.
 
 Evidence keys: **PED** = research/PEDAGOGY-LEARNING-SCIENCE.md · **NAR** = research/NARRATIVE-STRUCTURES.md ·
-**TAX** = research/CONCEPT-TAXONOMY.md · **SB** = films/typesafe/STORYBOARD.md · **CON** = films/typesafe/CONTRACT.md ·
+**TAX** = research/CONCEPT-TAXONOMY.md · **SB** = archive/films/typesafe/STORYBOARD.md · **CON** = archive/films/typesafe/CONTRACT.md ·
 **CA** = typesafe/CRIT-ART.md · **CP** = typesafe/CRIT-PEDAGOGY.md · **BL** = films/agent-loop-blind/BLIND-LOG.md ·
 **MOD** = references/modes.md · **NB** = references/notebook-chrome.md · **FC** = references/feature-cut.md ·
 **RC** = references/research-channels.md · **OP** = ../../references/operad.md · **SK** = p5-explainer/SKILL.md.
@@ -333,7 +333,7 @@ Compose: filter-chain Q8.1 ∧ Q8.2, with Q8.3 as the external check. → compos
   - **Q8.1.2 — Which laws are checkable from timeline data alone?**
     ▷ One-new-thing (count `introduces` per beat), picture-first (label t0 ≥ mark t0), name-last, a cue limiter, and the role table. [inferred from PED impl. notes]
   - **Q8.1.3 — What did the blind run have to reverse-engineer that a module would ship?**
-    ▷ The data.js schema, the scene helper kit (~120 lines), the whale geometry and the layer header. "Everything is learned by reverse-engineering films/typesafe" [BL gaps 1, 4].
+    ▷ The data.js schema, the scene helper kit (~120 lines), the whale geometry and the layer header. "Everything is learned by reverse-engineering archive/films/typesafe" [BL gaps 1, 4].
 - **Q8.2 — What must the critic seats judge?**
   ▷ collapsed: the FC crit checklist (contact sheet, emptiest frame, numbers, "name the mechanism"). [FC]
   Compose: union, with conflicts surfaced. → composed: a per-module rubric derived from each module's move and failure modes. ✓

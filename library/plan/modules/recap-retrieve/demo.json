@@ -9,7 +9,7 @@
         "lede": "The last teaching beat of a film: one retrieval question about content from earlier, a pause, the answer read off the film’s own object, a recap in pictures, and a return to the opening case.",
         "synthTitle": "What the module carries",
         "synthesis": "The answer is never typed in: it is counted off the persistent object (2,000 × 0.99¹⁰, junction by junction). The recap is three small drawings of earlier frames, not a list. The return re-runs the opening instance, Marisol’s invoice, with the new model applied.",
-        "sources": [["RK06", "Roediger & Karpicke 2006 — test-enhanced learning", "https://doi.org/10.1111/j.1467-9280.2006.01693.x"], ["SB", "films/typesafe — the opening case and the compounding chapter", "../../../films/typesafe/STORYBOARD.md"]]
+        "sources": [["RK06", "Roediger & Karpicke 2006 — test-enhanced learning", "https://doi.org/10.1111/j.1467-9280.2006.01693.x"], ["SB", "archive/films/typesafe — the opening case and the compounding chapter", "../../../archive/films/typesafe/STORYBOARD.md"]]
       },
       "type": { "primary": "T4", "secondary": "T1" },
       "roles": { "answer": "machine", "card": "person", "neutralMark": "neutral", "returnInstance": "allowed" },

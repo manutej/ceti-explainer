@@ -1,7 +1,7 @@
 # mass-reseat
 
 **Move.** count-dont-claim + cue-the-cause on a conserved quantity (PED #16, #8). Generalised from the type-safe
-film's M3 throat (`films/typesafe/scenes.js` u3 + `layers/yard.js`): any bins, any probabilities, any kept subset.
+film's M3 throat (`archive/films/typesafe/scenes.js` u3 + `layers/yard.js`): any bins, any probabilities, any kept subset.
 Operad entry: MODULE-OPERAD §8.
 
 **Ports.** needs `parts`, `instance` · gives `rule` · PO `track | grid` (out: same, state gains `reseated`) ·
