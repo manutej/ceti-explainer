@@ -2,16 +2,16 @@
   "film": "who-gains",
   "page": "/home/user/ceti-explainer/factory/films/who-gains/build/who-gains.ceti-neosage-dark.none.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/who-gains",
-  "date": "2026-10-10T17:44:22.800Z",
+  "date": "2026-10-10T17:58:36.664Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 3020 ms; stage sd 30.6s:36.1 76.5s:20.5 122.4s:40.7",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 2229 ms; stage sd 30.6s:36.1 76.5s:20.3 122.4s:40.7",
       "data": {
-        "readyMs": 3020,
+        "readyMs": 2229,
         "stats": [
           {
             "t": 30.6,
@@ -20,8 +20,8 @@
           },
           {
             "t": 76.5,
-            "mean": 29.951925347221596,
-            "sd": 20.490172603546654
+            "mean": 29.68683124035416,
+            "sd": 20.26274869249671
           },
           {
             "t": 122.4,

@@ -88,3 +88,39 @@ out of the readout (strip-14/15); s/frame after exec post; the measured top stil
 9. **Budget**: page 1.299 MB leaves 1 KB under 1.3 MB; any film.js addition must be paid for. If postLevel exec does
    not bring s/frame under 1.5, profile the post pass and the 5,179-box instancing.
 Warnings that ship: G5c WARN for the running counters (13-21 s, 77-83 s, 103-108 s), recorded once.
+
+## Round 2 (after round 1 applied: gate PASS, G11 clean, purity identical, s/frame 1.162)
+What each round-1 change did in the picture (new frames/):
+| # | change | result | frame |
+|---|---|---|---|
+| 1 | dots1 104.6 -> 103.0 | worked: 16 lands at 103.0 s under its caption (8 at 102.5) | strip-18 cells 1-4 |
+| 2 | issues1 108.8 -> 107.0 | worked: 123 at 106, 246 at 107.0 s, held 4 s before the 24 % | strip-18 cells 8-11, strip-19 cell 0 |
+| 3 | ghostMix 0.7 -> 1.0 | did little: the believed-after line now shows, but as a double line hugging the baseline (130-134 s), not a level 20 % below it; the cause is geometry (film.js), not colour | strip-22 cells 8-11, strip-23 cells 0-4 |
+| 4 | frameW 1.6 -> 2.6 | half: the baseline reads at thumb (124 s on) and at mid-tilt (120 s) without looking like an axis; it also thickened the hook outline (10 s), which is fine | strip-21 cells 0, 8; strip-02 cell 8 |
+| 5 | readDim 0.6 -> 0.85 | worked: 5,179 readable through M1 | strip-07 cells 0-11 |
+| 6 | bgFade 0.55 -> 0.85 | worked: the agents row is context only, the developers wall is the one lit object | strip-15 cell 10 |
+| 7 | devLookDz 40 -> -20 | half: the readout is clear of marks; a brown stub of the lowest fifth is still cut by the left edge 77-101 s | strip-14 cell 4, strip-17 cell 8 |
+| 8 | caption 21 | worked: one line, clear of the honest line | strip-23 cells 10-11 |
+| 9 | postLevel exec | worked: s/frame 2.30 -> 1.162 (under 1.5); the measured gold cap still reads without bloom | strip-22 cell 0 |
+No regressions seen in HOOK, the split (50, 57, 71 s), M3 (63 s) or MONDAY (137-145 s).
+findings.r2.json: 1 finding, 0 block, 0 major, 1 minor (devLookDz -20 -> -45: the same direction as round 1, so not a
+reversal; check the developers wall stays centred). Dry run accepted 1 of 1. Convergence: 9 -> 1, no block. Round 2 is the
+last: what is left goes to tier 2 below. No caption is lengthened (page 1.299 MB, about 1 KB headroom).
+
+## Beyond scope, refreshed after round 2 (for tier 2; ordered by what it buys a viewer)
+1. **METR believed and forecast levels as visible levels** (111-135 s). Round 1 showed colour and line width are not the
+   cause: the believed-after frame sits on the baseline (double line, strip-22 cell 8). Draw forecast 76 and believed 80
+   below the baseline and measured 119 above it on the side-view frame; draft a's 126-134 s layout (forecast box beside
+   the measured block, dashed baseline between) is the model. This is the second reversal; today the caption carries it.
+2. **20 % pin** (129-135 s): it still sits on the column face over the gold; put it on its own line, on the opposite side from the 19 %.
+3. **24 % pin anchor** (111-115 s, strip-19 cells 6-11): still points at the partial last row (13 x 18 + 12), reading as
+   "the notch is 24 %"; anchor it to the forecast frame, or put the partial row at the back.
+4. **Gold cap = exactly the part above the baseline** (124-135 s): a grey band remains between the white line and the gold
+   (strip-21 cell 8); the lit part should start at the line or the 19 % is mis-drawn.
+5. **Tag text during moves** (34-44 s, 60-68 s): "ONE LOW-SKILL AGENT" rides over travelling boxes; keep the mark riding
+   (P8) and hard-cut its text at move start, back after the settle (R5).
+6. **101.5-102.0 s blank frames** after the cut to METR (strip-17 cell 11, strip-18 cell 0): show the field and source tag on the cut frame.
+7. **Developers words-only beat** (95.6-101.4 s): no picture for "newer hires gained more"; add one only if no group
+   size is implied (F3), else accept as caption-only.
+8. **Honest line on one line**: 108 chars wraps at 16 units; shortening it is a director's call and a film.json edit outside the tool.
+9. **Budget**: page 1.299 MB; every film.js addition above must be paid for (strip lib/ code). s/frame is now inside budget.

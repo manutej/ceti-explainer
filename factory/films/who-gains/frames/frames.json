@@ -804,7 +804,7 @@
    ],
    "step": 2,
    "what": "world units: shift of the developers view toward the agents row (positive = more of the row shows)",
-   "value": -20
+   "value": -45
   },
   {
    "name": "azM",
@@ -1627,8 +1627,8 @@
    "value": 800
   }
  ],
- "ms_per_frame": 1162,
- "s_per_frame": 1.162,
+ "ms_per_frame": 445,
+ "s_per_frame": 0.445,
  "purity": {
   "pass": true,
   "at": {
