@@ -249,6 +249,9 @@ factory/kit, which removes the G10 SKIP branch and the dual path in proof vi) is
 
 ## 5. Archive plan (option e)
 
+> Executed 2026-10-10, except the drafts row, which is pending until the film wave ends. See archive/README.md and
+> archive/MOVES.md, and D12 in docs/DECISIONS.md. The tables in §2 and §5 keep the paths from before the move, as the record.
+
 Move with `git mv` (history kept) into `archive/` and add `archive/README.md`: one row per entry with its class, the
 evidence above, the date, and how to restore it. Nothing below is opened by proofs i–vii or by doctor.sh.
 

@@ -48,7 +48,7 @@ IP: no known characters, logos, or imitations of a specific studio's signature w
   empty page), references/anti-patterns.md, references/tells.md, references/technique-atlas.md, references/p5/*.md
   (p5 2.x contract, webgl-strands, performance, sound, export).
 - p5-explainer skill: `ceti-p5-studio/skills/p5-explainer/SKILL.md`, assets/feature-engine.js (long-form player,
-  window.FEATURE module), assets/bridge.js (P5Film.layer), films/typesafe/ (worked example).
+  window.FEATURE module), assets/bridge.js (P5Film.layer), archive/films/typesafe/ (worked example).
 - Prior art direction for "Type-safe AI": `/home/claude/p5studio/typesafe-docs/typesafe/` (ART-DIRECTION.md,
   CRIT-ART.md, CRIT-PEDAGOGY.md, research/BRIEF.md with the 0.95^k reliability arithmetic and sources).
 

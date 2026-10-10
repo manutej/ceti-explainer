@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════════════════════════════════════════════════════
    Material · PLATE — the light table (cyanotype exposure).
-   Kernel: chromes/exposure/exposure.kit.js (vendored verbatim as materials/kernels/exposure.kit.js): a CPU float
+   Kernel: archive/chromes/exposure/exposure.kit.js (vendored verbatim as materials/kernels/exposure.kit.js): a CPU float
    plate, the H&D characteristic curve (toe · straight line · shoulder) → negative density → transmitted UV →
    cyanotype print through a 1,024-entry OKLab LUT, static seeded grain in the log-exposure domain, a brushed ragged
    sensitiser edge, display type exposed into the plate. Credit: H · Exposure team (exposure/NOTES.md).
@@ -26,7 +26,7 @@
   }
 
   const M = AM.material({
-    id: 'plate', title: 'Plate — cyanotype light table', source: ['chromes/exposure/exposure.kit.js', 'chromes/exposure/NOTES.md'],
+    id: 'plate', title: 'Plate — cyanotype light table', source: ['archive/chromes/exposure/exposure.kit.js', 'archive/chromes/exposure/NOTES.md'],
     markRule: { unit: 'thread of light = one run', step: 'a step = one slit along the thread', address: 'the thread stops; a peach dot at the slit', save: 'the thread jogs (retry later) and a sage bead', cost: 'a sage bead per step exposed twice' },
     nouns: { unit: 'thread of light', units: 'threads', step: 'slit', steps: 'slits', edge: 'rim of the plate', check: 'catch' },
     axis: 'x', cell: { along: 1, across: 0.12, maxAcross: 14 }, nRange: [1, 4000], ground: '#0E2C4F',

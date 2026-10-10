@@ -2,7 +2,7 @@
    Material · PEN — the field notebook (dip pen, iron-gall ink, coloured pencil on green-grey graph paper).
    @kernel margin.glyphs.js
    @kernel margin.kit.js
-   Kernel: chromes/margin/margin.kit.js + margin.glyphs.js (vendored verbatim): single-line glyphs (EMS Allure /
+   Kernel: archive/chromes/margin/margin.kit.js + margin.glyphs.js (vendored verbatim): single-line glyphs (EMS Allure /
    EMS Felix, OFL), hand speed by the two-thirds power law, a Dynadraw spring-mass nib (≈26 Hz, ζ 0.72) with
    pressure-shaded downstrokes and a depleting reservoir, Washburn bleed r = r∞·√(age/τ), iron-gall oxidation from
    blue to blue-black. Credit: E · The Margin team (margin/NOTES.md). The kernel's Writer simulates every row once
@@ -70,7 +70,7 @@
   const flat = pts => pts.flat();
 
   const M = AM.material({
-    id: 'pen', title: 'Pen — the field notebook', source: ['chromes/margin/margin.kit.js', 'chromes/margin/margin.glyphs.js', 'chromes/margin/NOTES.md'],
+    id: 'pen', title: 'Pen — the field notebook', source: ['archive/chromes/margin/margin.kit.js', 'archive/chromes/margin/margin.glyphs.js', 'archive/chromes/margin/NOTES.md'],
     markRule: { unit: 'one cursive line of loops = one run', step: 'one loop = one step', address: 'the pen lifts mid-loop; a peach-pencil × at the address', save: 'a doubled loop (the retry) ringed in sage pencil', cost: 'a sage pencil tick per loop written twice' },
     nouns: { unit: 'line', units: 'lines', step: 'loop', steps: 'loops', edge: 'ragged margin of the lines', check: 'check' },
     axis: 'x', cell: { along: 1.6, across: 1, maxAcross: 22 }, nRange: [1, 100], ground: '#DCE4D6', fonts: [],

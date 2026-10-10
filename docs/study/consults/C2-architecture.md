@@ -1,5 +1,10 @@
 # C2 · Architecture for the master plugin and the merge into `feature/explainer-atelier`
 
+> Note (2026-10-10): this study describes the repo as it stood when it was written. Several paths it names (contrib/,
+> eval/, notebooks/, REQUIREMENTS.md, MERGE-NOTES.md, HANDOFF-JEV-EVAL.md, RUN.md, films/typesafe, skills/ceti-brand, the p5
+> studio skills, four chromes) have since moved to archive/ or, for RUN.md, to skills/ceti-explainer/RUN.md. See
+> archive/README.md.
+
 Inputs: CONTEXT, R1, R2, R3, R5, R6, R8, R9, R11, R12, R13, R15, R16, R17, plus direct reads of the runtime, modules, skills assets, System 1 core, chrome build scripts and the repo (65 tracked files, clean). R7 and R10 do not exist yet. Line numbers are scratch-copy file lines.
 
 Verified facts:

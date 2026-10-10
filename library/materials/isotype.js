@@ -1,6 +1,6 @@
 /* ════════════════════════════════════════════════════════════════════════════════════════════════════════════
    Material · ISOTYPE — the ledger in motion (Boardroom).
-   Kernel: chromes/ledger/ledger.kit.js (vendored verbatim): Arntz-grade pixel-grid pictograms (tear-off slip, item
+   Kernel: archive/chromes/ledger/ledger.kit.js (vendored verbatim): Arntz-grade pixel-grid pictograms (tear-off slip, item
    rules, the total's double rule, struck-through void, dog-ear = a checker looked, hourglass) drawn once into a
    density-matched atlas; Hungarian (min-sum Euclidean, crossing-free) assignment; ledger typography with tabular
    figures. Credit: D · The Ledger team (ledger/NOTES.md).
@@ -23,7 +23,7 @@
     o.cv.__built = true; return o;
   }
   const M = AM.material({
-    id: 'isotype', title: 'Isotype — the ledger in motion', source: ['chromes/ledger/ledger.kit.js', 'chromes/ledger/NOTES.md'],
+    id: 'isotype', title: 'Isotype — the ledger in motion', source: ['archive/chromes/ledger/ledger.kit.js', 'archive/chromes/ledger/NOTES.md'],
     markRule: { unit: 'one job slip = one run', step: 'one turn along its ruled line', address: 'the slip stops whole on its turn, struck through in peach', save: 'a dog-ear: a checker looked and the job was redone', cost: 'a slate hourglass per redone turn' },
     nouns: { unit: 'job slip', units: 'job slips', step: 'turn', steps: 'turns', edge: 'right-hand edge of the slips', check: 'review' },
     axis: 'x', cell: { along: 1.25, across: 1, maxAcross: 30 }, nRange: [1, 120], ground: '#171B23',

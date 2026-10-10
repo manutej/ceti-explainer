@@ -1,6 +1,7 @@
 /* ════════════════════════════════════════════════════════════════════════════════════════════════════════════
    Material · SEDIMENT — the delta survey sheet (Living Systems).
-   Kernel: chromes/delta/delta.kit.js (vendored verbatim): heightfield terrain → hypsometric tint × hillshade with
+   Kernel: materials/kernels/delta.kit.js, canonical (vendored from an earlier archive/chromes/delta/delta.kit.js; the archived
+   chrome copy later moved to path rivers): heightfield terrain → hypsometric tint × hillshade with
    marching-squares contours (DK.terrain), sprite-batched sediment bodies (rim, body, three grain tones; DK.sediment),
    cartographic lettering with knock-out halos, a CPU surface blitted once. Credit: C · Sediment Delta team.
    The adapter adds the kernel's deposition rule at screen scale: a failed grain settles on the bank at its weir and
@@ -17,7 +18,7 @@
   const tf = (S, o) => (o.screen ? (q => q) : (q => [AM.cam.X(S.cam, q[0]), AM.cam.Y(S.cam, q[1])]));
   const ROLE = { title: ['serif', 600, 32, false], head: ['serif', 600, 25, false], text: ['caps', 500, 16, false], num: ['mono', 500, 16, false], note: ['caps', 400, 12, false], sketch: ['serif', 600, 18, false] };
   const M = AM.material({
-    id: 'sediment', title: 'Sediment — the delta survey sheet', source: ['chromes/delta/delta.kit.js', 'chromes/delta/NOTES.md'],
+    id: 'sediment', title: 'Sediment — the delta survey sheet', source: ['archive/chromes/delta/delta.kit.js', 'archive/chromes/delta/NOTES.md'],
     markRule: { unit: 'one grain carried down its own runnel = one run', step: 'one weir = one step', address: 'the grain settles on the bank at the weir where it failed', save: 'a sage braid round the weir', cost: 'a sage grain per weir crossed twice' },
     nouns: { unit: 'runnel', units: 'runnels', step: 'weir', steps: 'weirs', edge: 'bank of settled grains', check: 'braid' },
     axis: 'x', cell: { along: 1, across: 0.16, maxAcross: 16 }, nRange: [1, 4000], ground: '#3A2D21',

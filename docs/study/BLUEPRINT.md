@@ -1,5 +1,10 @@
 # BLUEPRINT: the CETI master explainer plugin
 
+> Note (2026-10-10): this study describes the repo as it stood when it was written. Several paths it names (contrib/,
+> eval/, notebooks/, REQUIREMENTS.md, MERGE-NOTES.md, HANDOFF-JEV-EVAL.md, RUN.md, films/typesafe, skills/ceti-brand, the p5
+> studio skills, four chromes) have since moved to archive/ or, for RUN.md, to skills/ceti-explainer/RUN.md. See
+> archive/README.md.
+
 For Manu Mulaveesala, CETI.AI. Senior advisor's decision document, 2026-10-08. Inputs: C1, C2, C3 (decisive), P0, R1–R17. Where the consults disagree, this document rules and says why. [unverified] marks a claim I could not check in this container.
 
 Checked by me beyond the reports: the vendored p5 sha256 (`bb8b82b9…ce559`); every §6 API name is present in that bundle (string match only); `AgentLoop.exact` (`atelier.js:266-268`) matches the simulator at `:276-288`, so C2's oracle formula is right; the repo's `skills/operadic-interview/scripts/treelint.py` passes the Atelier `INTERVIEW.md` (0 critical, 2 warnings), so C3's "missing treelint" exists; grasp expected values recompute from N=500, k=20 (179.2 ± 21.4, 392.7 ± 18.4 at 2 sd), realised values not verified; `feature/explainer-atelier` sits at `d6a12de`, nothing landed.
