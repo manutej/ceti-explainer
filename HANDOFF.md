@@ -36,9 +36,10 @@ only when one of the five GPU-earning rows holds (marks beyond what Canvas2D can
 the reveal); otherwise it ships flat, and the evidence-first default for pooled-to-split is track-unit, not gl-stack-city. Exec level
 stays ink: gl-post at exec is tone map only.
 
-Older material kept and still building: the Atelier runtime and eight chromes under runtime/ and chromes/, the
+Older material kept and still building: the Atelier runtime and four chromes under runtime/ and chromes/ (delta, ledger, exposure and margin are in
+archive/chromes/, 2026-10-10), the
 System 1 plan library under library/, the SVG episode engine under skills/ceti-explainer, films/opera-house (the
-exec-room gold standard, D9), references/ (doctrine, tells, atlas, research), contrib/ (not shipped).
+exec-room gold standard, D9), references/ (doctrine, tells, atlas, research), archive/contrib/ (not shipped; D4, D12).
 
 ## 3. How a film is made (the pipeline)
 
@@ -96,8 +97,8 @@ the blueprint: https://claude.ai/artifact/B1gL55RNtMpo9fp44gWyZG. All private un
 - The kit does not load arsenal modules; films copy pattern.js into lib/. Next: a loader and a film.json `uses` list.
 - Film text is still positioned in absolute 960-basis coordinates tuned to a condensed display face; brand switches
   stay legible by scaling, not by reflow (factory/kit2/PROOF.md lists the bindings).
-- Four Atelier chromes (bunraku, delta, ledger, marbling) need fontsource faces to rebuild; the studio scripts named
-  in skills/p5-explainer are not written (factory/SHIP.md, MERGE-NOTES.md).
+- Four Atelier chromes (bunraku, marbling, and the archived delta and ledger) need fontsource faces to rebuild; the studio scripts named
+  in skills/p5-explainer are not written (factory/SHIP.md, archive/notes/MERGE-NOTES.md).
 - Arsenal lanes were mostly shot under one pack; arsenal/SWEEP.md records which lanes truly read token roles.
 - The two cohort experiments (film versus static, commit on versus off) are deferred (Q12): the quality bar is a
   design claim until they run.
