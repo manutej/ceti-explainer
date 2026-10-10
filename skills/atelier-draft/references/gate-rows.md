@@ -1,9 +1,9 @@
-# gate-rows · G1-G10, what each checks, why it fails, the fix that keeps the laws
+# gate-rows · G1-G11, what each checks, why it fails, the fix that keeps the laws
 
 Sources: factory/tools/gate.mjs, factory/tools/README.md, factory/SHIP.md, factory/kit2/README.md.
 Run: `node factory/tools/gate.mjs <page.html> --film <film-dir> --kit factory/kit2/kit2.js --kit factory/kit2/player.js
 [--json f] [--shots dir] [--quick]`. FAIL exits 1; WARN and SKIP never fail. A `--kit` directory is accepted (scans *.js).
-Rows sort G1..G10. Stage is driven by `__film.seek`; text is read from the SVG only (canvas digits are invisible to G5c/G6/G7).
+Rows sort G1..G11. Stage is driven by `__film.seek`; text is read from the SVG only (canvas digits are invisible to G5c/G6/G7/G11).
 Plan: one gate run, then at most two fix rounds; ship with every remaining WARN written in NOTES.md.
 
 | row | checks | threshold |
@@ -26,6 +26,7 @@ Plan: one gate run, then at most two fix rounds; ship with every remaining WARN 
 | G8 size | film.js + film.json + claims.json; built page | code < 120 KB; page < 1.3 MB |
 | G9 tics | full-screen cards = chapters `card:true` + `film.cards`; countdown ring from `T`/`timings` keys or `device` values matching ring/countdown | cards <= 2 (FAIL); ring outside the COMMIT window WARN |
 | G10 axes | `__film.info.axes` (else meta kit2); level = film.json `level`, else axes.level, else exec | exec needs material ink and rendered texture none/paper (FAIL); WARN when a grain/halftone pack was drawn flat; SKIP with no axes |
+| G11 text overlap | SVG text with `data-role`, box via getBBox in stage units, every 0.5 s (1 s `--quick`); pairs, text off the stage, text across the caption band (layer `cap`); `--no-overlap` skips | overlap > 4 % of the smaller box. FAIL: both must-read, a must-read covered > 25 %, or a must-read across the caption band; else WARN. Worst 8 in the evidence, all in `data.instances`. Canvas-drawn text is not seen |
 
 ## Per row: usual cause and the fix that does not break a law
 
@@ -107,6 +108,12 @@ window. Fix: keep question cards to one or two; ring only in the commit chapter.
 none/paper rendered (`levelGuard:false`). WARN: the brand declares grain/halftone and kit2 drew it flat (fine to
 ship, note it). Fix: `--material ink` or set `level` to manager/engineer in film.json (a 3D/neon film may be manager,
 the drafts and simpsons-3d are); pick a brand whose texture is none/paper. Exec level is ink and clean (law).
+
+**G11.** Cause: a label placed on a mark's own number, a callout over the caption band (y about 440 to 500), two chapters'
+text alive during a cross-fade, a lower-third and a headline sharing a row, text pushed past the sheet edge by a long
+string. Fix: move or shorten one of the two (the evidence names t, both texts and the overlap); keep results out of the
+caption band; end the old text before the new one starts (fade windows must not overlap); the row cannot see p5 text,
+so check canvas labels by eye.
 
 ## Known kit and gate defects that show as WARN or confusing output
 

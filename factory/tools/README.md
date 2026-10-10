@@ -4,7 +4,7 @@
 through the hook contract of films/opera-house/page.js: `?film=1` gives the bare 1920×1080 stage;
 `window.__film {ready, seek, only, info}` and `window.__ctrl {play, pause, seek, setState, state}`.
 
-    node factory/tools/gate.mjs <built-page.html> --film <film-dir> [--json out.json] [--shots dir] [--kit file.js ...] [--quick]
+    node factory/tools/gate.mjs <built-page.html> --film <film-dir> [--json out.json] [--shots dir] [--kit file.js ...] [--quick] [--no-overlap]
 
 - `<built-page.html>` the assembled page (for example factory/films/<id>/build/<id>.html).
 - `--film` the film's source folder: film.json, film.js, claims.json are read from here.
@@ -13,9 +13,10 @@ through the hook contract of films/opera-house/page.js: `?film=1` gives the bare
   `phone-390.png` (the live page at a 390 px viewport).
 - `--kit` adds kit sources to the clock scan (repeatable). Files whose name contains `player` may use
   requestAnimationFrame, Date and performance.now (the play loop and the commit timer); nothing else may.
-- `--quick` samples the text timeline every 1 s instead of every 0.5 s.
+- `--quick` samples the text timeline (G5c, G11) every 1 s instead of every 0.5 s.
+- `--no-overlap` skips G11 (text overlap), which seeks the film every 0.5 s and adds about 10 to 40 s.
 
-Rows sort numerically (G10 after G9). Prints a table, exits 1 if any row is FAIL. WARN and SKIP never fail the film. A row SKIPs when the film
+Rows sort numerically (G10 and G11 after G9). Prints a table, exits 1 if any row is FAIL. WARN and SKIP never fail the film. A row SKIPs when the film
 folder lacks the data it needs (legacy schema), and says why. Runtime: about 10 to 20 s.
 
 ## Rows
@@ -40,6 +41,7 @@ folder lacks the data it needs (legacy schema), and says why. Runtime: about 10 
 | G8 size | film.js + film.json + claims.json; the built page | ≥ 120 KB; ≥ 1.3 MB |
 | G9 tics | full-screen cards: chapters with `card: true` plus every entry of `film.cards`; countdown ring: `T`/`timings` keys or `device` values matching ring/countdown | more than 2 cards (WARN: a ring outside the COMMIT window) |
 | G10 axes | the page's declared axes: `window.__film.info.axes` (kit2 writes `{brand, chrome, material, texture, texture_declared, level, renderer, box}`), else `<meta name="kit2" content="brand=… material=… texture=… level=…">`; level = film.json `level`, else axes.level, else `exec` | level `exec` (DECISIONS Q6) and material ≠ `ink`, or a rendered texture other than `none`/`paper` (WARN: the brand declares grain/halftone and kit2 drew it flat; SKIP: no axes, a factory/kit page) |
+| G11 text overlap | visible SVG `<text>` with a `data-role` (opacity > 0.05, non-empty, box inside the 960×540 stage) every 0.5 s (1 s with `--quick`); `getBBox` through the CTM into stage units (12 % of the line box trimmed top and bottom, so tightly stacked lines do not count); layer `cap` texts form the caption band and are not paired with each other. A pair counts when the boxes overlap by more than 4 % of the smaller box; also text leaving the stage, and text crossing the caption band while a caption shows. A page with no `data-role` at all (kit v1) judges every text, classed like G6 | FAIL: both texts must-read, a must-read covered > 25 %, or a must-read across the caption band. WARN: any other overlap, or text off the stage. Evidence lists the worst 8 distinct pairs (t, texts ≤ 40 chars, roles, overlap in u² and %); `data.instances` in the json holds every instance. Canvas-drawn text (p5 / WEBGL) cannot be seen: the row says so. `--no-overlap` skips it (SKIP) |
 
 Help the gate by tagging text with `data-role` on the element or a parent group (the kit's text helpers
 should do this): `must-read` for headline numbers, the count, captions and the commit box; `secondary` for

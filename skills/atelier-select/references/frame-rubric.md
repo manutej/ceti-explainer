@@ -37,6 +37,7 @@ Count states, not frames: a state counts as "held" when two or more consecutive 
    marks); no audio cue implied (waveforms, speaker icons).
 5. Legibility 28 / 14 / 12: headline numbers, counts, captions and the commit box at 28+ units; everything else 14+;
    results never in the smallest face. Read `gate.json` G6, then confirm by eye on the closing frame of COUNT.
+   G11 lists every text-over-text overlap (and text across the caption band) with its time; read it instead of hunting for them.
 6. One honest-limits line: exactly one, on stage in MONDAY. A constructed model or teaching set presented as real data
    with no on-stage label is high severity (a truth defect, not a style one).
 7. Brand card last: nothing after it; no second card; <= 2 full-screen cards in the film (G9); <= 4 visual structures.
