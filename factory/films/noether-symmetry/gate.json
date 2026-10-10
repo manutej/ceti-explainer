@@ -2,16 +2,16 @@
   "film": "noether-symmetry",
   "page": "/home/user/ceti-explainer/factory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html",
   "filmDir": "/home/user/ceti-explainer/factory/films/noether-symmetry",
-  "date": "2026-10-10T17:45:27.158Z",
+  "date": "2026-10-10T17:51:32.172Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1464 ms; stage sd 30.6s:41.5 76.5s:32.4 122.4s:23.6",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1243 ms; stage sd 30.6s:41.5 76.5s:32.4 122.4s:23.6",
       "data": {
-        "readyMs": 1464,
+        "readyMs": 1243,
         "stats": [
           {
             "t": 30.6,

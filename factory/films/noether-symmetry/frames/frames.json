@@ -344,7 +344,7 @@
    ],
    "step": 10,
    "what": "world units: height the cut plane starts from",
-   "value": 230
+   "value": 170
   },
   {
    "name": "earthTheta",
@@ -544,7 +544,7 @@
    ],
    "step": 0.1,
    "what": "s: the first orbit's dots count in",
-   "value": 14
+   "value": 15.2
   },
   {
    "name": "tReveal1",
@@ -1597,8 +1597,8 @@
    "value": 0
   }
  ],
- "ms_per_frame": 161,
- "s_per_frame": 0.161,
+ "ms_per_frame": 136,
+ "s_per_frame": 0.136,
  "purity": {
   "pass": true,
   "at": {

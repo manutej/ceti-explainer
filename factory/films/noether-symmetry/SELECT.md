@@ -153,3 +153,49 @@ What to check in round 2:
    - G5c WARN '20 @86s' is a reader quirk; '620' is the claim cutMarks.
    - G6 phone overflow (553/390) is page or kit level.
    - Ship both with the warnings written in NOTES.md.
+
+## Round 2 (2026-10-10, after round 1 was applied; gate PASS, G11 clean, G5c WARN '20 @86s' unchanged)
+I re-read the regenerated frames/ (contact sheets at 1 s, plus 2x zooms at 79, 79.5, 86 and 101 s).
+| # | round-1 change | result | frame |
+|---|---|---|---|
+| 0 | starN 420 -> 0 | **worked**. The sky is empty and every dot on stage is a datum. HOOK and the clouds read clean | strip-01..03, strip-13 (t-0075.00) |
+| 1 | camM3El 13 -> 38 | **half**. The cut plane opens into a disc and arcs of lit specks with faint ring guides show at 83-87 s, but six clean rings still do not read. New side effect: the plane enters clipped by the top edge and over the legend at 78.5-80 s (finding r2 #0) | strip-14 cells 2-11 (t-0079.50, t-0086.00) |
+| 2 | camM1El 20 -> 30 | **worked, as a means**. The cut now tilts only 8 degrees. M2 still lands flat on five bands by 95 s, so camM2Az needs no change. The shell landing itself looks the same, as predicted | strip-12..13, strip-16 cells 6-11 (t-0095.00) |
+| 3 | wireDim 0.45 -> 0.25 | **half**. The network's 3 shells now read as rings at 120-131 s, but the orbit's 6 shells still project as one filled ball at 68-78 s. The HOOK floor is slightly brighter and not crowded | strip-21 cells 0-11 (t-0122.00); strip-13 (t-0075.00); strip-01 |
+| 4 | caption 23 -> "62 orbits lit: ten dots on each of them." | **worked**. The count is in the 28-unit face on one line | strip-15 cells 2-6 (t-0086.00) |
+| 5 | leader 22 -> 30 | **did nothing**. The 0.00095 and "about 250 times" pins still never appear (126-131.4 s). The cause is film.js, so leader is parked (no second adjustment) | strip-22 cells 0-11 (t-0127.00, t-0129.00) |
+| 6 | caption 2 shortened | **worked**. One line, 12.4-19.8 s | strip-03 (t-0013.00) |
+| 7 | caption 21 in plain words | **worked**. One line | strip-13 cells 8-11 (t-0076.00) |
+| 8 | caption 26 borrowed from b | **worked**. It matches the stage table's verbs | strip-17 cell 10 (t-0101.00) |
+| 9 | caption 31 shortened | **worked**. One line during M4 | strip-20 cells 2-9 (t-0116.00) |
+| 10 | caption 37 shortened | **worked**. One line under the set-type question | strip-23..24 (t-0136.00) |
+| 11 | honestSize 26 -> 28 | **worked**. Two lines, clear of both clouds, 141.6-150 s | strip-24 cells 8-11 (t-0143.00) |
+
+findings.r2.json has 2 findings: 0 block, 0 major, 2 minor. The dry run accepted 2 of 2.
+- cutTop 230 -> 170: the plane enters inside the frame.
+- tReveal0 14.0 -> 15.2: the first dots no longer overprint "Emmy Noether · 1918" at 14-15 s; count.at stays at 26.0.
+Convergence: 12 findings, then 2. No knob was reversed. Leader is parked as not the cause. This was the last round, and
+what remains goes to the tier-2 revision below.
+
+### Beyond scope, refreshed order after round 2 (for the tier-2 Opus revision)
+1. **Orbit shells as shells** (68-78 s, MONDAY 135-150 s). Brighter guides fixed the network's 3 shells but not the
+   orbit's 6. Draw per-shell silhouette circles, or light one shell at a time, or give the landing a slow 10-15 degree
+   turn with labels off. This is still the film's main promised picture.
+2. **Network comparison on one frame** (123.5-131.4 s). Leader proved the missing 0.00095 and "about 250 times" pins
+   are a film.js placement fault. Use b's stacked readout (t-0129.50), placed off the ghost cloud.
+3. **Lay axis words that change at each re-projection** (b's idea): "where it is" -> "its spin arrow" -> "how much
+   energy (up)" -> "the sum for each unit". Hard-cut them at each move.
+4. **Six rings drawn on the cut plane.** With the camera now at 38 degrees the arcs half-read; dotted circles at the six
+   radii would finish it. Pass the plane as an occluder so the "62" pin leaves its edge (t-0086.00).
+5. **Text off the marks.** The three-row table at 100-102 s still overprints the top energy layer (t-0101.00), and the
+   plate "closer: faster ..." sits over the cloud at 56.8-60 s.
+6. **A legible SIMULATED tag**: 14 units or more, in secondary ink, on every simulated scene.
+7. **The blank frames.** 0-1.5 s is now fully empty, since starN 0 removed the stars. Start the HOOK type at 0.5 s.
+   102-103.5 s is still an empty match cut; keep the orbit ghost there.
+8. **I2 readout during the moves**: hold "3,000" through M1, M2 and M4.
+9. **Ship with the warnings written down**:
+   - G5c '20 @86s' is a reader quirk on '620'.
+   - G6 phone overflow 553/390.
+   - build.sh regenerates film.json from lib/: port the round-1 and round-2 knob and caption values into lib/ before
+     using it.
+   - The film.json eyebrow still says "draft A".
