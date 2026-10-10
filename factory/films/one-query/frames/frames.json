@@ -1,0 +1,4647 @@
+{
+ "page": "factory/films/one-query/build/one-query.ceti-boardwalk-dark.none.html",
+ "film": "one-query",
+ "dur": 153,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-boardwalk-dark",
+ "axes": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "hookW1",
+   "range": [
+    0.2,
+    1.5
+   ],
+   "step": 0.1,
+   "what": "s: the headline word TOO MUCH appears",
+   "value": 0.6
+  },
+  {
+   "name": "hookW2",
+   "range": [
+    4.2,
+    5.4
+   ],
+   "step": 0.1,
+   "what": "s: the headline word ALMOST NONE replaces it over the same still mark",
+   "value": 4.8
+  },
+  {
+   "name": "hookWOut",
+   "range": [
+    8.2,
+    9
+   ],
+   "step": 0.1,
+   "what": "s: the headline words leave",
+   "value": 8.7
+  },
+  {
+   "name": "hookPush0",
+   "range": [
+    7,
+    9
+   ],
+   "step": 0.1,
+   "what": "s: the slow push toward the mark starts (camera still before this, R-E template)",
+   "value": 8
+  },
+  {
+   "name": "hookPush1",
+   "range": [
+    11,
+    12
+   ],
+   "step": 0.1,
+   "what": "s: the push ends (HOOK ends at 12)",
+   "value": 12
+  },
+  {
+   "name": "hookZoom",
+   "range": [
+    1,
+    1.8
+   ],
+   "step": 0.05,
+   "what": "x: size of the first mark after the push (the ruler and the first rung keep it)",
+   "value": 1.3
+  },
+  {
+   "name": "panelIn",
+   "range": [
+    11.8,
+    12.6
+   ],
+   "step": 0.1,
+   "what": "s: the crowd panel (the base) appears around the mark",
+   "value": 12
+  },
+  {
+   "name": "rulerAt",
+   "range": [
+    12,
+    13.4
+   ],
+   "step": 0.1,
+   "what": "s: the ruler tick equal to one mark appears",
+   "value": 12.4
+  },
+  {
+   "name": "whAt",
+   "range": [
+    16.6,
+    18
+   ],
+   "step": 0.1,
+   "what": "s: the first count lands: 0.24 Wh",
+   "value": 17.2
+  },
+  {
+   "name": "mwAt",
+   "range": [
+    22,
+    24
+   ],
+   "step": 0.1,
+   "what": "s: the microwave anchor and its seconds",
+   "value": 23
+  },
+  {
+   "name": "bulbAt",
+   "range": [
+    27.6,
+    30
+   ],
+   "step": 0.1,
+   "what": "s: the bulb anchor and its seconds",
+   "value": 28.8
+  },
+  {
+   "name": "ladderT0",
+   "range": [
+    33,
+    36
+   ],
+   "step": 0.1,
+   "what": "s: the first move of the ladder (1 -> 10 queries) starts",
+   "value": 34.6
+  },
+  {
+   "name": "dwell",
+   "range": [
+    2,
+    3.4
+   ],
+   "step": 0.1,
+   "what": "s: hold on each rung (>= 2.5 for a new number)",
+   "value": 2.6
+  },
+  {
+   "name": "move",
+   "range": [
+    0.8,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: the move between rungs",
+   "value": 1.3
+  },
+  {
+   "name": "swap0",
+   "range": [
+    54.4,
+    56.4
+   ],
+   "step": 0.1,
+   "what": "s: the 10^5 field starts to shrink into ONE tile (second tier)",
+   "value": 55.4
+  },
+  {
+   "name": "swap1",
+   "range": [
+    59,
+    61
+   ],
+   "step": 0.1,
+   "what": "s: 100,000 tiles are on screen",
+   "value": 60
+  },
+  {
+   "name": "gwhAt",
+   "range": [
+    55.6,
+    57
+   ],
+   "step": 0.1,
+   "what": "s: the site day: 2.4 GWh",
+   "value": 56.2
+  },
+  {
+   "name": "tilesAt",
+   "range": [
+    59.8,
+    61
+   ],
+   "step": 0.1,
+   "what": "s: 100,000 tiles lands",
+   "value": 60.2
+  },
+  {
+   "name": "billionAt",
+   "range": [
+    62,
+    64.5
+   ],
+   "step": 0.1,
+   "what": "s: the same energy as queries: 10 billion",
+   "value": 63
+  },
+  {
+   "name": "cutB",
+   "range": [
+    65,
+    67
+   ],
+   "step": 0.1,
+   "what": "s: hard cut from the tile field to the world field (3D)",
+   "value": 66
+  },
+  {
+   "name": "bIn0",
+   "range": [
+    66,
+    67.5
+   ],
+   "step": 0.1,
+   "what": "s: the inked cubes start to count in (spiral order, centre out)",
+   "value": 66.4
+  },
+  {
+   "name": "bIn1",
+   "range": [
+    69.5,
+    71.3
+   ],
+   "step": 0.1,
+   "what": "s: the last inked cube is in (the count lands at worldAt)",
+   "value": 71
+  },
+  {
+   "name": "worldAt",
+   "range": [
+    71,
+    72
+   ],
+   "step": 0.1,
+   "what": "s: 415 TWh lands",
+   "value": 71.4
+  },
+  {
+   "name": "pctAt",
+   "range": [
+    76.4,
+    79
+   ],
+   "step": 0.1,
+   "what": "s: 1.5 % lands (>= 5 s after the count)",
+   "value": 77.4
+  },
+  {
+   "name": "moveT0",
+   "range": [
+    82,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the inked cubes start to travel into the region stacks (the rig orbit has the same t0)",
+   "value": 83
+  },
+  {
+   "name": "moveT1",
+   "range": [
+    86.5,
+    89
+   ],
+   "step": 0.1,
+   "what": "s: they have landed (the rig orbit has the same t1)",
+   "value": 88
+  },
+  {
+   "name": "usAt",
+   "range": [
+    88,
+    89.4
+   ],
+   "step": 0.1,
+   "what": "s: the US count lands",
+   "value": 88.4
+  },
+  {
+   "name": "cnAt",
+   "range": [
+    91,
+    93
+   ],
+   "step": 0.1,
+   "what": "s: the China count lands",
+   "value": 92
+  },
+  {
+   "name": "euAt",
+   "range": [
+    93,
+    95
+   ],
+   "step": 0.1,
+   "what": "s: the Europe count lands",
+   "value": 93.8
+  },
+  {
+   "name": "shareAt",
+   "range": [
+    95,
+    97
+   ],
+   "step": 0.1,
+   "what": "s: the three shares land",
+   "value": 95.8
+  },
+  {
+   "name": "stagger",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "fraction of the move spent staggering layers (0 = all at once)",
+   "value": 0.55
+  },
+  {
+   "name": "lift",
+   "range": [
+    0,
+    120
+   ],
+   "step": 1,
+   "what": "world units: the hop a cube makes in flight",
+   "value": 40
+  },
+  {
+   "name": "terrT",
+   "range": [
+    98,
+    100
+   ],
+   "step": 0.1,
+   "what": "s: hard cut to the plan view of the terrain",
+   "value": 99
+  },
+  {
+   "name": "revealT0",
+   "range": [
+    99,
+    100
+   ],
+   "step": 0.1,
+   "what": "s: the matrix rows start to count in",
+   "value": 99.2
+  },
+  {
+   "name": "revealT1",
+   "range": [
+    102,
+    104.4
+   ],
+   "step": 0.1,
+   "what": "s: all 25 rows are in",
+   "value": 104
+  },
+  {
+   "name": "ieCutT0",
+   "range": [
+    104,
+    105.5
+   ],
+   "step": 0.1,
+   "what": "s: the cut band appears and travels to the Irish column (the rig tilt has the same t0)",
+   "value": 104.5
+  },
+  {
+   "name": "ieCutT1",
+   "range": [
+    105,
+    107.5
+   ],
+   "step": 0.1,
+   "what": "s: the cut sits on the Irish column",
+   "value": 106.2
+  },
+  {
+   "name": "ieAt",
+   "range": [
+    104.6,
+    106
+   ],
+   "step": 0.1,
+   "what": "s: 7,663 GWh lands",
+   "value": 105
+  },
+  {
+   "name": "ie23At",
+   "range": [
+    109.6,
+    112
+   ],
+   "step": 0.1,
+   "what": "s: 23 % lands (>= 5 s after the count)",
+   "value": 110.8
+  },
+  {
+   "name": "ie15At",
+   "range": [
+    115,
+    118
+   ],
+   "step": 0.1,
+   "what": "s: 15 times lands",
+   "value": 116.4
+  },
+  {
+   "name": "usCutT0",
+   "range": [
+    120,
+    122
+   ],
+   "step": 0.1,
+   "what": "s: the cut hops from Ireland to the US column (the rig swing has the same t0)",
+   "value": 121
+  },
+  {
+   "name": "usCutT1",
+   "range": [
+    121.2,
+    123.4
+   ],
+   "step": 0.1,
+   "what": "s: the cut sits on the US column",
+   "value": 122.4
+  },
+  {
+   "name": "usTwhAt",
+   "range": [
+    121.4,
+    123
+   ],
+   "step": 0.1,
+   "what": "s: 176 TWh lands",
+   "value": 121.8
+  },
+  {
+   "name": "us44At",
+   "range": [
+    124,
+    126.5
+   ],
+   "step": 0.1,
+   "what": "s: 4.4 % lands",
+   "value": 125.2
+  },
+  {
+   "name": "usHalfAt",
+   "range": [
+    127,
+    129
+   ],
+   "step": 0.1,
+   "what": "s: about half of the growth lands",
+   "value": 128.2
+  },
+  {
+   "name": "pinsOn1",
+   "range": [
+    109,
+    111
+   ],
+   "step": 0.1,
+   "what": "s: place pins come back after the tilt has settled",
+   "value": 110
+  },
+  {
+   "name": "mondayAt",
+   "range": [
+    134,
+    136
+   ],
+   "step": 0.1,
+   "what": "s: the terrain is dimmed and the question starts",
+   "value": 135
+  },
+  {
+   "name": "honestAt",
+   "range": [
+    136,
+    140
+   ],
+   "step": 0.1,
+   "what": "s: the honest-limits line appears on stage",
+   "value": 138
+  },
+  {
+   "name": "dimA",
+   "range": [
+    0.3,
+    0.85
+   ],
+   "step": 0.05,
+   "what": "opacity of the dimming veil over the terrain in MONDAY (0.6 = 40 % left)",
+   "value": 0.8
+  },
+  {
+   "name": "resSize",
+   "range": [
+    40,
+    64
+   ],
+   "step": 2,
+   "what": "units: the result number (must-read floor 28)",
+   "value": 52
+  },
+  {
+   "name": "tagSize",
+   "range": [
+    28,
+    40
+   ],
+   "step": 1,
+   "what": "units: the denominator word at the top left (must-read floor 28)",
+   "value": 30
+  },
+  {
+   "name": "noteSize",
+   "range": [
+    14,
+    20
+   ],
+   "step": 1,
+   "what": "units: the honest line on stage (secondary floor 14)",
+   "value": 16
+  },
+  {
+   "name": "qSize",
+   "range": [
+    40,
+    72
+   ],
+   "step": 2,
+   "what": "units: the MONDAY question words",
+   "value": 46
+  },
+  {
+   "name": "panel",
+   "range": [
+    340,
+    420
+   ],
+   "step": 2,
+   "what": "units: side of the crowd panel (the module uses 408)",
+   "value": 408
+  },
+  {
+   "name": "panelY",
+   "range": [
+    10,
+    40
+   ],
+   "step": 1,
+   "what": "units: top of the crowd panel",
+   "value": 22
+  },
+  {
+   "name": "litMin",
+   "range": [
+    1.5,
+    6
+   ],
+   "step": 0.5,
+   "what": "px: the lit first mark never gets smaller than this radius",
+   "value": 3
+  },
+  {
+   "name": "frameA",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the nested dashed frames (what each earlier view was)",
+   "value": 0.8
+  },
+  {
+   "name": "cell",
+   "range": [
+    6,
+    14
+   ],
+   "step": 1,
+   "what": "world units: pitch of one mark in the world field",
+   "value": 10
+  },
+  {
+   "name": "tile",
+   "range": [
+    4,
+    12
+   ],
+   "step": 1,
+   "what": "world units: side of one mark (a gap of pitch - side keeps marks countable)",
+   "value": 8
+  },
+  {
+   "name": "layer",
+   "range": [
+    6,
+    14
+   ],
+   "step": 1,
+   "what": "world units: vertical pitch of a stack layer",
+   "value": 9
+  },
+  {
+   "name": "stackGap",
+   "range": [
+    70,
+    140
+   ],
+   "step": 5,
+   "what": "world units: distance between the four region stacks",
+   "value": 95
+  },
+  {
+   "name": "greyMix",
+   "range": [
+    0.1,
+    0.7
+   ],
+   "step": 0.02,
+   "what": "how far the grey backdrop marks go from the ground colour toward muted",
+   "value": 0.2
+  },
+  {
+   "name": "hscale",
+   "range": [
+    80,
+    220
+   ],
+   "step": 5,
+   "what": "world units: height of the value 25 (scale fixed: vmin 0, vmax 25)",
+   "value": 150
+  },
+  {
+   "name": "terrW",
+   "range": [
+    560,
+    900
+   ],
+   "step": 10,
+   "what": "world units: terrain width (40 columns)",
+   "value": 760
+  },
+  {
+   "name": "zStretch",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.05,
+   "what": "depth of a cell as a fraction of its width (mesas squarer; cells and values are unchanged)",
+   "value": 0.2
+  },
+  {
+   "name": "planeA",
+   "range": [
+    0,
+    0.5
+   ],
+   "step": 0.02,
+   "what": "opacity of the translucent cut plane",
+   "value": 0.1
+  },
+  {
+   "name": "cutIE",
+   "range": [
+    2,
+    5
+   ],
+   "step": 1,
+   "what": "column of the Ireland mesa the cut snaps to (columns 2 to 5)",
+   "value": 3
+  },
+  {
+   "name": "tiltX",
+   "range": [
+    -300,
+    300
+   ],
+   "step": 5,
+   "what": "world units: x the camera looks at after the Ireland tilt",
+   "value": -20
+  },
+  {
+   "name": "tiltY",
+   "range": [
+    -200,
+    0
+   ],
+   "step": 5,
+   "what": "world units: height the camera looks at in the tilt and the swing (negative = up)",
+   "value": -80
+  },
+  {
+   "name": "tiltZ",
+   "range": [
+    -150,
+    150
+   ],
+   "step": 5,
+   "what": "world units: z the camera looks at in the tilt and the swing",
+   "value": -20
+  },
+  {
+   "name": "swingX",
+   "range": [
+    -300,
+    300
+   ],
+   "step": 5,
+   "what": "world units: x the camera looks at after the swing to the US column",
+   "value": -50
+  },
+  {
+   "name": "cutUS",
+   "range": [
+    12,
+    15
+   ],
+   "step": 1,
+   "what": "column of the US mesa the cut snaps to (columns 12 to 15)",
+   "value": 13
+  },
+  {
+   "name": "labHold",
+   "range": [
+    0,
+    15
+   ],
+   "step": 1,
+   "what": "frames a label must be pushed before it hides (gl-labels hold)",
+   "value": 4
+  },
+  {
+   "name": "labLeader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "px: pin leader length (gl-labels leader)",
+   "value": 22
+  },
+  {
+   "name": "plateA",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.02,
+   "what": "opacity of the plate behind readouts and pins",
+   "value": 0.72
+  },
+  {
+   "name": "camStartEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye x",
+   "value": 0
+  },
+  {
+   "name": "camStartEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye y",
+   "value": -530
+  },
+  {
+   "name": "camStartEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye z",
+   "value": 496
+  },
+  {
+   "name": "camStartCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point x",
+   "value": 0
+  },
+  {
+   "name": "camStartCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point y",
+   "value": -10
+  },
+  {
+   "name": "camStartCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point z",
+   "value": 28
+  },
+  {
+   "name": "camStartFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · start pose: vertical field of view (deg)",
+   "value": 30
+  },
+  {
+   "name": "camBackT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · back (dolly): start (s)",
+   "value": 74
+  },
+  {
+   "name": "camBackT1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · back (dolly): end (s)",
+   "value": 77
+  },
+  {
+   "name": "camBackEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · back (dolly): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camBackFactor",
+   "range": [
+    0.05,
+    20
+   ],
+   "step": 0.05,
+   "what": "camera rig · back (dolly): distance factor",
+   "value": 3.5
+  },
+  {
+   "name": "camRegroupT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · regroup (orbit): start (s)",
+   "value": 83
+  },
+  {
+   "name": "camRegroupT1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · regroup (orbit): end (s)",
+   "value": 88
+  },
+  {
+   "name": "camRegroupEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · regroup (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camRegroupAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · regroup (orbit): degrees swept round the centre",
+   "value": 30
+  },
+  {
+   "name": "camRegroupEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · regroup (orbit): end elevation (deg above the centre)",
+   "value": 48
+  },
+  {
+   "name": "camRegroupR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "camera rig · regroup (orbit): end radius as a factor of the start",
+   "value": 0.3
+  },
+  {
+   "name": "camDriftT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): start (s)",
+   "value": 88.6
+  },
+  {
+   "name": "camDriftT1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): end (s)",
+   "value": 98.4
+  },
+  {
+   "name": "camDriftEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · drift (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camDriftAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · drift (orbit): degrees swept round the centre",
+   "value": 8
+  },
+  {
+   "name": "camPlanT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · plan (cut): start (s)",
+   "value": 99
+  },
+  {
+   "name": "camPlanEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · plan (cut): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camPlanEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · plan (cut): eye x",
+   "value": 0
+  },
+  {
+   "name": "camPlanEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · plan (cut): eye y",
+   "value": -1174
+  },
+  {
+   "name": "camPlanEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · plan (cut): eye z",
+   "value": 60
+  },
+  {
+   "name": "camPlanCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · plan (cut): aim point x",
+   "value": 0
+  },
+  {
+   "name": "camPlanCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · plan (cut): aim point y",
+   "value": -30
+  },
+  {
+   "name": "camPlanCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · plan (cut): aim point z",
+   "value": -60
+  },
+  {
+   "name": "camPlanFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · plan (cut): vertical field of view (deg)",
+   "value": 26
+  },
+  {
+   "name": "camTiltT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · tilt (orbit): start (s)",
+   "value": 104.5
+  },
+  {
+   "name": "camTiltT1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · tilt (orbit): end (s)",
+   "value": 109
+  },
+  {
+   "name": "camTiltEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · tilt (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camTiltAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · tilt (orbit): degrees swept round the centre",
+   "value": -22
+  },
+  {
+   "name": "camTiltEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · tilt (orbit): end elevation (deg above the centre)",
+   "value": 14
+  },
+  {
+   "name": "camTiltR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "camera rig · tilt (orbit): end radius as a factor of the start",
+   "value": 1
+  },
+  {
+   "name": "camSwingT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · swing (orbit): start (s)",
+   "value": 121
+  },
+  {
+   "name": "camSwingT1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "camera rig · swing (orbit): end (s)",
+   "value": 128
+  },
+  {
+   "name": "camSwingEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · swing (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camSwingAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · swing (orbit): degrees swept round the centre",
+   "value": 8
+  },
+  {
+   "name": "camSwingEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · swing (orbit): end elevation (deg above the centre)",
+   "value": 14
+  },
+  {
+   "name": "camSwingR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "camera rig · swing (orbit): end radius as a factor of the start",
+   "value": 1.05
+  }
+ ],
+ "ms_per_frame": 245,
+ "s_per_frame": 0.245,
+ "purity": {
+  "pass": true,
+  "at": {
+   "30.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "76.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "122.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png",
+  "strip-22.png",
+  "strip-23.png",
+  "strip-24.png",
+  "strip-25.png",
+  "strip-26.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "AI is using far too much energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "AI is using far too much energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "AI is using far too much energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "AI is using far too much energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "AI is using far too much energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "AI is using far too much energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "AI is using far too much energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "AI is using far too much energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "AI is using almost no energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "AI is using almost no energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "AI is using almost no energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "AI is using almost no energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "AI is using almost no energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "AI is using almost no energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "AI is using almost no energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "AI is using almost no energy.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Both come with true numbers. Count them.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Both come with true numbers. Count them.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Both come with true numbers. Count them.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Both come with true numbers. Count them.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Both come with true numbers. Count them.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "Both come with true numbers. Count them.",
+   "chapter": {
+    "id": "hook",
+    "title": "Too much, almost none"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "One question to a chatbot. One mark.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "One question to a chatbot. One mark.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "One question to a chatbot. One mark.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "One question to a chatbot. One mark.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "One question to a chatbot. One mark.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "One question to a chatbot. One mark.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "One question to a chatbot. One mark.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "One question to a chatbot. One mark.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "One question to a chatbot. One mark.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Google, 2025: a median text prompt takes 0.24 Wh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "A 1,000 W microwave runs 0.86 s on that.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "A 60 W bulb: 14 s. A fraction of a minute.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "Ask 10 a day: 2.4 Wh, 8.6 s of microwave.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "Ask 10 a day: 2.4 Wh, 8.6 s of microwave.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "Ask 10 a day: 2.4 Wh, 8.6 s of microwave.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "Ask 10 a day: 2.4 Wh, 8.6 s of microwave.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Ask 10 a day: 2.4 Wh, 8.6 s of microwave.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "Ask 10 a day: 2.4 Wh, 8.6 s of microwave.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Ask 10 a day: 2.4 Wh, 8.6 s of microwave.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Ask 10 a day: 2.4 Wh, 8.6 s of microwave.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "Zoom out: each step is ten times the queries.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "Ten times the queries, ten times the energy.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "Ten times the queries, ten times the energy.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "Ten times the queries, ten times the energy.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "Ten times the queries, ten times the energy.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Ten times the queries, ten times the energy.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "Ten times the queries, ten times the energy.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "100,000 queries: 24 kWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "100,000 queries: 24 kWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "100,000 queries: 24 kWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "100,000 queries: 24 kWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "100,000 queries: 24 kWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "100,000 queries: 24 kWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "100,000 queries: 24 kWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "100,000 queries: 24 kWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "100,000 queries: 24 kWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "A 100 MW site, 24 hours: 2.4 GWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "A 100 MW site, 24 hours: 2.4 GWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "A 100 MW site, 24 hours: 2.4 GWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "A 100 MW site, 24 hours: 2.4 GWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "A 100 MW site, 24 hours: 2.4 GWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "A 100 MW site, 24 hours: 2.4 GWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "A 100 MW site, 24 hours: 2.4 GWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "A 100 MW site, 24 hours: 2.4 GWh.",
+   "chapter": {
+    "id": "case",
+    "title": "One query, a crowd, a site"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "100,000 marks of 100,000 queries: 10 billion.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Now the world. One mark is one TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Now the world. One mark is one TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Now the world. One mark is one TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "Now the world. One mark is one TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Now the world. One mark is one TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Now the world. One mark is one TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Now the world. One mark is one TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "Now the world. One mark is one TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "Now the world. One mark is one TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Data centres, all kinds, 2024: 415 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": "Against the grey, all the world's electricity: 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "The same marks, sorted by region.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "The same marks, sorted by region.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "The same marks, sorted by region.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "The same marks, sorted by region.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "The same marks, sorted by region.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "The same marks, sorted by region.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "The same marks, sorted by region.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "The same marks, sorted by region.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "The same marks, sorted by region.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "By region, the US: about 187 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "By region, the US: about 187 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "By region, the US: about 187 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "By region, the US: about 187 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "By region, the US: about 187 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "By region, the US: about 187 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "By region, the US: about 187 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "By region, the US: about 187 TWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "China about 104. Europe about 62.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "China about 104. Europe about 62.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "China about 104. Europe about 62.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "China about 104. Europe about 62.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "China about 104. Europe about 62.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "China about 104. Europe about 62.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "China about 104. Europe about 62.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": "45 %, 25 %, 15 % of the world's data-centre power.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "45 %, 25 %, 15 % of the world's data-centre power.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "45 %, 25 %, 15 % of the world's data-centre power.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "45 %, 25 %, 15 % of the world's data-centre power.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "45 %, 25 %, 15 % of the world's data-centre power.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "45 %, 25 %, 15 % of the world's data-centre power.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "Now each country against its own grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "Cut at Ireland, 2025: 7,663 GWh.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "23 % of Ireland's metered electricity.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": "15 times the world's 1.5 %.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 123,
+   "file": "thumbs/t-0123.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 123.5,
+   "file": "thumbs/t-0123.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 7,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 124,
+   "file": "thumbs/t-0124.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 8,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 124.5,
+   "file": "thumbs/t-0124.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 9,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 125,
+   "file": "thumbs/t-0125.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 10,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 125.5,
+   "file": "thumbs/t-0125.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 11,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 126,
+   "file": "thumbs/t-0126.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 0,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 126.5,
+   "file": "thumbs/t-0126.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 1,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 127,
+   "file": "thumbs/t-0127.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 2,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 127.5,
+   "file": "thumbs/t-0127.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 3,
+   "caption": "Cut at the US, 2023: 176 TWh, 4.4 % of its grid.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 128,
+   "file": "thumbs/t-0128.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 128.5,
+   "file": "thumbs/t-0128.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 5,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 129,
+   "file": "thumbs/t-0129.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 6,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 129.5,
+   "file": "thumbs/t-0129.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 7,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 130,
+   "file": "thumbs/t-0130.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 8,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 130.5,
+   "file": "thumbs/t-0130.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 9,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 131,
+   "file": "thumbs/t-0131.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 10,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 131.5,
+   "file": "thumbs/t-0131.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 11,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 132,
+   "file": "thumbs/t-0132.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 0,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 132.5,
+   "file": "thumbs/t-0132.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 1,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 133,
+   "file": "thumbs/t-0133.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 2,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 133.5,
+   "file": "thumbs/t-0133.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 3,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 134,
+   "file": "thumbs/t-0134.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 4,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 134.5,
+   "file": "thumbs/t-0134.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 5,
+   "caption": "Yet about half of 2025's US demand growth.",
+   "chapter": {
+    "id": "count",
+    "title": "The world, then each grid"
+   }
+  },
+  {
+   "t": 135,
+   "file": "thumbs/t-0135.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 135.5,
+   "file": "thumbs/t-0135.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 7,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 136,
+   "file": "thumbs/t-0136.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 8,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 136.5,
+   "file": "thumbs/t-0136.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 9,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 137,
+   "file": "thumbs/t-0137.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 10,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 137.5,
+   "file": "thumbs/t-0137.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 11,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 138,
+   "file": "thumbs/t-0138.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 0,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 138.5,
+   "file": "thumbs/t-0138.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 1,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 139,
+   "file": "thumbs/t-0139.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 2,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 139.5,
+   "file": "thumbs/t-0139.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 3,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 140,
+   "file": "thumbs/t-0140.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 4,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 140.5,
+   "file": "thumbs/t-0140.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 5,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 141,
+   "file": "thumbs/t-0141.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 6,
+   "caption": "Monday: for any AI energy figure, ask: per what?",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 141.5,
+   "file": "thumbs/t-0141.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 142,
+   "file": "thumbs/t-0142.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 8,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 142.5,
+   "file": "thumbs/t-0142.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 9,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 143,
+   "file": "thumbs/t-0143.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 10,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 143.5,
+   "file": "thumbs/t-0143.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 11,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 144,
+   "file": "thumbs/t-0144.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 0,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 144.5,
+   "file": "thumbs/t-0144.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 1,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 145,
+   "file": "thumbs/t-0145.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 2,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 145.5,
+   "file": "thumbs/t-0145.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 3,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 146,
+   "file": "thumbs/t-0146.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 4,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 146.5,
+   "file": "thumbs/t-0146.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 5,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 147,
+   "file": "thumbs/t-0147.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 6,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 147.5,
+   "file": "thumbs/t-0147.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 7,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 148,
+   "file": "thumbs/t-0148.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 8,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 148.5,
+   "file": "thumbs/t-0148.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 9,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 149,
+   "file": "thumbs/t-0149.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 10,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 149.5,
+   "file": "thumbs/t-0149.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 11,
+   "caption": "One vendor's median text prompt. The anchors are assumed.",
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 150,
+   "file": "thumbs/t-0150.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 150.5,
+   "file": "thumbs/t-0150.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 151,
+   "file": "thumbs/t-0151.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 151.5,
+   "file": "thumbs/t-0151.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 152,
+   "file": "thumbs/t-0152.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 152.5,
+   "file": "thumbs/t-0152.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  },
+  {
+   "t": 152.99,
+   "file": "thumbs/t-0152.99.jpg",
+   "strip": "strip-26.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Per what?"
+   }
+  }
+ ]
+}

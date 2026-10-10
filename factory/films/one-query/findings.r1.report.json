@@ -114,5 +114,20 @@
   "chrome": "none",
   "material": "ink"
  },
- "dry_run": true
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/one-query/build/one-query.ceti-boardwalk-dark.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/one-query/build/one-query.ceti-boardwalk-dark.none.html  1286848 bytes  sha256 68222e9ac2f0fcf52b721ea78e731b22a666d7a5a68d99db831b07bb769d6da7  (film code 51914 bytes; brand ceti-boardwalk-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 16.3  muted 10.5  accent 13.0  onDark/dark 16.3\nrenderer webgl; knobs 117; fonts3d none; libs lib/arsenal.gen.js\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/one-query/gate.json",
+  "log": "WARN  4 visible number(s) not in claims (chrome?): 19 @67s \"19\"; 116 @68s \"116\"; 248 @69s \"248\"; 365 @70s \"365\"\n  G6 legibility                  PASS  19 must-read / 28 secondary / 5 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 604/390 OVERFLOW\n  G7 counts first                PASS  count at 17.2 s (count.at); first ratio \"Against the grey, all the world's electr\" at 77.4 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 69.7 KB (film.js 31.5, film.json 19.2, claims.json 19.0) < 120 KB; page 1.287 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand ceti-boardwalk-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes\n  G11 text overlap               PASS  307 samples every 0.5 s, 107 distinct texts (texts with data-role), caption showing at 272; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames one-query: 307 frames every 0.5 s → 26 strip(s) in factory/films/one-query/frames; 0.245 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0"
+ }
 }

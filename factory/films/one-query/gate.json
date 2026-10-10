@@ -1,17 +1,17 @@
 {
   "film": "one-query",
-  "page": "factory/films/one-query/drafts/b/build/one-query.ceti-boardwalk-dark.none.html",
-  "filmDir": "factory/films/one-query/drafts/b",
-  "date": "2026-10-10T17:47:43.279Z",
+  "page": "/home/user/ceti-explainer/factory/films/one-query/build/one-query.ceti-boardwalk-dark.none.html",
+  "filmDir": "/home/user/ceti-explainer/factory/films/one-query",
+  "date": "2026-10-10T18:14:29.653Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 2579 ms; stage sd 30.6s:34.6 76.5s:28.8 122.4s:37.6",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1297 ms; stage sd 30.6s:34.6 76.5s:28.8 122.4s:34.7",
       "data": {
-        "readyMs": 2579,
+        "readyMs": 1297,
         "stats": [
           {
             "t": 30.6,
@@ -25,8 +25,8 @@
           },
           {
             "t": 122.4,
-            "mean": 38.89068618827702,
-            "sd": 37.57691383745631
+            "mean": 35.8313500385857,
+            "sd": 34.67376768997382
           }
         ],
         "filmErrs": [],
@@ -132,13 +132,13 @@
       "id": "G6",
       "name": "legibility",
       "status": "PASS",
-      "evidence": "19 must-read / 32 secondary / 5 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 604/390 OVERFLOW, shot factory/films/one-query/drafts/b/shots/phone-390.png",
+      "evidence": "19 must-read / 28 secondary / 5 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 604/390 OVERFLOW",
       "data": {
         "fails": [],
         "warns": [],
         "counts": {
           "must-read": 19,
-          "secondary": 32,
+          "secondary": 28,
           "chrome": 5
         }
       }
@@ -147,16 +147,16 @@
       "id": "G7",
       "name": "counts first",
       "status": "PASS",
-      "evidence": "count at 17.2 s (count.at); first ratio \"Against the world's electricity: 1.5 %.\" at 77.4 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
+      "evidence": "count at 17.2 s (count.at); first ratio \"Against the grey, all the world's electr\" at 77.4 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
     },
     {
       "id": "G8",
       "name": "size",
       "status": "PASS",
-      "evidence": "film code 69.7 KB (film.js 31.5, film.json 19.1, claims.json 19.0) < 120 KB; page 1.287 MB < 1.3 MB",
+      "evidence": "film code 69.7 KB (film.js 31.5, film.json 19.2, claims.json 19.0) < 120 KB; page 1.287 MB < 1.3 MB",
       "data": {
-        "code": 71334,
-        "page": 1286821
+        "code": 71362,
+        "page": 1286848
       }
     },
     {
@@ -199,12 +199,6 @@
         "warn": 0,
         "instances": []
       }
-    },
-    {
-      "id": "SHOTS",
-      "name": "stills",
-      "status": "INFO",
-      "evidence": "8 stills at 1, 21.27, 41.53, 61.8, 82.07, 102.33, 122.6, 153 s → factory/films/one-query/drafts/b/shots"
     }
   ]
 }
