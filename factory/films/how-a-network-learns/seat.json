@@ -1,0 +1,46 @@
+{
+ "id": "how-a-network-learns",
+ "verdict": "SHIP",
+ "seat": "director, after two evaluator rounds; frames read at 480x270; commit beat off (D11)",
+ "truth": [
+  {
+   "claim": "150 flowers, 4→8→3 network, 1,000 steps; 13 right at step 0, 135 at step 10, 143 at step 34, 148 at step 1,000",
+   "status": "ok",
+   "note": "recompute.py regenerates every number; 34 of 34 recomputed claims match; the gate recomputes 69 formulas"
+  },
+  {
+   "claim": "90 % of the loss drop by step 34; the last 769 steps add no flower; rows 84 and 134 never land",
+   "status": "ok",
+   "note": "seen: the step chart rises to 143 by step 34 and runs flat to 1,000 (96 s); the two misses are pinned in the overlap band (104 s)"
+  }
+ ],
+ "craft": 4,
+ "originality": 4,
+ "stop": 4,
+ "legibility_phone": "ok",
+ "format": {
+  "counts_first": true,
+  "commit_before_number": "n/a (D11)",
+  "brand_card": true,
+  "honest_line": true,
+  "exec_clean": "n/a (level manager)"
+ },
+ "defects": [
+  {
+   "t": 82,
+   "what": "the two missed flowers are hard to find at thumb size",
+   "severity": "low"
+  },
+  {
+   "t": 73,
+   "what": "ribbons read as hairlines before the weights thicken",
+   "severity": "low"
+  },
+  {
+   "t": 108,
+   "what": "the honest line and the Monday question are captions only, not on stage",
+   "severity": "low"
+  }
+ ],
+ "note": "the iris rows were transcribed from memory and must be checked against the UCI copy before public use (brief.md)"
+}
