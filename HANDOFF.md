@@ -71,6 +71,15 @@ how-a-network-learns, a-bell-from-dice}; MEASURES.md in each. MP4s: `node arsena
 --query '?film=1' --fps 30 --gif-seconds 0 --out <film>/export --name <id>` (4K at ~0.4 s/frame; a 1080p copy via ffmpeg).
 The skills that run this at scale: skills/ATELIER.md (atelier-brief, -draft, -select, -pipeline, -variant), each a
 typed meta-prompt with references under skills/atelier-*/references/.
+Two later waves ran the lean tiered form (Sonnet research, brief and two drafts; Opus blind select with two tool-applied
+rounds, then one Opus film.js revision on the "Beyond scope" list; the director seats and ships): Wave AI-STORIES
+(factory/WAVE-AI-STORIES.md: who-gains, pass-every-time, one-query; feature-long 153 s, gate rows G1–G11 with G11 the
+text-overlap row) and Wave NOETHER (factory/WAVE-NOETHER.md: noether-symmetry v2, noether-applied, noether-frontier; a
+three-part lay series; the series' text and point-cloud rules are in factory/topics/noether-symmetry/v2-director-note.md).
+Each film has SELECT.md, findings.r1/r2, REVISION.md with a before/after sheet, seat.json, MEASURES.md, NOTES.md. Research
+behind them: factory/research/{AI-ECONOMICS-2026,AI-ADOPTION-2026,NOETHER-NONQUANTUM,NOETHER-FOUNDATIONS,
+NOETHER-APPLICATIONS,NOETHER-FRONTIER}.md (numbers graded A/B/C from search snippets; egress blocked WebFetch, so the
+primaries are listed for re-verification before public use).
 
 ## 4. Brands and design systems
 
@@ -93,7 +102,7 @@ source. Silent, captions carry it. One honest-limits line. The CETI card is the 
 
 ## 6. Where things are published
 
-factory/ARTIFACTS.md: the fifteen films, the showcase, simpsons-3d (P1), the Opera House, the film gallery, the arsenal gallery. The Design canvas with
+factory/ARTIFACTS.md: the fifteen films, the showcase, simpsons-3d (P1), the three Wave FILMS-GL films, the three AI-STORIES films, the three-part Noether series, the Opera House, the film gallery (26 films), the arsenal and Wave GL galleries. The Design canvas with
 the blueprint: https://claude.ai/artifact/B1gL55RNtMpo9fp44gWyZG. All private until shared.
 
 ## 7. Open issues (honest list)
@@ -106,8 +115,11 @@ the blueprint: https://claude.ai/artifact/B1gL55RNtMpo9fp44gWyZG. All private un
 - Arsenal lanes were mostly shot under one pack; arsenal/SWEEP.md records which lanes truly read token roles.
 - The two cohort experiments (film versus static, commit on versus off) are deferred (Q12): the quality bar is a
   design claim until they run.
-- Two stray files written by an agent at the container root (/results.prev.json, /x/) could not be removed by the
-  orchestrator's safety check; they are scratch and safe to delete.
+- A stray file written by an agent at the container root (/results.prev.json) could not be removed by the
+  orchestrator's safety check; it is scratch and safe to delete.
+- The AI-STORIES and NOETHER numbers were read from search snippets (egress blocked); every MEASURES/NOTES names the
+  primaries to open before public use. Modular efficiency follow-ups (docs/ARCHITECTURE-AUDIT.md: modules by id, font
+  subsetting, p5 only when called) are not started.
 
 ## 8. Routing that worked
 
