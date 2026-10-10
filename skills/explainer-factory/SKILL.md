@@ -3,6 +3,9 @@ name: explainer-factory
 description: "Run the CETI explainer factory end to end: turn one management topic into a 75-second exec-room film (the '75-second case': hook, commit, the case, the count, Monday, then the CETI brand card) that passes the gate, in under 30 minutes of agent time. Five steps with fixed files: EXPLORE (factory/topics/<id>/ brief.md, claims.json, beats.md; from a concept or from a repository with factory/tools/repo_topic.py), BUILD (factory/films/<id>/ film.json, film.js, claims.json, NOTES.md; python3 factory/kit2/build.py with a brand and a chrome; ADOPT arsenal modules where they earn their place), GATE (node factory/tools/gate.mjs with --kit factory/kit2, rows G1 to G10, read the stills, fix, repeat to PASS), SEAT (a blinded packet of stills, claims and captions for an evaluator who did not build), SHIP (catalogue entry, baseline hash, what is committed). Use for /explainer-factory, 'make a 75-second case on <topic>', 'factory film about <concept>', 'new exec explainer', 'run the factory', 'scaffold a topic', 'gate this factory film', 'seat / evaluate this film', 'ship to the catalogue'. Not for the 4:29 feature tier (films/opera-house), the 40 s SVG episode (ceti-explainer) or p5 Atelier chromes (p5-explainer)."
 ---
 
+> At scale (more than one draft or more than one agent) use the atelier family instead: `skills/ATELIER.md` routes to
+> atelier-brief, atelier-draft, atelier-select, atelier-pipeline and atelier-variant. This skill is the one-author path.
+>
 > Inherits `${CLAUDE_PLUGIN_ROOT}/references/doctrine.md`. The binding brief is
 > `${CLAUDE_PLUGIN_ROOT}/factory/FORMAT.md` (copied from docs/DECISIONS.md, Q1 to Q15 and D9); where this file and
 > FORMAT.md disagree, FORMAT.md wins. The gold standard is `films/opera-house/` (read its NOTES.md once).

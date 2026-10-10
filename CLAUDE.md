@@ -10,7 +10,8 @@ fonts only, no runtime fetches, no Google Fonts.
 
 Build films with factory/kit2 (`--brand`, `--chrome`, `--material`), gate with factory/tools/gate.mjs (G1–G10), ship
 with factory/tools/catalogue.py; commit the sources and the built page. Brands are token packs under arsenal/brands;
-patterns under arsenal/patterns (see arsenal/README.md). The factory skill is skills/explainer-factory/SKILL.md.
+patterns under arsenal/patterns (see arsenal/README.md). The factory skill is skills/explainer-factory/SKILL.md
+(one author); at scale the atelier family skills/atelier-{brief,draft,select,pipeline,variant} (index skills/ATELIER.md).
 
 Agents: one brief per wave, one contract per module, one gate run plus at most two fix rounds, ship with the warnings
 written in NOTES.md or card.md. Commit per lane as it lands. Never run git from a subagent.

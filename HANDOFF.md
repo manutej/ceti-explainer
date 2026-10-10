@@ -54,6 +54,8 @@ the strips blind, writes SELECT.md and findings.r1.json; `python3 factory/tools/
 applies knob, caption, chapter, brand and chrome findings to film.json only, then rebuilds, gates and re-strips; two
 rounds, then ship. `film.json.renderer: "webgl"` gives a WEBGL canvas (kit2 README "WebGL"). Films with a `look`
 recorded in film.json are kit2 films; tests/proofs.sh vi builds them with kit2.
+The skills that run this at scale: skills/ATELIER.md (atelier-brief, -draft, -select, -pipeline, -variant), each a
+typed meta-prompt with references under skills/atelier-*/references/.
 
 ## 4. Brands and design systems
 
