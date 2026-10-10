@@ -1,0 +1,195 @@
+{
+  "film": "a-bell-from-dice",
+  "page": "/home/user/ceti-explainer/factory/films/a-bell-from-dice/build/a-bell-from-dice.midnight-ink.none.html",
+  "filmDir": "/home/user/ceti-explainer/factory/films/a-bell-from-dice",
+  "date": "2026-10-10T10:11:44.175Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 997 ms; stage sd 24.6s:61.5 61.5s:60.9 98.4s:31.7",
+      "data": {
+        "readyMs": 997,
+        "stats": [
+          {
+            "t": 24.6,
+            "mean": 88.44536880788364,
+            "sd": 61.45201485355942
+          },
+          {
+            "t": 61.5,
+            "mean": 65.26804475309616,
+            "sd": 60.900364861867395
+          },
+          {
+            "t": 98.4,
+            "mean": 42.110488599542315,
+            "sd": 31.671343788991898
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 12.3, 36.9, 61.5, 86.1, 110.7 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, arsenal.gen.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 123 s; material 120 s (want 90–120, format feature) + brand 3 s; total ≤ 123"
+    },
+    {
+      "id": "G4b",
+      "name": "format · beats",
+      "status": "PASS",
+      "evidence": "order HOOK → CASE → COUNT → MONDAY; t0 H0 C12 C58 M108"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit {\"enabled\":false}"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Add many small chances and the middle wins.\"; frame at 122 s sd 19.3; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Fair dice rolled independently; parts that move together, or one part that dwarf\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "5 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "163 claims, 163 with formula, 163 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 23 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "10 visible number(s) not in claims (chrome?): 846 @13s \"846\"; 5,650 @14s \"5,650\"; 13,938 @15s \"13,938\"; 24,840 @16s \"24,840\"; 37,484 @17s \"37,484\"; 51,000 @18s \"51,000\"",
+      "data": {
+        "unknown": [
+          "846 @13s \"846\"",
+          "5,650 @14s \"5,650\"",
+          "13,938 @15s \"13,938\"",
+          "24,840 @16s \"24,840\"",
+          "37,484 @17s \"37,484\"",
+          "51,000 @18s \"51,000\"",
+          "64,515 @19s \"64,515\"",
+          "77,159 @20s \"77,159\"",
+          "88,061 @21s \"88,061\"",
+          "96,349 @22s \"96,349\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "12 must-read / 10 secondary / 9 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 12,
+          "secondary": 10,
+          "chrome": 9
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 24 s (count.at); first ratio \"That is 1.7 %. Equal odds would put 19,2\" at 82 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 90.6 KB (film.js 29.6, film.json 18.3, claims.json 42.7) < 120 KB; page 1.269 MB < 1.3 MB",
+      "data": {
+        "code": 92734,
+        "page": 1268875
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand midnight-ink, chrome none, material ink, texture paper; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "midnight-ink",
+          "chrome": "none",
+          "material": "ink",
+          "texture": "paper",
+          "texture_declared": "paper",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    }
+  ]
+}

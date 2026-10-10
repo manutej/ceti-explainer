@@ -141,10 +141,18 @@ def film_pack(film):
             "texture": "paper", "voice": {"end_card": "CETI"}}
 
 
+FILM_DIR = None
+
+
 def load_pack(arg, film):
     if arg in (None, "film"):
         return film_pack(film)
-    p = arg if arg.endswith(".json") else os.path.join(ROOT, "arsenal", "brands", arg + ".json")
+    if arg.endswith(".json"):
+        p = arg
+    else:
+        # a film-local copy brand.<id>.json wins over the library pack of the same id (a film may vendor a face swap)
+        local = os.path.join(FILM_DIR, "brand.%s.json" % arg) if "FILM_DIR" in globals() and FILM_DIR else None
+        p = local if local and os.path.isfile(local) else os.path.join(ROOT, "arsenal", "brands", arg + ".json")
     if not os.path.isfile(p):
         die("no brand pack %s" % p)
     pk = json.loads(read(p))
@@ -372,6 +380,8 @@ def main():
     if not args or args[0].startswith("-"):
         die("usage: build.py <film-dir> [--brand ID|film] [--chrome ID|none] [--material ID] [--out PATH]")
     fdir = os.path.abspath(args[0])
+    global FILM_DIR
+    FILM_DIR = fdir
     raw = read(os.path.join(fdir, "film.json")).rstrip("\n")
     film = json.loads(raw)
     look = film.get("look") or {}   # the recorded look (apply_findings.py writes it); flags win

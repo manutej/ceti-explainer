@@ -263,7 +263,9 @@ def main():
     b = run([sys.executable, BUILD, fdir, "--brand", L["brand"], "--chrome", L["chrome"], "--material", L["material"]])
     page = None
     if b.returncode == 0 and b.stdout.strip():
-        page = os.path.join(ROOT, b.stdout.split()[0])
+        # the page is the first token that names a built .html (build.py prints notes before and after it)
+        tok = next((w for w in b.stdout.split() if w.endswith(".html")), None)
+        page = os.path.join(ROOT, tok) if tok else None
     report["build"] = {"ok": b.returncode == 0, "page": os.path.relpath(page, ROOT) if page else None, "log": (b.stdout + b.stderr).strip()[-2000:]}
     gate_ok = False
     if page:
@@ -276,7 +278,10 @@ def main():
         g = run(["node", GATE, page, "--film", fdir, "--json", os.path.join(fdir, "gate.json")] + sum([["--kit", k] for k in kits], []))
         gate_ok = g.returncode == 0
         m = re.search(r"VERDICT\s+(\w+)(.*)", g.stdout)
-        report["gate"] = {"pass": gate_ok, "verdict": (m.group(1) + m.group(2)).strip() if m else None, "json": os.path.relpath(os.path.join(fdir, "gate.json"), ROOT)}
+        report["gate"] = {"pass": gate_ok, "verdict": (m.group(1) + m.group(2)).strip() if m else None, "json": os.path.relpath(os.path.join(fdir, "gate.json"), ROOT),
+                          "log": (g.stdout + g.stderr).strip()[-1200:]}
+        if not m:
+            print("gate produced no VERDICT; tail of its output:\n" + (g.stdout + g.stderr).strip()[-600:])
         if "--no-frames" not in args:
             fr = run(["node", FRAMES, page, "--every", every, "--out", os.path.join(fdir, "frames")])
             report["frames"] = {"ok": fr.returncode == 0, "log": fr.stdout.strip()[-500:]}
