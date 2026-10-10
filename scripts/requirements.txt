@@ -1,4 +1,5 @@
-# Python dependencies for the build, gate and render tools (runtime/tools, library/tools, library/plan/core, scripts/channels).
+# Python dependencies for the build, gate and render tools (runtime/tools, library/tools, library/plan/core;
+# archive/scripts/channels too, if it is restored).
 # Also needed: Node 18+, ffmpeg on PATH (MP4 export), and a Chromium for Playwright:
 #   python3 -m playwright install chromium
 # Pin Playwright to the Chromium build you have: Playwright 1.56.x drives Chromium build 1194
