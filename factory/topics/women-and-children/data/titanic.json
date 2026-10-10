@@ -1,0 +1,254 @@
+{
+ "id": "titanic-dawson-1995",
+ "title": "Titanic passengers and crew by class, sex, age and survival (2,201 people)",
+ "source": "Dawson, R. J. MacG. (1995). The 'Unusual Episode' Data Revisited. Journal of Statistics Education 3(3). Same table as R datasets::Titanic (based on the British Board of Trade inquiry, 1912).",
+ "provenance": "TRANSCRIBED FROM MEMORY of the Dawson table (no network in the brief lane). Afterwards compared with an Rdatasets CSV copy (datasets/Titanic.csv, pydataset 0.2.0 bundle) found in a local scratch folder from an earlier session, sha256 d7f30b1777b83cf4104ddb7aff900a3c7d1608d0699c7460b6447dbe0a9fc089: 32 of 32 cells agree. That copy is secondary and untrusted. MUST be verified against the published Dawson (1995) table before any public use.",
+ "verified_against_published_table": false,
+ "dims": {
+  "class": [
+   "1st",
+   "2nd",
+   "3rd",
+   "Crew"
+  ],
+  "sex": [
+   "Male",
+   "Female"
+  ],
+  "age": [
+   "Child",
+   "Adult"
+  ],
+  "survived": [
+   "No",
+   "Yes"
+  ]
+ },
+ "order": "R array order: class fastest, then sex, age, survived (rows 1..32 of as.data.frame(Titanic))",
+ "cells": [
+  {
+   "class": "1st",
+   "sex": "Male",
+   "age": "Child",
+   "survived": "No",
+   "n": 0
+  },
+  {
+   "class": "2nd",
+   "sex": "Male",
+   "age": "Child",
+   "survived": "No",
+   "n": 0
+  },
+  {
+   "class": "3rd",
+   "sex": "Male",
+   "age": "Child",
+   "survived": "No",
+   "n": 35
+  },
+  {
+   "class": "Crew",
+   "sex": "Male",
+   "age": "Child",
+   "survived": "No",
+   "n": 0
+  },
+  {
+   "class": "1st",
+   "sex": "Female",
+   "age": "Child",
+   "survived": "No",
+   "n": 0
+  },
+  {
+   "class": "2nd",
+   "sex": "Female",
+   "age": "Child",
+   "survived": "No",
+   "n": 0
+  },
+  {
+   "class": "3rd",
+   "sex": "Female",
+   "age": "Child",
+   "survived": "No",
+   "n": 17
+  },
+  {
+   "class": "Crew",
+   "sex": "Female",
+   "age": "Child",
+   "survived": "No",
+   "n": 0
+  },
+  {
+   "class": "1st",
+   "sex": "Male",
+   "age": "Adult",
+   "survived": "No",
+   "n": 118
+  },
+  {
+   "class": "2nd",
+   "sex": "Male",
+   "age": "Adult",
+   "survived": "No",
+   "n": 154
+  },
+  {
+   "class": "3rd",
+   "sex": "Male",
+   "age": "Adult",
+   "survived": "No",
+   "n": 387
+  },
+  {
+   "class": "Crew",
+   "sex": "Male",
+   "age": "Adult",
+   "survived": "No",
+   "n": 670
+  },
+  {
+   "class": "1st",
+   "sex": "Female",
+   "age": "Adult",
+   "survived": "No",
+   "n": 4
+  },
+  {
+   "class": "2nd",
+   "sex": "Female",
+   "age": "Adult",
+   "survived": "No",
+   "n": 13
+  },
+  {
+   "class": "3rd",
+   "sex": "Female",
+   "age": "Adult",
+   "survived": "No",
+   "n": 89
+  },
+  {
+   "class": "Crew",
+   "sex": "Female",
+   "age": "Adult",
+   "survived": "No",
+   "n": 3
+  },
+  {
+   "class": "1st",
+   "sex": "Male",
+   "age": "Child",
+   "survived": "Yes",
+   "n": 5
+  },
+  {
+   "class": "2nd",
+   "sex": "Male",
+   "age": "Child",
+   "survived": "Yes",
+   "n": 11
+  },
+  {
+   "class": "3rd",
+   "sex": "Male",
+   "age": "Child",
+   "survived": "Yes",
+   "n": 13
+  },
+  {
+   "class": "Crew",
+   "sex": "Male",
+   "age": "Child",
+   "survived": "Yes",
+   "n": 0
+  },
+  {
+   "class": "1st",
+   "sex": "Female",
+   "age": "Child",
+   "survived": "Yes",
+   "n": 1
+  },
+  {
+   "class": "2nd",
+   "sex": "Female",
+   "age": "Child",
+   "survived": "Yes",
+   "n": 13
+  },
+  {
+   "class": "3rd",
+   "sex": "Female",
+   "age": "Child",
+   "survived": "Yes",
+   "n": 14
+  },
+  {
+   "class": "Crew",
+   "sex": "Female",
+   "age": "Child",
+   "survived": "Yes",
+   "n": 0
+  },
+  {
+   "class": "1st",
+   "sex": "Male",
+   "age": "Adult",
+   "survived": "Yes",
+   "n": 57
+  },
+  {
+   "class": "2nd",
+   "sex": "Male",
+   "age": "Adult",
+   "survived": "Yes",
+   "n": 14
+  },
+  {
+   "class": "3rd",
+   "sex": "Male",
+   "age": "Adult",
+   "survived": "Yes",
+   "n": 75
+  },
+  {
+   "class": "Crew",
+   "sex": "Male",
+   "age": "Adult",
+   "survived": "Yes",
+   "n": 192
+  },
+  {
+   "class": "1st",
+   "sex": "Female",
+   "age": "Adult",
+   "survived": "Yes",
+   "n": 140
+  },
+  {
+   "class": "2nd",
+   "sex": "Female",
+   "age": "Adult",
+   "survived": "Yes",
+   "n": 80
+  },
+  {
+   "class": "3rd",
+   "sex": "Female",
+   "age": "Adult",
+   "survived": "Yes",
+   "n": 76
+  },
+  {
+   "class": "Crew",
+   "sex": "Female",
+   "age": "Adult",
+   "survived": "Yes",
+   "n": 20
+  }
+ ]
+}
