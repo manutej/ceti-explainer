@@ -1,0 +1,38 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/formula-bind/demo.html",
+ "errors": [],
+ "variants": {
+  "ratio": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/ratio-t2.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/ratio-t5.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/ratio-t7.44.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/ratio-t10.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/ratio-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "product": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/product-t2.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/product-t5.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/product-t7.44.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/product-t10.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/product-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "sum": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/sum-t2.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/sum-t5.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/sum-t7.44.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/sum-t10.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/sum-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 3.7,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/formula-bind/shots/contact.png"
+}
