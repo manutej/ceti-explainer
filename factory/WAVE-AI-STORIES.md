@@ -40,3 +40,9 @@ true scale, a second viewpoint that changes what the numbers mean, no narrator, 
 4. FINAL REVISION (Opus, tier 2): the beyond-scope list, one film.js round, re-gate, G11 clean, re-strip.
 5. SHIP: seat, MEASURES.md, catalogue, gallery, artifact, MP4 (4K + 1080p), commit per lane, push.
 No git from any lane; the orchestrator commits.
+
+## Fourth film, added 2026-10-10 at the owner's request: `noether-symmetry`
+| id | story | the marks | moves | lanes | brand |
+|---|---|---|---|---|---|
+| noether-symmetry | Noether's theorem for a lay audience: every continuous symmetry hides a conserved quantity, and it is not a quantum fact: the default assumption is "conservation laws are rules handed down"; the reversal is that they fall out of symmetry, visible when the same motion is re-projected into the conserved coordinates; then the modern non-quantum uses (classical orbits, fluids, learning dynamics in neural networks, economics or control where the research is solid) | one mark per state of a simulated system (thousands of orbit states as a point cloud; the same points re-projected onto (energy, angular momentum) collapse onto shells), plus one real fixture with grade-A numbers (e.g. Earth at perihelion and aphelion: distance × speed equal within a fraction of a percent, NASA fact sheet) | re-projection (position space → conserved-quantity space, the cloud collapses onto surfaces), re-partition by symmetry (rotation / time / translation), a cut plane through the shell; formula terms flying into the marks | gl-pointcloud (required), gl-camera-rig, gl-labels, formula-bind (+ gl-volume if a shell needs it) | ceti-coastal-dark |
+Format feature-long, dur 153–183, level manager, webgl, commit off (D11). Research first (factory/research/NOETHER-NONQUANTUM.md), then the brief, then two drafts, the same tiers.
