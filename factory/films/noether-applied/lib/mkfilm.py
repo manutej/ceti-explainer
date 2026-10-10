@@ -113,8 +113,21 @@ K = [  # name, default, lo, hi, step, what
  ("pinR1", 110.0, 106, 110, 0.5, "the starting-ring pin goes (seconds)"),
  ("pinRAz", 20, -90, 90, 5, "where on the starting ring the pin points (degrees round the ring)"),
 ]
-names = {k[0] for k in K}
+import sys
 src = open(os.path.join(HERE, "film.src.js"), encoding="utf-8").read()
+if "--regenerate" not in sys.argv:
+    # tier 2 (2026-10-10): film.json is the SOURCE now (rounds 1-2 and the tier-2 revision edited it in place); this script only CHECKS it.
+    # --regenerate rewrites film.json from the stale tables below and would undo those edits: never run it from build.sh.
+    fj = json.load(open(os.path.join(HERE, "..", "film.json"), encoding="utf-8"))
+    names = set(fj["knobs"]); doc = {d["name"] for d in fj["knobs_doc"]}
+    used = set(re.findall(r"\bT\.(\w+)", src)) | set(re.findall(r"KN\.(\w+)", src)) | set(re.findall(r"\bK\.(\w+)", src[src.index("function shots"):src.index("function poseAt")]))
+    assert names == doc, "film.json knobs vs knobs_doc differ: %s" % sorted(names ^ doc)
+    miss = sorted(used - names); assert not miss, "knobs used but not in film.json: %s" % miss
+    extra = sorted(names - used)
+    if extra: print("knobs in film.json but unused:", extra)
+    print("film.json checked (not written): %d knobs, %d captions" % (len(names), len(fj["captions"])))
+    sys.exit(0)
+names = {k[0] for k in K}
 used = set(re.findall(r"\bT\.(\w+)", src)) | set(re.findall(r"KN\.(\w+)", src)) | set(re.findall(r"\bK\.(\w+)", src[src.index("function shots"):src.index("function poseAt")]))
 miss = sorted(used - names)
 extra = sorted(names - used)

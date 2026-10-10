@@ -127,16 +127,6 @@
    "value": 125
   },
   {
-   "name": "hz",
-   "range": [
-    25,
-    60
-   ],
-   "step": 1,
-   "what": "world units of height per unit of simulated time: how tall the ribbons rise",
-   "value": 42
-  },
-  {
    "name": "chainR",
    "range": [
     60,
@@ -150,21 +140,21 @@
    "name": "arrowLen",
    "range": [
     6,
-    30
+    80
    ],
    "step": 1,
    "what": "length of the longest answer arrow on the chain (world units)",
-   "value": 30
+   "value": 55
   },
   {
    "name": "arrowEvery",
    "range": [
     8,
-    60
+    400
    ],
    "step": 1,
    "what": "one answer arrow per this many residues",
-   "value": 36
+   "value": 200
   },
   {
    "name": "turnAx",
@@ -194,7 +184,7 @@
    ],
    "step": 0.5,
    "what": "how many full turns the chain makes",
-   "value": 1
+   "value": 0.5
   },
   {
    "name": "dotR1",
@@ -304,7 +294,7 @@
    ],
    "step": 1,
    "what": "which of the 100 training runs is followed (drawn brighter)",
-   "value": 37
+   "value": 89
   },
   {
    "name": "runDim",
@@ -355,36 +345,6 @@
    "step": 0.05,
    "what": "how far the ghost clouds sink toward the ground (the wide frame, the first pose)",
    "value": 0.45
-  },
-  {
-   "name": "bandA",
-   "range": [
-    0,
-    0.4
-   ],
-   "step": 0.02,
-   "what": "opacity of the ribbon bands",
-   "value": 0.14
-  },
-  {
-   "name": "strandA",
-   "range": [
-    0,
-    1
-   ],
-   "step": 0.05,
-   "what": "opacity of the 25 strands",
-   "value": 0.5
-  },
-  {
-   "name": "strandW",
-   "range": [
-    0.5,
-    3
-   ],
-   "step": 0.1,
-   "what": "line width of the strands",
-   "value": 1.2
   },
   {
    "name": "perS",
@@ -624,7 +584,7 @@
    ],
    "step": 1,
    "what": "elevation over the flat ring at the start of the loop",
-   "value": 70
+   "value": 55
   },
   {
    "name": "camS3Dist0",
@@ -634,7 +594,7 @@
    ],
    "step": 10,
    "what": "distance to the flat ring",
-   "value": 760
+   "value": 900
   },
   {
    "name": "camS3El1",
@@ -644,7 +604,7 @@
    ],
    "step": 1,
    "what": "elevation at the end of the crane over the loop",
-   "value": 26
+   "value": 9
   },
   {
    "name": "camS3Dist1",
@@ -654,7 +614,7 @@
    ],
    "step": 10,
    "what": "distance at the end of the crane",
-   "value": 1100
+   "value": 700
   },
   {
    "name": "camM4Az",
@@ -920,11 +880,11 @@
    "name": "m4T0",
    "range": [
     111,
-    118
+    119
    ],
-   "step": 0.5,
-   "what": "crane over the loop starts; the ribbons start to rise (seconds)",
-   "value": 113
+   "step": 0.2,
+   "what": "crane over the loop starts, after the stirring (seconds)",
+   "value": 117
   },
   {
    "name": "m4T1",
@@ -932,9 +892,9 @@
     117,
     122
    ],
-   "step": 0.5,
-   "what": "crane ends: the loop at the end, the ribbons under it (seconds)",
-   "value": 121
+   "step": 0.2,
+   "what": "crane ends: the wall seen from the side, its top flat (seconds)",
+   "value": 120
   },
   {
    "name": "tS4",
@@ -984,7 +944,7 @@
    ],
    "step": 0.5,
    "what": "the chain has turned once (seconds)",
-   "value": 134.5
+   "value": 132.5
   },
   {
    "name": "tWide",
@@ -1085,10 +1045,110 @@
    "step": 5,
    "what": "where on the starting ring the pin points (degrees round the ring)",
    "value": 20
+  },
+  {
+   "name": "stirT0",
+   "range": [
+    110,
+    116
+   ],
+   "step": 0.2,
+   "what": "the stirring starts (the camera is still over the loop) (seconds)",
+   "value": 111.8
+  },
+  {
+   "name": "stirT1",
+   "range": [
+    114,
+    119
+   ],
+   "step": 0.2,
+   "what": "the stirring ends: the loop has stretched and folded (seconds)",
+   "value": 116.8
+  },
+  {
+   "name": "wallH",
+   "range": [
+    20,
+    120
+   ],
+   "step": 2,
+   "what": "height of the wall at the start: the swirl's start value (world units); later heights are the computed swirl over its start value",
+   "value": 80
+  },
+  {
+   "name": "wallA",
+   "range": [
+    0.05,
+    0.6
+   ],
+   "step": 0.01,
+   "what": "opacity of the wall",
+   "value": 0.22
+  },
+  {
+   "name": "wallEdge",
+   "range": [
+    0.5,
+    4
+   ],
+   "step": 0.1,
+   "what": "line width of the wall's top edge",
+   "value": 1.8
+  },
+  {
+   "name": "flungLen",
+   "range": [
+    10,
+    80
+   ],
+   "step": 2,
+   "what": "length of the outward arrow at the thrown-out planets (world units)",
+   "value": 40
+  },
+  {
+   "name": "arrowW",
+   "range": [
+    1,
+    6
+   ],
+   "step": 0.1,
+   "what": "line width of the answer arrows and the outward arrow",
+   "value": 3.2
+  },
+  {
+   "name": "trackW",
+   "range": [
+    1,
+    6
+   ],
+   "step": 0.1,
+   "what": "line width of the followed run's track",
+   "value": 2.6
+  },
+  {
+   "name": "walkR",
+   "range": [
+    2,
+    8
+   ],
+   "step": 0.2,
+   "what": "radius of the followed run's dot walking its track",
+   "value": 4.2
+  },
+  {
+   "name": "tagAdv",
+   "range": [
+    8,
+    11
+   ],
+   "step": 0.01,
+   "what": "advance per character of the tag's lay line (Space Mono 14 at letter-spacing 1), for the coloured words",
+   "value": 9.57
   }
  ],
- "ms_per_frame": 158,
- "s_per_frame": 0.158,
+ "ms_per_frame": 153,
+ "s_per_frame": 0.153,
  "purity": {
   "pass": true,
   "at": {
@@ -3583,7 +3643,7 @@
    "file": "thumbs/t-0111.00.jpg",
    "strip": "strip-19.png",
    "cell": 6,
-   "caption": null,
+   "caption": "Weather: tag a loop of air and follow it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3594,7 +3654,7 @@
    "file": "thumbs/t-0111.50.jpg",
    "strip": "strip-19.png",
    "cell": 7,
-   "caption": null,
+   "caption": "Weather: tag a loop of air and follow it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3605,7 +3665,7 @@
    "file": "thumbs/t-0112.00.jpg",
    "strip": "strip-19.png",
    "cell": 8,
-   "caption": null,
+   "caption": "Weather: tag a loop of air and follow it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3649,7 +3709,7 @@
    "file": "thumbs/t-0114.00.jpg",
    "strip": "strip-20.png",
    "cell": 0,
-   "caption": "Weather: tag a loop of air and follow it.",
+   "caption": "The loop stretches and folds.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3660,7 +3720,7 @@
    "file": "thumbs/t-0114.50.jpg",
    "strip": "strip-20.png",
    "cell": 1,
-   "caption": "Weather: tag a loop of air and follow it.",
+   "caption": "The loop stretches and folds.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3671,7 +3731,7 @@
    "file": "thumbs/t-0115.00.jpg",
    "strip": "strip-20.png",
    "cell": 2,
-   "caption": "Weather: tag a loop of air and follow it.",
+   "caption": "The loop stretches and folds.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3682,7 +3742,7 @@
    "file": "thumbs/t-0115.50.jpg",
    "strip": "strip-20.png",
    "cell": 3,
-   "caption": "Weather: tag a loop of air and follow it.",
+   "caption": "The loop stretches and folds.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3693,7 +3753,7 @@
    "file": "thumbs/t-0116.00.jpg",
    "strip": "strip-20.png",
    "cell": 4,
-   "caption": "Weather: tag a loop of air and follow it.",
+   "caption": "The loop stretches and folds.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3770,7 +3830,7 @@
    "file": "thumbs/t-0119.50.jpg",
    "strip": "strip-20.png",
    "cell": 11,
-   "caption": "The swirl around it stays the same.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3957,7 +4017,7 @@
    "file": "thumbs/t-0128.00.jpg",
    "strip": "strip-22.png",
    "cell": 4,
-   "caption": "Turn the chain. A protein AI turns its answer with it.",
+   "caption": "Turn the chain. Its answer arrows turn with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3968,7 +4028,7 @@
    "file": "thumbs/t-0128.50.jpg",
    "strip": "strip-22.png",
    "cell": 5,
-   "caption": "Turn the chain. A protein AI turns its answer with it.",
+   "caption": "Turn the chain. Its answer arrows turn with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3979,7 +4039,7 @@
    "file": "thumbs/t-0129.00.jpg",
    "strip": "strip-22.png",
    "cell": 6,
-   "caption": "Turn the chain. A protein AI turns its answer with it.",
+   "caption": "Turn the chain. Its answer arrows turn with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -3990,7 +4050,7 @@
    "file": "thumbs/t-0129.50.jpg",
    "strip": "strip-22.png",
    "cell": 7,
-   "caption": "Turn the chain. A protein AI turns its answer with it.",
+   "caption": "Turn the chain. Its answer arrows turn with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -4001,7 +4061,7 @@
    "file": "thumbs/t-0130.00.jpg",
    "strip": "strip-22.png",
    "cell": 8,
-   "caption": "Turn the chain. A protein AI turns its answer with it.",
+   "caption": "Turn the chain. Its answer arrows turn with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -4012,7 +4072,7 @@
    "file": "thumbs/t-0130.50.jpg",
    "strip": "strip-22.png",
    "cell": 9,
-   "caption": "Turn the chain. A protein AI turns its answer with it.",
+   "caption": "Turn the chain. Its answer arrows turn with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"
@@ -4023,7 +4083,7 @@
    "file": "thumbs/t-0131.00.jpg",
    "strip": "strip-22.png",
    "cell": 10,
-   "caption": "Turn the chain. A protein AI turns its answer with it.",
+   "caption": "Turn the chain. Its answer arrows turn with it.",
    "chapter": {
     "id": "count",
     "title": "Networks, air and a chain, sorted by what stays"

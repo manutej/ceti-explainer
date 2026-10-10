@@ -4,7 +4,11 @@
    energy-keeping network; a wordless ribbon loop for the weather; a chain of dots that turns with its input.
    Text rules (v2 director note): no text moves; one readout panel (right third, fixed, at most two rows + one callout), one caption band, one corner tag,
    at most one pin, never over the cloud. One clock: render(t) draws frame t from t alone. gl-pointcloud is the patched copy (id-stable morph).
-   Every digit on screen is a claim (rows say the claim's words). Scene 3 is a film-local mesh (stored-frame loop dots + time-extruded ribbons). */
+   Every digit on screen is a claim (rows say the claim's words). Scene 3 is a film-local mesh (stored-frame loop dots + a wall whose height is the loop's
+   computed circulation, ported from draft b).
+   Tier 2 (2026-10-10): the plain group is a film-local warm role PLN ("warm sand", the brand's own voice), not accent2 (two pale cyans merged at thumb size);
+   no legend (the tag's lay line names the two groups in their own colours); the followed run draws its track; answer arrows have width and heads;
+   the thrown-out planets end in an outward arrow; the honest line is one row. */
 (function () {
 'use strict';
 const F = window.FILM, P = F.params, A = window.ARSENAL, K0 = window.KIT, DATA = window.NA_DATA;
@@ -25,19 +29,20 @@ const AB = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-', A
 for (let i = 0; i < 64; i++) ABI[AB[i]] = i;
 const qv = (s, i, n) => { let v = 0; for (let j = 0; j < n; j++) v = v * 64 + ABI[s[i + j]]; return v; };
 const delayOf = (k) => (k * 0.6180339) % 1;
-const NS = 1000, NH = 200, NF = 61, NSTR = 25;        // snapshots per stepper, snapshots per toy network, stored loop frames, ribbon strands
+const NS = 1000, NH = 200, NF = 61;                    // snapshots per stepper, snapshots per toy network, stored loop frames
 const SHELL3 = [0.4, 0.8, 1.2];                        // part 1's three layer-gap shells (units of the fixed sum)
 
 let C, SHD, BG, HI, CAM, SH, COL = {}, G = {}, LAST = {};
+const PLN = '#E8A867';   // film-local role: the plain one (keeps nothing). Warm sand against the brand's mint accent; 9.6:1 on the ground
 
 function colours() {
   const soft = hex3(C.soft), acc = hex3(C.accent), ink = hex3(C.ink), mut = hex3(C.muted), bg = hex3(C.paper), mx = (a, b, u) => a.map((x, i) => x + (b[i] - x) * u);
-  const sand = [ink[0], ink[1] * 0.8, ink[2] * 0.56], one = (c) => [c, c, c, c, c, c].flat();
-  COL.pair = [acc, soft, acc, soft, acc, soft].flat();                         // lvl 0 = the one that keeps, lvl 1 = the plain one
+  const sand = [ink[0], ink[1] * 0.8, ink[2] * 0.56], one = (c) => [c, c, c, c, c, c].flat(), pl = hex3(PLN);
+  COL.pair = [acc, pl, acc, pl, acc, pl].flat();                               // lvl 0 = the one that keeps, lvl 1 = the plain one (warm)
   COL.net = [mx(acc, bg, 0.3), acc, mx(acc, ink, 0.5), acc, acc, acc].flat();  // three runs' shades, all "keeps"
-  COL.chain = [0, 1, 2, 3, 4, 5].map((i) => mx(acc, ink, i * 0.12)).flat();
-  COL.muted = one(mut); COL.acc = one(acc); COL.soft = one(soft); COL.sand = one(sand); COL.ink = one(ink);
-  BG = bg; HI = ink; COL.v = { acc, soft, ink, mut, sand };
+  COL.chain = [0, 1, 2, 3, 4, 5].map((i) => mx(mx(mut, bg, 0.42), acc, i * 0.03)).flat();   // residues quiet, so the answer arrows read
+  COL.muted = one(mut); COL.acc = one(acc); COL.soft = one(pl); COL.sand = one(sand); COL.ink = one(ink);
+  BG = bg; HI = ink; COL.v = { acc, soft: pl, ink, mut, sand, pl };
 }
 
 /* ── data: snapshots of the two steppers, the toy pair, part 1's network, the stirred loop, the stand-in chain ── */
@@ -91,6 +96,8 @@ function buildS1(p) {
   let b = -1e9; G.fP = NS + 900;
   for (let k = 880; k < NS; k++) { const v = rows[NS + k].t1[0] * rt[0] + rows[NS + k].t1[2] * rt[2]; if (v > b) { b = v; G.fP = NS + k; } }
   s1feat(rows); G.s1f = PC.make(p, rows);
+  // the thrown-out snapshots (the plain planet unbound: step >= rk4FirstUnbound): they end in one outward arrow, not a stray tick
+  G.u0 = st.findIndex((v) => v >= P.rk4FirstUnbound); G.uA = NS + G.u0; G.uB = NS + NS - 1;
   // the base orbit as a faint ring of dots, the planets and the sun (one dot each)
   const ring = []; for (let i = 0; i < 160; i++) { const xy = kepler(P.ecc, TAU * i / 160); ring.push({ h: [xy[0] * T.sP1, 0, xy[1] * T.sP1], lvl: 0, size: 0.2, order: i }); }
   G.ring = PC.make(p, ring); G.one = PC.make(p, [{ h: [0, 0, 0], lvl: 0, size: 0.9, order: 0 }]);
@@ -106,7 +113,7 @@ function buildS2a(p, K) {
     const rad = len3(r.c) * T.sC;
     r.w.forEach((w, j) => { const d = sub(w, mn), h = [d[0] * T.sW, -d[2] * T.sW, d[1] * T.sW]; rows.push({ h, t1: mul(nrm3(h), rad), lvl: i % 3, size: 0.5, order: nr[i] * per + j, delay: delayOf(i), feat: i === T.followRun ? 0 : -1 }); });
   });
-  G.s2a = PC.make(p, rows); G.rows2a = rows; G.run2a = rows.filter((r) => r.feat === 0);
+  G.s2a = PC.make(p, rows); G.rows2a = rows; G.run2a = rows.filter((r) => r.feat === 0); G.run2a0 = T.followRun * per; G.per = per;
 }
 
 /* scene 2b: our toy pair, 200 snapshots each, (position, momentum) x snapshot; the drift from the starting ring is stretched for the eye */
@@ -123,7 +130,7 @@ function buildS2b(p) {
 
 /* scene 3: three point vortices stir a closed loop of 2,000 parcels (recompute.py C, RK4 dt 0.01 here (0.005 in recompute.py: half the setup time, same picture), same vortices); stored as NF frames, 0.1 s apart */
 function stir() {
-  const NP = 2000, dt = 0.01, nst = 600, ev = nst / (NF - 1), X = new Float64Array(NP * 2), V = [[0, 0, 1], [1.2, 0, 1], [0.6, 1.1, -0.6]], fr = [];
+  const NP = 2000, dt = 0.01, nst = 600, ev = nst / (NF - 1), X = new Float64Array(NP * 2), V = [[0, 0, 1], [1.2, 0, 1], [0.6, 1.1, -0.6]], fr = [], vf = [];
   for (let i = 0; i < NP; i++) { const th = TAU * i / NP; X[2 * i] = 0.25 + 0.5 * Math.cos(th); X[2 * i + 1] = 0.5 * Math.sin(th); }
   const rhs = (Xs, vo, kx, kv) => {   // parcels: the three vortices unrolled (the setup budget is 5 s)
     const x0 = vo[0][0], y0 = vo[0][1], g0 = vo[0][2] / TAU, x1 = vo[1][0], y1 = vo[1][1], g1 = vo[1][2] / TAU, x2 = vo[2][0], y2 = vo[2][1], g2 = vo[2][2] / TAU;
@@ -139,7 +146,7 @@ function stir() {
   const k1 = new Float64Array(NP * 2), k2 = new Float64Array(NP * 2), k3 = new Float64Array(NP * 2), k4 = new Float64Array(NP * 2), Xt = new Float64Array(NP * 2), a1 = new Float64Array(6), a2 = new Float64Array(6), a3 = new Float64Array(6), a4 = new Float64Array(6);
   const vs = (vo, k, h) => vo.map((v, j) => [v[0] + h * k[2 * j], v[1] + h * k[2 * j + 1], v[2]]);
   for (let s = 0; s <= nst; s++) {
-    if (s % ev === 0) fr.push(Float32Array.from(X));
+    if (s % ev === 0) { fr.push(Float32Array.from(X)); vf.push(V.map((v) => v.slice())); }
     rhs(X, V, k1, a1);
     for (let i = 0; i < NP * 2; i++) Xt[i] = X[i] + 0.5 * dt * k1[i]; rhs(Xt, vs(V, a1, 0.5 * dt), k2, a2);
     for (let i = 0; i < NP * 2; i++) Xt[i] = X[i] + 0.5 * dt * k2[i]; rhs(Xt, vs(V, a2, 0.5 * dt), k3, a3);
@@ -147,18 +154,41 @@ function stir() {
     for (let i = 0; i < NP * 2; i++) X[i] += dt / 6 * (k1[i] + 2 * k2[i] + 2 * k3[i] + k4[i]);
     for (let j = 0; j < 3; j++) for (let c = 0; c < 2; c++) V[j][c] += dt / 6 * (a1[2 * j + c] + 2 * a2[2 * j + c] + 2 * a3[2 * j + c] + a4[2 * j + c]);
   }
-  return fr;
+  return { fr, vf };
+}
+/* the swirl around the loop at stored frame i: circulation = sum over the loop's 2,000 segments of the velocity (three vortices) at the segment's middle
+   times the segment. Kelvin: it does not change as the loop is carried by the flow; the wall's height is this number over its start value (computed, not drawn flat) */
+function circulation(f, vo) {
+  const n = f.length / 2; let g = 0;
+  for (let j = 0; j < n; j++) {
+    const k = (j + 1) % n, x = (f[2 * j] + f[2 * k]) / 2, y = (f[2 * j + 1] + f[2 * k + 1]) / 2, lx = f[2 * k] - f[2 * j], ly = f[2 * k + 1] - f[2 * j + 1];
+    let ux = 0, uy = 0; for (const v of vo) { const dx = x - v[0], dy = y - v[1], c = v[2] / (TAU * (dx * dx + dy * dy + 1e-12)); ux -= c * dy; uy += c * dx; }
+    g += ux * lx + uy * ly;
+  }
+  return g;
 }
 function buildS3() {
-  const T = KN; G.fr = stir();
+  const T = KN, S = stir(); G.fr = S.fr;
   let cx = 0, cy = 0, n = 0; G.fr.forEach((f) => { for (let i = 0; i < f.length; i += 2) { cx += f[i]; cy += f[i + 1]; n++; } }); cx /= n; cy /= n;
-  G.w3 = (f, i, tau) => [(f[2 * i] - cx) * T.sK, -tau * T.hz, (f[2 * i + 1] - cy) * T.sK];
-  G.tau = (i) => i * P.kelvinT / (NF - 1);
-  G.str = []; for (let s = 0; s < NSTR; s++) { const j = s * (2000 / NSTR), a = []; G.fr.forEach((f, i) => a.push(G.w3(f, j, G.tau(i)))); G.str.push(a); }
-  G.top3 = -P.kelvinT * T.hz; G.mid3 = G.top3 / 2; G.seg3 = {};
+  G.w3 = (f, i) => [(f[2 * i] - cx) * T.sK, 0, (f[2 * i + 1] - cy) * T.sK];   // flat: the loop stays on the floor, the wall stands on it
+  const c0 = circulation(G.fr[0], S.vf[0]); G.circ = G.fr.map((f, i) => circulation(f, S.vf[i]) / c0);
+  G.seg3 = {};
+}
+/* the wall on the loop at stored frame i + u: its points (every 4th parcel) and its height (the swirl over its start value, times wallH) */
+function wallAt(i, u) {
+  const a = G.fr[i], b = G.fr[i + 1], q = [];
+  for (let j = 0; j < 2000; j += 4) { const x = G.w3(a, j), y = G.w3(b, j); q.push([x[0] + (y[0] - x[0]) * u, 0, x[2] + (y[2] - x[2]) * u]); }
+  return { q, h: KN.wallH * (G.circ[i] + (G.circ[i + 1] - G.circ[i]) * u) };
+}
+function wall(p, w, col, a, edge) {   // draft b's wall: a closed band from the floor up to the swirl's height, its top edge drawn
+  if (a <= 0.01) return; const q = w.q, n = q.length;
+  p.noStroke(); p.fill(col[0] * 255, col[1] * 255, col[2] * 255, a * 255); p.beginShape(p.TRIANGLE_STRIP);
+  for (let i = 0; i <= n; i++) { const v = q[i % n]; p.vertex(v[0], 0, v[2]); p.vertex(v[0], -w.h, v[2]); }
+  p.endShape();
+  p.noFill(); p.stroke(edge[0] * 255, edge[1] * 255, edge[2] * 255, Math.min(1, a * 4) * 255); p.strokeWeight(KN.wallEdge); p.beginShape(); for (const v of q) p.vertex(v[0], -w.h, v[2]); p.endShape(p.CLOSE);
 }
 function loopSeg(p, i) {   // the 2,000 parcel dots from stored frame i to frame i+1 (one baked cloud per 0.1 s, linear path), baked on first use
-  if (!G.seg3[i]) { const a = G.fr[i], b = G.fr[i + 1], rows = []; for (let j = 0; j < 2000; j++) rows.push({ h: G.w3(a, j, G.tau(i)), t1: G.w3(b, j, G.tau(i + 1)), lvl: 0, size: 0.5, order: j }); G.seg3[i] = PC.make(p, rows); }
+  if (!G.seg3[i]) { const a = G.fr[i], b = G.fr[i + 1], rows = []; for (let j = 0; j < 2000; j++) rows.push({ h: G.w3(a, j), t1: G.w3(b, j), lvl: 0, size: 0.5, order: j }); G.seg3[i] = PC.make(p, rows); }
   return G.seg3[i];
 }
 
@@ -200,8 +230,8 @@ function shots() {
   at(K.tS2a, K.tS2a, s2);
   at(K.m3T0, K.m3T1, Object.assign({}, s2, { az: K.camS2Az + K.camM3Az }));
   at(K.tS2b, K.tS2b, { az: K.camS2bAz, el: K.camS2bEl, d: K.camS2bDist, c: [0, G.mid2, 0] });
-  at(K.tS3, K.tS3, { az: K.camS3Az, el: K.camS3El0, d: K.camS3Dist0, c: [0, 0, 0] });
-  at(K.m4T0, K.m4T1, { az: K.camS3Az + K.camM4Az, el: K.camS3El1, d: K.camS3Dist1, c: [0, G.mid3, 0] });
+  at(K.tS3, K.tS3, { az: K.camS3Az, el: K.camS3El0, d: K.camS3Dist0, c: [0, -K.wallH / 2, 0] });
+  at(K.m4T0, K.m4T1, { az: K.camS3Az + K.camM4Az, el: K.camS3El1, d: K.camS3Dist1, c: [0, -K.wallH / 2, 0] });   // the crane, after the stirring: the camera still while the data moves
   at(K.tS4, K.tS4, { az: K.camS4Az, el: K.camS4El, d: K.camS4Dist, c: [0, 0, 0] });
   at(K.tWide, K.tWide, { az: K.camWideAz, el: K.camWideEl, d: K.camWideDist, c: [0, K.camWideCY, 0], lx: K.lensXWide, ly: K.lensYWide });
   return S;
@@ -227,6 +257,11 @@ function applyCam(p, t) {
 /* guides drawn as lines: a closed 3D loop, a sphere's silhouette circle as seen from the eye, an arrow */
 function loop3(p, q, col, w, a) { if (!q || a <= 0.01) return; p.noFill(); p.stroke(col[0] * 255, col[1] * 255, col[2] * 255, a * 255); p.strokeWeight(w); p.beginShape(); for (const v of q) p.vertex(v[0], v[1], v[2]); p.endShape(p.CLOSE); }
 function line3(p, a, b, col, w, al) { p.stroke(col[0] * 255, col[1] * 255, col[2] * 255, al * 255); p.strokeWeight(w); p.line(a[0], a[1], a[2], b[0], b[1], b[2]); }
+function arrow3(p, a, b, col, w, al, head) {   // a line with a four-barb head at b (draft b's helper): reads as a direction from any side
+  if (al <= 0.01) return; line3(p, a, b, col, w, al);
+  const d = nrm3(sub(b, a)), s1 = nrm3(cross(d, Math.abs(d[1]) > 0.9 ? [1, 0, 0] : [0, 1, 0])), s2 = nrm3(cross(d, s1));
+  for (const q of [s1, mul(s1, -1), s2, mul(s2, -1)]) { const e = add(sub(b, mul(d, head)), mul(q, head * 0.45)); p.line(b[0], b[1], b[2], e[0], e[1], e[2]); }
+}
 function sil(eye, o, R) {
   const e = sub(eye, o), d = len3(e); if (d < R * 1.05) return null;
   const n = mul(e, 1 / d), u = nrm3([n[2], 0, -n[0]]), v = cross(n, u), c = add(o, mul(n, R * R / d)), r = R * Math.sqrt(1 - R * R / (d * d)), q = [];
@@ -249,7 +284,6 @@ const ROWS = [
   [106.5, 110.0, 2, ['about 450 times', 'lower'], 28, '', 'ink'],
   [124.5, 135.0, 0, ['2,180'], 36, 'RESIDUES, ONE DOT EACH', 'ink'],
 ];
-const LEG = [[14.0, 62.0, 'KEEPER · KEEPS ITS NUMBER', 'PLAIN · JUST STEPS'], [90.0, 110.0, 'ENERGY-KEEPING NETWORK', 'PLAIN NETWORK']];
 
 window.FILM_RENDER = {
   async setup(p, K) {
@@ -273,7 +307,7 @@ window.FILM_RENDER = {
     if (sc === 1) {
       const hook = t < T.cin1T0, m1 = seg(t, T.m1T0, T.m1T1), shown = NS * seg(t, T.cin1T0 + 0.3, T.cin1T1), settled = sm(seg(t, T.m1T1 - 1.5, T.m1T1));
       LAST.shown = shown; LAST.m1 = m1;
-      draw(G.one, { col: COL.sand, r: hook ? 5 : 3.4, sizeCue: 0 });                                    // the sun, on the axis
+      draw(G.one, { col: COL.ink, r: hook ? 5 : 3.4, sizeCue: 0 });                                     // the sun, on the axis (ink: warm is the plain one's colour)
       if (t < T.cin1T1) {
         const ring = 1 - 0.5 * sm(seg(t, T.cin1T1 - 1, T.cin1T1));
         draw(G.ring, { col: COL.muted, r: T.wireR, sizeCue: 0, dim: 1 - 0.7 * ring });                  // the orbit, faint ghost of the shell
@@ -289,16 +323,22 @@ window.FILM_RENDER = {
         for (let i = 0; i <= 6; i++) loop3(p, circ([0, 0, 0], G.tube, G.top1 * i / 6, 56), COL.v.acc, 1.1, 0.55 * tw);
         for (let i = 0; i < 8; i++) { const a = TAU * i / 8, c = Math.cos(a) * G.tube, s2 = Math.sin(a) * G.tube; line3(p, [c, 0, s2], [c, G.top1, s2], COL.v.acc, 1, 0.4 * tw); }
       }
+      let tip = null;
+      if (t >= T.cin1T0 && shown > G.u0 + 1) {                                                             // the thrown-out planets leave: one outward arrow at their streak
+        const a = PC.at(G.s1, G.uA, m1, T.stag), b = PC.at(G.s1, G.uB, m1, T.stag), mid = mul(add(a, b), 0.5), out = nrm3([mid[0], 0, mid[2]]);
+        const b0 = add(mid, mul(out, 8)); tip = add(b0, mul(out, T.flungLen));
+        arrow3(p, b0, tip, COL.v.pl, T.arrowW, sm(seg(shown, G.u0 + 1, G.u0 + 40)), T.flungLen * 0.3);
+      }
       if (pins) {
         const kp = (i) => PC.at(G.s1, i, m1, T.stag);
         const wA = kp(G.fK), wB = kp(G.fP);
         LAST.pinA = wA; LAST.pinB = wB;
-        const ex = G.rows1.reduce((b, r, i) => (i % 3 ? b : Math.max(b, scr(r.t1)[0])), -1e9);
+        const ex = Math.max(G.rows1.reduce((b, r, i) => (i % 3 ? b : Math.max(b, scr(r.t1)[0])), -1e9), tip ? scr(tip)[0] : -1e9);
         const text = (key, w, a, b, tt, ss, col) => { const o = sm(seg(t, a, a + 0.35)); if (t < a || t >= b) return; const v = scr(w), x = ex + 22, y = clamp(v[1], 120, 380);
           K.ln(key + 'l', 'labels', v[0] + 3, v[1], x - 6, y - 5, { stroke: C.muted, w: 1, op: o }); K.rc(key + 'd', 'labels', v[0] - 2.5, v[1] - 2.5, 5, 5, { fill: C.ink, op: o });
           K.tx(key + 't', 'labels', x, y, tt, { size: 16, fill: col, role: 'secondary', ls: 1, op: o }); K.tx(key + 's', 'labels', x, y + 20, ss, { size: 14, fill: C.muted, role: 'secondary', ls: 1, op: o }); };
         text('pa.', wA, T.pinA0, T.pinB0, 'THE KEEPER', 'STAYS INSIDE', C.accent);
-        text('pb.', wB, T.pinB0, T.pinB1, 'THE PLAIN ONE', 'FLUNG OUT', C.soft);
+        text('pb.', wB, T.pinB0, T.pinB1, 'THE PLAIN ONE', 'FLUNG OUT', PLN);
       }
     }
     if (sc === 2) {
@@ -307,6 +347,12 @@ window.FILM_RENDER = {
       draw(G.s2a, { col: COL.net, r: T.dotR2, shown, m1, f, fdim: f * T.runDim, grow: 0 });
       const nR = sm(seg(t, T.m3T1 - 1.2, T.m3T1));
       if (nR > 0.01) SHELL3.forEach((r) => loop3(p, sil(pose.eye, [0, 0, 0], r * T.sC), HI, 1, 0.5 * nR));
+      if (f) {                                                                                             // the followed run: its whole track, then its dot walking it
+        const tr = []; for (let j = 0; j < G.per; j++) tr.push(PC.at(G.s2a, G.run2a0 + j, m1, T.stag));
+        p.noFill(); p.stroke(HI[0] * 255, HI[1] * 255, HI[2] * 255, 0.9 * 255 * sm(seg(t, T.cin2T1, T.cin2T1 + 0.6))); p.strokeWeight(T.trackW); p.beginShape(); for (const v of tr) p.vertex(v[0], v[1], v[2]); p.endShape();
+        if (t >= T.pinN0) { const u = sm(seg(t, T.pinN0 + 0.3, T.pinN1 - 0.6)) * (G.per - 1), j = Math.min(G.per - 2, Math.floor(u)), w = u - j, a = tr[j], b = tr[j + 1];
+          draw(G.one, { off: [a[0] + (b[0] - a[0]) * w, a[1] + (b[1] - a[1]) * w, a[2] + (b[2] - a[2]) * w], col: COL.ink, r: T.walkR, sizeCue: 0 }); }
+      }
       if (t >= T.pinN0 && t < T.pinN1) {
         let b = -1e9, w = null; G.run2a.forEach((r) => { const v = scr(r.t1)[0]; if (v > b) { b = v; w = r.t1; } });
         const ex = G.rows2a.reduce((m, r, i) => (i % 25 ? m : Math.max(m, scr(r.t1)[0])), -1e9);
@@ -329,10 +375,12 @@ window.FILM_RENDER = {
       }
     }
     if (sc === 4) {
-      const prog = sm(seg(t, T.m4T0, T.m4T1)), tau = P.kelvinT * prog, f = tau / (P.kelvinT / (NF - 1)), i = Math.min(NF - 2, Math.floor(f)), u = f - i;
-      LAST.tau = tau;
+      const prog = sm(seg(t, T.stirT0, T.stirT1)), tau = P.kelvinT * prog, f = tau / (P.kelvinT / (NF - 1)), i = Math.min(NF - 2, Math.floor(f)), u = Math.min(1, f - i);
+      const w = wallAt(i, u), w0 = wallAt(0, 0), fa = sm(seg(t, T.tS3 + 0.3, T.tS3 + 1.3)), gh = sm(seg(t, T.stirT0, T.stirT0 + 1.2));
+      LAST.tau = tau; LAST.wallH = w.h; LAST.circ = w.h / T.wallH;
+      if (gh > 0.01) { loop3(p, w0.q.map((v) => [v[0], -w0.h, v[2]]), COL.v.mut, 1, 0.5 * gh); loop3(p, w0.q, COL.v.mut, 1, 0.3 * gh); }   // the start: a ghost of the first wall's top and foot
       draw(loopSeg(p, i), { col: COL.acc, r: T.dotR4, m1: u, lin: 1, sizeCue: T.sizeCue });
-      drawRibbons(p, i, u);
+      wall(p, w, COL.v.acc, T.wallA * fa, COL.v.acc);
     }
     if (sc === 5) {
       const n = P.residues, shown = n * seg(t, T.cin4T0, T.cin4T1), th = TAU * T.turns * sm(seg(t, T.m5T0, T.m5T1)), ax = G.ax;
@@ -341,60 +389,50 @@ window.FILM_RENDER = {
       p.push(); p.rotate(th, ax);
       if (shown >= n) { p.noFill(); p.stroke(COL.v.mut[0] * 255, COL.v.mut[1] * 255, COL.v.mut[2] * 255, 0.35 * 255); p.strokeWeight(0.8); p.beginShape(); for (const x of G.X4) p.vertex(x[0], x[1], x[2]); p.endShape(); }
       draw(G.s4, { col: COL.chain, r: T.dotR5, shown, sizeCue: T.sizeCue });
-      if (shown >= n) for (let i = 0; i < n; i += T.arrowEvery) line3(p, G.X4[i], add(G.X4[i], G.O4[i]), COL.v.acc, 1.4, 0.95);   // the answer, inside the turning frame: it turns with the input
       p.pop();
-      if (shown >= n) for (let i = 0; i < n; i += T.arrowEvery) { const b = rot(G.X4[i], ax, th); line3(p, b, add(b, G.O4[i]), COL.v.soft, 1.2, 0.75); }   // a plain layer: the answer does not turn
+      const ar = sm(seg(t, T.cin4T1, T.cin4T1 + 0.6)), hd = T.arrowLen * 0.32, pl = sm(seg(th, 0.05, 0.35));
+      if (shown >= n) for (let i = 0; i < n; i += T.arrowEvery) { const b = rot(G.X4[i], ax, th); arrow3(p, b, add(b, G.O4[i]), COL.v.pl, T.arrowW, ar * pl, hd); }   // a plain layer: the answer does not turn (warm, under)
+      if (shown >= n) { p.push(); p.rotate(th, ax); for (let i = 0; i < n; i += T.arrowEvery) arrow3(p, G.X4[i], add(G.X4[i], G.O4[i]), COL.v.acc, T.arrowW, ar, hd); p.pop(); }   // the answer, inside the turning frame: it turns with the input
     }
     if (sc === 6) {
       const o = T.wideOff, gd = { dim: T.ghostDim, sizeCue: T.sizeCue, r: T.dotRW };
       draw(G.s1, Object.assign({ off: [o * 1.5, -G.mid1, 0], col: COL.pair, m1: 1 }, gd));
       draw(G.s2a, Object.assign({ off: [o * 0.5, 0, 0], col: COL.net, m1: 1 }, gd));
-      draw(loopSeg(p, NF - 2), Object.assign({ off: [-o * 0.5, -G.mid3, 0], col: COL.acc, m1: 1, lin: 1 }, gd));
-      p.push(); p.translate(-o * 0.5, -G.mid3, 0); drawRibbons(p, NF - 2, 1, 0.5); p.pop();
+      draw(loopSeg(p, NF - 2), Object.assign({ off: [-o * 0.5, T.wallH / 2, 0], col: COL.acc, m1: 1, lin: 1 }, gd));
+      p.push(); p.translate(-o * 0.5, T.wallH / 2, 0); wall(p, wallAt(NF - 2, 1), COL.v.acc, T.wallA * 0.6, COL.v.mut); p.pop();
       draw(G.s4, Object.assign({ off: [-o * 1.5, 0, 0], col: COL.chain }, gd));
     }
 
     // ───────── 2 · type: the corner tag (+ lay axis words), the panel (key, rows), the question, the honest line ─────────
     const in2 = (a, b) => t >= a && t < b;
-    let tag, lay = '', tc = C.soft;
-    if (t < T.tS2a) { tag = 'SIMULATED · A PLANET, STEPPED BY A COMPUTER'; lay = t < T.m1T0 ? 'EACH DOT: ONE SNAPSHOT · UP: MORE STEPS' : t < T.m1T1 + 0.5 ? 'SAME DOTS, RE-PLOTTED' : 'OUT: ENERGY DRIFT, STRETCHED · UP: MORE STEPS'; if (t < T.cin1T0) lay = ''; }
+    // the tag's lay line is the only key: the two groups' names are set in their own colours (no legend on the stage)
+    let tag, lay = '', tc = C.muted;
+    const two = (a, b, rest) => [[a, C.accent], [' · ', C.muted], [b, PLN], [rest, C.muted]];
+    if (t < T.tS2a) { tag = 'SIMULATED · A PLANET, STEPPED BY A COMPUTER'; lay = t < T.m1T0 ? two('KEEPER', 'PLAIN', ' · EACH DOT: ONE SNAPSHOT · UP: MORE STEPS') : t < T.m1T1 + 0.5 ? 'SAME DOTS, RE-PLOTTED' : two('KEEPER', 'PLAIN', ' · OUT: ENERGY DRIFT, STRETCHED · UP: MORE STEPS'); if (t < T.cin1T0) lay = ''; }
     else if (t < T.tS2b) { tag = 'SIMULATED · A SMALL NETWORK LEARNING'; lay = t < T.m3T0 ? 'EACH DOT: ONE TRAINING STEP' : t < T.m3T1 + 0.5 ? 'SAME DOTS, RE-PLOTTED' : 'OUT: THE GAP BETWEEN TWO LAYERS'; }
-    else if (t < T.tS3) { tag = 'SIMULATED PICTURE · PUBLISHED NUMBERS'; lay = t < 100 ? 'EACH DOT: ONE SNAPSHOT · UP: LATER' : 'GREYDANUS ET AL. 2019 · UP: LATER'; }
-    else if (t < T.tS4) { tag = 'SIMULATED · AIR, STIRRED'; lay = 'A LOOP OF AIR, FOLLOWED · UP: LATER'; }
-    else if (t < T.tWide) { tag = 'SIMULATED · A STAND-IN CHAIN'; lay = 'EACH DOT: ONE RESIDUE · NOT THE REAL FOLD'; }
+    else if (t < T.tS3) { tag = 'SIMULATED PICTURE · PUBLISHED NUMBERS'; lay = two('ENERGY-KEEPING', 'PLAIN', t < 100 ? ' · EACH DOT: ONE SNAPSHOT · UP: LATER' : ' · GREYDANUS ET AL. 2019 · UP: LATER'); }
+    else if (t < T.tS4) { tag = 'SIMULATED · AIR, STIRRED'; lay = 'A LOOP OF AIR, FOLLOWED · WALL HEIGHT: THE SWIRL'; }
+    else if (t < T.tWide) { tag = 'SIMULATED · A STAND-IN CHAIN'; lay = t < T.m5T0 ? 'EACH DOT: ONE RESIDUE · NOT THE REAL FOLD' : two('TURNS WITH IT', 'PLAIN LAYER', ' · NOT THE REAL FOLD'); }
     else { tag = 'SIMULATED · THE FOUR PICTURES, SORTED'; lay = 'LEFT TO RIGHT: PLANETS · NETWORK · AIR · CHAIN'; }
     const tg = sm(seg(t, 0.2, 0.8));
     if (tg > 0.01) {
       K.rc('tag.m', 'chrome', 48, 28, 11, 11, { fill: tc, op: tg }); K.tx('tag', 'chrome', 66, 40, tag, { size: 16, fill: C.ink, role: 'secondary', ls: 1.5, op: tg });
-      if (lay) K.tx('tag.l', 'chrome', 48, 64, lay, { size: 14, fill: C.muted, role: 'secondary', ls: 1, op: tg });
+      if (typeof lay === 'string') { if (lay) K.tx('tag.l', 'chrome', 48, 64, lay, { size: 14, fill: C.muted, role: 'secondary', ls: 1, op: tg }); }
+      else { let x = 48; lay.forEach((q, n) => { const lead = q[0].length - q[0].trimStart().length;   // Space Mono: one advance per character, so the parts sit as one line
+        if (q[0].trim()) K.tx('tag.l' + n, 'chrome', x + lead * T.tagAdv, 64, q[0].trim(), { size: 14, fill: q[1], role: 'secondary', ls: 1, op: tg }); x += q[0].length * T.tagAdv; }); }
     }
-    const X = T.pX, col = { ink: C.ink, accent: C.accent, soft: C.soft };
+    const X = T.pX, col = { ink: C.ink, accent: C.accent, soft: PLN };
     if (in2(T.tQ, T.tQ + 7.8)) K.wrap(F.question, 270, 28, 'disp').forEach((l, i) => K.tx('q.' + i, 'labels', X, 170 + i * 38, l, { fam: 'disp', size: 28, fill: i === 2 ? C.accent : C.ink, role: 'must-read', op: sm(seg(t, T.tQ, T.tQ + 0.8)) }));
-    LEG.forEach((g, n) => { if (!in2(g[0], g[1])) return; const o = sm(seg(t, g[0], g[0] + 0.5));
-      K.rc('lg' + n + 'a', 'labels', X, 106, 10, 10, { fill: C.accent, op: o }); K.tx('lg' + n + 'at', 'labels', X + 18, 116, g[2], { size: 14, fill: C.ink, role: 'secondary', ls: 0.5, op: o });
-      K.rc('lg' + n + 'b', 'labels', X, 130, 10, 10, { fill: C.soft, op: o }); K.tx('lg' + n + 'bt', 'labels', X + 18, 140, g[3], { size: 14, fill: C.ink, role: 'secondary', ls: 0.5, op: o }); });
     ROWS.forEach((r, n) => {
       if (!in2(r[0], r[1])) return; const o = sm(seg(t, r[0], r[0] + 0.4)), S = SLOT[r[2]], k = 'r' + r[2];
       if (r[5]) K.tx(k + 'l', 'labels', X, S.l, r[5], { size: 14, fill: C.muted, role: 'secondary', ls: 0.5, op: o });
       r[3].forEach((l, i) => K.tx(k + 'v' + i, 'labels', X, S.v + i * 32, l, { fam: 'disp', size: r[4], fill: col[r[6]], role: 'must-read', op: o }));
     });
-    if (t >= T.tHonest && t < 149.9) K.wrap(F.honest[0], 640, 28, 'sans').forEach((l, i) => K.tx('h.' + i, 'labels', 48, T.honestY + i * 36, l, { fam: 'sans', size: 28, fill: C.ink, role: 'must-read', op: sm(seg(t, T.tHonest, T.tHonest + 0.5)) }));
+    if (t >= T.tHonest && t < 149.9) K.tx('h.0', 'labels', 48, T.honestY, F.honest[0], { fam: 'sans', size: 28, fill: C.ink, role: 'must-read', op: sm(seg(t, T.tHonest, T.tHonest + 0.5)) });   // one row, never wrapped
   },
 };
 
 /* rotate a point about a unit axis (Rodrigues), the CPU twin of p.rotate for the plain layer's anchors */
 function rot(v, a, th) { const c = Math.cos(th), s = Math.sin(th), d = a[0] * v[0] + a[1] * v[1] + a[2] * v[2], x = cross(a, v); return [v[0] * c + x[0] * s + a[0] * d * (1 - c), v[1] * c + x[1] * s + a[1] * d * (1 - c), v[2] * c + x[2] * s + a[2] * d * (1 - c)]; }
 
-/* the time-extruded loop: 25 strands (every 80th parcel) as lines, and a band between every other pair of strands, drawn from the floor to the current frame */
-function drawRibbons(p, i, u, k = 1) {
-  const pt = (a) => { const q = a[i], r = a[i + 1]; return [q[0] + (r[0] - q[0]) * u, q[1] + (r[1] - q[1]) * u, q[2] + (r[2] - q[2]) * u]; }, m = COL.v.mut;
-  p.noStroke();
-  for (let s = 0; s < NSTR - 2; s += 2) {
-    p.fill(m[0] * 255, m[1] * 255, m[2] * 255, KN.bandA * k * 255); p.beginShape(p.TRIANGLE_STRIP);
-    for (let j = 0; j <= i; j++) { const a = G.str[s][j], b = G.str[s + 1][j]; p.vertex(a[0], a[1], a[2]); p.vertex(b[0], b[1], b[2]); }
-    const a = pt(G.str[s]), b = pt(G.str[s + 1]); p.vertex(a[0], a[1], a[2]); p.vertex(b[0], b[1], b[2]); p.endShape();
-  }
-  p.noFill(); p.stroke(m[0] * 255, m[1] * 255, m[2] * 255, KN.strandA * k * 255); p.strokeWeight(KN.strandW);
-  for (let s = 0; s < NSTR; s++) { p.beginShape(); for (let j = 0; j <= i; j++) { const a = G.str[s][j]; p.vertex(a[0], a[1], a[2]); } const e = pt(G.str[s]); p.vertex(e[0], e[1], e[2]); p.endShape(); }
-}
 })();
