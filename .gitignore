@@ -50,3 +50,4 @@ factory/**/frames/*
 
 # the generated film gallery is committed (published as the gallery artifact)
 !factory/gallery.html
+!arsenal/gallery-gl.html
