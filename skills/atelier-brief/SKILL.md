@@ -4,7 +4,9 @@ description: "Turn ANY subject into a verifiable topic package for the explainer
 ---
 
 > Inherits `${CLAUDE_PLUGIN_ROOT}/references/doctrine.md` and the laws in `${CLAUDE_PLUGIN_ROOT}/CLAUDE.md`. The binding
-> format is `factory/FORMAT.md`; where this file and FORMAT.md disagree, FORMAT.md wins. No git from this skill.
+> format is `factory/FORMAT.md`; where this file and FORMAT.md disagree, FORMAT.md wins. No git writes from this skill
+> (no add, commit, push); read-only git inside `repo_topic.py` (log, ls-tree, grep at a pinned `--rev`) is how a
+> repository is measured and is allowed even when the harness says the folder is not a repository.
 
 # atelier-brief · subject → topic package
 
@@ -21,39 +23,47 @@ Audience:       {level: exec|manager|engineer, room: str}                 // who
 Format:         case (60–75 s) | feature (90–120 s) | reel (planned)        // factory/FORMAT.md
 Belief:         str                      // the sentence a person in that room says out loud before the film
 Fixture:        {name, place, year, numbers: list[ClaimId]}               // one real example; never a made-up one
-Claims:         list[{id, what, value, formula|source, where}]            // every digit that will ever be on screen
-Count:          {unit: str, n: int, lands_at: ClaimId}                    // "one mark is one ___"; counted before ratios
-Commit:         {question: str, unit, min, max, default_guess, why_default: source|reasoning}
+Claims:         list[Claim]  (shape in references/claims-shape.md)        // every digit that will ever be on screen;
+                                                                          // role input (commit range, unit, hold) is exempt from the commit law
+Count:          list[{unit: str, n: int, lands_at: ClaimId}]  (≥ 1)      // "one mark is one ___"; the first lands before any ratio;
+                                                                          // a feature may carry a second count after the first has landed
+Commit:         {question: str, unit, min, max, default_guess, why_default: source|"reasoning, no survey"}
 Mechanism:      str                      // one paragraph: what THE COUNT draws and why the belief breaks
 Monday:         {question: str, honest_limit: str}                        // the one question to ask at work; what the case is not
+Cost:           {per_film: measured|target, value, source}  (optional)   // only when the room will ask; measured beats target
 Takeaway:       str (≤ 60 chars)         // the brand card line
 Sources:        list[{tag, author, title, year, where}]  (≥ 3)
-Chain:          list[ModuleId]           // arsenal modules in draw order, from chain-recipes (atelier-draft/references)
-Look:           {brand: PackId, chrome: ChromeId, material: ink|…, renderer: 2d|webgl, level}
+Chain:          list[ModuleId]           // ids from the module table in skills/atelier-draft/references/chain-recipes.md §1
+Look:           {brand: PackId, chrome: tender-set|ledger|memo|none, material: ink|…, renderer: 2d|webgl, level}
 NotThis:        list[str]                // the tempting versions we are not making, and why
 ```
 
 ## Procedure
 
+0. **Check for an existing package** (`ls factory/topics/`): a topic on the same subject is extended or forked with a
+   new id and a note, never duplicated unknowingly.
 1. **Name the category of the subject, then its free variables.** A repository's numbers are counts of files,
-   lines, tests, commits, branches, pull requests and measured timings (`python3 factory/tools/repo_topic.py <path>
-   --id <id>` extracts them as claims); a concept's numbers come from one published fixture; a product's from its
-   own telemetry or a documented benchmark; a lesson's from the canonical worked example. Read
+   lines, tests, commits, branches, pull requests and measured timings at one pinned commit
+   (`python3 factory/tools/repo_topic.py <path> --id <id> --rev <sha>`; tree counts exclude the topic's own folder;
+   a working-tree count is a different claim and says so); a concept's numbers come from one published fixture; a
+   product's from its own telemetry or a documented benchmark; a lesson's from the canonical worked example. Read
    `references/subject-kinds.md` for where each kind's numbers come from and what its count is.
 2. **Find the reversal or the gap.** A film earns its minute only if the picture after the count differs from
    the picture the belief predicts. State both pictures in one sentence each. If there is no gap, say so and stop:
    the subject is not a film.
-3. **Fix the count before anything else.** Choose the unit so that `n` is drawable at true scale (hundreds to a
-   few thousand marks; above that, batch by a documented factor and make the factor a claim). The count's landing
-   value is a claim; every ratio that follows is a formula over claims.
+3. **Fix the count before anything else.** Choose the unit so that `n` is drawable at true scale (hundreds to about
+   3,000 marks; above that, batch by a documented factor that is itself a claim, or name the `mass` module in the
+   chain). The count's landing value is a claim; every ratio that follows is a formula over claims.
 4. **Write the commit question** so a wrong guess is the belief's guess. The default guess (film mode) is the
    belief's number, sourced where a survey exists.
-5. **Write claims.json first, then the prose.** Scaffold with `python3 factory/tools/new_topic.py <id> "<Title>"`
-   and fill its seven files; `node factory/tools/gate.mjs` will later recompute every formula, so prefer formulas
-   to pasted percentages.
-6. **Choose the chain and the look** with `atelier-draft/references/chain-recipes.md` (by visual job, not by
-   taste) and `atelier-variant/references/brand-packs.md`. Exec level means ink only and no texture; manager level
-   may use webgl and a material. Write the chain into beats.md's header so three drafters start from the same list.
+5. **Write claims.json first, then the prose.** `python3 factory/tools/new_topic.py <id> "<Title>"` scaffolds the
+   topic (brief.md, claims.json, beats.md) and a film skeleton under factory/films/<id>/; fill the three topic files
+   and leave the skeleton to the drafters. The gate recomputes every `formula` over claim ids, `count` fields and
+   `params` (`references/claims-shape.md`), so prefer formulas to pasted percentages.
+6. **Choose the chain and the look** with `skills/atelier-draft/references/chain-recipes.md` §2 (by visual job, not
+   by taste; ids from §1) and `skills/atelier-variant/references/brand-packs.md`. Exec level means ink only and no
+   texture; manager level may use webgl and a material. Write format, level, renderer, look and chain into beats.md's
+   header so every drafter starts from the same list; windows per format are in `references/formats.md`.
 7. **Write the beat table** (window, structure, focal motion, claims used) and the captions (≤ 2 lines of ~50
    characters, 28 units, no digit without a claim). Run the checks at the foot of beats.md.
 
@@ -61,8 +71,9 @@ NotThis:        list[str]                // the tempting versions we are not mak
 
 - A claim resolved here is immutable downstream: drafters and evaluators may not change a number; they may only
   move it in time or re-caption it with the same digits.
-- `Count.lands_at` must precede every ratio in the beat table (law: counts before ratios).
-- Nothing in HOOK or COMMIT carries a digit from `Claims` (law: the viewer commits before any number is shown).
+- `Count[0].lands_at` must precede every ratio in the beat table (law: counts before ratios).
+- Nothing in HOOK or COMMIT carries a digit from `Claims` except role `input` claims (the commit box's unit, range,
+  default and hold), which the kit draws (law: the viewer commits before any number is shown).
 - One `Monday.honest_limit`, exactly one, and it names what the fixture does not prove.
 - `Sources` ≥ 3 and each `Claims[i].source` is one of them or a formula over other claims.
 
@@ -70,7 +81,7 @@ NotThis:        list[str]                // the tempting versions we are not mak
 
 ```
 factory/topics/<id>/brief.md     the slots above as headed sections (new_topic.py's template order)
-factory/topics/<id>/claims.json  [{id, what, value, formula|source, where}]  recomputable
+factory/topics/<id>/claims.json  the shape in references/claims-shape.md, recomputable
 factory/topics/<id>/beats.md     header: format, level, renderer, look, chain; beat table; captions; checks
 ```
 Hand back ≤ 150 words: id, the belief, the gap in one sentence, n and its unit, the chain, and any slot you could
@@ -80,5 +91,6 @@ not fill with a sourced value (that is a finding the user must resolve before dr
 
 - `references/subject-kinds.md` — where each subject kind's numbers and count come from; the repo extractor.
 - `references/formats.md` — case, feature, reel, smoke: windows, lengths, what the gate expects of each.
+- `references/claims-shape.md` — the one claims.json shape the gate recomputes; roles; what the drafter converts.
 - `${CLAUDE_PLUGIN_ROOT}/factory/FORMAT.md` — binding format; `factory/topics/simpsons/` is a filled package to
   pattern-match the shape (not the content).
