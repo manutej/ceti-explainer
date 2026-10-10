@@ -1,0 +1,512 @@
+/* noether-symmetry / draft B · "the glass box" · the 3,000 orbit states live inside a measured glass cube whose axes are named in plain
+   words (how far, how fast). The big move is a CUT: the cube's axes re-label in one frame and the same 3,000 dots slide to their new
+   places (a point per orbit, on shells of the spin arrow) while the camera HOLDS. Then a slow dolly in, a section plane that lights the
+   orbits near the equator, and a second re-label (shells -> energy layers) under a quarter turn. The Earth fixture is a close-up on two
+   dots and a Sun mark. The training cloud repeats the move in a second glass box beside the first. The honest line is on stage in MONDAY.
+   Renderer webgl (kit2). One clock: render(t, state) draws frame t from t alone. The 3,000 orbit states are rebuilt at load from
+   data/orbit_table.json by the Kepler solution (Newton, 60 iterations, no randomness); the 3,000 training states are read, never trained.
+   Words and digits are SVG (K.tx, roled); every digit is a claim value from film.json params / claims.json. Every tunable is a knob.
+   No Math.random / Date / performance. Chain: gl-pointcloud (patched copy, lib/pc-morph.js) + gl-camera-rig + gl-labels. */
+(function () {
+'use strict';
+const K = window.KIT, F = window.FILM, P = F.params, A = window.ARSENAL;
+const PCL = A.patterns['gl-pointcloud'].api, RIGM = A.patterns['gl-camera-rig'].rig, LAB = A.patterns['gl-labels'];
+const { seg, clamp, lerp, fmtK, C } = K;
+const D2R = Math.PI / 180;
+const ez = (u) => { u = clamp(u, 0, 1); return u * u * (3 - 2 * u); };
+const ez5 = (u) => { u = clamp(u, 0, 1); return u * u * u * (u * (u * 6 - 15) + 10); };
+const fade = (t, a, b, c, d) => Math.min(seg(t, a, b), 1 - seg(t, c, d));            // up over [a,b], down over [c,d]
+const on = (t, a, b) => (t >= a && t < b ? 1 : 0);                                      // a hard window (labels cut on and off)
+
+/* ── knobs: [name, default, lo, hi, step, what]; lib/mkfilm.py writes them into film.json knobs + knobs_doc ── */
+const KB = [
+['countT0', 14, 12.5, 16, 0.1, 's: second the first dot of the orbit cloud arrives (the count-in runs to countT1)'],
+['countT1', 26, 24, 26, 0.1, 's: second the last dot lands and the count is read (count.at; keep at or before 26)'],
+['earthT0', 31, 29, 33, 0.1, 's: start of the camera push to the Earth pair'],
+['earthT1', 34, 32.5, 36, 0.1, 's: end of the push to the Earth pair (labels wait for it)'],
+['backT0', 56, 55, 57, 0.1, 's: start of the pull-back to the whole cube'],
+['backT1', 58, 57, 59.5, 0.1, 's: end of the pull-back'],
+['m1T0', 60, 59, 62, 0.1, 's: the cut: axes re-label and the dots start to slide from place to spin'],
+['m1T1', 68, 64, 70, 0.1, 's: the dots have landed on their orbit specks'],
+['m3T0', 78.5, 77, 80, 0.1, 's: start of the dolly in and the section plane'],
+['m3T1', 83.5, 82, 85, 0.1, 's: end of the dolly and the section'],
+['m2T0', 88, 86.5, 90, 0.1, 's: start of the second cut (shells to energy layers) and the quarter turn'],
+['m2T1', 96, 93, 98, 0.1, 's: the dots have landed in their layers'],
+['panT0', 101.5, 100.5, 103, 0.1, 's: start of the pan to the second glass box'],
+['panT1', 104, 102.5, 105, 0.1, 's: end of the pan'],
+['netT0', 103.5, 102.5, 105, 0.1, 's: first training dot arrives'],
+['netT1', 108.5, 107, 109.5, 0.1, 's: last training dot lands (the second count is read)'],
+['m4T0', 112, 110.5, 114, 0.1, 's: the cut again, in the second box: weights to the sums that should not change'],
+['m4T1', 119, 116, 121, 0.1, 's: the training dots have landed'],
+['wideT0', 131.5, 130, 133, 0.1, 's: start of the pull-back to both boxes'],
+['wideT1', 135, 133.5, 136.5, 0.1, 's: end of the pull-back'],
+['rpAt', 34, 33.5, 36, 0.1, 's: pin: closest distance'],
+['vpAt', 36.5, 36, 38.5, 0.1, 's: pin: speed there'],
+['raAt', 39, 38.5, 41, 0.1, 's: pin: farthest distance'],
+['vaAt', 41.5, 41, 43.5, 0.1, 's: pin: speed there'],
+['fbAt', 44, 43.5, 46, 0.1, 's: the formula appears and binds (closest end)'],
+['fbFlyAt', 45.2, 44.5, 47, 0.1, 's: the two numbers fly into the formula'],
+['fbResAt', 46.6, 46, 48.5, 0.1, 's: the product is computed (closest)'],
+['fb2At', 50, 49, 51.5, 0.1, 's: the same formula for the farthest end'],
+['fb2ResAt', 51, 50.5, 52.5, 0.1, 's: the product is computed (farthest)'],
+['apartAt', 53.5, 53, 55, 0.1, 's: the two products are set side by side'],
+['hiAt', 57, 56, 59, 0.1, 's: one orbit is lit in the tangle (ellipse, spin arrow)'],
+['arrowAt', 58.2, 58, 59.5, 0.1, 's: pin on the spin arrow'],
+['specksAt', 70.5, 69.5, 72, 0.1, 's: pin: the specks'],
+['shellsAt', 73, 72, 75, 0.1, 's: pin: the shells'],
+['trillionAt', 75.5, 74.5, 77, 0.1, 's: callout: spin and energy inside one orbit'],
+['cutReadAt', 85, 84, 86.5, 0.1, 's: readout of the lit orbits'],
+['layersAt', 97.5, 96.5, 99, 0.1, 's: pin: the layers'],
+['plateAt', 100, 99, 101, 0.1, 's: plate: rotation gives shells, time gives layers'],
+['formulaAt', 111, 110, 111.5, 0.1, 's: plate: the sum that should not change, as type'],
+['netShellsAt', 121, 120, 123, 0.1, 's: pin: the training shells'],
+['wAt', 123.5, 122.5, 125, 0.1, 's: readout: how far the weights travelled'],
+['cAt', 126, 125, 127.5, 0.1, 's: readout: how far the fixed sum moved'],
+['ratioAt', 128.5, 127.5, 130, 0.1, 's: callout: about 250 times less'],
+['kelvinAt', 131.5, 130.5, 133, 0.1, 's: the smoke ring (wordless plate) appears'],
+['ringR', 70, 40, 90, 1, 'world units: radius of the smoke ring in the wordless plate'],
+['qAt', 135.3, 134.5, 137, 0.1, 's: Monday question as set type'],
+['honestAt', 141.5, 140.5, 143, 0.1, 's: the honest line, on stage, as set type'],
+['camFov', 30, 20, 45, 1, 'degrees: vertical field of view (fixed inside a move)'],
+['camAz', 52, 30, 75, 1, 'degrees: azimuth of the main view (keep 5 to 85 so the label corner stays)'],
+['camEl', 20, 8, 40, 1, 'degrees: elevation of the main view'],
+['camDist', 1650, 1100, 2200, 10, 'world units: distance to the glass box in the main view (bigger = smaller box)'],
+['camLookY', 30, -40, 80, 5, 'world units: aims below the box centre so the box sits higher on the sheet'],
+['camShift', 95, 0, 200, 5, 'sheet units: how far the box sits right of centre (leaves the left column for words)'],
+['earthDist', 300, 200, 500, 10, 'world units: distance to the Earth pair'],
+['earthShiftY', 22, 0, 60, 1, 'world units: aims below the pair so it sits high and the formula fits under it'],
+['m3Dist', 1180, 700, 1500, 10, 'world units: distance at the end of the dolly in'],
+['m2Az', -44, -80, 80, 1, 'degrees: the quarter turn of the layers move (negative = back toward the front)'],
+['m2El', 15, 6, 40, 1, 'degrees: elevation after the layers move'],
+['wideDist', 1950, 1500, 3200, 10, 'world units: distance of the wide frame with both boxes'],
+['wideEl', 18, 6, 40, 1, 'degrees: elevation of the wide frame'],
+['wideShiftY', 60, 0, 160, 5, 'world units: aims above the boxes so they sit low and the question fits above'],
+['ambAmp', 0.8, 0, 1.5, 0.1, 'degrees: amplitude of the slow ambient sway (0 = still)'],
+['ambPeriod', 24, 12, 48, 1, 's: period of the ambient sway'],
+['cubeS', 340, 260, 420, 10, 'world units: edge of a glass box'],
+['boxGap', 680, 440, 760, 10, 'world units: distance between the two glass boxes'],
+['dotR', 3.4, 1.8, 4.5, 0.1, 'world units: radius of an orbit dot'],
+['dotRNet', 3.4, 1.8, 4.5, 0.1, 'world units: radius of a training dot'],
+['sizeCue', 0.5, 0, 1, 0.05, '0 to 1: extra size for near dots (depth cue)'],
+['fogMax', 0.25, 0, 0.3, 0.05, '0 to 0.3: fog toward the ground on the far side (manager level cap)'],
+['lyrGap', 52, 30, 70, 1, 'world units: gap between energy layers'],
+['stagger', 0.2, 0, 0.25, 0.01, '0 to 0.25: how much the shells start one after another in a slide'],
+['glassOp', 0.07, 0, 0.2, 0.01, '0 to 0.2: opacity of the glass panels behind the dots'],
+['gridOp', 0.35, 0, 0.8, 0.05, '0 to 0.8: opacity of the floor grid'],
+['earthK', 0.3, 0.2, 0.5, 0.01, 'world units per million km: size of the Earth pair (not to scale by design)'],
+['earthDotK', 3.6, 2, 6, 0.1, 'times: radius of the Earth and Sun marks against an orbit dot'],
+['dimEarth', 0.82, 0.5, 0.95, 0.01, '0 to 1: how far the cloud fades toward the ground during the Earth close-up'],
+['dimGhost', 0.7, 0.4, 0.9, 0.01, '0 to 1: how far the first box fades once the camera leaves it'],
+['dimHonest', 0.55, 0, 0.8, 0.01, '0 to 1: how far both clouds fade under the honest line'],
+['cutDim', 0.8, 0.5, 0.95, 0.01, '0 to 1: how far the dots outside the section fade (they never leave)'],
+['planeOp', 0.16, 0, 0.4, 0.01, '0 to 0.4: opacity of the section plane'],
+['labHold', 8, 0, 15, 1, 'frames: how long a pin must be pushed before it hides (gl-labels)'],
+['labLeader', 26, 14, 40, 2, 'sheet units: pin leader length'],
+['readSize', 56, 40, 72, 2, 'sheet units: size of the big readouts (floor 28)'],
+['plateSize', 38, 28, 48, 1, 'sheet units: size of the set-type plates'],
+['pinSub', 14, 14, 18, 1, 'sheet units: size of the small line under a pin (floor 14)'],
+];
+const Z = {};
+KB.forEach(([n, d]) => { Z[n] = K.knob(n, d); });
+
+/* ── the data: 300 orbits x 10 states, rebuilt from the table by the Kepler solution ── */
+const b64 = (s) => { const bin = atob(s), u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u.buffer; };
+const ND = window.NOETHER_DATA;
+const ORBT = new Int16Array(b64(ND.orb)), NETW = new Int8Array(b64(ND.netw)), NETC = new Int16Array(b64(ND.netc)), NETS = new Uint8Array(b64(ND.nets));
+const LL = [0.55, 0.70, 0.85, 1.00, 1.15, 1.30], AL = [1.8, 2.3, 2.9, 3.5, 4.2];            // the simulation's spin and size levels (G.M = 1)
+const NO = P.lShells * P.eLevels * P.orientations, PER = P.perOrbit, N0 = NO * PER, NR = P.netRuns, NSTEP = P.netPerRun, N1 = NR * NSTEP;
+function kep(a, L, M) {
+  const e = Math.sqrt(1 - L * L / a); let E = M;
+  for (let i = 0; i < 60; i++) E -= (E - e * Math.sin(E) - M) / (1 - e * Math.cos(E));
+  return [a * (Math.cos(E) - e), a * Math.sqrt(1 - e * e) * Math.sin(E)];
+}
+const RAW = { pos: new Float64Array(N0 * 3), spin: new Float64Array(NO * 3), lv: new Uint8Array(NO), ev: new Uint8Array(NO), r22: new Float64Array(NO) };
+let MAXA = 0;
+for (let o = 0; o < NO; o++) {
+  const q = o * 12, l = ORBT[q], ev = ORBT[q + 1], u0 = ORBT[q + 2] / 32767, R = Array.from(ORBT.subarray(q + 3, q + 12), (v) => v / 32767);
+  RAW.lv[o] = l; RAW.ev[o] = ev; RAW.r22[o] = R[8];
+  RAW.spin[3 * o] = LL[l] * R[2]; RAW.spin[3 * o + 1] = LL[l] * R[5]; RAW.spin[3 * o + 2] = LL[l] * R[8];
+  for (let j = 0; j < PER; j++) {
+    const xy = kep(AL[ev], LL[l], (j + u0) / PER * 2 * Math.PI), i = (o * PER + j) * 3;
+    RAW.pos[i] = R[0] * xy[0] + R[1] * xy[1]; RAW.pos[i + 1] = R[3] * xy[0] + R[4] * xy[1]; RAW.pos[i + 2] = R[6] * xy[0] + R[7] * xy[1];
+    for (let k = 0; k < 3; k++) MAXA = Math.max(MAXA, Math.abs(RAW.pos[i + k]));
+  }
+}
+const bandOrbits = (b) => { let n = 0; for (let o = 0; o < NO; o++) if (Math.abs(RAW.r22[o]) < b) n++; return n; };
+const BAND = P.cutBandPct / 100;
+const CHECK = { ok: true, bad: [] };
+if (bandOrbits(BAND) !== P.cutOrbits) CHECK.bad.push('cutOrbits ' + bandOrbits(BAND));
+if (NO !== 300 || N0 !== 3000 || N1 !== 3000) CHECK.bad.push('counts');
+CHECK.ok = CHECK.bad.length === 0; window.__noether = CHECK;
+
+/* ── world: a glass box of edge S, centre (0,0,0) (box A) or (gap,0,0) (box B); p5 y is down, so the vertical is -y ──
+   place space (x, y, z) -> world (x, -z, y); the spin arrow (Lx, Ly, Lz) -> (Lx, -Lz, Ly): the original z is "up" in both. */
+const S = Z.cubeS, H = S / 2, KA = 0.92 * H / MAXA, KL = 0.9 * H / Math.max(...LL), KW = 0.92 * H / 3, KC = 0.9 * H / 1.2;
+const CA = [0, 0, 0], CB = [Z.boxGap, 0, 0];
+const rng0 = K.mulberry32(F.seed), jit0 = []; for (let o = 0; o < NO; o++) jit0.push(rng0());
+const rng1 = K.mulberry32(F.seed + 1), jit1 = []; for (let r = 0; r < NR; r++) jit1.push(rng1());
+function cloud0(p) {
+  const A_ = new Float32Array(N0 * 3), B_ = new Float32Array(N0 * 3), cls = new Uint8Array(N0), orb = new Uint16Array(N0), stag = new Float32Array(N0), ord = new Float32Array(N0);
+  const perm = K.shuffle(Array.from({ length: N0 }, (_, i) => i), F.seed); perm.forEach((i, k) => { ord[i] = k; });
+  for (let i = 0; i < N0; i++) {
+    const o = Math.floor(i / PER);
+    A_[3 * i] = RAW.pos[3 * i] * KA; A_[3 * i + 1] = -RAW.pos[3 * i + 2] * KA; A_[3 * i + 2] = RAW.pos[3 * i + 1] * KA;
+    B_[3 * i] = RAW.spin[3 * o] * KL; B_[3 * i + 1] = -RAW.spin[3 * o + 2] * KL; B_[3 * i + 2] = RAW.spin[3 * o + 1] * KL;
+    cls[i] = RAW.ev[o]; orb[i] = o; stag[i] = clamp(0.8 * RAW.lv[o] / (P.lShells - 1) + 0.2 * jit0[o], 0, 1);
+  }
+  return PCL.build(p, { N: N0, A: A_, B: B_, cls, orb, stag, order: ord, size: null });
+}
+function cloud1(p) {
+  const A_ = new Float32Array(N1 * 3), B_ = new Float32Array(N1 * 3), cls = new Uint8Array(N1), orb = new Uint16Array(N1), stag = new Float32Array(N1), ord = new Float32Array(N1);
+  const perm = K.shuffle(Array.from({ length: N1 }, (_, i) => i), F.seed + 7); perm.forEach((i, k) => { ord[i] = k; });
+  for (let i = 0; i < N1; i++) {
+    const r = Math.floor(i / NSTEP), w = NETW.subarray(3 * i, 3 * i + 3), c = NETC.subarray(3 * r, 3 * r + 3);
+    A_[3 * i] = w[0] / 40 * KW; A_[3 * i + 1] = -w[2] / 40 * KW; A_[3 * i + 2] = w[1] / 40 * KW;
+    B_[3 * i] = c[0] / 10000 * KC; B_[3 * i + 1] = -c[2] / 10000 * KC; B_[3 * i + 2] = c[1] / 10000 * KC;
+    cls[i] = NETS[r]; orb[i] = r; stag[i] = clamp(0.8 * NETS[r] / 2 + 0.2 * jit1[r], 0, 1);
+  }
+  return PCL.build(p, { N: N1, A: A_, B: B_, cls, orb, stag, order: ord, size: null });
+}
+
+/* the lit orbit: in the section band, one of the middle spin shells and energy levels; deterministic */
+let HIORB = -1;
+{ let best = 9; for (let o = 0; o < NO; o++) if (RAW.lv[o] === 4 && RAW.ev[o] === 2 && Math.abs(RAW.r22[o]) < BAND && Math.abs(RAW.r22[o]) < best) { best = Math.abs(RAW.r22[o]); HIORB = o; }
+  if (HIORB < 0) for (let o = 0; o < NO; o++) if (Math.abs(RAW.r22[o]) < BAND) { HIORB = o; break; } }
+const HI_B = [RAW.spin[3 * HIORB] * KL, -RAW.spin[3 * HIORB + 2] * KL, RAW.spin[3 * HIORB + 1] * KL];
+const HI_ELL = (() => {                                   // its path, 96 points, in place space (world, box A)
+  const o = HIORB, q = o * 12, R = Array.from(ORBT.subarray(q + 3, q + 12), (v) => v / 32767), a = AL[RAW.ev[o]], L = LL[RAW.lv[o]], e = Math.sqrt(1 - L * L / a), out = [];
+  for (let k = 0; k <= 96; k++) { const E = k / 96 * 2 * Math.PI, x = a * (Math.cos(E) - e), y = a * Math.sqrt(1 - e * e) * Math.sin(E);
+    const X = R[0] * x + R[1] * y, Y = R[3] * x + R[4] * y, Zc = R[6] * x + R[7] * y; out.push([X * KA, -Zc * KA, Y * KA]); }
+  return out;
+})();
+
+/* the Earth pair: two marks and a Sun mark, in the front of box A, along one line; not to scale by design (3.4 % is invisible) */
+const E0 = [0.5 * H, 0.6 * H, 0.55 * H], RX0 = [Math.cos(Z.camAz * D2R), 0, -Math.sin(Z.camAz * D2R)];     // the pair lies along the screen's horizontal at the Earth view
+const EP = [E0[0] - RX0[0] * P.rp * Z.earthK, E0[1], E0[2] - RX0[2] * P.rp * Z.earthK], EA = [E0[0] + RX0[0] * P.ra * Z.earthK, E0[1], E0[2] + RX0[2] * P.ra * Z.earthK];
+const E0t = [E0[0], E0[1] + Z.earthShiftY, E0[2]];
+
+/* ── camera: keys are stored poses (T8), built from knobs; the dolly and the quarter turn are rig moves ── */
+const sph = (az, el, r) => [r * Math.cos(el) * Math.sin(az), -r * Math.sin(el), r * Math.cos(el) * Math.cos(az)];
+const add3 = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
+function frame(c, az, dist, shiftX) {                     // centre so that box centre c sits shiftX sheet units right of the screen centre
+  const pxu = (K.H / 2) / (Math.tan(Z.camFov * D2R / 2) * dist), rx = [Math.cos(az), 0, -Math.sin(az)], s = shiftX / pxu;
+  return [c[0] - s * rx[0], c[1] + Z.camLookY, c[2] - s * rx[2]];
+}
+const AZ0 = Z.camAz * D2R, EL0 = Z.camEl * D2R, AZ1 = AZ0 + Z.m2Az * D2R, EL1 = Z.m2El * D2R;
+const CEN0 = frame(CA, AZ0, Z.camDist, Z.camShift), CEN1 = frame(CA, AZ1, Z.camDist, Z.camShift), CENB = frame(CB, AZ1, Z.camDist, Z.camShift);
+const WIDEC = [(CA[0] + CB[0]) / 2, -Z.wideShiftY, 0];
+const key = (c, az, el, r) => ({ eye: add3(c, sph(az, el, r)), center: c });
+const KEY = { earth: key(E0t, AZ0, EL0, Z.earthDist), back: key(CEN0, AZ0, EL0, Z.camDist), pan: key(CENB, AZ1, EL1, Z.camDist), wide: key(WIDEC, AZ1, Z.wideEl * D2R, Z.wideDist) };
+const SCRIPT = { proj: 'persp', dur: F.dur, near: 10, far: 9000, start: Object.assign({ fov: Z.camFov }, key(CEN0, AZ0, EL0, Z.camDist)), moves: [
+  { id: 'earth', move: 'key', t0: Z.earthT0, t1: Z.earthT1, eye: KEY.earth.eye, center: KEY.earth.center, ease: 'inout' },
+  { id: 'back', move: 'key', t0: Z.backT0, t1: Z.backT1, eye: KEY.back.eye, center: KEY.back.center, ease: 'inout' },
+  { id: 'dolly', move: 'dolly', t0: Z.m3T0, t1: Z.m3T1, dist: Z.m3Dist, ease: 'inout' },
+  { id: 'turn', move: 'orbit', t0: Z.m2T0, t1: Z.m2T1, az: Z.m2Az, el: Z.m2El, r: Z.camDist / Z.m3Dist, around: CEN1, ease: 'inout' },
+  { id: 'pan', move: 'key', t0: Z.panT0, t1: Z.panT1, eye: KEY.pan.eye, center: KEY.pan.center, ease: 'inout' },
+  { id: 'wide', move: 'key', t0: Z.wideT0, t1: Z.wideT1, eye: KEY.wide.eye, center: KEY.wide.center, ease: 'inout' },
+] };
+const RIG = RIGM.compile(SCRIPT, { points: [] });
+function poseAt(t) {                                       // the rig's pose plus a slow sway about the vertical through the centre (pure of t)
+  const q = RIGM.at(RIG, t), d = Z.ambAmp * D2R * Math.sin(2 * Math.PI * t / Z.ambPeriod) * seg(t, 12, 16);
+  if (!d) return q;
+  const v = [q.eye[0] - q.center[0], q.eye[1] - q.center[1], q.eye[2] - q.center[2]], c = Math.cos(d), s = Math.sin(d);
+  return Object.assign({}, q, { eye: [q.center[0] + v[0] * c + v[2] * s, q.eye[1], q.center[2] - v[0] * s + v[2] * c] });
+}
+const LABCAM = (tt) => { const q = poseAt(tt); return { eye: q.eye, look: q.center, up: q.up, fov: q.fov }; };
+const scr = (q, pt) => RIGM.worldToScreen(q, pt, K.W, K.H);
+
+/* ── palette: roles only. energy ramp (cool and dark to pale), the highlight, the lit band, the Earth marks ── */
+const hx = (c) => K.hexRgb(c).map((v) => v / 255), mx = (a, b, u) => [lerp(a[0], b[0], u), lerp(a[1], b[1], u), lerp(a[2], b[2], u)];
+const BG = hx(C.paper), SOFT = hx(C.soft), INK = hx(C.ink), ACC = hx(C.accent);
+const RAMP = [mx(BG, SOFT, 0.42), mx(BG, SOFT, 0.68), SOFT, mx(SOFT, INK, 0.32), mx(SOFT, INK, 0.62)];
+const NETP = [mx(BG, SOFT, 0.55), SOFT, mx(SOFT, INK, 0.55)];
+const rgba = (c, a) => [c[0] * 255, c[1] * 255, c[2] * 255, a * 255];
+
+/* ── geometry built in setup ── */
+let ST = null;
+
+/* ── text helpers ── */
+const f1 = (n) => n.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+const T = (key_, x, y, str, o) => K.tx(key_, 'labels', x, y, str, o);
+function readout(key_, big, sub, op, y, size) {
+  if (op <= 0.01) return;
+  T(key_ + '.b', 48, y || 100, big, { fam: 'disp', size: size || Z.readSize, anchor: 'start', fill: C.ink, role: 'must-read', op });
+  if (sub) T(key_ + '.s', 50, (y || 100) + 24, sub, { fam: 'mono', size: Z.pinSub, anchor: 'start', fill: C.muted, role: 'secondary', op });
+}
+function tag(str, op) { if (op > 0.01) T('tag', 48, 44, str, { fam: 'mono', size: 14, anchor: 'start', fill: C.muted, role: 'secondary', op, ls: 1.2 }); }
+function setType(key_, lines, x, y0, size, col, op, anchor, lh) {
+  if (op <= 0.01) return;
+  lines.forEach((s, i) => T(key_ + i, x, y0 + i * (lh || size * 1.18), s, { fam: 'disp', size, anchor: anchor || 'start', fill: col || C.ink, role: 'must-read', op }));
+}
+
+/* ── labels (gl-labels): pages of anchors, one fixed array per page, solved in screen space and drawn as SVG ── */
+const RESERVE = [[0, 438, 960, 540], [20, 20, 360, 300]];
+const LOPT0 = { w: K.W, h: K.H, fps: 30, hold: Math.round(Z.labHold), leader: Z.labLeader, margin: 16, sticky: 'window', occlusion: false,
+  measure: (str, z, fam) => String(str).length * z * (fam === 'disp' ? 0.5 : 0.62), reserve: RESERVE };
+const LOPT = LOPT0;
+const LOPTE = (() => {                                       // the Earth view: the caption band and the three discs (Sun and the two marks), read at the landed pose
+  const q = poseAt(Z.earthT1 + 0.5), r = (pt, rad) => { const v = scr(q, pt); return [v.x - rad, v.y - rad, v.x + rad, v.y + rad]; };
+  const k = 1.0 * Z.dotR * Z.earthDotK * (RIGM.worldToScreen(q, E0, K.W, K.H).depth ? (K.H / 2) / (Math.tan(q.fov / 2) * Math.hypot(q.eye[0] - E0[0], q.eye[1] - E0[1], q.eye[2] - E0[2])) : 1);
+  return Object.assign({}, LOPT0, { reserve: [RESERVE[0], r(E0, k * 1.55)], leader: 52 });
+})();
+const wrd = (pt) => ({ x: pt[0], y: pt[1], z: pt[2] });
+const RM = Z.dotR * Z.earthDotK * 0.8, TOP = (pt) => [pt[0], pt[1] - RM * 1.05, pt[2]], BOT = (pt) => [pt[0], pt[1] + RM * 1.05, pt[2]];      // the top and bottom edge of an Earth mark
+const outerShell = (ox, y) => [ox + 0.9 * H * Math.cos(0.5), y, 0.9 * H * Math.sin(0.5)];
+const PAGES = {
+  e1: [Object.assign({ id: 'rp', text: fmtK(P.rp), sub: 'closest · million km', role: 'result', priority: 2, color: 'accent' }, wrd(TOP(EP)))],
+  e2: [Object.assign({ id: 'rp', text: fmtK(P.rp), sub: 'closest · million km', role: 'result', priority: 2, color: 'accent' }, wrd(TOP(EP))),
+       Object.assign({ id: 'vp', text: String(P.vp), sub: 'km/s · how fast', role: 'result', priority: 1, color: 'accent' }, wrd(BOT(EP)))],
+  e3: [Object.assign({ id: 'rp', text: fmtK(P.rp), sub: 'closest · million km', role: 'result', priority: 2, color: 'accent' }, wrd(TOP(EP))),
+       Object.assign({ id: 'vp', text: String(P.vp), sub: 'km/s · how fast', role: 'result', priority: 1, color: 'accent' }, wrd(BOT(EP))),
+       Object.assign({ id: 'ra', text: P.ra.toFixed(3), sub: 'farthest · million km', role: 'result', priority: 2, color: 'accent' }, wrd(TOP(EA)))],
+  e4: [Object.assign({ id: 'rp', text: fmtK(P.rp), sub: 'closest · million km', role: 'result', priority: 2, color: 'accent' }, wrd(TOP(EP))),
+       Object.assign({ id: 'vp', text: String(P.vp), sub: 'km/s · how fast', role: 'result', priority: 1, color: 'accent' }, wrd(BOT(EP))),
+       Object.assign({ id: 'ra', text: P.ra.toFixed(3), sub: 'farthest · million km', role: 'result', priority: 2, color: 'accent' }, wrd(TOP(EA))),
+       Object.assign({ id: 'va', text: String(P.va), sub: 'km/s · how fast', role: 'result', priority: 1, color: 'accent' }, wrd(BOT(EA)))],
+  e5: [Object.assign({ id: 'ra', text: P.ra.toFixed(3), sub: 'farthest · million km', role: 'result', priority: 2, color: 'accent' }, wrd(TOP(EA))),
+       Object.assign({ id: 'va', text: String(P.va), sub: 'km/s · how fast', role: 'result', priority: 1, color: 'accent' }, wrd(BOT(EA)))],
+  arrow: [Object.assign({ id: 'arrow', text: 'spin arrow', sub: 'how much an orbit swirls', role: 'secondary', priority: 1, color: 'accent' }, wrd(HI_B))],
+  specks: [Object.assign({ id: 'speck', text: NO + ' specks', sub: 'ten dots sit on each', role: 'result', priority: 1, color: 'accent' }, wrd(HI_B))],
+  shells: [Object.assign({ id: 'shell', text: P.lShells + ' shells', sub: 'one for each size of spin', role: 'result', priority: 1, color: 'accent' }, wrd(outerShell(0, -0.2 * H)))],
+  trill: [Object.assign({ id: 'trill', text: 'under 1 in a trillion', sub: 'spin and energy inside one orbit', role: 'result', priority: 1, color: 'accent' }, wrd(HI_B))],
+  layers: [Object.assign({ id: 'layers', text: P.eLevels + ' layers', sub: 'one for each energy', role: 'result', priority: 1, color: 'accent' }, wrd([0.82 * H, -2 * Z.lyrGap, 0]))],
+  nshell: [Object.assign({ id: 'nshell', text: P.netShells + ' shells', sub: 'one for each starting sum', role: 'result', priority: 1, color: 'accent' }, wrd(outerShell(Z.boxGap, -0.1 * H)))],
+};
+function pins(t, page, op, kp) {
+  if (op <= 0.01) return;
+  const sol = LAB.solve(t, LABCAM, PAGES[page], page[0] === 'e' ? LOPTE : LOPT);
+  for (const q of sol.placements) {
+    const k = 'pin.' + kp + '.' + q.id, col = q.color === 'accent' ? C.accent : C.ink, anc = q.align === 'right' ? 'end' : q.align === 'center' ? 'middle' : 'start';
+    K.rc(k + '.p', 'labels', q.box[0], q.box[1], q.box[2] - q.box[0], q.box[3] - q.box[1], { fill: C.paper, fo: 0.78, op });
+    K.ln(k + '.l', 'labels', q.lead[0], q.lead[1], q.lead[2], q.lead[3], { stroke: col, w: 1.2, op });
+    K.E(k + '.d', 'circle', 'labels', { cx: q.ax.toFixed(1), cy: q.ay.toFixed(1), r: 2.6, fill: col, opacity: op.toFixed(3) });
+    K.tx(k + '.t', 'labels', q.tx, q.ty, q.text, { fam: 'disp', size: Math.max(28, q.size), anchor: anc, fill: col, role: q.role === 'result' ? 'must-read' : 'secondary', op });
+    if (q.sub) K.tx(k + '.s', 'labels', q.tx, q.sy + 2, q.sub, { fam: 'mono', size: Z.pinSub, anchor: anc, fill: C.muted, role: 'secondary', op });
+  }
+}
+
+/* ── drawing: the glass boxes, floor grid, section plane, spin arrow, orbit path ── */
+function lines3(p, pts, col, w) { p.stroke(col[0], col[1], col[2], col[3]); p.strokeWeight(w); p.beginShape(p.LINES); for (const v of pts) p.vertex(v[0], v[1], v[2]); p.endShape(); }
+const EDGES = (() => { const c = [], s = [-1, 1]; for (const a of s) for (const b of s) { c.push([[-1, a, b], [1, a, b]], [[a, -1, b], [a, 1, b]], [[a, b, -1], [a, b, 1]]); } return c; })();
+function box(p, ox, h, op) {
+  const e = [], ln = rgba(hx(C.soft), 0.5 * op), tk = rgba(hx(C.muted), 0.45 * op);
+  for (const [a, b] of EDGES) e.push([ox + a[0] * h, a[1] * h, a[2] * h], [ox + b[0] * h, b[1] * h, b[2] * h]);
+  lines3(p, e, ln, 1.3);
+  const t = [];                                            // ticks, no numbers: eighths along the three edges at the front-bottom-right corner
+  for (let k = 1; k < 8; k++) { const u = -h + k * h / 4;
+    t.push([ox + u, h, h], [ox + u, h + 7, h], [ox + h, h, u], [ox + h + 7, h, u], [ox - h, u, h], [ox - h - 7, u, h]); }
+  lines3(p, t, tk, 1);
+}
+function floor_(p, ox, h, op) {
+  const g = [], n = 12, ext = h * 1.9, st = ext * 2 / n;
+  for (let k = 0; k <= n; k++) { const u = -ext + k * st; g.push([ox + u, h + 1, -ext], [ox + u, h + 1, ext], [ox - ext, h + 1, u], [ox + ext, h + 1, u]); }
+  lines3(p, g, rgba(hx(C.muted), op * 0.5), 1);
+}
+function glass(p, ox, h, eye, op) {
+  if (op <= 0.002) return;
+  const faces = [[[1, 0, 0], [[1, -1, -1], [1, 1, -1], [1, 1, 1], [1, -1, 1]]], [[-1, 0, 0], [[-1, -1, -1], [-1, 1, -1], [-1, 1, 1], [-1, -1, 1]]],
+    [[0, 0, 1], [[-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]]], [[0, 0, -1], [[-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1]]],
+    [[0, 1, 0], [[-1, 1, -1], [1, 1, -1], [1, 1, 1], [-1, 1, 1]]]];
+  const col = rgba(hx(C.panel), op); p.noStroke(); p.fill(col[0], col[1], col[2], col[3]);
+  for (const [n, v] of faces) {
+    const c = [ox + n[0] * h, n[1] * h, n[2] * h];
+    if ((eye[0] - c[0]) * n[0] + (eye[1] - c[1]) * n[1] + (eye[2] - c[2]) * n[2] < 0) { p.beginShape(); for (const w of v) p.vertex(ox + w[0] * h, w[1] * h, w[2] * h); p.endShape(p.CLOSE); }
+  }
+}
+
+window.__noether.pinsAt = (t, page) => LAB.solve(t, LABCAM, PAGES[page], page[0] === 'e' ? LOPTE : LOPT);      // the self-check and the evaluator read the solver here
+window.FILM_RENDER = {
+  async setup(p, kk) {
+    if (!CHECK.ok) throw new Error('noether-symmetry: the data disagrees with claims.json: ' + CHECK.bad.join(', '));
+    const st = { cam: p.createCamera() };
+    st.sh = PCL.make(p);
+    st.g0 = cloud0(p); st.g1 = cloud1(p);
+    st.gE = PCL.build(p, { N: 3, A: Float32Array.from([].concat(E0, EP, EA)), B: Float32Array.from([].concat(E0, EP, EA)), cls: Uint8Array.from([5, 6, 6]), orb: Uint16Array.from([60000, 60001, 60002]),
+      stag: new Float32Array(3), order: new Float32Array(3), size: Float32Array.from([0.999, 0.25, 0.25]) });
+    { const n1 = 44, n2 = 12, a = [], R = Z.ringR, r = R * 0.32;                     // the smoke ring: a torus of dots, one picture, no words
+      for (let i = 0; i < n1; i++) for (let j = 0; j < n2; j++) { const u = i / n1 * 2 * Math.PI, v = j / n2 * 2 * Math.PI + (i % 2) * Math.PI / n2;
+        a.push((R + r * Math.cos(v)) * Math.cos(u), r * Math.sin(v), (R + r * Math.cos(v)) * Math.sin(u)); }
+      const N = a.length / 3, F32 = Float32Array.from(a);
+      st.gR = PCL.build(p, { N, A: F32, B: F32, cls: new Uint8Array(N).fill(7), orb: new Uint16Array(N).fill(61000), stag: new Float32Array(N), order: new Float32Array(N), size: new Float32Array(N).fill(0.5) }); }
+    ST = st;
+  },
+
+  render(t, s, kk) {
+    const p = kk.p, st = ST; if (!st) return;
+    const q = poseAt(t), cam = st.cam, eye = q.eye;
+    RIGM.apply(p, cam, q, RIG); p.setCamera(cam); p.noLights();
+    const dA = Math.hypot(eye[0] - CA[0], eye[1] - CA[1], eye[2] - CA[2]), dB = Math.hypot(eye[0] - CB[0], eye[1] - CB[1], eye[2] - CB[2]);
+
+    /* phases, all from t */
+    const boxIn = seg(t, 0.4, 2.4), boxBIn = seg(t, Z.panT0 - 0.5, Z.panT0 + 0.8);
+    const earthOn = t >= Z.earthT0 - 0.3 && t < Z.backT0;
+    const dimA = Math.max(Z.dimEarth * seg(t, Z.earthT0, Z.earthT0 + 1.6) * (1 - seg(t, Z.backT0 + 0.2, Z.backT0 + 1.4)),
+      Z.dimGhost * seg(t, Z.panT0, Z.panT1) * (1 - seg(t, Z.wideT0, Z.wideT0 + 2.2)), Z.dimHonest * seg(t, Z.honestAt - 0.6, Z.honestAt + 0.4));
+    const dimB = Z.dimHonest * seg(t, Z.honestAt - 0.6, Z.honestAt + 0.4);
+    const shown0 = Math.floor(N0 * ez(seg(t, Z.countT0, Z.countT1)) + 1e-9), shown1 = Math.floor(N1 * ez(seg(t, Z.netT0, Z.netT1)) + 1e-9);
+    const m1 = seg(t, Z.m1T0, Z.m1T1), m2 = seg(t, Z.m2T0, Z.m2T1), m4 = seg(t, Z.m4T0, Z.m4T1);
+    const planeU = ez5(seg(t, Z.m3T0, Z.m3T0 + 2.0)), cutOn = seg(t, Z.m3T0 + 1.5, Z.m3T0 + 2.3) * (1 - seg(t, Z.m2T0 - 0.6, Z.m2T0));
+    const bandNow = BAND * ez5(seg(t, Z.m3T0 + 1.9, Z.m3T1 - 0.5));
+    const hiOn = t >= Z.hiAt && t < Z.m2T1 + 0.5;
+
+    /* the ground: floor grids and the glass boxes */
+    const earthPh = seg(t, Z.earthT0, Z.earthT0 + 1.5) * (1 - seg(t, Z.backT0, Z.backT0 + 1.0)), boxA = boxIn * (1 - 0.9 * earthPh);
+    floor_(p, CA[0], H, Z.gridOp * boxA);
+    box(p, CA[0], H, boxA);
+    if (boxBIn > 0.002) { floor_(p, CB[0], H, Z.gridOp * boxBIn); box(p, CB[0], H, boxBIn); }
+
+    /* the clouds: one model() call each, one shader, the same 3,000 vertices all along */
+    const common = (r, dist, off) => ({ uR: r, uSizeCue: Z.sizeCue, uZRef: dist, uFog: Z.fogMax, uFogZ: [dist - 1.0 * H, dist + 1.9 * H], uStag: Z.stagger, uLyr: Z.lyrGap, uHiGrow: 1.9,
+      uOff: off, uBg: BG, uHi: INK, uLit: ACC, uC0: RAMP[0], uC1: RAMP[1], uC2: RAMP[2], uC3: RAMP[3], uC4: RAMP[4], uC5: INK, uC6: ACC, uC7: SOFT, uBand: 0, uCutOn: 0, uCutDim: Z.cutDim, uHiOrb: -1, uDim: 0, uM1: 0, uM2: 0 });
+    if (shown0 > 0) {
+      PCL.draw(p, st.sh, st.g0, Object.assign(common(Z.dotR * (1 - 0.5 * earthPh), dA, CA), { uShown: shown0, uM1: m1, uM2: m2, uDim: dimA, uBand: bandNow, uCutOn: cutOn, uHiOrb: hiOn ? HIORB : -1 }));
+    }
+    if (shown1 > 0) {
+      PCL.draw(p, st.sh, st.g1, Object.assign(common(Z.dotRNet, dB, CB), { uShown: shown1, uM1: m4, uM2: 0, uDim: dimB, uC0: NETP[0], uC1: NETP[1], uC2: NETP[2] }));
+    }
+    if (earthOn && t < Z.backT0) {
+      PCL.draw(p, st.sh, st.gE, Object.assign(common(Z.dotR * Z.earthDotK, dA, CA), { uShown: 99999, uHiOrb: -1 }));
+      lines3(p, [EP, EA], rgba(hx(C.muted), 0.5 * seg(t, Z.earthT1 - 1, Z.earthT1)), 1.2);
+    }
+
+    if (t >= Z.kelvinAt && t < Z.qAt) {
+      p.push(); p.translate((CA[0] + CB[0]) / 2, -0.08 * H, 0); p.rotateX(1.0); p.rotateY(t * 0.5);
+      PCL.draw(p, st.sh, st.gR, Object.assign(common(Z.dotR * 0.9, Math.hypot(eye[0] - (CA[0] + CB[0]) / 2, eye[1], eye[2]), [0, 0, 0]), { uShown: 99999, uHiOrb: -1 }));
+      p.pop();
+    }
+    /* the lit orbit: its path in place space, and the spin arrow from the Sun to the speck it will become */
+    if (hiOn) {
+      const ell = [], eo = (1 - seg(t, Z.m1T0, Z.m1T0 + 1.6)) * seg(t, Z.hiAt, Z.hiAt + 0.8);
+      for (let k = 0; k < 96; k++) ell.push(HI_ELL[k], HI_ELL[k + 1]);
+      if (eo > 0.01) lines3(p, ell, rgba(INK, 0.85 * eo), 1.6);
+      if (t < Z.m3T0) {
+        const ao = seg(t, Z.hiAt, Z.hiAt + 0.8), b = HI_B, ln = Math.hypot(b[0], b[1], b[2]), u = [b[0] / ln, b[1] / ln, b[2] / ln];
+        const side = [-u[2], 0, u[0]], sl = Math.hypot(side[0], side[2]) || 1, hd = 9;
+        const tip = b, bk = [b[0] - u[0] * 16, b[1] - u[1] * 16, b[2] - u[2] * 16];
+        lines3(p, [[0, 0, 0], tip, tip, [bk[0] + side[0] / sl * hd * 0.5, bk[1], bk[2] + side[2] / sl * hd * 0.5], tip, [bk[0] - side[0] / sl * hd * 0.5, bk[1], bk[2] - side[2] / sl * hd * 0.5]], rgba(ACC, 0.95 * ao), 2);
+      }
+    }
+    /* the glass behind the dots, then the section plane */
+    glass(p, CA[0], H, eye, Z.glassOp * boxA);
+    if (boxBIn > 0.002) glass(p, CB[0], H, eye, Z.glassOp * boxBIn);
+    if (t >= Z.m3T0 && t < Z.m2T0) {
+      const po = Z.planeOp * (1 - seg(t, Z.m2T0 - 0.6, Z.m2T0)), py = lerp(-1.15 * H, 0, planeU), e = 1.08 * H, c = rgba(ACC, po);
+      p.noStroke(); p.fill(c[0], c[1], c[2], c[3]); p.beginShape(); p.vertex(-e, py, -e); p.vertex(e, py, -e); p.vertex(e, py, e); p.vertex(-e, py, e); p.endShape(p.CLOSE);
+      lines3(p, [[-e, py, -e], [e, py, -e], [e, py, -e], [e, py, e], [e, py, e], [-e, py, e], [-e, py, e], [-e, py, -e]], rgba(ACC, 0.8 * (po / Z.planeOp || 0)), 1.4);
+    }
+    p.setCamera(cam);
+
+    /* ══ SVG: words and digits (all claims), pinned to the scene through the rig's own projection ══ */
+    /* HOOK: the belief, then the doubt, in the left column */
+    const h1 = fade(t, 0.8, 1.8, 5.9, 6.4), h2 = fade(t, 6.2, 7.2, 11.4, 12.0);
+    setType('hk1', ['Some things never change:', 'energy, momentum, spin.'], 48, 190, Z.plateSize, C.ink, h1, 'start');
+    setType('hk2', ['A rule handed down?'], 48, 190, Z.plateSize + 6, C.ink, h2, 'start');
+    /* the plate */
+    const pl = fade(t, 12.0, 12.8, 19.4, 19.9);
+    if (pl > 0.01) { T('noe', 48, 190, 'Emmy Noether', { fam: 'disp', size: Z.plateSize + 6, anchor: 'start', fill: C.ink, role: 'must-read', op: pl }); T('noeY', 50, 214, String(P.noetherYear), { fam: 'mono', size: 14, anchor: 'start', fill: C.muted, role: 'secondary', op: pl }); }
+    /* tags: what is simulated and what is measured */
+    tag('SIMULATED · TWO-BODY ORBITS', on(t, Z.countT0, Z.earthT0 - 0.01) + on(t, Z.backT0, Z.panT0 + 1.0) > 0 ? 1 : 0);
+    tag('EARTH · REAL NUMBERS (NASA, STANDARD TABLES)', on(t, Z.earthT0, Z.backT0));
+    tag('SIMULATED · A TINY NETWORK, ' + P.hidden + ' UNITS', on(t, Z.panT0 + 1.0, Z.wideT0));
+    /* the glass box's axes: plain words on three edges at the corner nearest the camera; they re-label in one frame (the cut) */
+    const labelsOn = !((t >= Z.earthT0 - 0.3 && t < Z.backT1 + 1.0) || (t >= Z.m3T0 && t < Z.m3T1 + 0.9));
+    function axes(c, o, words, op, right) {
+      if (op <= 0.01) return;
+      const a = [c[0], H + 6, H], b = [c[0] + H + 6, H, 0], d = [c[0] + (right ? H : -H), 0, H + 6];
+      const pa = scr(q, a), pb = scr(q, b), pd = scr(q, d);
+      T(o + 'x', pa.x, pa.y + 22, words[0], { fam: 'mono', size: 14, anchor: 'middle', fill: C.muted, role: 'secondary', op });
+      T(o + 'z', pb.x + 12, pb.y + 8, words[1], { fam: 'mono', size: 14, anchor: 'start', fill: C.muted, role: 'secondary', op });
+      T(o + 'y', pd.x + (right ? 12 : -12), pd.y + 4, words[2], { fam: 'mono', size: 14, anchor: right ? 'start' : 'end', fill: C.muted, role: 'secondary', op });
+    }
+    const WP = ['how far across', 'how far deep', 'how far up'], WS = ['spin arrow, across', 'spin arrow, deep', 'spin arrow, up'], WL = ['how much spin (outward)', 'which way it points (around)', 'how much energy (up)'];
+    const wA = t < Z.m1T0 ? WP : t < Z.m2T0 ? WS : WL;
+    const axOpA = labelsOn ? seg(t, 3.0, 3.8) * (t < Z.m2T0 ? 1 : seg(t, Z.m2T1 + 0.9, Z.m2T1 + 1.1)) * (1 - seg(t, Z.panT0 - 0.3, Z.panT0)) : 0;
+    if (t < Z.m2T0 || t >= Z.m2T1 + 1.0) axes(CA, 'axA', wA, axOpA);
+    if (t >= Z.panT1 + 0.4 && t < Z.wideT0) {
+      const wn = t < Z.m4T0 ? ['a picture of the weights', '', ''] : ['sum for the first unit', 'sum for the second unit', 'sum for the third unit'];
+      if (t < Z.m4T0) { const pa = scr(q, [CB[0], H + 6, H]); T('axBw', pa.x, pa.y + 22, wn[0], { fam: 'mono', size: 14, anchor: 'middle', fill: C.muted, role: 'secondary', op: 1 }); }
+      else axes(CB, 'axB', wn, 1, true);
+    }
+
+    /* CASE: the count-in and the first count */
+    if (t >= Z.countT0 && t < Z.earthT0) {
+      const land = t >= Z.countT1;
+      readout('cnt', fmtK(land ? N0 : shown0), land ? 'moments · ' + NO + ' orbits · simulated' : 'moments so far', 1, 100, Z.readSize);
+    }
+    /* CASE: the Earth pair, four numbers, then the formula run twice, then the comparison */
+    if (t >= Z.earthT1 && t < Z.backT0) {
+      pins(t, 'e1', on(t, Z.rpAt, Z.vpAt), 'e1'); pins(t, 'e2', on(t, Z.vpAt, Z.raAt), 'e2'); pins(t, 'e3', on(t, Z.raAt, Z.vaAt), 'e3'); pins(t, 'e4', on(t, Z.vaAt, Z.fbFlyAt), 'e4'); pins(t, 'e5', on(t, Z.fbFlyAt, Z.fb2At), 'e5');
+      const fo = seg(t, Z.fbAt, Z.fbAt + 0.5);
+      if (fo > 0.01) {
+        const rows = [{ k: 'a', y: 318, lab: 'closest', d: fmtK(P.rp), v: String(P.vp), r: f1(P.rvPeri), t0: Z.fbAt, f0: Z.fbFlyAt, r0: Z.fbResAt },
+          { k: 'b', y: 362, lab: 'farthest', d: P.ra.toFixed(3), v: String(P.va), r: f1(P.rvAph), t0: Z.fb2At, f0: Z.fb2At + 0.3, r0: Z.fb2ResAt }];
+        const X = { lab: 292, d: 392, x: 466, v: 540, eq: 626, r: 650 };
+        for (const rw of rows) {
+          const op = rw.k === 'a' ? fo : seg(t, rw.t0, rw.t0 + 0.4); if (op <= 0.01) continue;
+          T('fm' + rw.k + 'L', X.lab, rw.y - 8, rw.lab, { fam: 'mono', size: 14, anchor: 'end', fill: C.muted, role: 'secondary', op });
+          const fl = ez(seg(t, rw.f0, rw.f0 + 1.0)), pg = rw.k === 'a' ? 'e4' : 'e5', pp = {};
+          for (const g of window.__noether.pinsAt(rw.f0, pg).placements) pp[g.id] = { x: g.tx + (g.align === 'left' ? 1 : g.align === 'right' ? -1 : 0) * g.text.length * 28 * 0.25, y: g.ty };
+          const o1 = pp[rw.k === 'a' ? 'rp' : 'ra'] || { x: 480, y: 160 }, o2 = pp[rw.k === 'a' ? 'vp' : 'va'] || { x: 480, y: 200 };
+          const wordOp = rw.k === 'a' ? op * (1 - seg(t, rw.f0, rw.f0 + 0.05)) : 0;
+          T('fm' + rw.k + 'w1', X.d, rw.y, 'distance', { fam: 'disp', size: 28, anchor: 'middle', fill: C.accent, role: 'must-read', op: wordOp });
+          T('fm' + rw.k + 'w2', X.v, rw.y, 'speed', { fam: 'disp', size: 28, anchor: 'middle', fill: C.soft, role: 'must-read', op: wordOp });
+          T('fm' + rw.k + 'x', X.x, rw.y, '×', { fam: 'disp', size: 28, anchor: 'middle', fill: C.muted, role: 'must-read', op });
+          if (t >= rw.f0) {
+            const nx = (a, b, u, arc) => lerp(a, b, u), ny = (a, b, u) => lerp(a, b, u) - 4 * u * (1 - u) * 46;
+            T('fm' + rw.k + 'n1', nx(o1.x, X.d, fl), ny(o1.y, rw.y, fl), rw.d, { fam: 'disp', size: 28, anchor: 'middle', fill: C.accent, role: 'must-read', op: 1 });
+            T('fm' + rw.k + 'n2', nx(o2.x, X.v, fl), ny(o2.y, rw.y, fl), rw.v, { fam: 'disp', size: 28, anchor: 'middle', fill: C.soft, role: 'must-read', op: 1 });
+          }
+          if (t >= rw.r0) {
+            T('fm' + rw.k + 'e', X.eq, rw.y, '=', { fam: 'disp', size: 28, anchor: 'middle', fill: C.muted, role: 'must-read', op: seg(t, rw.r0, rw.r0 + 0.3) });
+            T('fm' + rw.k + 'r', X.r, rw.y, rw.r, { fam: 'disp', size: 28, anchor: 'start', fill: C.ink, role: 'must-read', op: seg(t, rw.r0, rw.r0 + 0.5) });
+          }
+        }
+      }
+      const ap = fade(t, Z.apartAt, Z.apartAt + 0.6, Z.backT0 - 0.4, Z.backT0);
+      if (ap > 0.01) {
+        K.path('apart.br', 'labels', 'M770 306 L782 306 L782 358 L770 358', { stroke: C.accent, w: 1.4, op: ap });
+        T('apart.t1', 796, 330, 'only', { fam: 'disp', size: 28, anchor: 'start', fill: C.accent, role: 'must-read', op: ap });
+        T('apart.t2', 796, 362, fmtK(P.rvDiffPct) + ' %', { fam: 'disp', size: 28, anchor: 'start', fill: C.accent, role: 'must-read', op: ap });
+        T('apart.t3', 796, 384, 'apart', { fam: 'mono', size: 14, anchor: 'start', fill: C.muted, role: 'secondary', op: ap });
+      }
+    }
+    /* COUNT: the cut, the specks, the shells, the section, the layers */
+    pins(t, 'arrow', on(t, Z.arrowAt, Z.m1T0), 'arrow');
+    if (t >= Z.m1T1) {
+      readout('same', fmtK(N0), 'the same dots, re-plotted', fade(t, Z.m1T1 + 0.2, Z.m1T1 + 0.6, Z.specksAt - 0.3, Z.specksAt), 100, Z.readSize);
+      pins(t, 'specks', on(t, Z.specksAt, Z.shellsAt), 'sk'); pins(t, 'shells', on(t, Z.shellsAt, Z.trillionAt), 'sh'); pins(t, 'trill', on(t, Z.trillionAt, Z.m3T0), 'tr');
+    }
+    if (t >= Z.cutReadAt && t < Z.m2T0) {
+      const o = fade(t, Z.cutReadAt, Z.cutReadAt + 0.4, Z.m2T0 - 0.6, Z.m2T0);
+      if (o > 0.01) { T('cut.a', 48, 100, P.cutOrbits + ' orbits lit', { fam: 'disp', size: Z.readSize - 8, anchor: 'start', fill: C.accent, role: 'must-read', op: o });
+        T('cut.b', 50, 130, fmtK(P.cutMarks) + ' of the ' + fmtK(N0) + ' dots', { fam: 'mono', size: 14, anchor: 'start', fill: C.muted, role: 'secondary', op: o }); }
+    }
+    pins(t, 'layers', on(t, Z.layersAt, Z.plateAt), 'ly');
+    setType('plate', ['Rotation gives the shells.', 'Time gives the layers.'], 48, 150, Z.plateSize, C.ink, fade(t, Z.plateAt, Z.plateAt + 0.6, Z.panT0 - 0.4, Z.panT0), 'start');
+    /* COUNT: the second box */
+    if (t >= Z.netT1) {
+      const o = fade(t, Z.netT1, Z.netT1 + 0.4, Z.formulaAt, Z.formulaAt + 0.01);
+      readout('ns', fmtK(P.netStates), 'steps · ' + P.netRuns + ' runs · simulated', o, 100, Z.readSize);
+    }
+    setType('fml', ['(in-weights)² − (out-weight)²', 'for each unit'], 48, 150, Z.plateSize - 4, C.ink, fade(t, Z.formulaAt, Z.formulaAt + 0.5, Z.wAt - 0.3, Z.wAt), 'start');
+    pins(t, 'nshell', on(t, Z.netShellsAt, Z.wAt), 'ns');
+    if (t >= Z.wAt && t < Z.wideT0) {
+      readout('w', String(P.wMoveShown), 'how far the weights travelled', seg(t, Z.wAt, Z.wAt + 0.4), 100, Z.readSize - 8);
+      readout('c', String(P.cMoveShown), 'how far the fixed sum moved', seg(t, Z.cAt, Z.cAt + 0.4), 176, Z.readSize - 8);
+      const ro = seg(t, Z.ratioAt, Z.ratioAt + 0.4);
+      if (ro > 0.01) { T('rat', 48, 262, 'about ' + P.netRatio + ' times', { fam: 'disp', size: Z.readSize - 12, anchor: 'start', fill: C.accent, role: 'must-read', op: ro }); T('rat2', 50, 286, 'less far than the weights', { fam: 'mono', size: 14, anchor: 'start', fill: C.muted, role: 'secondary', op: ro }); }
+    }
+    /* MONDAY: the question, then the honest line, on stage */
+    if (t >= Z.qAt && t < Z.honestAt) {
+      const o = fade(t, Z.qAt, Z.qAt + 0.8, Z.honestAt - 0.8, Z.honestAt - 0.2);
+      const lines = K.wrap('What stays fixed in our data while everything else moves, and what are we allowed to change without changing the answer?', 800, 32, 'disp');
+      setType('q', lines, 480, 74, 32, C.ink, o, 'middle', 40);
+    }
+    if (t >= Z.honestAt) {
+      const o = seg(t, Z.honestAt, Z.honestAt + 0.8);
+      setType('hn', K.wrap(F.honest, 820, 42, 'disp'), 480, 112, 42, C.ink, o, 'middle', 54);
+    }
+    window.__noether.t = t;
+  },
+};
+})();
