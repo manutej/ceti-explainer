@@ -1,0 +1,89 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/demo.html",
+ "errors": [],
+ "variants": {
+  "orbit": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/orbit-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/orbit-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/orbit-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/orbit-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "dolly": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/dolly-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/dolly-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/dolly-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/dolly-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "dolly-zoom": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/dolly-zoom-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/dolly-zoom-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/dolly-zoom-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/dolly-zoom-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "crane": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/crane-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/crane-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/crane-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/crane-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "look-at": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/look-at-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/look-at-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/look-at-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/look-at-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "focus-pull": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/focus-pull-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/focus-pull-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/focus-pull-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/focus-pull-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ortho-orbit": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/ortho-orbit-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/ortho-orbit-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/ortho-orbit-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/ortho-orbit-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "sequence": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/sequence-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/sequence-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/sequence-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/sequence-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "orbit-lite": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/orbit-lite-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/orbit-lite-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/orbit-lite-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/orbit-lite-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 614.2,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/contact.png"
+}
