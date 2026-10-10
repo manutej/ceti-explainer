@@ -542,8 +542,8 @@
     "isotype": {
       "title": "Isotype — the ledger in motion",
       "source": [
-        "chromes/ledger/ledger.kit.js",
-        "chromes/ledger/NOTES.md"
+        "archive/chromes/ledger/ledger.kit.js",
+        "archive/chromes/ledger/NOTES.md"
       ],
       "axis": "x",
       "cell": {
@@ -608,9 +608,9 @@
     "pen": {
       "title": "Pen — the field notebook",
       "source": [
-        "chromes/margin/margin.kit.js",
-        "chromes/margin/margin.glyphs.js",
-        "chromes/margin/NOTES.md"
+        "archive/chromes/margin/margin.kit.js",
+        "archive/chromes/margin/margin.glyphs.js",
+        "archive/chromes/margin/NOTES.md"
       ],
       "axis": "x",
       "cell": {
@@ -642,8 +642,8 @@
     "plate": {
       "title": "Plate — cyanotype light table",
       "source": [
-        "chromes/exposure/exposure.kit.js",
-        "chromes/exposure/NOTES.md"
+        "archive/chromes/exposure/exposure.kit.js",
+        "archive/chromes/exposure/NOTES.md"
       ],
       "axis": "x",
       "cell": {
@@ -675,8 +675,8 @@
     "sediment": {
       "title": "Sediment — the delta survey sheet",
       "source": [
-        "chromes/delta/delta.kit.js",
-        "chromes/delta/NOTES.md"
+        "archive/chromes/delta/delta.kit.js",
+        "archive/chromes/delta/NOTES.md"
       ],
       "axis": "x",
       "cell": {

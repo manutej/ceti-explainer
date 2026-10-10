@@ -45,11 +45,11 @@ Each new kernel is one file in `materials/` that implements the interface in OPE
 | crane · rackFocus | `() → Shot` · `() → Mix × Shot` | escapement; exposure onion skin | — |
 | **materials** (kernel vendored intact under `materials/kernels/`) | | | |
 | stitch | axis y, N ≤ 2,500 | chromes/run (stitch atlas, sub-pixel splatter) | — |
-| plate | axis x, N ≤ 4,000 | chromes/exposure (float plate, H&D, cyanotype) | — |
-| pen | axis x, N ≤ 100 | chromes/margin (glyphs, spring nib, Washburn bleed) | — |
-| isotype | axis x, N ≤ 120 | chromes/ledger (pictogram atlas, Hungarian) | — |
+| plate | axis x, N ≤ 4,000 | archive/chromes/exposure (float plate, H&D, cyanotype) | — |
+| pen | axis x, N ≤ 100 | archive/chromes/margin (glyphs, spring nib, Washburn bleed) | — |
+| isotype | axis x, N ≤ 120 | archive/chromes/ledger (pictogram atlas, Hungarian) | — |
 | maps | axis x, N ≤ 120 | chromes/marbling (Jaffer–Lu inverse maps) | — |
-| sediment | axis x, N ≤ 4,000 | chromes/delta (terrain, sediment bodies) | — |
+| sediment | axis x, N ≤ 4,000 | archive/chromes/delta (terrain, sediment bodies) | — |
 | gear | axis x, N ≤ 300 | chromes/escapement (involute geometry, extract) | — |
 
 Counts: 14 pedagogy modules, 5 cameras, 7 materials, 18 laws.
