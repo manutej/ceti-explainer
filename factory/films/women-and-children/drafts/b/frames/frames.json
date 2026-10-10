@@ -1,0 +1,4021 @@
+{
+ "page": "factory/films/women-and-children/drafts/b/build/women-and-children.ceti-boardwalk-dark.none.html",
+ "film": "women-and-children",
+ "dur": 123,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-boardwalk-dark",
+ "axes": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "hookRule",
+   "range": [
+    0.3,
+    1.5
+   ],
+   "step": 0.1,
+   "what": "s: the rule starts typing (HOOK type sheet)",
+   "value": 0.6
+  },
+  {
+   "name": "hookQ",
+   "range": [
+    5,
+    7
+   ],
+   "step": 0.1,
+   "what": "s: the question line starts typing",
+   "value": 6
+  },
+  {
+   "name": "hookOut",
+   "range": [
+    10,
+    11.8
+   ],
+   "step": 0.1,
+   "what": "s: the HOOK type sheet fades out",
+   "value": 11.2
+  },
+  {
+   "name": "cps",
+   "range": [
+    10,
+    40
+   ],
+   "step": 1,
+   "what": "characters per second of every typed line",
+   "value": 22
+  },
+  {
+   "name": "arr0",
+   "range": [
+    12,
+    14
+   ],
+   "step": 0.1,
+   "what": "s: first box drops onto the plan (CASE)",
+   "value": 12.4
+  },
+  {
+   "name": "arr1",
+   "range": [
+    22,
+    23.9
+   ],
+   "step": 0.1,
+   "what": "s: arrival ends; must stay before count.at 24.0",
+   "value": 23.6
+  },
+  {
+   "name": "arrW",
+   "range": [
+    0.01,
+    0.1
+   ],
+   "step": 0.01,
+   "what": "fraction of the arrival a single box takes to land",
+   "value": 0.04
+  },
+  {
+   "name": "drop",
+   "range": [
+    0,
+    100
+   ],
+   "step": 1,
+   "what": "world units a box falls from as it lands",
+   "value": 60
+  },
+  {
+   "name": "lit0",
+   "range": [
+    26,
+    31
+   ],
+   "step": 0.1,
+   "what": "s: survivors start lighting, bottom row first",
+   "value": 29.8
+  },
+  {
+   "name": "lit1",
+   "range": [
+    30,
+    35
+   ],
+   "step": 0.1,
+   "what": "s: every survivor lit; 711 LIVED appears",
+   "value": 32
+  },
+  {
+   "name": "pinPool",
+   "range": [
+    36,
+    40
+   ],
+   "step": 0.1,
+   "what": "s: pooled counts (316 OF 425 ...) appear",
+   "value": 36
+  },
+  {
+   "name": "ratioDelay",
+   "range": [
+    1.5,
+    4
+   ],
+   "step": 0.1,
+   "what": "s a count holds before its % appears (floor 1.5: counts before ratios)",
+   "value": 1.5
+  },
+  {
+   "name": "poolOut",
+   "range": [
+    46,
+    48.4
+   ],
+   "step": 0.1,
+   "what": "s: pooled labels and the readout fade before the split",
+   "value": 47.6
+  },
+  {
+   "name": "move0",
+   "range": [
+    48,
+    50
+   ],
+   "step": 0.1,
+   "what": "s: boxes leave the carpets for their class slabs",
+   "value": 48.5
+  },
+  {
+   "name": "move1",
+   "range": [
+    53,
+    57
+   ],
+   "step": 0.1,
+   "what": "s: last box lands in its slab",
+   "value": 55.5
+  },
+  {
+   "name": "stagger",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "spread of departure times inside the move (0 = all at once)",
+   "value": 0.25
+  },
+  {
+   "name": "lift",
+   "range": [
+    0,
+    60
+   ],
+   "step": 1,
+   "what": "world units of the arc a box makes in flight",
+   "value": 22
+  },
+  {
+   "name": "orderMix",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "departure order: 0 seeded, 1 class by class",
+   "value": 0.5
+  },
+  {
+   "name": "tilt0",
+   "range": [
+    48,
+    50
+   ],
+   "step": 0.1,
+   "what": "s: the plan starts tilting into 3D (the split is the only tilt)",
+   "value": 48.5
+  },
+  {
+   "name": "tilt1",
+   "range": [
+    53,
+    58
+   ],
+   "step": 0.1,
+   "what": "s: the tilt and the turn end",
+   "value": 56
+  },
+  {
+   "name": "tagOut",
+   "range": [
+    58,
+    66
+   ],
+   "step": 0.1,
+   "what": "s: the two tagged boxes lose their outline and trail",
+   "value": 59
+  },
+  {
+   "name": "pinIn",
+   "range": [
+    58,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: first slab pin enters (highest priority first)",
+   "value": 58.4
+  },
+  {
+   "name": "pinStep",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "s between slab pins entering, by priority",
+   "value": 0.25
+  },
+  {
+   "name": "pinDimOp",
+   "range": [
+    0.35,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the slab pins the callout is not on",
+   "value": 0.35
+  },
+  {
+   "name": "co1",
+   "range": [
+    62,
+    66
+   ],
+   "step": 0.1,
+   "what": "s: callout on first-class children",
+   "value": 64
+  },
+  {
+   "name": "co2",
+   "range": [
+    65,
+    69
+   ],
+   "step": 0.1,
+   "what": "s: hard cut to second-class children",
+   "value": 67
+  },
+  {
+   "name": "co3",
+   "range": [
+    69,
+    72
+   ],
+   "step": 0.1,
+   "what": "s: hard cut to third-class children",
+   "value": 70
+  },
+  {
+   "name": "co4",
+   "range": [
+    75,
+    78
+   ],
+   "step": 0.1,
+   "what": "s: hard cut to first-class men",
+   "value": 76
+  },
+  {
+   "name": "coOff",
+   "range": [
+    80,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: callout and pins leave for the reveal",
+   "value": 82
+  },
+  {
+   "name": "co5",
+   "range": [
+    99,
+    102
+   ],
+   "step": 0.1,
+   "what": "s: callout on the crew men (COUNT C)",
+   "value": 100
+  },
+  {
+   "name": "coEnd",
+   "range": [
+    106,
+    108
+   ],
+   "step": 0.1,
+   "what": "s: callout and crew pin leave (MONDAY)",
+   "value": 108
+  },
+  {
+   "name": "deckT0",
+   "range": [
+    68,
+    72
+   ],
+   "step": 0.1,
+   "what": "s: the camera starts dropping to deck level at the third-class children",
+   "value": 70
+  },
+  {
+   "name": "deckDur",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: length of the drop",
+   "value": 1.4
+  },
+  {
+   "name": "menT0",
+   "range": [
+    75,
+    78
+   ],
+   "step": 0.1,
+   "what": "s: the camera pans along the deck to the first-class men",
+   "value": 75
+  },
+  {
+   "name": "menDur",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: length of the pan",
+   "value": 1.2
+  },
+  {
+   "name": "revT0",
+   "range": [
+    80,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the camera pulls back to frame both slabs",
+   "value": 82
+  },
+  {
+   "name": "revDur",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: length of the pull-back",
+   "value": 2
+  },
+  {
+   "name": "mask0",
+   "range": [
+    83,
+    86
+   ],
+   "step": 0.1,
+   "what": "s: everything but the lit 27 and the lit 57 starts dimming",
+   "value": 84
+  },
+  {
+   "name": "maskDur",
+   "range": [
+    0.5,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: length of the dim in and out",
+   "value": 2
+  },
+  {
+   "name": "mask2",
+   "range": [
+    97,
+    100
+   ],
+   "step": 0.1,
+   "what": "s: the dim lifts for the crew",
+   "value": 99
+  },
+  {
+   "name": "glow0",
+   "range": [
+    83,
+    86
+   ],
+   "step": 0.1,
+   "what": "s: bloom and emission start on the counted group",
+   "value": 84
+  },
+  {
+   "name": "glowUp",
+   "range": [
+    0.5,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: bloom ramp up",
+   "value": 2
+  },
+  {
+   "name": "glow2",
+   "range": [
+    94,
+    98
+   ],
+   "step": 0.1,
+   "what": "s: bloom starts ramping down",
+   "value": 96
+  },
+  {
+   "name": "glowDown",
+   "range": [
+    0.5,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: bloom ramp down",
+   "value": 2
+  },
+  {
+   "name": "res0",
+   "range": [
+    84,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: 34 % and 33 % appear over the two slabs",
+   "value": 85
+  },
+  {
+   "name": "per10",
+   "range": [
+    89,
+    92
+   ],
+   "step": 0.1,
+   "what": "s: 3 IN 10 appears over each",
+   "value": 90
+  },
+  {
+   "name": "crewT0",
+   "range": [
+    99,
+    102
+   ],
+   "step": 0.1,
+   "what": "s: the camera rises for the crew",
+   "value": 100
+  },
+  {
+   "name": "crewDur",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: length of the rise",
+   "value": 1.5
+  },
+  {
+   "name": "monT0",
+   "range": [
+    108,
+    110
+   ],
+   "step": 0.1,
+   "what": "s: MONDAY: camera rises, exposure falls",
+   "value": 108
+  },
+  {
+   "name": "monDur",
+   "range": [
+    2,
+    8
+   ],
+   "step": 0.1,
+   "what": "s: length of the MONDAY rise",
+   "value": 4
+  },
+  {
+   "name": "monQ",
+   "range": [
+    108,
+    110
+   ],
+   "step": 0.1,
+   "what": "s: the Monday question starts typing",
+   "value": 108.4
+  },
+  {
+   "name": "monHonest",
+   "range": [
+    112,
+    115
+   ],
+   "step": 0.1,
+   "what": "s: the honest line appears",
+   "value": 114
+  },
+  {
+   "name": "planAz",
+   "range": [
+    -20,
+    20
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the plan view",
+   "value": 0
+  },
+  {
+   "name": "planEl",
+   "range": [
+    70,
+    89
+   ],
+   "step": 1,
+   "what": "degrees: elevation of the plan view (89 = straight down)",
+   "value": 88
+  },
+  {
+   "name": "planZoom",
+   "range": [
+    0.9,
+    1.5
+   ],
+   "step": 0.01,
+   "what": "ortho zoom of the plan (lower = closer)",
+   "value": 1.2
+  },
+  {
+   "name": "planLookZ",
+   "range": [
+    -40,
+    60
+   ],
+   "step": 1,
+   "what": "world z the plan centres on (higher moves the carpets up)",
+   "value": 5
+  },
+  {
+   "name": "hookDrift",
+   "range": [
+    0,
+    6
+   ],
+   "step": 0.5,
+   "what": "degrees the plan drifts before the split",
+   "value": 2
+  },
+  {
+   "name": "splitAz",
+   "range": [
+    60,
+    100
+   ],
+   "step": 1,
+   "what": "degrees: azimuth after the turn (90 = square to the row)",
+   "value": 78
+  },
+  {
+   "name": "splitEl",
+   "range": [
+    10,
+    45
+   ],
+   "step": 1,
+   "what": "degrees: elevation after the tilt",
+   "value": 24
+  },
+  {
+   "name": "splitZoom",
+   "range": [
+    0.4,
+    1
+   ],
+   "step": 0.01,
+   "what": "ortho zoom of the split view",
+   "value": 0.66
+  },
+  {
+   "name": "splitLookY",
+   "range": [
+    -160,
+    -20
+   ],
+   "step": 1,
+   "what": "world y the split view looks at (more negative moves the slabs down)",
+   "value": -80
+  },
+  {
+   "name": "deckAz",
+   "range": [
+    70,
+    95
+   ],
+   "step": 1,
+   "what": "degrees: azimuth at deck level",
+   "value": 84
+  },
+  {
+   "name": "deckEl",
+   "range": [
+    1,
+    12
+   ],
+   "step": 0.5,
+   "what": "degrees: elevation at deck level",
+   "value": 3
+  },
+  {
+   "name": "deckZoom",
+   "range": [
+    0.3,
+    0.8
+   ],
+   "step": 0.01,
+   "what": "ortho zoom at deck level",
+   "value": 0.56
+  },
+  {
+   "name": "deckLookY",
+   "range": [
+    -160,
+    -40
+   ],
+   "step": 1,
+   "what": "world y the deck view looks at",
+   "value": -73
+  },
+  {
+   "name": "revAz",
+   "range": [
+    70,
+    95
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the reveal, crew and Monday",
+   "value": 86
+  },
+  {
+   "name": "revEl",
+   "range": [
+    2,
+    20
+   ],
+   "step": 0.5,
+   "what": "degrees: elevation of the reveal",
+   "value": 6
+  },
+  {
+   "name": "revZoom",
+   "range": [
+    0.4,
+    1
+   ],
+   "step": 0.01,
+   "what": "ortho zoom of the reveal",
+   "value": 0.75
+  },
+  {
+   "name": "revLookY",
+   "range": [
+    -160,
+    -40
+   ],
+   "step": 1,
+   "what": "world y the reveal looks at",
+   "value": -97
+  },
+  {
+   "name": "revMix",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "reveal centre between the first-class men (0) and the third-class children (1)",
+   "value": 0.5
+  },
+  {
+   "name": "crewEl",
+   "range": [
+    6,
+    30
+   ],
+   "step": 1,
+   "what": "degrees: elevation for the crew",
+   "value": 16
+  },
+  {
+   "name": "crewZoom",
+   "range": [
+    0.4,
+    1
+   ],
+   "step": 0.01,
+   "what": "ortho zoom for the crew",
+   "value": 0.7
+  },
+  {
+   "name": "monEl",
+   "range": [
+    30,
+    85
+   ],
+   "step": 1,
+   "what": "degrees: elevation in MONDAY",
+   "value": 40
+  },
+  {
+   "name": "monZoom",
+   "range": [
+    0.5,
+    1.4
+   ],
+   "step": 0.01,
+   "what": "ortho zoom in MONDAY",
+   "value": 0.8
+  },
+  {
+   "name": "monLookY",
+   "range": [
+    -260,
+    0
+   ],
+   "step": 1,
+   "what": "world y MONDAY looks at",
+   "value": -120
+  },
+  {
+   "name": "k",
+   "range": [
+    1,
+    1
+   ],
+   "step": 1,
+   "what": "people per box: fixed at 1 by the claim perBox (read-only)",
+   "value": 1
+  },
+  {
+   "name": "budget",
+   "range": [
+    2201,
+    40000
+   ],
+   "step": 100,
+   "what": "box budget before LOD batching (>= 2,201 keeps 1 box = 1 person)",
+   "value": 4000
+  },
+  {
+   "name": "boxSize",
+   "range": [
+    4,
+    9
+   ],
+   "step": 0.1,
+   "what": "edge of one box",
+   "value": 6.4
+  },
+  {
+   "name": "boxGap",
+   "range": [
+    0.3,
+    2
+   ],
+   "step": 0.1,
+   "what": "seam between boxes",
+   "value": 0.8
+  },
+  {
+   "name": "poolCols",
+   "range": [
+    28,
+    44
+   ],
+   "step": 1,
+   "what": "boxes across one pooled carpet (its rows follow from the count)",
+   "value": 40
+  },
+  {
+   "name": "groupGap",
+   "range": [
+    10,
+    60
+   ],
+   "step": 1,
+   "what": "air between the three carpets",
+   "value": 28
+  },
+  {
+   "name": "layers",
+   "range": [
+    16,
+    30
+   ],
+   "step": 1,
+   "what": "layers every split slab is normalised to (lit height = rate)",
+   "value": 22
+  },
+  {
+   "name": "depth",
+   "range": [
+    1,
+    4
+   ],
+   "step": 1,
+   "what": "boxes deep in a split slab (the view axis at deck level)",
+   "value": 2
+  },
+  {
+   "name": "slabGap",
+   "range": [
+    6,
+    30
+   ],
+   "step": 1,
+   "what": "air between classes in the row",
+   "value": 16
+  },
+  {
+   "name": "pairGap",
+   "range": [
+    2,
+    12
+   ],
+   "step": 1,
+   "what": "air between the groups of one class",
+   "value": 5
+  },
+  {
+   "name": "deckPad",
+   "range": [
+    0,
+    80
+   ],
+   "step": 2,
+   "what": "deck margin around both arrangements",
+   "value": 30
+  },
+  {
+   "name": "dim",
+   "range": [
+    0.4,
+    0.75
+   ],
+   "step": 0.01,
+   "what": "how far a box of someone who did not live is mixed toward the ground",
+   "value": 0.62
+  },
+  {
+   "name": "maskDim",
+   "range": [
+    0.5,
+    0.9
+   ],
+   "step": 0.01,
+   "what": "how far everything outside the counted group dims in the reveal",
+   "value": 0.8
+  },
+  {
+   "name": "keyAz",
+   "range": [
+    -90,
+    90
+   ],
+   "step": 1,
+   "what": "degrees: azimuth the hard key comes from (0 = screen left after the turn)",
+   "value": 35
+  },
+  {
+   "name": "keyEl",
+   "range": [
+    10,
+    70
+   ],
+   "step": 1,
+   "what": "degrees: elevation of the key",
+   "value": 38
+  },
+  {
+   "name": "keyGain",
+   "range": [
+    0.3,
+    0.9
+   ],
+   "step": 0.01,
+   "what": "strength of the key (ambient + key = the brightest face)",
+   "value": 0.68
+  },
+  {
+   "name": "ambGain",
+   "range": [
+    0.1,
+    0.6
+   ],
+   "step": 0.01,
+   "what": "ambient light (lower = harder light)",
+   "value": 0.32
+  },
+  {
+   "name": "rimGain",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.01,
+   "what": "ember rim from the side opposite the key",
+   "value": 0.12
+  },
+  {
+   "name": "gridOp",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "strength of the plan grid on the deck (0 = none)",
+   "value": 0.5
+  },
+  {
+   "name": "gridStep",
+   "range": [
+    4,
+    16
+   ],
+   "step": 1,
+   "what": "boxes between grid lines",
+   "value": 8
+  },
+  {
+   "name": "deckTone",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "deck colour from ground (0) to panel (1)",
+   "value": 0.9
+  },
+  {
+   "name": "postLevel",
+   "options": [
+    "exec",
+    "manager",
+    "engineer"
+   ],
+   "what": "exec = tone map only; manager adds bloom, vignette, dof",
+   "value": "manager"
+  },
+  {
+   "name": "bloomGain",
+   "range": [
+    0,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "bloom strength on the counted group",
+   "value": 0.08
+  },
+  {
+   "name": "revealEmit",
+   "range": [
+    1,
+    8
+   ],
+   "step": 0.1,
+   "what": "emission of the lit 27 and the lit 57 at the reveal (> 1 glows)",
+   "value": 4
+  },
+  {
+   "name": "vignetteGain",
+   "range": [
+    0,
+    0.15
+   ],
+   "step": 0.01,
+   "what": "corner darkening in the reveal and MONDAY",
+   "value": 0.08
+  },
+  {
+   "name": "dofGain",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "depth of field in the reveal (0 = off; +0.5 s/frame)",
+   "value": 0
+  },
+  {
+   "name": "dofFocus",
+   "range": [
+    2800,
+    3200
+   ],
+   "step": 10,
+   "what": "focus distance from the eye, world units",
+   "value": 3000
+  },
+  {
+   "name": "grainGain",
+   "range": [
+    0,
+    0.02
+   ],
+   "step": 0.002,
+   "what": "film grain in the reveal (engineer only)",
+   "value": 0
+  },
+  {
+   "name": "chromaGain",
+   "range": [
+    0,
+    6
+   ],
+   "step": 0.5,
+   "what": "chromatic split in the reveal (engineer only)",
+   "value": 0
+  },
+  {
+   "name": "exposure",
+   "range": [
+    0.5,
+    2
+   ],
+   "step": 0.05,
+   "what": "pre-tonemap exposure",
+   "value": 1
+  },
+  {
+   "name": "monExposure",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.05,
+   "what": "exposure multiplier in MONDAY",
+   "value": 0.6
+  },
+  {
+   "name": "monGlow",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "faint glow the two revealed slabs keep in MONDAY",
+   "value": 0.35
+  },
+  {
+   "name": "monMask",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how far the rest stays dimmed in MONDAY",
+   "value": 0.6
+  },
+  {
+   "name": "hold",
+   "range": [
+    0,
+    15
+   ],
+   "step": 1,
+   "what": "frames a pin must be pushed before it hides",
+   "value": 8
+  },
+  {
+   "name": "leader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "pin leader length, sheet units",
+   "value": 24
+  },
+  {
+   "name": "maxShown",
+   "range": [
+    1,
+    20
+   ],
+   "step": 1,
+   "what": "pin budget per frame",
+   "value": 12
+  },
+  {
+   "name": "sticky",
+   "options": [
+    "window",
+    "chain"
+   ],
+   "what": "label hysteresis: window (bounded cost) or chain",
+   "value": "window"
+  },
+  {
+   "name": "calloutSize",
+   "range": [
+    28,
+    48
+   ],
+   "step": 1,
+   "what": "callout count size (result face)",
+   "value": 32
+  },
+  {
+   "name": "calloutLeader",
+   "range": [
+    40,
+    90
+   ],
+   "step": 2,
+   "what": "callout leader length",
+   "value": 52
+  },
+  {
+   "name": "plateOp",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the ground-colour plate behind a pin",
+   "value": 0.5
+  },
+  {
+   "name": "legendX",
+   "range": [
+    380,
+    640
+   ],
+   "step": 5,
+   "what": "x of the colour legend (top right)",
+   "value": 560
+  },
+  {
+   "name": "ruleSize",
+   "range": [
+    28,
+    60
+   ],
+   "step": 1,
+   "what": "size of the rule in HOOK",
+   "value": 44
+  },
+  {
+   "name": "ruleY",
+   "range": [
+    140,
+    260
+   ],
+   "step": 2,
+   "what": "y of the rule",
+   "value": 196
+  },
+  {
+   "name": "qSize",
+   "range": [
+    28,
+    40
+   ],
+   "step": 1,
+   "what": "size of the HOOK question",
+   "value": 28
+  },
+  {
+   "name": "monQSize",
+   "range": [
+    28,
+    48
+   ],
+   "step": 1,
+   "what": "size of the Monday question",
+   "value": 36
+  },
+  {
+   "name": "monY",
+   "range": [
+    80,
+    220
+   ],
+   "step": 2,
+   "what": "y of the Monday question",
+   "value": 104
+  },
+  {
+   "name": "countSize",
+   "range": [
+    28,
+    60
+   ],
+   "step": 1,
+   "what": "size of the arrival counter",
+   "value": 44
+  },
+  {
+   "name": "poolCount",
+   "range": [
+    28,
+    36
+   ],
+   "step": 1,
+   "what": "size of the pooled counts and %",
+   "value": 28
+  },
+  {
+   "name": "resultSize",
+   "range": [
+    32,
+    60
+   ],
+   "step": 1,
+   "what": "size of 34 % and 33 % at the reveal",
+   "value": 44
+  }
+ ],
+ "ms_per_frame": 941,
+ "s_per_frame": 0.941,
+ "purity": {
+  "pass": true,
+  "at": {
+   "24.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "61.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "98.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The plan: 2,201 boxes, pooled, then split"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Deck level: who lived, by class"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  },
+  {
+   "t": 122.99,
+   "file": "thumbs/t-0122.99.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does the average leave out?"
+   }
+  }
+ ]
+}
