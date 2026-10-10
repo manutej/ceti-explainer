@@ -117,6 +117,8 @@ the blueprint: https://claude.ai/artifact/B1gL55RNtMpo9fp44gWyZG. All private un
   design claim until they run.
 - A stray file written by an agent at the container root (/results.prev.json) could not be removed by the
   orchestrator's safety check; it is scratch and safe to delete.
+- The fourteen 75-second cases were gated before G11 (text overlap) existed and several overlap text at chapter cuts
+  (D13); proofs gate them with `--overlap-warn` until a fix wave edits their film.js and republishes them.
 - The AI-STORIES and NOETHER numbers were read from search snippets (egress blocked); every MEASURES/NOTES names the
   primaries to open before public use. Modular efficiency follow-ups (docs/ARCHITECTURE-AUDIT.md: modules by id, font
   subsetting, p5 only when called) are not started.

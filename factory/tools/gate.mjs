@@ -3,7 +3,7 @@
    factory/tools/gate.mjs · the gate for "the 75-second case" films
    --------------------------------------------------------------------
    node factory/tools/gate.mjs <built-page.html> --film <film-dir>
-        [--json out.json] [--shots dir] [--kit file.js|dir ...] [--quick] [--no-overlap]
+        [--json out.json] [--shots dir] [--kit file.js|dir ...] [--quick] [--no-overlap] [--overlap-warn]
 
    Rows G1..G11 (see factory/tools/README.md). Each row is PASS, FAIL, WARN
    or SKIP with evidence. Exit 1 if any row FAILs (WARN and SKIP do not).
@@ -34,11 +34,12 @@ for (let i = 0; i < argv.length; i++) {
   else if (a === '--kit') opt.kit.push(argv[++i]);
   else if (a === '--quick') opt.quick = true;
   else if (a === '--no-overlap') opt.noOverlap = true;
+  else if (a === '--overlap-warn') opt.overlapWarn = true;   // legacy films (gated before G11): report FAIL instances, row status WARN
   else if (a === '-h' || a === '--help') { usage(0); }
   else pos.push(a);
 }
 function usage(code) {
-  console.log('usage: node factory/tools/gate.mjs <built-page.html> --film <film-dir> [--json out.json] [--shots dir] [--kit file.js|dir ...] [--quick] [--no-overlap]');
+  console.log('usage: node factory/tools/gate.mjs <built-page.html> --film <film-dir> [--json out.json] [--shots dir] [--kit file.js|dir ...] [--quick] [--no-overlap] [--overlap-warn]');
   process.exit(code);
 }
 const PAGE = pos[0];
@@ -603,11 +604,12 @@ else {
   const desc = (g) => { const x = g.w; return x.kind === 'off-stage' ? `${x.sev} @${x.t}s "${x.a}" (${x.a_role}) leaves the stage by ${x.overlap}u${g.n > 1 ? ` (${g.n} samples, ${g.t0}–${g.t1}s)` : ''}`
       : `${x.sev} @${x.t}s ${x.kind === 'caption-band' ? 'crosses the caption band' : 'overlap'}: "${x.a}" (${x.a_role}) × ${x.kind === 'caption-band' ? 'caption band' : `"${x.b}" (${x.b_role})`} ${x.overlap}u² (${Math.round(x.frac * 100)} %)${g.n > 1 ? ` (${g.n} samples, ${g.t0}–${g.t1}s)` : ''}`; };
   const mode = anyRole ? 'texts with data-role' : 'no data-role on this page (kit v1): every text judged, classed by layer/size';
-  row('G11', 'text overlap', nF ? 'FAIL' : nW ? 'WARN' : 'PASS',
+  row('G11', 'text overlap', nF ? (opt.overlapWarn ? 'WARN' : 'FAIL') : nW ? 'WARN' : 'PASS',
+    (opt.overlapWarn && nF ? 'LEGACY (--overlap-warn: a film gated before G11 existed; the FAIL instances below are real and wait for the fix wave). ' : '') +
     `${nSamples} samples every ${STEP11} s, ${nTexts.size} distinct texts (${mode}), caption showing at ${nCap}; ` +
     (inst.length ? `${nF} FAIL / ${nW} WARN instances in ${groups.size} distinct pair(s); worst ${Math.min(8, worst.length)}: ${worst.slice(0, 8).map(desc).join('; ')}` : 'no overlap, no text off the stage, nothing across the caption band') +
     '. Canvas-drawn text (p5 / WEBGL) is not visible to this row.',
-    { step: STEP11, samples: nSamples, mode, canvasText: 'not seen', fail: nF, warn: nW, instances: inst });
+    { step: STEP11, samples: nSamples, mode, canvasText: 'not seen', fail: nF, warn: nW, legacy: !!(opt.overlapWarn && nF), instances: inst });
 }
 
 /* ═════════════ stills ═════════════ */

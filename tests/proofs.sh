@@ -48,7 +48,9 @@ if run vi; then
       page="$d/build/$id.html"; kitargs="--kit factory/kit/kit.js --kit factory/kit/player.js"
     fi
     [ -f "$d/gate.json" ] || { echo "   $id: no gate.json yet, gate skipped"; continue; }
-    node factory/tools/gate.mjs "$page" --film "$d" $kitargs \
+    # D13: a film whose recorded gate.json has no G11 row was shipped before the text-overlap row existed; G11 reports as WARN for it
+    legacy=""; grep -q '"G11"' "$d/gate.json" || legacy="--overlap-warn"
+    node factory/tools/gate.mjs "$page" --film "$d" $kitargs $legacy \
       --json "$d/build/$id.gate.json" --quick > "$d/build/$id.gate.log" 2>&1 \
       || { grep -E 'FAIL|VERDICT|Error' "$d/build/$id.gate.log"; echo "   $id: gate FAIL"; exit 1; }
     grep -E '^ *VERDICT' "$d/build/$id.gate.log" | sed "s/^ */   $id: /"

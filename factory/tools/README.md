@@ -15,6 +15,7 @@ through the hook contract of films/opera-house/page.js: `?film=1` gives the bare
   requestAnimationFrame, Date and performance.now (the play loop and the commit timer); nothing else may.
 - `--quick` samples the text timeline (G5c, G11) every 1 s instead of every 0.5 s.
 - `--no-overlap` skips G11 (text overlap), which seeks the film every 0.5 s and adds about 10 to 40 s.
+- `--overlap-warn` keeps G11's instances but reports the row as WARN (D13: films gated before G11 existed; tests/proofs.sh passes it for a film whose recorded gate.json has no G11 row).
 
 Rows sort numerically (G10 and G11 after G9). Prints a table, exits 1 if any row is FAIL. WARN and SKIP never fail the film. A row SKIPs when the film
 folder lacks the data it needs (legacy schema), and says why. Runtime: about 10 to 20 s.
