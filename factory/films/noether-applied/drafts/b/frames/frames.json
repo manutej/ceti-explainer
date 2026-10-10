@@ -1,0 +1,4707 @@
+{
+ "page": "factory/films/noether-applied/drafts/b/build/noether-applied.ceti-coastal-dark.none.html",
+ "film": "noether-applied",
+ "dur": 153,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-coastal-dark",
+ "axes": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "pX",
+   "range": [
+    640,
+    720
+   ],
+   "step": 2,
+   "what": "x of the fixed ledger panel (sheet units); the panel is the right third",
+   "value": 676
+  },
+  {
+   "name": "pW",
+   "range": [
+    200,
+    260
+   ],
+   "step": 2,
+   "what": "width of the ledger panel's text (sheet units)",
+   "value": 236
+  },
+  {
+   "name": "rowH",
+   "range": [
+    76,
+    100
+   ],
+   "step": 2,
+   "what": "height of one ledger row (label, value, rule)",
+   "value": 84
+  },
+  {
+   "name": "valSize",
+   "range": [
+    28,
+    36
+   ],
+   "step": 1,
+   "what": "type size of a ledger value (never under 28)",
+   "value": 30
+  },
+  {
+   "name": "qSize",
+   "range": [
+    28,
+    36
+   ],
+   "step": 1,
+   "what": "type size of the set-type question",
+   "value": 30
+  },
+  {
+   "name": "honestSize",
+   "range": [
+    18,
+    26
+   ],
+   "step": 1,
+   "what": "type size of the honest line on stage",
+   "value": 20
+  },
+  {
+   "name": "tS1",
+   "range": [
+    10,
+    14
+   ],
+   "step": 0.5,
+   "what": "second the first act starts (hard cut from the hook)",
+   "value": 12
+  },
+  {
+   "name": "tS2a",
+   "range": [
+    58,
+    66
+   ],
+   "step": 0.5,
+   "what": "second the balanced-layers act starts (match cut)",
+   "value": 62
+  },
+  {
+   "name": "tS2b",
+   "range": [
+    86,
+    92
+   ],
+   "step": 0.5,
+   "what": "second the spring act starts (match cut)",
+   "value": 89
+  },
+  {
+   "name": "tS3",
+   "range": [
+    106,
+    114
+   ],
+   "step": 0.5,
+   "what": "second the weather act starts (match cut)",
+   "value": 110
+  },
+  {
+   "name": "tS4",
+   "range": [
+    118,
+    126
+   ],
+   "step": 0.5,
+   "what": "second the chain act starts (match cut)",
+   "value": 122.5
+  },
+  {
+   "name": "tWide",
+   "range": [
+    130,
+    140
+   ],
+   "step": 0.5,
+   "what": "second the wide frame of the four sorted pictures starts",
+   "value": 135
+  },
+  {
+   "name": "tQ0",
+   "range": [
+    3,
+    9
+   ],
+   "step": 0.5,
+   "what": "second the question fades in",
+   "value": 6
+  },
+  {
+   "name": "tHon",
+   "range": [
+    138,
+    146
+   ],
+   "step": 0.5,
+   "what": "second the honest line is set on stage",
+   "value": 141.5
+  },
+  {
+   "name": "tCnt1",
+   "range": [
+    12,
+    20
+   ],
+   "step": 0.5,
+   "what": "act 1: the 2,000 dots start to arrive (plan view)",
+   "value": 14
+  },
+  {
+   "name": "tCnt1e",
+   "range": [
+    20,
+    30
+   ],
+   "step": 0.5,
+   "what": "act 1: the last dot has arrived (the count lands)",
+   "value": 26
+  },
+  {
+   "name": "tCr1",
+   "range": [
+    30,
+    40
+   ],
+   "step": 0.5,
+   "what": "act 1: the crane starts (plan to elevation, sheet still flat)",
+   "value": 34
+  },
+  {
+   "name": "tCr1e",
+   "range": [
+    34,
+    44
+   ],
+   "step": 0.5,
+   "what": "act 1: the crane ends",
+   "value": 39
+  },
+  {
+   "name": "tRise1",
+   "range": [
+    34,
+    44
+   ],
+   "step": 0.5,
+   "what": "act 1: the dots stand up by their error (camera still)",
+   "value": 39
+  },
+  {
+   "name": "tRise1e",
+   "range": [
+    37,
+    47
+   ],
+   "step": 0.5,
+   "what": "act 1: the dots have stood up",
+   "value": 42
+  },
+  {
+   "name": "tHi1",
+   "range": [
+    50,
+    58
+   ],
+   "step": 0.5,
+   "what": "act 1: the thrown-out dots are lit, the rest dim",
+   "value": 53.5
+  },
+  {
+   "name": "tHi1e",
+   "range": [
+    52,
+    60
+   ],
+   "step": 0.5,
+   "what": "act 1: the thrown-out light ends",
+   "value": 56
+  },
+  {
+   "name": "tSp1",
+   "range": [
+    52,
+    60
+   ],
+   "step": 0.5,
+   "what": "act 1: the keeper is lit, the plain dots dim (the spin row)",
+   "value": 56
+  },
+  {
+   "name": "tSp1e",
+   "range": [
+    54,
+    62
+   ],
+   "step": 0.5,
+   "what": "act 1: the keeper light ends",
+   "value": 58.5
+  },
+  {
+   "name": "tBk1",
+   "range": [
+    56,
+    62
+   ],
+   "step": 0.5,
+   "what": "act 1: the camera eases back, oblique",
+   "value": 58.7
+  },
+  {
+   "name": "tBk1e",
+   "range": [
+    58,
+    62
+   ],
+   "step": 0.5,
+   "what": "act 1: the ease-back ends",
+   "value": 61.8
+  },
+  {
+   "name": "tCnt2",
+   "range": [
+    62,
+    70
+   ],
+   "step": 0.5,
+   "what": "act 2a: the 10,000 dots start to arrive",
+   "value": 64
+  },
+  {
+   "name": "tCnt2e",
+   "range": [
+    66,
+    76
+   ],
+   "step": 0.5,
+   "what": "act 2a: the last dot has arrived",
+   "value": 72
+  },
+  {
+   "name": "tCr2",
+   "range": [
+    72,
+    80
+   ],
+   "step": 0.5,
+   "what": "act 2a: the crane starts",
+   "value": 74.5
+  },
+  {
+   "name": "tCr2e",
+   "range": [
+    74,
+    82
+   ],
+   "step": 0.5,
+   "what": "act 2a: the crane ends",
+   "value": 78
+  },
+  {
+   "name": "tRise2",
+   "range": [
+    74,
+    82
+   ],
+   "step": 0.5,
+   "what": "act 2a: the dots stand up by the layer gap (three flat sheets)",
+   "value": 78
+  },
+  {
+   "name": "tRise2e",
+   "range": [
+    77,
+    86
+   ],
+   "step": 0.5,
+   "what": "act 2a: the dots have stood up",
+   "value": 81.5
+  },
+  {
+   "name": "tCnt3",
+   "range": [
+    89,
+    94
+   ],
+   "step": 0.2,
+   "what": "act 2b: the 400 dots start to arrive",
+   "value": 89.4
+  },
+  {
+   "name": "tCnt3e",
+   "range": [
+    90,
+    96
+   ],
+   "step": 0.2,
+   "what": "act 2b: the last dot has arrived",
+   "value": 91.4
+  },
+  {
+   "name": "tCr3",
+   "range": [
+    90,
+    96
+   ],
+   "step": 0.2,
+   "what": "act 2b: the crane starts",
+   "value": 91.6
+  },
+  {
+   "name": "tCr3e",
+   "range": [
+    92,
+    98
+   ],
+   "step": 0.2,
+   "what": "act 2b: the crane ends",
+   "value": 94.6
+  },
+  {
+   "name": "tRise3",
+   "range": [
+    92,
+    98
+   ],
+   "step": 0.2,
+   "what": "act 2b: the dots stand up by their energy",
+   "value": 94.6
+  },
+  {
+   "name": "tRise3e",
+   "range": [
+    93,
+    99
+   ],
+   "step": 0.2,
+   "what": "act 2b: the dots have stood up (before the first ledger row)",
+   "value": 96.9
+  },
+  {
+   "name": "tLoop",
+   "range": [
+    110,
+    116
+   ],
+   "step": 0.2,
+   "what": "act 3: the loop and its wall fade in",
+   "value": 112.2
+  },
+  {
+   "name": "tEv",
+   "range": [
+    111,
+    118
+   ],
+   "step": 0.2,
+   "what": "act 3: the stirring starts (plan view)",
+   "value": 112.8
+  },
+  {
+   "name": "tEve",
+   "range": [
+    114,
+    121
+   ],
+   "step": 0.2,
+   "what": "act 3: the stirring ends (the loop is stretched and folded)",
+   "value": 117.6
+  },
+  {
+   "name": "tCr4",
+   "range": [
+    114,
+    121
+   ],
+   "step": 0.2,
+   "what": "act 3: the crane starts (wall height reads as constant)",
+   "value": 117.8
+  },
+  {
+   "name": "tCr4e",
+   "range": [
+    117,
+    122
+   ],
+   "step": 0.2,
+   "what": "act 3: the crane ends",
+   "value": 121
+  },
+  {
+   "name": "tCr5",
+   "range": [
+    122,
+    126
+   ],
+   "step": 0.1,
+   "what": "act 4: the crane starts (plan to elevation)",
+   "value": 122.7
+  },
+  {
+   "name": "tCr5e",
+   "range": [
+    123,
+    127
+   ],
+   "step": 0.1,
+   "what": "act 4: the crane ends (before the count row)",
+   "value": 124.4
+  },
+  {
+   "name": "tTurn",
+   "range": [
+    125,
+    131
+   ],
+   "step": 0.5,
+   "what": "act 4: the chain starts to turn",
+   "value": 127.5
+  },
+  {
+   "name": "tTurne",
+   "range": [
+    130,
+    135
+   ],
+   "step": 0.5,
+   "what": "act 4: the chain is back in its first pose after one turn",
+   "value": 134.5
+  },
+  {
+   "name": "fov",
+   "range": [
+    20,
+    45
+   ],
+   "step": 1,
+   "what": "vertical field of view, degrees (fixed inside a move)",
+   "value": 30
+  },
+  {
+   "name": "lensX",
+   "range": [
+    0,
+    0.5
+   ],
+   "step": 0.01,
+   "what": "lens shift: moves the subject into the left two thirds, clear of the ledger",
+   "value": 0.36
+  },
+  {
+   "name": "lensY",
+   "range": [
+    -0.2,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "lens shift: vertical, keeps the subject clear of the tag",
+   "value": 0.06
+  },
+  {
+   "name": "camDrift",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "degrees the plan view is higher at the start of a count-in (it settles as the dots arrive)",
+   "value": 8
+  },
+  {
+   "name": "cHA",
+   "range": [
+    -60,
+    60
+   ],
+   "step": 1,
+   "what": "hook: camera azimuth, degrees",
+   "value": 18
+  },
+  {
+   "name": "cHE",
+   "range": [
+    10,
+    80
+   ],
+   "step": 1,
+   "what": "hook: camera elevation",
+   "value": 40
+  },
+  {
+   "name": "cHD",
+   "range": [
+    300,
+    900
+   ],
+   "step": 10,
+   "what": "hook: camera distance",
+   "value": 520
+  },
+  {
+   "name": "c1Az",
+   "range": [
+    -60,
+    60
+   ],
+   "step": 1,
+   "what": "act 1: azimuth, degrees",
+   "value": 18
+  },
+  {
+   "name": "c1P",
+   "range": [
+    50,
+    88
+   ],
+   "step": 1,
+   "what": "act 1: plan elevation",
+   "value": 74
+  },
+  {
+   "name": "c1PD",
+   "range": [
+    500,
+    1200
+   ],
+   "step": 10,
+   "what": "act 1: plan distance",
+   "value": 620
+  },
+  {
+   "name": "c1E",
+   "range": [
+    3,
+    25
+   ],
+   "step": 1,
+   "what": "act 1: elevation after the crane (low, the sheet reads as a line)",
+   "value": 9
+  },
+  {
+   "name": "c1ED",
+   "range": [
+    500,
+    1200
+   ],
+   "step": 10,
+   "what": "act 1: distance after the crane",
+   "value": 660
+  },
+  {
+   "name": "c1Y",
+   "range": [
+    0,
+    120
+   ],
+   "step": 2,
+   "what": "act 1: height the camera looks at after the crane",
+   "value": 52
+  },
+  {
+   "name": "c1B",
+   "range": [
+    8,
+    50
+   ],
+   "step": 1,
+   "what": "act 1: oblique elevation after the ease-back",
+   "value": 24
+  },
+  {
+   "name": "c1BD",
+   "range": [
+    500,
+    1200
+   ],
+   "step": 10,
+   "what": "act 1: distance after the ease-back",
+   "value": 840
+  },
+  {
+   "name": "c2Az",
+   "range": [
+    -60,
+    60
+   ],
+   "step": 1,
+   "what": "act 2a: azimuth",
+   "value": 25
+  },
+  {
+   "name": "c2P",
+   "range": [
+    50,
+    88
+   ],
+   "step": 1,
+   "what": "act 2a: plan elevation",
+   "value": 72
+  },
+  {
+   "name": "c2PD",
+   "range": [
+    450,
+    1100
+   ],
+   "step": 10,
+   "what": "act 2a: plan distance",
+   "value": 560
+  },
+  {
+   "name": "c2E",
+   "range": [
+    3,
+    25
+   ],
+   "step": 1,
+   "what": "act 2a: elevation after the crane",
+   "value": 8
+  },
+  {
+   "name": "c2ED",
+   "range": [
+    450,
+    1100
+   ],
+   "step": 10,
+   "what": "act 2a: distance after the crane",
+   "value": 580
+  },
+  {
+   "name": "c2Y",
+   "range": [
+    0,
+    120
+   ],
+   "step": 2,
+   "what": "act 2a: height the camera looks at after the crane",
+   "value": 0
+  },
+  {
+   "name": "c3Az",
+   "range": [
+    -60,
+    60
+   ],
+   "step": 1,
+   "what": "act 2b: azimuth",
+   "value": 20
+  },
+  {
+   "name": "c3P",
+   "range": [
+    50,
+    88
+   ],
+   "step": 1,
+   "what": "act 2b: plan elevation",
+   "value": 74
+  },
+  {
+   "name": "c3PD",
+   "range": [
+    400,
+    1000
+   ],
+   "step": 10,
+   "what": "act 2b: plan distance",
+   "value": 520
+  },
+  {
+   "name": "c3E",
+   "range": [
+    3,
+    25
+   ],
+   "step": 1,
+   "what": "act 2b: elevation after the crane",
+   "value": 8
+  },
+  {
+   "name": "c3ED",
+   "range": [
+    400,
+    1000
+   ],
+   "step": 10,
+   "what": "act 2b: distance after the crane",
+   "value": 540
+  },
+  {
+   "name": "c3Y",
+   "range": [
+    0,
+    120
+   ],
+   "step": 2,
+   "what": "act 2b: height the camera looks at after the crane",
+   "value": 38
+  },
+  {
+   "name": "c4Az",
+   "range": [
+    -60,
+    60
+   ],
+   "step": 1,
+   "what": "act 3: azimuth",
+   "value": 20
+  },
+  {
+   "name": "c4P",
+   "range": [
+    50,
+    88
+   ],
+   "step": 1,
+   "what": "act 3: plan elevation",
+   "value": 76
+  },
+  {
+   "name": "c4PD",
+   "range": [
+    400,
+    1000
+   ],
+   "step": 10,
+   "what": "act 3: plan distance",
+   "value": 520
+  },
+  {
+   "name": "c4E",
+   "range": [
+    3,
+    25
+   ],
+   "step": 1,
+   "what": "act 3: elevation after the crane",
+   "value": 8
+  },
+  {
+   "name": "c4ED",
+   "range": [
+    400,
+    1000
+   ],
+   "step": 10,
+   "what": "act 3: distance after the crane",
+   "value": 540
+  },
+  {
+   "name": "c4Y",
+   "range": [
+    0,
+    120
+   ],
+   "step": 2,
+   "what": "act 3: height the camera looks at after the crane",
+   "value": 18
+  },
+  {
+   "name": "c5Az",
+   "range": [
+    -60,
+    60
+   ],
+   "step": 1,
+   "what": "act 4: azimuth",
+   "value": 20
+  },
+  {
+   "name": "c5P",
+   "range": [
+    50,
+    88
+   ],
+   "step": 1,
+   "what": "act 4: plan elevation",
+   "value": 72
+  },
+  {
+   "name": "c5PD",
+   "range": [
+    450,
+    1200
+   ],
+   "step": 10,
+   "what": "act 4: plan distance",
+   "value": 660
+  },
+  {
+   "name": "c5E",
+   "range": [
+    3,
+    25
+   ],
+   "step": 1,
+   "what": "act 4: elevation after the crane",
+   "value": 9
+  },
+  {
+   "name": "c5ED",
+   "range": [
+    450,
+    1200
+   ],
+   "step": 10,
+   "what": "act 4: distance after the crane",
+   "value": 700
+  },
+  {
+   "name": "c5Y",
+   "range": [
+    0,
+    200
+   ],
+   "step": 2,
+   "what": "act 4: height the camera looks at after the crane",
+   "value": 100
+  },
+  {
+   "name": "cWAz",
+   "range": [
+    -60,
+    60
+   ],
+   "step": 1,
+   "what": "wide frame: azimuth",
+   "value": 0
+  },
+  {
+   "name": "cWE",
+   "range": [
+    5,
+    40
+   ],
+   "step": 1,
+   "what": "wide frame: elevation",
+   "value": 15
+  },
+  {
+   "name": "cWD",
+   "range": [
+    1500,
+    4000
+   ],
+   "step": 50,
+   "what": "wide frame: distance",
+   "value": 2250
+  },
+  {
+   "name": "cWX",
+   "range": [
+    -400,
+    400
+   ],
+   "step": 10,
+   "what": "wide frame: x the camera looks at",
+   "value": -90
+  },
+  {
+   "name": "cWY",
+   "range": [
+    0,
+    120
+   ],
+   "step": 2,
+   "what": "wide frame: height the camera looks at",
+   "value": 20
+  },
+  {
+   "name": "dotR",
+   "range": [
+    0.8,
+    1.6
+   ],
+   "step": 0.05,
+   "what": "dot radius in world units (about 1, with the depth cue)",
+   "value": 1.1
+  },
+  {
+   "name": "dotRNet",
+   "range": [
+    0.7,
+    1.6
+   ],
+   "step": 0.05,
+   "what": "dot radius in the 10,000-dot cloud, the spring and the loop",
+   "value": 1.2
+  },
+  {
+   "name": "dotRGhost",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.05,
+   "what": "radius of the ghost dots of the zero sheet (a guide, not data)",
+   "value": 0.55
+  },
+  {
+   "name": "dotRWide",
+   "range": [
+    1.2,
+    5
+   ],
+   "step": 0.1,
+   "what": "dot radius in the wide frame (the clouds are small there)",
+   "value": 2.6
+  },
+  {
+   "name": "ghostDim",
+   "range": [
+    0.4,
+    0.95
+   ],
+   "step": 0.01,
+   "what": "how far the zero sheet is dimmed toward the ground",
+   "value": 0.72
+  },
+  {
+   "name": "ghostDimWide",
+   "range": [
+    0.4,
+    0.95
+   ],
+   "step": 0.01,
+   "what": "same, in the wide frame",
+   "value": 0.8
+  },
+  {
+   "name": "dimOthers",
+   "range": [
+    0.3,
+    0.95
+   ],
+   "step": 0.01,
+   "what": "how far the dots outside a lit set are dimmed",
+   "value": 0.78
+  },
+  {
+   "name": "sizeCue",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "depth size cue",
+   "value": 0.5
+  },
+  {
+   "name": "fog",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.02,
+   "what": "fog toward the ground with distance",
+   "value": 0.2
+  },
+  {
+   "name": "stag",
+   "range": [
+    0,
+    0.25
+   ],
+   "step": 0.01,
+   "what": "stagger of the dots inside a re-stack (at most 0.25)",
+   "value": 0.15
+  },
+  {
+   "name": "s1In",
+   "range": [
+    10,
+    50
+   ],
+   "step": 1,
+   "what": "act 1: inner radius of the sheet (the first snapshots)",
+   "value": 22
+  },
+  {
+   "name": "s1Out",
+   "range": [
+    60,
+    160
+   ],
+   "step": 2,
+   "what": "act 1: outer radius (the last snapshots)",
+   "value": 100
+  },
+  {
+   "name": "s1H",
+   "range": [
+    40,
+    200
+   ],
+   "step": 5,
+   "what": "act 1: height of the full error scale (world units)",
+   "value": 105
+  },
+  {
+   "name": "s1Eps",
+   "range": [
+    10,
+    1000
+   ],
+   "step": 10,
+   "what": "act 1: error where the log stretch bends, in millionths (error stretched for the eye, said in words)",
+   "value": 100
+  },
+  {
+   "name": "s1Fly",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "act 1: how far out the thrown-out dots are drawn (a drawing choice)",
+   "value": 0.45
+  },
+  {
+   "name": "gN",
+   "range": [
+    20,
+    60
+   ],
+   "step": 1,
+   "what": "rings of the ghost lattice of every zero sheet (one lattice, scaled per sheet; more rings = more, finer ghost dots)",
+   "value": 38
+  },
+  {
+   "name": "s2G",
+   "range": [
+    60,
+    150
+   ],
+   "step": 5,
+   "what": "act 2a: radius of the ghost sheets of the three layers",
+   "value": 105
+  },
+  {
+   "name": "bondA",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "act 4: brightness of the bond dots between neighbours in the chain",
+   "value": 0.6
+  },
+  {
+   "name": "s2W",
+   "range": [
+    20,
+    60
+   ],
+   "step": 1,
+   "what": "act 2a: world units per unit of the weight picture",
+   "value": 36
+  },
+  {
+   "name": "s2H",
+   "range": [
+    40,
+    140
+   ],
+   "step": 2,
+   "what": "act 2a: world units per unit of layer gap (the three sheets' distance)",
+   "value": 90
+  },
+  {
+   "name": "sqQ",
+   "range": [
+    80,
+    170
+   ],
+   "step": 2,
+   "what": "act 2b: world units per unit of position and momentum",
+   "value": 120
+  },
+  {
+   "name": "sqE",
+   "range": [
+    300,
+    1200
+   ],
+   "step": 10,
+   "what": "act 2b: height per unit of energy (stretched for the eye)",
+   "value": 650
+  },
+  {
+   "name": "slS",
+   "range": [
+    40,
+    90
+   ],
+   "step": 1,
+   "what": "act 3: world units per unit of the loop picture",
+   "value": 62
+  },
+  {
+   "name": "slWall",
+   "range": [
+    10,
+    80
+   ],
+   "step": 1,
+   "what": "act 3: height of the wall (the swirl number, constant)",
+   "value": 38
+  },
+  {
+   "name": "slG",
+   "range": [
+    60,
+    160
+   ],
+   "step": 2,
+   "what": "act 3: radius of the ghost sheet under the loop",
+   "value": 118
+  },
+  {
+   "name": "slStr",
+   "range": [
+    10,
+    40
+   ],
+   "step": 1,
+   "what": "act 3: strands drawn as trails (every 40th parcel at 25)",
+   "value": 25
+  },
+  {
+   "name": "wallA",
+   "range": [
+    0.05,
+    0.6
+   ],
+   "step": 0.01,
+   "what": "act 3: opacity of the wall",
+   "value": 0.22
+  },
+  {
+   "name": "scS",
+   "range": [
+    5,
+    12
+   ],
+   "step": 0.5,
+   "what": "act 4: world units per bond length of the chain",
+   "value": 7.5
+  },
+  {
+   "name": "scLift",
+   "range": [
+    60,
+    220
+   ],
+   "step": 5,
+   "what": "act 4: height of the chain above its sheet",
+   "value": 125
+  },
+  {
+   "name": "scN",
+   "range": [
+    8,
+    40
+   ],
+   "step": 1,
+   "what": "act 4: output arrows drawn (every residue of a regular stride)",
+   "value": 20
+  },
+  {
+   "name": "scL",
+   "range": [
+    10,
+    50
+   ],
+   "step": 1,
+   "what": "act 4: length of the longest output arrow",
+   "value": 24
+  },
+  {
+   "name": "hA",
+   "range": [
+    40,
+    130
+   ],
+   "step": 2,
+   "what": "hook: size of the ellipse",
+   "value": 84
+  },
+  {
+   "name": "hE",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.01,
+   "what": "hook: how stretched the made-up ellipse is",
+   "value": 0.45
+  },
+  {
+   "name": "hPer",
+   "range": [
+    3,
+    9
+   ],
+   "step": 0.5,
+   "what": "hook: seconds per lap",
+   "value": 5
+  },
+  {
+   "name": "hDot",
+   "range": [
+    1.5,
+    6
+   ],
+   "step": 0.1,
+   "what": "hook: radius of the planet and the sun",
+   "value": 3
+  }
+ ],
+ "ms_per_frame": 248,
+ "s_per_frame": 0.248,
+ "purity": {
+  "pass": true,
+  "at": {
+   "30.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "76.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "122.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png",
+  "strip-22.png",
+  "strip-23.png",
+  "strip-24.png",
+  "strip-25.png",
+  "strip-26.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "Last time: a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "Where is that used today, outside quantum physics?",
+   "chapter": {
+    "id": "hook",
+    "title": "Where is this used today?"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "First: a computer moves a planet in tiny steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "Each dot is a snapshot of that planet.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "1,000 snapshots from each of two ways of stepping.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "1,000 snapshots from each of two ways of stepping.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "1,000 snapshots from each of two ways of stepping.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "1,000 snapshots from each of two ways of stepping.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "1,000 snapshots from each of two ways of stepping.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "1,000,000,000 tiny steps each.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "1,000,000,000 tiny steps each.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "1,000,000,000 tiny steps each.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "1,000,000,000 tiny steps each.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "From above, the two look the same.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "From above, the two look the same.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "From above, the two look the same.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "From above, the two look the same.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "From above, the two look the same.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "Now stand each dot up by how far its number drifted.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "One stays flat. The other tilts, then tears.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "One stays flat. The other tilts, then tears.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "One stays flat. The other tilts, then tears.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "One stays flat. The other tilts, then tears.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "The energy-keeper never strays more than 0.007 %.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "The energy-keeper never strays more than 0.007 %.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "The energy-keeper never strays more than 0.007 %.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "The energy-keeper never strays more than 0.007 %.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "The energy-keeper never strays more than 0.007 %.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "The plain way: 1.9 % off after 10,000,000 steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "The plain way: 1.9 % off after 10,000,000 steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "The plain way: 1.9 % off after 10,000,000 steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "The plain way: 1.9 % off after 10,000,000 steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "The plain way: 1.9 % off after 10,000,000 steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "About 270 times more error.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "About 270 times more error.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "About 270 times more error.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "About 270 times more error.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "About 270 times more error.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "Then it is thrown out: by 65 million steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "Then it is thrown out: by 65 million steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "Then it is thrown out: by 65 million steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "Then it is thrown out: by 65 million steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "Then it is thrown out: by 65 million steps.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "The spin number stays right to 11 places.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "The spin number stays right to 11 places.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "The spin number stays right to 11 places.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "The spin number stays right to 11 places.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "The spin number stays right to 11 places.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "Astronomers run whole solar systems this way.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "Astronomers run whole solar systems this way.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "Astronomers run whole solar systems this way.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "Astronomers run whole solar systems this way.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "Astronomers run whole solar systems this way.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Astronomers run whole solar systems this way.",
+   "chapter": {
+    "id": "case",
+    "title": "A planet, stepped two ways"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "Next: machines that learn. Each dot is one step.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": "10,000 steps from 100 training runs.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "10,000 steps from 100 training runs.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "10,000 steps from 100 training runs.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "10,000 steps from 100 training runs.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "10,000 steps from 100 training runs.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Stand each dot up by the gap between two layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "The weights travelled 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "The weights travelled 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "The weights travelled 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "The weights travelled 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "The weights travelled 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "The gap between layers moved 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "The gap between layers moved 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "The gap between layers moved 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "The gap between layers moved 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "The gap between layers moved 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "Teach two networks a swinging spring.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "Same size: 200 units, 2,000 training steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "Same size: 200 units, 2,000 training steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "Same size: 200 units, 2,000 training steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "Same size: 200 units, 2,000 training steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "Same size: 200 units, 2,000 training steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "The plain network, energy error: 170.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "The plain network, energy error: 170.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "The plain network, energy error: 170.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "The plain network, energy error: 170.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "The plain network, energy error: 170.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "The energy-keeping network: 0.38.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "The energy-keeping network: 0.38.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "The energy-keeping network: 0.38.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "The energy-keeping network: 0.38.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "The energy-keeping network: 0.38.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "About 450 times lower.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "About 450 times lower.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "About 450 times lower.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": "About 450 times lower.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "About 450 times lower.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "Weather: tag a loop of air and follow it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "Weather: tag a loop of air and follow it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "Weather: tag a loop of air and follow it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "Weather: tag a loop of air and follow it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "Weather: tag a loop of air and follow it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "Weather: tag a loop of air and follow it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "Weather: tag a loop of air and follow it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "Weather: tag a loop of air and follow it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "The loop stretches and folds.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "The loop stretches and folds.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "The loop stretches and folds.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "The loop stretches and folds.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "The loop stretches and folds.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "The loop stretches and folds.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "The swirl around it stays the same.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": "The swirl around it stays the same.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": "The swirl around it stays the same.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": "The swirl around it stays the same.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": "The swirl around it stays the same.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": "The swirl around it stays the same.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 123,
+   "file": "thumbs/t-0123.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 123.5,
+   "file": "thumbs/t-0123.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 124,
+   "file": "thumbs/t-0124.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 124.5,
+   "file": "thumbs/t-0124.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 9,
+   "caption": "One dot per residue: 2,180 in one chain.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 125,
+   "file": "thumbs/t-0125.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 10,
+   "caption": "One dot per residue: 2,180 in one chain.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 125.5,
+   "file": "thumbs/t-0125.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 11,
+   "caption": "One dot per residue: 2,180 in one chain.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 126,
+   "file": "thumbs/t-0126.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 0,
+   "caption": "One dot per residue: 2,180 in one chain.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 126.5,
+   "file": "thumbs/t-0126.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 1,
+   "caption": "One dot per residue: 2,180 in one chain.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 127,
+   "file": "thumbs/t-0127.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 127.5,
+   "file": "thumbs/t-0127.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 128,
+   "file": "thumbs/t-0128.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 4,
+   "caption": "Turn the protein. The answer turns with it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 128.5,
+   "file": "thumbs/t-0128.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 5,
+   "caption": "Turn the protein. The answer turns with it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 129,
+   "file": "thumbs/t-0129.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 6,
+   "caption": "Turn the protein. The answer turns with it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 129.5,
+   "file": "thumbs/t-0129.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 7,
+   "caption": "Turn the protein. The answer turns with it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 130,
+   "file": "thumbs/t-0130.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 8,
+   "caption": "Turn the protein. The answer turns with it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 130.5,
+   "file": "thumbs/t-0130.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 9,
+   "caption": "Turn the protein. The answer turns with it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 131,
+   "file": "thumbs/t-0131.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 10,
+   "caption": "Turn the protein. The answer turns with it.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 131.5,
+   "file": "thumbs/t-0131.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 132,
+   "file": "thumbs/t-0132.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 0,
+   "caption": "What stays is its shape, not a saved number.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 132.5,
+   "file": "thumbs/t-0132.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 1,
+   "caption": "What stays is its shape, not a saved number.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 133,
+   "file": "thumbs/t-0133.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 2,
+   "caption": "What stays is its shape, not a saved number.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 133.5,
+   "file": "thumbs/t-0133.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 3,
+   "caption": "What stays is its shape, not a saved number.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 134,
+   "file": "thumbs/t-0134.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 4,
+   "caption": "What stays is its shape, not a saved number.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 134.5,
+   "file": "thumbs/t-0134.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 5,
+   "caption": "What stays is its shape, not a saved number.",
+   "chapter": {
+    "id": "count",
+    "title": "Networks, air and a chain: the same sort"
+   }
+  },
+  {
+   "t": 135,
+   "file": "thumbs/t-0135.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 135.5,
+   "file": "thumbs/t-0135.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 7,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 136,
+   "file": "thumbs/t-0136.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 8,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 136.5,
+   "file": "thumbs/t-0136.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 9,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 137,
+   "file": "thumbs/t-0137.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 10,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 137.5,
+   "file": "thumbs/t-0137.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 11,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 138,
+   "file": "thumbs/t-0138.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 0,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 138.5,
+   "file": "thumbs/t-0138.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 1,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 139,
+   "file": "thumbs/t-0139.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 2,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 139.5,
+   "file": "thumbs/t-0139.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 3,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 140,
+   "file": "thumbs/t-0140.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 4,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 140.5,
+   "file": "thumbs/t-0140.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 5,
+   "caption": "Monday: what must never change in your system?",
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 141,
+   "file": "thumbs/t-0141.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 141.5,
+   "file": "thumbs/t-0141.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 142,
+   "file": "thumbs/t-0142.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 142.5,
+   "file": "thumbs/t-0142.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 143,
+   "file": "thumbs/t-0143.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 143.5,
+   "file": "thumbs/t-0143.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 144,
+   "file": "thumbs/t-0144.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 144.5,
+   "file": "thumbs/t-0144.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 145,
+   "file": "thumbs/t-0145.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 145.5,
+   "file": "thumbs/t-0145.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 146,
+   "file": "thumbs/t-0146.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 146.5,
+   "file": "thumbs/t-0146.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 147,
+   "file": "thumbs/t-0147.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 147.5,
+   "file": "thumbs/t-0147.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 148,
+   "file": "thumbs/t-0148.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 148.5,
+   "file": "thumbs/t-0148.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 149,
+   "file": "thumbs/t-0149.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 149.5,
+   "file": "thumbs/t-0149.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 150,
+   "file": "thumbs/t-0150.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 150.5,
+   "file": "thumbs/t-0150.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 151,
+   "file": "thumbs/t-0151.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 151.5,
+   "file": "thumbs/t-0151.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 152,
+   "file": "thumbs/t-0152.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 152.5,
+   "file": "thumbs/t-0152.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  },
+  {
+   "t": 152.99,
+   "file": "thumbs/t-0152.99.jpg",
+   "strip": "strip-26.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What must never change in your system?"
+   }
+  }
+ ]
+}
