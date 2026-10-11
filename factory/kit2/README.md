@@ -132,6 +132,22 @@ materials are Canvas2D marks); `K.ctx` is null, `K.pencil` is a no-op. Proof: `s
 - **libs.** film.json `"libs": ["lib/scene.js"]` inlines scripts (film dir first, then the repo root, e.g.
   `arsenal/patterns/webgl-scene/pattern.js`) between kit2.js and film.js; the gate's G3 scans them like film.js.
 
+## Beat grid (optional, D16)
+
+A silent film carries a pulse by putting its starts on a grid. film.json:
+
+    "beat": 0.5          // seconds; optional, absent by default; 0.2 to 4 (build.py refuses anything else)
+
+- **What it does.** Nothing at render time: the number rides in `window.FILM.beat` and the page is byte-identical to a build
+  without it apart from that one JSON field (a film without `beat` rebuilds byte-identical to its catalogue hash). It is a
+  contract for the author and for gate row G12, not a snap in the kit: the film.json captions and the `…T0` / `t…` knobs
+  and `rig.moves[].t0` are typed as multiples of `beat`.
+- **Choosing it.** 0.5 s (120 bpm, 15 frames) is the default suggestion; 0.667 s (90 bpm) is slower. Prefer a whole number
+  of frames at 30 fps (0.4, 0.5, 0.6): build.py notes a beat that falls between frames.
+- **Gate.** G12 (factory/tools/README.md), WARN-only in Wave WOW: with `beat` set, >= 80 % of the caption starts and move
+  starts within +-2 frames of a grid line. With or without `beat`, every caption must hold >= 1.3 s + 0.06 s per character,
+  and a stretch over 8 s with no caption change and no timed knob is listed as a dead hold.
+
 ## Commit (optional, D11)
 
 The sealed-answer beat is optional and off by default (docs/DECISIONS.md D11). film.json:

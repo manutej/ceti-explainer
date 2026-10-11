@@ -8,6 +8,8 @@
 --chrome    factory/kit2/chromes/<ID>.js, else factory/chromes/<ID>.js; 'none' = no furniture. Default tender-set.
 --material  an id in ARSENAL.materials from arsenal/materials/drawn/materials.js when that file exists, else from
             factory/kit2/materials/basic.js (ink, pencil). Default ink.
+            'hero' (factory/kit2/materials/hero.js) is the manager-level hero look (arsenal/patterns/gl-look): film.json level must be
+            manager (refused otherwise: exec stays ink); build.py inlines gl-post and gl-look after the film's libs. Webgl films only.
 film.json `level`: 'exec' (default) | 'manager' | 'engineer'. It reaches kit2 inside FILM and is published with the
             built axes as window.__film.info.axes (gate row G10 reads it).
 --out       default <film-dir>/build/<id>.<brand>.<chrome>.html (+ .<material> when not ink); relative paths
@@ -31,6 +33,11 @@ film.json, optional:
              (DECISIONS D11: optional, off by default). Absent, null or {"enabled": false}: no commit box, hold,
              countdown ring, try-it panel or film-mode default; commit-off.js is inlined and the film plays straight
              through. An object without "enabled" (films before D11) counts as on; on requires at, prompt, default.
+  beat       seconds (e.g. 0.5 = 120 bpm; 0.2 <= beat <= 4; optional, absent by default): the film's beat grid. It rides
+             in FILM unchanged (the page is byte-identical to a build without the field only when the field is absent) and
+             gate row G12 (WARN-only, D16) checks that >= 80 % of the caption starts and move starts fall within
+             +-2 frames (30 fps) of a multiple of it. build.py refuses a non-number or a value outside 0.2 to 4 and
+             notes a beat that is not a whole number of frames at 30 fps.
   knobs      {name: value} and knobs_doc [{name, range: [lo, hi] | options: [...], step?, what}]: every knob is
              documented and in range, every documented knob has a value (refused otherwise).
 """
@@ -255,6 +262,9 @@ def chrome_src(cid):
 
 
 def material_src(mid):
+    if mid == "hero":   # the manager-level hero look (arsenal/patterns/gl-look): a kit2 material, never in the drawn set
+        p = os.path.join(KIT2, "materials", "hero.js")
+        return read(p), p
     p = DRAWN if os.path.isfile(DRAWN) else os.path.join(KIT2, "materials", "basic.js")
     src = read(p)
     if not re.search(r"materials(\.%s\b|\[['\"]%s['\"]\])" % (re.escape(mid), re.escape(mid)), src):
@@ -342,6 +352,18 @@ def check_knobs(film):
     return len(names)
 
 
+def check_beat(film):
+    """film.json beat (seconds): optional; returns it or None. The page carries it in FILM; G12 reads it from film.json."""
+    if "beat" not in film or film["beat"] is None:
+        return None
+    b = film["beat"]
+    if isinstance(b, bool) or not isinstance(b, (int, float)) or not 0.2 <= b <= 4:
+        die("film.json beat must be a number of seconds in 0.2..4 (got %r); omit it for no grid" % (b,))
+    if abs(b * 30 - round(b * 30)) > 0.02:
+        print("note: beat %s s is %.2f frames at 30 fps: grid lines fall between frames (use 0.5, 0.4, 0.6 or another multiple of 1/30 s)" % (b, b * 30))
+    return float(b)
+
+
 def commit_state(film):
     """D11: True when the film keeps the sealed-answer beat. Absent / null / enabled false -> off. An object
     without "enabled" (every film shipped before D11) is on. On requires at, prompt and default."""
@@ -391,6 +413,7 @@ def main():
     if miss:
         die("film.json lacks %s" % ", ".join(miss))
     commit_on = commit_state(film)
+    beat = check_beat(film)
     if "takeaway" not in film["brand"]:
         die("film.json brand lacks takeaway")
     cp = os.path.join(fdir, "claims.json")
@@ -405,11 +428,16 @@ def main():
     renderer = str(film.get("renderer", "2d")).lower()
     if renderer not in RENDERERS:
         die("film.json renderer %r is not one of %s" % (renderer, ", ".join(RENDERERS)))
-    if renderer == "webgl" and mid != "ink":
-        die("renderer webgl draws its own marks: material must be ink (got %s)" % mid)
+    if renderer == "webgl" and mid not in ("ink", "hero"):
+        die("renderer webgl draws its own marks: material must be ink or hero (got %s)" % mid)
+    if mid == "hero" and level != "manager":
+        die("material hero is the manager-level look: film.json level must be manager (got %s); exec stays ink" % level)
     nknobs = check_knobs(film)
     f3d = fonts3d(film)
     libs = libs_src(film, fdir)
+    if mid == "hero":   # the hero look needs gl-post (linear light, tone map) and gl-look; the film brings its mark modules
+        have = {r for r, _ in libs}
+        libs += [(r, read(os.path.join(ROOT, r))) for r in ("arsenal/patterns/gl-post/pattern.js", "arsenal/patterns/gl-look/pattern.js") if r not in have]
     pack = load_pack(brand_arg, film)
     R = roles(pack)
     fonts, faces = faces_for(pack, film, brand_arg)
@@ -464,6 +492,8 @@ def main():
     if renderer != "2d" or nknobs or f3d or libs:
         print("renderer %s; knobs %d; fonts3d %s; libs %s" % (renderer, nknobs,
               ", ".join("%s %d B" % (k, len(v)) for k, v in sorted(f3d.items())) or "none", ", ".join(r for r, _ in libs) or "none"))
+    if beat is not None:
+        print("beat: %s s (%.0f bpm, %.2f frames at 30 fps): gate G12 checks caption and move starts against the grid" % (beat, 60 / beat, beat * 30))
     if not commit_on:
         print("commit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through")
     if level == "exec" and mid != "ink":

@@ -7,7 +7,7 @@ Companion: kit2-contract.md (film.json, K API, gate rows). Paths below are relat
 
 ## Contents
 1. Module table (ids, signatures, exports, renderer, cost, brand fidelity, card)
-2. Recipes by visual job (R1-R28; R17-R28 are Wave GL)
+2. Recipes by visual job (R1-R31; R17-R28 are Wave GL, R29-R31 Wave WOW)
 3. Assembly: lib/ + assemble.py, or kit2 `libs`
 4. Costs and limits
 
@@ -70,6 +70,9 @@ never swept with other tokens inside a film, so check one light pack (`--brand s
 | formula-bind | a formula whose terms keep a role colour and fly into the marks that compute them | `form ratio\|product\|sum`, `terms[{id,text,role}]`, `marks{id:{count}\|{values}\|{count,of}}`, `result`, `beats`, `lift`, `lag`, `land`, `face`, `caption` | `count(t,st,params)` -> `{phase,shown,lit,perSet,result,resultText}` | p2d | cheap: 3.5-5 ms | ALL (swiss-grid reads cleanly; ceti-dark accent2 dots low contrast) | patterns/formula-bind/card.md |
 | track-unit | tag a unit, trace it as a comet through a re-partition; congruence lint; numerator/denominator lamp | `data [{id,group,category,value,hit}]` \| preset, `from`/`to` layouts, `move`, `stagger`, `arc`, `tags[{pick,label}]`, `trail`, `lamp{base,hit,t0,baseDur,hitAt,ratioAt}`, `areaBy`, `sizeMode` | `count(t)`, `positions(t)`, `check(t)`, `lint()`; needs structures.js loaded first | p2d | cheap: 1-5 ms | ALL (swiss-grid lint passes, area error 0) | patterns/track-unit/card.md |
 | scale-anchor | log zoom 1 to 10^5 units against a constant-size anchor (ruler or silhouettes), LOD tiles | `anchor ruler\|silhouettes`, `mark`, `dwell`, `move`, `top`, `budget`, `tile`, `flagFrac`, `data` (0/1 per unit), `m2PerPerson`, `note` | `count(t,params)`, `timeline(params)` -> `{dur,rungs}`, `level`, `lodAlpha`; draw returns `{count,flagged,pitch,lod,tiles,batch}` | p2d | cheap: 3-6 ms | ALL (light packs verified, swiss-grid) | patterns/scale-anchor/card.md |
+| motion-curves | closed-form easing tokens, `move`, stagger; also in core/timeline EASE and the rig EASE | `L.tokens[name](u)` (spring-hero, spring-snappy, expo-out, emph, ramp, settle, anticipate), `L.move(t,t0,dur,ease)` -> `{x,u,settled}`, `L.stagger.linear/centre/grid(...)` -> offsets s, `L.bezier(x1,y1,x2,y2)`, `L.spring(z,W)`, `L.rampK(content,real)` | `ARSENAL.patterns['motion-curves'].lib` | none (pure math; p2d demo) | cheap (0.3 us/eval) | n/a | patterns/motion-curves/card.md |
+| text-reveal | text that never pops: masked rise + 3-frame stagger, dot -> draw-on leader -> label, real-count counters with a weight pulse, a 3-frame landing ring | `K.reveal.block/tx/label/count/land/ring/arrivals` (kit2 adapter, opt-in libs); pure core `lines/attach/counter/land/beat/arrivals` | prims `{k,key,x,y,op,...}`; `paint` only in scenes.js (demo) | p2d demo; SVG in films | demo 6-12 ms; kit seek ~1 ms | ALL (swiss-grid shoot ok) | patterns/text-reveal/card.md |
+| gl-look | the manager-level hero look as one host: luminance ladder (floor gradient + plate), key/fill/rim rig, Fresnel rim, baked AO, planar contact shadow, seeded grain, tone map and bloom through gl-post | `setup(p, tokens, {level, blocks{floor,rig,rim,ao,shadow,grain,bloom}, plate, pool, floorY, bloomGain<=0.2, grainSigma})`, `begin/end(p,t,st)`, `render(p,t,st,drawFn,{samples,shutter,fps})`, `attach(st)` -> `params.look` of gl-instances (`ao`, `hero:'top'`, `hud:false`) | `ARSENAL.patterns['gl-look']`; kit2 material `hero` (`--material hero`, level manager only) | webgl demo (boxes, bars, cloud; dark and light packs) | heavy (full look 0.7 s cloud-4k, 1.6 s boxes-30k, 5.8 s bars-40k at 1920x1080; shadow and bloom are the priced blocks, table in the card) | ALL (dark ladder, light ladder inverted) | patterns/gl-look/card.md |
 
 Facts the table cannot hold. (1) Unpatched exports: morph-type has none, webgl-scene has none (it has `load(p)` only), shader exposes
 `shaders`; both simpsons-3d drafts that chained them added an export in `lib/assemble.py` CUTS or one line in the copy (section 3).
@@ -278,6 +281,12 @@ Knobs: `dwell`, `move`, `budget`, `tile`, `flagFrac`, `data` (0/1 per unit, spir
 Pitfalls: units appear in spiral order (say "10 times as many", not "camera moves"); the anchor equals one mark only at L = 0; silhouette sizes are typical, not sourced, and `m2PerPerson` is an assumption to set from data; below ~1.3 px pitch the picture is a texture; budget 2,500 with tile 4 leaves a visible grid near n = 3,000; text >= 11 px; NMAX 10^5.
 Fallback: structures.grid with a batching claim, or `mass` (R1).
 
+**R30 moves that land (springs, settles, staggers).** Chain: film.json `libs` [arsenal/patterns/motion-curves/pattern.js (6 KB) | or only core/timeline.js, whose EASE table already holds the tokens] -> `L = ARSENAL.patterns['motion-curves'].lib`; hero move = `L.move(t, t0, 1.0, 'spring-hero').x` (or `ease:'spring-hero'` in a timeline track / a gl-camera-rig move) -> `.settled` gates the caption or the number that follows -> `L.stagger.grid(rows, cols, 0.05, {from:'centre'})` offsets for entrances -> rig `settle: 0.4` + `drift: {amp: 0.015, seed}` over the holds.
+Adds: hard attack and a 0.4-0.8 s tail instead of a symmetric 4.5-11 s cubic (rubric P1 P2 P3 P4 P9 P20); hero moves 0.8-1.6 s with the freed seconds given to the hold after landing; a wave capped at 0.8 s; ambient drift that is 0 while moving and through the settle.
+Knobs: `ease` per move (spring-hero 1.0 s, spring-snappy 0.5 s, expo-out 0.9 s, emph 0.7 s, settle 0.8 s, anticipate 0.9 s, ramp via `rampK(content_s, real_s)`), stagger `gap` (40-80 ms), rig `settle`, `drift.amp` (<= 0.02).
+Pitfalls: overshoot on marks and objects only, never on a number, text, colour or opacity (use `emph`, `expo-out`, `settle`; timeline clamps colour for overshoot eases); never stagger tracked marks (R-E T5), only entrances; anticipation is a fraction of the duration (4 frames at 30 fps is 0.15 of 0.9 s); a dolly interpolates distance geometrically, so a 3.84 % spring shows as 2.1 % in distance; keep the top mover >= 3x the second (P7).
+Fallback: `ease:'out'` or `expo` (the old tail-less table).
+
 ---
 
 ### Pitfalls met in films (not visible from the demos)
@@ -291,6 +300,18 @@ Fallback: structures.grid with a batching claim, or `mass` (R1).
 - **structures**: pure layout; it does not draw. Pair it with `K.ctx` marks or a material's `mark()`.
 - **Any module under a chrome**: the kit scales the film box (ledger 0.784, memo 0.885); module pixel constants (label
   sizes, gaps) shrink with it. Prefer sheet-relative sizes or raise them when the look names a chrome.
+
+**R29 text that arrives, numbers that land.** Chain: film.json `libs` [gl-labels pattern.js (if labels), text-reveal pattern.js, factory/kit2/text-reveal.js] -> `K.reveal.block/tx` for every panel (at, out) -> gl-labels `solve` placements into `K.reveal.label(q, {at, out})` -> marks land at `K.reveal.arrivals(t0, o)` and `K.reveal.count` counts them -> `K.reveal.land` for the ratio -> `K.reveal.ring` once at the hero landing.
+Adds: no text pops (mask rise, 3-frame stagger, wave <= 0.8 s, exit at 0.6x); labels attach dot, leader (9 frames), label; every rolled digit is a landed count (integers only, `claim` required), the last 10 % takes 41 % of the time, tabular digits, a weight pulse; a ratio lands and never rolls; one silent ring per landing; G11-clean (gate-film PASS on both packs).
+Knobs: `at`/`out` per element, `dur`, `step`, `wave`, `travel`, `dot/lead/lab`, `pulse`, `wt`, `subGap`, `cdur`, `ck`, ring `frames`. Never a knob: a count or a ratio.
+Pitfalls: G11 reads getBBox, not the clip, so keep 1.05 em of travel clear of other text and the caption band (or `dir:'above'`); keep the label's anchor in the solver for the exit (0.468 s); solver `hold` delays entry (start the sequence at first-visible, or `hold: 0`); proportional digit faces (Big Shoulders) shimmer in a count, default to the mono face; G5c WARNs on running-counter values (counts of landed marks); no overshoot on text, springs on marks only.
+Fallback: `K.tx` with `op` ramps (the old pop) or gl-labels `kit()` alone.
+
+**R31 the hero look (manager level only).** Chain: film.json `level: "manager"`, `renderer: "webgl"`, build with `--material hero` (build.py inlines gl-post and gl-look; it refuses any other level) -> `L = ARSENAL.patterns['gl-look']`, `H = L.setup(p, K.PACK, {level: FILM.level, plate, pool, ...})` once after createCanvas -> per frame `L.begin(p, t, H)`, marks with `params.look = L.attach(H)` (gl-instances: `ao: 0.9`, `hero: 'top'` or a data id, `hud: false`), `L.end(p, t, H)`, then flat type on `H.post.cam0`; exports use `L.render(p, t, H, drawFn, {samples, shutter, fps})` so sub-frames jitter through the look.
+Adds: a four-step luminance ladder (bg 3-6 %, pool 8-10 % under the subject, marks 15-30 %, one hero 80-100 %; light packs inverted 55-75 / 5-15), edge light and contact (Fresnel rim +11-14 % code, baked AO, planar shadow on the lit floor), seeded grain at sigma 1-2 % that also dithers the dark ramp, PBR Neutral tone map, bloom <= 0.2 on the hero only.
+Knobs: `plate` [cx, cz, hx, hz], `pool`, `floorY`, `bloomGain` (<= 0.2), `grainSigma` (0.01-0.02), `blocks` (switch one off to see its cost), `ao` (0-1), `hero`. Never a knob: any count, and never at exec.
+Pitfalls: exec = ink and clean: `attach()` is null and begin/end do nothing, so the film's stock picture is byte-identical (and build.py dies on `--material hero` at exec); labels, digits and captions are drawn AFTER `end()` (never tone mapped or grained); the plate must clear the marks' footprint or the pool hides under them; `hud:false` moves the readout to the film; grain needs gl-post level engineer (look runs it there with dof and chroma 0); gl-post grain has a small negative mean (dark frames lose ~0.5 % code at sigma 1.5 %); bloom is skipped on light grounds; page +35 KB (who-gains goes over the 1.3 MB WARN).
+Fallback: the stock gl-instances ink frame (exec) or gl-post `reveal` alone (R23).
 
 ## 3. Assembly
 

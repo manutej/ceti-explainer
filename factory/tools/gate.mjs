@@ -5,7 +5,7 @@
    node factory/tools/gate.mjs <built-page.html> --film <film-dir>
         [--json out.json] [--shots dir] [--kit file.js|dir ...] [--quick] [--no-overlap] [--overlap-warn]
 
-   Rows G1..G11 (see factory/tools/README.md). Each row is PASS, FAIL, WARN
+   Rows G1..G12 (see factory/tools/README.md). Each row is PASS, FAIL, WARN
    or SKIP with evidence. Exit 1 if any row FAILs (WARN and SKIP do not).
    Hook contract (films/opera-house/page.js): ?film=1 strips the page to the
    bare 1920x1080 stage; window.__film {ready, seek, only, info};
@@ -610,6 +610,71 @@ else {
     (inst.length ? `${nF} FAIL / ${nW} WARN instances in ${groups.size} distinct pair(s); worst ${Math.min(8, worst.length)}: ${worst.slice(0, 8).map(desc).join('; ')}` : 'no overlap, no text off the stage, nothing across the caption band') +
     '. Canvas-drawn text (p5 / WEBGL) is not visible to this row.',
     { step: STEP11, samples: nSamples, mode, canvasText: 'not seen', fail: nF, warn: nW, legacy: !!(opt.overlapWarn && nF), instances: inst });
+}
+
+/* ═════════════ G12 rhythm (WARN-only in Wave WOW; D16) ═════════════
+   Static, from film.json (no seeking). Silent films carry a pulse by snapping starts to a beat grid (WOW-MOTION 3.1, rubric P12)
+   and are readable only if a caption holds long enough (P22 caption half). Three checks, all WARN, never FAIL:
+   (a) film.json `beat` (seconds) set: >= 80 % of the caption starts and the knob-named move starts lie within +-2 frames
+       (30 fps) of a multiple of beat. Move starts: knobs named ...T0 or t<Upper|digit>... (the t-prefix set) whose value is in
+       [0, dur], except names that end a move (...<digit>e/E, ...<lower>E) or whose knobs_doc says it ends; plus film.rig.moves[].t0.
+       Moves at one time are one event. With `beat` unset the check is informational: the same numbers against 0.5 s are in
+       data.ref and the row prints them as "if beat 0.5 s".
+   (b) every caption holds >= 1.3 s + 0.06 s per character (t1 - t0 against the text length); the failing ones are listed.
+   (c) dead holds: no caption start/end, no time-like knob, no rig move and no brand card for > 8 s (0 and dur bound the film). */
+{
+  const FPS = 30, TOL = 2 / FPS + 1e-9, HOLD0 = 1.3, HOLDC = 0.06, DEAD = 8, NEED = 0.8;
+  const dur = DUR, knobs = (film && typeof film.knobs === 'object' && film.knobs) || {};
+  const docs = Object.fromEntries(((film && film.knobs_doc) || []).filter(d => d && d.name).map(d => [d.name, d]));
+  const num = (v) => typeof v === 'number' && isFinite(v);
+  const inRange = (v) => num(v) && v >= 0 && v <= dur;
+  const beatSet = num(film?.beat) && film.beat > 0;
+  const B = beatSet ? film.beat : 0.5;
+  const offGrid = (t) => { const d = Math.abs(t - Math.round(t / B) * B); return d; };
+  const isStartName = (n) => (/T0$/.test(n) || /^t[A-Z0-9]/.test(n)) && !/(\d[eE]|[a-z]E)$/.test(n);
+  const endsDoc = (n) => { const w = String(docs[n]?.what || ''); return /\bends?\b|\bending\b/i.test(w) && !/\bstarts?\b|\blands?\b|\barrives?\b/i.test(w); };
+  const timeLike = (n) => /T[01]$/.test(n) || /^t[A-Z0-9]/.test(n) || /(At|In|Out|Cut)$/.test(n) || /^\s*s\s*:|\bfilm time\b/i.test(String(docs[n]?.what || ''));
+  /* events */
+  const caps = CAPS.map((c, i) => ({ i, t0: c.t0, t1: c.t1, text: c.text.trim() })).filter(c => num(c.t0));
+  const mv = new Map();   // time (ms) -> {t, names}
+  const addMove = (t, name) => { const k = Math.round(t * 1000); const m = mv.get(k); if (m) m.names.push(name); else mv.set(k, { t, names: [name] }); };
+  for (const [n, v] of Object.entries(knobs)) if (inRange(v) && isStartName(n) && !endsDoc(n)) addMove(v, n);
+  const rigMoves = (film?.rig && Array.isArray(film.rig.moves)) ? film.rig.moves : [];
+  for (const m of rigMoves) if (inRange(+m.t0)) addMove(+m.t0, 'rig:' + (m.id || m.move || '?'));
+  const moves = [...mv.values()].sort((a, b) => a.t - b.t);
+  const g = (() => { const f = (t) => offGrid(t) <= TOL; return { caps: caps.filter(c => f(c.t0)).length, moves: moves.filter(m => f(m.t)).length }; })();
+  const nE = caps.length + moves.length, nOn = g.caps + g.moves, share = nE ? nOn / nE : 1;
+  const gridOK = share >= NEED;
+  /* caption holds */
+  const holdFail = [];
+  for (const c of caps) {
+    const hold = c.t1 - c.t0, need = HOLD0 + HOLDC * c.text.length;
+    if (!(hold >= need - 1e-9)) holdFail.push({ t: r2(c.t0), t1: r2(c.t1), chars: c.text.length, hold: r2(hold), need: r2(need), short: r2(need - hold), text: c.text.length > 40 ? c.text.slice(0, 39) + '…' : c.text });
+  }
+  /* dead holds */
+  const ev = [0, dur];
+  for (const c of caps) { ev.push(c.t0); if (num(c.t1)) ev.push(c.t1); }
+  for (const [n, v] of Object.entries(knobs)) if (inRange(v) && timeLike(n)) ev.push(v);
+  for (const m of rigMoves) { if (inRange(+m.t0)) ev.push(+m.t0); if (inRange(+m.t1)) ev.push(+m.t1); }
+  { const b = film?.brand || {}, at = num(b.at) ? b.at : dur - (num(b.dur) ? b.dur : 3); if (inRange(at)) ev.push(at); }   // the CETI card cut, as G4a reads it
+  const evs = [...new Set(ev.map(x => Math.round(x * 1000)))].sort((a, b) => a - b).map(x => x / 1000);
+  const dead = [];
+  for (let i = 1; i < evs.length; i++) if (evs[i] - evs[i - 1] > DEAD + 1e-9) dead.push({ from: r2(evs[i - 1]), to: r2(evs[i]), len: r2(evs[i] - evs[i - 1]) });
+  const sPct = (x) => Math.round(x * 100);
+  const gridTxt = beatSet
+    ? `beat ${B} s (${r2(B * FPS)} frames; +-2 frames): ${nOn}/${nE} starts on the grid = ${sPct(share)} % (captions ${g.caps}/${caps.length}, moves ${g.moves}/${moves.length}; want >= ${NEED * 100} %)`
+    : `no beat in film.json; if beat ${B} s: ${nOn}/${nE} = ${sPct(share)} % (captions ${g.caps}/${caps.length}, moves ${g.moves}/${moves.length})`;
+  const worst = [...holdFail].sort((a, b) => b.short - a.short).slice(0, 8);
+  const flagged = (beatSet && !gridOK) || holdFail.length || dead.length;
+  row('G12', 'rhythm', flagged ? 'WARN' : 'PASS',
+    `${gridTxt}; captions holding >= ${HOLD0} s + ${HOLDC} s/char: ${caps.length - holdFail.length}/${caps.length}` +
+    (holdFail.length ? ` (${holdFail.length} short; worst ${worst.length}: ${worst.map(x => `@${x.t}s "${x.text}" ${x.hold} s < ${x.need} s (${x.chars} ch)`).join('; ')})` : '') +
+    `; dead holds > ${DEAD} s: ${dead.length}` + (dead.length ? ` (${dead.slice(0, 6).map(x => `${x.from}–${x.to}s ${x.len} s`).join('; ')}${dead.length > 6 ? ' …' : ''})` : '') +
+    '. WARN-only (D16); the moves counted are in data.moves.',
+    { fps: FPS, tolFrames: 2, beat: beatSet ? B : null, refBeat: B, onGrid: nOn, events: nE, share: r2(share), want: NEED,
+      captions: { n: caps.length, onGrid: g.caps, holdOk: caps.length - holdFail.length, holdFail: holdFail.length, rule: `${HOLD0} s + ${HOLDC} s/char` },
+      moves: moves.map(m => ({ t: m.t, names: m.names, off: r2(offGrid(m.t)), on: offGrid(m.t) <= TOL })), nMoves: moves.length, nMovesOn: g.moves,
+      holdFail, dead, deadRule: `no caption change, time knob, rig move or brand card for > ${DEAD} s` });
 }
 
 /* ═════════════ stills ═════════════ */

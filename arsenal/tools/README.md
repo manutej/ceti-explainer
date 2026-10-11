@@ -13,6 +13,15 @@ away and back), writes stills, `contact.png` (needs Pillow) and `report.json`. E
 Options: `--sel canvas` (element to screenshot; use `#stage` for kit films), `--query "?film=1"`, `--viewport 960x540`,
 `--dsf 2` (device scale factor; 960x540 x2 = 1920x1080 output), `--dur s` (override `info.dur`), `--gif-seconds 10`,
 `--gif-width 480`, `--name base`.
+Window and parallel: `--from s --to s` renders only that span; `--shards n` spawns n workers (or `--shards k/n` by hand: frame i goes to
+shard (i - first) % n); the last to finish joins one MP4. `--fps` is passed to the page (`window.__EXPORT.fps`) and to ffmpeg. No screenshot
+timeout. MP4 is tagged bt709 / tv range (matrix converted with swscale out_color_matrix=bt709). `--gif-seconds 0` skips the GIF.
+Motion blur and temporal AA (D15): `--shutter 0.35 --samples auto|N` (`--max-samples 48`, `--cuts t,t,..`, `--ssaa k`). A film whose render
+runs gl-post's renderAccumulated accumulates in the page (reads `window.__EXPORT`); any other film is supersampled by the exporter itself:
+N sub-times tk = t + ((k+.5)/N - .5)*shutter/fps (clamped at cuts: film.json `cuts`, rig `cut` moves, --cuts), PNGs averaged in linear light.
+`auto` probes the shutter ends: identical = hold (N = 1); else N = ceil(D/2) snapped to 8/16/32/48 from the measured displacement D. `--ssaa k`
+renders at k x dsf and box-filters down in linear light (spatial AA for holds). export.json records `accum` (mode, per-frame N, ms, D,
+cost by N). Cost is about (N + 2) x the plain frame (0.4 s at 1080p for kit films) plus 0.16 s of averaging per sub-frame.
 Pipeline: for i in 0..N-1 seek(i/fps) and PNG-screenshot the element into `dir/frames/`; ffmpeg ->
 `<name>.mp4` (libx264, yuv420p, crf 16, faststart) and `<name>.gif` (<= 10 s, 15 fps, palettegen/paletteuse);
 ffprobe confirms the MP4 holds exactly N frames. Determinism check: three frames (10%, 50%, last) are re-rendered after
