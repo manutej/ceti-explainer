@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>gl-post</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="./scene.js"></script>
+<script src="./pattern.js"></script></head><body><main></main><div id="junk" hidden></div>
+<script>
+/* gl-post demo: scene (linear light) -> gl-post HDR framebuffer (colour + depth), optionally accumulated over sub-frames
+   -> ARSENAL.post['gl-post'].apply (tone mapped to the canvas) -> flat labels drawn AFTER the post in display colours
+   (type is never blurred, split, tone mapped or grained). ?brand=<id> ?variant=<name> ?t=<s> ?p=<json params> ?ldr=1 */
+const Q = new URLSearchParams(location.search), POST = ARSENAL.post['gl-post'], SC = window.GLPOST_SCENE;
+const TK = ARSENAL.brands[Q.get('brand') || 'ceti-dark'] || ARSENAL.brands['ceti-dark'], SEED = +(Q.get('seed') || 7), DUR = POST.duration;
+const NAMES = POST.variants.map((v) => v.name);
+const paramsOf = (n) => Object.assign({}, POST.params, (POST.variants.find((v) => v.name === n) || POST.variants[0]).params, Q.get('p') ? JSON.parse(Q.get('p')) : {});
+const fmt = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+let P = null, S = null, PS = null, F = {}, last = null, resolveReady; const readyP = new Promise((r) => (resolveReady = r));
+async function face(role, fb) {   // the pack's face from arsenal/fonts/fonts.js; a missing face falls back visibly to the named one
+  const k = TK.type[role].family + '|' + TK.type[role].weight, src = window.ARSENAL_FONTS[k] || window.ARSENAL_FONTS[fb];
+  return P.loadFont(src);
+}
+new p5((p) => {
+  P = p;
+  p.setup = async () => { await p.createCanvas(960, 540, p.WEBGL); p.pixelDensity(2); p.noLoop();
+    F.disp = await face('disp', 'Big Shoulders Display|600'); F.mono = await face('mono', 'IBM Plex Mono|400');
+    PS = POST.setup(p, { seed: SEED, w: 960, h: 540, tokens: TK, forceLDR: Q.get('ldr') === '1' }); S = SC.setup(p, SEED, PS.hdr); resolveReady(); };
+  p.draw = () => {};
+}, document.querySelector('main'));
+function tidy() { document.querySelectorAll('canvas:not(.p5Canvas)').forEach((c) => document.getElementById('junk').appendChild(c)); }
+function labels(p, out, res, prm) {
+  const ox = -480, oy = -270, c = TK.color;
+  const txt = (s, x, y, size, col, font, al) => { p.noStroke(); p.fill(col); p.textFont(font); p.textSize(size); p.textAlign(al || p.LEFT, p.BASELINE); p.text(s, x + ox - (al === p.RIGHT ? 2000 : 0), y + oy, 2000); };
+  p.push(); p.resetMatrix(); p.setCamera(PS.cam0); p.clearDepth();
+  if (out.k > 0) {   // pin on the rank-1 box (projected inside the framebuffer, drawn flat here)
+    const x = out.pin.x, y = out.pin.y, lx = x + 30, ly = y - 78;
+    p.stroke(c.chalk); p.strokeWeight(1.5); p.line(x + ox, y + oy, lx + ox, ly + oy); p.noStroke(); p.fill(c.chalk); p.circle(x + ox, y + oy, 7);
+    txt('RANK 1', lx + 4, ly - 6, 24, c.chalk, F.disp); txt('v = ' + out.val.toFixed(2) + ' · IN FOCUS', lx + 5, ly + 12, 13, c.muted, F.mono);
+  }
+  txt(fmt(out.k), 36, 470, 74, out.k > 0 ? c.accent : c.ink, F.disp);
+  txt('OF ' + fmt(SC.N) + ' BOXES LIT · THE TOP ' + SC.LIT + ', HIGHEST VALUE FIRST', 38, 498, 13, c.muted, F.mono);
+  const g = res.gains, on = POST.order.filter((k) => g[k] > 0).map((k) => k.toUpperCase() + ' ' + g[k].toFixed(k === 'grain' ? 3 : 2));
+  txt('POST · ' + on.join(' · ') + ' · LEVEL ' + prm.level.toUpperCase() + (prm.accum ? ' · ' + prm.accum.samples + ' SUB-FRAMES' : '') + (res.hdr ? '' : ' · LDR FALLBACK'), 924, 44, 13, c.muted, F.mono, p.RIGHT);
+  p.pop();
+}
+function seek(t, v) {
+  v = v || Q.get('variant') || NAMES[0];
+  const prm = paramsOf(v), p = P, user = Q.get('p') ? JSON.parse(Q.get('p')) : {};
+  p.resetMatrix(); p.setCamera(PS.cam0);
+  const drawScene = (pp, tk, jit) => SC.draw(pp, tk, S, TK, DUR, POST, PS, jit);
+  const src = POST.renderAccumulated(p, drawScene, t, prm.accum || { samples: 1 }, PS), out = src.out;
+  out.k = SC.countAt(t, DUR);                          // the caption counts at t, not at the last sub-frame
+  prm.near = out.near; prm.far = out.far; if (!('dofFocus' in user)) prm.dofFocus = out.focus;   // focus on the data point
+  const res = POST.apply(p, src, t, prm, TK, PS);
+  labels(p, out, res, prm); tidy();
+  last = { v, t, ran: res.ran, gains: res.gains, hdr: res.hdr, k: out.k, focus: +out.focus.toFixed(1), samples: (prm.accum && prm.accum.samples) || 1 };
+  return last;
+}
+window.__film = { ready: () => readyP.then(() => { if (Q.has('t')) seek(+Q.get('t')); }), seek, info: { variants: NAMES, dur: DUR, brand: TK.id, renderer: 'webgl' }, last: () => last, err: () => PS && PS.err, roles: () => PS && PS.roles };
+</script></body></html>

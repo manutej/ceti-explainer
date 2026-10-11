@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>structures-demo</title>
+<style>
+@font-face{font-family:'Big Shoulders Display';font-weight:600;src:url(../../../vendor/fonts/big-shoulders-display-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;src:url(../../../vendor/fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'DM Sans';font-weight:400;src:url(../../../vendor/fonts/dm-sans-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-weight:400;src:url(../../../vendor/fonts/space-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Red Hat Mono';font-weight:400;src:url(../../../vendor/fonts/red-hat-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-weight:400;src:url(../../../vendor/fonts/jost-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-weight:600;src:url(../../../vendor/fonts/jost-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Sofia Sans Extra Condensed';font-weight:700;src:url(../../../vendor/fonts/sofia-sans-extra-condensed-latin-700-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0F1115}canvas{display:block}
+</style></head><body>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../structures/structures.js"></script>
+<script src="./pattern.js"></script>
+<script>
+const BRANDS = {};
+[
+{ "id": "ceti-dark", "name": "CETI dark",
+  "color": { "bg": "#0F1115", "ink": "#EDE8DF", "accent": "#E0B27A", "accent2": "#B8322A", "muted": "#8B8778", "line": "rgba(237,232,223,0.18)", "panel": "#171A21", "chalk": "#F6F3EC" },
+  "type": { "disp": { "family": "Big Shoulders Display", "weight": 600 }, "mono": { "family": "IBM Plex Mono", "weight": 400 }, "body": { "family": "DM Sans", "weight": 400 } },
+  "texture": "none", "tempo": { "ease": "cubic", "beat_s": 4 },
+  "voice": { "register": "typeset numbers, few words", "end_card": "CETI" } },
+{ "id": "neon-lab", "name": "Neon lab (dark, luminous)",
+  "color": { "bg": "#07080C", "ink": "#E8F1FF", "accent": "#3DF5C3", "accent2": "#FF4FA3", "muted": "#7C86A2", "line": "rgba(232,241,255,0.16)", "panel": "#0E1119", "chalk": "#FFFFFF" },
+  "type": { "disp": { "family": "Sofia Sans Extra Condensed", "weight": 700 }, "mono": { "family": "Space Mono", "weight": 400 }, "body": { "family": "DM Sans", "weight": 400 } },
+  "texture": "grain", "tempo": { "ease": "expo", "beat_s": 3 },
+  "voice": { "register": "glow on black, thin rules", "end_card": "CETI" } },
+{ "id": "swiss-grid", "name": "Swiss grid (clean, high contrast)",
+  "color": { "bg": "#FFFFFF", "ink": "#111111", "accent": "#E63312", "accent2": "#1F4FB8", "muted": "#6B6B6B", "line": "rgba(17,17,17,0.2)", "panel": "#F2F2F2", "chalk": "#000000" },
+  "type": { "disp": { "family": "Jost", "weight": 600 }, "mono": { "family": "Red Hat Mono", "weight": 400 }, "body": { "family": "Jost", "weight": 400 } },
+  "texture": "none", "tempo": { "ease": "expo", "beat_s": 3 },
+  "voice": { "register": "grid, flush left, one accent", "end_card": "CETI" } },
+{ "id": "tender-set", "name": "Tender set (the Opera House sheet)",
+  "color": { "bg": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "accent2": "#B9A277", "muted": "#716B5F", "line": "rgba(30,58,92,0.25)", "panel": "#F5EEDF", "chalk": "#0F2540" },
+  "type": { "disp": { "family": "Big Shoulders Display", "weight": 600 }, "mono": { "family": "IBM Plex Mono", "weight": 400 }, "body": { "family": "IBM Plex Mono", "weight": 400 } },
+  "texture": "paper", "tempo": { "ease": "cubic", "beat_s": 4 },
+  "voice": { "register": "drafting sheet, revisions ledger", "end_card": "CETI" } }
+].forEach(b => BRANDS[b.id] = b);
+const q = new URLSearchParams(location.search), PAT = ARSENAL.patterns['structures-demo'];
+const tokens = BRANDS[q.get('brand') || 'ceti-dark'] || BRANDS['ceti-dark'];
+let T = 0, V = PAT.variants[0], state = null, pI = null, up = null;
+const ready = new Promise(r => { up = r; });
+function build() { state = PAT.setup(pI, { seed: 2017 }, Object.assign({}, PAT.params, V.params)); }
+new p5(p => {
+  p.setup = () => { p.pixelDensity(2); p.createCanvas(960, 540); p.noLoop(); pI = p; p.describe('Marks moving between layouts: grid, wall, ring, columns; a tree; a timeline.'); up(); };
+  p.draw = () => { if (state) PAT.draw(p, T, state, Object.assign({}, PAT.params, V.params), tokens); };
+});
+window.__film = {
+  info: { variants: PAT.variants.map(v => v.name), dur: PAT.dur, brand: tokens.id },
+  ready: () => ready.then(() => Promise.all(Object.values(tokens.type).map(f => document.fonts.load(f.weight + ' 12px "' + f.family + '"'))).then(() => { seek(+(q.get('t') || 0), q.get('variant') || V.name); })),
+  seek: (t, v) => seek(t, v),
+};
+function seek(t, v) { V = PAT.variants.find(x => x.name === v) || V; T = t; build(); pI.push(); PAT.draw(pI, T, state, Object.assign({}, PAT.params, V.params), tokens); pI.pop(); }
+</script></body></html>

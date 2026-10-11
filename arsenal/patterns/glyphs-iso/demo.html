@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>glyphs-iso</title>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-weight:600;src:url(../../../vendor/fonts/big-shoulders-display-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url(../../../vendor/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:400;src:url(../../../vendor/fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Sofia Sans Extra Condensed";font-weight:700;src:url(../../../vendor/fonts/sofia-sans-extra-condensed-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:400;src:url(../../../vendor/fonts/space-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:600;src:url(../../../vendor/fonts/jost-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:400;src:url(../../../vendor/fonts/jost-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Red Hat Mono";font-weight:400;src:url(../../../vendor/fonts/red-hat-mono-latin-400-normal.woff2) format("woff2")}
+html,body{margin:0;background:#888}canvas{display:block}
+</style></head><body>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="./pattern.js"></script>
+<script>
+(function () {
+  const Q = new URLSearchParams(location.search), pat = ARSENAL.patterns['glyphs-iso'], SEED = 11;
+  const names = pat.variants.map(v => v.name), states = {};
+  let P5, resolveReady, cur = Q.get('variant') || names[0];
+  const ready = new Promise(r => (resolveReady = r));
+  function show(t, name) {
+    name = name || cur; cur = name;
+    const v = pat.variants.find(x => x.name === name), tk = ARSENAL.brands[Q.get('brand') || 'ceti-dark'];
+    if (!states[name]) states[name] = pat.setup(P5, { seed: SEED, tokens: tk }, v.params);
+    pat.draw(P5, t, states[name], v.params, tk);
+  }
+  window.__film = { ready: () => ready, seek: (t, v) => show(t, v), info: { variants: names, dur: Math.max(...pat.variants.map(v => v.params.dur)), durs: Object.fromEntries(pat.variants.map(v => [v.name, v.params.dur])), seed: SEED } };
+  new p5(p => {
+    P5 = p;
+    p.setup = async () => {
+      p.createCanvas(960, 540); p.pixelDensity(2); p.noLoop();
+      const faces = new Set(); Object.values(ARSENAL.brands).forEach(b => Object.values(b.type).forEach(f => faces.add(f.weight + ' 20px "' + f.family + '"')));
+      await Promise.all([...faces].map(f => document.fonts.load(f))); await document.fonts.ready;
+      show(+(Q.get('t') || 0), cur); resolveReady();
+    };
+  });
+})();
+</script></body></html>

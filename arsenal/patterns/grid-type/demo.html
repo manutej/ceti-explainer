@@ -1,0 +1,43 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>palette</title>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-weight:600;src:url(../../../vendor/fonts/big-shoulders-display-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url(../../../vendor/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:400;src:url(../../../vendor/fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Sofia Sans Extra Condensed";font-weight:700;src:url(../../../vendor/fonts/sofia-sans-extra-condensed-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:400;src:url(../../../vendor/fonts/space-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:600;src:url(../../../vendor/fonts/jost-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:400;src:url(../../../vendor/fonts/jost-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Red Hat Mono";font-weight:400;src:url(../../../vendor/fonts/red-hat-mono-latin-400-normal.woff2) format("woff2")}
+html,body{margin:0;background:#888}canvas{display:block}
+</style></head><body>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="./pattern.js"></script>
+<script>
+(function () {
+  const Q = new URLSearchParams(location.search), pat = ARSENAL.patterns['grid-type'], SEED = 11, DUR = 8;
+  const tokens = ARSENAL.brands[Q.get('brand')] || ARSENAL.brands['ceti-dark'];
+  const names = pat.variants.map(v => v.name), states = {};
+  let P5, resolveReady, cur = Q.get('variant') || names[0];
+  const ready = new Promise(r => (resolveReady = r));
+  const merged = name => Object.assign({}, pat.params, pat.variants.find(x => x.name === name).params, Q.get('overlay') ? { overlay: Q.get('overlay') } : {}, { dur: DUR });
+  function show(t, name) {
+    name = name || cur; cur = name; const prm = merged(name);
+    if (!states[name]) states[name] = pat.setup(P5, { seed: SEED, tokens, W: 960, H: 540 }, prm);
+    pat.draw(P5, t, states[name], prm, tokens);
+  }
+  window.__film = { ready: () => ready, seek: (t, v) => show(t, v), info: { variants: names, dur: DUR, seed: SEED, atlas: pat.atlas, brand: tokens.id,
+    report: () => Object.fromEntries(names.map(n => { show(0, n); return [n, states[n].L.report]; })) } };
+  new p5(p => {
+    P5 = p;
+    p.setup = async () => {
+      p.createCanvas(960, 540); p.pixelDensity(2); p.noLoop();
+      p.describe('Three layouts of one headline, a count of 1,000 marks and a caption on a 12-column grid with baseline rows; the grid overlay shows for the first half.');
+      const faces = Object.values(tokens.type).map(f => f.weight + ' 20px "' + f.family + '"');
+      await Promise.all(faces.map(f => document.fonts.load(f))); await document.fonts.ready;
+      show(+(Q.get('t') || 0), cur); resolveReady();
+    };
+  });
+})();
+</script></body></html>

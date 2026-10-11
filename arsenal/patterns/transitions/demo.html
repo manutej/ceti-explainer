@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>transitions · demo</title>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-weight:600;src:url(../../../vendor/fonts/big-shoulders-display-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url(../../../vendor/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:400;src:url(../../../vendor/fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Sofia Sans Extra Condensed";font-weight:700;src:url(../../../vendor/fonts/sofia-sans-extra-condensed-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:400;src:url(../../../vendor/fonts/space-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:400;src:url(../../../vendor/fonts/jost-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:600;src:url(../../../vendor/fonts/jost-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Red Hat Mono";font-weight:400;src:url(../../../vendor/fonts/red-hat-mono-latin-400-normal.woff2) format("woff2")}
+html,body{margin:0;background:#0F1115}canvas{display:block}
+</style></head><body>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="../../core/timeline.js"></script>
+<script src="./pattern.js"></script>
+<script>
+const PAT = ARSENAL.patterns.transitions, Q = new URLSearchParams(location.search);
+const TOKENS = ARSENAL.brands[Q.get('brand')] || ARSENAL.brands['ceti-dark'];
+const cur = { name: null, state: null, params: null };
+const info = { variants: PAT.variants.map(v => v.name), dur: PAT.params.dur, brand: TOKENS.id };
+let ok; const readyP = new Promise(r => ok = r);
+function render(t, name) {
+  const v = PAT.variants.find(x => x.name === (name || Q.get('variant') || PAT.variants[0].name));
+  if (cur.name !== v.name) { cur.name = v.name; cur.params = Object.assign({}, PAT.params, v.params); cur.state = PAT.setup(window._p, { seed: 11, W: 960, H: 540, density: 2, tokens: TOKENS }, cur.params); }
+  window._p.resetMatrix(); PAT.draw(window._p, t, cur.state, cur.params, TOKENS);
+}
+function setup() {
+  createCanvas(960, 540); pixelDensity(2); noLoop();
+  describe('Scene-to-scene transitions over two layered renderers: wipe, iris, ledger turn, cut, dissolve, push, a match cut around a fixed circle, and a zoom-through from a grid cell into a detail scene.');
+  window._p = p5.instance;
+  const fams = ['disp', 'mono', 'body'].map(r => TOKENS.type[r]);
+  Promise.all(fams.map(f => document.fonts.load(f.weight + ' 16px "' + f.family + '"'))).then(() => { ok(); render(+(Q.get('t') || 0)); });
+}
+window.__film = { ready: () => readyP, seek: (t, v) => render(t, v), info };
+</script></body></html>

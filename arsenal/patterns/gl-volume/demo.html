@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>gl-volume</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="./pattern.js"></script>
+</head><body><main></main><div id="junk" hidden></div>
+<script>
+// brand packs come from arsenal/brands/packs.js (file:// safe); pick with ?brand=<id>; ?variant=<name>&t=<s>; ?p={json overrides}
+const Q = new URLSearchParams(location.search), PAT = ARSENAL.patterns['gl-volume'];
+const TK = ARSENAL.brands[Q.get('brand')] || ARSENAL.brands['ceti-dark'], SEED = 7;
+const NAMES = PAT.variants.map(v => v.name), cache = {}; let P = null, cur = null;
+const paramsOf = n => Object.assign({}, PAT.params, PAT.variants.find(v => v.name === n).params, Q.get('p') ? JSON.parse(Q.get('p')) : {});
+let resolveReady; const readyP = new Promise(r => (resolveReady = r));
+new p5(p => {
+  P = p;
+  p.setup = async () => {
+    await p.createCanvas(960, 540, p.WEBGL); p.pixelDensity(2); p.noLoop();
+    p.describe('A distribution drawn as a cloud of counted cells; a cut plane travels through it and the slice is drawn flat with its counts; tail cells light in the accent colour.');
+    for (const n of NAMES) { const params = paramsOf(n); cache[n] = { params, st: await PAT.setup(p, { seed: SEED, tokens: TK, w: 960, h: 540 }, params) }; }
+    resolveReady();
+  };
+  p.draw = () => {};
+}, document.querySelector('main'));
+/* p5 2.x WEBGL text inserts a hidden 1x1 canvas ahead of the real one; park it so querySelector('canvas') stays the film canvas */
+function tidy() { document.querySelectorAll('canvas:not(.p5Canvas)').forEach(c => document.getElementById('junk').appendChild(c)); }
+function seek(t, v) { v = v || Q.get('variant') || NAMES[0]; cur = v; const c = cache[v];
+  P.push(); P.resetMatrix(); const r = PAT.draw(P, t, c.st, c.params, TK); P.pop(); tidy(); return r; }
+window.__film = {
+  ready: () => readyP.then(() => { if (Q.has('t')) seek(+Q.get('t')); }), seek,
+  info: { variants: NAMES, dur: PAT.params.dur, brand: TK.id, atlas: PAT.atlas, renderer: 'webgl' },
+  count: (t, v) => { v = v || cur || NAMES[0]; return PAT.count(t, cache[v].st, cache[v].params); },
+  // headless cost: seek + a 1-pixel readPixels so the GPU (SwiftShader) has finished the frame
+  bench: (v, n) => { const gl = P._renderer.GL, px = new Uint8Array(4), dur = PAT.params.dur; seek(0.5 * dur, v); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);
+    const t0 = performance.now(); for (let i = 0; i < n; i++) { seek(dur * (0.2 + 0.75 * i / Math.max(1, n - 1)), v); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px); }
+    return (performance.now() - t0) / n / 1000; },
+  stats: () => Object.fromEntries(NAMES.map(n => [n, { marks: cache[n].st.marks.length, total: cache[n].st.grid.total, outside: cache[n].st.grid.outside, tail: cache[n].st.tailSamples, fontWarn: cache[n].st.fontWarn }])),
+};
+</script></body></html>

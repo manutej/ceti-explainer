@@ -58,3 +58,4 @@ factory/**/export/
 
 # handoff zips are built on demand
 factory/exports/
+!arsenal/**/demo.html

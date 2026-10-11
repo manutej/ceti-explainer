@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>motion-curves</title>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-weight:600;src:url(../../../vendor/fonts/big-shoulders-display-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url(../../../vendor/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:400;src:url(../../../vendor/fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Sofia Sans Extra Condensed";font-weight:700;src:url(../../../vendor/fonts/sofia-sans-extra-condensed-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:400;src:url(../../../vendor/fonts/space-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Space Mono";font-weight:700;src:url(../../../vendor/fonts/space-mono-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:400;src:url(../../../vendor/fonts/jost-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Jost";font-weight:600;src:url(../../../vendor/fonts/jost-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Red Hat Mono";font-weight:400;src:url(../../../vendor/fonts/red-hat-mono-latin-400-normal.woff2) format("woff2")}
+html,body{margin:0;background:#0F1115}canvas{display:block}
+</style></head><body>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="../../core/timeline.js"></script>
+<script src="../gl-camera-rig/pattern.js"></script>
+<script src="./pattern.js"></script>
+<script src="./scene.js"></script>
+<script>
+/* ?brand=<id> (default ceti-dark) · ?variant=<name> · ?t=<s>.  __film.check() = the proofs: parity of the three copies of the maths,
+   a numerical (RK4) reference for the springs at 20 seeded times, the bezier solver against bisection, and the numbers the card quotes. */
+const PAT = ARSENAL.patterns['motion-curves'], L = PAT.lib, Q = new URLSearchParams(location.search);
+const TOKENS = ARSENAL.brands[Q.get('brand')] || ARSENAL.brands['ceti-dark'];
+const cur = { name: null, state: null, params: null };
+const info = { variants: PAT.variants.map(v => v.name), dur: PAT.params.dur, brand: TOKENS.id };
+let ok; const readyP = new Promise(r => ok = r);
+function render(t, name) {
+  const v = PAT.variants.find(x => x.name === (name || Q.get('variant') || PAT.variants[0].name));
+  if (cur.name !== v.name) { cur.name = v.name; cur.params = Object.assign({}, PAT.params, v.params); cur.state = PAT.setup(window._p, { seed: 7, tokens: TOKENS }, cur.params); }
+  PAT.draw(window._p, t, cur.state, cur.params, TOKENS);
+}
+function setup() {
+  createCanvas(960, 540); pixelDensity(2); noLoop();
+  describe('The same box moved by each easing token side by side with its position-versus-time curve, and three stagger patterns.');
+  window._p = p5.instance;
+  const fams = ['disp', 'mono', 'body'].map(r => TOKENS.type[r]);
+  Promise.all(fams.map(f => document.fonts.load(f.weight + ' 16px "' + f.family + '"'))).then(() => { ok(); render(+(Q.get('t') || 0)); });
+}
+window.__film = { ready: () => readyP, seek: (t, v) => render(t, v), info };
+window.__film.check = () => {
+  const TL = ARSENAL.core.timeline.ease, RG = ARSENAL.patterns['gl-camera-rig'].rig.curves, N = 1000, out = { parity: {}, tokens: {}, reference: {}, bezier: {}, stagger: {} };
+  for (const n of Object.keys(L.tokens)) {
+    let d1 = 0, d2 = 0, mn = 0, mx = 0;
+    for (let i = 0; i <= N; i++) { const u = i / N, v = L.tokens[n](u); d1 = Math.max(d1, Math.abs(v - TL[n](u))); d2 = Math.max(d2, Math.abs(v - RG[n](u))); mn = Math.min(mn, v); mx = Math.max(mx, v); }
+    const f = L.tokens[n]; out.parity[n] = { timeline: d1, rig: d2 };
+    out.tokens[n] = { dur: f.dur, over_pct: +(f.over * 100).toFixed(2), band2_s: +f.s2.toFixed(3), rest_u: +f.rest.toFixed(3), min: +mn.toFixed(4), max: +mx.toFixed(4) };
+  }
+  // RK4 of x'' = -2 z w x' - w^2 (x - 1) from rest, against the closed form at 20 seeded times; ease(u) uses W = w * dur, so u = t / dur
+  const rk = (z, w, T) => { const h = 1 / 4000; let x = 0, v = 0, t = 0; const acc = (x, v) => -2 * z * w * v - w * w * (x - 1), pts = [];
+    for (let i = 0; i <= Math.round(T / h); i++) { pts.push(x); const k1x = v, k1v = acc(x, v), k2x = v + h / 2 * k1v, k2v = acc(x + h / 2 * k1x, v + h / 2 * k1v), k3x = v + h / 2 * k2v, k3v = acc(x + h / 2 * k2x, v + h / 2 * k2v), k4x = v + h * k3v, k4v = acc(x + h * k3x, v + h * k3v);
+      x += h / 6 * (k1x + 2 * k2x + 2 * k3x + k4x); v += h / 6 * (k1v + 2 * k2v + 2 * k3v + k4v); } return (tt) => pts[Math.round(tt / h)]; };
+  let seed = 7; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  for (const [n, z, w] of [['spring-hero', 0.72, 11], ['spring-snappy', 0.85, 18], ['settle', 1, 12]]) {
+    const f = L.tokens[n], ref = rk(z, w, f.dur); let e = 0;
+    for (let k = 0; k < 20; k++) { const tt = rnd() * f.dur; e = Math.max(e, Math.abs(f(tt / f.dur) - ref(tt))); }
+    out.reference[n] = { max_abs_err_20_times: +e.toExponential(2), a_then_b_then_a_equal: f(0.3) === (f(0.9), f(0.3)) };
+  }
+  // cubic-bezier: Newton (shipped) against pure bisection on x(s) = u
+  const bis = (x1, y1, x2, y2, u) => { const B = (a, b, s) => 3 * a * s * (1 - s) * (1 - s) + 3 * b * s * s * (1 - s) + s * s * s; let lo = 0, hi = 1, s = 0.5; for (let k = 0; k < 60; k++) { s = (lo + hi) / 2; if (B(x1, x2, s) < u) lo = s; else hi = s; } return B(y1, y2, s); };
+  for (const bz of [[0.2, 0, 0, 1], [0.05, 0.7, 0.1, 1], [0.25, 0.1, 0.25, 1], [0.7, 0, 0.3, 1]]) { const f = L.bezier(...bz); let e = 0; for (let i = 1; i < N; i++) e = Math.max(e, Math.abs(f(i / N) - bis(...bz, i / N))); out.bezier[bz.join(',')] = +e.toExponential(2); }
+  out.bezier.emph_at_0_2 = +L.tokens.emph(0.2).toFixed(4);
+  const a = L.tokens.anticipate; let dip = 0, fr = 0; for (let k = 0; k <= 27; k++) { const v = a(k / 27); dip = Math.min(dip, v); if (v < -1e-9) fr++; }
+  out.anticipate = { dip_pct: +(dip * 100).toFixed(2), frames_below_zero_at_30fps_dur_0_9: fr };
+  const r = L.tokens.ramp, sl = (u) => (r(u + 1e-4) - r(u)) / 1e-4; out.ramp = { fast_over_end_speed: +(sl(0.01) / sl(0.9999 - 1e-4)).toFixed(3), k_for_10s_content_in_2s: +L.rampK(10, 2).toFixed(3) };
+  const g = L.stagger.grid(6, 10, 0.05, { from: 'centre' }); out.stagger = { grid_6x10_span_s: +g.span.toFixed(3), capped_linear_40_span_s: +L.stagger.linear(40, 0.06).span.toFixed(3), centre_6: Array.from(L.stagger.centre(6, 0.06)).map(x => +x.toFixed(3)) };
+  out.move = { mid: L.move(0.5, 0, 1, 'spring-hero'), end: L.move(2, 0, 1, 'spring-hero') };
+  return out;
+};
+</script></body></html>

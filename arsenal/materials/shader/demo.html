@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8"><title>shader-materials demo</title>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-weight:600;src:url(../../../vendor/fonts/big-shoulders-display-latin-600-normal.woff2)}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;src:url(../../../vendor/fonts/ibm-plex-mono-latin-400-normal.woff2)}
+@font-face{font-family:"DM Sans";font-weight:400;src:url(../../../vendor/fonts/dm-sans-latin-400-normal.woff2)}
+@font-face{font-family:"Sofia Sans Extra Condensed";font-weight:700;src:url(../../../vendor/fonts/sofia-sans-extra-condensed-latin-700-normal.woff2)}
+@font-face{font-family:"Space Mono";font-weight:400;src:url(../../../vendor/fonts/space-mono-latin-400-normal.woff2)}
+@font-face{font-family:"Jost";font-weight:600;src:url(../../../vendor/fonts/jost-latin-600-normal.woff2)}
+@font-face{font-family:"Red Hat Mono";font-weight:400;src:url(../../../vendor/fonts/red-hat-mono-latin-400-normal.woff2)}
+html,body{margin:0;background:#000}canvas{display:block}
+</style></head><body>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="./pattern.js"></script>
+<script>
+const BRANDS = {
+ "ceti-dark":{id:"ceti-dark",color:{bg:"#0F1115",ink:"#EDE8DF",accent:"#E0B27A",accent2:"#B8322A",muted:"#8B8778",line:"rgba(237,232,223,0.18)",panel:"#171A21",chalk:"#F6F3EC"},type:{disp:{family:"Big Shoulders Display",weight:600},mono:{family:"IBM Plex Mono",weight:400},body:{family:"DM Sans",weight:400}},texture:"none",tempo:{ease:"cubic",beat_s:4}},
+ "neon-lab":{id:"neon-lab",color:{bg:"#07080C",ink:"#E8F1FF",accent:"#3DF5C3",accent2:"#FF4FA3",muted:"#7C86A2",line:"rgba(232,241,255,0.16)",panel:"#0E1119",chalk:"#FFFFFF"},type:{disp:{family:"Sofia Sans Extra Condensed",weight:700},mono:{family:"Space Mono",weight:400},body:{family:"DM Sans",weight:400}},texture:"grain",tempo:{ease:"expo",beat_s:3}},
+ "swiss-grid":{id:"swiss-grid",color:{bg:"#FFFFFF",ink:"#111111",accent:"#E63312",accent2:"#1F4FB8",muted:"#6B6B6B",line:"rgba(17,17,17,0.2)",panel:"#F2F2F2",chalk:"#FFFFFF"},type:{disp:{family:"Jost",weight:600},mono:{family:"Red Hat Mono",weight:400},body:{family:"Jost",weight:400}},texture:"none",tempo:{ease:"expo",beat_s:3}},
+ "tender-set":{id:"tender-set",color:{bg:"#E8DCC2",ink:"#1E3A5C",accent:"#C8452E",accent2:"#B9A277",muted:"#8E887C",line:"rgba(30,58,92,0.25)",panel:"#F5EEDF",chalk:"#F2ECDD"},type:{disp:{family:"Big Shoulders Display",weight:600},mono:{family:"IBM Plex Mono",weight:400},body:{family:"IBM Plex Mono",weight:400}},texture:"paper",tempo:{ease:"cubic",beat_s:4}}
+};
+const Q = new URLSearchParams(location.search);
+const MOD = ARSENAL.materials.shader, TK = BRANDS[Q.get('brand')] || BRANDS['ceti-dark'];
+const SEED = +(Q.get('seed') || 7);
+let _ready, _res; _ready = new Promise(r => _res = r);
+const states = {};
+function getState(p, v) { const vr = MOD.variants.find(x => x.name === v) || MOD.variants[0]; const key = vr.name + (Q.get('fallback') ? 'f' : '');
+  if (!states[key]) states[key] = MOD.setup(p, { seed: SEED }, Object.assign({}, vr.params, Q.get('fallback') ? { fallback: true } : {})); return { st: states[key], vr }; }
+function setup() {
+  window._p5 = p5.instance; pixelDensity(2); createCanvas(960, 540, WEBGL); noLoop(); describe('Material look test: headline, bars and a line, rendered through a shader filter.');
+  document.fonts.load('600 20px "' + TK.type.disp.family + '"').then(() => document.fonts.load('400 20px "' + TK.type.mono.family + '"')).then(() => _res());
+}
+function renderAt(t, v) { const { st, vr } = getState(window._p5, v); MOD.draw(window._p5, t, st, vr.params, TK); }
+function draw() { renderAt(+(Q.get('t') || 0), Q.get('variant') || 'neon'); }
+window.__film = { ready: () => _ready, seek(t, v) { renderAt(t, v || Q.get('variant') || 'neon'); },
+  info: { variants: MOD.variants.map(v => v.name), dur: MOD.duration, brand: TK.id } };
+</script></body></html>

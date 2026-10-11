@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>gl-heightfield</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="./pattern.js"></script></head><body><main></main><div id="junk" hidden></div>
+<script>
+/* ?brand=<id> (default ceti-dark) · ?variant=<name> · ?only=<name> (info.variants = [name], for per-variant timing)
+   ?t=<s> · ?p=<json overrides>. seek() ends with a 1-pixel readPixels so the GPU work is finished inside the call
+   (shoot.mjs ms_per_frame is then the real cost, not the queue time). */
+const Q=new URLSearchParams(location.search), PAT=ARSENAL.patterns['gl-heightfield'];
+const TK=ARSENAL.brands[Q.get('brand')||'ceti-dark']||ARSENAL.brands['ceti-dark'];
+document.body.style.background=TK.color.bg;
+const ALL=PAT.variants.map(v=>v.name), NAMES=Q.get('only')?[Q.get('only')]:ALL, cache={}; let P=null, cur=null, last=null;
+const paramsOf=n=>Object.assign({},PAT.params,PAT.variants.find(v=>v.name===n).params,Q.get('p')?JSON.parse(Q.get('p')):{});
+let resolveReady; const readyP=new Promise(r=>resolveReady=r);
+new p5(p=>{ P=p;
+  p.setup=async()=>{ await p.createCanvas(960,540,p.WEBGL); p.pixelDensity(2); p.noLoop();
+    for(const n of NAMES){ const params=paramsOf(n); cache[n]={params,st:await PAT.setup(p,{seed:7,w:960,h:540,tokens:TK},params)}; }
+    resolveReady(); };
+  p.draw=()=>{};
+},document.querySelector('main'));
+function tidy(){ document.querySelectorAll('canvas:not(.p5Canvas)').forEach(c=>document.getElementById('junk').appendChild(c)); }
+const px=new Uint8Array(4);
+function seek(t,v){ v=v||Q.get('variant')||NAMES[0]; cur=v; const c=cache[v];
+  P.resetMatrix(); last=PAT.draw(P,t,c.st,c.params,TK); const gl=P.drawingContext; gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,px); tidy(); return last; }
+window.__film={ ready:()=>readyP.then(()=>{ tidy(); if(Q.has('t')) seek(+Q.get('t')); }), seek,
+  count:(t,v)=>{ v=v||cur||NAMES[0]; return PAT.count(t,cache[v].st,cache[v].params); },
+  info:{variants:NAMES,dur:PAT.params.dur,brand:TK.id,renderer:'webgl'} };
+window.__film.stats=()=>Object.fromEntries(NAMES.map(n=>[n,{cells:cache[n].st.N,tris:cache[n].st.tris,fonts:cache[n].st.fontNote}]));
+</script></body></html>

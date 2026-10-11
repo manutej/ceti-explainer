@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>gl-ribbons · arsenal pattern</title>
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}#park{position:absolute;left:-9999px;top:0}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="./pattern.js"></script></head><body><main></main><div id="park" hidden></div>
+<script>
+/* ?brand=<id> (default ceti-dark) · ?variant=<name> · ?only=<name> (shoot one variant) · ?p={json overrides} · ?t=<s> */
+const Q = new URLSearchParams(location.search), PAT = ARSENAL.patterns['gl-ribbons'];
+const TK = ARSENAL.brands[Q.get('brand') || 'ceti-dark'] || ARSENAL.brands['ceti-dark'];
+document.documentElement.style.background = document.body.style.background = TK.color.bg;
+const ALL = PAT.variants.map(v => v.name), NAMES = Q.get('only') ? [Q.get('only')] : ALL, cache = {};
+let P = null, cur = null, last = null, resolveReady; const readyP = new Promise(r => resolveReady = r);
+const paramsOf = n => { const v = PAT.variants.find(x => x.name === n); return Object.assign({}, PAT.params, v.params, Q.get('p') ? JSON.parse(Q.get('p')) : {}); };
+new p5(p => {
+  P = p;
+  p.setup = async () => { await p.createCanvas(960, 540, p.WEBGL); p.pixelDensity(2); p.noLoop();
+    for (const n of NAMES) { const params = paramsOf(n); cache[n] = { params, st: await PAT.setup(p, { seed: 11, w: 960, h: 540, tokens: TK }, params) }; }
+    resolveReady(); };
+  p.draw = () => {};
+}, document.querySelector('main'));
+/* p5 2.x WEBGL text adds a hidden canvas ahead of the film canvas: park it so querySelector('canvas') is the film */
+function tidy() { document.querySelectorAll('canvas:not(.p5Canvas)').forEach(c => document.getElementById('park').appendChild(c)); }
+function sync() { const gl = P.drawingContext, b = new Uint8Array(4); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, b); }
+function seek(t, v) { v = v || Q.get('variant') || NAMES[0]; cur = v; P.resetMatrix(); last = PAT.draw(P, t, cache[v].st, cache[v].params, TK); tidy(); sync(); return { t, marks: last.marks, drawn: last.drawnMarks, landed: last.landed, waiting: last.waiting, readout: last.readout }; }
+window.__film = {
+  ready: () => readyP.then(() => { tidy(); if (Q.has('t')) seek(+Q.get('t')); }),
+  seek, count: (t, v) => PAT.count(t, cache[v || cur || NAMES[0]].st, cache[v || cur || NAMES[0]].params),
+  info: { variants: NAMES, dur: PAT.params.dur, brand: TK.id, renderer: 'webgl' },
+  stats: () => { const c = cache[cur]; return { fontNote: c && c.st.fontNote, links: c && c.st.G.links.length, k: c && c.st.G.k }; },
+  /* honest s/frame: draw + GPU finish (readPixels), mean of 6 frames across the timeline */
+  bench(v) { const ms = []; for (const f of [0.5, 0.15, 0.35, 0.55, 0.75, 0.95, 1]) { const a = performance.now(); seek(f * PAT.params.dur, v); ms.push(performance.now() - a); } ms.shift(); return { v, mean_ms: ms.reduce((a, b) => a + b, 0) / ms.length, ms }; },
+};
+</script></body></html>

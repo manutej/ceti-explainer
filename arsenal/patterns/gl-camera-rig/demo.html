@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>gl-camera-rig</title>
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="../../core/timeline.js"></script>
+<script src="./pattern.js"></script></head><body><main></main><div id="junk" hidden></div>
+<script>
+/* ?brand=<id> (default ceti-dark) · ?variant=<name> · ?only=<name> (shoot one variant: per-variant s/frame) · ?p={json} params
+   ?knobs={json} retunes the rig through fromKnobs (the evaluator's path) · ?t=<s> seeks on ready · ?aa=0 no antialias.
+   seek() ends with a 1-px readPixels so the GPU work is inside the timed call (shoot.mjs ms_per_frame is then honest). */
+const Q=new URLSearchParams(location.search), PAT=ARSENAL.patterns['gl-camera-rig'], TK=ARSENAL.brands[Q.get('brand')||'ceti-dark']||ARSENAL.brands['ceti-dark'];
+const ALL=PAT.variants.map(v=>v.name), NAMES=Q.get('only')?Q.get('only').split(','):ALL, cache={}; let P=null, cur=null, last=null;
+const paramsOf=n=>Object.assign({},PAT.params,PAT.variants.find(v=>v.name===n).params,Q.get('p')?JSON.parse(Q.get('p')):{},Q.get('knobs')?{knobs:JSON.parse(Q.get('knobs'))}:{});
+let resolveReady; const readyP=new Promise(r=>resolveReady=r);
+new p5(p=>{
+  P=p;
+  p.setup=async()=>{ if(Q.get('aa')==='0')p.setAttributes('antialias',false); await p.createCanvas(960,540,p.WEBGL); p.pixelDensity(2); p.noLoop();
+    for(const v of NAMES){ const params=paramsOf(v); cache[v]={params,st:await PAT.setup(p,{seed:7,w:960,h:540,tokens:TK},params)}; }
+    resolveReady(); };
+  p.draw=()=>{};
+},document.querySelector('main'));
+/* p5 2.x WEBGL text inserts a hidden 1x1 canvas ahead of the real one; park it so querySelector('canvas') stays the film canvas */
+function tidy(){ document.querySelectorAll('canvas:not(.p5Canvas)').forEach(c=>document.getElementById('junk').appendChild(c)); }
+const px=new Uint8Array(4), clone=o=>JSON.parse(JSON.stringify(o));
+function seek(t,v){ v=v||Q.get('variant')||NAMES[0]; cur=v; const c=cache[v];
+  P.resetMatrix(); last=PAT.draw(P,t,c.st,c.params,TK); tidy();
+  const gl=P.drawingContext; gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,px); return last; }
+window.__film={ ready:()=>readyP.then(()=>{ if(Q.has('t')) seek(+Q.get('t')); }), seek,
+  info:{variants:NAMES,dur:PAT.params.dur,brand:TK.id,renderer:'webgl'} };
+window.__film.count=(t,v)=>PAT.count(t,cache[v||cur].st,960,540);
+window.__film.knobs=(v)=>PAT.rig.toKnobs(cache[v||cur].st.script,cache[v||cur].st.scene);
+window.__film.stats=()=>{ const s=cache[cur]&&cache[cur].st; return s&&{N:s.N,moves:s.rig.moves.length,keys:s.rig.keys.length,fonts:s.fonts&&s.fonts.keys,fallbackFace:s.fonts&&s.fonts.fallback,last}; };
+/* drift + settle + spring proof (variant spring-hold): drift is 0 at hold start, through the settle hold and at the next move start; its peak <= amp x eye distance; same seed = same path, other seed differs;
+   a spring-hero dolly overshoots the travel by ~3.8 %; at() is pure (a, b, a equal). */
+window.__film.drift=()=>{
+  const R=PAT.rig, c=cache['spring-hold']; if(!c) return null; const st=c.st, rig=st.rig, still=R.compile(Object.assign({},st.script,{drift:null}),st.scene), D=rig.drift, M=rig.moves, out={amp:D.amp,settle:rig.settle,warnings:rig.warnings};
+  const dist=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2]), disp=(t)=>{ const q=R.at(rig,t), z=R.at(still,t); return dist(q.eye,z.eye)/dist(z.eye,z.center); };
+  let peak=0, inSettle=0, atMoveStart=0, atHoldStart=0, driftWhileMoving=0;
+  for(let t=0;t<=rig.dur;t+=0.01){ const d=disp(t); peak=Math.max(peak,d); const q=R.at(rig,t);
+    for(let i=0;i<M.length;i++){ if(t>=M[i].t0&&t<M[i].t1) driftWhileMoving=Math.max(driftWhileMoving,d); if(t>=M[i].t1&&t<M[i].t1+rig.settle) inSettle=Math.max(inSettle,d); } }
+  for(const m of M){ atMoveStart=Math.max(atMoveStart,disp(m.t0)); atHoldStart=Math.max(atHoldStart,disp(m.t1)); }
+  const mid=(M[0].t1+M[1].t0)/2, e0=R.at(rig,mid).eye.join();
+  out.peak_over_eye_distance=+peak.toFixed(5); out.max_in_settle=inSettle; out.max_while_moving=driftWhileMoving; out.at_move_starts=atMoveStart; out.at_hold_starts=atHoldStart;
+  out.pure=(R.at(rig,2),R.at(rig,mid).eye.join()===e0);
+  const other=R.compile(Object.assign({},st.script,{drift:Object.assign({},st.script.drift,{seed:8})}),st.scene), same=R.compile(clone(st.script),st.scene);
+  out.seed7_same=R.at(same,mid).eye.join()===e0; out.seed8_differs=R.at(other,mid).eye.join()!==e0;
+  out.settled={during_move:R.at(rig,(M[0].t0+M[0].t1)/2).settled,in_settle_hold:R.at(rig,M[0].t1+rig.settle/2).settled,after_hold:R.at(rig,M[0].t1+rig.settle+0.01).settled};
+  const m0=M[0], a=rig.keys[0], b=rig.keys[1], d0=dist(a.eye,a.center), d1=dist(b.eye,b.center); let mn=Infinity; for(let t=m0.t0;t<=m0.t1;t+=0.002) { const q=R.at(rig,t); mn=Math.min(mn,dist(q.eye,q.center)); }
+  out.dolly_overshoot_pct=+(100*(d1-mn)/(d0-d1)).toFixed(2); out.knobs=R.toKnobs(st.script,st.scene).knobs_doc.filter(r=>/Drift|Hold/.test(r.name)).map(r=>r.name);
+  return out; };
+/* verification: (1) rig.worldToScreen vs p.worldToScreen under the rig's camera; (2) the rig's slerp vs p5.Camera.slerp on the same keys;
+   (3) toKnobs -> fromKnobs round trip compiles to the same keys; a retuned knob changes them. Restores nothing it does not touch. */
+window.__film.check=()=>{
+  const R=PAT.rig, out={}, W=960, H=540;
+  for(const v of NAMES){ const st=cache[v].st, rig=st.rig; let w2s=0, sl=0, nS=0;
+    const cam=P.createCamera(), kc=rig.keys.map(k=>{const c=P.createCamera(); c.camera(...k.eye,...k.center,...k.up); return c;}), tmp=P.createCamera();
+    for(let t=0;t<=rig.dur;t+=0.25){ const pose=R.at(rig,t); R.apply(P,cam,pose,rig); P.setCamera(cam); P.resetMatrix();
+      for(let i=0;i<st.N;i+=37){ const q=st.scene.points[i], a=R.worldToScreen(pose,q,W,H); if(a.depth<=1)continue; const b=P.worldToScreen(new p5.Vector(...q)); w2s=Math.max(w2s,Math.hypot(a.x-b.x,a.y-b.y)); }
+      const k=rig.keys[pose.i+1]; if(pose.i>=0&&pose.u>0&&pose.u<1&&k.scheme==='slerp'){ tmp.slerp(kc[pose.i],kc[pose.i+1],pose.s); nS++;
+        sl=Math.max(sl,Math.hypot(tmp.eyeX-pose.eye[0],tmp.eyeY-pose.eye[1],tmp.eyeZ-pose.eye[2]),Math.hypot(tmp.centerX-pose.center[0],tmp.centerY-pose.center[1],tmp.centerZ-pose.center[2])); } }
+    const kn=R.toKnobs(st.script,st.scene), back=R.compile(R.fromKnobs(st.script,kn.knobs,st.scene),st.scene);
+    const same=JSON.stringify(back.keys.map(k=>[k.eye,k.center,k.fov,k.focus]))===JSON.stringify(rig.keys.map(k=>[k.eye,k.center,k.fov,k.focus]));
+    const n0=kn.knobs_doc.find(d=>/T1$/.test(d.name)); const tuned=Object.assign({},kn.knobs); if(n0) tuned[n0.name]=Math.max(n0.range[0], tuned[n0.name]-1);
+    const tm=rig.moves[0].t0+0.5*(rig.moves[0].t1-rig.moves[0].t0), PK=q=>q.eye.concat(q.center,[q.focus]).join(), moved=PK(R.at(R.compile(R.fromKnobs(st.script,tuned,st.scene),st.scene),tm))!==PK(R.at(rig,tm));
+    out[v]={w2s_px_max:+w2s.toFixed(4), slerp_vs_p5_max:+sl.toFixed(4), slerp_samples:nS, knobs:kn.knobs_doc.length, roundtrip:same, retune_moves:moved}; }
+  return out; };
+</script></body></html>
