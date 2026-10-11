@@ -30,3 +30,23 @@ Then: a build wave of arsenal lanes for the top gaps, and one film re-cut as the
 
 Research files: factory/research/WOW-{MOTION,P5-FRONTIER,LIBRARIES,CINEMATIC}.md and factory/research/WOW-GAP-AUDIT.md.
 Egress blocks WebFetch; WebSearch snippets only; grade claims A/B/C; name versions and dates.
+
+## Build wave (2026-10-11, after the five lanes landed)
+Research: factory/research/WOW-{MOTION,P5-FRONTIER,LIBRARIES,CINEMATIC,GAP-AUDIT}.md. The audit scores the six films 3–5
+of 44 on the rubric (bar 38): every move is cubic in-out over 4.5–11 s, text pops, holds are dead, the post stack is off.
+Verdict: the gap is craft inside the frame, not the engine (Claude Motion is code rendered to MP4, like our exporter).
+Vendor nothing; write the primitives (≤ 10 KB each), pure in t, seeded, no runtime fetches.
+
+| lane | owns (no other lane edits these) | delivers |
+|---|---|---|
+| B1 motion-curves | arsenal/patterns/motion-curves/, arsenal/core/timeline.js (EASE table), arsenal/patterns/gl-camera-rig/ (EASE table, ambient drift, settle) | closed-form spring-hero (ζ≈0.7, ≤ 4 % overshoot), spring-snappy, expo-out, emph (0.2,0,0,1) bezier solver, ramp (time-warp), settle, anticipate; stagger(linear, centre, grid); demo + card + sheet |
+| B2 text-reveal | arsenal/patterns/text-reveal/, kit2 overlay helpers in factory/kit2/text-reveal.js (new file, opt-in) | masked rise / per-line stagger for every label and panel; dot → draw-on leader (≥ 6 frames) → label; removal at 0.6×; tabular-nums; count-in of real counts with a weight pulse on landing (ratios never roll); G11-safe; demo + card |
+| B3 beat-grid | factory/kit2/build.py + README (film.json `beat`), factory/tools/gate.mjs (new row G12: beat snapping, caption hold ≥ 1.3 s + 0.06 s/char, WARN first), skills/atelier-* references that name gate rows | the pulse a silent film can carry; the caption rule enforced |
+| B4 gl-look | arsenal/patterns/gl-look/ (new), arsenal/patterns/gl-instances/ (rim/fresnel + baked AO in the instance shader, opt-in), factory/kit2 material "hero" (manager level only; exec stays ink) | luminance ladder floor gradient + plate, key/fill/rim, planar contact shadow, seeded grain/dither, tone map via gl-post; measured s/frame; demo + card |
+| B5 export-accum | arsenal/tools/export.mjs, arsenal/patterns/gl-post/pattern.js (renderAccumulated cut clamp), factory/tools/frames.mjs (shutter flag) | accumulation motion blur + temporal AA on export (shutter 0.35, N 8/16 adaptive, Halton jitter, cut clamp), bt709 colour tags, samples logged in export.json |
+| B6 re-cut | factory/films/pass-every-time/ (Opus, after B1–B5) | the proof: hero moves 0.8–1.6 s on springs with the freed time given to holds after landing, text reveals, beat grid and captions rebalanced, hero material at manager level, accumulation export; REVISION-wow.md with before/after |
+| B7 judge | factory/research/WOW-SCORE-pass-every-time.md (Opus, blind) | rubric score before and after, per property, from the strips |
+
+Laws hold: one clock, render(t) pure, seeds fixed; counts before ratios; every digit a claim; silent with captions; one
+honest line; the CETI card last; exec level ink and clean; vendored p5 and fonts only. New decision rows at ship: D14 hero
+look (manager level), D15 accumulation-aware export, D16 beat grid and G12.
