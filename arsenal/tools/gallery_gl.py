@@ -11,12 +11,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 LANES = ['gl-instances', 'gl-stack-city', 'track-unit', 'gl-camera-rig', 'gl-labels', 'gl-post', 'uncertainty-hop',
-         'formula-bind', 'scale-anchor', 'gl-heightfield', 'gl-volume', 'gl-ribbons', 'gl-pointcloud']
+         'formula-bind', 'scale-anchor', 'gl-heightfield', 'gl-volume', 'gl-ribbons', 'gl-pointcloud', 'motion-curves', 'text-reveal', 'gl-look']
 GROUP = {'gl-instances': 'the population at true scale', 'gl-stack-city': 'the reversal, same marks new partition',
          'track-unit': 'the reversal, flat and evidence-first', 'gl-camera-rig': 'the move is the argument',
          'gl-labels': 'labels that hold still', 'gl-post': 'the reveal as a moment', 'uncertainty-hop': 'uncertainty before the commit',
          'formula-bind': 'the formula computes on screen', 'scale-anchor': 'one unit to 100,000', 'gl-heightfield': 'a matrix as terrain',
-         'gl-volume': 'a distribution with a cut', 'gl-ribbons': 'a flow in depth', 'gl-pointcloud': 'a scatter with depth'}
+         'gl-volume': 'a distribution with a cut', 'gl-ribbons': 'a flow in depth', 'gl-pointcloud': 'a scatter with depth',
+         'motion-curves': 'wave wow · moves that read as decisions', 'text-reveal': 'wave wow · text that never pops',
+         'gl-look': 'wave wow · the hero look at manager level'}
 
 
 def lane(id_):
@@ -53,8 +55,8 @@ h1{{font-family:Georgia,serif;font-style:italic;font-weight:300;font-size:clamp(
 .foot{{margin-top:32px;font-size:13px;color:var(--muted);max-width:80ch}}
 </style></head><body><div class="wrap">
 <div class="eb">CETI · the arsenal · Wave GL · {today}</div>
-<h1>Thirteen lanes that move the films to the frontier</h1>
-<p class="lede">Each sheet is one lane's variants at four times on the pure clock, rendered headless and checked for identical re-seek. Eight are WebGL lanes (instanced marks at 100k, terrain, ribbons, point clouds, the stack city, a camera rig, a post stack, volumes, a label solver); four are the flat moves the comprehension evidence favours (uncertainty as motion, formula binding, following one unit, the human-scale anchor). The research behind the choice is in arsenal/frontier/; the seats in arsenal/SEATS-GL.md.</p>
+<h1>Sixteen lanes that move the films to the frontier</h1>
+<p class="lede">Each sheet is one lane's variants at four times on the pure clock, rendered headless and checked for identical re-seek. Eight are WebGL lanes (instanced marks at 100k, terrain, ribbons, point clouds, the stack city, a camera rig, a post stack, volumes, a label solver); four are the flat moves the comprehension evidence favours (uncertainty as motion, formula binding, following one unit, the human-scale anchor). The research behind the choice is in arsenal/frontier/; the seats in arsenal/SEATS-GL.md. The last three are Wave WOW (2026-10-11): spring and bezier motion tokens with stagger, text reveals with leaders and real-count counters, and the manager-level hero look (ladder, rim, contact shadow, tone map); research in factory/research/WOW-*.md.</p>
 {''.join(cards)}
 <p class="foot">Built by arsenal/tools/gallery_gl.py from manutej/ceti-explainer, branch feature/explainer-atelier. Every lane is a pure module (arsenal/BRIEF.md) with a card citing the p5.js atlas; brand colours come from token roles, so every sheet also exists under a light pack (shots/swiss-grid/).</p>
 </div></body></html>
