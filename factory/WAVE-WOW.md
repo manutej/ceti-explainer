@@ -50,3 +50,13 @@ Vendor nothing; write the primitives (≤ 10 KB each), pure in t, seeded, no run
 Laws hold: one clock, render(t) pure, seeds fixed; counts before ratios; every digit a claim; silent with captions; one
 honest line; the CETI card last; exec level ink and clean; vendored p5 and fonts only. New decision rows at ship: D14 hero
 look (manager level), D15 accumulation-aware export, D16 beat grid and G12.
+
+## Results so far (2026-10-11) and the preview rule
+- Blind rubric scores for pass-every-time (factory/research/WOW-SCORE-pass-every-time.md): the 2026-10-10 ship 2/44;
+  round 1 (hero cut) 13/44 with one starred zero (settle) and four regressions (a smeared 0.8 s re-sort, rolling non-claim
+  counters, text at 255, shimmering grain); round 2 fixes those (settle tails, 1.6 s re-sort, registered count-ins, text
+  ≤ 92 %, grain 1–1.4 %, two-layer shadows, carried joins, shot scales, a ramp, rhythm) and awaits its score.
+- Owner on round 1: "much better, more crisp feel and professional".
+- Preview rule (so reviews never wait on accumulation): an iteration cut exports a 1080p preview with `--samples 2`
+  (about 1 s/frame); only the final master gets `--samples auto` with the 4K path. Round 1 and 2 spent 5 and 8 hours of
+  wall time almost entirely in accumulation exports (7–13 s/frame with 9–33 sub-frames).
