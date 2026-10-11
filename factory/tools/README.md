@@ -113,3 +113,32 @@ exit 1 on a page error or a purity difference at 0.2/0.5/0.8 × dur. apply_findi
 (knob in knobs_doc and in range; caption_index exists, ≤ 60 chars, no new number that is not a claim value; chapter
 t0 shift ≤ 2 s keeping beat order; brand/chrome ids exist), applies the valid ones to film.json (+ `look`), writes
 `<findings>.report.json`, rebuilds with kit2, gates (`gate.json`), re-strips (`frames/`); exit 1 if the gate FAILs.
+
+## rubric.mjs and rubric-px.mjs (lane B8, the deterministic half of WOW-MOTION section 9)
+
+    node factory/tools/rubric.mjs <built-page.html> --film <film-dir> [--mp4 file] [--json out.json]
+                                  [--stride N] [--workers 3] [--no-pixels] [--keep-raw dir] [--dom-cache file]
+
+Scores every scriptable property of the 22-property rubric (0 / 1 / 2 by the stated bar) with the measurement and the evidence
+(seconds, frames), and gives raw numbers for the ones that need a reader. Same inputs, same JSON (no dates; frames and texts are
+merged by index). `rubric-px.mjs` is the pixel half, imported by `rubric.mjs`; it is not run alone. Each file is under 25 KB.
+
+- **Page side** (no `--mp4` needed, about 1 to 2 minutes): `window.__film.seek(t)` at every frame with the GL draw calls stubbed,
+  reading every SVG `<text>` (opacity, clip rect, box in stage units, weight, width). Gives P6 stagger, P10 text entrance (a text that
+  goes from absent to 90 % in one frame, or is re-bound in place at full opacity, is a pop; captions exempt), P14 number arrival (count-in
+  tabular spread, last-10 % share, hold, arrival beat), and the text boxes P13, P16 and the move traces mask out.
+- **Source side** (film.json, gate.json): P12 beat grid (G12's rules, cross-checked against gate.json), P22 caption holds, P19
+  effect gains, moves (knob pairs `…T0` / `…T1` and `rig.moves`, minus the knobs whose `knobs_doc` names an arrival sequence).
+- **Pixels, with `--mp4`**: ffmpeg decodes the file once to 320x180 (about 35 s, kept with `--keep-raw dir`) and single frames to
+  1920x1080 on demand. P2 settle, P3 overshoot, P4 anticipation (accent-mask or data centroid trace per move), P8 hard cuts (frame-diff
+  spikes at the declared joins; mid-shot spikes are listed), P13 shot scale (data height fraction per second), P16 ladder, P18 grain,
+  P21 edge softness and ghost runs on moves above 300 px/s.
+- **Pixels, without `--mp4`**: the page renders the frames it needs (software GL, 3 to 5 s each when the machine is idle: 770 frames at
+  the default `--stride 3`, 412 at 6; 20 to 60 minutes; `--workers` sets the browsers). Times are good to +-stride frames (keep the stride at
+  3 or less for P2: longer strides smear the settle tail), and the cut scan covers the declared joins only. `--stride` also works with `--mp4`.
+- `--no-pixels` runs the page and source sides only (pixel properties are "not measured"). `--dom-cache file` keeps the DOM pass.
+
+Properties a reader still has to judge (P1 easing quality, P5, P7, P9, P11, P15, P17, P20) come out as `"method": "reader"` with the
+raw numbers that help (peak-velocity share, overlap seconds, speed ramp, gap histogram, lag and rim knobs, fov). P8 and P22 are
+`"partial"`: the script scores the half it can (hard-cut rate; caption holds) and leaves carried joins and impact beats to the reader.
+Exit code 0 unless a page or ffmpeg error. Agreement with the Opus judge and the known disagreements: factory/research/WOW-RUBRIC-SCRIPT.md.
