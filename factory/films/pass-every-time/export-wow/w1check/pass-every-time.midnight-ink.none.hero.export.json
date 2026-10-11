@@ -1,0 +1,103 @@
+{
+ "html": "/home/user/ceti-explainer/factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.hero.html",
+ "variant": null,
+ "fps": 30,
+ "dur": 153,
+ "window": {
+  "from": 42,
+  "to": 42.1,
+  "first_frame": 1260,
+  "frames": 3
+ },
+ "frames": 3,
+ "size": [
+  3840,
+  2160
+ ],
+ "mp4": "/home/user/ceti-explainer/factory/films/pass-every-time/export-wow/w1check/pass-every-time.midnight-ink.none.hero.mp4",
+ "gif": null,
+ "probe": {
+  "codec_name": "h264",
+  "width": 3840,
+  "height": 2160,
+  "pix_fmt": "yuv420p",
+  "color_range": "tv",
+  "color_space": "bt709",
+  "color_transfer": "bt709",
+  "color_primaries": "bt709",
+  "r_frame_rate": "30/1",
+  "nb_read_frames": "3"
+ },
+ "mp4_frames_match": true,
+ "verify": [
+  {
+   "frame": 1261,
+   "t": 42.0333,
+   "samples": 16,
+   "exported": "5a76dcb4b4e1",
+   "rerendered": "5a76dcb4b4e1",
+   "identical": true
+  },
+  {
+   "frame": 1260,
+   "t": 42,
+   "samples": 16,
+   "exported": "40b8414c7a48",
+   "rerendered": "40b8414c7a48",
+   "identical": true
+  }
+ ],
+ "deterministic": true,
+ "accum": {
+  "mode": "page",
+  "shutter": 0.35,
+  "samples_arg": "auto",
+  "ssaa": 1,
+  "max_samples": 48,
+  "cuts": [
+   135
+  ],
+  "mean_samples": 16,
+  "histogram": {
+   "16": 3
+  },
+  "warns": [],
+  "renders": 3,
+  "cost_by_samples": {
+   "16": {
+    "frames": 3,
+    "mean_s": 7.31
+   }
+  },
+  "per_frame": [
+   {
+    "i": 1260,
+    "n": 16,
+    "ms": 7538,
+    "D": null
+   },
+   {
+    "i": 1261,
+    "n": 16,
+    "ms": 7204,
+    "D": null
+   },
+   {
+    "i": 1262,
+    "n": 16,
+    "ms": 7178,
+    "D": null
+   }
+  ]
+ },
+ "shards": 1,
+ "seconds": {
+  "capture": 21.92,
+  "per_frame": 7.3067,
+  "per_frame_wall": 7.307,
+  "mp4": 2.1,
+  "gif": 0,
+  "total": 70.29
+ },
+ "errors": []
+}

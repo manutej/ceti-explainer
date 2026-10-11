@@ -1,32 +1,32 @@
 {
   "film": "pass-every-time",
-  "page": "factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.html",
+  "page": "factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.hero.html",
   "filmDir": "factory/films/pass-every-time",
-  "date": "2026-10-10T19:09:15.686Z",
+  "date": "2026-10-11T05:41:47.121Z",
   "pass": true,
   "rows": [
     {
       "id": "G1",
       "name": "load",
       "status": "PASS",
-      "evidence": "film errors 0; live errors 0; charset utf-8; ready 3460 ms; stage sd 30.6s:25.0 76.5s:35.8 122.4s:19.0",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1635 ms; stage sd 30.6s:32.8 76.5s:47.1 122.4s:22.0",
       "data": {
-        "readyMs": 3460,
+        "readyMs": 1635,
         "stats": [
           {
             "t": 30.6,
-            "mean": 43.758304407795436,
-            "sd": 24.96657476653457
+            "mean": 40.10766344521637,
+            "sd": 32.84277870925847
           },
           {
             "t": 76.5,
-            "mean": 50.97210545910778,
-            "sd": 35.82887903689932
+            "mean": 47.488998755786525,
+            "sd": 47.05285949235517
           },
           {
             "t": 122.4,
-            "mean": 34.08328577353271,
-            "sd": 18.954017464630233
+            "mean": 21.301854986491605,
+            "sd": 21.98999908242584
           }
         ],
         "filmErrs": [],
@@ -54,7 +54,7 @@
       "id": "G3",
       "name": "clock scan",
       "status": "PASS",
-      "evidence": "clean: film.js",
+      "evidence": "clean: film.js, pattern.js, text-reveal.js, commit-off.js, kit2.js, player.js (player: rAF/Date/perf allowed), text-reveal.js",
       "data": {
         "hits": []
       }
@@ -109,7 +109,7 @@
       "id": "G5b",
       "name": "claims · caption digits",
       "status": "PASS",
-      "evidence": "every number in 30 captions is a claim value or render",
+      "evidence": "every number in 29 captions is a claim value or render",
       "data": {
         "unknown": []
       }
@@ -117,23 +117,34 @@
     {
       "id": "G5c",
       "name": "claims · on-screen digits",
-      "status": "PASS",
-      "evidence": "every visible SVG number is a claim value",
+      "status": "WARN",
+      "evidence": "10 visible number(s) not in claims (chrome?): 30 @13s \"30\"; 73 @14s \"73\"; 101 @15s \"101\"; 130 @21s \"130\"; 313 @22s \"313\"; 421 @23s \"421\"",
       "data": {
-        "unknown": []
+        "unknown": [
+          "30 @13s \"30\"",
+          "73 @14s \"73\"",
+          "101 @15s \"101\"",
+          "130 @21s \"130\"",
+          "313 @22s \"313\"",
+          "421 @23s \"421\"",
+          "124 @29s \"124\"",
+          "253 @30s \"253\"",
+          "236 @101s \"236\"",
+          "26 @122s \"26 min\""
+        ]
       }
     },
     {
       "id": "G6",
       "name": "legibility",
       "status": "PASS",
-      "evidence": "13 must-read / 20 secondary / 13 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 400/390 OVERFLOW",
+      "evidence": "10 must-read / 18 secondary / 13 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 400/390 OVERFLOW",
       "data": {
         "fails": [],
         "warns": [],
         "counts": {
-          "must-read": 13,
-          "secondary": 20,
+          "must-read": 10,
+          "secondary": 18,
           "chrome": 13
         }
       }
@@ -142,16 +153,16 @@
       "id": "G7",
       "name": "counts first",
       "status": "PASS",
-      "evidence": "count at 21 s (count.at); first ratio \"Tries that pass: 60.4 %.\" at 36.8 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
+      "evidence": "count at 12.5 s (count.at); first ratio \"Tries that pass: 60.4 %.\" at 35 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
     },
     {
       "id": "G8",
       "name": "size",
       "status": "PASS",
-      "evidence": "film code 93.4 KB (film.js 59.3, film.json 21.4, claims.json 12.6) < 120 KB; page 1.244 MB < 1.3 MB",
+      "evidence": "film code 109.9 KB (film.js 70.6, film.json 26.7, claims.json 12.6) < 120 KB; page 1.296 MB < 1.3 MB",
       "data": {
-        "code": 95597,
-        "page": 1243700
+        "code": 112543,
+        "page": 1295920
       }
     },
     {
@@ -164,12 +175,12 @@
       "id": "G10",
       "name": "axes",
       "status": "PASS",
-      "evidence": "brand midnight-ink, chrome none, material ink, texture paper; level manager; via window.__film.info.axes",
+      "evidence": "brand midnight-ink, chrome none, material hero, texture paper; level manager; via window.__film.info.axes",
       "data": {
         "axes": {
           "brand": "midnight-ink",
           "chrome": "none",
-          "material": "ink",
+          "material": "hero",
           "texture": "paper",
           "texture_declared": "paper",
           "level": "manager",
@@ -184,7 +195,7 @@
       "id": "G11",
       "name": "text overlap",
       "status": "PASS",
-      "evidence": "307 samples every 0.5 s, 78 distinct texts (texts with data-role), caption showing at 241; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
+      "evidence": "307 samples every 0.5 s, 97 distinct texts (texts with data-role), caption showing at 212; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
       "data": {
         "step": 0.5,
         "samples": 307,
@@ -192,7 +203,174 @@
         "canvasText": "not seen",
         "fail": 0,
         "warn": 0,
+        "legacy": false,
         "instances": []
+      }
+    },
+    {
+      "id": "G12",
+      "name": "rhythm",
+      "status": "PASS",
+      "evidence": "beat 0.5 s (15 frames; +-2 frames): 46/46 starts on the grid = 100 % (captions 29/29, moves 17/17; want >= 80 %); captions holding >= 1.3 s + 0.06 s/char: 29/29; dead holds > 8 s: 0. WARN-only (D16); the moves counted are in data.moves.",
+      "data": {
+        "fps": 30,
+        "tolFrames": 2,
+        "beat": 0.5,
+        "refBeat": 0.5,
+        "onGrid": 46,
+        "events": 46,
+        "share": 1,
+        "want": 0.8,
+        "captions": {
+          "n": 29,
+          "onGrid": 29,
+          "holdOk": 29,
+          "holdFail": 0,
+          "rule": "1.3 s + 0.06 s/char"
+        },
+        "moves": [
+          {
+            "t": 0,
+            "names": [
+              "hookT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 1.5,
+            "names": [
+              "hookLitT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 10.5,
+            "names": [
+              "pullT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 12.5,
+            "names": [
+              "tileT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 20.5,
+            "names": [
+              "cubeT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 28.5,
+            "names": [
+              "litT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 40,
+            "names": [
+              "m1T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 42,
+            "names": [
+              "stackT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 60,
+            "names": [
+              "m2T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 70.5,
+            "names": [
+              "m3T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 99.5,
+            "names": [
+              "prT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 111.5,
+            "names": [
+              "m4T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 120.5,
+            "names": [
+              "min27T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 125.5,
+            "names": [
+              "min289T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 135,
+            "names": [
+              "dimT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 135.5,
+            "names": [
+              "bookT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 137.5,
+            "names": [
+              "bookCamT0"
+            ],
+            "off": 0,
+            "on": true
+          }
+        ],
+        "nMoves": 17,
+        "nMovesOn": 17,
+        "holdFail": [],
+        "dead": [],
+        "deadRule": "no caption change, time knob, rig move or brand card for > 8 s"
       }
     }
   ]

@@ -1,0 +1,6 @@
+  frame 3/3 (index 1262, t 42.07 s): 16 samples, 7.31 s/frame so far
+pass-every-time.midnight-ink.none.hero: 3 frames @ 30fps 3840x2160 h264/yuv420p bt709/bt709/bt709/tv  mp4 frames 3 OK
+  accumulation: mode page, shutter 0.35, samples auto, mean N 16, histogram {"16":3}
+  verify frame 1261 (t=42.0333s, N=16): 5a76dcb4b4e1 vs 5a76dcb4b4e1 IDENTICAL
+  verify frame 1260 (t=42s, N=16): 40b8414c7a48 vs 40b8414c7a48 IDENTICAL
+  seconds/frame 7.3067 (wall 7.307 with 1 shard)  capture 21.92s  mp4 2.1s  gif 0s  TOTAL 70.29s  errors 0

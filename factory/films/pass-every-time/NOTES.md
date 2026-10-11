@@ -67,3 +67,14 @@ lib/revise_t2.py). lib/make_film_json.py now refuses to write film.json: film.js
 seat.json; measures in MEASURES.md.
 Data caveat: numbers were read from search snippets (egress blocked); re-verify tau-bench, METR 2025 and the PR study before
 public use. The simulated 8-try model (claims modelAll8*) is not on stage.
+
+## Wave WOW re-cut (lane B6, 2026-10-11) · see REVISION-wow.md
+Material hero (manager level), beat 0.5, cuts [135], libs text-reveal; page build/pass-every-time.midnight-ink.none.hero.html
+(1,295,920 B). Build: `python3 lib/revise_wow.py && python3 lib/assemble.py && python3 factory/kit2/build.py factory/films/pass-every-time --chrome none`.
+Gate PASS G1-G12 (G11 clean, G12 100 % on grid, 29/29 captions). Warnings to ship with:
+- G5c WARN: running count-in values (30, 73, 101 …) are counts of marks landed, not claims (gate defect 7).
+- Page is 4.1 KB under the 1.3 MB budget; film.js is comment-stripped at assembly (edit lib/film.src.js, never film.js).
+- Export at --ssaa 1 (canvas AA = in-page Halton jitter); --ssaa 2 only sharpens SVG type here and costs 12-16 h.
+- The planar shadow is hard; the 120.5 s wipe crosses a nearly empty frame; the first 0.5 s is a dark tile with one cube dropping.
+- lib/gl-camera-rig.js re-copied from the arsenal (B1 tokens, rig.curves); the film's own drift (hold-only dolly + yaw) replaces
+  the rig's eye wander, which rolls the el-89 plan views.

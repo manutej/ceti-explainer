@@ -1,14 +1,23 @@
 {
- "page": "factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.html",
+ "page": "factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.hero.html",
  "film": "pass-every-time",
  "dur": 153,
  "every": 0.5,
  "per_row": 12,
  "brand": "midnight-ink",
+ "accum": {
+  "mode": "page",
+  "shutter": 0.35,
+  "samples": 8,
+  "fps": 30,
+  "cuts": [
+   135
+  ]
+ },
  "axes": {
   "brand": "midnight-ink",
   "chrome": "none",
-  "material": "ink",
+  "material": "hero",
   "texture": "paper",
   "texture_declared": "paper",
   "level": "manager",
@@ -23,8 +32,8 @@
     2
    ],
    "step": 0.1,
-   "what": "s: the belief (set type) fades in over the empty floor",
-   "value": 0.8
+   "what": "s: the belief (set type, masked rise) enters beside the hook task",
+   "value": 1
   },
   {
    "name": "hook1Out",
@@ -33,8 +42,8 @@
     6
    ],
    "step": 0.1,
-   "what": "s: the belief starts to fade (gone 0.5 s later)",
-   "value": 5.2
+   "what": "s: the belief exits (0.6x the entrance)",
+   "value": 5
   },
   {
    "name": "hook2In",
@@ -43,18 +52,18 @@
     7
    ],
    "step": 0.1,
-   "what": "s: the doubt (\"Does it?\") fades in",
-   "value": 6.2
+   "what": "s: the doubt (\"Does it?\") enters",
+   "value": 6
   },
   {
    "name": "hook2Out",
    "range": [
-    10,
+    9.5,
     11.4
    ],
    "step": 0.1,
-   "what": "s: the doubt starts to fade (gone before CASE at 12)",
-   "value": 11.2
+   "what": "s: the doubt exits (before the pull-back)",
+   "value": 10
   },
   {
    "name": "hookSize",
@@ -73,108 +82,108 @@
     14
    ],
    "step": 0.1,
-   "what": "s: the first task tile drops onto the floor",
-   "value": 13
+   "what": "s: the other 114 task tiles start to drop (count-in: power-out, the last 10 % of the count takes 41 % of the time)",
+   "value": 12.5
   },
   {
    "name": "tileT1",
    "range": [
-    19,
+    16,
     21
    ],
    "step": 0.1,
-   "what": "s: the last task tile has landed (before the count callout)",
-   "value": 20.6
+   "what": "s: the last task tile has landed (the 115 callout lands with its pulse)",
+   "value": 17.5
   },
   {
    "name": "cTasks",
    "range": [
-    20.5,
+    12,
     22
    ],
    "step": 0.1,
-   "what": "s: callout on the task count (the first count; count.at)",
-   "value": 21
+   "what": "s: the task-count callout attaches (dot, leader, label) and counts the tiles landed (the first count; count.at)",
+   "value": 12.5
   },
   {
    "name": "cubeT0",
    "range": [
-    22.5,
+    20,
     25
    ],
    "step": 0.1,
-   "what": "s: four cubes per tile start to arrive (2 x 2 footprint, unlit ghosts)",
-   "value": 23.5
+   "what": "s: the other 456 cubes start to arrive, four per tile (2 x 2 footprint, unlit)",
+   "value": 20.5
   },
   {
    "name": "cubeT1",
    "range": [
-    27,
+    24,
     28.4
    ],
    "step": 0.1,
-   "what": "s: the last cube has arrived",
-   "value": 28.2
+   "what": "s: the last cube has arrived (the 460 callout lands)",
+   "value": 25
   },
   {
    "name": "cTries",
    "range": [
-    28,
+    20,
     29.5
    ],
    "step": 0.1,
-   "what": "s: callout on the try count",
-   "value": 28.5
+   "what": "s: the try-count callout attaches and counts the cubes landed",
+   "value": 20.5
   },
   {
    "name": "litT0",
    "range": [
-    30,
+    28,
     32
    ],
    "step": 0.1,
-   "what": "s: the passing tries start to light gold, in a seeded order",
-   "value": 31
+   "what": "s: the other 275 passing tries start to light gold, in a seeded order",
+   "value": 28.5
   },
   {
    "name": "litT1",
    "range": [
-    32.5,
+    30.5,
     34
    ],
    "step": 0.1,
-   "what": "s: the last passing try is lit",
-   "value": 33.6
+   "what": "s: the last passing try is lit (the 278 callout lands)",
+   "value": 31
   },
   {
    "name": "cPass",
    "range": [
-    33.6,
+    28,
     35
    ],
    "step": 0.1,
-   "what": "s: callout on the passed count",
-   "value": 34
+   "what": "s: the passed-count callout attaches and counts the lit cubes",
+   "value": 28.5
   },
   {
    "name": "cPct",
    "range": [
-    36,
+    34,
     38
    ],
    "step": 0.1,
-   "what": "s: callout on the share of tries that pass (a ratio, 1.5 s or more after its count)",
-   "value": 36.5
+   "what": "s: the share of tries that pass lands with the pulse (a ratio, never rolled; >= 1.5 s after its count)",
+   "value": 35
   },
   {
    "name": "cPctEnd",
    "range": [
-    39,
+    38,
     40
    ],
    "step": 0.1,
-   "what": "s: that callout ends before the first move",
-   "value": 39.9
+   "what": "s: that callout exits before the turn",
+   "value": 38.5
   },
   {
    "name": "m1T0",
@@ -183,48 +192,48 @@
     42
    ],
    "step": 0.1,
-   "what": "s: M1 starts: plan to side (the field re-stacks into columns under an orbit)",
+   "what": "s: M1a starts: the camera orbits plan to side, the field still flat (expo-out)",
    "value": 40
   },
   {
    "name": "m1T1",
    "range": [
-    44,
-    50
+    40.5,
+    43
    ],
    "step": 0.1,
-   "what": "s: M1 lands on the side key (hold, T8)",
-   "value": 47
+   "what": "s: M1a lands on the side key",
+   "value": 41.5
   },
   {
    "name": "cAll",
    "range": [
-    48,
+    44,
     56
    ],
    "step": 0.1,
    "what": "s: callout on one column lit all the way (words only)",
-   "value": 52
+   "value": 46
   },
   {
    "name": "cNone",
    "range": [
-    52,
+    48,
     58
    ],
    "step": 0.1,
-   "what": "s: the callout hard-cuts to a column with no lit cube",
-   "value": 55.6
+   "what": "s: callout on a column with no lit cube",
+   "value": 51
   },
   {
    "name": "cNoneEnd",
    "range": [
-    56,
+    53,
     59.9
    ],
    "step": 0.1,
-   "what": "s: that callout ends before M2",
-   "value": 59.6
+   "what": "s: that callout exits before M2",
+   "value": 57
   },
   {
    "name": "m2T0",
@@ -233,158 +242,158 @@
     62
    ],
    "step": 0.1,
-   "what": "s: M2 starts: the same columns re-sort by tries passed (camera still)",
+   "what": "s: M2 starts: the same columns re-sort by tries passed (spring, anticipation, lifted arc; camera still)",
    "value": 60
   },
   {
    "name": "m2T1",
    "range": [
-    63,
-    68
+    60.5,
+    63
    ],
    "step": 0.1,
-   "what": "s: M2 lands (skyline: full columns left, empty right)",
-   "value": 66
+   "what": "s: M2 lands (ring beat on the full block): full columns left, empty right",
+   "value": 61.5
   },
   {
    "name": "c44",
    "range": [
-    66.5,
+    62,
     69.5
    ],
    "step": 0.1,
    "what": "s: callout on the full block (tasks that pass all four tries)",
-   "value": 68
+   "value": 64.5
   },
   {
    "name": "c22",
+   "range": [
+    66,
+    72
+   ],
+   "step": 0.1,
+   "what": "s: callout on the empty block (tasks that never pass)",
+   "value": 68
+  },
+  {
+   "name": "c22End",
    "range": [
     69,
     72
    ],
    "step": 0.1,
-   "what": "s: the callout hard-cuts to the empty block (tasks that never pass)",
-   "value": 70.5
-  },
-  {
-   "name": "c22End",
-   "range": [
-    71.5,
-    73
-   ],
-   "step": 0.1,
-   "what": "s: that callout ends before the cut plane rises",
-   "value": 73
+   "what": "s: that callout exits before the cut plane rises",
+   "value": 70
   },
   {
    "name": "m3T0",
    "range": [
-    71,
+    70,
     75
    ],
    "step": 0.1,
-   "what": "s: M3 starts: the cut plane rises from the floor (columns below it dim, none removed)",
-   "value": 73
+   "what": "s: M3 starts: the cut plane rises from the floor (expo-out, no overshoot); the dimming follows 0.12 s behind",
+   "value": 70.5
   },
   {
    "name": "m3T1",
    "range": [
-    75,
-    79
+    71,
+    76
    ],
    "step": 0.1,
-   "what": "s: the plane rests at the all-four bar",
-   "value": 75.5
+   "what": "s: the plane rests at the all-four bar (ring beat and an edge flash)",
+   "value": 71.5
   },
   {
    "name": "c44of",
    "range": [
-    76,
+    71.5,
     79
    ],
    "step": 0.1,
    "what": "s: callout: the exact count of columns lit all the way, of all tasks",
-   "value": 77
+   "value": 72
   },
   {
    "name": "c383",
    "range": [
-    78.5,
+    73.5,
     81
    ],
    "step": 0.1,
-   "what": "s: callout: the share that passes all four tries (>= 1.5 s after the count)",
-   "value": 79.5
+   "what": "s: callout: the share that passes all four tries (>= 1.5 s after the count; lands with the pulse)",
+   "value": 74
   },
   {
    "name": "c383End",
    "range": [
-    81,
+    75,
     82.5
    ],
    "step": 0.1,
-   "what": "s: that callout ends",
-   "value": 82.4
+   "what": "s: that callout exits",
+   "value": 76.5
   },
   {
    "name": "lad1",
    "range": [
-    82,
+    76,
     83.5
    ],
    "step": 0.1,
-   "what": "s: the pair opens: the one-try count line (278 of 460), its ratio follows after ladLead",
-   "value": 82.6
+   "what": "s: the pair opens: the one-try count line (278 of 460), its ratio follows after ladLead; the dim lifts so every lit try shows",
+   "value": 77
   },
   {
    "name": "lad4",
    "range": [
-    84.5,
+    79,
     89.5
    ],
    "step": 0.1,
-   "what": "s: the every-try count line (44 of 115), its ratio (gold) follows after ladLead",
-   "value": 85.6
+   "what": "s: the every-try count line (44 of 115), its ratio (gold) follows after ladLead; the dim returns",
+   "value": 80.5
   },
   {
    "name": "ladOut",
    "range": [
-    89.5,
+    85,
     93
    ],
    "step": 0.1,
-   "what": "s: the pair starts to fade",
-   "value": 91
+   "what": "s: the pair exits",
+   "value": 88.5
   },
   {
    "name": "legOut",
    "range": [
-    88,
+    85,
     94
    ],
    "step": 0.1,
-   "what": "s: the unit legend (top left) fades before the ratio row and the plate need that corner",
-   "value": 90.8
+   "what": "s: the unit legend (top left) exits",
+   "value": 89
   },
   {
    "name": "paperIn",
    "range": [
-    90,
+    88,
     93
    ],
    "step": 0.1,
    "what": "s: the plate attributed to the paper's own eight-try run",
-   "value": 91.4
+   "value": 89.5
   },
   {
    "name": "paperOut",
    "range": [
-    94,
+    92,
     98
    ],
    "step": 0.1,
-   "what": "s: that plate starts to fade",
-   "value": 97
+   "what": "s: that plate exits",
+   "value": 94.5
   },
   {
    "name": "planeOut",
@@ -403,38 +412,38 @@
     101
    ],
    "step": 0.1,
-   "what": "s: hard cut from the tau floor to the sheet of pull requests (new dataset; labels cut too)",
+   "what": "s: centre of the light wipe from the tau floor to the sheet of pull requests (new dataset; labels hand over too)",
    "value": 100
   },
   {
    "name": "prT0",
    "range": [
-    99.5,
+    99,
     102
    ],
    "step": 0.1,
-   "what": "s: the first pull request cube arrives (0.2 s before the cut, so the cut lands on the first row)",
-   "value": 99.8
+   "what": "s: the first pull request cube arrives (the wipe reveals the sheet as it fills)",
+   "value": 99.5
   },
   {
    "name": "prT1",
    "range": [
-    103,
+    102,
     105.5
    ],
    "step": 0.1,
-   "what": "s: the last pull request cube has arrived",
-   "value": 104.6
+   "what": "s: the last pull request cube has arrived (the 296 callout lands)",
+   "value": 103
   },
   {
    "name": "cPrs",
    "range": [
-    104.5,
+    100,
     106
    ],
    "step": 0.1,
-   "what": "s: callout on the pull-request count",
-   "value": 105
+   "what": "s: the pull-request callout attaches and counts the cubes landed",
+   "value": 100.5
   },
   {
    "name": "cSwe",
@@ -443,168 +452,168 @@
     109
    ],
    "step": 0.1,
-   "what": "s: callout on the top SWE-bench Verified score (a different set: tests only)",
+   "what": "s: callout on the top SWE-bench Verified score (a different set: tests only; lands with the pulse)",
    "value": 107.5
   },
   {
    "name": "cSweEnd",
    "range": [
     109.5,
-    110.45
+    111.45
    ],
    "step": 0.05,
-   "what": "s: that callout ends before M4",
-   "value": 110.3
+   "what": "s: that callout exits before M4",
+   "value": 111
   },
   {
    "name": "m4T0",
    "range": [
-    109.5,
-    112
+    110,
+    113
    ],
    "step": 0.1,
-   "what": "s: M4 starts: the same cubes re-partition into would merge / would not merge (camera still)",
-   "value": 110.5
+   "what": "s: M4 starts: the same cubes re-partition into would merge / would not merge (spring, anticipation; camera still)",
+   "value": 111.5
   },
   {
    "name": "m4T1",
    "range": [
-    115,
-    119
+    112,
+    116
    ],
    "step": 0.1,
-   "what": "s: M4 lands (two equal blocks, schematic)",
-   "value": 117.5
+   "what": "s: M4 lands (ring beat on the merged block; two equal blocks, schematic)",
+   "value": 113
   },
   {
    "name": "ghost0",
    "range": [
-    116,
+    113,
     119
    ],
    "step": 0.1,
-   "what": "s: the not-merged block starts to dim to ghost",
-   "value": 117.5
+   "what": "s: the not-merged block starts to dim to ghost (follow-through after the landing)",
+   "value": 113.5
   },
   {
    "name": "ghost1",
    "range": [
-    117,
+    113.5,
     119.5
    ],
    "step": 0.1,
    "what": "s: the not-merged block is dimmed",
-   "value": 118.3
+   "value": 114
   },
   {
    "name": "cHalf",
    "range": [
-    117.8,
+    114,
     120
    ],
    "step": 0.1,
    "what": "s: callout: about half would not be merged (words, no digit)",
-   "value": 118.4
+   "value": 115.5
   },
   {
    "name": "cHalfEnd",
    "range": [
-    120,
+    118,
     121.5
    ],
    "step": 0.1,
-   "what": "s: that callout ends",
-   "value": 121
+   "what": "s: that callout exits",
+   "value": 119.5
   },
   {
    "name": "minCut",
    "range": [
-    120.5,
+    119.5,
     122
    ],
    "step": 0.1,
-   "what": "s: hard cut to the horizon: two columns of minutes (new dataset)",
-   "value": 121
+   "what": "s: centre of the light wipe to the horizon: two columns of minutes (new dataset)",
+   "value": 120.5
   },
   {
    "name": "min27T0",
    "range": [
-    120.5,
+    119.5,
     125
    ],
    "step": 0.1,
-   "what": "s: the first minute cube of the 80 % column arrives (0.2 s before the cut, so the cut lands on it)",
-   "value": 120.8
+   "what": "s: the first minute cube of the 80 % column arrives (as the wipe passes)",
+   "value": 120.5
   },
   {
    "name": "min27T1",
    "range": [
-    125,
+    122,
     126.5
    ],
    "step": 0.1,
-   "what": "s: the 80 % column is full",
-   "value": 125
+   "what": "s: the 80 % column is full (the 27 min callout lands)",
+   "value": 123
   },
   {
    "name": "cMin27",
    "range": [
-    123.5,
+    120.5,
     125
    ],
    "step": 0.1,
-   "what": "s: callout on the 80 % horizon",
-   "value": 124.5
+   "what": "s: the 80 % horizon callout attaches and counts the minutes landed",
+   "value": 121
   },
   {
    "name": "cMin27End",
    "range": [
-    125.5,
+    124,
     127
    ],
    "step": 0.1,
-   "what": "s: that callout ends",
-   "value": 127
+   "what": "s: that callout exits (the 27 min reference pin takes its place)",
+   "value": 125.5
   },
   {
    "name": "min289T0",
    "range": [
-    126,
+    125,
     127.5
    ],
    "step": 0.1,
-   "what": "s: the first minute cube of the 50 % column arrives",
-   "value": 126.6
+   "what": "s: the 50 % column starts to rise (speed ramp: fast, then easing to x1 at the top)",
+   "value": 125.5
   },
   {
    "name": "min289T1",
    "range": [
-    128,
+    127,
     130
    ],
    "step": 0.1,
-   "what": "s: the 50 % column is full",
-   "value": 129.4
+   "what": "s: the 50 % column is full (ring beat at its top)",
+   "value": 128
   },
   {
    "name": "cMin289",
    "range": [
-    129,
+    127.5,
     130.5
    ],
    "step": 0.1,
-   "what": "s: callout on the 50 % horizon",
-   "value": 129.6
+   "what": "s: callout on the 50 % horizon (lands with the pulse)",
+   "value": 128
   },
   {
    "name": "cRatio",
    "range": [
-    131.5,
+    130.5,
     133.5
    ],
    "step": 0.1,
-   "what": "s: callout hard-cuts to the ratio of the two horizons (about, nearest ten)",
-   "value": 132.1
+   "what": "s: callout: the ratio of the two horizons (about, nearest ten; lands with the pulse)",
+   "value": 131
   },
   {
    "name": "cRatioEnd",
@@ -613,8 +622,8 @@
     135
    ],
    "step": 0.1,
-   "what": "s: that callout ends",
-   "value": 135
+   "what": "s: that callout exits",
+   "value": 134.5
   },
   {
    "name": "tauCut",
@@ -633,18 +642,18 @@
     137
    ],
    "step": 0.1,
-   "what": "s: the bookend starts: the camera rises back to the opening plan pose and the cubes return to their tiles",
-   "value": 135.4
+   "what": "s: the bookend starts: the cubes return to their tiles, camera still (spring)",
+   "value": 135.5
   },
   {
    "name": "bookT1",
    "range": [
-    137,
-    141
+    136,
+    138
    ],
    "step": 0.1,
-   "what": "s: the bookend lands: the opening frame, only the tasks that passed all four tries still gold",
-   "value": 139.4
+   "what": "s: the cubes have returned (ring beat on the field)",
+   "value": 137
   },
   {
    "name": "dimT0",
@@ -654,7 +663,7 @@
    ],
    "step": 0.1,
    "what": "s: the floor dims so the Monday type reads",
-   "value": 135.4
+   "value": 135
   },
   {
    "name": "qIn",
@@ -663,8 +672,8 @@
     141
    ],
    "step": 0.1,
-   "what": "s: the Monday question fades in (left column, beside the field)",
-   "value": 139.6
+   "what": "s: the Monday question enters (left column, beside the field, line stagger)",
+   "value": 139.5
   },
   {
    "name": "qOut",
@@ -673,8 +682,8 @@
     149.4
    ],
    "step": 0.1,
-   "what": "s: the Monday columns and the bookend legend start to fade (gone before the card at 150; the card type crosses the right column)",
-   "value": 149.3
+   "what": "s: the Monday columns and the bookend legend exit (gone before the card at 150)",
+   "value": 149
   },
   {
    "name": "honestIn",
@@ -683,8 +692,8 @@
     146
    ],
    "step": 0.1,
-   "what": "s: the one honest-limits line fades in (right column; stage type; no caption shows after 139.4)",
-   "value": 143.6
+   "what": "s: the one honest-limits line enters (right column; stage type)",
+   "value": 143.5
   },
   {
    "name": "mondaySize",
@@ -855,26 +864,6 @@
    "step": 5,
    "what": "world units: height the horizon view aims at",
    "value": 125
-  },
-  {
-   "name": "driftDeg",
-   "range": [
-    0,
-    3
-   ],
-   "step": 0.1,
-   "what": "degrees: amplitude of the ambient yaw drift (R-E P12; at most 3)",
-   "value": 1
-  },
-  {
-   "name": "driftPeriod",
-   "range": [
-    20,
-    200
-   ],
-   "step": 5,
-   "what": "s: period of the ambient yaw drift",
-   "value": 50
   },
   {
    "name": "cubeEdge",
@@ -1284,7 +1273,7 @@
    ],
    "step": 0.1,
    "what": "s: a count line leads the ratio above it (counts before ratios, on stage)",
-   "value": 0.8
+   "value": 1
   },
   {
    "name": "ladXL",
@@ -1355,10 +1344,350 @@
    "step": 1,
    "what": "sheet units: the 27 min reference pin (display face, gold) beside the 289 column",
    "value": 24
+  },
+  {
+   "name": "camDriftAmp",
+   "range": [
+    0,
+    0.02
+   ],
+   "step": 0.001,
+   "what": "fraction of the eye distance: ambient dolly drift during holds only (0 while a camera move runs and through its settle)",
+   "value": 0.012
+  },
+  {
+   "name": "camHoldSettle",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "s: true stillness after each camera move before the drift fades in (also rig script.settle)",
+   "value": 0.4
+  },
+  {
+   "name": "hookT0",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.1,
+   "what": "s: the hook task's four cubes start to drop onto its tile, macro shot (a hero move by 0.5 s)",
+   "value": 0
+  },
+  {
+   "name": "hookLitT0",
+   "range": [
+    0.8,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: the hook task's three passing tries light gold (0.2 s apart)",
+   "value": 1.5
+  },
+  {
+   "name": "hookAz",
+   "range": [
+    -70,
+    70
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the macro hook pose",
+   "value": -32
+  },
+  {
+   "name": "hookEl",
+   "range": [
+    15,
+    60
+   ],
+   "step": 1,
+   "what": "degrees: elevation of the macro hook pose",
+   "value": 30
+  },
+  {
+   "name": "hookDist",
+   "range": [
+    40,
+    160
+   ],
+   "step": 1,
+   "what": "world units: eye distance of the macro hook pose (the tile fills about half the frame height)",
+   "value": 62
+  },
+  {
+   "name": "hookLookX",
+   "range": [
+    -60,
+    60
+   ],
+   "step": 1,
+   "what": "world units: aim offset along x from the hook tile (negative puts the tile right of centre, clear of the hook type)",
+   "value": -22
+  },
+  {
+   "name": "hookLookY",
+   "range": [
+    -30,
+    30
+   ],
+   "step": 1,
+   "what": "world units: aim offset along y (positive aims higher, so the tile sits lower on screen)",
+   "value": 7
+  },
+  {
+   "name": "pullT0",
+   "range": [
+    9.5,
+    11
+   ],
+   "step": 0.1,
+   "what": "s: the pull-back starts: the camera rises from the macro pose to the opening plan pose (expo-out)",
+   "value": 10.5
+  },
+  {
+   "name": "pullT1",
+   "range": [
+    11,
+    12.5
+   ],
+   "step": 0.1,
+   "what": "s: the pull-back lands on the plan pose (CASE starts on it)",
+   "value": 12
+  },
+  {
+   "name": "stackT0",
+   "range": [
+    41,
+    44
+   ],
+   "step": 0.1,
+   "what": "s: M1b starts: the same 460 cubes re-stack from 2 x 2 tiles into one column per task (spring, anticipation, stagger 0.25)",
+   "value": 42
+  },
+  {
+   "name": "stackT1",
+   "range": [
+    42.5,
+    45.5
+   ],
+   "step": 0.1,
+   "what": "s: M1b lands (ring beat on an all-four column); the hold that follows has the freed seconds",
+   "value": 43.5
+  },
+  {
+   "name": "cAllEnd",
+   "range": [
+    46,
+    56
+   ],
+   "step": 0.1,
+   "what": "s: that callout exits",
+   "value": 50.5
+  },
+  {
+   "name": "c44End",
+   "range": [
+    65,
+    69.5
+   ],
+   "step": 0.1,
+   "what": "s: that callout exits",
+   "value": 67.5
+  },
+  {
+   "name": "c44ofEnd",
+   "range": [
+    72.5,
+    79
+   ],
+   "step": 0.1,
+   "what": "s: that callout exits",
+   "value": 73.5
+  },
+  {
+   "name": "ladLift",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "0-1: how far the cut's dimming lifts while the one-try count is on (every lit try, not only full columns)",
+   "value": 0.85
+  },
+  {
+   "name": "wipeW",
+   "range": [
+    0.3,
+    1.2
+   ],
+   "step": 0.05,
+   "what": "s: length of the light wipe that carries each scene join (left to right, emphasized curve)",
+   "value": 0.6
+  },
+  {
+   "name": "wipeBand",
+   "range": [
+    10,
+    120
+   ],
+   "step": 2,
+   "what": "sheet units: half width of the light band at the wipe front",
+   "value": 22
+  },
+  {
+   "name": "wipeGain",
+   "range": [
+    0,
+    1.5
+   ],
+   "step": 0.05,
+   "what": "scene-linear gain of the light band (gold; below the bloom threshold except at its core)",
+   "value": 0.45
+  },
+  {
+   "name": "cPrsEnd",
+   "range": [
+    105,
+    108
+   ],
+   "step": 0.1,
+   "what": "s: that callout exits",
+   "value": 107
+  },
+  {
+   "name": "cMin289End",
+   "range": [
+    129.5,
+    131
+   ],
+   "step": 0.1,
+   "what": "s: that callout exits",
+   "value": 130.5
+  },
+  {
+   "name": "bookCamT0",
+   "range": [
+    137,
+    138.5
+   ],
+   "step": 0.1,
+   "what": "s: the camera rises back to the opening plan pose (expo-out)",
+   "value": 137.5
+  },
+  {
+   "name": "bookCamT1",
+   "range": [
+    138,
+    141
+   ],
+   "step": 0.1,
+   "what": "s: the bookend lands: the opening frame, only the tasks that passed all four tries still gold",
+   "value": 139
+  },
+  {
+   "name": "lookBloom",
+   "range": [
+    0,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "bloom gain (threshold 1.0: only the glowing all-four columns pass it; <= 0.1 by the brief)",
+   "value": 0.1
+  },
+  {
+   "name": "lookGrain",
+   "range": [
+    0,
+    0.02
+   ],
+   "step": 0.001,
+   "what": "grain sigma (seeded, 15 fps; also the dither of the dark floor ramp)",
+   "value": 0.015
+  },
+  {
+   "name": "lookRim",
+   "range": [
+    0,
+    0.1
+   ],
+   "step": 0.005,
+   "what": "Fresnel rim on cube edges (0.05 lifts an edge 11-14 % code)",
+   "value": 0.05
+  },
+  {
+   "name": "lookShadow",
+   "range": [
+    0,
+    0.7
+   ],
+   "step": 0.02,
+   "what": "planar contact shadow strength under the cubes (MIN-blended, never double-darkens)",
+   "value": 0.42
+  },
+  {
+   "name": "lookPool",
+   "range": [
+    200,
+    1200
+   ],
+   "step": 10,
+   "what": "world units: radius of the light pool on the floor under the subject",
+   "value": 560
+  },
+  {
+   "name": "platePad",
+   "range": [
+    0,
+    80
+   ],
+   "step": 1,
+   "what": "world units: how far the floor plate (the second ladder step) overhangs the field",
+   "value": 26
+  },
+  {
+   "name": "glowHero",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.1,
+   "what": "emission of the columns lit all the way once the cut lands (> 1 passes the bloom threshold)",
+   "value": 2.2
+  },
+  {
+   "name": "anticip",
+   "range": [
+    0,
+    0.04
+   ],
+   "step": 0.005,
+   "what": "fraction of travel: the counter-move before a mark hero move (anticipation, about 4 frames)",
+   "value": 0.02
+  },
+  {
+   "name": "anticipU",
+   "range": [
+    0.05,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "fraction of a mark's move the anticipation takes",
+   "value": 0.1
+  },
+  {
+   "name": "driftYaw",
+   "range": [
+    0,
+    2
+   ],
+   "step": 0.1,
+   "what": "degrees: ambient yaw drift about the aim point during holds only (period 13.7 s)",
+   "value": 0.8
   }
  ],
- "ms_per_frame": 1235,
- "s_per_frame": 1.235,
+ "ms_per_frame": 5670,
+ "s_per_frame": 5.67,
  "purity": {
   "pass": true,
   "at": {
@@ -1415,18 +1744,20 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 0.5,
    "file": "thumbs/t-0000.50.jpg",
    "strip": "strip-01.png",
    "cell": 1,
-   "caption": null,
+   "caption": "A usually-right agent does most of the work.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 1,
@@ -1437,7 +1768,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 1.5,
@@ -1448,7 +1780,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 2,
@@ -1459,7 +1792,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 2.5,
@@ -1470,7 +1804,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 3,
@@ -1481,7 +1816,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 3.5,
@@ -1492,7 +1828,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 4,
@@ -1503,7 +1840,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 4.5,
@@ -1514,40 +1852,44 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 5,
    "file": "thumbs/t-0005.00.jpg",
    "strip": "strip-01.png",
    "cell": 10,
-   "caption": "A usually-right agent does most of the work.",
+   "caption": null,
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 5.5,
    "file": "thumbs/t-0005.50.jpg",
    "strip": "strip-01.png",
    "cell": 11,
-   "caption": "A usually-right agent does most of the work.",
+   "caption": null,
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 6,
    "file": "thumbs/t-0006.00.jpg",
    "strip": "strip-02.png",
    "cell": 0,
-   "caption": null,
+   "caption": "Or does it? Count every try, task by task.",
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 6.5,
@@ -1558,7 +1900,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 7,
@@ -1569,7 +1912,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 7.5,
@@ -1580,7 +1924,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 8,
@@ -1591,7 +1936,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 8.5,
@@ -1602,7 +1948,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 9,
@@ -1613,7 +1960,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 9.5,
@@ -1624,7 +1972,8 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 10,
@@ -1635,40 +1984,44 @@
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 10.5,
    "file": "thumbs/t-0010.50.jpg",
    "strip": "strip-02.png",
    "cell": 9,
-   "caption": "Or does it? Count every try, task by task.",
+   "caption": null,
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 11,
    "file": "thumbs/t-0011.00.jpg",
    "strip": "strip-02.png",
    "cell": 10,
-   "caption": "Or does it? Count every try, task by task.",
+   "caption": null,
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 11.5,
    "file": "thumbs/t-0011.50.jpg",
    "strip": "strip-02.png",
    "cell": 11,
-   "caption": "Or does it? Count every try, task by task.",
+   "caption": null,
    "chapter": {
     "id": "hook",
     "title": "Usually right"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 12,
@@ -1679,7 +2032,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 12.5,
@@ -1690,7 +2044,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 13,
@@ -1701,7 +2056,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 13.5,
@@ -1712,7 +2068,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 14,
@@ -1723,7 +2080,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 14.5,
@@ -1734,7 +2092,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 15,
@@ -1745,7 +2104,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 15.5,
@@ -1756,7 +2116,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 16,
@@ -1767,7 +2128,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 16.5,
@@ -1778,381 +2140,416 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 17,
    "file": "thumbs/t-0017.00.jpg",
    "strip": "strip-03.png",
    "cell": 10,
-   "caption": "Customer service: GPT-4o on tau-bench retail.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 17.5,
    "file": "thumbs/t-0017.50.jpg",
    "strip": "strip-03.png",
    "cell": 11,
-   "caption": "Customer service: GPT-4o on tau-bench retail.",
+   "caption": "115 tasks. One tile each.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 18,
    "file": "thumbs/t-0018.00.jpg",
    "strip": "strip-04.png",
    "cell": 0,
-   "caption": "Customer service: GPT-4o on tau-bench retail.",
+   "caption": "115 tasks. One tile each.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 18.5,
    "file": "thumbs/t-0018.50.jpg",
    "strip": "strip-04.png",
    "cell": 1,
-   "caption": "Customer service: GPT-4o on tau-bench retail.",
+   "caption": "115 tasks. One tile each.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 19,
    "file": "thumbs/t-0019.00.jpg",
    "strip": "strip-04.png",
    "cell": 2,
-   "caption": "Customer service: GPT-4o on tau-bench retail.",
+   "caption": "115 tasks. One tile each.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 19.5,
    "file": "thumbs/t-0019.50.jpg",
    "strip": "strip-04.png",
    "cell": 3,
-   "caption": "Customer service: GPT-4o on tau-bench retail.",
+   "caption": "115 tasks. One tile each.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 20,
    "file": "thumbs/t-0020.00.jpg",
    "strip": "strip-04.png",
    "cell": 4,
-   "caption": "Customer service: GPT-4o on tau-bench retail.",
+   "caption": "115 tasks. One tile each.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 20.5,
    "file": "thumbs/t-0020.50.jpg",
    "strip": "strip-04.png",
    "cell": 5,
-   "caption": "Customer service: GPT-4o on tau-bench retail.",
+   "caption": "115 tasks. One tile each.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 21,
    "file": "thumbs/t-0021.00.jpg",
    "strip": "strip-04.png",
    "cell": 6,
-   "caption": "115 tasks. One tile each.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 21.5,
    "file": "thumbs/t-0021.50.jpg",
    "strip": "strip-04.png",
    "cell": 7,
-   "caption": "115 tasks. One tile each.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 22,
    "file": "thumbs/t-0022.00.jpg",
    "strip": "strip-04.png",
    "cell": 8,
-   "caption": "115 tasks. One tile each.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 22.5,
    "file": "thumbs/t-0022.50.jpg",
    "strip": "strip-04.png",
    "cell": 9,
-   "caption": "115 tasks. One tile each.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 23,
    "file": "thumbs/t-0023.00.jpg",
    "strip": "strip-04.png",
    "cell": 10,
-   "caption": "115 tasks. One tile each.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 23.5,
    "file": "thumbs/t-0023.50.jpg",
    "strip": "strip-04.png",
    "cell": 11,
-   "caption": "115 tasks. One tile each.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 24,
    "file": "thumbs/t-0024.00.jpg",
    "strip": "strip-05.png",
    "cell": 0,
-   "caption": "115 tasks. One tile each.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 24.5,
    "file": "thumbs/t-0024.50.jpg",
    "strip": "strip-05.png",
    "cell": 1,
-   "caption": "115 tasks. One tile each.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 25,
    "file": "thumbs/t-0025.00.jpg",
    "strip": "strip-05.png",
    "cell": 2,
-   "caption": "115 tasks. One tile each.",
+   "caption": "Four tries per task: 460 cubes.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 25.5,
    "file": "thumbs/t-0025.50.jpg",
    "strip": "strip-05.png",
    "cell": 3,
-   "caption": "115 tasks. One tile each.",
+   "caption": "Four tries per task: 460 cubes.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 26,
    "file": "thumbs/t-0026.00.jpg",
    "strip": "strip-05.png",
    "cell": 4,
-   "caption": "115 tasks. One tile each.",
+   "caption": "Four tries per task: 460 cubes.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 26.5,
    "file": "thumbs/t-0026.50.jpg",
    "strip": "strip-05.png",
    "cell": 5,
-   "caption": "115 tasks. One tile each.",
+   "caption": "Four tries per task: 460 cubes.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 27,
    "file": "thumbs/t-0027.00.jpg",
    "strip": "strip-05.png",
    "cell": 6,
-   "caption": "115 tasks. One tile each.",
+   "caption": "Four tries per task: 460 cubes.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 27.5,
    "file": "thumbs/t-0027.50.jpg",
    "strip": "strip-05.png",
    "cell": 7,
-   "caption": "115 tasks. One tile each.",
+   "caption": "Four tries per task: 460 cubes.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 28,
    "file": "thumbs/t-0028.00.jpg",
    "strip": "strip-05.png",
    "cell": 8,
-   "caption": null,
+   "caption": "Four tries per task: 460 cubes.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 28.5,
    "file": "thumbs/t-0028.50.jpg",
    "strip": "strip-05.png",
    "cell": 9,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 29,
    "file": "thumbs/t-0029.00.jpg",
    "strip": "strip-05.png",
    "cell": 10,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 29.5,
    "file": "thumbs/t-0029.50.jpg",
    "strip": "strip-05.png",
    "cell": 11,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 30,
    "file": "thumbs/t-0030.00.jpg",
    "strip": "strip-06.png",
    "cell": 0,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 30.5,
    "file": "thumbs/t-0030.50.jpg",
    "strip": "strip-06.png",
    "cell": 1,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 31,
    "file": "thumbs/t-0031.00.jpg",
    "strip": "strip-06.png",
    "cell": 2,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": "278 passed. A lit cube is a pass.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 31.5,
    "file": "thumbs/t-0031.50.jpg",
    "strip": "strip-06.png",
    "cell": 3,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": "278 passed. A lit cube is a pass.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 32,
    "file": "thumbs/t-0032.00.jpg",
    "strip": "strip-06.png",
    "cell": 4,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": "278 passed. A lit cube is a pass.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 32.5,
    "file": "thumbs/t-0032.50.jpg",
    "strip": "strip-06.png",
    "cell": 5,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": "278 passed. A lit cube is a pass.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 33,
    "file": "thumbs/t-0033.00.jpg",
    "strip": "strip-06.png",
    "cell": 6,
-   "caption": "Four tries per task: 460 cubes.",
+   "caption": "278 passed. A lit cube is a pass.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 33.5,
    "file": "thumbs/t-0033.50.jpg",
    "strip": "strip-06.png",
    "cell": 7,
-   "caption": null,
+   "caption": "278 passed. A lit cube is a pass.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 34,
@@ -2163,62 +2560,68 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 34.5,
    "file": "thumbs/t-0034.50.jpg",
    "strip": "strip-06.png",
    "cell": 9,
-   "caption": "278 passed. A lit cube is a pass.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 35,
    "file": "thumbs/t-0035.00.jpg",
    "strip": "strip-06.png",
    "cell": 10,
-   "caption": "278 passed. A lit cube is a pass.",
+   "caption": "Tries that pass: 60.4 %.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 35.5,
    "file": "thumbs/t-0035.50.jpg",
    "strip": "strip-06.png",
    "cell": 11,
-   "caption": "278 passed. A lit cube is a pass.",
+   "caption": "Tries that pass: 60.4 %.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 36,
    "file": "thumbs/t-0036.00.jpg",
    "strip": "strip-07.png",
    "cell": 0,
-   "caption": "278 passed. A lit cube is a pass.",
+   "caption": "Tries that pass: 60.4 %.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 36.5,
    "file": "thumbs/t-0036.50.jpg",
    "strip": "strip-07.png",
    "cell": 1,
-   "caption": null,
+   "caption": "Tries that pass: 60.4 %.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 37,
@@ -2229,7 +2632,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 37.5,
@@ -2240,62 +2644,68 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 38,
    "file": "thumbs/t-0038.00.jpg",
    "strip": "strip-07.png",
    "cell": 4,
-   "caption": "Tries that pass: 60.4 %.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 38.5,
    "file": "thumbs/t-0038.50.jpg",
    "strip": "strip-07.png",
    "cell": 5,
-   "caption": "Tries that pass: 60.4 %.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 39,
    "file": "thumbs/t-0039.00.jpg",
    "strip": "strip-07.png",
    "cell": 6,
-   "caption": "Tries that pass: 60.4 %.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 39.5,
    "file": "thumbs/t-0039.50.jpg",
    "strip": "strip-07.png",
    "cell": 7,
-   "caption": "Tries that pass: 60.4 %.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 40,
    "file": "thumbs/t-0040.00.jpg",
    "strip": "strip-07.png",
    "cell": 8,
-   "caption": null,
+   "caption": "Now turn the field. Each task becomes a column.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 40.5,
@@ -2306,7 +2716,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 41,
@@ -2317,7 +2728,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 41.5,
@@ -2328,7 +2740,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 42,
@@ -2339,7 +2752,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 42.5,
@@ -2350,7 +2764,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 43,
@@ -2361,7 +2776,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 43.5,
@@ -2372,7 +2788,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 44,
@@ -2383,73 +2800,80 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 44.5,
    "file": "thumbs/t-0044.50.jpg",
    "strip": "strip-08.png",
    "cell": 5,
-   "caption": "Now turn the field. Each task becomes a column.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 45,
    "file": "thumbs/t-0045.00.jpg",
    "strip": "strip-08.png",
    "cell": 6,
-   "caption": "Now turn the field. Each task becomes a column.",
+   "caption": null,
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 45.5,
    "file": "thumbs/t-0045.50.jpg",
    "strip": "strip-08.png",
    "cell": 7,
-   "caption": "Now turn the field. Each task becomes a column.",
+   "caption": "Judge a task by all its tries, not by one.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 46,
    "file": "thumbs/t-0046.00.jpg",
    "strip": "strip-08.png",
    "cell": 8,
-   "caption": "Now turn the field. Each task becomes a column.",
+   "caption": "Judge a task by all its tries, not by one.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 46.5,
    "file": "thumbs/t-0046.50.jpg",
    "strip": "strip-08.png",
    "cell": 9,
-   "caption": "Now turn the field. Each task becomes a column.",
+   "caption": "Judge a task by all its tries, not by one.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 47,
    "file": "thumbs/t-0047.00.jpg",
    "strip": "strip-08.png",
    "cell": 10,
-   "caption": null,
+   "caption": "Judge a task by all its tries, not by one.",
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 47.5,
@@ -2460,7 +2884,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 48,
@@ -2471,7 +2896,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 48.5,
@@ -2482,7 +2908,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 49,
@@ -2493,7 +2920,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 49.5,
@@ -2504,7 +2932,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 50,
@@ -2515,7 +2944,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 50.5,
@@ -2526,7 +2956,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 51,
@@ -2537,7 +2968,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 51.5,
@@ -2548,7 +2980,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 52,
@@ -2559,7 +2992,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 52.5,
@@ -2570,7 +3004,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 53,
@@ -2581,7 +3016,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 53.5,
@@ -2592,7 +3028,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 54,
@@ -2603,7 +3040,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 54.5,
@@ -2614,7 +3052,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 55,
@@ -2625,7 +3064,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 55.5,
@@ -2636,7 +3076,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 56,
@@ -2647,7 +3088,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 56.5,
@@ -2658,7 +3100,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 57,
@@ -2669,7 +3112,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 57.5,
@@ -2680,7 +3124,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 58,
@@ -2691,7 +3136,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 58.5,
@@ -2702,7 +3148,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 59,
@@ -2713,7 +3160,8 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 59.5,
@@ -2724,18 +3172,20 @@
    "chapter": {
     "id": "case",
     "title": "The field, then the columns"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 60,
    "file": "thumbs/t-0060.00.jpg",
    "strip": "strip-11.png",
    "cell": 0,
-   "caption": null,
+   "caption": "Sort the same columns by how many tries passed.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 60.5,
@@ -2746,7 +3196,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 61,
@@ -2757,7 +3208,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 61.5,
@@ -2768,7 +3220,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 62,
@@ -2779,7 +3232,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 62.5,
@@ -2790,7 +3244,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 63,
@@ -2801,7 +3256,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 63.5,
@@ -2812,7 +3268,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 64,
@@ -2823,205 +3280,224 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 64.5,
    "file": "thumbs/t-0064.50.jpg",
    "strip": "strip-11.png",
    "cell": 9,
-   "caption": "Sort the same columns by how many tries passed.",
+   "caption": "44 tasks pass all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 65,
    "file": "thumbs/t-0065.00.jpg",
    "strip": "strip-11.png",
    "cell": 10,
-   "caption": "Sort the same columns by how many tries passed.",
+   "caption": "44 tasks pass all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 65.5,
    "file": "thumbs/t-0065.50.jpg",
    "strip": "strip-11.png",
    "cell": 11,
-   "caption": "Sort the same columns by how many tries passed.",
+   "caption": "44 tasks pass all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 66,
    "file": "thumbs/t-0066.00.jpg",
    "strip": "strip-12.png",
    "cell": 0,
-   "caption": "Sort the same columns by how many tries passed.",
+   "caption": "44 tasks pass all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 66.5,
    "file": "thumbs/t-0066.50.jpg",
    "strip": "strip-12.png",
    "cell": 1,
-   "caption": null,
+   "caption": "44 tasks pass all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 67,
    "file": "thumbs/t-0067.00.jpg",
    "strip": "strip-12.png",
    "cell": 2,
-   "caption": null,
+   "caption": "44 tasks pass all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 67.5,
    "file": "thumbs/t-0067.50.jpg",
    "strip": "strip-12.png",
    "cell": 3,
-   "caption": null,
+   "caption": "44 tasks pass all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 68,
    "file": "thumbs/t-0068.00.jpg",
    "strip": "strip-12.png",
    "cell": 4,
-   "caption": "44 tasks pass all four tries.",
+   "caption": "22 never pass.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 68.5,
    "file": "thumbs/t-0068.50.jpg",
    "strip": "strip-12.png",
    "cell": 5,
-   "caption": "44 tasks pass all four tries.",
+   "caption": "22 never pass.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 69,
    "file": "thumbs/t-0069.00.jpg",
    "strip": "strip-12.png",
    "cell": 6,
-   "caption": "44 tasks pass all four tries.",
+   "caption": "22 never pass.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 69.5,
    "file": "thumbs/t-0069.50.jpg",
    "strip": "strip-12.png",
    "cell": 7,
-   "caption": "44 tasks pass all four tries.",
+   "caption": "22 never pass.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 70,
    "file": "thumbs/t-0070.00.jpg",
    "strip": "strip-12.png",
    "cell": 8,
-   "caption": "44 tasks pass all four tries.",
+   "caption": "22 never pass.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 70.5,
    "file": "thumbs/t-0070.50.jpg",
    "strip": "strip-12.png",
    "cell": 9,
-   "caption": null,
+   "caption": "Cut the field at all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 71,
    "file": "thumbs/t-0071.00.jpg",
    "strip": "strip-12.png",
    "cell": 10,
-   "caption": "22 never pass.",
+   "caption": "Cut the field at all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 71.5,
    "file": "thumbs/t-0071.50.jpg",
    "strip": "strip-12.png",
    "cell": 11,
-   "caption": "22 never pass.",
+   "caption": "Cut the field at all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 72,
    "file": "thumbs/t-0072.00.jpg",
    "strip": "strip-13.png",
    "cell": 0,
-   "caption": "22 never pass.",
+   "caption": "Cut the field at all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 72.5,
    "file": "thumbs/t-0072.50.jpg",
    "strip": "strip-13.png",
    "cell": 1,
-   "caption": "22 never pass.",
+   "caption": "Cut the field at all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 73,
    "file": "thumbs/t-0073.00.jpg",
    "strip": "strip-13.png",
    "cell": 2,
-   "caption": null,
+   "caption": "Cut the field at all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 73.5,
@@ -3032,326 +3508,356 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 74,
    "file": "thumbs/t-0074.00.jpg",
    "strip": "strip-13.png",
    "cell": 4,
-   "caption": "Cut the field at all four tries.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 74.5,
    "file": "thumbs/t-0074.50.jpg",
    "strip": "strip-13.png",
    "cell": 5,
-   "caption": "Cut the field at all four tries.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 75,
    "file": "thumbs/t-0075.00.jpg",
    "strip": "strip-13.png",
    "cell": 6,
-   "caption": "Cut the field at all four tries.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 75.5,
    "file": "thumbs/t-0075.50.jpg",
    "strip": "strip-13.png",
    "cell": 7,
-   "caption": "Cut the field at all four tries.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 76,
    "file": "thumbs/t-0076.00.jpg",
    "strip": "strip-13.png",
    "cell": 8,
-   "caption": "Cut the field at all four tries.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 76.5,
    "file": "thumbs/t-0076.50.jpg",
    "strip": "strip-13.png",
    "cell": 9,
-   "caption": "Cut the field at all four tries.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 77,
    "file": "thumbs/t-0077.00.jpg",
    "strip": "strip-13.png",
    "cell": 10,
-   "caption": "Cut the field at all four tries.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 77.5,
    "file": "thumbs/t-0077.50.jpg",
    "strip": "strip-13.png",
    "cell": 11,
-   "caption": "Cut the field at all four tries.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 78,
    "file": "thumbs/t-0078.00.jpg",
    "strip": "strip-14.png",
    "cell": 0,
-   "caption": "Cut the field at all four tries.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 78.5,
    "file": "thumbs/t-0078.50.jpg",
    "strip": "strip-14.png",
    "cell": 1,
-   "caption": "Cut the field at all four tries.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 79,
    "file": "thumbs/t-0079.00.jpg",
    "strip": "strip-14.png",
    "cell": 2,
-   "caption": "Cut the field at all four tries.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 79.5,
    "file": "thumbs/t-0079.50.jpg",
    "strip": "strip-14.png",
    "cell": 3,
-   "caption": null,
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 80,
    "file": "thumbs/t-0080.00.jpg",
    "strip": "strip-14.png",
    "cell": 4,
-   "caption": "All four tries pass: 38.3 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 80.5,
    "file": "thumbs/t-0080.50.jpg",
    "strip": "strip-14.png",
    "cell": 5,
-   "caption": "All four tries pass: 38.3 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 81,
    "file": "thumbs/t-0081.00.jpg",
    "strip": "strip-14.png",
    "cell": 6,
-   "caption": "All four tries pass: 38.3 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 81.5,
    "file": "thumbs/t-0081.50.jpg",
    "strip": "strip-14.png",
    "cell": 7,
-   "caption": "All four tries pass: 38.3 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 82,
    "file": "thumbs/t-0082.00.jpg",
    "strip": "strip-14.png",
    "cell": 8,
-   "caption": "All four tries pass: 38.3 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 82.5,
    "file": "thumbs/t-0082.50.jpg",
    "strip": "strip-14.png",
    "cell": 9,
-   "caption": null,
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 83,
    "file": "thumbs/t-0083.00.jpg",
    "strip": "strip-14.png",
    "cell": 10,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 83.5,
    "file": "thumbs/t-0083.50.jpg",
    "strip": "strip-14.png",
    "cell": 11,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 84,
    "file": "thumbs/t-0084.00.jpg",
    "strip": "strip-15.png",
    "cell": 0,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 84.5,
    "file": "thumbs/t-0084.50.jpg",
    "strip": "strip-15.png",
    "cell": 1,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 85,
    "file": "thumbs/t-0085.00.jpg",
    "strip": "strip-15.png",
    "cell": 2,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 85.5,
    "file": "thumbs/t-0085.50.jpg",
    "strip": "strip-15.png",
    "cell": 3,
-   "caption": null,
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 86,
    "file": "thumbs/t-0086.00.jpg",
    "strip": "strip-15.png",
    "cell": 4,
-   "caption": "Count each task by all four tries: 38.3 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 86.5,
    "file": "thumbs/t-0086.50.jpg",
    "strip": "strip-15.png",
    "cell": 5,
-   "caption": "Count each task by all four tries: 38.3 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 87,
    "file": "thumbs/t-0087.00.jpg",
    "strip": "strip-15.png",
    "cell": 6,
-   "caption": "Count each task by all four tries: 38.3 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 87.5,
    "file": "thumbs/t-0087.50.jpg",
    "strip": "strip-15.png",
    "cell": 7,
-   "caption": "Count each task by all four tries: 38.3 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 88,
    "file": "thumbs/t-0088.00.jpg",
    "strip": "strip-15.png",
    "cell": 8,
-   "caption": null,
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 88.5,
@@ -3362,62 +3868,68 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 89,
    "file": "thumbs/t-0089.00.jpg",
    "strip": "strip-15.png",
    "cell": 10,
-   "caption": "Same cubes, two answers. Which one was quoted?",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 89.5,
    "file": "thumbs/t-0089.50.jpg",
    "strip": "strip-15.png",
    "cell": 11,
-   "caption": "Same cubes, two answers. Which one was quoted?",
+   "caption": "The paper's own 8-try run: under 25 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 90,
    "file": "thumbs/t-0090.00.jpg",
    "strip": "strip-16.png",
    "cell": 0,
-   "caption": "Same cubes, two answers. Which one was quoted?",
+   "caption": "The paper's own 8-try run: under 25 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 90.5,
    "file": "thumbs/t-0090.50.jpg",
    "strip": "strip-16.png",
    "cell": 1,
-   "caption": "Same cubes, two answers. Which one was quoted?",
+   "caption": "The paper's own 8-try run: under 25 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 91,
    "file": "thumbs/t-0091.00.jpg",
    "strip": "strip-16.png",
    "cell": 2,
-   "caption": null,
+   "caption": "The paper's own 8-try run: under 25 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 91.5,
@@ -3428,7 +3940,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 92,
@@ -3439,7 +3952,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 92.5,
@@ -3450,7 +3964,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 93,
@@ -3461,95 +3976,104 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 93.5,
    "file": "thumbs/t-0093.50.jpg",
    "strip": "strip-16.png",
    "cell": 7,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 94,
    "file": "thumbs/t-0094.00.jpg",
    "strip": "strip-16.png",
    "cell": 8,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 94.5,
    "file": "thumbs/t-0094.50.jpg",
    "strip": "strip-16.png",
    "cell": 9,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 95,
    "file": "thumbs/t-0095.00.jpg",
    "strip": "strip-16.png",
    "cell": 10,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 95.5,
    "file": "thumbs/t-0095.50.jpg",
    "strip": "strip-16.png",
    "cell": 11,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 96,
    "file": "thumbs/t-0096.00.jpg",
    "strip": "strip-17.png",
    "cell": 0,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 96.5,
    "file": "thumbs/t-0096.50.jpg",
    "strip": "strip-17.png",
    "cell": 1,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 97,
    "file": "thumbs/t-0097.00.jpg",
    "strip": "strip-17.png",
    "cell": 2,
-   "caption": null,
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 97.5,
@@ -3560,62 +4084,68 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 98,
    "file": "thumbs/t-0098.00.jpg",
    "strip": "strip-17.png",
    "cell": 4,
-   "caption": "A pass rate averages tries. Every time is per task.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 98.5,
    "file": "thumbs/t-0098.50.jpg",
    "strip": "strip-17.png",
    "cell": 5,
-   "caption": "A pass rate averages tries. Every time is per task.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 99,
    "file": "thumbs/t-0099.00.jpg",
    "strip": "strip-17.png",
    "cell": 6,
-   "caption": "A pass rate averages tries. Every time is per task.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 99.5,
    "file": "thumbs/t-0099.50.jpg",
    "strip": "strip-17.png",
    "cell": 7,
-   "caption": "A pass rate averages tries. Every time is per task.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 100,
    "file": "thumbs/t-0100.00.jpg",
    "strip": "strip-17.png",
    "cell": 8,
-   "caption": null,
+   "caption": "Passing a benchmark is not the same as shipping.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 100.5,
@@ -3626,7 +4156,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 101,
@@ -3637,7 +4168,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 101.5,
@@ -3648,7 +4180,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 102,
@@ -3659,7 +4192,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 102.5,
@@ -3670,7 +4204,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 103,
@@ -3681,7 +4216,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 103.5,
@@ -3692,7 +4228,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 104,
@@ -3703,18 +4240,20 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 104.5,
    "file": "thumbs/t-0104.50.jpg",
    "strip": "strip-18.png",
    "cell": 5,
-   "caption": "Passing a benchmark is not the same as shipping.",
+   "caption": "296 PRs pass the tests.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 105,
@@ -3725,7 +4264,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 105.5,
@@ -3736,7 +4276,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 106,
@@ -3747,7 +4288,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 106.5,
@@ -3758,7 +4300,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 107,
@@ -3769,7 +4312,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 107.5,
@@ -3780,7 +4324,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 108,
@@ -3791,7 +4336,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 108.5,
@@ -3802,7 +4348,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 109,
@@ -3813,7 +4360,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 109.5,
@@ -3824,7 +4372,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 110,
@@ -3835,29 +4384,32 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 110.5,
    "file": "thumbs/t-0110.50.jpg",
    "strip": "strip-19.png",
    "cell": 5,
-   "caption": null,
+   "caption": "Top SWE-bench Verified score: 80.9 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 111,
    "file": "thumbs/t-0111.00.jpg",
    "strip": "strip-19.png",
    "cell": 6,
-   "caption": "4 maintainers read them. Would they merge?",
+   "caption": "Top SWE-bench Verified score: 80.9 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 111.5,
@@ -3868,7 +4420,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 112,
@@ -3879,7 +4432,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 112.5,
@@ -3890,7 +4444,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 113,
@@ -3901,7 +4456,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 113.5,
@@ -3912,7 +4468,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 114,
@@ -3923,7 +4480,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 114.5,
@@ -3934,7 +4492,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 115,
@@ -3945,73 +4504,80 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 115.5,
    "file": "thumbs/t-0115.50.jpg",
    "strip": "strip-20.png",
    "cell": 3,
-   "caption": "4 maintainers read them. Would they merge?",
+   "caption": "About half would not be merged.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 116,
    "file": "thumbs/t-0116.00.jpg",
    "strip": "strip-20.png",
    "cell": 4,
-   "caption": "4 maintainers read them. Would they merge?",
+   "caption": "About half would not be merged.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 116.5,
    "file": "thumbs/t-0116.50.jpg",
    "strip": "strip-20.png",
    "cell": 5,
-   "caption": "4 maintainers read them. Would they merge?",
+   "caption": "About half would not be merged.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 117,
    "file": "thumbs/t-0117.00.jpg",
    "strip": "strip-20.png",
    "cell": 6,
-   "caption": "4 maintainers read them. Would they merge?",
+   "caption": "About half would not be merged.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 117.5,
    "file": "thumbs/t-0117.50.jpg",
    "strip": "strip-20.png",
    "cell": 7,
-   "caption": "4 maintainers read them. Would they merge?",
+   "caption": "About half would not be merged.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 118,
    "file": "thumbs/t-0118.00.jpg",
    "strip": "strip-20.png",
    "cell": 8,
-   "caption": null,
+   "caption": "About half would not be merged.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 118.5,
@@ -4022,62 +4588,68 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 119,
    "file": "thumbs/t-0119.00.jpg",
    "strip": "strip-20.png",
    "cell": 10,
-   "caption": "About half would not be merged.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 119.5,
    "file": "thumbs/t-0119.50.jpg",
    "strip": "strip-20.png",
    "cell": 11,
-   "caption": "About half would not be merged.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 120,
    "file": "thumbs/t-0120.00.jpg",
    "strip": "strip-21.png",
    "cell": 0,
-   "caption": "About half would not be merged.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 120.5,
    "file": "thumbs/t-0120.50.jpg",
    "strip": "strip-21.png",
    "cell": 1,
-   "caption": "About half would not be merged.",
+   "caption": "Another agent, another yardstick: task length.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 121,
    "file": "thumbs/t-0121.00.jpg",
    "strip": "strip-21.png",
    "cell": 2,
-   "caption": null,
+   "caption": "Another agent, another yardstick: task length.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 121.5,
@@ -4088,7 +4660,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 122,
@@ -4099,7 +4672,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 122.5,
@@ -4110,7 +4684,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 123,
@@ -4121,7 +4696,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 123.5,
@@ -4132,139 +4708,152 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 124,
    "file": "thumbs/t-0124.00.jpg",
    "strip": "strip-21.png",
    "cell": 8,
-   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
+   "caption": "Another agent, another yardstick: task length.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 124.5,
    "file": "thumbs/t-0124.50.jpg",
    "strip": "strip-21.png",
    "cell": 9,
-   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
+   "caption": "Another agent, another yardstick: task length.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 125,
    "file": "thumbs/t-0125.00.jpg",
    "strip": "strip-21.png",
    "cell": 10,
-   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
+   "caption": "At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 125.5,
    "file": "thumbs/t-0125.50.jpg",
    "strip": "strip-21.png",
    "cell": 11,
-   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
+   "caption": "At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 126,
    "file": "thumbs/t-0126.00.jpg",
    "strip": "strip-22.png",
    "cell": 0,
-   "caption": "One cube, one minute. At the 80 % bar: 27 min.",
+   "caption": "At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 126.5,
    "file": "thumbs/t-0126.50.jpg",
    "strip": "strip-22.png",
    "cell": 1,
-   "caption": null,
+   "caption": "At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 127,
    "file": "thumbs/t-0127.00.jpg",
    "strip": "strip-22.png",
    "cell": 2,
-   "caption": "At the 50 % bar, the agent reaches much further.",
+   "caption": "At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 127.5,
    "file": "thumbs/t-0127.50.jpg",
    "strip": "strip-22.png",
    "cell": 3,
-   "caption": "At the 50 % bar, the agent reaches much further.",
+   "caption": "At the 80 % bar: 27 min.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 128,
    "file": "thumbs/t-0128.00.jpg",
    "strip": "strip-22.png",
    "cell": 4,
-   "caption": "At the 50 % bar, the agent reaches much further.",
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 128.5,
    "file": "thumbs/t-0128.50.jpg",
    "strip": "strip-22.png",
    "cell": 5,
-   "caption": "At the 50 % bar, the agent reaches much further.",
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 129,
    "file": "thumbs/t-0129.00.jpg",
    "strip": "strip-22.png",
    "cell": 6,
-   "caption": "At the 50 % bar, the agent reaches much further.",
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 129.5,
    "file": "thumbs/t-0129.50.jpg",
    "strip": "strip-22.png",
    "cell": 7,
-   "caption": null,
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 130,
@@ -4275,7 +4864,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 130.5,
@@ -4286,40 +4876,44 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 131,
    "file": "thumbs/t-0131.00.jpg",
    "strip": "strip-22.png",
    "cell": 10,
-   "caption": "4 h 49 min at the 50 % bar.",
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 131.5,
    "file": "thumbs/t-0131.50.jpg",
    "strip": "strip-22.png",
    "cell": 11,
-   "caption": "4 h 49 min at the 50 % bar.",
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 132,
    "file": "thumbs/t-0132.00.jpg",
    "strip": "strip-23.png",
    "cell": 0,
-   "caption": null,
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 132.5,
@@ -4330,7 +4924,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 133,
@@ -4341,7 +4936,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 133.5,
@@ -4352,7 +4948,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 134,
@@ -4363,7 +4960,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 134.5,
@@ -4374,7 +4972,8 @@
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 135,
@@ -4385,7 +4984,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 135.5,
@@ -4396,7 +4996,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 136,
@@ -4407,7 +5008,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 136.5,
@@ -4418,7 +5020,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 137,
@@ -4429,7 +5032,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 137.5,
@@ -4440,7 +5044,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 138,
@@ -4451,7 +5056,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 138.5,
@@ -4462,7 +5068,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 139,
@@ -4473,7 +5080,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 139.5,
@@ -4484,7 +5092,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 8
   },
   {
    "t": 140,
@@ -4495,7 +5104,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 140.5,
@@ -4506,7 +5116,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 141,
@@ -4517,7 +5128,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 141.5,
@@ -4528,7 +5140,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 142,
@@ -4539,7 +5152,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 142.5,
@@ -4550,7 +5164,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 143,
@@ -4561,7 +5176,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 143.5,
@@ -4572,7 +5188,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 144,
@@ -4583,7 +5200,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 144.5,
@@ -4594,7 +5212,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 145,
@@ -4605,7 +5224,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 145.5,
@@ -4616,7 +5236,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 146,
@@ -4627,7 +5248,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 146.5,
@@ -4638,7 +5260,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 147,
@@ -4649,7 +5272,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 147.5,
@@ -4660,7 +5284,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 148,
@@ -4671,7 +5296,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 148.5,
@@ -4682,7 +5308,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 149,
@@ -4693,7 +5320,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 149.5,
@@ -4704,7 +5332,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 150,
@@ -4715,7 +5344,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 150.5,
@@ -4726,7 +5356,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 151,
@@ -4737,7 +5368,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 151.5,
@@ -4748,7 +5380,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 152,
@@ -4759,7 +5392,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 152.5,
@@ -4770,7 +5404,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   },
   {
    "t": 152.99,
@@ -4781,7 +5416,8 @@
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
-   }
+   },
+   "samples": 4
   }
  ]
 }

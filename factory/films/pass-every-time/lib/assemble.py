@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """lib/assemble.py (pass-every-time draft A, "the test floor") · writes ../film.js = lib/gl-camera-rig.js + lib/gl-labels.js
 (verbatim copies of arsenal/patterns/<id>/pattern.js; the demo scene of each is cut IN THE ASSEMBLED COPY ONLY, see CUTS; their
-sha256 is printed in film.js) + lib/film.src.js (the film). Deterministic: run twice, diff. Comments and indentation are stripped."""
+sha256 is printed in film.js) + lib/film.src.js (the film; comment-stripped since Wave WOW, its head comment kept). Deterministic: run twice, diff. Comments and indentation are stripped."""
 import os, re, hashlib
 HERE = os.path.dirname(os.path.abspath(__file__))
 MODS = ["gl-camera-rig.js", "gl-labels.js"]
@@ -68,7 +68,9 @@ def main():
     for m in MODS:
         src = open(os.path.join(HERE, m), encoding="utf-8").read()
         parts.append("/* ── lib/%s sha256 %s (cut) ── */\n" % (m, hashlib.sha256(src.encode()).hexdigest()[:16]) + strip(cut(src, CUTS[m])))
-    parts.append(open(os.path.join(HERE, "film.src.js"), encoding="utf-8").read())
+    src = open(os.path.join(HERE, "film.src.js"), encoding="utf-8").read()   # Wave WOW: the film too is comment-stripped (page budget); its head comment stays
+    head = src[:src.index("*/") + 2]
+    parts.append(head + "\n" + strip(src[len(head):]))
     out = "\n".join(parts) + "\n"
     with open(os.path.join(HERE, "..", "film.js"), "w", encoding="utf-8") as f:
         f.write(out)

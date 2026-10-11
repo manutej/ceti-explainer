@@ -7,15 +7,44 @@
    The demo scene (300 baked boxes, Lambert + focus cue shader, plan-view path overlay) is draw(); the rig is .rig. */
 (function () {
   const A = (window.ARSENAL = window.ARSENAL || { patterns: {}, structures: {}, materials: {}, brands: {} });
-  /* eases: arsenal/core/timeline.js (ARSENAL.core.timeline.ease); the copy below is used only if the core is not loaded */
+  /* eases: arsenal/core/timeline.js (ARSENAL.core.timeline.ease); the copy below is used only if the core is not loaded (or is older than the motion tokens) */
+  /* motion tokens: closed form, pure in u, no state. Verbatim from arsenal/patterns/motion-curves/pattern.js (parity proved in its demo check()). Overshoot on marks only. */
+  const CURVES = (() => {
+    const cl = (x, a = 0, b = 1) => (x < a ? a : x > b ? b : x), S = (x) => x * x * (3 - 2 * x);
+    const spring = (z, W) => {                                           
+      z = Math.min(z, 1); const a = z * W, d = W * Math.sqrt(1 - z * z), g = z < 1 ? (u) => Math.cos(d * u) + a / d * Math.sin(d * u) : (u) => 1 + a * u,
+        e = (u) => 1 - Math.exp(-a * u) * g(u), r = 1 - e(1), f = (u) => (u <= 0 ? 0 : u >= 1 ? 1 : e(u) + r * u * u * u);
+      if (z < 1) f.os = 1; return f;
+    };
+    const bezier = (x1, y1, x2, y2) => {                                    // CSS cubic-bezier: Newton on x(s)=u, bisection if it stalls
+      const B = (a, b, s) => 3 * a * s * (1 - s) * (1 - s) + 3 * b * s * s * (1 - s) + s * s * s, X = (s) => B(x1, x2, s);
+      const D = (s) => 3 * x1 * (1 - s) * (1 - 3 * s) + 3 * x2 * s * (2 - 3 * s) + 3 * s * s;
+      return (u) => {
+        if (u <= 0 || u >= 1) return u <= 0 ? 0 : 1; let s = u;
+        for (let i = 0; i < 8 && Math.abs(D(s)) > 1e-6; i++) s = cl(s - (X(s) - u) / D(s));
+        if (Math.abs(X(s) - u) > 1e-6) { let lo = 0, hi = 1; for (let k = 0; k < 40; k++) { s = (lo + hi) / 2; if (X(s) < u) lo = s; else hi = s; } }
+        return B(y1, y2, s);
+      };
+    };
+    const ramp = (k = 6, a = 0.55) => {                                     // rate k until a, then eases to 1 (smoothstep); P = integral / total
+      const w = 1 - a, G = (u) => { if (u <= a) return k * u; const x = (u - a) / w; return a * k + w * x + (k - 1) * w * (x - x * x * x + x * x * x * x / 2); }, g = G(1);
+      return (u) => (u <= 0 ? 0 : u >= 1 ? 1 : G(u) / g);
+    };
+    const rampK = (content, real, a = 0.55) => (content / real - (1 - a) / 2) / (a + (1 - a) / 2);   // k that ends at exactly x1
+    const emph = bezier(0.2, 0, 0, 1);
+    const anticipate = (c = 0.02, a = 0.15) => { const f = (u) => (u <= 0 ? 0 : u >= 1 ? 1 : u < a ? -c * S(u / a) : -c + (1 + c) * emph((u - a) / (1 - a))); f.os = 1; return f; };
+    const expoOut = (u) => (u <= 0 ? 0 : u >= 1 ? 1 : (1 - Math.pow(2, -10 * u)) / (1 - Math.pow(2, -10)));
+    return { spring, bezier, ramp, rampK, anticipate, tokens: { 'spring-hero': spring(0.72, 11), 'spring-snappy': spring(0.85, 9), 'expo-out': expoOut, emph, ramp: ramp(), settle: spring(1, 9.6), anticipate: anticipate() } };
+  })();
   const EASE_COPY = {
     linear: (u) => u, smooth: (u) => u * u * (3 - 2 * u), in: (u) => u * u * u, out: (u) => 1 - Math.pow(1 - u, 3),
     inout: (u) => (u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2), expo: (u) => (u >= 1 ? 1 : 1 - Math.pow(2, -10 * u)),
     back: (u) => 1 + 2.70158 * Math.pow(u - 1, 3) + 1.70158 * Math.pow(u - 1, 2), step: (u) => (u >= 1 ? 1 : 0),
+    ...CURVES.tokens,
   };
   const EASES = () => (A.core && A.core.timeline && A.core.timeline.ease) || EASE_COPY;
-  const EASE_NAMES = ['linear', 'smooth', 'in', 'out', 'inout', 'expo', 'back', 'step'];
-  const easeOf = (name) => EASES()[name || 'inout'] || EASES().inout;
+  const EASE_NAMES = ['linear', 'smooth', 'in', 'out', 'inout', 'expo', 'back', 'step', 'spring-hero', 'spring-snappy', 'expo-out', 'emph', 'ramp', 'settle', 'anticipate'];
+  const easeOf = (name) => EASES()[name || 'inout'] || EASE_COPY[name] || EASES().inout;   // spring / anticipate eases overshoot: s may leave 0..1 (orbit, slerp, track all extrapolate)
 
   function mulberry32(a) { return function () { a |= 0; a = (a + 0x6D2B79F5) | 0; let t = Math.imul(a ^ (a >>> 15), 1 | a); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
   const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
@@ -145,10 +174,37 @@
       keys.push(Object.assign({ t: m.t1, t0: m.t0, move: m.move, id: m.id, ease: m.ease, scheme: SCHEME[m.move], orbit, target }, Q));
       P = Q;
     }
-    return Object.freeze({ script, proj: script.proj || 'persp', dur: script.dur || 12, near: script.near || 10, far: script.far || 9000, moves, keys });
+    const settle = script.settle > 0 ? script.settle : 0, warnings = [];
+    if (settle) moves.forEach((m, i) => { if (i && m.t0 < moves[i - 1].t1 + settle - 1e-9) warnings.push(m.id + ' starts ' + (m.t0 - moves[i - 1].t1).toFixed(2) + ' s after ' + moves[i - 1].id + ', inside the ' + settle + ' s settle hold'); });
+    return Object.freeze({ script, proj: script.proj || 'persp', dur: script.dur || 12, near: script.near || 10, far: script.far || 9000, moves, keys, settle, drift: driftOf(script.drift), warnings });
   }
+  /* ambient drift (script.drift = { amp: .015, seed, ramp: .6, period: [7, 11] }): a seeded slow wander of the eye (dolly .7, side .5, lift .3 of amp x eye distance, peak <= amp)
+     during HOLDS only. It starts after the settle hold (script.settle, true stillness after each move) and fades in/out over `ramp`, so every move starts from the exact key pose. */
+  function driftOf(d) {
+    if (!d || d.amp === 0) return null;
+    const r = mulberry32((d.seed == null ? 1 : d.seed) | 0), P = d.period || [7, 11], per = [0, 1, 2].map(() => P[0] + r() * (P[1] - P[0])), ph = [0, 1, 2].map(() => r() * 2 * Math.PI);
+    return Object.freeze({ amp: clamp(d.amp == null ? 0.015 : d.amp, 0, 0.02), ramp: d.ramp == null ? 0.6 : d.ramp, per, ph });
+  }
+  const smooth01 = (x) => { x = clamp(x); return x * x * (3 - 2 * x); };
 
-  function at(rig, t) {
+  function at(rig, t) {                        // pose + { settled: past the settle hold, drift: envelope 0..1 }
+    const pose = atMove(rig, t), M = rig.moves; let i = -1;
+    for (let j = 0; j < M.length; j++) { if (t >= M[j].t0) i = j; else break; }
+    const moving = i >= 0 && t < M[i].t1, from = i < 0 ? 0 : M[i].t1 + rig.settle, to = i + 1 < M.length ? M[i + 1].t0 : Infinity, D = rig.drift;
+    pose.settled = !moving && t >= from; pose.drift = 0;
+    if (D && !moving) {
+      const e = D.ramp > 0 ? smooth01((t - from) / D.ramp) * (to < Infinity ? smooth01((to - t) / D.ramp) : 1) : t >= from && t < to ? 1 : 0;
+      if (e > 0) {
+        const A0 = D.amp * len(sub(pose.eye, pose.center)) * e, w = (k) => Math.sin(2 * Math.PI * t / D.per[k] + D.ph[k]), B = basis(pose.eye, pose.center, pose.up), dz = 0.7 * A0 * w(0);
+        pose.eye = add(pose.eye, add(mul(B.x, 0.5 * A0 * w(1)), mul(B.y, 0.3 * A0 * w(2))));
+        if (rig.proj === 'ortho') pose.zoom *= 1 + 0.7 * D.amp * e * w(0);
+        else { pose.eye = add(pose.eye, mul(nrm(sub(pose.center, pose.eye)), dz)); pose.focus = Math.max(1, pose.focus - dz); }
+        pose.drift = e;
+      }
+    }
+    return pose;
+  }
+  function atMove(rig, t) {
     const K = rig.keys, M = rig.moves; let i = -1;
     for (let j = 0; j < M.length; j++) { if (t >= M[j].t0) i = j; else break; }
     const meta = (pose, k, u, s) => Object.assign(pose, { proj: rig.proj, i: k, move: K[k + 1] ? K[k + 1].move : 'hold', id: K[k + 1] ? K[k + 1].id : '', u, s, active: u > 0 && u < 1 });
@@ -195,6 +251,7 @@
     dist: [[0, 6000], 10, 'distance to the centre / target (world units; lookat 0 = pan from the eye)'], factor: [[0.05, 20], 0.05, 'distance factor'],
     vertigo: [[false, true], null, 'dolly zoom: fov compensates so the subject keeps its size'],
     rise: [[-3000, 3000], 10, 'eye rise (world units, + = up)'], follow: [[0, 1], 0.05, 'how much of the rise the aim follows (0 = keep the subject)'],
+    amp: [[0, 0.02], 0.001, 'peak drift during holds, as a fraction of the eye distance (0.01-0.02)'], settle: [[0, 2], 0.05, 'true-stillness hold after each move (s) before drift starts'],
     target: [null, 1, 'data index the camera aims or focuses at'], focusAt: [null, 1, 'data index the start focus sits on'], aperture: [[0, 1], 0.05, 'focus blur strength (0 = all sharp)'],
     focus: [[1, 8000], 10, 'focus distance (world units)'], fov: [[5, 120], 1, 'vertical field of view (deg)'], zoom: [[0.1, 10], 0.05, 'ortho magnification'],
     eye: [COORD, 10, 'eye'], center: [COORD, 10, 'aim point'],
@@ -217,6 +274,8 @@
     for (const k of ['eye', 'center']) if (s0[k]) for (let j = 0; j < 3; j++) row(s0, k, j, 'start', 'start pose');
     for (const k of ['fov', 'zoom', 'aperture', 'focus']) if (s0[k] != null) row(s0, k, null, 'start', 'start pose');
     if (s0.focusAt != null) row(s0, 'focusAt', null, 'start', 'start pose');
+    if (script.drift && script.drift.amp != null) row(script.drift, 'amp', null, 'drift', 'ambient drift');
+    if (script.settle != null) row(script, 'settle', null, 'hold', 'settle hold');
     (script.moves || []).forEach((m, i) => {
       const id = m.id || m.move + (i + 1), lab = id + ' (' + m.move + ')';
       for (const k of ['t0', 't1', 'ease']) if (m[k] != null || k === 'ease') { if (m.move === 'cut' && k === 't1') continue; if (m[k] == null) m[k] = 'inout'; row(m, k, null, id, lab); }
@@ -249,7 +308,7 @@
     return out;
   }
 
-  const rig = { compile, at, apply, worldToScreen, pxPerUnit, dof, sample, toKnobs, fromKnobs, rows, basis, slerpPose, eases: EASE_NAMES };
+  const rig = { compile, at, apply, worldToScreen, pxPerUnit, dof, sample, toKnobs, fromKnobs, rows, basis, slerpPose, eases: EASE_NAMES, curves: CURVES.tokens };
 
   /* ═════════════ the demo scene: 300 baked boxes, the moves as variants, the path as a flat plan overlay ═════════════ */
   const SCRIPTS = {
@@ -274,6 +333,11 @@
         { id: 'aim', move: 'lookat', t0: 7, t1: 9.4, target: 'max', dist: 300, ease: 'inout' },
         { id: 'rack', move: 'focus', t0: 9.9, t1: 11.4, dist: 900, ease: 'inout' }] },
   };
+
+  SCRIPTS['spring-hold'] = { proj: 'persp', settle: 0.4, drift: { amp: 0.015, seed: 7, ramp: 0.6 }, start: { eye: [-560, -300, 1500], center: [0, -40, 0], fov: 38 },
+    moves: [{ id: 'push', move: 'dolly', t0: 0.6, t1: 1.6, dist: 820, ease: 'spring-hero' },
+      { id: 'swing', move: 'orbit', t0: 5.2, t1: 6.2, az: 70, el: 36, ease: 'emph' },
+      { id: 'aim', move: 'lookat', t0: 9.4, t1: 10.4, target: 'max', dist: 340, ease: 'settle' }] };
 
   const VERT = 'precision highp float; attribute vec3 aPosition; attribute vec3 aNormal; uniform mat4 uModelViewMatrix; uniform mat4 uProjectionMatrix; varying vec3 vN; varying float vD;' +
     'void main(){ vN = aNormal; vec4 mv = uModelViewMatrix * vec4(aPosition, 1.0); vD = -mv.z; gl_Position = uProjectionMatrix * mv; }';
@@ -396,6 +460,7 @@
       { name: 'crane', params: { rig: 'crane' } }, { name: 'look-at', params: { rig: 'look-at' } }, { name: 'focus-pull', params: { rig: 'focus-pull' } },
       { name: 'ortho-orbit', params: { rig: 'ortho-orbit' } }, { name: 'sequence', params: { rig: 'sequence' } },
       { name: 'orbit-lite', params: { rig: 'orbit', overlay: false, ground: 0, focusCue: 0 } },
+      { name: 'spring-hold', params: { rig: 'spring-hold' } },
     ],
     async setup(p, ctx, params) {
       const tk = ctx.tokens || (A.brands && A.brands['ceti-dark']);

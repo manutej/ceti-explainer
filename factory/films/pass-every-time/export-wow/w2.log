@@ -1,0 +1,44 @@
+[1/3]   frame 30/280 (index 2127, t 70.90 s): 16 samples, 7.46 s/frame so far
+[2/3]   frame 30/280 (index 2128, t 70.93 s): 16 samples, 7.48 s/frame so far
+[3/3]   frame 30/280 (index 2129, t 70.97 s): 16 samples, 7.78 s/frame so far
+[2/3]   frame 60/280 (index 2218, t 73.93 s): 4 samples, 8.38 s/frame so far
+[1/3]   frame 60/280 (index 2217, t 73.90 s): 4 samples, 8.47 s/frame so far
+[3/3]   frame 60/280 (index 2219, t 73.97 s): 4 samples, 8.52 s/frame so far
+[2/3]   frame 90/280 (index 2308, t 76.93 s): 4 samples, 7.48 s/frame so far
+[1/3]   frame 90/280 (index 2307, t 76.90 s): 4 samples, 7.53 s/frame so far
+[3/3]   frame 90/280 (index 2309, t 76.97 s): 4 samples, 7.57 s/frame so far
+[2/3]   frame 120/280 (index 2398, t 79.93 s): 4 samples, 7.04 s/frame so far
+[1/3]   frame 120/280 (index 2397, t 79.90 s): 4 samples, 7.09 s/frame so far
+[3/3]   frame 120/280 (index 2399, t 79.97 s): 4 samples, 7.11 s/frame so far
+[2/3]   frame 150/280 (index 2488, t 82.93 s): 4 samples, 6.73 s/frame so far
+[1/3]   frame 150/280 (index 2487, t 82.90 s): 4 samples, 6.77 s/frame so far
+[3/3]   frame 150/280 (index 2489, t 82.97 s): 4 samples, 6.82 s/frame so far
+[2/3]   frame 180/280 (index 2578, t 85.93 s): 4 samples, 6.51 s/frame so far
+[1/3]   frame 180/280 (index 2577, t 85.90 s): 4 samples, 6.52 s/frame so far
+[3/3]   frame 180/280 (index 2579, t 85.97 s): 4 samples, 6.58 s/frame so far
+[1/3]   frame 210/280 (index 2667, t 88.90 s): 4 samples, 6.34 s/frame so far
+[2/3]   frame 210/280 (index 2668, t 88.93 s): 4 samples, 6.34 s/frame so far
+[3/3]   frame 210/280 (index 2669, t 88.97 s): 4 samples, 6.40 s/frame so far
+[2/3]   frame 240/280 (index 2758, t 91.93 s): 4 samples, 6.19 s/frame so far
+[1/3]   frame 240/280 (index 2757, t 91.90 s): 4 samples, 6.21 s/frame so far
+[3/3]   frame 240/280 (index 2759, t 91.97 s): 4 samples, 6.26 s/frame so far
+[1/3]   frame 270/280 (index 2847, t 94.90 s): 4 samples, 6.09 s/frame so far
+[2/3]   frame 270/280 (index 2848, t 94.93 s): 4 samples, 6.09 s/frame so far
+[3/3]   frame 270/280 (index 2849, t 94.97 s): 4 samples, 6.14 s/frame so far
+[1/3]   frame 280/280 (index 2877, t 95.90 s): 4 samples, 6.06 s/frame so far
+[2/3]   frame 280/280 (index 2878, t 95.93 s): 4 samples, 6.06 s/frame so far
+[3/3]   frame 280/280 (index 2879, t 95.97 s): 4 samples, 6.11 s/frame so far
+[1/3] shard 1/3 done: 280 frames in 1696.8 s (6.06 s/frame); the last worker joins
+[2/3] shard 2/3 done: 280 frames in 1697.6 s (6.06 s/frame); the last worker joins
+[3/3] pass-every-time.midnight-ink.none.hero: 840 frames @ 30fps 3840x2160 h264/yuv420p bt709/bt709/bt709/tv  mp4 frames 840 OK
+[3/3]   accumulation: mode page, shutter 0.35, samples auto, mean N 4.71, histogram {"4":790,"16":50}
+[3/3]   verify frame 2460 (t=82s, N=4): 404dbb73e9b4 vs 404dbb73e9b4 IDENTICAL
+[3/3]   verify frame 2115 (t=70.5s, N=16): 2b3d3e2bad42 vs 2b3d3e2bad42 IDENTICAL
+[3/3]   verify frame 2040 (t=68s, N=4): a2ab4f43e7aa vs a2ab4f43e7aa IDENTICAL
+[3/3]   verify frame 2461 (t=82.0333s, N=4): 64693714f050 vs 64693714f050 IDENTICAL
+[3/3]   verify frame 2116 (t=70.5333s, N=16): a4b1aa7b2d5e vs a4b1aa7b2d5e IDENTICAL
+[3/3]   verify frame 2041 (t=68.0333s, N=4): 82afb1762d74 vs 82afb1762d74 IDENTICAL
+[3/3]   verify frame 2462 (t=82.0667s, N=4): fe190790e6a9 vs fe190790e6a9 IDENTICAL
+[3/3]   verify frame 2114 (t=70.4667s, N=16): b1f99319c020 vs b1f99319c020 IDENTICAL
+[3/3]   verify frame 2042 (t=68.0667s, N=4): 246425380071 vs 246425380071 IDENTICAL
+[3/3]   seconds/frame 6.0765 (wall 6.1069 with 3 shards)  capture 1709.94s  mp4 169.82s  gif 0s  TOTAL 1993.29s  errors 0
