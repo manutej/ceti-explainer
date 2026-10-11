@@ -96,3 +96,76 @@ the not-merged row at 115.5 s), P11 (cluster moves into runs with gaps ≤ 0.3 s
 - **Caption content.** The unit sentence "One cube, one minute." left the captions at 125 s. Only the top-left chrome
   legend now carries the unit.
 - **Unchanged.** The hard cut at 135.00 s is still in B (frame 4050), as in A.
+
+## Cut C (added on the coordinator's request; judged blind and the same way)
+Sources: factory/films/pass-every-time/{film.json, gate.json (13:44Z), frames/ (regenerated),
+export-wow/pass-every-time-wow2-1080p.mp4}. I read no REVISION-wow2.md and nothing in lib/.
+
+C still has grain that re-seeds every 2nd frame (median diff 1.48 on odd frame pairs against 0.11 on even ones), so I
+measured motion on the even pairs, as for B.
+
+- **No hard cuts.** film.json `cuts: []`, and the strip has no single-frame spike at a scene change.
+- **One spike mid-shot.** The bookend camera jumps between frames 4234 and 4235 (diff 11.8 against 3-4 on either side).
+
+| # | property | A | B | C | evidence for C (film s) |
+|---|---|---|---|---|---|
+| P1 ★ | hero easing | 0 | 1 | 1 | The camera moves are now springs: the velocity crosses zero, then a second, smaller lobe follows. Examples: M1a peaks at 40.17 s and its main lobe ends 40.77 s, then a return lobe runs to 41.17 s; in44 and out44 at 62.5 and 67.5 s; the book camera at 140.5 s. The other moves start asymmetrically (share of the move before peak velocity): wide 0.15, travel 2 0.02, travel 3 0.15, M4 0.42. The push at 18.5 s looks symmetric, but the field grows during it, which skews the diff-based trace. |
+| P2 ★ | settle ≥ 0.4 s | 1 | 0 | 1 | Clear 0.4 s: M1a about 0.5 s, in44 about 0.6 s, out44 about 0.7 s, M2 0.87 s (60.73→61.60), M4 0.80 s (112.13→112.93), book camera about 0.4 s. Still short: wide (77.5 s) about 0.25 s, out27 (126.5 s) about 0.2 s, pull-back about 0.25 s, M3 under 0.1 s. That is 6 of 10. |
+| P3 | overshoot 0.5-4 % | 0 | 1 | **0** | M2 centroid swings to 163.0 against a final 166.8 px: 6.8 % of a 55.5 px travel (one cycle). M4 top edge 5.0 %. Camera return lobes about 5 % by lobe area. Over the 4 % ceiling. |
+| P4 | anticipation 1-3 %, 3-5 f | 0 | 1 | **0** | M2 counter-move 223.0→227.7 px at 60.10-60.17 s: 8.5 % over 5 frames. M4 about 5 %. Present on every mark move, but 2-3x the amplitude bar. |
+| P5 | follow-through | 0 | 0 | 0 | The dimming trails the M3 plane by about 3 frames (film.json dimLag 0.1), and the M4 ghost now starts 0.1 s after the landing (113.1 against 113.0 s). M1b and M2 have no lagging part. Contact shadows stay rigid. |
+| P6 | stagger | 0 | 1 | 1 | Monday lines rise one after another at about 3 frames each, 142.6-143.1 s (0.5 s in total). |
+| P7 ★ | one hero at a time | 0 | 1 | 1 | Every camera move sits between mark moves: M2 ends 61.6 s and in44 starts 62.5 s; the book cubes end 140.0 s and the camera starts 140.5 s. The only crowded join is travel 3 (136.2-137.2 s), where the column collapses, the 27-min row flies and the plate moves together. |
+| P8 | carried joins | 0 | 0 | 1 | Four joins, all carried, no hard cut: the hook tile (10.5 s); the cut plane flies up and becomes the PR sheet's frame (99.0-100.8 s); one not-merged cube is carried to the minute floor (119.4-121.1 s); the plate and row fly back to the tau floor (136.2-138.1 s). Not a 2: the carried cube leaves the frame at 120.30 s (an empty frame), and the plane spins through about 90° instead of holding its screen position. |
+| P9 | speed ramp ≥ 4x | 0 | 0 | 1 | The top of the 289 column climbs at about 82 px/s (480 w) from 128.6 to 130.0 s, 63 px/s at 130.0-130.3 s, and 17 px/s into the stop at 130.9 s: a 4.8x ramp. |
+| P10 ★ | text entrance | 0 | 1 | 1 | Masked rises: "44 of 115" over 2 frames (73.48 s half, 73.52 s full), "38.3 %" (75.98-76.02 s), the Monday lines over 3 frames each. |
+| P11 | rhythm | 0 | 0 | 0 | 106 gaps between motion runs: 36 % are ≤ 0.3 s (bar 40 %) and 25 % are ≥ 1.2 s. Closer than A and B, still under. |
+| P12 | beat grid | 0 | 1 | 1 | Source 53 of 53 on the grid (G12), captions 29 of 29. In the strip, 13 of 20 move onsets land within 2 frames. Pre-rolls start 0.17-0.30 s early at 39.83, 67.23, 71.23, 111.27, 136.20 and 138.27 s. |
+| P13 | shot scales | 0 | 0 | 1 | 0-60 s: macro (0-10 s), wide (field about 0.14 of frame height, 11-18 s), medium. 60-120 s: macro (in44, 63-67 s), medium, wide (one cube, 119.7-121 s). 120-153 s: wide (127.5 s), medium (27-min row), macro (289 column, 129-136 s). Risk: medium runs unbroken from 19 to 62 s. |
+| P14 | number arrival | 0 | 0 | 1 | The tile count steps one row of 12 at a time: 12 (13.1 s) … 92 (14.9 s), 104 (15.3 s). The last 10 % (104→115) takes 15.3→17.1 s, 1.8 s of 4.1 s: 44 %. 115 lands bold at 17.10 s and settles by 17.30 s. "44 of 115" also gets a weight beat at 73.87 s. Not a 2: the 1.8 s hold on 104 reads as a stall, not an ease. |
+| P15 | leaders | 0 | 1 | 1 | Leader from 12.77 s, label at 13.03 s. "44 of 115": leader 73.20-73.47 s, label 73.48 s. |
+| P16 | luminance ladder | 0 | 0 | 1 | Type peaks at 224-234/255 (hook 224, Monday 227), under 245. Darkest pixel 1.7-4/255 on a handful of pixels (fewer than 0.0005 % at or under 5/255; 0.1st percentile 14-21/255). 4-10 grey-histogram bins hold more than 2 % of pixels each. |
+| P17 | two-layer shadow + rim | 0 | 0 | 0 | The rim now shows as a lighter edge on cube tops (macro crop at 66 s). The shadow is still one contact layer with no ambient layer. |
+| P18 | grain | 0 | 1 | 1 | σ 0.6-1.35 % across four patches (lower than B), still re-seeding at 15 fps. Two of the four patches fall under the 1 % floor. |
+| P19 ★ | effects restraint | 1 | 1 | 1 | Bloom 0.10, no depth-of-field rack, no chroma fringe. |
+| P20 | lens and drift | 0 | 1 | 1 | fov 28°. On the 47-59 s hold the field width breathes 171→176→171 px (the same as B). |
+| P21 | motion blur | 0 | 1 | **0** | The blur on solids is continuous (M4 crop at 111.97 s). But the spinning cut-plane outline at 99.5-99.9 s draws as about 10 separate ghost lines 30-50 px apart (crop at 99.70 s): a strobe on the hero join, far over the 1.5 px limit. |
+| P22 | silent substitutes | 0 | 1 | 1 | 29 of 29 captions hold long enough (computed, matches G12). Weight beats on 115 (17.10 s) and "44 of 115" (73.87 s). |
+
+| | A | B | C |
+|---|---|---|---|
+| total / 44 | 2 | 13 | **16** |
+| starred zeros | P1, P7, P10 | P2 | **none** |
+
+### Verdict on C
+Cut C does not reach the product-demo bar (16/44 against 38). It is the first cut with no starred zero: the springs fix
+B's settle. C gains on settle, carried joins, speed ramp, shot scales, number arrival and the luminance ladder, but loses
+three points (P3, P4, P21), so the net is +3. Every point still has to come from turning 0s into 1s and many 1s into 2s.
+
+The five properties that would move it most, in order:
+1. **P3 + P4 (0→1 each, one change).** Raise the spring damping from ζ 0.72 to about 0.82-0.85, which takes overshoot
+   from about 6-7 % to about 1.5-2 %. Halve the mark anticipation (`anticip` 0.02 → about 0.008) so M2's counter-move
+   lands at 2-3 %.
+2. **P21 (0→1).** On the spinning plane, either raise the sub-frame count on line art (N ≥ 16, so ghosts sit ≤ 1.5 px
+   apart) or cut the spin: about 30° over 1.8 s instead of about 90° in the 0.4 s around 99.7 s.
+3. **P17 (0→1).** Add the ambient shadow layer: radius about 4x the contact shadow, alpha 0.10-0.15.
+4. **P5 (0→1).** Lag the shadow and gold glow 2-4 frames behind each mark on M1b, M2 and M4, so they land after the
+   cube.
+5. **P11 (0→1).** Pull the move clusters tighter so at least 40 % of gaps are ≤ 0.3 s. For example, chain each callout
+   exit, the next move and its ring with 0.1-0.2 s gaps, and keep the ≥ 1.2 s silences.
+
+To get beyond those, upgrade the 1s to 2s, starting with the starred ones: springs everywhere, text rises of 4-6 frames
+instead of 2-3, and all strip onsets on the grid.
+
+### Regressions in C from B
+- **Bookend snap.** Between frames 4234 and 4235 (141.13→141.17 s) the field jumps about 7 % of frame height down, in a
+  single frame, in the middle of the camera rise (diff 11.8 against 3-4 on either side). It is a visible glitch.
+- **Ratio label jump.** "38.3 %" shifts about 40-50 px right in one frame at 76.28→76.32 s as its weight beat lands.
+- **Overshoot and anticipation over budget.** On M2, 6.8 % and 8.5 %, against B's 4.5 % and 4.6 %. The landings wobble.
+- **Strobe on the hero join** (99.5-99.9 s; see P21). B's wipe had no line art to strobe.
+- **The carried cube leaves the frame.** At 120.30 s the frame is empty for about 0.15 s, so the carry breaks.
+- **Count stall.** The tile count holds 104 for 1.8 s (15.3-17.1 s) before 115.
+- **Unchanged from B.** The M2 re-sort is still an unreadable 0.6 s smear (60.2-60.8 s).
+- **Digits check.** G5c now reports PASS ("every visible SVG number is a claim value"), yet interim count values still
+  show on screen: 12…104, 141, 323, 414, 251, 148, 266. Confirm whether those digits are now claims or simply no longer
+  visible to the gate.
