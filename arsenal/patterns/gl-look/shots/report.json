@@ -1,0 +1,62 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-look/demo.html",
+ "errors": [],
+ "variants": {
+  "boxes-ink": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/boxes-ink-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/boxes-ink-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/boxes-ink-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/boxes-ink-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "boxes-hero": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/boxes-hero-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/boxes-hero-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/boxes-hero-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/boxes-hero-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "bars-ink": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/bars-ink-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/bars-ink-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/bars-ink-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/bars-ink-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "bars-hero": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/bars-hero-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/bars-hero-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/bars-hero-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/bars-hero-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "cloud-hero": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/cloud-hero-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/cloud-hero-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/cloud-hero-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/cloud-hero-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "cloud-ink": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/cloud-ink-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/cloud-ink-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/cloud-ink-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/cloud-ink-t10.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 1591.2,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-look/shots/contact.png"
+}

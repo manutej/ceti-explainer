@@ -26,14 +26,16 @@ uniform sampler2D uData; uniform int uTexW; uniform int uMark; uniform int uChun
 uniform float uK; uniform float uKc; uniform float uWin; uniform float uSize; uniform float uAlpha; uniform float uRamp; uniform float uGrow;
 uniform vec3 uPal[6]; uniform vec3 uBg; uniform vec3 uHot; uniform vec3 uDim;
 uniform vec4 uBrush; uniform float uBrushOn; uniform float uBrushRole; uniform float uPickOn; uniform float uPickRole;
-out vec3 vN; out vec2 vUV; out vec4 vCol;
+uniform int uStride; uniform float uAOk; uniform float uHero; uniform vec3 uHeroCol; uniform vec4 uSh; uniform float uFloorY;   // opt-in look (gl-look): off = 2 texels, no hero, no shadow
+out vec3 vN; out vec2 vUV; out vec4 vCol; out vec3 vW; out float vAO; out float vHero;
 vec4 fetch(int j){ return texelFetch(uData, ivec2(j % uTexW, j / uTexW), 0); }
 void main(){
   // one instance = one CHUNK of uChunk marks baked side by side at x = j * uStep (SwiftShader pays per instance, not per vertex)
   float j = floor(aPosition.x / uStep + 0.5); vec3 aPos = vec3(aPosition.x - j * uStep, aPosition.yz);
   int id = gl_InstanceID * uChunk + int(j);
   if (id >= uN) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); vCol = vec4(0.0); vN = vec3(0.0); vUV = vec2(0.0); return; }
-  vec4 d0 = fetch(2 * id), d1 = fetch(2 * id + 1);           // d0 = x y z s ; d1 = h c a (rank + 0.5 * picked)
+  vec4 d0 = fetch(uStride * id), d1 = fetch(uStride * id + 1);   // d0 = x y z s ; d1 = h c a (rank + 0.5 * picked) ; d2.x = baked neighbour AO (stride 3)
+  vec4 d2 = uAOk > 0.0 ? fetch(uStride * id + 2) : vec4(1.0);
   float rank = floor(d1.w); bool picked = fract(d1.w) > 0.25;
   if (rank >= uKc) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); vCol = vec4(0.0); vN = vec3(0.0); vUV = vec2(0.0); return; }   // not arrived: collapsed (depth order only)
   float age = clamp((uK - rank) / uWin, 0.0, 1.0);           // 0 = just arrived, 1 = settled
@@ -48,7 +50,8 @@ void main(){
   }
   if (uPickOn > 0.0) { col = picked ? mix(col, uPal[int(uPickRole)], uPickOn) : mix(col, uDim, uPickOn); }
   col = mix(uHot, col, e);
-  vUV = aTexCoord; vN = aNormal;
+  bool hero = uHero >= 0.0 && abs(rank - uHero) < 0.5; if (hero) col = uHeroCol; vHero = hero ? 1.0 : 0.0;
+  vUV = aTexCoord; vN = aNormal; vW = d0.xyz; vAO = 1.0;
   vec4 p;
   if (uMark == 0 || uMark == 3) {                             // dot / square: camera-facing quad in view space
     vec4 c = uModelViewMatrix * vec4(d0.xyz, 1.0);
@@ -63,6 +66,10 @@ void main(){
       float h = max(d1.x * e, 0.25);
       q = vec3(d0.x, 0.0, d0.z) + vec3(aPos.x * s, (aPos.y - 0.5) * h, aPos.z * s);
     }
+    float hgt = uMark == 1 ? d1.x : max(d1.x * e, 0.25), g = smoothstep(0.0, 0.6 * min(s, hgt), (0.5 - aPos.y) * hgt);
+    vAO = mix(0.55, 1.0, g) * mix(d2.x, 1.0, g);              // baked vertex AO: wall gradient x neighbour term (read only when uAOk > 0)
+    if (uSh.w > 0.5) { q += uSh.xyz * ((uFloorY - q.y) / uSh.y); q.y = uFloorY - 0.5; }   // planar shadow: flatten onto the floor along the key
+    vW = q;
     p = uProjectionMatrix * uModelViewMatrix * vec4(q, 1.0);
     vCol = vec4(mix(uBg, col, clamp(a, 0.0, 1.0)), 1.0);      // opaque marks: alpha mixes toward bg (no sorting)
   }
@@ -70,8 +77,10 @@ void main(){
 }`;
   const FRAG = `#version 300 es
 precision highp float; precision highp int;
-in vec3 vN; in vec2 vUV; in vec4 vCol;
+in vec3 vN; in vec2 vUV; in vec4 vCol; in vec3 vW; in float vAO; in float vHero;
 uniform int uMark; uniform float uWeight; uniform vec3 uAmb; uniform vec3 uKey; uniform vec3 uRim; uniform vec3 uKeyDir; uniform vec3 uRimDir;
+uniform float uLook; uniform float uAOk; uniform float uRimK; uniform float uShadowOn; uniform float uShadowA; uniform vec3 uEye; uniform vec3 uFillDir; uniform vec3 uFill; uniform vec3 uSky; uniform vec3 uGnd; uniform vec3 uRimC;
+//@FLOOR
 out vec4 outColor;
 void main(){
   if (uMark == 0) {
@@ -82,9 +91,18 @@ void main(){
   } else if (uMark == 3) {
     outColor = vec4(vCol.rgb * vCol.a, vCol.a);               // flat square: no lighting, no discard
   } else {
+    if (uShadowOn > 0.5) { outColor = vec4(floorCol(vW.xz) * (1.0 - uShadowA), 1.0); return; }   // MIN-blended: overlaps never double-darken
     vec3 n = normalize(vN);
+    if (uLook > 0.5) {                                        // key (wrap .25) + fill + hemisphere, AO on ambient and fill only, Fresnel rim
+      vec3 V = normalize(uEye - vW);
+      float kd = max((dot(n, -uKeyDir) + 0.25) / 1.25, 0.0), fd = max((dot(n, -uFillDir) + 0.25) / 1.25, 0.0);
+      vec3 l = (mix(uGnd, uSky, 0.5 - 0.5 * n.y) + uFill * fd) * mix(1.0, vAO, uAOk) + uKey * kd;
+      vec3 rim = uRimC * uRimK * pow(1.0 - max(dot(n, V), 0.0), 3.0) * smoothstep(-0.2, 0.6, dot(n, -uRimDir));
+      outColor = vec4(vHero > 0.5 ? vCol.rgb * mix(0.8, 1.0, kd) + rim : vCol.rgb * l + rim, 1.0);
+    } else {
     vec3 l = uAmb + uKey * max(dot(n, -uKeyDir), 0.0) + uRim * max(dot(n, -uRimDir), 0.0);
     outColor = vec4(vCol.rgb * l, 1.0);
+    }
   }
 }`;
   // tone map of the density buffer: v = 1 - exp(-exposure * weight); colour = weighted mean of the marks' roles
@@ -179,15 +197,45 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
     return marks;                                              // 'given' keeps the data order
   }
 
+  /* baked neighbour AO (opt-in, params.ao > 0; stack and field layouts). Zero per-frame cost; seeded by construction.
+     stack: 1 - 0.09 per occupied 4-neighbour in the layer - 0.14 if covered from above (final state of the columns).
+     field: horizon AO per cell, 8 directions x 6 steps: ao = 1 - mean atan(max(slope, 0)) / (pi / 2). Clamped to [0.5, 1]. */
+  function bakeAO(st, params, arr) {
+    const ao = new Float32Array(st.N).fill(1);
+    if (params.layout === 'stack') {
+      const fp = params.footprint, K = params.shares.length, cnt = new Array(K).fill(0), occ = (k, j) => j >= 0 && j < cnt[k];
+      arr.forEach((m) => { cnt[m.k]++; });
+      const fill = new Array(K).fill(0);
+      arr.forEach((m, i) => {
+        const j = fill[m.k]++, L = Math.floor(j / (fp * fp)), c = j % (fp * fp), cx = c % fp, cz = Math.floor(c / fp), base = L * fp * fp;
+        let v = 1;
+        for (const [dx, dz] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) { const x = cx + dx, z = cz + dz; if (x >= 0 && x < fp && z >= 0 && z < fp && occ(m.k, base + z * fp + x)) v -= 0.09; }
+        if (occ(m.k, j + fp * fp)) v -= 0.14;
+        ao[i] = Math.max(0.5, v);
+      });
+    } else if (params.layout === 'field') {
+      const R = arr.reduce((a, m) => Math.max(a, m.r), 0) + 1, C = arr.reduce((a, m) => Math.max(a, m.col), 0) + 1, H = new Float32Array(R * C), pitch = params.pitch3, pos = new Int32Array(R * C);
+      arr.forEach((m, i) => { H[m.r * C + m.col] = m.h; pos[m.r * C + m.col] = i; });
+      const D = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [-1, 1], [1, -1], [-1, -1]];
+      for (let r = 0; r < R; r++) for (let c = 0; c < C; c++) {
+        const h = H[r * C + c]; let sum = 0;
+        for (const [dx, dz] of D) { let sl = 0; for (let k = 1; k <= 6; k++) { const x = c + dx * k, z = r + dz * k; if (x < 0 || z < 0 || x >= C || z >= R) break; sl = Math.max(sl, (H[z * C + x] - h) / (k * pitch * Math.hypot(dx, dz))); } sum += Math.atan(sl) / (Math.PI / 2); }
+        ao[pos[r * C + c]] = Math.max(0.5, 1 - sum / 8 * 1.6);
+      }
+    }
+    return ao;
+  }
+
   function makeTexture(p, st) {
-    const N = st.N, TH = Math.max(1, Math.ceil((2 * N) / TEXW));
+    const N = st.N, TH = Math.max(1, Math.ceil((st.stride * N) / TEXW));
     st.fb = p.createFramebuffer({ width: TEXW, height: TH, density: 1, format: p.FLOAT, channels: p.RGBA, antialias: false, depth: false, textureFiltering: p.NEAREST });
     st.buf = new Float32Array(TEXW * TH * 4);
     const buf = st.buf;
     st.drawn.forEach((m, i) => {
-      const o = i * 8;
+      const o = i * 4 * st.stride;
       buf[o] = m.x; buf[o + 1] = m.y; buf[o + 2] = m.z; buf[o + 3] = m.s;
       buf[o + 4] = m.h; buf[o + 5] = m.c; buf[o + 6] = m.a; buf[o + 7] = m.rank + (st.picked[m.rank] ? 0.5 : 0);
+      if (st.ao) buf[o + 8] = st.ao[m.rank];
     });
     upload(p, st);
   }
@@ -236,11 +284,12 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
     const L = c.look, d = c.proj === 'ortho' ? 2000 : lerp(c.dist[0], c.dist[1], e);
     return { eye: [L[0] + d * Math.sin(az) * Math.cos(el), L[1] - d * Math.sin(el), L[2] + d * Math.cos(az) * Math.cos(el)], look: L, e };
   }
-  function camAt(p, w, params, u) {
+  function camAt(p, w, params, u, jit) {
     const c = params.cam, P = camPose(params, u), L = P.look, W = p.width, H = p.height;
     w.camera(P.eye[0], P.eye[1], P.eye[2], L[0], L[1], L[2], 0, 1, 0);
     if (c.proj === 'ortho') { const s = lerp(c.zoom[0], c.zoom[1], P.e); w.ortho(-W / 2 * s, W / 2 * s, -H / 2 * s, H / 2 * s, 1, 6000); }
     else w.perspective(c.fov, W / H, 10, 8000);
+    if (jit) jit(w);
     p.setCamera(w);
     return P;
   }
@@ -259,7 +308,7 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
     return { on, r: [lerp(cx, B.rect[0], on), lerp(cy, B.rect[1], on), lerp(cx, B.rect[2], on), lerp(cy, B.rect[3], on)].map(F) };   // data units [0,1]
   }
 
-  function bindMarks(p, st, params, tk, k, front, brush, pickOn) {
+  function bindMarks(p, st, params, tk, k, front, brush, pickOn, pose) {
     const sh = st.sh, bg = p.color(tk.color.bg), pal = [];
     for (let i = 0; i < 6; i++) pal.push(...rgb(p, tk.color[params.roles[i] || params.roles[0]]));
     p.shader(sh);
@@ -279,6 +328,8 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
     sh.setUniform('uKey', rgb(p, tk.color.chalk).map((x) => x * 0.85));
     sh.setUniform('uRim', rgb(p, p.lerpColor(bg, p.color(tk.color.accent2), 0.5)));
     sh.setUniform('uKeyDir', norm([-0.45, 0.8, -0.4])); sh.setUniform('uRimDir', norm([0.7, 0.3, 0.6]));
+    sh.setUniform('uStride', st.stride); sh.setUniform('uHero', -1); sh.setUniform('uLook', 0); sh.setUniform('uAOk', 0); sh.setUniform('uSh', [0, 1, 0, 0]);
+    if (params.look) params.look.bind(sh, pose, { roles: params.roles, dim: params.dim, hero: st.hero, ao: st.ao ? params.ao : 0 });   // scene-linear palette + rig + floor uniforms
     p.noStroke();
   }
   function drawMarks(p, st, params, k) {                       // ONE draw call
@@ -340,6 +391,7 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
       shares: [0.31, 0.22, 0.17, 0.13, 0.10, 0.07], catRole: [1, 0, 0, 0, 0, 0], catNames: ['A', 'B', 'C', 'D', 'E', 'F'], footprint: 14, cube: 4.2, cubeGap: 1.2, colGap: 34,
       rows: 250, pitch3: 2.1, barFill: 0.82, hmin: 2, hmax: 120,
       exposure: 0.9, accDensity: 1,
+      look: null, ao: 0, hero: null, hud: true,                // opt-in: gl-look host, baked AO strength 0-1, hero data id, hud off
       cam: { proj: 'ortho', az: [0, 0], el: [0, 0], zoom: [1, 1], dist: [900, 900], fov: 0.8, look: [0, 0, 0], span: [0, 1] },
     },
     variants: [
@@ -365,7 +417,7 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
     count(t, st, params) { return countAt(params, st.N, t); },
     picked(t, st, params) { return st.pickPre[countAt(params, st.N, t)]; },
     /* pick(p, st, ids): highlight a subset by data id (re-uploads the rank+pick channel; call outside draw, then re-seek) */
-    pick(p, st, ids) { setPicked(st, ids); st.drawn.forEach((m, i) => { st.buf[i * 8 + 7] = m.rank + (st.picked[m.rank] ? 0.5 : 0); }); upload(p, st); return st.pickN; },
+    pick(p, st, ids) { setPicked(st, ids); st.drawn.forEach((m, i) => { st.buf[i * 4 * st.stride + 7] = m.rank + (st.picked[m.rank] ? 0.5 : 0); }); upload(p, st); return st.pickN; },
     setup(p, ctx, params) {
       const st = { seed: ctx.seed == null ? 7 : ctx.seed, fonts: ctx.fonts || null };
       const rng = mulberry32(st.seed);
@@ -383,13 +435,20 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
         const e = camPose(params, 0.5).eye, d2 = (m) => (m.x - e[0]) ** 2 + (-m.h / 2 - e[1]) ** 2 + (m.z - e[2]) ** 2;
         st.drawn = arr.slice().sort((a, b) => d2(a) - d2(b) || a.rank - b.rank);
       }
+      st.stride = params.ao > 0 && (params.layout === 'stack' || params.layout === 'field') ? 3 : 2;
+      st.ao = st.stride === 3 ? bakeAO(st, params, arr) : null;
+      st.hero = -1;                                            // hero: a data id, or 'top' = the highest mark (ties: the last to arrive)
+      if (params.hero === 'top') { let bt = 1e9; for (const m of arr) { const tp = params.mark === 'bar' ? -m.h : m.y - m.h / 2; if (tp < bt - 1e-6 || (tp <= bt + 1e-6 && m.rank > st.hero)) { bt = Math.min(bt, tp); st.hero = m.rank; } } }
+      else if (params.hero != null && st.rankOf[params.hero] >= 0) st.hero = st.rankOf[params.hero];
       makeTexture(p, st);
       const quad = params.mark === 'dot' || params.mark === 'square';
       st.chunk = params.chunk || (quad ? 1024 : 256);
       st.faces = quad ? [] : facesFor(params, arr);
       st.geom = p.buildGeometry(() => { p.noStroke(); for (let j = 0; j < st.chunk; j++) { p.push(); p.translate(j * STEP, 0, 0);
         if (quad) p.plane(1, 1); else for (const fc of st.faces) { p.push(); FACE[fc](p); p.plane(1, 1); p.pop(); } p.pop(); } });
-      st.sh = p.createShader(VERT, FRAG); st.work = p.createCamera(); st.hud = p.createCamera();
+      const lk = params.look || null;                          // opt-in gl-look host (null = the stock picture, byte-identical)
+      st.sh = p.createShader(VERT, FRAG.replace('//@FLOOR', lk ? lk.glsl : 'vec3 floorCol(vec2 q){ return vec3(0.0); }')); st.work = p.createCamera(); st.hud = p.createCamera();
+      if (lk) st.workL = lk.hdr.createCamera();
       if (params.render === 'density') {
         st.acc = p.createFramebuffer({ format: p.HALF_FLOAT, channels: p.RGBA, density: params.accDensity, antialias: false, depth: false, textureFiltering: p.LINEAR });
         st.accCam = st.acc.createCamera(); st.tone = p.createShader(TVERT, TFRAG);
@@ -405,7 +464,9 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
     draw(p, t, st, params, tk) {
       const u = clamp(t / params.dur), k = countAt(params, st.N, t), front = frontAt(params, st.N, t), brush = brushAt(params, u);
       const pickOn = params.pick ? onAt(params.pick.span, u) : 0;
-      p.background(tk.color.bg); p.noLights();
+      const lk = params.look || null;
+      if (!lk) p.background(tk.color.bg);                       // with a look the host has cleared the HDR frame
+      p.noLights();
       if (params.render === 'density') {                        // order-independent: sum weights, then tone-map
         st.acc.begin(); p.clear(); camAt(p, st.accCam, params, u);
         bindMarks(p, st, params, tk, k, front, brush, pickOn); p.blendMode(p.ADD); drawMarks(p, st, params, k); p.blendMode(p.BLEND);
@@ -416,8 +477,15 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
         p.noStroke(); p.plane(p.width, p.height); p.resetShader(); p.pop();
         camAt(p, st.work, params, u);
       } else {
-        camAt(p, st.work, params, u);
-        bindMarks(p, st, params, tk, k, front, brush, pickOn); drawMarks(p, st, params, k);
+        const pose = camAt(p, lk ? st.workL : st.work, params, u, lk && lk.jit ? (w) => lk.jitter(w) : null);
+        if (lk) lk.floor(p, pose);
+        bindMarks(p, st, params, tk, k, front, brush, pickOn, pose);
+        if (lk && lk.shadow && (params.mark === 'box' || params.mark === 'bar')) {   // planar contact shadow: same draw, flattened, MIN-blended over the floor
+          st.sh.setUniform('uShadowOn', 1); st.sh.setUniform('uSh', lk.shadowDir(pose)); st.sh.setUniform('uFloorY', lk.floorY);
+          p.blendMode(p.DARKEST); drawMarks(p, st, params, k); p.blendMode(p.BLEND);
+          bindMarks(p, st, params, tk, k, front, brush, pickOn, pose); st.sh.setUniform('uShadowOn', 0);
+        }
+        drawMarks(p, st, params, k);
       }
       const pins = [], role = (i) => tk.color[params.roles[i]];
       let readout = { n: k, col: k > 0 ? tk.color.accent : tk.color.ink, line: 'OF ' + fmt(st.N) + ' ' + params.noun + ' · ' + params.caption };
@@ -443,8 +511,8 @@ void main(){ vec4 a = texture(uAcc, vec2(vUV.x, uFlip > 0.5 ? 1.0 - vUV.y : vUV.
         const m = st.maxM, op = smooth((front - st.maxI) / Math.max(1, st.N * params.win));
         pins.push({ p: [m.x, -m.h, m.z], big: 'max ' + m.v.toFixed(2), small: 'ROW ' + (m.r + 1) + ' · COL ' + (m.c + 1), col: tk.color.chalk, op, lx: 26, ly: -44 });
       }
-      hud(p, st, params, tk, k, brush, pins, readout);
-      return { k, n: st.N, brushed: bcount, picked: pcount };
+      if (params.hud !== false) hud(p, st, params, tk, k, brush, pins, readout);   // hud:false under a look: the host draws type flat after the post
+      return { k, n: st.N, brushed: bcount, picked: pcount, pins, readout };
     },
   };
 })();

@@ -75,6 +75,15 @@ Timings move 2-5× with other lanes on the 4-core host (bars-100k read 6-7 s at 
 - Synthetic field data clamps to [0.01, 1]; the max pin is the data max, not the visually tallest bar.
 - Fonts: the pack's disp + mono TTF (arsenal/fonts/fonts.js); absent face → Big Shoulders 600 / IBM Plex Mono 400 (`stats().fontFallback`).
 
+## Opt-in look (Wave WOW B4, gl-look; off = the picture above, pixel-identical)
+`params.look = ARSENAL.patterns['gl-look'].attach(st)` (null at exec, so nothing below runs) draws into gl-post's HDR frame in scene-linear units and adds, in the
+same single draw: a Fresnel rim (`pow(1 - N.V, 3)` x back-light mask, world-space, `uRimK`), baked vertex AO (`params.ao` 0-1: a wall gradient 0.55 -> 1 over 0.6 min(w, h) from the
+vertex's height, times a per-mark neighbour term in a 3rd data texel; stack = 4-neighbours + covered from above, field = 8-direction horizon AO, 6 steps; multiplies ambient and fill only),
+key/fill/hemisphere lighting (wrap .25), a hero mark (`params.hero` = 'top' | data id: emissive, flat-lit), and a planar contact shadow (`lk.shadow`: the same draw flattened onto
+`floorY` along the key, `blendMode(DARKEST)` over the look's floor, so overlaps never double-darken). `hud: false` hands the labels back to the film (they must be drawn after the post).
+Proof of "off is off": shoot.mjs of all six variants (24 stills) before and after this edit are pixel-identical (arsenal/patterns/gl-look/shots/identity.json). Extra cost with the
+look: arsenal/patterns/gl-look/card.md. `draw` also returns `pins` and `readout` now (the film draws them flat). Not under `render: density`.
+
 ## Renderer / fallback
 `webgl`, WebGL2 required (GLSL 300 es, texelFetch, gl_InstanceID); no WebGL2: use patterns/mass canvas2d (≤ 50k). When 2.4 ships
 `instances()` the chunked `model()` route stays valid; `instanceIndex` only if a strands hook is wanted.
