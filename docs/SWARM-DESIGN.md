@@ -348,3 +348,21 @@ and removes the largest certain cost (judges, Opus reading code) even if E1 says
 
 Confirm the 8.0 M not itemised and whether the 34.1 M counts cached input; approve a D-row for G13 (WARN-first) and the
 read-only `__film.trace` hook; decide the concurrency (cap is 2 agents on this 4-core box); approve E0 and E2 now, E1 after.
+
+## E0, measured (2026-10-11, from the 109 subagent transcripts of this session; no model tokens spent)
+| measure | Opus (n = 51) | Sonnet (n = 57) |
+|---|---|---|
+| first-turn context (bootstrap: system prompt, CLAUDE.md, tool schemas, the brief) | 54.8 k tokens | 54.9 k tokens |
+| turns per agent, mean | 103 | 87 |
+| cache-read tokens per turn, mean | 183 k | 207 k |
+| cache-write tokens, total | 131.6 M across all agents | |
+| cache-read tokens, total | 2,044 M across all agents | |
+The largest single agents: the round-2 re-cut (403 turns, 120 M cache-read, 30 M cache-write), the round-1 re-cut
+(298 turns, 90 M cache-read), each 153 s drafter (170–212 turns, 47–74 M cache-read).
+Reading: the cost driver is turns × context, not output. A long agentic loop that measures, edits, rebuilds, re-strips
+and re-reads thumbs pays its whole context on every turn. The ~8 M "not itemised" in section 1 is the 161 bootstraps
+(161 × 55 k ≈ 8.9 M) plus the one-turn hand-backs. So the levers, in order: (1) fewer turns, by moving the
+measure-and-check loops into scripts the worker calls once (rubric.mjs, gate, frames); (2) smaller contexts, by task
+cards that carry only the contract and the files the card names; (3) fewer agents per film, not more, unless each is
+short (a Haiku card of ≤ 10 turns costs ≈ 55 k + 10 × context, so a swarm only wins when its cards stay under about
+15 turns and 60 KB of context). E1 and E2 stand as written, with these numbers as the baseline.
