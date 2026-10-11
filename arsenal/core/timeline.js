@@ -3,10 +3,39 @@
    timeline().play/wait/all/stagger/beat   cursor builder, compiled once; seek = binary search      [[timeline-builder]]
    scene(t0, t1, fn) / sequence()  scene-local time windows with cross-fade                         [[scene-local-time]]
    captions(list)                  caption lookup from an array, or from the beats of a timeline    [[beats-and-captions]]
+   Eases: linear smooth in out inout expo back step + spring-hero spring-snappy expo-out emph ramp settle anticipate (arsenal/patterns/motion-curves); an ease may be [x1,y1,x2,y2] (cubic-bezier).
    Colours: colorMode ('rgb' | 'hsl' | 'oklab') is fixed per key at compile time, then lerped in that space. [[lerp-color]] */
 (function (root) {
 'use strict';
 const clamp = (x, a = 0, b = 1) => (x < a ? a : x > b ? b : x);
+/* motion tokens: closed form, pure in u, no state. Verbatim from arsenal/patterns/motion-curves/pattern.js (parity proved in its demo check()). Overshoot on marks only. */
+const CURVES = (() => {
+  const cl = (x, a = 0, b = 1) => (x < a ? a : x > b ? b : x), S = (x) => x * x * (3 - 2 * x);
+  const spring = (z, W) => {                                           
+    z = Math.min(z, 1); const a = z * W, d = W * Math.sqrt(1 - z * z), g = z < 1 ? (u) => Math.cos(d * u) + a / d * Math.sin(d * u) : (u) => 1 + a * u,
+      e = (u) => 1 - Math.exp(-a * u) * g(u), r = 1 - e(1), f = (u) => (u <= 0 ? 0 : u >= 1 ? 1 : e(u) + r * u * u * u);
+    if (z < 1) f.os = 1; return f;
+  };
+  const bezier = (x1, y1, x2, y2) => {                                    // CSS cubic-bezier: Newton on x(s)=u, bisection if it stalls
+    const B = (a, b, s) => 3 * a * s * (1 - s) * (1 - s) + 3 * b * s * s * (1 - s) + s * s * s, X = (s) => B(x1, x2, s);
+    const D = (s) => 3 * x1 * (1 - s) * (1 - 3 * s) + 3 * x2 * s * (2 - 3 * s) + 3 * s * s;
+    return (u) => {
+      if (u <= 0 || u >= 1) return u <= 0 ? 0 : 1; let s = u;
+      for (let i = 0; i < 8 && Math.abs(D(s)) > 1e-6; i++) s = cl(s - (X(s) - u) / D(s));
+      if (Math.abs(X(s) - u) > 1e-6) { let lo = 0, hi = 1; for (let k = 0; k < 40; k++) { s = (lo + hi) / 2; if (X(s) < u) lo = s; else hi = s; } }
+      return B(y1, y2, s);
+    };
+  };
+  const ramp = (k = 6, a = 0.55) => {                                     // rate k until a, then eases to 1 (smoothstep); P = integral / total
+    const w = 1 - a, G = (u) => { if (u <= a) return k * u; const x = (u - a) / w; return a * k + w * x + (k - 1) * w * (x - x * x * x + x * x * x * x / 2); }, g = G(1);
+    return (u) => (u <= 0 ? 0 : u >= 1 ? 1 : G(u) / g);
+  };
+  const rampK = (content, real, a = 0.55) => (content / real - (1 - a) / 2) / (a + (1 - a) / 2);   // k that ends at exactly x1
+  const emph = bezier(0.2, 0, 0, 1);
+  const anticipate = (c = 0.02, a = 0.15) => { const f = (u) => (u <= 0 ? 0 : u >= 1 ? 1 : u < a ? -c * S(u / a) : -c + (1 + c) * emph((u - a) / (1 - a))); f.os = 1; return f; };
+  const expoOut = (u) => (u <= 0 ? 0 : u >= 1 ? 1 : (1 - Math.pow(2, -10 * u)) / (1 - Math.pow(2, -10)));
+  return { spring, bezier, ramp, rampK, anticipate, tokens: { 'spring-hero': spring(0.72, 11), 'spring-snappy': spring(0.85, 9), 'expo-out': expoOut, emph, ramp: ramp(), settle: spring(1, 9.6), anticipate: anticipate() } };
+})();
 const EASE = {
   linear: (u) => u,
   smooth: (u) => u * u * (3 - 2 * u),                                   // smoothstep
@@ -16,8 +45,9 @@ const EASE = {
   expo: (u) => (u >= 1 ? 1 : 1 - Math.pow(2, -10 * u)),
   back: (u) => 1 + 2.70158 * Math.pow(u - 1, 3) + 1.70158 * Math.pow(u - 1, 2),
   step: (u) => (u >= 1 ? 1 : 0),
+  ...CURVES.tokens,                                                      // spring-hero, spring-snappy, expo-out, emph, ramp, settle, anticipate  [[easing-functions]]
 };
-const easeFn = (e) => (typeof e === 'function' ? e : EASE[e || 'smooth'] || (() => { throw new Error('timeline: unknown ease ' + e); })());
+const easeFn = (e) => (typeof e === 'function' ? e : Array.isArray(e) ? CURVES.bezier(...e) : EASE[e || 'smooth'] || (() => { throw new Error('timeline: unknown ease ' + e); })());
 
 /* ── colour ─────────────────────────────────────────────────────────────── */
 function parseColor(s) {
@@ -72,7 +102,7 @@ function rawAt(segs, init, t, mode) {
   if (k < 0) return init;
   const s = segs[k]; if (t >= s.t1) return s.b;
   const u = s.fn((t - s.t0) / (s.t1 - s.t0));
-  return typeof s.a === 'number' ? s.a + (s.b - s.a) * u : mixColor(s.a, s.b, u, mode);
+  return typeof s.a === 'number' ? s.a + (s.b - s.a) * u : mixColor(s.a, s.b, s.fn.os ? clamp(u) : u, mode);   // overshoot eases (.os) never reach colour
 }
 const out = (raw) => (typeof raw === 'number' ? raw : css(raw));
 const kindOf = (v) => (typeof v === 'number' ? 'num' : 'color');
@@ -120,7 +150,7 @@ function timeline() {
   const live = (key, t) => {                                          // value so far, used to start the next play(): O(segs of key)
     let best = null; for (const s of segs[key] || []) if (s.t0 <= t && (!best || s.t0 >= best.t0)) best = s;
     if (!best) return init[key]; if (t >= best.t1) return best.b;
-    const u = best.fn((t - best.t0) / (best.t1 - best.t0)); return typeof best.a === 'number' ? best.a + (best.b - best.a) * u : mixColor(best.a, best.b, u, modes[key] || 'rgb');
+    const u = best.fn((t - best.t0) / (best.t1 - best.t0)); return typeof best.a === 'number' ? best.a + (best.b - best.a) * u : mixColor(best.a, best.b, best.fn.os ? clamp(u) : u, modes[key] || 'rgb');
   };
   const api = {
     init(o) { for (const k in o) { init[k] = norm(o[k]); setKind(k, init[k]); } compiled = null; return api; },
@@ -194,7 +224,7 @@ function scenes(list) {
   return { list, run(t, host, ...args) { for (const sc of list) { const f = sc.at(t); if (!f) continue; if (host && host.enter) host.enter(f); sc.fn(f, ...args); if (host && host.exit) host.exit(f); } } };
 }
 
-const API = { track, timeline, scene, sequence, scenes, captions, ease: EASE, color: { parse: parseColor, css, mix: (a, b, u, mode) => css(mixColor(parseColor(a), parseColor(b), u, mode || 'rgb')) } };
+const API = { track, timeline, scene, sequence, scenes, captions, ease: EASE, curves: { spring: CURVES.spring, bezier: CURVES.bezier, ramp: CURVES.ramp, rampK: CURVES.rampK, anticipate: CURVES.anticipate }, color: { parse: parseColor, css, mix: (a, b, u, mode) => css(mixColor(parseColor(a), parseColor(b), u, mode || 'rgb')) } };
 root.ARSENAL = root.ARSENAL || { patterns: {}, structures: {}, materials: {}, brands: {} };
 root.ARSENAL.core = root.ARSENAL.core || {}; root.ARSENAL.core.timeline = API;
 if (typeof module !== 'undefined' && module.exports) module.exports = API;

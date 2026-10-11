@@ -82,8 +82,17 @@
     "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/orbit-lite-t12.00.png"
    ],
    "purity": "identical"
+  },
+  "spring-hold": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/spring-hold-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/spring-hold-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/spring-hold-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/spring-hold-t12.00.png"
+   ],
+   "purity": "identical"
   }
  },
- "ms_per_frame": 614.2,
+ "ms_per_frame": 769.2,
  "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-camera-rig/shots/contact.png"
 }

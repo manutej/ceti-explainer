@@ -1,0 +1,35 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/motion-curves/demo.html",
+ "errors": [],
+ "variants": {
+  "springs": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/springs-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/springs-t1.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/springs-t1.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/springs-t3.60.png"
+   ],
+   "purity": "identical"
+  },
+  "curves": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/curves-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/curves-t1.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/curves-t1.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/curves-t3.60.png"
+   ],
+   "purity": "identical"
+  },
+  "stagger-grid": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/stagger-grid-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/stagger-grid-t1.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/stagger-grid-t1.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/stagger-grid-t3.60.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 7.9,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/motion-curves/shots/contact.png"
+}

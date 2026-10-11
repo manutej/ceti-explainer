@@ -34,7 +34,7 @@ A film: `const script = RIG.fromKnobs(BASE, K.knob, scene), rig = RIG.compile(sc
 | cols x rows, cell, gap | 20 x 15, 34, 6 | grid of the demo field; hmin 10, hmax 170 (height from value) |
 | focusCue | 1 | 0..1, depth fade toward bg off the focus plane (× pose aperture) |
 | overlay, ground, engine | true, 40, 'rig' | plan/strip/readout on or off; pad margin (0 = none); 'p5' slerps with p5.Camera |
-Move fields: `id, move, t0, t1, ease` (linear smooth in out inout expo back step), `fov` (deg), `zoom`, `aperture`,
+Move fields: `id, move, t0, t1, ease` (linear smooth in out inout expo back step + spring-hero spring-snappy expo-out emph ramp settle anticipate, from arsenal/patterns/motion-curves; spring and anticipate eases overshoot, so s leaves 0..1 and every scheme extrapolates), `fov` (deg), `zoom`, `aperture`,
 `focus` ('center' default: rack to the new centre, 'hold', number, or a target). Knob ranges: t0/t1 [0, dur]; az
 [-720, 720] deg; el [-10, 89]; r [0.2, 5]; dist [0, 6000]; rise [-3000, 3000]; follow, aperture [0, 1]; target [0, N-1];
 fov [5, 120]; zoom [0.1, 10]; eye/center xyz [-6000, 6000]. Names `cam<Id><Param>`; a film exposes t0/t1 + the shape knob.
@@ -44,7 +44,9 @@ orbit (240 deg, rising to 46 deg, radius ×0.8) · dolly (push to 400, ease back
 fov 18 -> 64 deg) · crane (street level up 980, aim follows 12 %) · look-at (push to the highest box, then pan to the
 lowest) · focus-pull (rack front row -> back row -> middle, aperture 1) · ortho-orbit (orthographic swing 90 deg, then aim
 and zoom ×2.2 on the highest box) · sequence (crane, orbit, look-at, focus pull: 26 knobs) · orbit-lite (the cheap
-variant: no overlay, no pad, no focus cue).
+variant: no overlay, no pad, no focus cue) · spring-hold (0.4 s settle hold, 1 s moves on spring-hero / emph / settle, seeded ambient drift 1.5 % over the holds; demo `__film.drift()` proves 0 drift while moving and in the settle, peak 1.18 % of eye distance, same seed same path).
+
+**Settle and drift (script level, both optional, off by default).** `settle: 0.4` = true stillness after each move (`rig.warnings` names moves that start inside it); `drift: {amp: 0.015, seed, ramp: 0.6, period: [7, 11]}` = a seeded wander of the eye (dolly, side, lift; peak <= amp x eye distance, amp <= 0.02) during holds only, fading in after the settle and out before the next move so every move starts from its exact key. `at()` adds `settled` and `drift`. Knobs `camDriftAmp`, `camHoldSettle`. Rubric P20 (1-2 % over holds).
 
 ## Verified (demo `__film.check()`, all variants, t every 0.25 s)
 rig.worldToScreen vs p5 `worldToScreen` under the rig's camera: max 0.009 px. Rig slerp vs `p5.Camera.slerp` on the same
@@ -77,4 +79,4 @@ At load ~9 (earlier run) orbit-lite was 0.21-0.25 and orbit 0.51. WARN: the heav
 zoom-in, boxes filling the screen) touch 1.5-1.7 s under this load; on an idle machine expect about half. Real GPU not measured. Overlay text ~0.2 s; focus cue free.
 
 ## Renderer / fallback
-`webgl`. No beta APIs (no `instances()`, no strands). If ARSENAL.core.timeline is absent a verbatim copy of its eases is used.
+`webgl`. No beta APIs (no `instances()`, no strands). If ARSENAL.core.timeline is absent (or predates the motion tokens) a verbatim copy of its eases is used; `rig.curves` exposes the copy.
