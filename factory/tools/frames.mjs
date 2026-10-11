@@ -3,6 +3,7 @@
    factory/tools/frames.mjs · the frame strip an evaluator reads instead of film.js
    --------------------------------------------------------------------
    node factory/tools/frames.mjs <page.html | film-dir> [--every 0.5] [--out dir] [--brand id] [--per-row 12]
+                                 [--shutter 0.35] [--samples auto|N] [--max-samples 48] [--cuts t,t,..] [--fps 30]
 
    Seeks the film (window.__film.seek, film mode ?film=1, 1920 x 1080 stage) every --every seconds from 0 to dur,
    writes a 480 x 270 thumbnail per time with the timestamp burned into the top-left corner
@@ -13,6 +14,10 @@
    caption = the film.json caption live at t (text or null); chapter = the chapter id and title live at t.
    Purity: three times (0.2, 0.5, 0.8 of dur) are captured (canvas pixels + SVG), re-seeked after a detour and
    compared; frames.json records identical / DIFFERS (exit 1 when it differs).
+   --shutter/--samples (same meaning as arsenal/tools/export.mjs, default off): every thumbnail is a motion-blurred, temporally
+   anti-aliased frame, so the strip shows what the export will show (P21 ghost spacing). A page that runs gl-post's renderAccumulated
+   accumulates in the page (window.__EXPORT); any other film is supersampled here by seeking N sub-times and averaging the screenshots in
+   linear light; sub-times never cross a cut (film.json `cuts`, rig cut moves, --cuts). frames.json records mode, samples per frame.
    <film-dir> picks <film-dir>/build/<id>.<brand>.*.html (newest when several; --brand narrows it).
    --out default: <film-dir>/frames (a page in <film-dir>/build counts as that film's; else <page dir>/frames). s_per_frame is seek + render + GPU sync (headless,
    SwiftShader); the screenshot and thumbnail encode are not in it.
@@ -21,19 +26,25 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { chromium } from '/opt/node-tools/node_modules/playwright/index.mjs';
+import { renderFrame } from '../../arsenal/tools/export.mjs';
 
 const EXE = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
-const argv = process.argv.slice(2), opt = { every: 0.5, perRow: 12 }, pos = [];
+const argv = process.argv.slice(2), opt = { every: 0.5, perRow: 12, fps: 30, maxSamples: 48, cuts: [] }, pos = [];
 for (let i = 0; i < argv.length; i++) {
   const a = argv[i];
   if (a === '--every') opt.every = +argv[++i];
   else if (a === '--out') opt.out = argv[++i];
   else if (a === '--brand') opt.brand = argv[++i];
   else if (a === '--per-row') opt.perRow = +argv[++i];
+  else if (a === '--shutter') opt.shutter = +argv[++i];
+  else if (a === '--samples') opt.samples = argv[++i] === 'auto' ? 'auto' : Math.max(1, Math.round(+argv[i]));
+  else if (a === '--max-samples') opt.maxSamples = +argv[++i];
+  else if (a === '--cuts') opt.cuts = String(argv[++i]).split(',').filter(Boolean).map(Number);
+  else if (a === '--fps') opt.fps = +argv[++i];
   else if (a === '-h' || a === '--help') usage(0);
   else pos.push(a);
 }
-function usage(code) { console.log('usage: node factory/tools/frames.mjs <page.html | film-dir> [--every 0.5] [--out dir] [--brand id] [--per-row 12]'); process.exit(code); }
+function usage(code) { console.log('usage: node factory/tools/frames.mjs <page.html | film-dir> [--every 0.5] [--out dir] [--brand id] [--per-row 12] [--shutter 0.35] [--samples auto|N] [--cuts t,t]'); process.exit(code); }
 if (!pos[0] || !(opt.every > 0) || !(opt.perRow >= 1)) usage(2);
 
 let PAGE = pos[0], FILMDIR = null;
@@ -63,12 +74,21 @@ try {
   const pg = await ctx.newPage();
   pg.on('pageerror', e => errs.push('pageerror: ' + String(e.message || e).slice(0, 200)));
   pg.on('console', m => { if (m.type() === 'error') errs.push('console: ' + m.text().slice(0, 200)); });
+  // blur: --shutter and/or --samples (default off). Page mode = gl-post reads window.__EXPORT; exporter mode = average sub-time screenshots here
+  const blurOn = opt.shutter != null || opt.samples != null;
+  const SHUT = opt.shutter != null ? opt.shutter : (blurOn && opt.samples !== 1 ? 0.35 : 0), SAMP = opt.samples != null ? opt.samples : (SHUT > 0 ? 'auto' : 1);
+  const XP = { fps: opt.fps }; if (blurOn) { XP.samples = SAMP; XP.shutter = SHUT; }
+  await pg.addInitScript((x) => { window.__EXPORT = x; }, XP);
   await pg.goto('file://' + path.resolve(PAGE) + '?film=1', { waitUntil: 'load', timeout: 60000 });
   await pg.waitForFunction(() => window.__film && typeof window.__film.ready === 'function', null, { timeout: 20000 });
   await pg.evaluate(() => window.__film.ready());
   const info = await pg.evaluate(() => { const i = window.__film.info || {};
     return { id: i.id, dur: +(i.dur ?? window.__ctrl?.duration), captions: i.captions || [], chapters: i.chapters || [], axes: i.axes || null, knobs: i.knobs || [] }; });
   const DUR = info.dur;
+  const filmCuts = await pg.evaluate(() => { const F = (window.KIT && window.KIT.FILM) || {}, c = (F.cuts || []).slice();
+    for (const m of (F.rig && F.rig.moves) || []) if (m.move === 'cut' && m.t0 != null) c.push(m.t0); return c.map(Number).filter(Number.isFinite); });
+  const cuts = [...new Set([...filmCuts, ...opt.cuts])].sort((a, b) => a - b);
+  await pg.evaluate((c) => { window.__EXPORT.cuts = c; }, cuts);
   const stage = pg.locator('#stage, .ex-stage-frame').first();
   const seekSync = (t) => pg.evaluate(async (t) => {   // seek, then force the GPU to finish (toDataURL syncs), then one rAF
     const r = window.__film.seek(t); const c = (window.KIT && window.KIT.canvas) || document.querySelector('#stage canvas');
@@ -77,6 +97,9 @@ try {
   const capture = () => pg.evaluate(() => { const st = document.querySelector('#stage') || document.body;
     return { canvas: [...st.querySelectorAll('canvas')].map(c => { try { return c.toDataURL('image/png'); } catch (e) { return 'ERR'; } }).join('|'),
              svg: [...st.querySelectorAll('svg')].map(s => s.innerHTML).join('|') }; });
+  let blurMode = 'off';
+  if (blurOn) { await pg.evaluate((t) => window.__film.seek(t), 0); const used = await pg.evaluate(() => !!(window.__EXPORT && window.__EXPORT.used)); blurMode = used ? 'page' : (SHUT > 0 && SAMP !== 1 ? 'exporter' : 'off'); }
+  const BCFG = { fps: opt.fps, shutter: SHUT, samples: SAMP, cuts, dur: DUR, maxSamples: opt.maxSamples, ssaa: 1 };
   const h = (s) => crypto.createHash('sha1').update(s).digest('hex').slice(0, 12);
 
   // helper page: burn the timestamp, encode thumbnails, assemble strips
@@ -108,14 +131,16 @@ try {
   const times = []; for (let k = 0; ; k++) { const t = +(k * opt.every).toFixed(3); if (t > DUR + 1e-9) break; times.push(Math.min(t, +(DUR - 0.01).toFixed(3))); }
   const frames = [], thumbs = []; let seekMs = 0;
   for (const [i, t] of times.entries()) {
-    const a = Date.now(); const r = await seekSync(t); seekMs += Date.now() - a;
-    if (r && r.error) errs.push(`seek ${t}: ${r.error}`);
-    const png = await stage.screenshot({ type: 'png' });
+    const shot = async (tk) => { const a = Date.now(); const r = await seekSync(tk); seekMs += Date.now() - a;
+      if (r && r.error) errs.push(`seek ${tk}: ${r.error}`); return stage.screenshot({ type: 'png' }); };
+    let nS = 1, png;
+    if (blurMode === 'exporter') { const fr = await renderFrame(shot, t, BCFG); png = fr.png; nS = fr.samples; }
+    else { png = await shot(t); if (blurMode === 'page') nS = await pg.evaluate(() => (window.__EXPORT.last ? window.__EXPORT.last.samples : 1)); }
     const jpg = await burn(png.toString('base64'), fmtT(t) + '  ' + t.toFixed(2) + ' s');
     const file = `thumbs/t-${t.toFixed(2).padStart(7, '0')}.jpg`;
     fs.writeFileSync(path.join(OUT, file), Buffer.from(jpg, 'base64'));
     thumbs.push(jpg);
-    frames.push({ t, file, strip: `strip-${String(Math.floor(i / opt.perRow) + 1).padStart(2, '0')}.png`, cell: i % opt.perRow, caption: capAt(t), chapter: chapAt(t) });
+    frames.push({ t, file, strip: `strip-${String(Math.floor(i / opt.perRow) + 1).padStart(2, '0')}.png`, cell: i % opt.perRow, caption: capAt(t), chapter: chapAt(t), samples: nS });
   }
   for (let s = 0; s * opt.perRow < thumbs.length; s++) {
     const b64 = await strip(thumbs.slice(s * opt.perRow, (s + 1) * opt.perRow));
@@ -133,6 +158,7 @@ try {
   const msf = seekMs / Math.max(1, frames.length);
   const brand = opt.brand || info.axes?.brand || null;
   const report = { page: path.relative(process.cwd(), path.resolve(PAGE)), film: info.id, dur: DUR, every: opt.every, per_row: opt.perRow, brand,
+    accum: blurOn ? { mode: blurMode, shutter: SHUT, samples: SAMP, fps: opt.fps, cuts } : { mode: 'off' },
     axes: info.axes, knobs: info.knobs, ms_per_frame: Math.round(msf), s_per_frame: +(msf / 1000).toFixed(3),
     purity: { pass: pure, at: pur }, errors: errs, strips: [...new Set(frames.map(f => f.strip))], frames };
   fs.writeFileSync(path.join(OUT, 'frames.json'), JSON.stringify(report, null, 1));

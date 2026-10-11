@@ -274,21 +274,61 @@ void main(){ vec2 uv = vTexCoord; vec3 c;
       if (Math.abs(m[11]) > 1e-6) { m[8] += jx * m[11]; m[9] += jy * m[11]; } else { m[12] += jx; m[13] += jy; }
       return true;
     },
-    /* renderAccumulated(p, drawScene, t, {samples, shutter, fps}[, state]): drawScene(p, tk, {dx, dy, k, n}) draws the scene
-       while st.hdr is bound (it sets its own camera, calls jitter()). Sub-frame k: tk = t + ((k+.5)/N - .5) * shutter / fps,
-       jitter = Halton(2,3)(k+1) - .5 backing px. Averaged in linear light (ping-pong, weight 1/N). Returns
-       { color, depth, out } where depth is the LAST sub-frame's depth and out what its drawScene returned. */
+    /* ---- accumulation helpers (pure; the exporter mirrors cutClamp/tier in arsenal/tools/export.mjs) ---- */
+    /* cutClamp(tk, t, cuts, dur): a sub-frame never crosses a hard cut. Cuts are seconds where the picture changes
+       discontinuously (film.json `cuts`, or the rig's `cut` moves). tk is clamped to [last cut <= t, next cut > t) and [0, dur]. */
+    cutClamp(tk, t, cuts, dur) {
+      let lo = 0, hi = dur == null ? Infinity : dur;
+      for (const c of cuts || []) { if (c <= t + 1e-9) lo = Math.max(lo, c); else hi = Math.min(hi, c - 1e-6); }
+      return Math.min(hi, Math.max(lo, tk));
+    },
+    /* tier(V, shutter): sub-frame count from the camera's screen speed V (backing px per frame): hold 8, slow move (V <= 40) 16,
+       fast (V <= 150) 32, faster 48; never fewer than ceil(V * shutter / 2) so the step between sub-frames stays <= 2 px. */
+    tier(V, shutter) {
+      V = Math.abs(+V || 0); const need = Math.ceil(V * (shutter == null ? 0.5 : shutter) / 2);
+      const base = V < 1 ? 8 : V <= 40 ? 16 : V <= 150 ? 32 : 48, n = Math.max(base, need);
+      return n <= 8 ? 8 : n <= 16 ? 16 : n <= 32 ? 32 : 48;
+    },
+    /* speedFromProbe(project, pts, t, fps): max screen speed (px/frame) of probe points; project(pt, t) -> [x, y] in backing px
+       (e.g. rig.worldToScreen at that t). Pure in t. */
+    speedFromProbe(project, pts, t, fps) {
+      let v = 0; for (const q of pts) { const a = project(q, t), b = project(q, t + 1 / (fps || 30)); v = Math.max(v, Math.hypot(b[0] - a[0], b[1] - a[1])); } return v;
+    },
+    /* samplesFor(t, o): o.samples is a number (the `samples` knob) or 'auto'; auto reads the declared camera speed o.speed
+       (px/frame: a number, fn(t), or [{t0, t1, v}] segments; none declared = a slow move, 16). */
+    samplesFor(t, o) {
+      if (o.samples !== 'auto') return Math.max(1, Math.round(+o.samples || 1));
+      const sp = o.speed; let V = null;
+      if (typeof sp === 'number') V = sp; else if (typeof sp === 'function') V = sp(t);
+      else if (Array.isArray(sp)) { V = 0; for (const s of sp) if (t >= s.t0 && t <= s.t1) V = Math.max(V, +s.v || 0); }
+      return V == null ? 16 : A.post['gl-post'].tier(V, o.shutter);
+    },
+    /* renderAccumulated(p, drawScene, t, {samples: N | 'auto', shutter, fps, cuts, speed, maxSamples}[, state]):
+       drawScene(p, tk, {dx, dy, k, n}) draws the scene while st.hdr is bound (it sets its own camera, calls jitter()).
+       Sub-frame k: tk = cutClamp(t + ((k+.5)/N - .5) * shutter / fps), jitter = Halton(2,3)(k+1) - .5 backing px. Averaged in
+       linear light (ping-pong, weight 1/N). `cuts` defaults to KIT.FILM.cuts (film.json). The exporter (window.__EXPORT =
+       {samples, shutter, fps, cuts}) overrides the film's own values and sets __EXPORT.used. LDR (no float buffer): N <= 8, warn
+       accum:ldr. Returns { color, depth, out, samples, warn } where depth is the LAST sub-frame's depth (DoF reads it: a small
+       depth mismatch under motion, WARN) and out is what its drawScene returned; the same summary is kept in post.last. */
     renderAccumulated(p, drawScene, t, opts, state) {
-      const st = state || STATE.get(p), o = Object.assign({ samples: 1, shutter: 0.5, fps: 30 }, opts), N = Math.max(1, Math.round(o.samples));
-      if (N === 1) { st.hdr.begin(); const out = drawScene(p, t, { dx: 0, dy: 0, k: 0, n: 1 }); st.hdr.end(); return { color: st.hdr, depth: st.hdr.depth, out }; }
+      const st = state || STATE.get(p), o = Object.assign({ samples: 1, shutter: 0.5, fps: 30 }, opts), X = typeof window !== 'undefined' ? window.__EXPORT : null;
+      let cuts = (o.cuts || []).slice(); const film = typeof window !== 'undefined' && window.KIT && window.KIT.FILM; if (film && film.cuts) cuts = cuts.concat(film.cuts);
+      if (X) { if (X.samples != null) { o.samples = X.samples; X.used = true; } if (X.shutter != null) o.shutter = X.shutter; if (X.fps) o.fps = X.fps; if (X.cuts) cuts = cuts.concat(X.cuts); if (X.speed != null && o.speed == null) o.speed = X.speed; }
+      const warn = []; let N = A.post['gl-post'].samplesFor(t, o);
+      if (!st.hdrOK && N > 8) { N = 8; warn.push('accum:ldr'); }
+      if (o.maxSamples) N = Math.min(N, o.maxSamples);
+      const dur = o.dur != null ? o.dur : (film && film.dur) || null, cc = A.post['gl-post'].cutClamp;
+      const info = { t, samples: N, shutter: o.shutter, fps: o.fps, cuts: cuts.length, warn };
+      A.post['gl-post'].last = info; if (X) X.last = info;
+      if (N === 1) { st.hdr.begin(); const out = drawScene(p, t, { dx: 0, dy: 0, k: 0, n: 1 }); st.hdr.end(); return { color: st.hdr, depth: st.hdr.depth, out, samples: 1, warn }; }
       if (!st.acc) st.acc = [0, 1].map(() => p.createFramebuffer({ format: st.format, antialias: false, density: st.d, depth: false, textureFiltering: p.LINEAR }));
       let out = null, cur = null;
       for (let k = 0; k < N; k++) {
-        const tk = t + ((k + 0.5) / N - 0.5) * o.shutter / o.fps;
+        const tk = cc(t + ((k + 0.5) / N - 0.5) * o.shutter / o.fps, t, cuts, dur);
         st.hdr.begin(); out = drawScene(p, tk, { dx: halton(k + 1, 2) - 0.5, dy: halton(k + 1, 3) - 0.5, k, n: N }); st.hdr.end();
         const dst = st.acc[k & 1]; run(p, st, st.sh.ACCUM, dst, st.hdr, { uPrev: cur || st.black, uW: 1 / N, uFirst: k === 0 ? 1 : 0 }); cur = dst;
       }
-      return { color: cur, depth: st.hdr.depth, out };
+      return { color: cur, depth: st.hdr.depth, out, samples: N, warn };
     },
     /* apply(p, src, t, params, tokens[, state]): src = a p5.Framebuffer in linear light (st.hdr; its .depth feeds DoF) or
        renderAccumulated's { color, depth }. Writes the tone-mapped frame to the main canvas (default camera). */

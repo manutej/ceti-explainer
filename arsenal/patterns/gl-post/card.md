@@ -20,6 +20,18 @@ or `post.renderAccumulated(p, drawScene, t, {samples, shutter, fps}, st)`; then 
 **Accumulation:** sub-frame k at tk = t + ((k+.5)/N - .5)·shutter/fps, Halton(2,3)(k+1) - .5 backing-px projection jitter
 (`post.jitter(cam, dx, dy, st)`, after `perspective()`), averaged in linear light (ping-pong, weight 1/N); DoF, bloom and
 grain run once on the average. DoF then reads the LAST sub-frame's depth (small mismatch under motion; WARN).
+**Cut clamp (B5, D15).** No sub-frame crosses a hard cut: `cuts: [t…]` (film.json `cuts`, read from `KIT.FILM.cuts` by default, or
+`opts.cuts`, or the exporter's `--cuts` / the rig's `cut` moves) clamps every tk to `[last cut <= t, next cut > t)` and `[0, dur]`
+(`post.cutClamp(tk, t, cuts, dur)`, pure). The DoF depth mismatch above stays: DoF reads the last sub-frame's depth, so a rack focus
+during a fast move is slightly off; keep `dofGain` ramps off the fastest 0.3 s.
+**Adaptive N.** `samples: 8` (the knob) or `samples: 'auto'` with `speed` = the camera's declared screen speed in backing px per frame
+(a number, `fn(t)`, or `[{t0, t1, v}]` segments; `post.speedFromProbe(project, pts, t, fps)` measures it from `rig.worldToScreen`):
+`post.tier(V, shutter)` = hold (V < 1) 8, slow (V <= 40) 16, fast (V <= 150) 32, faster 48, never below ceil(V·shutter/2) (a step
+of <= 2 px). No `speed` declared = 16. LDR (no float buffer) caps N at 8 and reports `accum:ldr`. `renderAccumulated` returns
+`{samples, warn}` and keeps `post.last`.
+**Exporter override.** `arsenal/tools/export.mjs --shutter 0.35 --samples auto|N` sets `window.__EXPORT = {samples, shutter, fps, cuts}` before
+the page loads; `renderAccumulated` obeys it (and sets `__EXPORT.used`, so the exporter does not average twice). Films that never call
+gl-post get the same blur from the exporter itself (it averages sub-time screenshots in linear light). Same flags in factory/tools/frames.mjs.
 
 ## Params (knobs_doc rows a film exposes)
 `{name:"postLevel", options:["exec","manager","engineer"], what:"exec = tone map only; manager = dof, bloom, vignette"}`
