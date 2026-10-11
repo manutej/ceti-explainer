@@ -388,6 +388,90 @@
    "renders": [
     "80 %"
    ]
+  },
+  {
+   "id": "countTiles",
+   "value": [
+    1,
+    12,
+    24,
+    35,
+    47,
+    58,
+    69,
+    81,
+    92,
+    104,
+    115
+   ],
+   "formula": "Array.from({length: 11}, (_, b) => 1 + Math.round((tasks - 1) * b / 10))",
+   "grade": "A",
+   "source": "S2",
+   "text": "the task count-in: the hook tile, then the other 114 tiles in tenths (each value is the tiles on screen)",
+   "where": "CASE 12.5-17.0 s, callout a.tasks"
+  },
+  {
+   "id": "countTries",
+   "value": [
+    4,
+    50,
+    95,
+    141,
+    186,
+    232,
+    278,
+    323,
+    369,
+    414,
+    460
+   ],
+   "formula": "Array.from({length: 11}, (_, b) => 4 + Math.round((tries - 4) * b / 10))",
+   "grade": "A",
+   "source": "S2",
+   "text": "the try count-in: the hook task's four cubes, then the other 456 in tenths (cubes on screen)",
+   "where": "CASE 21.0-25.0 s, callout a.tries"
+  },
+  {
+   "id": "countLit",
+   "value": [
+    3,
+    31,
+    58,
+    86,
+    113,
+    141,
+    168,
+    196,
+    223,
+    251,
+    278
+   ],
+   "formula": "Array.from({length: 11}, (_, b) => 3 + Math.round((passed - 3) * b / 10))",
+   "grade": "A",
+   "source": "S2",
+   "text": "the pass count-in: the hook task's three passes, then the other 275 in tenths (lit cubes on screen)",
+   "where": "CASE 28.5-31.0 s, callout a.pass"
+  },
+  {
+   "id": "countPrs",
+   "value": [
+    0,
+    30,
+    59,
+    89,
+    118,
+    148,
+    178,
+    207,
+    237,
+    266,
+    296
+   ],
+   "formula": "Array.from({length: 11}, (_, b) => Math.round(prs * b / 10))",
+   "grade": "A",
+   "source": "S4",
+   "text": "the PR count-in: the 296 PR cubes in tenths (cubes on screen)",
+   "where": "COUNT 101.0-104.0 s, callout r.prs"
   }
  ]
 }

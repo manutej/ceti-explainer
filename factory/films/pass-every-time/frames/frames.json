@@ -10,9 +10,7 @@
   "shutter": 0.35,
   "samples": 8,
   "fps": 30,
-  "cuts": [
-   135
-  ]
+  "cuts": []
  },
  "axes": {
   "brand": "midnight-ink",
@@ -32,7 +30,7 @@
     2
    ],
    "step": 0.1,
-   "what": "s: the belief (set type, masked rise) enters beside the hook task",
+   "what": "s: the belief",
    "value": 1
   },
   {
@@ -78,62 +76,62 @@
   {
    "name": "tileT0",
    "range": [
-    12,
-    14
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the other 114 task tiles start to drop (count-in: power-out, the last 10 % of the count takes 41 % of the time)",
+   "what": "s: the other 114 tiles start to land, a tenth at a time",
    "value": 12.5
   },
   {
    "name": "tileT1",
    "range": [
-    16,
-    21
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the last task tile has landed (the 115 callout lands with its pulse)",
-   "value": 17.5
+   "what": "s: the last tenth of the tiles lands",
+   "value": 17
   },
   {
    "name": "cTasks",
    "range": [
-    12,
-    22
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the task-count callout attaches (dot, leader, label) and counts the tiles landed (the first count; count.at)",
+   "what": "s: the task count attaches (wide plan; count.at)",
    "value": 12.5
   },
   {
    "name": "cubeT0",
    "range": [
-    20,
-    25
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the other 456 cubes start to arrive, four per tile (2 x 2 footprint, unlit)",
-   "value": 20.5
+   "what": "s: the other 456 cubes start to land, a tenth at a time",
+   "value": 21
   },
   {
    "name": "cubeT1",
    "range": [
-    24,
-    28.4
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the last cube has arrived (the 460 callout lands)",
+   "what": "s: the last tenth of the cubes lands (460)",
    "value": 25
   },
   {
    "name": "cTries",
    "range": [
-    20,
-    29.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the try-count callout attaches and counts the cubes landed",
-   "value": 20.5
+   "what": "s: the try count attaches",
+   "value": 21
   },
   {
    "name": "litT0",
@@ -142,17 +140,17 @@
     32
    ],
    "step": 0.1,
-   "what": "s: the other 275 passing tries start to light gold, in a seeded order",
+   "what": "s: the other 275 passing tries start to light gold, in a seeded",
    "value": 28.5
   },
   {
    "name": "litT1",
    "range": [
-    30.5,
-    34
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the last passing try is lit (the 278 callout lands)",
+   "what": "s: the last tenth of the passes lights (278)",
    "value": 31
   },
   {
@@ -172,7 +170,7 @@
     38
    ],
    "step": 0.1,
-   "what": "s: the share of tries that pass lands with the pulse (a ratio, never rolled; >= 1.5 s after its count)",
+   "what": "s: the share of tries that pass lands with the pulse",
    "value": 35
   },
   {
@@ -188,22 +186,22 @@
   {
    "name": "m1T0",
    "range": [
-    39,
-    42
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: M1a starts: the camera orbits plan to side, the field still flat (expo-out)",
+   "what": "s: camera move starts (spring): M1a, plan to side",
    "value": 40
   },
   {
    "name": "m1T1",
    "range": [
-    40.5,
-    43
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: M1a lands on the side key",
-   "value": 41.5
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 41.6
   },
   {
    "name": "cAll",
@@ -238,230 +236,230 @@
   {
    "name": "m2T0",
    "range": [
-    59,
-    62
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: M2 starts: the same columns re-sort by tries passed (spring, anticipation, lifted arc; camera still)",
+   "what": "s: M2 starts: the same columns re-sort by tries passed, one",
    "value": 60
   },
   {
    "name": "m2T1",
    "range": [
-    60.5,
-    63
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: M2 lands (ring beat on the full block): full columns left, empty right",
-   "value": 61.5
+   "what": "s: M2 lands (ring beat)",
+   "value": 61.6
   },
   {
    "name": "c44",
    "range": [
-    62,
-    69.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: callout on the full block (tasks that pass all four tries)",
+   "what": "s: the 44 callout lands in the macro",
    "value": 64.5
   },
   {
    "name": "c22",
    "range": [
-    66,
-    72
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: callout on the empty block (tasks that never pass)",
-   "value": 68
+   "what": "s: callout on the empty block",
+   "value": 69.5
   },
   {
    "name": "c22End",
    "range": [
-    69,
-    72
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: that callout exits before the cut plane rises",
-   "value": 70
+   "what": "s: that callout exits before the plane rises",
+   "value": 71
   },
   {
    "name": "m3T0",
    "range": [
-    70,
-    75
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: M3 starts: the cut plane rises from the floor (expo-out, no overshoot); the dimming follows 0.12 s behind",
-   "value": 70.5
+   "what": "s: M3 starts: the plane rises to the all-four bar",
+   "value": 71.5
   },
   {
    "name": "m3T1",
    "range": [
-    71,
-    76
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the plane rests at the all-four bar (ring beat and an edge flash)",
-   "value": 71.5
+   "what": "s: the plane is still at the bar (ring beat, edge flash)",
+   "value": 72.7
   },
   {
    "name": "c44of",
    "range": [
-    71.5,
-    79
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: callout: the exact count of columns lit all the way, of all tasks",
-   "value": 72
+   "what": "s: callout: 44 of 115",
+   "value": 73
   },
   {
    "name": "c383",
    "range": [
-    73.5,
-    81
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: callout: the share that passes all four tries (>= 1.5 s after the count; lands with the pulse)",
-   "value": 74
+   "what": "s: callout: 38.3 % (after the count)",
+   "value": 75.5
   },
   {
    "name": "c383End",
    "range": [
-    75,
-    82.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: that callout exits",
-   "value": 76.5
+   "what": "s: that callout exits before the camera moves",
+   "value": 77
   },
   {
    "name": "lad1",
    "range": [
-    76,
-    83.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the pair opens: the one-try count line (278 of 460), its ratio follows after ladLead; the dim lifts so every lit try shows",
-   "value": 77
+   "what": "s: the pair opens",
+   "value": 79.5
   },
   {
    "name": "lad4",
    "range": [
-    79,
-    89.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the every-try count line (44 of 115), its ratio (gold) follows after ladLead; the dim returns",
-   "value": 80.5
+   "what": "s: the every-try count line, its ratio after ladLead",
+   "value": 83
   },
   {
    "name": "ladOut",
    "range": [
-    85,
-    93
+    0,
+    153
    ],
    "step": 0.1,
    "what": "s: the pair exits",
-   "value": 88.5
+   "value": 91
   },
   {
    "name": "legOut",
    "range": [
-    85,
-    94
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the unit legend (top left) exits",
-   "value": 89
+   "what": "s: the unit legend exits",
+   "value": 91
   },
   {
    "name": "paperIn",
    "range": [
-    88,
-    93
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the plate attributed to the paper's own eight-try run",
-   "value": 89.5
+   "what": "s: the plate of the paper's own eight-try run",
+   "value": 92
   },
   {
    "name": "paperOut",
    "range": [
-    92,
-    98
+    0,
+    153
    ],
    "step": 0.1,
    "what": "s: that plate exits",
-   "value": 94.5
+   "value": 96
   },
   {
    "name": "planeOut",
    "range": [
-    90,
-    99
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the cut plane and its pin fade",
-   "value": 96
+   "what": "s: the glow of the 44 fades before the travel",
+   "value": 97
   },
   {
    "name": "prCut",
    "range": [
-    99.5,
-    101
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: centre of the light wipe from the tau floor to the sheet of pull requests (new dataset; labels hand over too)",
-   "value": 100
+   "what": "s: scene switch tau to PR, in the middle of trav1 (no cut)",
+   "value": 99.9
   },
   {
    "name": "prT0",
    "range": [
-    99,
-    102
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the first pull request cube arrives (the wipe reveals the sheet as it fills)",
-   "value": 99.5
+   "what": "s: the PR cubes start to land, a tenth at a time",
+   "value": 101
   },
   {
    "name": "prT1",
    "range": [
-    102,
-    105.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the last pull request cube has arrived (the 296 callout lands)",
-   "value": 103
+   "what": "s: the last tenth of the PRs lands (296)",
+   "value": 104
   },
   {
    "name": "cPrs",
    "range": [
-    100,
-    106
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the pull-request callout attaches and counts the cubes landed",
-   "value": 100.5
+   "what": "s: the PR count attaches",
+   "value": 101
   },
   {
    "name": "cSwe",
    "range": [
-    106.5,
-    109
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: callout on the top SWE-bench Verified score (a different set: tests only; lands with the pulse)",
+   "what": "s: callout on the top SWE-bench Verified score",
    "value": 107.5
   },
   {
    "name": "cSweEnd",
    "range": [
-    109.5,
-    111.45
+    0,
+    153
    ],
-   "step": 0.05,
+   "step": 0.1,
    "what": "s: that callout exits before M4",
    "value": 111
   },
@@ -472,7 +470,7 @@
     113
    ],
    "step": 0.1,
-   "what": "s: M4 starts: the same cubes re-partition into would merge / would not merge (spring, anticipation; camera still)",
+   "what": "s: M4 starts: the same cubes re-partition into would merge /",
    "value": 111.5
   },
   {
@@ -482,218 +480,218 @@
     116
    ],
    "step": 0.1,
-   "what": "s: M4 lands (ring beat on the merged block; two equal blocks, schematic)",
+   "what": "s: M4 lands",
    "value": 113
   },
   {
    "name": "ghost0",
    "range": [
-    113,
-    119
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the not-merged block starts to dim to ghost (follow-through after the landing)",
-   "value": 113.5
+   "what": "s: the not-merged block starts to dim",
+   "value": 113.1
   },
   {
    "name": "ghost1",
    "range": [
-    113.5,
-    119.5
+    0,
+    153
    ],
    "step": 0.1,
    "what": "s: the not-merged block is dimmed",
-   "value": 114
+   "value": 113.7
   },
   {
    "name": "cHalf",
    "range": [
-    114,
-    120
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: callout: about half would not be merged (words, no digit)",
+   "what": "s: callout: about half would not be merged (words)",
    "value": 115.5
   },
   {
    "name": "cHalfEnd",
    "range": [
-    118,
-    121.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: that callout exits",
-   "value": 119.5
+   "what": "s: that callout exits before the travel",
+   "value": 119
   },
   {
    "name": "minCut",
    "range": [
-    119.5,
-    122
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: centre of the light wipe to the horizon: two columns of minutes (new dataset)",
-   "value": 120.5
+   "what": "s: scene switch PR to minutes, in the middle of trav2 (no cut)",
+   "value": 120.3
   },
   {
    "name": "min27T0",
    "range": [
-    119.5,
-    125
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the first minute cube of the 80 % column arrives (as the wipe passes)",
-   "value": 120.5
+   "what": "s: the other 26 minute cubes of the 80 % column start to land",
+   "value": 121.5
   },
   {
    "name": "min27T1",
    "range": [
-    122,
-    126.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the 80 % column is full (the 27 min callout lands)",
-   "value": 123
+   "what": "s: the 80 % column is full",
+   "value": 123.5
   },
   {
    "name": "cMin27",
    "range": [
-    120.5,
-    125
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the 80 % horizon callout attaches and counts the minutes landed",
-   "value": 121
+   "what": "s: the 27 min callout lands with the pulse (never rolled)",
+   "value": 124
   },
   {
    "name": "cMin27End",
    "range": [
-    124,
-    127
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: that callout exits (the 27 min reference pin takes its place)",
-   "value": 125.5
+   "what": "s: that callout exits before the camera moves",
+   "value": 126
   },
   {
    "name": "min289T0",
    "range": [
-    125,
-    127.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the 50 % column starts to rise (speed ramp: fast, then easing to x1 at the top)",
-   "value": 125.5
+   "what": "s: the 50 % column starts to rise",
+   "value": 128.5
   },
   {
    "name": "min289T1",
    "range": [
-    127,
-    130
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the 50 % column is full (ring beat at its top)",
-   "value": 128
+   "what": "s: the 50 % column is full (ring beat)",
+   "value": 131.5
   },
   {
    "name": "cMin289",
    "range": [
-    127.5,
-    130.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: callout on the 50 % horizon (lands with the pulse)",
-   "value": 128
+   "what": "s: the 4 h 49 min callout lands",
+   "value": 131.5
   },
   {
    "name": "cRatio",
    "range": [
-    130.5,
-    133.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: callout: the ratio of the two horizons (about, nearest ten; lands with the pulse)",
-   "value": 131
+   "what": "s: the ratio callout lands",
+   "value": 134
   },
   {
    "name": "cRatioEnd",
    "range": [
-    134,
-    135
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: that callout exits",
-   "value": 134.5
+   "what": "s: that callout exits before the travel",
+   "value": 136
   },
   {
    "name": "tauCut",
    "range": [
-    134.5,
-    136
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: hard cut back to the tau floor (the bookend)",
-   "value": 135
+   "what": "s: scene switch minutes to tau, in the middle of trav3 (no cut)",
+   "value": 137.3
   },
   {
    "name": "bookT0",
    "range": [
-    135,
-    137
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the bookend starts: the cubes return to their tiles, camera still (spring)",
-   "value": 135.5
+   "what": "s: the bookend: the cubes return to their tiles",
+   "value": 138.5
   },
   {
    "name": "bookT1",
    "range": [
-    136,
-    138
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the cubes have returned (ring beat on the field)",
-   "value": 137
+   "what": "s: the cubes have returned (ring beat)",
+   "value": 140
   },
   {
    "name": "dimT0",
    "range": [
-    134.5,
-    137
+    0,
+    153
    ],
    "step": 0.1,
    "what": "s: the floor dims so the Monday type reads",
-   "value": 135
+   "value": 138.5
   },
   {
    "name": "qIn",
    "range": [
-    137,
-    141
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the Monday question enters (left column, beside the field, line stagger)",
-   "value": 139.5
+   "what": "s: the Monday question",
+   "value": 142.5
   },
   {
    "name": "qOut",
    "range": [
-    143,
-    149.4
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the Monday columns and the bookend legend exit (gone before the card at 150)",
+   "what": "s: the Monday columns exit (before the card)",
    "value": 149
   },
   {
    "name": "honestIn",
    "range": [
-    141,
-    146
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the one honest-limits line enters (right column; stage type)",
-   "value": 143.5
+   "what": "s: the one honest-limits line",
+   "value": 144.5
   },
   {
    "name": "mondaySize",
@@ -722,7 +720,7 @@
     0.8
    ],
    "step": 0.05,
-   "what": "0-1: how far the floor is mixed toward the ground under the Monday type (0: the type sits beside the field)",
+   "what": "0-1",
    "value": 0
   },
   {
@@ -732,7 +730,7 @@
     45
    ],
    "step": 1,
-   "what": "degrees: vertical field of view, fixed for the whole film (I5 same lens)",
+   "what": "degrees",
    "value": 28
   },
   {
@@ -762,7 +760,7 @@
     60
    ],
    "step": 1,
-   "what": "world units: aim point along z in the tau poses (positive lifts the field on screen)",
+   "what": "world units",
    "value": 16
   },
   {
@@ -782,7 +780,7 @@
     50
    ],
    "step": 1,
-   "what": "degrees: elevation of the side key (lower hides back rows, higher flattens the columns)",
+   "what": "degrees",
    "value": 30
   },
   {
@@ -792,7 +790,7 @@
     60
    ],
    "step": 1,
-   "what": "world units: aim point along z in the side key (lower puts the field lower on screen, clear of the type above)",
+   "what": "world units",
    "value": -17
   },
   {
@@ -902,7 +900,7 @@
     23
    ],
    "step": 1,
-   "what": "task tiles per row on the floor (rows follow from the task count)",
+   "what": "task tiles per row on the floor",
    "value": 12
   },
   {
@@ -912,7 +910,7 @@
     50
    ],
    "step": 1,
-   "what": "pull-request cubes per row in the sheet (rows follow from the count)",
+   "what": "pull-request cubes per row in the sheet",
    "value": 37
   },
   {
@@ -948,22 +946,22 @@
   {
    "name": "prZ",
    "range": [
-    1500,
-    3500
+    600,
+    3000
    ],
-   "step": 100,
-   "what": "world units: where the pull-request floor sits (far from the tau floor so it never enters its frame)",
-   "value": 2400
+   "step": 10,
+   "what": "world z of the PR sheet and the minute floor",
+   "value": 1400
   },
   {
    "name": "minX",
    "range": [
-    3500,
-    6000
+    800,
+    5000
    ],
-   "step": 100,
-   "what": "world units: where the horizon floor sits",
-   "value": 4200
+   "step": 10,
+   "what": "world x of the minute floor",
+   "value": 1500
   },
   {
    "name": "seedLit",
@@ -972,7 +970,7 @@
     99999
    ],
    "step": 1,
-   "what": "seed: the order the passing tries light in (a permutation made once in setup)",
+   "what": "seed",
    "value": 7
   },
   {
@@ -982,7 +980,7 @@
     2000000000
    ],
    "step": 1,
-   "what": "seed: which pull requests land in which block (schematic, exactly half and half)",
+   "what": "seed",
    "value": 20261010
   },
   {
@@ -1092,7 +1090,7 @@
     0.95
    ],
    "step": 0.01,
-   "what": "0-1: how far a column below the plane is mixed toward the ground (dims, never removes)",
+   "what": "0-1",
    "value": 0.72
   },
   {
@@ -1114,16 +1112,6 @@
    "step": 2,
    "what": "world units: how far the plane overhangs the field",
    "value": 16
-  },
-  {
-   "name": "arrW",
-   "range": [
-    0.01,
-    0.1
-   ],
-   "step": 0.01,
-   "what": "fraction of a count-in window one mark takes to drop and grow into place",
-   "value": 0.04
   },
   {
    "name": "drop",
@@ -1162,7 +1150,7 @@
     0.6
    ],
    "step": 0.05,
-   "what": "0-1: how spread out in time the marks of one move leave (each keeps its own path)",
+   "what": "0-1",
    "value": 0.25
   },
   {
@@ -1172,7 +1160,7 @@
     15
    ],
    "step": 1,
-   "what": "frames a label must be pushed before it hides (gl-labels hysteresis)",
+   "what": "frames a label must be pushed before it hides",
    "value": 8
   },
   {
@@ -1232,7 +1220,7 @@
     8
    ],
    "step": 1,
-   "what": "sheet units: extra air between a label's number and the line under it (keeps descenders off the second line)",
+   "what": "sheet units",
    "value": 3
   },
   {
@@ -1272,7 +1260,7 @@
     1.5
    ],
    "step": 0.1,
-   "what": "s: a count line leads the ratio above it (counts before ratios, on stage)",
+   "what": "s: a count line leads the ratio above it",
    "value": 1
   },
   {
@@ -1302,7 +1290,7 @@
     14
    ],
    "step": 1,
-   "what": "columns per band slice front to back after M2 (11: the 44 full columns are one 4 x 11 block)",
+   "what": "columns per band slice front to back after M2",
    "value": 11
   },
   {
@@ -1312,7 +1300,7 @@
     1.5
    ],
    "step": 0.05,
-   "what": "tile pitches: aisle between the bands (4, 3, 2, 1, 0 tries passed) after M2",
+   "what": "tile pitches",
    "value": 0.7
   },
   {
@@ -1322,7 +1310,7 @@
     40
    ],
    "step": 1,
-   "what": "sheet units: air between the opening field box and the Monday columns",
+   "what": "sheet units",
    "value": 16
   },
   {
@@ -1342,7 +1330,7 @@
     34
    ],
    "step": 1,
-   "what": "sheet units: the 27 min reference pin (display face, gold) beside the 289 column",
+   "what": "sheet units",
    "value": 24
   },
   {
@@ -1352,7 +1340,7 @@
     0.02
    ],
    "step": 0.001,
-   "what": "fraction of the eye distance: ambient dolly drift during holds only (0 while a camera move runs and through its settle)",
+   "what": "fraction of the eye distance",
    "value": 0.012
   },
   {
@@ -1362,7 +1350,7 @@
     1
    ],
    "step": 0.05,
-   "what": "s: true stillness after each camera move before the drift fades in (also rig script.settle)",
+   "what": "s: true stillness after each camera move before the drift fades",
    "value": 0.4
   },
   {
@@ -1372,7 +1360,7 @@
     1
    ],
    "step": 0.1,
-   "what": "s: the hook task's four cubes start to drop onto its tile, macro shot (a hero move by 0.5 s)",
+   "what": "s: the hook task's four cubes start to drop onto its tile,",
    "value": 0
   },
   {
@@ -1412,7 +1400,7 @@
     160
    ],
    "step": 1,
-   "what": "world units: eye distance of the macro hook pose (the tile fills about half the frame height)",
+   "what": "world units",
    "value": 62
   },
   {
@@ -1422,7 +1410,7 @@
     60
    ],
    "step": 1,
-   "what": "world units: aim offset along x from the hook tile (negative puts the tile right of centre, clear of the hook type)",
+   "what": "world units",
    "value": -22
   },
   {
@@ -1432,47 +1420,47 @@
     30
    ],
    "step": 1,
-   "what": "world units: aim offset along y (positive aims higher, so the tile sits lower on screen)",
+   "what": "world units",
    "value": 7
   },
   {
    "name": "pullT0",
    "range": [
-    9.5,
-    11
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the pull-back starts: the camera rises from the macro pose to the opening plan pose (expo-out)",
+   "what": "s: camera move starts",
    "value": 10.5
   },
   {
    "name": "pullT1",
    "range": [
-    11,
-    12.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the pull-back lands on the plan pose (CASE starts on it)",
-   "value": 12
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 12.1
   },
   {
    "name": "stackT0",
    "range": [
-    41,
-    44
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: M1b starts: the same 460 cubes re-stack from 2 x 2 tiles into one column per task (spring, anticipation, stagger 0.25)",
+   "what": "s: M1b starts: the same 460 cubes re-stack into one column per",
    "value": 42
   },
   {
    "name": "stackT1",
    "range": [
-    42.5,
-    45.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: M1b lands (ring beat on an all-four column); the hold that follows has the freed seconds",
+   "what": "s: M1b lands (ring beat)",
    "value": 43.5
   },
   {
@@ -1488,22 +1476,22 @@
   {
    "name": "c44End",
    "range": [
-    65,
-    69.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: that callout exits",
-   "value": 67.5
+   "what": "s: that callout exits before the camera moves",
+   "value": 67
   },
   {
    "name": "c44ofEnd",
    "range": [
-    72.5,
-    79
+    0,
+    153
    ],
    "step": 0.1,
    "what": "s: that callout exits",
-   "value": 73.5
+   "value": 75
   },
   {
    "name": "ladLift",
@@ -1512,44 +1500,14 @@
     1
    ],
    "step": 0.05,
-   "what": "0-1: how far the cut's dimming lifts while the one-try count is on (every lit try, not only full columns)",
+   "what": "0-1",
    "value": 0.85
-  },
-  {
-   "name": "wipeW",
-   "range": [
-    0.3,
-    1.2
-   ],
-   "step": 0.05,
-   "what": "s: length of the light wipe that carries each scene join (left to right, emphasized curve)",
-   "value": 0.6
-  },
-  {
-   "name": "wipeBand",
-   "range": [
-    10,
-    120
-   ],
-   "step": 2,
-   "what": "sheet units: half width of the light band at the wipe front",
-   "value": 22
-  },
-  {
-   "name": "wipeGain",
-   "range": [
-    0,
-    1.5
-   ],
-   "step": 0.05,
-   "what": "scene-linear gain of the light band (gold; below the bloom threshold except at its core)",
-   "value": 0.45
   },
   {
    "name": "cPrsEnd",
    "range": [
-    105,
-    108
+    0,
+    153
    ],
    "step": 0.1,
    "what": "s: that callout exits",
@@ -1558,32 +1516,32 @@
   {
    "name": "cMin289End",
    "range": [
-    129.5,
-    131
+    0,
+    153
    ],
    "step": 0.1,
    "what": "s: that callout exits",
-   "value": 130.5
+   "value": 133.5
   },
   {
    "name": "bookCamT0",
    "range": [
-    137,
-    138.5
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the camera rises back to the opening plan pose (expo-out)",
-   "value": 137.5
+   "what": "s: camera move starts",
+   "value": 140.5
   },
   {
    "name": "bookCamT1",
    "range": [
-    138,
-    141
+    0,
+    153
    ],
    "step": 0.1,
-   "what": "s: the bookend lands: the opening frame, only the tasks that passed all four tries still gold",
-   "value": 139
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 142.1
   },
   {
    "name": "lookBloom",
@@ -1592,7 +1550,7 @@
     0.2
    ],
    "step": 0.01,
-   "what": "bloom gain (threshold 1.0: only the glowing all-four columns pass it; <= 0.1 by the brief)",
+   "what": "bloom gain",
    "value": 0.1
   },
   {
@@ -1602,8 +1560,8 @@
     0.02
    ],
    "step": 0.001,
-   "what": "grain sigma (seeded, 15 fps; also the dither of the dark floor ramp)",
-   "value": 0.015
+   "what": "grain sigma (seeded per frame index at grainFps)",
+   "value": 0.012
   },
   {
    "name": "lookRim",
@@ -1612,8 +1570,8 @@
     0.1
    ],
    "step": 0.005,
-   "what": "Fresnel rim on cube edges (0.05 lifts an edge 11-14 % code)",
-   "value": 0.05
+   "what": "Fresnel rim on cube edges (0.10 lifts an edge 8-16 % white)",
+   "value": 0.1
   },
   {
    "name": "lookShadow",
@@ -1622,7 +1580,7 @@
     0.7
    ],
    "step": 0.02,
-   "what": "planar contact shadow strength under the cubes (MIN-blended, never double-darkens)",
+   "what": "planar contact shadow strength under the cubes",
    "value": 0.42
   },
   {
@@ -1632,7 +1590,7 @@
     1200
    ],
    "step": 10,
-   "what": "world units: radius of the light pool on the floor under the subject",
+   "what": "world units",
    "value": 560
   },
   {
@@ -1642,7 +1600,7 @@
     80
    ],
    "step": 1,
-   "what": "world units: how far the floor plate (the second ladder step) overhangs the field",
+   "what": "world units",
    "value": 26
   },
   {
@@ -1652,7 +1610,7 @@
     4
    ],
    "step": 0.1,
-   "what": "emission of the columns lit all the way once the cut lands (> 1 passes the bloom threshold)",
+   "what": "emission of the columns lit all the way once the cut lands",
    "value": 2.2
   },
   {
@@ -1662,7 +1620,7 @@
     0.04
    ],
    "step": 0.005,
-   "what": "fraction of travel: the counter-move before a mark hero move (anticipation, about 4 frames)",
+   "what": "fraction of travel",
    "value": 0.02
   },
   {
@@ -1682,12 +1640,532 @@
     2
    ],
    "step": 0.1,
-   "what": "degrees: ambient yaw drift about the aim point during holds only (period 13.7 s)",
+   "what": "degrees",
    "value": 0.8
+  },
+  {
+   "name": "camSprZ",
+   "range": [
+    0.6,
+    1
+   ],
+   "step": 0.01,
+   "what": "camera and plane spring damping",
+   "value": 0.72
+  },
+  {
+   "name": "camSprW",
+   "range": [
+    6,
+    16
+   ],
+   "step": 0.5,
+   "what": "camera and plane spring stiffness, per move duration",
+   "value": 9
+  },
+  {
+   "name": "camWideDist",
+   "range": [
+    1200,
+    4000
+   ],
+   "step": 10,
+   "what": "eye distance of the wide plan",
+   "value": 2400
+  },
+  {
+   "name": "camWideEl",
+   "range": [
+    15,
+    60
+   ],
+   "step": 1,
+   "what": "elevation of the wide side pose (ladder, return)",
+   "value": 34
+  },
+  {
+   "name": "camWideSideDist",
+   "range": [
+    800,
+    3000
+   ],
+   "step": 10,
+   "what": "eye distance of the wide side pose",
+   "value": 1500
+  },
+  {
+   "name": "m44Az",
+   "range": [
+    -80,
+    80
+   ],
+   "step": 1,
+   "what": "azimuth of the macro on the 44 full columns",
+   "value": -60
+  },
+  {
+   "name": "m44El",
+   "range": [
+    8,
+    60
+   ],
+   "step": 1,
+   "what": "elevation of that macro",
+   "value": 28
+  },
+  {
+   "name": "m44Dist",
+   "range": [
+    150,
+    700
+   ],
+   "step": 5,
+   "what": "eye distance of that macro",
+   "value": 320
+  },
+  {
+   "name": "m27El",
+   "range": [
+    4,
+    50
+   ],
+   "step": 1,
+   "what": "elevation of the macro on the 27-minute column",
+   "value": 22
+  },
+  {
+   "name": "m27Dist",
+   "range": [
+    60,
+    400
+   ],
+   "step": 5,
+   "what": "eye distance of that macro",
+   "value": 175
+  },
+  {
+   "name": "travLift",
+   "range": [
+    0,
+    600
+   ],
+   "step": 10,
+   "what": "world units the eye lifts in the middle of a join travel",
+   "value": 220
+  },
+  {
+   "name": "carryLift",
+   "range": [
+    0,
+    200
+   ],
+   "step": 5,
+   "what": "world units the carried minute cube arcs up on the second travel",
+   "value": 30
+  },
+  {
+   "name": "pushT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: camera move starts",
+   "value": 18.5
+  },
+  {
+   "name": "pushT1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 20.1
+  },
+  {
+   "name": "in44T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: camera move starts",
+   "value": 62.5
+  },
+  {
+   "name": "in44T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 64.1
+  },
+  {
+   "name": "out44T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: camera move starts (spring): back to the medium side",
+   "value": 67.5
+  },
+  {
+   "name": "out44T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 69.1
+  },
+  {
+   "name": "wideT0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: camera move starts",
+   "value": 77.5
+  },
+  {
+   "name": "wideT1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 79.1
+  },
+  {
+   "name": "trav1T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: camera move starts",
+   "value": 99
+  },
+  {
+   "name": "trav1T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 100.8
+  },
+  {
+   "name": "trav2T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: camera move starts",
+   "value": 119.5
+  },
+  {
+   "name": "trav2T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 121.1
+  },
+  {
+   "name": "out27T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: camera move starts (spring): out to the wide minute floor",
+   "value": 126.5
+  },
+  {
+   "name": "out27T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 128.1
+  },
+  {
+   "name": "trav3T0",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: camera move starts",
+   "value": 136.5
+  },
+  {
+   "name": "trav3T1",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: that camera move is still (its tail inside)",
+   "value": 138.1
+  },
+  {
+   "name": "tasksEnd",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: the task count exits before the push",
+   "value": 18
+  },
+  {
+   "name": "m2Shutter",
+   "range": [
+    0.1,
+    1
+   ],
+   "step": 0.05,
+   "what": "shutter scale during M2",
+   "value": 0.4
+  },
+  {
+   "name": "dimLag",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.01,
+   "what": "s: how far the dimming trails the plane (3 frames)",
+   "value": 0.1
+  },
+  {
+   "name": "prPlaneOut",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: the carried plane fades under the full sheet",
+   "value": 104.5
+  },
+  {
+   "name": "sprW4",
+   "range": [
+    5,
+    12
+   ],
+   "step": 0.5,
+   "what": "mark spring stiffness on M4 and the bookend (a longer tail)",
+   "value": 8
+  },
+  {
+   "name": "rampK",
+   "range": [
+    4,
+    12
+   ],
+   "step": 0.5,
+   "what": "speed ramp: the fast rate as a multiple of the end rate",
+   "value": 8
+  },
+  {
+   "name": "rampA",
+   "range": [
+    0.2,
+    0.7
+   ],
+   "step": 0.01,
+   "what": "speed ramp: share of the time at the fast rate",
+   "value": 0.45
+  },
+  {
+   "name": "rampB",
+   "range": [
+    0.4,
+    0.9
+   ],
+   "step": 0.01,
+   "what": "speed ramp: share of the time when the rate is back to x1",
+   "value": 0.68
+  },
+  {
+   "name": "w4",
+   "range": [
+    0.005,
+    0.1
+   ],
+   "step": 0.005,
+   "what": "rank width of a 289-column cube's drop (it slows with the ramp)",
+   "value": 0.02
+  },
+  {
+   "name": "minPlaneIn",
+   "range": [
+    0,
+    153
+   ],
+   "step": 0.1,
+   "what": "s: the plane fades in on the minute floor (it carries join 3)",
+   "value": 134.5
+  },
+  {
+   "name": "dropDur",
+   "range": [
+    0.15,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "s: a landing mark's drop (count-ins count it when it lands)",
+   "value": 0.35
+  },
+  {
+   "name": "numWt",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "weight beat on a landed number, x the text-reveal stroke",
+   "value": 2
+  },
+  {
+   "name": "numPulse",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "s: length of that weight beat",
+   "value": 0.5
+  },
+  {
+   "name": "shLag",
+   "range": [
+    0,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "s: the shadows trail the marks (3 frames) and settle after them",
+   "value": 0.1
+  },
+  {
+   "name": "lookAmb",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.01,
+   "what": "ambient shadow layer strength (soft disc, MIN-blended)",
+   "value": 0.18
+  },
+  {
+   "name": "ambScale",
+   "range": [
+    1.2,
+    14
+   ],
+   "step": 0.1,
+   "what": "ambient shadow radius x a tile half width",
+   "value": 3.5
+  },
+  {
+   "name": "grainFps",
+   "range": [
+    12,
+    30
+   ],
+   "step": 1,
+   "what": "grain re-seeds per second",
+   "value": 15
+  },
+  {
+   "name": "floorLum",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "darkest code value after the grain",
+   "value": 12
+  },
+  {
+   "name": "m44X",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 1,
+   "what": "aim offset x of that macro (room for its callout)",
+   "value": 0
+  },
+  {
+   "name": "m44Z",
+   "range": [
+    -200,
+    200
+   ],
+   "step": 1,
+   "what": "aim offset z of that macro",
+   "value": -60
+  },
+  {
+   "name": "camSway",
+   "range": [
+    0,
+    3
+   ],
+   "step": 0.1,
+   "what": "deg: damped yaw sway of each camera landing (the visible settle)",
+   "value": 1.6
+  },
+  {
+   "name": "swayU",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "share of a camera move when the landing sway starts",
+   "value": 0.3
+  },
+  {
+   "name": "sprW2",
+   "range": [
+    5,
+    12
+   ],
+   "step": 0.5,
+   "what": "mark spring stiffness on M2",
+   "value": 8
+  },
+  {
+   "name": "landU",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.05,
+   "what": "share of a spring move at its visual landing: the ring beat",
+   "value": 0.45
   }
  ],
- "ms_per_frame": 5670,
- "s_per_frame": 5.67,
+ "ms_per_frame": 10408,
+ "s_per_frame": 10.408,
  "purity": {
   "pass": true,
   "at": {
@@ -1781,7 +2259,7 @@
     "id": "hook",
     "title": "Usually right"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 2,
@@ -2165,7 +2643,7 @@
     "id": "case",
     "title": "The field, then the columns"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 18,
@@ -2177,7 +2655,7 @@
     "id": "case",
     "title": "The field, then the columns"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 18.5,
@@ -2189,7 +2667,7 @@
     "id": "case",
     "title": "The field, then the columns"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 19,
@@ -2201,7 +2679,7 @@
     "id": "case",
     "title": "The field, then the columns"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 19.5,
@@ -2213,7 +2691,7 @@
     "id": "case",
     "title": "The field, then the columns"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 20,
@@ -2225,7 +2703,7 @@
     "id": "case",
     "title": "The field, then the columns"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 20.5,
@@ -2237,7 +2715,7 @@
     "id": "case",
     "title": "The field, then the columns"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 21,
@@ -2357,7 +2835,7 @@
     "id": "case",
     "title": "The field, then the columns"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 26,
@@ -2801,7 +3279,7 @@
     "id": "case",
     "title": "The field, then the columns"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 44.5,
@@ -3233,7 +3711,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 62.5,
@@ -3245,7 +3723,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 63,
@@ -3257,7 +3735,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 63.5,
@@ -3269,7 +3747,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 64,
@@ -3281,7 +3759,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 64.5,
@@ -3365,31 +3843,31 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 68,
    "file": "thumbs/t-0068.00.jpg",
    "strip": "strip-12.png",
    "cell": 4,
-   "caption": "22 never pass.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 68.5,
    "file": "thumbs/t-0068.50.jpg",
    "strip": "strip-12.png",
    "cell": 5,
-   "caption": "22 never pass.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 69,
@@ -3401,7 +3879,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 69.5,
@@ -3432,24 +3910,24 @@
    "file": "thumbs/t-0070.50.jpg",
    "strip": "strip-12.png",
    "cell": 9,
-   "caption": "Cut the field at all four tries.",
+   "caption": "22 never pass.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 71,
    "file": "thumbs/t-0071.00.jpg",
    "strip": "strip-12.png",
    "cell": 10,
-   "caption": "Cut the field at all four tries.",
+   "caption": "22 never pass.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 71.5,
@@ -3485,7 +3963,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 73,
@@ -3516,7 +3994,7 @@
    "file": "thumbs/t-0074.00.jpg",
    "strip": "strip-13.png",
    "cell": 4,
-   "caption": "All four tries pass: 38.3 %.",
+   "caption": "Cut the field at all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3528,7 +4006,7 @@
    "file": "thumbs/t-0074.50.jpg",
    "strip": "strip-13.png",
    "cell": 5,
-   "caption": "All four tries pass: 38.3 %.",
+   "caption": "Cut the field at all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3540,7 +4018,7 @@
    "file": "thumbs/t-0075.00.jpg",
    "strip": "strip-13.png",
    "cell": 6,
-   "caption": "All four tries pass: 38.3 %.",
+   "caption": "Cut the field at all four tries.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3588,7 +4066,7 @@
    "file": "thumbs/t-0077.00.jpg",
    "strip": "strip-13.png",
    "cell": 10,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3600,48 +4078,48 @@
    "file": "thumbs/t-0077.50.jpg",
    "strip": "strip-13.png",
    "cell": 11,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 78,
    "file": "thumbs/t-0078.00.jpg",
    "strip": "strip-14.png",
    "cell": 0,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 78.5,
    "file": "thumbs/t-0078.50.jpg",
    "strip": "strip-14.png",
    "cell": 1,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": "All four tries pass: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 79,
    "file": "thumbs/t-0079.00.jpg",
    "strip": "strip-14.png",
    "cell": 2,
-   "caption": "Count one try at a time: 60.4 %.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 79.5,
@@ -3672,7 +4150,7 @@
    "file": "thumbs/t-0080.50.jpg",
    "strip": "strip-14.png",
    "cell": 5,
-   "caption": "Count each task by all four tries: 38.3 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3684,7 +4162,7 @@
    "file": "thumbs/t-0081.00.jpg",
    "strip": "strip-14.png",
    "cell": 6,
-   "caption": "Count each task by all four tries: 38.3 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3696,7 +4174,7 @@
    "file": "thumbs/t-0081.50.jpg",
    "strip": "strip-14.png",
    "cell": 7,
-   "caption": "Count each task by all four tries: 38.3 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3708,7 +4186,7 @@
    "file": "thumbs/t-0082.00.jpg",
    "strip": "strip-14.png",
    "cell": 8,
-   "caption": "Count each task by all four tries: 38.3 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3720,7 +4198,7 @@
    "file": "thumbs/t-0082.50.jpg",
    "strip": "strip-14.png",
    "cell": 9,
-   "caption": "Count each task by all four tries: 38.3 %.",
+   "caption": "Count one try at a time: 60.4 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3768,7 +4246,7 @@
    "file": "thumbs/t-0084.50.jpg",
    "strip": "strip-15.png",
    "cell": 1,
-   "caption": "Same cubes, two answers. Which one was quoted?",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3780,7 +4258,7 @@
    "file": "thumbs/t-0085.00.jpg",
    "strip": "strip-15.png",
    "cell": 2,
-   "caption": "Same cubes, two answers. Which one was quoted?",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3792,7 +4270,7 @@
    "file": "thumbs/t-0085.50.jpg",
    "strip": "strip-15.png",
    "cell": 3,
-   "caption": "Same cubes, two answers. Which one was quoted?",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3804,7 +4282,7 @@
    "file": "thumbs/t-0086.00.jpg",
    "strip": "strip-15.png",
    "cell": 4,
-   "caption": "Same cubes, two answers. Which one was quoted?",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3816,7 +4294,7 @@
    "file": "thumbs/t-0086.50.jpg",
    "strip": "strip-15.png",
    "cell": 5,
-   "caption": "Same cubes, two answers. Which one was quoted?",
+   "caption": "Count each task by all four tries: 38.3 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3876,7 +4354,7 @@
    "file": "thumbs/t-0089.00.jpg",
    "strip": "strip-15.png",
    "cell": 10,
-   "caption": null,
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3888,7 +4366,7 @@
    "file": "thumbs/t-0089.50.jpg",
    "strip": "strip-15.png",
    "cell": 11,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3900,7 +4378,7 @@
    "file": "thumbs/t-0090.00.jpg",
    "strip": "strip-16.png",
    "cell": 0,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3912,7 +4390,7 @@
    "file": "thumbs/t-0090.50.jpg",
    "strip": "strip-16.png",
    "cell": 1,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3924,7 +4402,7 @@
    "file": "thumbs/t-0091.00.jpg",
    "strip": "strip-16.png",
    "cell": 2,
-   "caption": "The paper's own 8-try run: under 25 %.",
+   "caption": "Same cubes, two answers. Which one was quoted?",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3984,7 +4462,7 @@
    "file": "thumbs/t-0093.50.jpg",
    "strip": "strip-16.png",
    "cell": 7,
-   "caption": "A pass rate averages tries. Every time is per task.",
+   "caption": "The paper's own 8-try run: under 25 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -3996,7 +4474,7 @@
    "file": "thumbs/t-0094.00.jpg",
    "strip": "strip-16.png",
    "cell": 8,
-   "caption": "A pass rate averages tries. Every time is per task.",
+   "caption": "The paper's own 8-try run: under 25 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4008,7 +4486,7 @@
    "file": "thumbs/t-0094.50.jpg",
    "strip": "strip-16.png",
    "cell": 9,
-   "caption": "A pass rate averages tries. Every time is per task.",
+   "caption": "The paper's own 8-try run: under 25 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4020,7 +4498,7 @@
    "file": "thumbs/t-0095.00.jpg",
    "strip": "strip-16.png",
    "cell": 10,
-   "caption": "A pass rate averages tries. Every time is per task.",
+   "caption": "The paper's own 8-try run: under 25 %.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4092,7 +4570,7 @@
    "file": "thumbs/t-0098.00.jpg",
    "strip": "strip-17.png",
    "cell": 4,
-   "caption": null,
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4104,7 +4582,7 @@
    "file": "thumbs/t-0098.50.jpg",
    "strip": "strip-17.png",
    "cell": 5,
-   "caption": null,
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4116,19 +4594,19 @@
    "file": "thumbs/t-0099.00.jpg",
    "strip": "strip-17.png",
    "cell": 6,
-   "caption": null,
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 99.5,
    "file": "thumbs/t-0099.50.jpg",
    "strip": "strip-17.png",
    "cell": 7,
-   "caption": null,
+   "caption": "A pass rate averages tries. Every time is per task.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4241,7 +4719,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 104.5,
@@ -4469,7 +4947,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 114,
@@ -4613,7 +5091,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 120,
@@ -4625,7 +5103,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 120.5,
@@ -4757,7 +5235,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 126,
@@ -4769,7 +5247,7 @@
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 126.5,
@@ -4812,7 +5290,7 @@
    "file": "thumbs/t-0128.00.jpg",
    "strip": "strip-22.png",
    "cell": 4,
-   "caption": "4 h 49 min at the 50 % bar.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4824,7 +5302,7 @@
    "file": "thumbs/t-0128.50.jpg",
    "strip": "strip-22.png",
    "cell": 5,
-   "caption": "4 h 49 min at the 50 % bar.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4836,79 +5314,79 @@
    "file": "thumbs/t-0129.00.jpg",
    "strip": "strip-22.png",
    "cell": 6,
-   "caption": "4 h 49 min at the 50 % bar.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 129.5,
    "file": "thumbs/t-0129.50.jpg",
    "strip": "strip-22.png",
    "cell": 7,
-   "caption": "4 h 49 min at the 50 % bar.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 130,
    "file": "thumbs/t-0130.00.jpg",
    "strip": "strip-22.png",
    "cell": 8,
-   "caption": "4 h 49 min at the 50 % bar.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 130.5,
    "file": "thumbs/t-0130.50.jpg",
    "strip": "strip-22.png",
    "cell": 9,
-   "caption": "4 h 49 min at the 50 % bar.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 131,
    "file": "thumbs/t-0131.00.jpg",
    "strip": "strip-22.png",
    "cell": 10,
-   "caption": "About 10 times longer than at the 80 % bar.",
+   "caption": null,
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 131.5,
    "file": "thumbs/t-0131.50.jpg",
    "strip": "strip-22.png",
    "cell": 11,
-   "caption": "About 10 times longer than at the 80 % bar.",
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 132,
    "file": "thumbs/t-0132.00.jpg",
    "strip": "strip-23.png",
    "cell": 0,
-   "caption": "About 10 times longer than at the 80 % bar.",
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4920,7 +5398,7 @@
    "file": "thumbs/t-0132.50.jpg",
    "strip": "strip-23.png",
    "cell": 1,
-   "caption": "About 10 times longer than at the 80 % bar.",
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4932,7 +5410,7 @@
    "file": "thumbs/t-0133.00.jpg",
    "strip": "strip-23.png",
    "cell": 2,
-   "caption": "About 10 times longer than at the 80 % bar.",
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4944,7 +5422,7 @@
    "file": "thumbs/t-0133.50.jpg",
    "strip": "strip-23.png",
    "cell": 3,
-   "caption": "About 10 times longer than at the 80 % bar.",
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4956,7 +5434,7 @@
    "file": "thumbs/t-0134.00.jpg",
    "strip": "strip-23.png",
    "cell": 4,
-   "caption": "About 10 times longer than at the 80 % bar.",
+   "caption": "4 h 49 min at the 50 % bar.",
    "chapter": {
     "id": "count",
     "title": "Cut at every time"
@@ -4980,10 +5458,10 @@
    "file": "thumbs/t-0135.00.jpg",
    "strip": "strip-23.png",
    "cell": 6,
-   "caption": null,
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
-    "id": "monday",
-    "title": "Who checks the merge?"
+    "id": "count",
+    "title": "Cut at every time"
    },
    "samples": 4
   },
@@ -4992,31 +5470,31 @@
    "file": "thumbs/t-0135.50.jpg",
    "strip": "strip-23.png",
    "cell": 7,
-   "caption": "On Monday, ask for the every-time number.",
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
-    "id": "monday",
-    "title": "Who checks the merge?"
+    "id": "count",
+    "title": "Cut at every time"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 136,
    "file": "thumbs/t-0136.00.jpg",
    "strip": "strip-23.png",
    "cell": 8,
-   "caption": "On Monday, ask for the every-time number.",
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
-    "id": "monday",
-    "title": "Who checks the merge?"
+    "id": "count",
+    "title": "Cut at every time"
    },
-   "samples": 8
+   "samples": 4
   },
   {
    "t": 136.5,
    "file": "thumbs/t-0136.50.jpg",
    "strip": "strip-23.png",
    "cell": 9,
-   "caption": "On Monday, ask for the every-time number.",
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
@@ -5028,7 +5506,7 @@
    "file": "thumbs/t-0137.00.jpg",
    "strip": "strip-23.png",
    "cell": 10,
-   "caption": "On Monday, ask for the every-time number.",
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
@@ -5040,7 +5518,7 @@
    "file": "thumbs/t-0137.50.jpg",
    "strip": "strip-23.png",
    "cell": 11,
-   "caption": "On Monday, ask for the every-time number.",
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
@@ -5052,7 +5530,7 @@
    "file": "thumbs/t-0138.00.jpg",
    "strip": "strip-24.png",
    "cell": 0,
-   "caption": "On Monday, ask for the every-time number.",
+   "caption": "About 10 times longer than at the 80 % bar.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
@@ -5088,7 +5566,7 @@
    "file": "thumbs/t-0139.50.jpg",
    "strip": "strip-24.png",
    "cell": 3,
-   "caption": null,
+   "caption": "On Monday, ask for the every-time number.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
@@ -5100,60 +5578,60 @@
    "file": "thumbs/t-0140.00.jpg",
    "strip": "strip-24.png",
    "cell": 4,
-   "caption": null,
+   "caption": "On Monday, ask for the every-time number.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 140.5,
    "file": "thumbs/t-0140.50.jpg",
    "strip": "strip-24.png",
    "cell": 5,
-   "caption": null,
+   "caption": "On Monday, ask for the every-time number.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 141,
    "file": "thumbs/t-0141.00.jpg",
    "strip": "strip-24.png",
    "cell": 6,
-   "caption": null,
+   "caption": "On Monday, ask for the every-time number.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 141.5,
    "file": "thumbs/t-0141.50.jpg",
    "strip": "strip-24.png",
    "cell": 7,
-   "caption": null,
+   "caption": "On Monday, ask for the every-time number.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 142,
    "file": "thumbs/t-0142.00.jpg",
    "strip": "strip-24.png",
    "cell": 8,
-   "caption": null,
+   "caption": "On Monday, ask for the every-time number.",
    "chapter": {
     "id": "monday",
     "title": "Who checks the merge?"
    },
-   "samples": 4
+   "samples": 8
   },
   {
    "t": 142.5,

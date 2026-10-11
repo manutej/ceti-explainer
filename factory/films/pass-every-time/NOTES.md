@@ -78,3 +78,15 @@ Gate PASS G1-G12 (G11 clean, G12 100 % on grid, 29/29 captions). Warnings to shi
 - The planar shadow is hard; the 120.5 s wipe crosses a nearly empty frame; the first 0.5 s is a dark tile with one cube dropping.
 - lib/gl-camera-rig.js re-copied from the arsenal (B1 tokens, rig.curves); the film's own drift (hold-only dolly + yaw) replaces
   the rig's eye wander, which rolls the el-89 plan views.
+
+## Wave WOW re-cut, round 2 (lane B6b, 2026-10-11) · see REVISION-wow2.md
+Same page path (build/pass-every-time.midnight-ink.none.hero.html). Build: `python3 lib/revise_wow2.py && python3 lib/assemble.py &&
+python3 factory/kit2/build.py factory/films/pass-every-time --chrome none` (revise_wow2.py runs on top of revise_wow.py; it also writes the
+four count-in claims to claims.json). Gate full PASS G1-G12, G5c PASS (was WARN), G11 clean (307 samples), G12 100 % on grid, 29/29 captions.
+Export: export-wow/pass-every-time-wow2-1080p.mp4 (28.4 MB, 4590 frames; 1080p page accumulation, shutter 0.35, samples auto, no cuts; two-pass 1.5 Mbps with a 0.7 px pre-blur against glyph-edge ringing; master export-wow/wow2/master-crf14.mp4). Warnings to ship with:
+- Page 1,299,575 B of 1,300,000 (425 B left): film.json knob docs are trimmed to one clause; anything new needs bytes found first.
+- The camera settle is a designed damped yaw sway (camSway 1.6 deg): a <= 4 % spring overshoot does not read under accumulated AA.
+- No hard cut: the three joins are camera travels over one shared floor (PR sheet and minute floor at z 1400, out of every tau view;
+  kinds 2-4 fade out after the last travel, uFar). film.json cuts [] and chapters COUNT/MONDAY at 136.5.
+- Brand ink (film-local copy) #DED7C5: the old #EDE6D3 decoded to 254-255 at glyph edges after H.264.
+- G6 phone 390 overflow is kit2's shell (unchanged).

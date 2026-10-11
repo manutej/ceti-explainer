@@ -3,7 +3,7 @@
  "name": "Midnight ink (navy, bone, gold) \u00b7 film-local copy: disp set in Newsreader 600 because kit2/build.py embeds only style-normal faces and Cormorant Garamond is vendored italic-only",
  "color": {
   "bg": "#0F1A33",
-  "ink": "#EDE6D3",
+  "ink": "#DED7C5",
   "accent": "#D4AF5A",
   "accent2": "#8FA6D8",
   "muted": "#9AA3BC",
