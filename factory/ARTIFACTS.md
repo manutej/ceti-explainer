@@ -22,6 +22,7 @@ hashes in tests/baselines/builds.json). Private to the owner until shared from e
 | pass-every-time | Pass every time (Wave AI-STORIES, feature-long 153 s, webgl, no commit beat) | https://claude.ai/artifact/EubRyMwNZdsCHAXYda9zFe |
 | noether-applied | Noether applied (Wave NOETHER Part 2, feature-long 153 s, webgl, no commit beat) | https://claude.ai/artifact/Qomej1qSEf87zLpAsxuy62 |
 | noether-frontier | Noether at the frontier (Wave NOETHER Part 3, feature-long 153 s, webgl, no commit beat) | https://claude.ai/artifact/S8hjWrssLNzXsNQMj3nmSY |
+| pass-every-time (hero cut) | Pass every time, Wave WOW re-cut (feature-long 153 s, webgl, hero material at manager level, no commit beat) | https://claude.ai/artifact/EWLa7qP8yQ4yZ1kE2NULcq |
 | amdahl | Ten Times Faster | https://claude.ai/artifact/5fTRivvv9qeJT2EWK2r9ic |
 | streaks | Three bad months | https://claude.ai/artifact/42cYfY5FiETniDYxg1nZdg |
 | cost-of-delay | The Cost of Waiting | https://claude.ai/artifact/Xa8J7YUfhCfue7945fLq8n |
