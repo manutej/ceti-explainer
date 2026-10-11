@@ -1,0 +1,33 @@
+{
+ "id": "text-reveal-gate",
+ "title": "Text reveal: gate film",
+ "eyebrow": "CETI · arsenal test · text-reveal (Wave WOW B2)",
+ "lede": "A 20-second infrastructure film for the opt-in K.reveal adapter: a masked-rise block, 460 tries that land as a real count, 278 passes, a landing ring, gl-labels placements that attach dot, leader, label, and 278 of 460 landing as a figure. It exists to be gated (G11: no text over text, nothing across the caption band).",
+ "format": "smoke",
+ "level": "exec",
+ "dur": 20,
+ "seed": 7,
+ "libs": ["arsenal/patterns/gl-labels/pattern.js", "arsenal/patterns/text-reveal/pattern.js", "factory/kit2/text-reveal.js"],
+ "params": {"tries": 460, "passed": 278, "cols": 23, "rows": 20},
+ "commit": {"enabled": false},
+ "count": {"at": 9.5},
+ "chapters": [
+  {"id": "hook", "beat": "HOOK", "t0": 0, "t1": 3.6, "eyebrow": "TEXT REVEAL · HOOK", "title": "Masked rise"},
+  {"id": "case", "beat": "CASE", "t0": 3.6, "t1": 9.5, "eyebrow": "TEXT REVEAL · CASE", "title": "Counts land, labels attach"},
+  {"id": "count", "beat": "COUNT", "t0": 9.5, "t1": 15.4, "eyebrow": "TEXT REVEAL · COUNT", "title": "A ratio lands"},
+  {"id": "monday", "beat": "MONDAY", "t0": 15.4, "t1": 17, "eyebrow": "TEXT REVEAL · MONDAY", "title": "Use it"}
+ ],
+ "captions": [
+  [0.4, 3.2, "Text never pops."],
+  [3.8, 7.2, "460 tries land, then 278 pass."],
+  [7.4, 9.9, "Dot, leader, label."],
+  [10.0, 15.2, "278 of 460 is 60.4 percent: it lands, never rolls."]
+ ],
+ "brand": {"takeaway": "Text arrives. It never pops."},
+ "sources": [
+  ["WOW-MOTION", "factory/research/WOW-MOTION.md section 4 and rubric P6, P10, P14, P15, P22."],
+  ["WOW-GAP", "factory/research/WOW-GAP-AUDIT.md gaps 2 and 7."],
+  ["PET", "factory/topics/pass-every-time: 460 tries, 278 passed (the demo field reuses these counts)."]
+ ],
+ "honest": ["A test film: the field is the pass-every-time count (460 tries, 278 passed) redrawn with a seeded shuffle, not new data."]
+}

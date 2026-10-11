@@ -1,0 +1,6 @@
+[
+ {"id": "tries", "text": "460 tries", "value": 460, "formula": "tries", "source": "PET", "where": "counter, caption, label"},
+ {"id": "passed", "text": "278 passed", "value": 278, "formula": "passed", "source": "PET", "where": "counter, caption, label"},
+ {"id": "share", "text": "60.4 percent", "value": 60.4, "formula": "Math.round(passed / tries * 1000) / 10", "source": "PET", "where": "landed figure, caption"},
+ {"id": "one", "text": "try 1", "value": 1, "formula": "1", "source": "PET", "where": "label"}
+]
