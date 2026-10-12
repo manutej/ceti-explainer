@@ -1,0 +1,597 @@
+{
+ "film": "build-the-agent",
+ "params": {
+  "scenAir": 67,
+  "scenRet": 134,
+  "scenTel": 119,
+  "buildsPer": 6,
+  "litAir": 206,
+  "litRet": 507,
+  "litTel": 255,
+  "none": 44,
+  "allsix": 43,
+  "luckNone": 8.8,
+  "luckAll": 8.4,
+  "telLoLit": 31,
+  "telHiLit": 62,
+  "mmsN": 49,
+  "mmsLit": 34,
+  "mobN": 38,
+  "mobLit": 91,
+  "svcN": 32,
+  "svcLit": 130,
+  "tasksAir": 6,
+  "tasksRet": 6,
+  "tasksTel": 6,
+  "tasksBank": 35,
+  "bestAir": 55.9,
+  "bestRet": 72.8,
+  "bestTel": 48.2,
+  "bestBank": 5.9,
+  "expAir": 82.3,
+  "expRet": 84.0,
+  "expTel": 93.8,
+  "expBank": 79.8,
+  "calls": 15885,
+  "asks": 43,
+  "scaleTop": 100,
+  "scaleBase": 0
+ },
+ "rounding": "percentages use round(x,1) half-up as in the factory gate helpers; asksPct uses round(x,2); grade A = recomputed here from the open-data clone (python3 -I on every script that reads it), B = search-result text of the primary (none is on stage), C = not used",
+ "sources": {
+  "S1": {
+   "url": "https://github.com/sierra-research/hyper-tau-bench (commit 6e9f34c685d40fa7a9f5935d8970af6fd9d5f118, 2026-09-06)",
+   "what": "web/leaderboard/public/hyper-submissions/*/submission.json (six configurations x four domains) and reference.json (the expert row); recomputed by factory/topics/reliability-data/recompute.py section 1; grade A"
+  },
+  "S2": {
+   "url": "https://github.com/sierra-research/hyper-tau-bench (same commit)",
+   "what": "web/leaderboard/public/build-trajectories/rel001..053.json: one sampled build per task, the 0/1 reward of every evaluation simulation, tool calls, messages to the Client; recomputed by data/recompute.py from data/hyper-tau-{matrix,builds,summary}.json; grade A"
+  },
+  "S3": {
+   "url": "https://github.com/sierra-research/hyper-tau-bench (same commit)",
+   "what": "data/tau2/hyper/tasks/MANIFEST.md: 53 tasks = 6 airline_plus + 6 retail_plus + 6 telecom + 35 banking_knowledge; grade A"
+  },
+  "S4": {
+   "url": "https://github.com/sierra-research/hyper-tau-bench (same commit)",
+   "what": "src/tau2/hyper/sandbox/orchestrator.py and performance.py: reward = max(0, pass rate - credit overage) x latency gate; board overall = mean over the 53 tasks; grade A"
+  },
+  "S5": {
+   "url": "https://arxiv.org/abs/2609.04611",
+   "what": "Shi, Dhandhania, Narasimhan, Barres (Sierra), 2026-09-04, the benchmark paper; abstract read through search-result text (grade B); NOT a source of any number on stage"
+  },
+  "S6": {
+   "url": "factory/topics/build-the-agent/data/recompute.py",
+   "what": "this topic's recompute (reads the three JSON copies); copies verified byte-identical to factory/topics/reliability-data/; upstream script reads the clone"
+  }
+ },
+ "claims": [
+  {
+   "id": "scenAir",
+   "text": "airline: 67 customer scenarios, one tile each",
+   "value": 67,
+   "formula": "scenAir",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 17.0 s plate pin (small); caption c4 not"
+  },
+  {
+   "id": "scenRet",
+   "text": "retail: 134 customer scenarios",
+   "value": 134,
+   "formula": "scenRet",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 17.0 s plate pin (small)"
+  },
+  {
+   "id": "scenTel",
+   "text": "telecom: 119 customer scenarios",
+   "value": 119,
+   "formula": "scenTel",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 17.0 s plate pin (small); COUNT 89-98 s the plate regrouped"
+  },
+  {
+   "id": "scenarios",
+   "text": "320 scenarios on three plates (67 + 134 + 119), one tile each; the FIRST COUNT",
+   "value": 320,
+   "formula": "scenAir+scenRet+scenTel",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 17.0 s pin '320 cases'; caption c4; cut readout '43 of 320' 81.0 s; caption c19",
+   "recompute": "python3 -I factory/topics/build-the-agent/data/recompute.py | grep 'total: scenarios'",
+   "expect": "total: scenarios 320  cells 1920  lit 968  = 50.4 % of tries"
+  },
+  {
+   "id": "buildsPer",
+   "text": "six builds tried every scenario (one cube each); builders mixed, task variants differ",
+   "value": 6,
+   "formula": "buildsPer",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE captions c5 20.0 s, c11, c12, c19, c20, c22 (word 'six')",
+   "renders": [
+    "six",
+    "Six"
+   ]
+  },
+  {
+   "id": "tries",
+   "text": "1,920 tries = 320 scenarios x 6 builds, one cube each; the SECOND COUNT",
+   "value": 1920,
+   "formula": "scenarios*buildsPer",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 24.0 s pin '1,920 tries'; caption c6",
+   "renders": [
+    "1,920",
+    "1920"
+   ]
+  },
+  {
+   "id": "lit",
+   "text": "968 tries passed (lit cubes): airline 206 + retail 507 + telecom 255",
+   "value": 968,
+   "formula": "litAir+litRet+litTel",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 31.5 s pin '968 lit'; caption c8",
+   "renders": [
+    "968"
+   ]
+  },
+  {
+   "id": "litPct",
+   "text": "one try: 50.4 % of tries pass",
+   "value": 50.4,
+   "formula": "round(100*lit/tries,1)",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 34.5 s callout; caption c9",
+   "renders": [
+    "50.4 %",
+    "50.4%"
+   ]
+  },
+  {
+   "id": "dark",
+   "text": "44 scenarios solved by none of the six builds (dark columns)",
+   "value": 44,
+   "formula": "none",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 64.5 s pin '44 never lit'; caption c15",
+   "recompute": "python3 -I factory/topics/build-the-agent/data/recompute.py | grep 'never solved'",
+   "expect": "never solved 44 (luck 8.8)   solved by all six 43 (luck 8.4)   43 of 320 = 13.4 %"
+  },
+  {
+   "id": "full",
+   "text": "43 scenarios solved by all six builds (fully lit columns)",
+   "value": 43,
+   "formula": "allsix",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 68.0 s pin '43 lit in all six'; caption c16; cut readout '43 of 320' 81.0 s; caption c19",
+   "renders": [
+    "43",
+    "43 of 320"
+   ]
+  },
+  {
+   "id": "luckDark",
+   "text": "if each build solved scenarios at its own pass rate, independently, 8.8 dark columns are expected (Poisson-binomial, summed over the three plates; exact 8.820)",
+   "value": 8.8,
+   "formula": "luckNone",
+   "source": "derived",
+   "grade": "A",
+   "where": "COUNT 75.0 s luck pin; caption c18",
+   "recompute": "python3 -I factory/topics/build-the-agent/data/recompute.py | grep 'columns by lit count'",
+   "expect": "columns by lit count k=0..6: [44, 42, 46, 45, 59, 41, 43]   if luck: [8.8, 36.0, 68.8, 85.9, 73.9, 38.1, 8.4]",
+   "note": "The research table says 8.9: it adds three rounded terms (0.8 + 0.2 + 7.9). The exact sum is 8.820, so the film says 8.8."
+  },
+  {
+   "id": "luckFull",
+   "text": "if luck, 8.4 fully lit columns are expected (exact 8.400)",
+   "value": 8.4,
+   "formula": "luckAll",
+   "source": "derived",
+   "grade": "A",
+   "where": "COUNT 75.0 s luck pin; caption c18"
+  },
+  {
+   "id": "fullPct",
+   "text": "43 of 320 scenarios are solved by all six builds: 13.4 %",
+   "value": 13.4,
+   "formula": "round(100*full/scenarios,1)",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 84.5 s callout; caption c20",
+   "renders": [
+    "13.4 %",
+    "13.4%"
+   ]
+  },
+  {
+   "id": "telLo",
+   "text": "telecom, by build: the lowest build solves 31 of 119 scenarios = 26.1 %",
+   "value": 26.1,
+   "formula": "round(100*telLoLit/scenTel,1)",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 92.5 s pin; caption c22",
+   "renders": [
+    "26.1 %"
+   ],
+   "recompute": "python3 -I factory/topics/build-the-agent/data/recompute.py | grep 'lowest'",
+   "expect": "lit per build [31, 35, 40, 62, 35, 52]  -> lowest 26.1 %, highest 52.1 %  (spread 26.0 points)"
+  },
+  {
+   "id": "telHi",
+   "text": "telecom, by build: the highest build solves 62 of 119 = 52.1 %",
+   "value": 52.1,
+   "formula": "round(100*telHiLit/scenTel,1)",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 92.5 s pin; caption c22",
+   "renders": [
+    "52.1 %"
+   ]
+  },
+  {
+   "id": "kindMms",
+   "text": "telecom, MMS problems: 34 of 294 tries pass = 11.6 % (49 scenarios x 6 builds)",
+   "value": 11.6,
+   "formula": "round(100*mmsLit/(buildsPer*mmsN),1)",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 97.5 s pin; caption c23",
+   "renders": [
+    "11.6 %"
+   ],
+   "recompute": "python3 -I factory/topics/build-the-agent/data/recompute.py | grep 'mms_issue'",
+   "expect": "mms_issue          scenarios 49  cubes 294  lit  34  = 11.6 %"
+  },
+  {
+   "id": "kindMob",
+   "text": "telecom, mobile-data problems: 91 of 228 = 39.9 % (not drawn as a pin; pile height only)",
+   "value": 39.9,
+   "formula": "round(100*mobLit/(buildsPer*mobN),1)",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 97.5 s, pile geometry only, no digit on stage",
+   "renders": [
+    "39.9 %"
+   ]
+  },
+  {
+   "id": "kindSvc",
+   "text": "telecom, service problems: 130 of 192 = 67.7 % (32 scenarios x 6)",
+   "value": 67.7,
+   "formula": "round(100*svcLit/(buildsPer*svcN),1)",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 97.5 s pin; caption c23",
+   "renders": [
+    "67.7 %"
+   ]
+  },
+  {
+   "id": "spreadBuild",
+   "text": "spread across the six builds in telecom: 26.0 points (record only: the film compares by picture, no digit on stage)",
+   "value": 26.0,
+   "formula": "round(telHi-telLo,1)",
+   "source": "derived",
+   "grade": "A",
+   "where": "COUNT 101.5 s caption c24 compares without a digit"
+  },
+  {
+   "id": "spreadKind",
+   "text": "spread across the three kinds of problem in telecom: 56.1 points (record only)",
+   "value": 56.1,
+   "formula": "round(kindSvc-kindMms,1)",
+   "source": "derived",
+   "grade": "A",
+   "where": "COUNT 101.5 s caption c24 compares without a digit"
+  },
+  {
+   "id": "taskN",
+   "text": "53 tasks: 6 airline + 6 retail + 6 telecom + 35 banking; the THIRD COUNT (task tiles)",
+   "value": 53,
+   "formula": "tasksAir+tasksRet+tasksTel+tasksBank",
+   "source": "S3",
+   "grade": "A",
+   "where": "COUNT 110.0 s pin '53 tasks'; caption c25",
+   "renders": [
+    "53",
+    "53 tasks"
+   ],
+   "recompute": "python3 -I factory/topics/reliability-data/recompute.py | sed -n 1p",
+   "expect": "== 1. tasks in the manifest: 53 {'airline_plus': 6, 'retail_plus': 6, 'telecom': 6, 'banking_knowledge': 35}"
+  },
+  {
+   "id": "tAir",
+   "text": "airline: 6 tasks",
+   "value": 6,
+   "formula": "tasksAir",
+   "source": "S3",
+   "grade": "A",
+   "where": "COUNT 110.0 s plate pins '6 . 6 . 6 . 35' (small)"
+  },
+  {
+   "id": "tRet",
+   "text": "retail: 6 tasks",
+   "value": 6,
+   "formula": "tasksRet",
+   "source": "S3",
+   "grade": "A",
+   "where": "COUNT 110.0 s plate pin"
+  },
+  {
+   "id": "tTel",
+   "text": "telecom: 6 tasks",
+   "value": 6,
+   "formula": "tasksTel",
+   "source": "S3",
+   "grade": "A",
+   "where": "COUNT 110.0 s plate pin"
+  },
+  {
+   "id": "tBank",
+   "text": "banking: 35 tasks (66 % of the 53, the widest slab)",
+   "value": 35,
+   "formula": "tasksBank",
+   "source": "S3",
+   "grade": "A",
+   "where": "COUNT 110.0 s plate pin"
+  },
+  {
+   "id": "scaleBase",
+   "text": "the board's scale starts at 0",
+   "value": 0,
+   "formula": "scaleBase",
+   "source": "S4",
+   "grade": "A",
+   "where": "COUNT 110.5 s ruler tick '0'"
+  },
+  {
+   "id": "scaleTop",
+   "text": "the board's scale ends at 100 (reward is 0 to 1, shown x 100)",
+   "value": 100,
+   "formula": "scaleTop",
+   "source": "S4",
+   "grade": "A",
+   "where": "COUNT 110.5 s ruler tick '100'; caption c26",
+   "renders": [
+    "100",
+    "out of 100"
+   ]
+  },
+  {
+   "id": "best",
+   "text": "the best build configuration's board score: 23.9 = the mean over 53 tasks of the task's reward, x 100; recomputed from the four domain scores weighted 6:6:6:35 (23.92)",
+   "value": 23.9,
+   "formula": "round((tasksAir*bestAir+tasksRet*bestRet+tasksTel*bestTel+tasksBank*bestBank)/taskN,1)",
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 115.0 s pin '23.9'; caption c26; honest line",
+   "renders": [
+    "23.9"
+   ],
+   "note": "Never 'of simulations': the board number is a mean of 53 task scores (pass rate, less a credit overage, times a latency gate)."
+  },
+  {
+   "id": "bestAir",
+   "text": "best build, airline score 55.9 (slab height only, no digit)",
+   "value": 55.9,
+   "formula": "bestAir",
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 112.5 s slab geometry"
+  },
+  {
+   "id": "bestRet",
+   "text": "best build, retail score 72.8 (slab height only)",
+   "value": 72.8,
+   "formula": "bestRet",
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 112.5 s slab geometry"
+  },
+  {
+   "id": "bestTel",
+   "text": "best build, telecom score 48.2 (slab height only)",
+   "value": 48.2,
+   "formula": "bestTel",
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 112.5 s slab geometry"
+  },
+  {
+   "id": "bestBank",
+   "text": "best build, banking score 5.9",
+   "value": 5.9,
+   "formula": "bestBank",
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 122.5 s pin; caption c28",
+   "renders": [
+    "5.9"
+   ]
+  },
+  {
+   "id": "expert",
+   "text": "the expert human's board score: 82.2 (reference.json; the four domain scores weighted 6:6:6:35 give 82.14, a 0.06 rounding in the source rows)",
+   "value": 82.2,
+   "formula": null,
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 119.5 s pin '82.2'; caption c27",
+   "renders": [
+    "82.2"
+   ],
+   "recompute": "python3 -I factory/topics/reliability-data/recompute.py | grep 'EXPERT human'",
+   "expect": "EXPERT human (reference.json)               82.2          82.14       82.3  84.0  93.8  79.8"
+  },
+  {
+   "id": "expAir",
+   "text": "expert, airline 82.3 (slab height only)",
+   "value": 82.3,
+   "formula": "expAir",
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 117.5 s slab geometry"
+  },
+  {
+   "id": "expRet",
+   "text": "expert, retail 84.0 (slab height only)",
+   "value": 84.0,
+   "formula": "expRet",
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 117.5 s slab geometry"
+  },
+  {
+   "id": "expTel",
+   "text": "expert, telecom 93.8 (slab height only)",
+   "value": 93.8,
+   "formula": "expTel",
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 117.5 s slab geometry"
+  },
+  {
+   "id": "expBank",
+   "text": "expert, banking score 79.8",
+   "value": 79.8,
+   "formula": "expBank",
+   "source": "S1",
+   "grade": "A",
+   "where": "COUNT 122.5 s pin; caption c28",
+   "renders": [
+    "79.8"
+   ]
+  },
+  {
+   "id": "calls",
+   "text": "15,885 tool calls logged by the 53 sampled builds; the FOURTH COUNT (one cube each)",
+   "value": 15885,
+   "formula": "calls",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 132.0 s pin '15,885 tool calls'; caption c30",
+   "renders": [
+    "15,885",
+    "15885"
+   ],
+   "recompute": "python3 -I factory/topics/build-the-agent/data/recompute.py | grep 'tool calls logged'",
+   "expect": "tool calls logged 15885  client messages 43  = 0.27 % of calls  (369 calls per message)"
+  },
+  {
+   "id": "asks",
+   "text": "43 messages from a builder to the simulated Client",
+   "value": 43,
+   "formula": "asks",
+   "source": "S2",
+   "grade": "A",
+   "where": "MONDAY 137.0 s pin '43 questions to the client'; caption c31",
+   "renders": [
+    "43"
+   ]
+  },
+  {
+   "id": "asksPct",
+   "text": "43 of all 15,885 logged tool calls = 0.27 %",
+   "value": 0.27,
+   "formula": "round(100*asks/calls,2)",
+   "source": "S2",
+   "grade": "A",
+   "where": "MONDAY 140.0 s callout '0.27 % of all tool calls'",
+   "renders": [
+    "0.27 %",
+    "0.27%"
+   ],
+   "note": "Denominator is all calls in all 53 builds; 28 builds had no Client to ask. Counting only the 25 builds that had one: 43 in 7,497 calls = 0.57 % (not used; see brief Findings)."
+  },
+  {
+   "id": "countTiles",
+   "text": "the scenario-tile count-in: tiles on screen after each tenth landed",
+   "value": [
+    32,
+    64,
+    96,
+    128,
+    160,
+    192,
+    224,
+    256,
+    288,
+    320
+   ],
+   "formula": "Array.from({length: 10}, (_, b) => Math.round(scenarios * (b + 1) / 10))",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 12.5-17.0 s, callout a.tiles"
+  },
+  {
+   "id": "countTries",
+   "text": "the try count-in: cubes on screen after each tenth landed",
+   "value": [
+    192,
+    384,
+    576,
+    768,
+    960,
+    1152,
+    1344,
+    1536,
+    1728,
+    1920
+   ],
+   "formula": "Array.from({length: 10}, (_, b) => Math.round(tries * (b + 1) / 10))",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 20.0-23.5 s, callout a.tries"
+  },
+  {
+   "id": "countLit",
+   "text": "the pass count-in: lit cubes on screen after each tenth landed",
+   "value": [
+    97,
+    194,
+    290,
+    387,
+    484,
+    581,
+    678,
+    774,
+    871,
+    968
+   ],
+   "formula": "Array.from({length: 10}, (_, b) => Math.round(lit * (b + 1) / 10))",
+   "source": "S2",
+   "grade": "A",
+   "where": "CASE 27.5-31.0 s, callout a.pass"
+  },
+  {
+   "id": "countCalls",
+   "text": "the tool-call count-in: cubes on the sheet after each tenth landed",
+   "value": [
+    1589,
+    3177,
+    4766,
+    6354,
+    7943,
+    9531,
+    11120,
+    12708,
+    14297,
+    15885
+   ],
+   "formula": "Array.from({length: 10}, (_, b) => Math.round(calls * (b + 1) / 10))",
+   "source": "S2",
+   "grade": "A",
+   "where": "COUNT 130.0-133.5 s, callout c.calls"
+  }
+ ]
+}

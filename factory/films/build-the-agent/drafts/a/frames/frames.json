@@ -1,0 +1,5237 @@
+{
+ "page": "factory/films/build-the-agent/drafts/a/build/build-the-agent.ceti-neosage-dark.none.hero.html",
+ "film": "build-the-agent",
+ "dur": 153,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-neosage-dark",
+ "accum": {
+  "mode": "page",
+  "shutter": 0.35,
+  "samples": 4,
+  "fps": 30,
+  "cuts": []
+ },
+ "axes": {
+  "brand": "ceti-neosage-dark",
+  "chrome": "none",
+  "material": "hero",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "hook1In",
+   "range": [
+    0.5,
+    2
+   ],
+   "what": "s: the belief rises",
+   "value": 1
+  },
+  {
+   "name": "hook1Out",
+   "range": [
+    3.5,
+    5
+   ],
+   "what": "s: the belief leaves",
+   "value": 4.5
+  },
+  {
+   "name": "hook2In",
+   "range": [
+    5,
+    6.5
+   ],
+   "what": "s: the doubt rises",
+   "value": 5.5
+  },
+  {
+   "name": "hook2Out",
+   "range": [
+    8.5,
+    10
+   ],
+   "what": "s: the doubt leaves",
+   "value": 9.5
+  },
+  {
+   "name": "hookSize",
+   "range": [
+    32,
+    60
+   ],
+   "what": "units: set-type size",
+   "value": 44
+  },
+  {
+   "name": "hookAz",
+   "range": [
+    -60,
+    60
+   ],
+   "what": "deg: macro azimuth",
+   "value": -22
+  },
+  {
+   "name": "hookEl",
+   "range": [
+    8,
+    60
+   ],
+   "what": "deg: macro elevation",
+   "value": 24
+  },
+  {
+   "name": "hookDist",
+   "range": [
+    120,
+    500
+   ],
+   "what": "world: macro distance",
+   "value": 250
+  },
+  {
+   "name": "pullT0",
+   "range": [
+    9.5,
+    11
+   ],
+   "what": "s: camera pulls back from the macro to the wide plan",
+   "value": 10.5
+  },
+  {
+   "name": "pullT1",
+   "range": [
+    11.2,
+    12.4
+   ],
+   "what": "s: the pull lands",
+   "value": 12.1
+  },
+  {
+   "name": "namesAt",
+   "range": [
+    11.5,
+    13
+   ],
+   "what": "s: plate names rise",
+   "value": 12
+  },
+  {
+   "name": "numsAt",
+   "range": [
+    16,
+    19
+   ],
+   "what": "s: case counts rise under the plate names",
+   "value": 17
+  },
+  {
+   "name": "namesOut",
+   "range": [
+    36,
+    39.5
+   ],
+   "what": "s: plate names leave",
+   "value": 39.5
+  },
+  {
+   "name": "tileT0",
+   "range": [
+    12,
+    14
+   ],
+   "what": "s: scenario tiles start landing",
+   "value": 12.5
+  },
+  {
+   "name": "tileT1",
+   "range": [
+    15,
+    18
+   ],
+   "what": "s: last tile lands",
+   "value": 17
+  },
+  {
+   "name": "cubeT0",
+   "range": [
+    18,
+    22
+   ],
+   "what": "s: build cubes start landing",
+   "value": 20
+  },
+  {
+   "name": "cubeT1",
+   "range": [
+    21,
+    25
+   ],
+   "what": "s: last cube lands",
+   "value": 23.5
+  },
+  {
+   "name": "litT0",
+   "range": [
+    25,
+    29
+   ],
+   "what": "s: passing cubes start to light",
+   "value": 27.5
+  },
+  {
+   "name": "litT1",
+   "range": [
+    28,
+    33
+   ],
+   "what": "s: last passing cube lit",
+   "value": 31
+  },
+  {
+   "name": "cTilesAt",
+   "range": [
+    12,
+    14
+   ],
+   "what": "s: case-count callout enters",
+   "value": 12.5
+  },
+  {
+   "name": "cTriesAt",
+   "range": [
+    18,
+    22
+   ],
+   "what": "s: tries callout enters",
+   "value": 20
+  },
+  {
+   "name": "cPassAt",
+   "range": [
+    25,
+    29
+   ],
+   "what": "s: passed callout enters",
+   "value": 27.5
+  },
+  {
+   "name": "cPctAt",
+   "range": [
+    33,
+    37
+   ],
+   "what": "s: first ratio lands (after its count)",
+   "value": 34.5
+  },
+  {
+   "name": "cPctEnd",
+   "range": [
+    36,
+    39.5
+   ],
+   "what": "s: that callout leaves",
+   "value": 39
+  },
+  {
+   "name": "m1T0",
+   "range": [
+    38,
+    42
+   ],
+   "what": "s: M1 starts: re-stack + re-project",
+   "value": 40
+  },
+  {
+   "name": "m1T1",
+   "range": [
+    40.5,
+    44
+   ],
+   "what": "s: M1 lands",
+   "value": 41.6
+  },
+  {
+   "name": "cNoneAt",
+   "range": [
+    46,
+    52
+   ],
+   "what": "s: words callout on a dark column",
+   "value": 50
+  },
+  {
+   "name": "cNoneEnd",
+   "range": [
+    50,
+    55
+   ],
+   "what": "s: it leaves",
+   "value": 53.5
+  },
+  {
+   "name": "cAllAt",
+   "range": [
+    52,
+    56
+   ],
+   "what": "s: words callout on a full column",
+   "value": 55
+  },
+  {
+   "name": "cAllEnd",
+   "range": [
+    54,
+    59.5
+   ],
+   "what": "s: it leaves",
+   "value": 58.5
+  },
+  {
+   "name": "m2T0",
+   "range": [
+    58,
+    62
+   ],
+   "what": "s: M2 starts: re-sort by builds that passed",
+   "value": 60
+  },
+  {
+   "name": "m2T1",
+   "range": [
+    60.5,
+    64
+   ],
+   "what": "s: M2 lands",
+   "value": 61.6
+  },
+  {
+   "name": "in0T0",
+   "range": [
+    61.5,
+    64
+   ],
+   "what": "s: camera pushes in on the dark band",
+   "value": 62.5
+  },
+  {
+   "name": "in0T1",
+   "range": [
+    63,
+    65.5
+   ],
+   "what": "s: push lands",
+   "value": 64.1
+  },
+  {
+   "name": "cDarkAt",
+   "range": [
+    63.5,
+    66
+   ],
+   "what": "s: dark-band callout enters",
+   "value": 64.5
+  },
+  {
+   "name": "cDarkEnd",
+   "range": [
+    65,
+    67
+   ],
+   "what": "s: it leaves",
+   "value": 67
+  },
+  {
+   "name": "to6T0",
+   "range": [
+    65.5,
+    68
+   ],
+   "what": "s: camera pans to the full band",
+   "value": 67
+  },
+  {
+   "name": "to6T1",
+   "range": [
+    67,
+    70
+   ],
+   "what": "s: pan lands",
+   "value": 68.6
+  },
+  {
+   "name": "cFullAt",
+   "range": [
+    68,
+    70.5
+   ],
+   "what": "s: full-band callout enters",
+   "value": 69
+  },
+  {
+   "name": "cFullEnd",
+   "range": [
+    69.5,
+    71.5
+   ],
+   "what": "s: it leaves",
+   "value": 71.5
+  },
+  {
+   "name": "out6T0",
+   "range": [
+    70,
+    72.5
+   ],
+   "what": "s: camera pulls out to the medium skyline",
+   "value": 71.5
+  },
+  {
+   "name": "out6T1",
+   "range": [
+    71.5,
+    74.5
+   ],
+   "what": "s: pull lands",
+   "value": 73.1
+  },
+  {
+   "name": "ghostT0",
+   "range": [
+    72.5,
+    75
+   ],
+   "what": "s: the luck roofs start to arrive, band by band",
+   "value": 73.5
+  },
+  {
+   "name": "roofOut",
+   "range": [
+    77,
+    79
+   ],
+   "what": "s: the roofs leave",
+   "value": 78.5
+  },
+  {
+   "name": "luckAt",
+   "range": [
+    75,
+    77.5
+   ],
+   "what": "s: the two luck pins enter",
+   "value": 76
+  },
+  {
+   "name": "luckEnd",
+   "range": [
+    77,
+    79
+   ],
+   "what": "s: they leave",
+   "value": 78.5
+  },
+  {
+   "name": "m3T0",
+   "range": [
+    77.5,
+    81
+   ],
+   "what": "s: M3 starts: cut plane rises to six of six",
+   "value": 79
+  },
+  {
+   "name": "m3T1",
+   "range": [
+    79.5,
+    83
+   ],
+   "what": "s: plane at rest",
+   "value": 80.6
+  },
+  {
+   "name": "cCutAt",
+   "range": [
+    80,
+    83
+   ],
+   "what": "s: the 'of' readout enters",
+   "value": 81
+  },
+  {
+   "name": "cCutEnd",
+   "range": [
+    82,
+    84.5
+   ],
+   "what": "s: it leaves",
+   "value": 84
+  },
+  {
+   "name": "cPctFullAt",
+   "range": [
+    83,
+    86
+   ],
+   "what": "s: the share lands (after its count)",
+   "value": 84.5
+  },
+  {
+   "name": "cPctFullEnd",
+   "range": [
+    85,
+    88.5
+   ],
+   "what": "s: it leaves",
+   "value": 88
+  },
+  {
+   "name": "j1T0",
+   "range": [
+    87,
+    90
+   ],
+   "what": "s: J1 starts: telecom leaves for its plate, camera travels",
+   "value": 88.5
+  },
+  {
+   "name": "j1T1",
+   "range": [
+    89,
+    92
+   ],
+   "what": "s: J1 lands",
+   "value": 90.1
+  },
+  {
+   "name": "m4aT0",
+   "range": [
+    89.5,
+    92
+   ],
+   "what": "s: M4a starts: re-stack into six tanks by build",
+   "value": 90.5
+  },
+  {
+   "name": "m4aT1",
+   "range": [
+    91,
+    94
+   ],
+   "what": "s: M4a lands",
+   "value": 92.1
+  },
+  {
+   "name": "pinBAt",
+   "range": [
+    91.5,
+    94
+   ],
+   "what": "s: pins on the lowest and highest tank enter",
+   "value": 92.5
+  },
+  {
+   "name": "pinBEnd",
+   "range": [
+    93.5,
+    95.5
+   ],
+   "what": "s: they leave",
+   "value": 95
+  },
+  {
+   "name": "m4bT0",
+   "range": [
+    94.5,
+    97
+   ],
+   "what": "s: M4b starts: re-partition into three tanks by kind",
+   "value": 95.5
+  },
+  {
+   "name": "m4bT1",
+   "range": [
+    96,
+    99
+   ],
+   "what": "s: M4b lands",
+   "value": 97.1
+  },
+  {
+   "name": "pinKAt",
+   "range": [
+    96.5,
+    99
+   ],
+   "what": "s: pins on the kind tanks enter",
+   "value": 97.5
+  },
+  {
+   "name": "pinKEnd",
+   "range": [
+    98.5,
+    102
+   ],
+   "what": "s: they leave",
+   "value": 100
+  },
+  {
+   "name": "j3T0",
+   "range": [
+    102,
+    106
+   ],
+   "what": "s: J3 starts: camera travels to the board carrying the plane",
+   "value": 104
+  },
+  {
+   "name": "j3T1",
+   "range": [
+    103.5,
+    107.5
+   ],
+   "what": "s: J3 lands",
+   "value": 105.6
+  },
+  {
+   "name": "taskT0",
+   "range": [
+    105,
+    108
+   ],
+   "what": "s: task tiles start landing",
+   "value": 106
+  },
+  {
+   "name": "taskT1",
+   "range": [
+    107,
+    110
+   ],
+   "what": "s: last task tile lands",
+   "value": 108.5
+  },
+  {
+   "name": "c53At",
+   "range": [
+    107.5,
+    110
+   ],
+   "what": "s: task count and plate pins enter",
+   "value": 108.5
+  },
+  {
+   "name": "c53End",
+   "range": [
+    109.5,
+    112
+   ],
+   "what": "s: the task callout leaves",
+   "value": 111
+  },
+  {
+   "name": "pinsBdEnd",
+   "range": [
+    120,
+    128
+   ],
+   "what": "s: plate and ruler pins leave",
+   "value": 127.5
+  },
+  {
+   "name": "slabT0",
+   "range": [
+    110,
+    113
+   ],
+   "what": "s: slabs rise to the best build's scores",
+   "value": 111
+  },
+  {
+   "name": "slabT1",
+   "range": [
+    111,
+    114
+   ],
+   "what": "s: slabs at rest",
+   "value": 112.2
+  },
+  {
+   "name": "bestT0",
+   "range": [
+    111.5,
+    115
+   ],
+   "what": "s: the plane rises from zero to the best build's mean",
+   "value": 112.5
+  },
+  {
+   "name": "bestT1",
+   "range": [
+    113,
+    116
+   ],
+   "what": "s: it lands",
+   "value": 114.1
+  },
+  {
+   "name": "cBestAt",
+   "range": [
+    113.5,
+    116.5
+   ],
+   "what": "s: best-score callout enters",
+   "value": 114.5
+  },
+  {
+   "name": "cBestEnd",
+   "range": [
+    115.5,
+    117.5
+   ],
+   "what": "s: it leaves",
+   "value": 117
+  },
+  {
+   "name": "ghostBT0",
+   "range": [
+    116,
+    119
+   ],
+   "what": "s: the expert's ghost slabs rise",
+   "value": 117
+  },
+  {
+   "name": "ghostBT1",
+   "range": [
+    117,
+    120
+   ],
+   "what": "s: ghost slabs at rest",
+   "value": 118
+  },
+  {
+   "name": "expT0",
+   "range": [
+    117.5,
+    121
+   ],
+   "what": "s: the expert's plane starts to descend",
+   "value": 118.5
+  },
+  {
+   "name": "expT1",
+   "range": [
+    119,
+    122
+   ],
+   "what": "s: it lands",
+   "value": 120.1
+  },
+  {
+   "name": "cExpAt",
+   "range": [
+    119.5,
+    122.5
+   ],
+   "what": "s: expert-score callout enters",
+   "value": 120.5
+  },
+  {
+   "name": "cExpEnd",
+   "range": [
+    121.5,
+    123.5
+   ],
+   "what": "s: it leaves",
+   "value": 123
+  },
+  {
+   "name": "pushBT0",
+   "range": [
+    121.5,
+    125
+   ],
+   "what": "s: camera pushes in on the banking slab",
+   "value": 123
+  },
+  {
+   "name": "pushBT1",
+   "range": [
+    123,
+    126.5
+   ],
+   "what": "s: push lands",
+   "value": 124.6
+  },
+  {
+   "name": "cBankAt",
+   "range": [
+    124,
+    127
+   ],
+   "what": "s: banking pins enter",
+   "value": 125
+  },
+  {
+   "name": "cBankEnd",
+   "range": [
+    126,
+    128
+   ],
+   "what": "s: they leave",
+   "value": 127.5
+  },
+  {
+   "name": "j4T0",
+   "range": [
+    127,
+    130
+   ],
+   "what": "s: J4 starts: camera travels to the call sheet",
+   "value": 128
+  },
+  {
+   "name": "j4T1",
+   "range": [
+    128.5,
+    131.5
+   ],
+   "what": "s: J4 lands",
+   "value": 129.6
+  },
+  {
+   "name": "callT0",
+   "range": [
+    129,
+    132
+   ],
+   "what": "s: call cubes start landing",
+   "value": 130
+  },
+  {
+   "name": "callT1",
+   "range": [
+    131.5,
+    135
+   ],
+   "what": "s: last tenth lands",
+   "value": 133.5
+  },
+  {
+   "name": "cCallsAt",
+   "range": [
+    129,
+    132
+   ],
+   "what": "s: tool-call callout enters",
+   "value": 130
+  },
+  {
+   "name": "cCallsEnd",
+   "range": [
+    133.5,
+    137
+   ],
+   "what": "s: it leaves",
+   "value": 136
+  },
+  {
+   "name": "askT0",
+   "range": [
+    135,
+    138
+   ],
+   "what": "s: the questions to the client light",
+   "value": 136
+  },
+  {
+   "name": "askT1",
+   "range": [
+    136,
+    139
+   ],
+   "what": "s: they stand",
+   "value": 137.5
+  },
+  {
+   "name": "cAsksAt",
+   "range": [
+    137,
+    139.5
+   ],
+   "what": "s: questions callout enters",
+   "value": 138
+  },
+  {
+   "name": "cAsksEnd",
+   "range": [
+    139,
+    141
+   ],
+   "what": "s: it leaves",
+   "value": 140.5
+  },
+  {
+   "name": "monT0",
+   "range": [
+    139.5,
+    142
+   ],
+   "what": "s: camera tilts to the Monday view",
+   "value": 140.5
+  },
+  {
+   "name": "monT1",
+   "range": [
+    141,
+    143.5
+   ],
+   "what": "s: tilt lands",
+   "value": 142.1
+  },
+  {
+   "name": "cMonAt",
+   "range": [
+    141.5,
+    144
+   ],
+   "what": "s: share-of-calls callout enters",
+   "value": 142.5
+  },
+  {
+   "name": "cMonEnd",
+   "range": [
+    146,
+    150
+   ],
+   "what": "s: it leaves",
+   "value": 149.5
+  },
+  {
+   "name": "qIn",
+   "range": [
+    142,
+    145
+   ],
+   "what": "s: the Monday question rises",
+   "value": 143
+  },
+  {
+   "name": "qOut",
+   "range": [
+    146,
+    150
+   ],
+   "what": "s: Monday type leaves",
+   "value": 149.5
+  },
+  {
+   "name": "honestIn",
+   "range": [
+    143,
+    147
+   ],
+   "what": "s: the one limit rises",
+   "value": 144.5
+  },
+  {
+   "name": "mondaySize",
+   "range": [
+    28,
+    44
+   ],
+   "what": "units: Monday question size",
+   "value": 30
+  },
+  {
+   "name": "honestSize",
+   "range": [
+    18,
+    26
+   ],
+   "what": "units: honest line size",
+   "value": 20
+  },
+  {
+   "name": "cubeEdge",
+   "range": [
+    5,
+    12
+   ],
+   "what": "world: cube edge",
+   "value": 8
+  },
+  {
+   "name": "cubeGap",
+   "range": [
+    0.05,
+    0.5
+   ],
+   "what": "cube gap, share of edge",
+   "value": 0.18
+  },
+  {
+   "name": "scoreScale",
+   "range": [
+    0.7,
+    1.6
+   ],
+   "what": "world: height per score point",
+   "value": 1.15
+  },
+  {
+   "name": "seedA",
+   "range": [
+    1,
+    99999999
+   ],
+   "what": "seed: ambient order",
+   "value": 20261011
+  },
+  {
+   "name": "seedAsk",
+   "range": [
+    1,
+    99999999
+   ],
+   "what": "seed: cell of a question inside its build's block",
+   "value": 20261012
+  },
+  {
+   "name": "camFov",
+   "range": [
+    18,
+    40
+   ],
+   "what": "deg: lens",
+   "value": 28
+  },
+  {
+   "name": "camPlanEl",
+   "range": [
+    60,
+    89
+   ],
+   "what": "deg: plan elevation",
+   "value": 89
+  },
+  {
+   "name": "camPlanDist",
+   "range": [
+    900,
+    2200
+   ],
+   "what": "world: plan distance",
+   "value": 1700
+  },
+  {
+   "name": "camSideAz",
+   "range": [
+    -40,
+    40
+   ],
+   "what": "deg: side azimuth",
+   "value": 16
+  },
+  {
+   "name": "camSideEl",
+   "range": [
+    15,
+    60
+   ],
+   "what": "deg: side elevation",
+   "value": 30
+  },
+  {
+   "name": "camSideDist",
+   "range": [
+    800,
+    2200
+   ],
+   "what": "world: side distance",
+   "value": 1420
+  },
+  {
+   "name": "mAz",
+   "range": [
+    -40,
+    40
+   ],
+   "what": "deg: macro band azimuth",
+   "value": 18
+  },
+  {
+   "name": "mEl",
+   "range": [
+    10,
+    60
+   ],
+   "what": "deg: macro band elevation",
+   "value": 28
+  },
+  {
+   "name": "mDist",
+   "range": [
+    150,
+    600
+   ],
+   "what": "world: macro band distance",
+   "value": 300
+  },
+  {
+   "name": "stAz",
+   "range": [
+    -40,
+    40
+   ],
+   "what": "deg: telecom plate azimuth",
+   "value": 14
+  },
+  {
+   "name": "stEl",
+   "range": [
+    8,
+    60
+   ],
+   "what": "deg: telecom plate elevation",
+   "value": 24
+  },
+  {
+   "name": "stDist",
+   "range": [
+    250,
+    900
+   ],
+   "what": "world: telecom plate distance",
+   "value": 680
+  },
+  {
+   "name": "bwAz",
+   "range": [
+    -40,
+    40
+   ],
+   "what": "deg: board azimuth",
+   "value": 12
+  },
+  {
+   "name": "bwEl",
+   "range": [
+    8,
+    60
+   ],
+   "what": "deg: board elevation",
+   "value": 26
+  },
+  {
+   "name": "bwDist",
+   "range": [
+    500,
+    1600
+   ],
+   "what": "world: board distance",
+   "value": 920
+  },
+  {
+   "name": "bbAz",
+   "range": [
+    -40,
+    40
+   ],
+   "what": "deg: banking azimuth",
+   "value": 14
+  },
+  {
+   "name": "bbEl",
+   "range": [
+    8,
+    60
+   ],
+   "what": "deg: banking elevation",
+   "value": 22
+  },
+  {
+   "name": "bbDist",
+   "range": [
+    200,
+    900
+   ],
+   "what": "world: banking distance",
+   "value": 660
+  },
+  {
+   "name": "swDist",
+   "range": [
+    1000,
+    2800
+   ],
+   "what": "world: sheet plan distance",
+   "value": 2200
+  },
+  {
+   "name": "smAz",
+   "range": [
+    -30,
+    30
+   ],
+   "what": "deg: Monday azimuth",
+   "value": 0
+  },
+  {
+   "name": "smEl",
+   "range": [
+    15,
+    60
+   ],
+   "what": "deg: Monday elevation",
+   "value": 30
+  },
+  {
+   "name": "smDist",
+   "range": [
+    900,
+    3000
+   ],
+   "what": "world: Monday distance",
+   "value": 2100
+  },
+  {
+   "name": "camSprZ",
+   "range": [
+    0.5,
+    1
+   ],
+   "what": "camera spring damping",
+   "value": 0.83
+  },
+  {
+   "name": "camSprW",
+   "range": [
+    5,
+    14
+   ],
+   "what": "camera spring rate",
+   "value": 9
+  },
+  {
+   "name": "camSway",
+   "range": [
+    0,
+    3
+   ],
+   "what": "deg: landing sway (the visible settle)",
+   "value": 1.6
+  },
+  {
+   "name": "swayU",
+   "range": [
+    0,
+    0.8
+   ],
+   "what": "share of a move when the sway starts",
+   "value": 0.3
+  },
+  {
+   "name": "landU",
+   "range": [
+    0.2,
+    1
+   ],
+   "what": "share of a move at its visual landing (ring beat)",
+   "value": 0.45
+  },
+  {
+   "name": "travLift",
+   "range": [
+    0,
+    600
+   ],
+   "what": "world: eye lift mid-travel",
+   "value": 220
+  },
+  {
+   "name": "camDriftAmp",
+   "range": [
+    0,
+    0.02
+   ],
+   "what": "ambient drift on holds",
+   "value": 0.012
+  },
+  {
+   "name": "camHoldSettle",
+   "range": [
+    0,
+    1
+   ],
+   "what": "s: stillness after a move",
+   "value": 0.4
+  },
+  {
+   "name": "dropDur",
+   "range": [
+    0.15,
+    0.8
+   ],
+   "what": "s: a landing mark's drop",
+   "value": 0.35
+  },
+  {
+   "name": "lift1",
+   "range": [
+    0,
+    30
+   ],
+   "what": "world: M1 arc",
+   "value": 6
+  },
+  {
+   "name": "lift2",
+   "range": [
+    0,
+    40
+   ],
+   "what": "world: M2/M4 arc",
+   "value": 14
+  },
+  {
+   "name": "liftJ",
+   "range": [
+    0,
+    120
+   ],
+   "what": "world: J1 arc",
+   "value": 40
+  },
+  {
+   "name": "stagger",
+   "range": [
+    0,
+    0.5
+   ],
+   "what": "M1 stagger (tracked moves have none)",
+   "value": 0.25
+  },
+  {
+   "name": "markSprZ",
+   "range": [
+    0.5,
+    1
+   ],
+   "what": "mark spring damping (spring-hero)",
+   "value": 0.72
+  },
+  {
+   "name": "markSprW",
+   "range": [
+    6,
+    14
+   ],
+   "what": "mark spring rate",
+   "value": 11
+  },
+  {
+   "name": "sprW2",
+   "range": [
+    5,
+    14
+   ],
+   "what": "M2 spring rate",
+   "value": 8
+  },
+  {
+   "name": "sprW4",
+   "range": [
+    5,
+    14
+   ],
+   "what": "J1/M4 spring rate",
+   "value": 8
+  },
+  {
+   "name": "cutDim",
+   "range": [
+    0.3,
+    0.95
+   ],
+   "what": "dim of columns below the cut",
+   "value": 0.72
+  },
+  {
+   "name": "glowHero",
+   "range": [
+    1,
+    4
+   ],
+   "what": "glow of full columns",
+   "value": 2.2
+  },
+  {
+   "name": "glowAsk",
+   "range": [
+    1,
+    4
+   ],
+   "what": "glow of the questions",
+   "value": 2.4
+  },
+  {
+   "name": "plateMix",
+   "range": [
+    0.2,
+    1
+   ],
+   "what": "tile base tone",
+   "value": 0.55
+  },
+  {
+   "name": "platePanel",
+   "range": [
+    0.1,
+    0.8
+   ],
+   "what": "plate tone",
+   "value": 0.3
+  },
+  {
+   "name": "planeAlpha",
+   "range": [
+    0.05,
+    0.5
+   ],
+   "what": "plane fill",
+   "value": 0.08
+  },
+  {
+   "name": "backAlpha",
+   "range": [
+    0.05,
+    0.6
+   ],
+   "what": "backing plate fill",
+   "value": 0.07
+  },
+  {
+   "name": "lookShadow",
+   "range": [
+    0,
+    0.7
+   ],
+   "what": "key shadow",
+   "value": 0.42
+  },
+  {
+   "name": "lookRim",
+   "range": [
+    0,
+    0.1
+   ],
+   "what": "Fresnel rim",
+   "value": 0.1
+  },
+  {
+   "name": "lookBloom",
+   "range": [
+    0,
+    0.2
+   ],
+   "what": "bloom (lit marks only)",
+   "value": 0.1
+  },
+  {
+   "name": "lookGrain",
+   "range": [
+    0,
+    0.02
+   ],
+   "what": "grain sigma",
+   "value": 0.012
+  },
+  {
+   "name": "hold",
+   "range": [
+    0,
+    15
+   ],
+   "what": "frames a label must be pushed before it hides",
+   "value": 8
+  },
+  {
+   "name": "calloutSize",
+   "range": [
+    28,
+    48
+   ],
+   "what": "units: callout number",
+   "value": 34
+  },
+  {
+   "name": "plate",
+   "range": [
+    0.3,
+    1
+   ],
+   "what": "label ground",
+   "value": 0.78
+  },
+  {
+   "name": "numWt",
+   "range": [
+    1,
+    3
+   ],
+   "what": "weight beat on a landed number",
+   "value": 2
+  },
+  {
+   "name": "numPulse",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "what": "s: that beat",
+   "value": 0.5
+  }
+ ],
+ "ms_per_frame": 20258,
+ "s_per_frame": 20.258,
+ "purity": {
+  "pass": true,
+  "at": {
+   "30.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "76.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "122.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png",
+  "strip-22.png",
+  "strip-23.png",
+  "strip-24.png",
+  "strip-25.png",
+  "strip-26.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": "The best builder makes the best agent.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "The best builder makes the best agent.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "The best builder makes the best agent.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "The best builder makes the best agent.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "The best builder makes the best agent.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "The best builder makes the best agent.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "The best builder makes the best agent.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "The best builder makes the best agent.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "The best builder makes the best agent.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Does it? Test it on real customer cases.",
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The belief"
+   },
+   "samples": 4
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "Airline, shop and phone-line customer cases.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "Airline, shop and phone-line customer cases.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "Airline, shop and phone-line customer cases.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "Airline, shop and phone-line customer cases.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "Airline, shop and phone-line customer cases.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "Airline, shop and phone-line customer cases.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "Airline, shop and phone-line customer cases.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "Airline, shop and phone-line customer cases.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "Airline, shop and phone-line customer cases.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "320 cases. One tile each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "320 cases. One tile each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "320 cases. One tile each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "320 cases. One tile each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "320 cases. One tile each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "320 cases. One tile each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Six agent builds tried every case.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Six agent builds tried every case.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Six agent builds tried every case.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Six agent builds tried every case.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Six agent builds tried every case.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Six agent builds tried every case.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Six agent builds tried every case.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "1,920 tries. One cube each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "1,920 tries. One cube each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "1,920 tries. One cube each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "1,920 tries. One cube each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "1,920 tries. One cube each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "1,920 tries. One cube each.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "A lit cube is a try that passed.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "A lit cube is a try that passed.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "A lit cube is a try that passed.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "A lit cube is a try that passed.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "A lit cube is a try that passed.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "A lit cube is a try that passed.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "A lit cube is a try that passed.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "968 cubes are lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "968 cubes are lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "968 cubes are lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "968 cubes are lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "968 cubes are lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "About half of the tries pass: 50.4 %.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "About half of the tries pass: 50.4 %.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "About half of the tries pass: 50.4 %.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "About half of the tries pass: 50.4 %.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "About half of the tries pass: 50.4 %.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "About half of the tries pass: 50.4 %.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "About half of the tries pass: 50.4 %.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "About half of the tries pass: 50.4 %.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "Now turn the field. Each case becomes a column.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "A column is one case, tried six ways.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "A column is one case, tried six ways.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "A column is one case, tried six ways.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "A column is one case, tried six ways.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "A column is one case, tried six ways.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "A column is one case, tried six ways.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "A column is one case, tried six ways.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "A column is one case, tried six ways.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Six different builds, not six repeats of one.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "Six different builds, not six repeats of one.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": "Six different builds, not six repeats of one.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "Six different builds, not six repeats of one.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "Six different builds, not six repeats of one.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "Six different builds, not six repeats of one.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "Six different builds, not six repeats of one.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "Six different builds, not six repeats of one.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "Six different builds, not six repeats of one.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "Look for columns that are all dark or all lit.",
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Four plates, six builds"
+   },
+   "samples": 4
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "Sort the cases by how many builds solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "Sort the cases by how many builds solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "Sort the cases by how many builds solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Sort the cases by how many builds solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "Sort the cases by how many builds solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Sort the cases by how many builds solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Sort the cases by how many builds solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Sort the cases by how many builds solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Sort the cases by how many builds solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "44 cases: no build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "44 cases: no build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "44 cases: no build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "44 cases: no build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "44 cases: no build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "44 cases: no build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "44 cases: no build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "43 cases: every build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "43 cases: every build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "43 cases: every build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "43 cases: every build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "43 cases: every build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "43 cases: every build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "43 cases: every build solved them.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "Now scatter the same wins at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "Now scatter the same wins at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "Now scatter the same wins at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "Now scatter the same wins at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "Now scatter the same wins at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Now scatter the same wins at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "Now scatter the same wins at random.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Luck would leave 8.8 dark and 8.4 full.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Luck would leave 8.8 dark and 8.4 full.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Luck would leave 8.8 dark and 8.4 full.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Luck would leave 8.8 dark and 8.4 full.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Luck would leave 8.8 dark and 8.4 full.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "Luck would leave 8.8 dark and 8.4 full.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Luck would leave 8.8 dark and 8.4 full.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Luck would leave 8.8 dark and 8.4 full.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Cut at six of six: 43 of 320 cases.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Cut at six of six: 43 of 320 cases.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "Cut at six of six: 43 of 320 cases.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": "Cut at six of six: 43 of 320 cases.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "Cut at six of six: 43 of 320 cases.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "Cut at six of six: 43 of 320 cases.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "Cut at six of six: 43 of 320 cases.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "Only 13.4 % of cases are solved by all six.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "Only 13.4 % of cases are solved by all six.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "Only 13.4 % of cases are solved by all six.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "Only 13.4 % of cases are solved by all six.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "Only 13.4 % of cases are solved by all six.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "Only 13.4 % of cases are solved by all six.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "Only 13.4 % of cases are solved by all six.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "Only 13.4 % of cases are solved by all six.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "Phone lines, regrouped by build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "Phone lines, regrouped by build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "Phone lines, regrouped by build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "Phone lines, regrouped by build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "Phone lines, regrouped by build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "Phone lines, regrouped by build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "Phone lines, regrouped by build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "Six builds: from 26.1 % to 52.1 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "Six builds: from 26.1 % to 52.1 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "Six builds: from 26.1 % to 52.1 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "Six builds: from 26.1 % to 52.1 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "Six builds: from 26.1 % to 52.1 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "Six builds: from 26.1 % to 52.1 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "Six builds: from 26.1 % to 52.1 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "By kind of problem: 11.6 % to 67.7 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "By kind of problem: 11.6 % to 67.7 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "By kind of problem: 11.6 % to 67.7 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "By kind of problem: 11.6 % to 67.7 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "By kind of problem: 11.6 % to 67.7 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "By kind of problem: 11.6 % to 67.7 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "By kind of problem: 11.6 % to 67.7 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "By kind of problem: 11.6 % to 67.7 %.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "So the case matters more than the build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "So the case matters more than the build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "So the case matters more than the build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "So the case matters more than the build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "So the case matters more than the build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "So the case matters more than the build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "So the case matters more than the build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "So the case matters more than the build.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": "Now the score: 53 tasks, four businesses.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "Now the score: 53 tasks, four businesses.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "Now the score: 53 tasks, four businesses.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "Now the score: 53 tasks, four businesses.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": "Now the score: 53 tasks, four businesses.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "Now the score: 53 tasks, four businesses.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": "Now the score: 53 tasks, four businesses.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "Now the score: 53 tasks, four businesses.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "The best builder scores 23.9 out of 100.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "The best builder scores 23.9 out of 100.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "The best builder scores 23.9 out of 100.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "The best builder scores 23.9 out of 100.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "The best builder scores 23.9 out of 100.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "The best builder scores 23.9 out of 100.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "The best builder scores 23.9 out of 100.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "The best builder scores 23.9 out of 100.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "An expert who knows the test scores 82.2.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "An expert who knows the test scores 82.2.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "An expert who knows the test scores 82.2.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": "An expert who knows the test scores 82.2.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": "An expert who knows the test scores 82.2.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": "An expert who knows the test scores 82.2.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": "An expert who knows the test scores 82.2.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": "An expert who knows the test scores 82.2.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 123,
+   "file": "thumbs/t-0123.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": "In banking: 5.9 against 79.8.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 123.5,
+   "file": "thumbs/t-0123.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 7,
+   "caption": "In banking: 5.9 against 79.8.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 124,
+   "file": "thumbs/t-0124.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 8,
+   "caption": "In banking: 5.9 against 79.8.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 124.5,
+   "file": "thumbs/t-0124.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 9,
+   "caption": "In banking: 5.9 against 79.8.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 125,
+   "file": "thumbs/t-0125.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 10,
+   "caption": "In banking: 5.9 against 79.8.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 125.5,
+   "file": "thumbs/t-0125.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 11,
+   "caption": "In banking: 5.9 against 79.8.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 126,
+   "file": "thumbs/t-0126.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 0,
+   "caption": "In banking: 5.9 against 79.8.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 126.5,
+   "file": "thumbs/t-0126.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 1,
+   "caption": "In banking: 5.9 against 79.8.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 127,
+   "file": "thumbs/t-0127.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 127.5,
+   "file": "thumbs/t-0127.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 128,
+   "file": "thumbs/t-0128.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 128.5,
+   "file": "thumbs/t-0128.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 129,
+   "file": "thumbs/t-0129.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 129.5,
+   "file": "thumbs/t-0129.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 7,
+   "caption": "Last: what the builders asked the client.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 130,
+   "file": "thumbs/t-0130.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 8,
+   "caption": "Last: what the builders asked the client.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 130.5,
+   "file": "thumbs/t-0130.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 9,
+   "caption": "Last: what the builders asked the client.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 131,
+   "file": "thumbs/t-0131.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 10,
+   "caption": "Last: what the builders asked the client.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 131.5,
+   "file": "thumbs/t-0131.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 11,
+   "caption": "Last: what the builders asked the client.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 132,
+   "file": "thumbs/t-0132.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 0,
+   "caption": "Last: what the builders asked the client.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 132.5,
+   "file": "thumbs/t-0132.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 1,
+   "caption": "Last: what the builders asked the client.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 133,
+   "file": "thumbs/t-0133.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 2,
+   "caption": "Last: what the builders asked the client.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 133.5,
+   "file": "thumbs/t-0133.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 3,
+   "caption": "15,885 tool calls. One cube each.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 134,
+   "file": "thumbs/t-0134.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 4,
+   "caption": "15,885 tool calls. One cube each.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 134.5,
+   "file": "thumbs/t-0134.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 5,
+   "caption": "15,885 tool calls. One cube each.",
+   "chapter": {
+    "id": "count",
+    "title": "Case, build, score"
+   },
+   "samples": 4
+  },
+  {
+   "t": 135,
+   "file": "thumbs/t-0135.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 6,
+   "caption": "15,885 tool calls. One cube each.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 135.5,
+   "file": "thumbs/t-0135.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 7,
+   "caption": "15,885 tool calls. One cube each.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 136,
+   "file": "thumbs/t-0136.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 8,
+   "caption": "15,885 tool calls. One cube each.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 136.5,
+   "file": "thumbs/t-0136.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 9,
+   "caption": "15,885 tool calls. One cube each.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 137,
+   "file": "thumbs/t-0137.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 137.5,
+   "file": "thumbs/t-0137.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 138,
+   "file": "thumbs/t-0138.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 0,
+   "caption": "43 were questions to the client.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 138.5,
+   "file": "thumbs/t-0138.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 1,
+   "caption": "43 were questions to the client.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 139,
+   "file": "thumbs/t-0139.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 2,
+   "caption": "43 were questions to the client.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 139.5,
+   "file": "thumbs/t-0139.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 3,
+   "caption": "43 were questions to the client.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 140,
+   "file": "thumbs/t-0140.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 4,
+   "caption": "43 were questions to the client.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 140.5,
+   "file": "thumbs/t-0140.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 5,
+   "caption": "43 were questions to the client.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 141,
+   "file": "thumbs/t-0141.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 6,
+   "caption": "43 were questions to the client.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 141.5,
+   "file": "thumbs/t-0141.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 7,
+   "caption": "43 were questions to the client.",
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 142,
+   "file": "thumbs/t-0142.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 142.5,
+   "file": "thumbs/t-0142.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 143,
+   "file": "thumbs/t-0143.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 143.5,
+   "file": "thumbs/t-0143.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 144,
+   "file": "thumbs/t-0144.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 144.5,
+   "file": "thumbs/t-0144.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 145,
+   "file": "thumbs/t-0145.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 145.5,
+   "file": "thumbs/t-0145.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 146,
+   "file": "thumbs/t-0146.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 146.5,
+   "file": "thumbs/t-0146.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 147,
+   "file": "thumbs/t-0147.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 147.5,
+   "file": "thumbs/t-0147.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 148,
+   "file": "thumbs/t-0148.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 148.5,
+   "file": "thumbs/t-0148.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 149,
+   "file": "thumbs/t-0149.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 149.5,
+   "file": "thumbs/t-0149.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 150,
+   "file": "thumbs/t-0150.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 150.5,
+   "file": "thumbs/t-0150.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 151,
+   "file": "thumbs/t-0151.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 151.5,
+   "file": "thumbs/t-0151.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 152,
+   "file": "thumbs/t-0152.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 152.5,
+   "file": "thumbs/t-0152.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  },
+  {
+   "t": 152.99,
+   "file": "thumbs/t-0152.99.jpg",
+   "strip": "strip-26.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Ask the client"
+   },
+   "samples": 4
+  }
+ ]
+}
