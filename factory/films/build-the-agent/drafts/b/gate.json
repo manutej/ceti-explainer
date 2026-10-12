@@ -1,0 +1,441 @@
+{
+  "film": "build-the-agent",
+  "page": "factory/films/build-the-agent/drafts/b/build/build-the-agent.ceti-neosage-dark.none.hero.html",
+  "filmDir": "factory/films/build-the-agent/drafts/b",
+  "date": "2026-10-12T03:25:33.861Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 4653 ms; stage sd 30.6s:33.9 76.5s:31.9 122.4s:33.2",
+      "data": {
+        "readyMs": 4653,
+        "stats": [
+          {
+            "t": 30.6,
+            "mean": 34.67695299960944,
+            "sd": 33.888115169400656
+          },
+          {
+            "t": 76.5,
+            "mean": 27.450968865741803,
+            "sd": 31.93678631101256
+          },
+          {
+            "t": 122.4,
+            "mean": 29.15839121335463,
+            "sd": 33.18342678323758
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 15.3, 45.9, 76.5, 107.1, 137.7 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, pattern.js, text-reveal.js, commit-off.js, kit2.js, player.js (player: rAF/Date/perf allowed), text-reveal.js",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 153 s; material 150 s (want 140–180, format feature-long) + brand 3 s; total ≤ 183"
+    },
+    {
+      "id": "G4b",
+      "name": "format · beats",
+      "status": "PASS",
+      "evidence": "order HOOK → CASE → COUNT → MONDAY; t0 H0 C12 C60 M135"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit {\"enabled\":false}"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Ask the client. Test on the hard cases.\"; frame at 152 s sd 18.4; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"One sampled build per task, builders mixed: columns are different builds, not re\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "6 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "40 claims, 39 with formula, 39 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 31 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "12 visible number(s) not in claims (chrome?): 160 @14s \"160\"; 256 @15s \"256\"; 288 @16s \"288\"; 768 @21s \"768\"; 1,728 @23s \"1,728\"; 290 @28s \"290\"",
+      "data": {
+        "unknown": [
+          "160 @14s \"160\"",
+          "256 @15s \"256\"",
+          "288 @16s \"288\"",
+          "768 @21s \"768\"",
+          "1,728 @23s \"1,728\"",
+          "290 @28s \"290\"",
+          "678 @29s \"678\"",
+          "871 @30s \"871\"",
+          "42 @109s \"42\"",
+          "4,766 @129s \"4,766\"",
+          "11,120 @130s \"11,120\"",
+          "14,297 @131s \"14,297\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "4 must-read / 3 secondary / 6 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 407/390 OVERFLOW, shot /tmp/claude-0/-home-user/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/bta-b/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 4,
+          "secondary": 3,
+          "chrome": 6
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 12.5 s (count.at); first ratio \"About half of the tries pass: 50.4 %.\" at 34.5 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 83.4 KB (film.js 49.8, film.json 18.6, claims.json 15.1) < 120 KB; page 1.297 MB < 1.3 MB",
+      "data": {
+        "code": 85428,
+        "page": 1297432
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand ceti-neosage-dark, chrome none, material hero, texture none; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "ceti-neosage-dark",
+          "chrome": "none",
+          "material": "hero",
+          "texture": "none",
+          "texture_declared": "none",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    },
+    {
+      "id": "G11",
+      "name": "text overlap",
+      "status": "PASS",
+      "evidence": "307 samples every 0.5 s, 94 distinct texts (texts with data-role), caption showing at 210; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
+      "data": {
+        "step": 0.5,
+        "samples": 307,
+        "mode": "texts with data-role",
+        "canvasText": "not seen",
+        "fail": 0,
+        "warn": 0,
+        "legacy": false,
+        "instances": []
+      }
+    },
+    {
+      "id": "G12",
+      "name": "rhythm",
+      "status": "PASS",
+      "evidence": "beat 0.5 s (15 frames; +-2 frames): 55/55 starts on the grid = 100 % (captions 31/31, moves 24/24; want >= 80 %); captions holding >= 1.3 s + 0.06 s/char: 31/31; dead holds > 8 s: 0. WARN-only (D16); the moves counted are in data.moves.",
+      "data": {
+        "fps": 30,
+        "tolFrames": 2,
+        "beat": 0.5,
+        "refBeat": 0.5,
+        "onGrid": 55,
+        "events": 55,
+        "share": 1,
+        "want": 0.8,
+        "captions": {
+          "n": 31,
+          "onGrid": 31,
+          "holdOk": 31,
+          "holdFail": 0,
+          "rule": "1.3 s + 0.06 s/char"
+        },
+        "moves": [
+          {
+            "t": 12,
+            "names": [
+              "pullT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 12.5,
+            "names": [
+              "tileT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 20,
+            "names": [
+              "cubeT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 27.5,
+            "names": [
+              "litT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 40,
+            "names": [
+              "m1T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 60,
+            "names": [
+              "m2T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 62,
+            "names": [
+              "mDT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 67,
+            "names": [
+              "mFT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 71.5,
+            "names": [
+              "mLT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 73.5,
+            "names": [
+              "ghostT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 79,
+            "names": [
+              "m3T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 88.5,
+            "names": [
+              "j1T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 90.5,
+            "names": [
+              "m4aT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 95.5,
+            "names": [
+              "m4bT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 105.5,
+            "names": [
+              "j3T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 107.5,
+            "names": [
+              "taskT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 112.5,
+            "names": [
+              "slabT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 114,
+            "names": [
+              "bestT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 118,
+            "names": [
+              "expT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 119.5,
+            "names": [
+              "mCT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 126,
+            "names": [
+              "j4T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 128,
+            "names": [
+              "callT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 135,
+            "names": [
+              "askT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 139.5,
+            "names": [
+              "mMT0"
+            ],
+            "off": 0,
+            "on": true
+          }
+        ],
+        "nMoves": 24,
+        "nMovesOn": 24,
+        "holdFail": [],
+        "dead": [],
+        "deadRule": "no caption change, time knob, rig move or brand card for > 8 s"
+      }
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 21.27, 41.53, 61.8, 82.07, 102.33, 122.6, 153 s → /tmp/claude-0/-home-user/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/bta-b/shots"
+    }
+  ]
+}
