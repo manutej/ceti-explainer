@@ -20,7 +20,7 @@ Re-skin for any brand WITHOUT touching diagram code:
             SKILL.md — keep the locked fonts unless you re-run layout QA.)
 Diagrams reference role tokens only, so swapping preset/theme re-skins everything.
 """
-import sys, os, argparse
+import sys, os, argparse, html, json, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -29,7 +29,23 @@ def read(p):
         return f.read()
 
 def safe_js(s):
-    return s.replace("</script", "<\\/script")
+    return re.sub(r"</(script)", r"<\\/\1", s, flags=re.I)
+
+def strip_remote_css_urls(css):
+    """Drop @import url(...) that point off-disk so the page never fetches the network."""
+    css = re.sub(
+        r'@import\s+url\s*\(\s*["\']?(?:https?:)?//[^"\')\s]+["\']?\s*\)\s*;?',
+        "",
+        css,
+        flags=re.I,
+    )
+    return css
+
+def fill_placeholders(template, mapping):
+    """Substitute every placeholder in one pass; inserted values are never rescanned."""
+    keys = sorted(mapping.keys(), key=len, reverse=True)
+    pattern = "|".join(re.escape(k) for k in keys)
+    return re.sub(pattern, lambda m: mapping[m.group(0)], template)
 
 def main():
     ap = argparse.ArgumentParser()
@@ -50,19 +66,26 @@ def main():
             sys.exit(f"unknown preset '{a.preset}' (looked for {ppath})")
         preset = read(ppath)
 
-    html = (read(os.path.join(HERE, "shell.template.html"))
-        .replace("__TITLE__", a.title)
-        .replace("__BRAND__", a.brand)
-        .replace("__PRESET_OVERRIDE__", preset)
-        .replace("__THEME_OVERRIDE__", theme)
-        .replace("__TOKENS_CSS__", read(os.path.join(HERE, "ceti-tokens.css")))
-        .replace("__MOTION_CSS__", read(os.path.join(HERE, "ceti-motion.css")))
-        .replace("__ENGINE_JS__", safe_js(read(os.path.join(HERE, "engine.js"))))
-        .replace("__EPISODE_JS__", safe_js(read(a.episode))))
+    brand_js = safe_js(json.dumps(a.brand)[1:-1].replace("<", "\\u003c"))
+    tokens_css = strip_remote_css_urls(read(os.path.join(HERE, "ceti-tokens.css")))
+    motion_css = strip_remote_css_urls(read(os.path.join(HERE, "ceti-motion.css")))
+
+    mapping = {
+        "__TITLE__": html.escape(a.title),
+        "__BRAND_JS__": brand_js,
+        "__BRAND__": html.escape(a.brand),
+        "__PRESET_OVERRIDE__": preset,
+        "__THEME_OVERRIDE__": theme,
+        "__TOKENS_CSS__": tokens_css,
+        "__MOTION_CSS__": motion_css,
+        "__ENGINE_JS__": safe_js(read(os.path.join(HERE, "engine.js"))),
+        "__EPISODE_JS__": safe_js(read(a.episode)),
+    }
+    page = fill_placeholders(read(os.path.join(HERE, "shell.template.html")), mapping)
 
     with open(out, "w", encoding="utf-8") as f:
-        f.write(html)
-    kb = len(html.encode("utf-8")) / 1024
+        f.write(page)
+    kb = len(page.encode("utf-8")) / 1024
     tag = f" · brand '{a.brand}'" + (f" · preset {a.preset}" if a.preset else "") + (f" · theme {os.path.basename(a.theme)}" if a.theme else "")
     print(f"✓ wrote {out}  ({kb:.0f} KB, self-contained){tag}")
 
