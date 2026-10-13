@@ -1,0 +1,62 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/demo.html",
+ "errors": [],
+ "variants": {
+  "confusion-2x2": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/confusion-2x2-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/confusion-2x2-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/confusion-2x2-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/confusion-2x2-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "confusion-4x4": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/confusion-4x4-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/confusion-4x4-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/confusion-4x4-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/confusion-4x4-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "heatmap-20": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/heatmap-20-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/heatmap-20-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/heatmap-20-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/heatmap-20-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "territory-hex": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/territory-hex-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/territory-hex-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/territory-hex-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/territory-hex-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "territory-square": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/territory-square-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/territory-square-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/territory-square-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/territory-square-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "matrix-graph": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/matrix-graph-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/matrix-graph-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/matrix-graph-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/matrix-graph-t6.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 6,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/maps-matrices/shots/contact.png"
+}

@@ -1,0 +1,216 @@
+{
+  "film": "noether-symmetry",
+  "page": "factory/films/noether-symmetry/drafts/b/build/noether-symmetry.ceti-coastal-dark.none.html",
+  "filmDir": "factory/films/noether-symmetry/drafts/b",
+  "date": "2026-10-10T17:10:36.182Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1337 ms; stage sd 30.6s:27.9 76.5s:23.9 122.4s:22.2",
+      "data": {
+        "readyMs": 1337,
+        "stats": [
+          {
+            "t": 30.6,
+            "mean": 32.92159890046256,
+            "sd": 27.866064535241087
+          },
+          {
+            "t": 76.5,
+            "mean": 30.84567384259191,
+            "sd": 23.903086491472735
+          },
+          {
+            "t": 122.4,
+            "mean": 31.082996884642764,
+            "sd": 22.173912381996924
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 15.3, 45.9, 76.5, 107.1, 137.7 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, data.js, arsenal.gen.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 153 s; material 150 s (want 140–180, format feature-long) + brand 3 s; total ≤ 183"
+    },
+    {
+      "id": "G4b",
+      "name": "format · beats",
+      "status": "PASS",
+      "evidence": "order HOOK → CASE → COUNT → MONDAY; t0 H0 C12 C60 M135"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit {\"enabled\":false}"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Every symmetry hides something that stays.\"; frame at 152 s sd 15.1; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Simulated orbits, a toy network, ideal laws: real systems drift a little.\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "11 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "40 claims, 22 with formula, 22 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 37 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "10 visible number(s) not in claims (chrome?): 9 @15s \"59\"; 222 @16s \"222\"; 8 @17s \"468\"; 777 @18s \"777\"; 1,128 @19s \"1,128\"; 1,871 @21s \"1,871\"",
+      "data": {
+        "unknown": [
+          "9 @15s \"59\"",
+          "222 @16s \"222\"",
+          "8 @17s \"468\"",
+          "777 @18s \"777\"",
+          "1,128 @19s \"1,128\"",
+          "1,871 @21s \"1,871\"",
+          "2,222 @22s \"2,222\"",
+          "2,777 @24s \"2,777\"",
+          "2,940 @25s \"2,940\"",
+          "20 @86s \"620 of the 3,000 dots\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "11 must-read / 15 secondary / 0 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 741/390 OVERFLOW, shot factory/films/noether-symmetry/drafts/b/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 11,
+          "secondary": 15,
+          "chrome": 0
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 26 s (count.at); first ratio \"Only 0.011 % apart.\" at 53.5 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 64.9 KB (film.js 31.9, film.json 16.2, claims.json 16.8) < 120 KB; page 1.291 MB < 1.3 MB",
+      "data": {
+        "code": 66460,
+        "page": 1290706
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand ceti-coastal-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "ceti-coastal-dark",
+          "chrome": "none",
+          "material": "ink",
+          "texture": "none",
+          "texture_declared": "none",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    },
+    {
+      "id": "G11",
+      "name": "text overlap",
+      "status": "PASS",
+      "evidence": "307 samples every 0.5 s, 99 distinct texts (texts with data-role), caption showing at 231; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
+      "data": {
+        "step": 0.5,
+        "samples": 307,
+        "mode": "texts with data-role",
+        "canvasText": "not seen",
+        "fail": 0,
+        "warn": 0,
+        "instances": []
+      }
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 21.27, 41.53, 61.8, 82.07, 102.33, 122.6, 153 s → factory/films/noether-symmetry/drafts/b/shots"
+    }
+  ]
+}

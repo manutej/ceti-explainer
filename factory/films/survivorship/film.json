@@ -1,0 +1,59 @@
+{
+  "id": "survivorship",
+  "title": "The Missing Planes",
+  "eyebrow": "CETI · The 75-second case · Survivorship",
+  "lede": "We studied the ones that made it and copied them. In 1943 Abraham Wald asked the question that data leaves out: what happened to the planes that never came back? Seal a number, then count all 400.",
+  "dur": 75,
+  "seed": 1943,
+  "palette": { "paper": "#E8DCC2", "ink": "#22252A", "accent": "#C8452E", "muted": "#8E887C", "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277" },
+  "you": "#2D5DA8",
+  "type": { "disp": "Big Shoulders Display", "mono": "IBM Plex Mono" },
+  "fonts": [
+    { "family": "Big Shoulders Display", "weight": 600, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 400, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 500, "style": "normal" }
+  ],
+  "params": { "flew": 400, "returned": 380, "unhit": 320, "a0": 0.8, "a1": 0.08, "a2": 0.05, "a3": 0.01, "a4": 0.005, "a5": 0.005,
+              "hit1": 32, "hit2": 20, "hit3": 4, "hit4": 2, "hit5": 2, "per": 100, "guess": 10, "year": 1943 },
+  "commit": { "at": 10.5, "title": "YOUR NUMBER", "prompt": "Out of 100 planes hit, how many never came home?", "unit": "in 100", "default": 10, "min": 0, "max": 100 },
+  "count": { "at": 36 },
+  "chapters": [
+    { "id": "hook", "beat": "HOOK", "t0": 0, "t1": 8, "eyebrow": "SURVIVORSHIP · THE HOOK", "title": "The ones that came back" },
+    { "id": "commit", "beat": "COMMIT", "t0": 8, "t1": 16, "eyebrow": "SURVIVORSHIP · YOUR NUMBER", "title": "Seal a number" },
+    { "id": "case", "beat": "CASE", "t0": 16, "t1": 36, "eyebrow": "SURVIVORSHIP · THE CASE", "title": "Wald's memo" },
+    { "id": "count", "beat": "COUNT", "t0": 36, "t1": 62, "eyebrow": "SURVIVORSHIP · THE COUNT", "title": "All the planes" },
+    { "id": "monday", "beat": "MONDAY", "t0": 62, "t1": 72, "eyebrow": "SURVIVORSHIP · MONDAY", "title": "One question" }
+  ],
+  "captions": [
+    [0.4, 4.0, "We studied our best customers. Let's copy them."],
+    [4.2, 7.8, "1943: armour the planes where the holes are."],
+    [8.2, 9.9, "Every hole here is on a plane that came home."],
+    [10.0, 15.8, "Out of 100 planes hit, how many never came home?"],
+    [16.2, 20.8, "1943. Abraham Wald, Statistical Research Group."],
+    [21.0, 26.8, "His memo's example: 400 planes fly, 380 come home."],
+    [27.0, 31.8, "60 come home with holes. 20 never come home."],
+    [32.0, 35.8, "Nobody counts the holes on the 20."],
+    [36.2, 43.8, "All 400. 320 came home without a scratch."],
+    [44.0, 49.8, "Every lost plane was hit: 60 home plus 20 lost is 80."],
+    [50.0, 55.8, "Your guess, against the 20 that never came back."],
+    [56.0, 61.8, "The holes that matter are on the missing planes."],
+    [62.2, 66.8, "Before you copy the winners: who isn't in the data?"],
+    [67.0, 71.8, "Honest limit: Wald's 400 is a worked example."]
+  ],
+  "ledger": [[1.2, "FILE · THE ONES THAT CAME BACK"], [10.6, "YOUR NUMBER · SEALED"], [16.6, "MEMO · WALD, SRG, COLUMBIA"], [37.6, "COUNT · EVERY PLANE THAT FLEW"], [62.2, "MONDAY · ONE QUESTION"]],
+  "brand": { "takeaway": "The data you have is the data that survived." },
+  "sources": [
+    ["WALD43", "Wald, A. (1943). A Method of Estimating Plane Vulnerability Based on Damage of Survivors. Statistical Research Group, Columbia University, for the Applied Mathematics Panel, NDRC. Reprinted as CRC 432, Center for Naval Analyses, July 1980 (DTIC AD-A091073). Part I, numerical example."],
+    ["MS84", "Mangel, M. and Samaniego, F. J. (1984). Abraham Wald's Work on Aircraft Survivability. Journal of the American Statistical Association 79(386), 259-267. doi:10.2307/2288257."],
+    ["ELL14", "Ellenberg, J. (2014). How Not to Be Wrong: The Power of Mathematical Thinking. New York: Penguin Press. Introduction (the armour retelling)."],
+    ["WAL80", "Wallis, W. A. (1980). The Statistical Research Group, 1942-1945. Journal of the American Statistical Association 75(370), 320-330. doi:10.2307/2287451."],
+    ["CAS16", "Casselman, B. (2016). The Legend of Abraham Wald. AMS Feature Column, June 2016."]
+  ],
+  "honest": [
+    "Wald's 400 planes are the worked example in Part I of his 1943 memo, not a combat log. The film uses the memo's numbers: 400 flew, 380 came home, 320 of them unhit, 32 with one hit, 20 with two, 8 with three to five.",
+    "The count rests on the memo's model: a plane that is not hit always comes home, so every lost plane was a hit plane. The memo also assumes each hit is equally dangerous. The split of the last 8 planes (4, 2, 2) is reconstructed from the memo's equation; it reproduces the memo's q = 0.851 and is drawn only as hole dots.",
+    "'Armour where the holes aren't' is the popular retelling (Ellenberg 2014); the documentary evidence for its best details is thin (Casselman 2016). No per-area hole numbers are shown, because none trace to Wald's data. The business mapping in the hook and on Monday is an analogy, not data."
+  ],
+  "tryit": { "title": "Try it", "note": "Keep the survivors' data fixed (320 unhit, 60 holed) and change how many never came home.", "seek": 58,
+             "inputs": [ { "id": "lost", "label": "Planes that never came home", "min": 0, "max": 60, "step": 1, "value": 20, "unit": "planes" } ] }
+}

@@ -1,0 +1,53 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-volume/demo.html",
+ "errors": [],
+ "variants": {
+  "hist-1d-extruded": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/hist-1d-extruded-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/hist-1d-extruded-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/hist-1d-extruded-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/hist-1d-extruded-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "hist-2d-slabs": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/hist-2d-slabs-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/hist-2d-slabs-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/hist-2d-slabs-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/hist-2d-slabs-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "cloud-3d-cut": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-cut-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-cut-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-cut-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-cut-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "cloud-3d-fine": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-fine-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-fine-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-fine-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-fine-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "cloud-3d-stress": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-stress-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-stress-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-stress-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/cloud-3d-stress-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 33.9,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-volume/shots/contact.png"
+}

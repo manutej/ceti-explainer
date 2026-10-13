@@ -1,0 +1,23 @@
+{
+  "id": "simpsons-3d",
+  "verdict": "SHIP",
+  "seat": "director, after two evaluator rounds; frames read at 480x270, page opened once",
+  "truth": [
+    {"claim": "4,526 applicants = 2,691 men + 1,835 women; 1,198 and 557 admitted", "status": "ok", "note": "same claims.json lineage as the 2D simpsons film; 65 claims recompute (G5a)"},
+    {"claim": "front view: men ahead (45 % vs 30 %)", "status": "ok", "note": "seen at 30-40 s: the men's lit column is taller before any percentage appears (G7 count at 16.6 s, first ratio 36 s)"},
+    {"claim": "side view: women ahead in four of six (A, B, D, F); worse in C by 3 and E by 4", "status": "ok", "note": "six slab pairs with rate pins read at thumb size from 48 s; the neon 2 OF 6 lands 54.5-57.5 s beside the sealed guess"},
+    {"claim": "51 % of men and 7 % of women applied to A or B", "status": "ok", "note": "caption 11 gives the counts first (1,385 of 2,691; 133 of 1,835)"}
+  ],
+  "craft": 4,
+  "originality": 4,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": "n/a (level manager)"},
+  "defects": [
+    {"t": 66, "what": "the empty platter ring stays behind the MONDAY captions", "severity": "low"},
+    {"t": 47, "what": "outgoing and incoming call-out pins cross-fade over each other for a frame or two", "severity": "low"},
+    {"t": 6, "what": "the KILLED stamp overprints the full stop of the hook headline", "severity": "low"},
+    {"t": 18, "what": "G5c: arrival counters tick through intermediate counts while the boxes land (known kit defect 7)", "severity": "low"}
+  ],
+  "note": "all four defects need film.js and are outside the evaluator's scope by design (PIPELINE.md); listed in SELECT.md 'Still beyond scope' and NOTES.md"
+}

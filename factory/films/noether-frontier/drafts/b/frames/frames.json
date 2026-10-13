@@ -1,0 +1,4127 @@
+{
+ "page": "factory/films/noether-frontier/drafts/b/build/noether-frontier.ceti-coastal-dark.none.html",
+ "film": "noether-frontier",
+ "dur": 153,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-coastal-dark",
+ "axes": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "sP",
+   "range": [
+    10,
+    40
+   ],
+   "step": 1,
+   "what": "world units per orbit unit in the place picture",
+   "value": 24
+  },
+  {
+   "name": "sL",
+   "range": [
+    80,
+    190
+   ],
+   "step": 5,
+   "what": "world radius of a spin shell of strength 1",
+   "value": 140
+  },
+  {
+   "name": "sC",
+   "range": [
+    60,
+    130
+   ],
+   "step": 5,
+   "what": "world units per unit of a weight or of the fixed sum",
+   "value": 125
+  },
+  {
+   "name": "dotR",
+   "range": [
+    0.6,
+    2
+   ],
+   "step": 0.05,
+   "what": "dot radius in world units at the focus distance (recall cloud)",
+   "value": 1.1
+  },
+  {
+   "name": "dotRNet",
+   "range": [
+    0.6,
+    2
+   ],
+   "step": 0.05,
+   "what": "dot radius in world units (training cloud)",
+   "value": 1.3
+  },
+  {
+   "name": "planetR",
+   "range": [
+    2,
+    7
+   ],
+   "step": 0.2,
+   "what": "radius of the one moving planet marker",
+   "value": 3.6
+  },
+  {
+   "name": "sizeCue",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how much nearer dots look bigger",
+   "value": 0.5
+  },
+  {
+   "name": "fog",
+   "range": [
+    0,
+    0.5
+   ],
+   "step": 0.05,
+   "what": "far dots fade toward the ground",
+   "value": 0.2
+  },
+  {
+   "name": "shadowK",
+   "range": [
+    0,
+    0.4
+   ],
+   "step": 0.02,
+   "what": "strength of the contact shadow on the plate (0 = off)",
+   "value": 0.28
+  },
+  {
+   "name": "stag",
+   "range": [
+    0,
+    0.25
+   ],
+   "step": 0.01,
+   "what": "start delay spread between dots in a move",
+   "value": 0.18
+  },
+  {
+   "name": "ghostK",
+   "range": [
+    0.4,
+    0.95
+   ],
+   "step": 0.05,
+   "what": "how far a published-result picture is dimmed",
+   "value": 0.8
+  },
+  {
+   "name": "featHi",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "extra brightness of the followed orbit's dots",
+   "value": 0.4
+  },
+  {
+   "name": "shellRing",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the thin shell outlines",
+   "value": 0.5
+  },
+  {
+   "name": "slideA",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the five layer outlines (the glass slides)",
+   "value": 0.6
+  },
+  {
+   "name": "dimOthers",
+   "range": [
+    0.2,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "how far the other runs dim while one run is followed",
+   "value": 0.6
+  },
+  {
+   "name": "cometLen",
+   "range": [
+    3,
+    14
+   ],
+   "step": 1,
+   "what": "dots lit at once on each neuron's arc",
+   "value": 8
+  },
+  {
+   "name": "cometGrow",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how much a lit dot grows",
+   "value": 0.5
+  },
+  {
+   "name": "featOrbit",
+   "range": [
+    0,
+    299
+   ],
+   "step": 1,
+   "what": "which orbit's dots are brighter in the recap",
+   "value": 270
+  },
+  {
+   "name": "perS",
+   "range": [
+    2,
+    10
+   ],
+   "step": 0.5,
+   "what": "seconds per lap of the followed planet",
+   "value": 5
+  },
+  {
+   "name": "plateX",
+   "range": [
+    300,
+    900
+   ],
+   "step": 20,
+   "what": "half width of the bench plate",
+   "value": 560
+  },
+  {
+   "name": "plateZ",
+   "range": [
+    250,
+    700
+   ],
+   "step": 20,
+   "what": "half depth of the bench plate",
+   "value": 400
+  },
+  {
+   "name": "poolK",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "strength of the pool of light on the plate",
+   "value": 0.5
+  },
+  {
+   "name": "poolR",
+   "range": [
+    200,
+    700
+   ],
+   "step": 20,
+   "what": "radius of the pool of light",
+   "value": 420
+  },
+  {
+   "name": "gridStep",
+   "range": [
+    40,
+    160
+   ],
+   "step": 10,
+   "what": "spacing of the ruled grid on the plate",
+   "value": 80
+  },
+  {
+   "name": "gridA",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.02,
+   "what": "opacity of the ruled grid",
+   "value": 0.1
+  },
+  {
+   "name": "camAz",
+   "range": [
+    10,
+    50
+   ],
+   "step": 1,
+   "what": "camera azimuth in degrees (fixed all film)",
+   "value": 28
+  },
+  {
+   "name": "camEl",
+   "range": [
+    18,
+    45
+   ],
+   "step": 1,
+   "what": "camera elevation in degrees (fixed all film)",
+   "value": 30
+  },
+  {
+   "name": "camFov",
+   "range": [
+    20,
+    45
+   ],
+   "step": 1,
+   "what": "lens field of view",
+   "value": 30
+  },
+  {
+   "name": "lensX",
+   "range": [
+    0.3,
+    0.6
+   ],
+   "step": 0.01,
+   "what": "lens shift to the left (keeps clouds off the card)",
+   "value": 0.44
+  },
+  {
+   "name": "lensY",
+   "range": [
+    0,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "lens shift upward",
+   "value": 0.09
+  },
+  {
+   "name": "d1a",
+   "range": [
+    1300,
+    2200
+   ],
+   "step": 50,
+   "what": "act 1 camera distance at the start",
+   "value": 1700
+  },
+  {
+   "name": "d1b",
+   "range": [
+    900,
+    1500
+   ],
+   "step": 20,
+   "what": "act 1 camera distance after its dolly",
+   "value": 1250
+  },
+  {
+   "name": "cy1",
+   "range": [
+    -260,
+    -40
+   ],
+   "step": 5,
+   "what": "act 1 look-at height",
+   "value": -190
+  },
+  {
+   "name": "d2a",
+   "range": [
+    800,
+    1900
+   ],
+   "step": 50,
+   "what": "act 2 distance at the start",
+   "value": 1250
+  },
+  {
+   "name": "d2b",
+   "range": [
+    500,
+    1200
+   ],
+   "step": 20,
+   "what": "act 2 distance after its dolly",
+   "value": 900
+  },
+  {
+   "name": "cy2",
+   "range": [
+    -250,
+    -40
+   ],
+   "step": 5,
+   "what": "act 2 look-at height",
+   "value": -150
+  },
+  {
+   "name": "d3",
+   "range": [
+    700,
+    1600
+   ],
+   "step": 50,
+   "what": "act 3 distance for the toy",
+   "value": 1000
+  },
+  {
+   "name": "cy3",
+   "range": [
+    -120,
+    0
+   ],
+   "step": 5,
+   "what": "act 3 toy look-at height",
+   "value": -20
+  },
+  {
+   "name": "d4a",
+   "range": [
+    900,
+    1900
+   ],
+   "step": 50,
+   "what": "tree distance at its start",
+   "value": 1250
+  },
+  {
+   "name": "d4b",
+   "range": [
+    600,
+    1400
+   ],
+   "step": 50,
+   "what": "tree distance after its dolly",
+   "value": 800
+  },
+  {
+   "name": "cy4",
+   "range": [
+    -180,
+    -40
+   ],
+   "step": 5,
+   "what": "tree look-at height",
+   "value": -155
+  },
+  {
+   "name": "dW",
+   "range": [
+    1100,
+    2400
+   ],
+   "step": 50,
+   "what": "Monday wide-frame distance",
+   "value": 1500
+  },
+  {
+   "name": "cyW",
+   "range": [
+    -160,
+    -20
+   ],
+   "step": 5,
+   "what": "Monday look-at height",
+   "value": -90
+  },
+  {
+   "name": "tReveal",
+   "range": [
+    1,
+    6
+   ],
+   "step": 0.5,
+   "what": "seconds for the recap cloud to count in",
+   "value": 3
+  },
+  {
+   "name": "countSecs",
+   "range": [
+    3,
+    8
+   ],
+   "step": 0.5,
+   "what": "seconds for the training cloud to count in",
+   "value": 6
+  },
+  {
+   "name": "tM0a",
+   "range": [
+    10,
+    14
+   ],
+   "step": 0.5,
+   "what": "start of the un-sort and of act 1's dolly",
+   "value": 12
+  },
+  {
+   "name": "tM0b",
+   "range": [
+    17,
+    22
+   ],
+   "step": 0.5,
+   "what": "end of the un-sort",
+   "value": 20
+  },
+  {
+   "name": "tM1a",
+   "range": [
+    26,
+    30
+   ],
+   "step": 0.5,
+   "what": "start of the search sort",
+   "value": 28
+  },
+  {
+   "name": "tM1b",
+   "range": [
+    33,
+    38
+   ],
+   "step": 0.5,
+   "what": "end of the search sort",
+   "value": 36
+  },
+  {
+   "name": "tNet0",
+   "range": [
+    49,
+    52
+   ],
+   "step": 0.5,
+   "what": "cut to the training cloud",
+   "value": 50.5
+  },
+  {
+   "name": "tM2a",
+   "range": [
+    60,
+    64
+   ],
+   "step": 0.5,
+   "what": "start of the re-plot by the sum and of act 2's dolly",
+   "value": 62
+  },
+  {
+   "name": "tM2b",
+   "range": [
+    67,
+    72
+   ],
+   "step": 0.5,
+   "what": "end of the re-plot",
+   "value": 70
+  },
+  {
+   "name": "tM3a",
+   "range": [
+    86,
+    90
+   ],
+   "step": 0.5,
+   "what": "start of the bigger-step move",
+   "value": 88
+  },
+  {
+   "name": "tM3b",
+   "range": [
+    93,
+    97
+   ],
+   "step": 0.5,
+   "what": "end of the bigger-step move",
+   "value": 96
+  },
+  {
+   "name": "tCometA",
+   "range": [
+    79,
+    82
+   ],
+   "step": 0.5,
+   "what": "comet start",
+   "value": 80
+  },
+  {
+   "name": "tCometB",
+   "range": [
+    86,
+    88
+   ],
+   "step": 0.5,
+   "what": "comet end",
+   "value": 88
+  },
+  {
+   "name": "tToy",
+   "range": [
+    97,
+    100
+   ],
+   "step": 0.5,
+   "what": "cut to the toy",
+   "value": 98.5
+  },
+  {
+   "name": "toyU",
+   "range": [
+    8,
+    14
+   ],
+   "step": 1,
+   "what": "world length of one toy unit",
+   "value": 11
+  },
+  {
+   "name": "toyGap",
+   "range": [
+    40,
+    100
+   ],
+   "step": 5,
+   "what": "gap between the three big marks at first",
+   "value": 70
+  },
+  {
+   "name": "toyRowGap",
+   "range": [
+    1.3,
+    2.4
+   ],
+   "step": 0.1,
+   "what": "row spacing in block depths",
+   "value": 1.7
+  },
+  {
+   "name": "tTree",
+   "range": [
+    117,
+    121
+   ],
+   "step": 0.5,
+   "what": "cut to the tree and start of its dolly",
+   "value": 119
+  },
+  {
+   "name": "treeRise",
+   "range": [
+    2,
+    5
+   ],
+   "step": 0.5,
+   "what": "seconds for the tree to stand up and for its dolly",
+   "value": 3
+  },
+  {
+   "name": "treeSpread",
+   "range": [
+    140,
+    240
+   ],
+   "step": 10,
+   "what": "world width of the tree",
+   "value": 190
+  },
+  {
+   "name": "tSwap0",
+   "range": [
+    130.5,
+    133
+   ],
+   "step": 0.5,
+   "what": "start of the swap of Q2's children",
+   "value": 131.5
+  },
+  {
+   "name": "swapSecs",
+   "range": [
+    2,
+    4
+   ],
+   "step": 0.5,
+   "what": "seconds for the swap",
+   "value": 3
+  },
+  {
+   "name": "tMon0",
+   "range": [
+    134,
+    137
+   ],
+   "step": 0.5,
+   "what": "start of Monday's dolly back",
+   "value": 135
+  },
+  {
+   "name": "tMon1",
+   "range": [
+    139,
+    143
+   ],
+   "step": 0.5,
+   "what": "end of Monday's dolly back",
+   "value": 141
+  },
+  {
+   "name": "cardX",
+   "range": [
+    620,
+    700
+   ],
+   "step": 10,
+   "what": "left edge of the bench card",
+   "value": 660
+  }
+ ],
+ "ms_per_frame": 640,
+ "s_per_frame": 0.64,
+ "purity": {
+  "pass": true,
+  "at": {
+   "30.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "76.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "122.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png",
+  "strip-22.png",
+  "strip-23.png",
+  "strip-24.png",
+  "strip-25.png",
+  "strip-26.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "Each shell is a number that never changes"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Now take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "It lands on the same shells, told nothing.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "It lands on the same shells, told nothing.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "It lands on the same shells, told nothing.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "It lands on the same shells, told nothing.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "Small, clean systems; the laws were already known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "Small, clean systems; the laws were already known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "Small, clean systems; the laws were already known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Small, clean systems; the laws were already known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "Small, clean systems; the laws were already known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "Each dot is one neuron at one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "Each dot is one neuron at one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "Each dot is one neuron at one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "Each dot is one neuron at one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "Each dot is one neuron at one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "Each dot is one neuron at one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "Each dot is one neuron at one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away; a machine finds it again"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Now let it train. Every dot starts to slide.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Now let it train. Every dot starts to slide.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Now let it train. Every dot starts to slide.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Now let it train. Every dot starts to slide.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Now let it train. Every dot starts to slide.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Now let it train. Every dot starts to slide.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "Now let it train. Every dot starts to slide.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "They slide, but never change layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "Take bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "The fixed sums hold only for tiny steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "The fixed sums hold only for tiny steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "The fixed sums hold only for tiny steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "The fixed sums hold only for tiny steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "Now try it on questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "Now try it on questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "Now try it on questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "Now try it on questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "Reordered facts cut scores by more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "Reordered facts cut scores by more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "Reordered facts cut scores by more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "Reordered facts cut scores by more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "Reordered facts cut scores by more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "Reordered facts cut scores by more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "Reordered facts cut scores by more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "Our own program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": "Our own program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": "Our own program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": "Our own program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": "Our own program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 123,
+   "file": "thumbs/t-0123.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 123.5,
+   "file": "thumbs/t-0123.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 7,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 124,
+   "file": "thumbs/t-0124.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 8,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 124.5,
+   "file": "thumbs/t-0124.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 9,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 125,
+   "file": "thumbs/t-0125.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 125.5,
+   "file": "thumbs/t-0125.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 11,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 126,
+   "file": "thumbs/t-0126.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 0,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 126.5,
+   "file": "thumbs/t-0126.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 1,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 127,
+   "file": "thumbs/t-0127.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 2,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 127.5,
+   "file": "thumbs/t-0127.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 3,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 128,
+   "file": "thumbs/t-0128.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 128.5,
+   "file": "thumbs/t-0128.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 5,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 129,
+   "file": "thumbs/t-0129.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 6,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 129.5,
+   "file": "thumbs/t-0129.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 7,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 130,
+   "file": "thumbs/t-0130.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 8,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 130.5,
+   "file": "thumbs/t-0130.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 9,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 131,
+   "file": "thumbs/t-0131.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 131.5,
+   "file": "thumbs/t-0131.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 11,
+   "caption": "Idea: a claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 132,
+   "file": "thumbs/t-0132.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 0,
+   "caption": "Idea: a claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 132.5,
+   "file": "thumbs/t-0132.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 1,
+   "caption": "Idea: a claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 133,
+   "file": "thumbs/t-0133.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 2,
+   "caption": "Idea: a claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 133.5,
+   "file": "thumbs/t-0133.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 3,
+   "caption": "Idea: a claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 134,
+   "file": "thumbs/t-0134.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 4,
+   "caption": "Idea: a claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 134.5,
+   "file": "thumbs/t-0134.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 5,
+   "caption": "Idea: a claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Fixed sums in learning; an order in questions"
+   }
+  },
+  {
+   "t": 135,
+   "file": "thumbs/t-0135.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 135.5,
+   "file": "thumbs/t-0135.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 7,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 136,
+   "file": "thumbs/t-0136.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 8,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 136.5,
+   "file": "thumbs/t-0136.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 9,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 137,
+   "file": "thumbs/t-0137.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 10,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 137.5,
+   "file": "thumbs/t-0137.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 11,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 138,
+   "file": "thumbs/t-0138.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 0,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 138.5,
+   "file": "thumbs/t-0138.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 1,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 139,
+   "file": "thumbs/t-0139.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 2,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 139.5,
+   "file": "thumbs/t-0139.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 3,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 140,
+   "file": "thumbs/t-0140.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 4,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 140.5,
+   "file": "thumbs/t-0140.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 5,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 141,
+   "file": "thumbs/t-0141.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 141.5,
+   "file": "thumbs/t-0141.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 142,
+   "file": "thumbs/t-0142.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 142.5,
+   "file": "thumbs/t-0142.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 143,
+   "file": "thumbs/t-0143.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 143.5,
+   "file": "thumbs/t-0143.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 144,
+   "file": "thumbs/t-0144.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 144.5,
+   "file": "thumbs/t-0144.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 145,
+   "file": "thumbs/t-0145.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 145.5,
+   "file": "thumbs/t-0145.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 146,
+   "file": "thumbs/t-0146.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 146.5,
+   "file": "thumbs/t-0146.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 147,
+   "file": "thumbs/t-0147.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 147.5,
+   "file": "thumbs/t-0147.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 148,
+   "file": "thumbs/t-0148.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 148.5,
+   "file": "thumbs/t-0148.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 149,
+   "file": "thumbs/t-0149.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 149.5,
+   "file": "thumbs/t-0149.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 150,
+   "file": "thumbs/t-0150.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 150.5,
+   "file": "thumbs/t-0150.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 151,
+   "file": "thumbs/t-0151.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 151.5,
+   "file": "thumbs/t-0151.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 152,
+   "file": "thumbs/t-0152.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 152.5,
+   "file": "thumbs/t-0152.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  },
+  {
+   "t": 152.99,
+   "file": "thumbs/t-0152.99.jpg",
+   "strip": "strip-26.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of your question"
+   }
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+  "film": "kit-smoke",
+  "claims": [
+    { "id": "plan", "text": "12 MO", "value": 12, "source": "S1", "where": ["hook dimension line", "ledger REV A"] },
+    { "id": "n", "text": "100", "value": 100, "source": "S1", "where": ["count grid", "caption 2", "caption 3"] },
+    { "id": "red", "text": "30", "value": 30, "source": "S1", "where": ["count readout", "caption 3"] },
+    { "id": "share", "text": "30 ÷ 100", "value": 0.3, "formula": "red / n", "where": ["count readout"] },
+    { "id": "z", "text": "z = −0.52", "value": -0.524, "formula": "PhiInv(red / n)", "source": "S2", "where": ["count readout"] }
+  ]
+}

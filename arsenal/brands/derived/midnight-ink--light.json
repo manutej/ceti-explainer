@@ -1,0 +1,13 @@
+{ "id": "midnight-ink--light", "name": "Midnight ink (navy, bone, gold) [light]",
+  "color": {
+    "bg": "#E4EDFF",
+    "ink": "#2C2618",
+    "accent": "#7B5C00",
+    "accent2": "#506593",
+    "muted": "#5E667D",
+    "line": "rgba(44,38,24,0.18)",
+    "panel": "#CCDCFF",
+    "chalk": "#1C180F" },
+  "type": { "disp": {"family": "Cormorant Garamond", "weight": 500, "style": "italic"}, "mono": {"family": "DM Mono", "weight": 400}, "body": {"family": "Newsreader", "weight": 400} },
+  "texture": "paper", "tempo": {"ease": "sine", "beat_s": 5},
+  "voice": {"register": "a letterpress invitation read by candlelight, formal and slow", "end_card": "CETI", "derived": {"from": "midnight-ink", "transforms": ["light"]}} }

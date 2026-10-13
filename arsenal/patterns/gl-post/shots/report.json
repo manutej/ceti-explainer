@@ -1,0 +1,98 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-post/demo.html",
+ "errors": [],
+ "variants": {
+  "none": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/none-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/none-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/none-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/none-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "dof": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/dof-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/dof-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/dof-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/dof-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "bloom": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/bloom-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/bloom-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/bloom-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/bloom-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "chroma": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/chroma-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/chroma-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/chroma-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/chroma-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "vignette": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/vignette-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/vignette-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/vignette-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/vignette-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "grain": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/grain-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/grain-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/grain-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/grain-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "reveal": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/reveal-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/reveal-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/reveal-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/reveal-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "reveal-exec": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/reveal-exec-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/reveal-exec-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/reveal-exec-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/reveal-exec-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "accum-8": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/accum-8-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/accum-8-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/accum-8-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/accum-8-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "accum-16": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/accum-16-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/accum-16-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/accum-16-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/accum-16-t6.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 20.4,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-post/shots/contact.png"
+}

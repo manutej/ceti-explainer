@@ -1,0 +1,22 @@
+{
+  "film": "goodhart",
+  "claims": [
+    {"id": "target", "text": "8 products per customer (the target)", "value": 8, "formula": "targetProducts", "source": "WF10Q15", "renders": ["8 OF 8"], "where": "caption 1; household row; TARGET 8 label; caption 5 '8+'"},
+    {"id": "xsell", "text": "6.13 products per household on average, Feb 2015", "value": 6.13, "formula": "crossSellFeb2015", "source": "WF10Q15", "where": "caption 5; household row fill and label"},
+    {"id": "at8", "text": "one household in four had 8 or more", "value": 4, "formula": "shareAt8Of", "source": "WF10Q15", "where": "caption 5 (in words)"},
+    {"id": "conductStart", "text": "conduct from 2002", "value": 2002, "source": "DOJ20", "where": "caption 4; CASE eyebrow"},
+    {"id": "conductEnd", "text": "conduct to 2016", "value": 2016, "source": "DOJ20", "where": "caption 4; CASE eyebrow"},
+    {"id": "xsellYear", "text": "Feb 2015", "value": 2015, "source": "WF10Q15", "where": "caption 5"},
+    {"id": "flagged2016", "text": "2.1 M accounts flagged in 2016 (1,534,280 deposit + 565,443 card applications)", "value": 2.1, "formula": "Math.round((cfpbDeposit + cfpbCard) / 1e5) / 10", "source": "CFPB16", "where": "caption 6; case ledger"},
+    {"id": "fired", "text": "5,300 employees fired (1 Jan 2011 to 7 Mar 2016)", "value": 5300, "formula": "fired", "source": "CFPB16; WFBR17", "where": "caption 6; case ledger"},
+    {"id": "fines2016", "text": "$185 M in 2016 penalties", "value": 185, "formula": "penCFPB_M + penOCC_M + penLA_M", "source": "CFPB16", "where": "caption 6; case ledger"},
+    {"id": "reviewTotal", "text": "3.5 M potentially unauthorised accounts (2017 review)", "value": 3.5, "formula": "Math.round((reviewOrig_M + reviewExtra_M) * 10) / 10", "source": "WF17", "where": "caption 7; case ledger; caption 14"},
+    {"id": "settle", "text": "$3 B to settle with DOJ and SEC, 2020", "value": 3, "formula": "doj_B", "source": "DOJ20", "where": "caption 7; case ledger"},
+    {"id": "reviewed", "text": "165 M accounts opened Jan 2009 to Sep 2016", "value": 165, "formula": "reviewed_M", "source": "WF17", "where": "caption 8"},
+    {"id": "gridN", "text": "1,000 marks (accounts opened, scaled)", "value": 1000, "formula": "gridCols * gridRows", "source": "constructed scale", "where": "captions 3, 8; commit; ACCOUNTS OPENED counter; ratio"},
+    {"id": "perMark", "text": "one mark = 165,000 accounts", "value": 165000, "formula": "reviewed_M * 1e6 / gridN", "source": "WF17 (derived)", "where": "COUNT eyebrow"},
+    {"id": "flaggedPer1000", "text": "21 of every 1,000 flagged", "value": 21, "formula": "Math.round(gridN * (reviewOrig_M + reviewExtra_M) / reviewed_M)", "source": "WF17 (derived: 3.531 / 165 x 1,000 = 21.4)", "where": "captions 10-12; red marks; FLAGGED counter; ratio"},
+    {"id": "per100", "text": "about 2 in 100", "value": 2, "formula": "Math.round(100 * (reviewOrig_M + reviewExtra_M) / reviewed_M)", "source": "WF17 (derived)", "renders": ["2 IN 100"], "where": "COUNT ratio, from 54 s"},
+    {"id": "guessDefault", "text": "the viewer's guess, film-mode default 100", "value": 100, "formula": "defaultGuess", "source": "film.json commit.default (viewer input, not a fact)", "where": "commit box; YOUR GUESS counter; outline"}
+  ]
+}

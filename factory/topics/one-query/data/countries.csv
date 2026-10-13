@@ -1,0 +1,8 @@
+order,id,name,dc_share_of_own_grid_pct,data_year,basis,claim_id,source_tag,grade,url,note
+1,IE,Ireland,23,2025,metered consumption (CSO; 7663 GWh),iePct,S5,A,https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/keyfindings/,"22 % in 2024, 5 % in 2015; CSO identifies data centres by operator names and large-user lists, not a formal class"
+2,NL,Netherlands,7,2024,model estimate (Ember),nlPct,S6,B,https://ember-energy.org/latest-insights/grids-for-data-centres-ambitious-grid-planning-can-win-europes-ai-race/grids-for-data-centres/,"Dutch statistics office is reported at 4.6 %: conflicting; pin says Ember 2024"
+3,US,United States,4.4,2023,measured+modelled (LBNL; 176 TWh; excludes crypto),usPct23,S4,A,https://eta-publications.lbl.gov/publications/2024-lbnl-data-center-energy-usage-report,"year differs from the others (2023); 2028 range 6.7-12 %, EPRI 2030 9-17 % are projections, off stage"
+4,DE,Germany,4,2024,model estimate (Ember),dePct,S6,B,https://ember-energy.org/latest-insights/grids-for-data-centres-ambitious-grid-planning-can-win-europes-ai-race/grids-for-data-centres/,
+5,UK,United Kingdom,4,2024,model estimate (Ember),ukPct,S6,B,https://ember-energy.org/latest-insights/grids-for-data-centres-ambitious-grid-planning-can-win-europes-ai-race/grids-for-data-centres/,
+6,FR,France,2,2024,model estimate (Ember),frPct,S6,B,https://ember-energy.org/latest-insights/grids-for-data-centres-ambitious-grid-planning-can-win-europes-ai-race/grids-for-data-centres/,
+7,WORLD,World,1.5,2024,IEA estimate (415 TWh),worldPct,S2,A,https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai,"all data centres, not AI alone; most governments publish no official data-centre statistics (IEA)"

@@ -1,0 +1,1351 @@
+{
+ "tool": "factory/tools/repo_topic.py",
+ "repo": "/home/user/ceti-explainer",
+ "name": "ceti-explainer",
+ "rev": "HEAD",
+ "head": "88a28046260c2bc6715bd710359699d9a2b4af9b",
+ "head_short": "88a2804",
+ "branch": "feature/explainer-atelier",
+ "shallow": false,
+ "head_ts": 1791473672,
+ "head_time": "2026-10-08T15:34:32+00:00",
+ "window": {
+  "days": 7,
+  "since": "2026-10-02T00:00:00+00:00",
+  "until": "2026-10-08T15:34:55+00:00",
+  "since_ts": 1790899200,
+  "until_ts": 1791473695,
+  "anchor": "now",
+  "first_day": "2026-10-02",
+  "last_day": "2026-10-08"
+ },
+ "git": {
+  "commits": 98,
+  "merges": 1,
+  "authors": 4,
+  "authors_by_commits": [
+   [
+    "Claude",
+    83
+   ],
+   [
+    "manutej",
+    11
+   ],
+   [
+    "Manu Mulaveesala",
+    3
+   ],
+   [
+    "manutej",
+    1
+   ]
+  ],
+  "first_commit": "2026-08-24T06:49:13+00:00",
+  "first_ts": 1787554153,
+  "last_commit": "2026-10-08T15:34:32+00:00",
+  "last_ts": 1791473672,
+  "first_day": "2026-08-24",
+  "age_days": 45,
+  "days_with_commits": 6,
+  "insertions": 166159,
+  "deletions": 2356,
+  "largest_commit": {
+   "sha": "6c71a205940c1aca6be5214f0971fde2bccc7391",
+   "date": "2026-10-08",
+   "subject": "Keep every built standalone page in the repo (D10)",
+   "ins": 29938,
+   "del": 0
+  },
+  "window": {
+   "commits": 86,
+   "merges": 1,
+   "authors": 2,
+   "authors_by_commits": [
+    [
+     "Claude",
+     83
+    ],
+    [
+     "Manu Mulaveesala",
+     3
+    ]
+   ],
+   "days_active": 3,
+   "per_day": {
+    "2026-10-02": 0,
+    "2026-10-03": 0,
+    "2026-10-04": 0,
+    "2026-10-05": 2,
+    "2026-10-06": 1,
+    "2026-10-07": 0,
+    "2026-10-08": 83
+   },
+   "busiest_day": [
+    "2026-10-08",
+    83
+   ],
+   "insertions": 163780,
+   "deletions": 2244,
+   "files_touched": 1358,
+   "top_files": [
+    [
+     ".gitignore",
+     6
+    ],
+    [
+     "tests/baselines/builds.json",
+     4
+    ],
+    [
+     "tests/proofs.sh",
+     4
+    ]
+   ],
+   "largest_commit": {
+    "sha": "6c71a205940c1aca6be5214f0971fde2bccc7391",
+    "date": "2026-10-08",
+    "subject": "Keep every built standalone page in the repo (D10)",
+    "ins": 29938,
+    "del": 0,
+    "files": 24
+   },
+   "commits_list": [
+    {
+     "sha": "88a28046260c2bc6715bd710359699d9a2b4af9b",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: annotations (callouts with leaders, brackets, dimension lines, hand marks, spotlight pins); bundle refreshed",
+     "ins": 548,
+     "del": 0,
+     "merge": false,
+     "files": 6
+    },
+    {
+     "sha": "599c2cd1ef7ce81f8104296374da43bb9579d325",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal index: 24 lanes; design-system bundle generated (22 brand cards, lane cards, chromes, proof matrices, tokens)",
+     "ins": 870,
+     "del": 3,
+     "merge": false,
+     "files": 52
+    },
+    {
+     "sha": "cc4419b9559444874e5fc42b331990d93932028c",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: maps-matrices (confusion matrices with marks, value-ordered heatmap, territory maps, matrix to graph)",
+     "ins": 434,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "578f1bfb35ab89c5e62506cf152cc075dce30f75",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lanes: transitions (cut, dissolve, wipe, iris, slide, match cut, zoom-through, ledger turn) and data-marks (honest bars, lines, areas, dumbbells, waffles)",
+     "ins": 833,
+     "del": 0,
+     "merge": false,
+     "files": 8
+    },
+    {
+     "sha": "ce67a9a83ca2de1ff5460b4ea515133ceeab1257",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal: handwriting lane; tweak.py (OKLCH hue, dark/light twins, contrast, accent, mono, type, tempo) with 22 derived twins and ten recipes",
+     "ins": 1106,
+     "del": 0,
+     "merge": false,
+     "files": 6
+    },
+    {
+     "sha": "bc615a9e76110138dc7d81e1c693aa62eb071c1a",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: rhythm (beat grid from tempo token, easing chart, emphasis vocabulary, caption cadence)",
+     "ins": 358,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "e9412c492d7a382911f0ddebbf382fdd388302b9",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: grid-type (12-column grid, modular type scale, three layout templates, contentBox)",
+     "ins": 368,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "4ea84b5f3dfc44226b7c03670e61c1b5ef42bb36",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal: ten CETI brand packs derived from the CETI design system (marketing, four academy palettes light and dark, owala soft); palette demo covers all 22 packs",
+     "ins": 610,
+     "del": 4,
+     "merge": false,
+     "files": 40
+    },
+    {
+     "sha": "68dafc63c3370a7b6aae82d56371b44f6f16ddc9",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: glyphs-iso (geometric glyph vocabulary, flow arrows, isometric projection)",
+     "ins": 388,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "25a791cc3668c963c9e4356814743f12ca68abfa",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: particles-text (words and counts assembled from seeded particles)",
+     "ins": 328,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "3da42e16aae95ac691f330d40dcbfd6fb656525d",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add scripts/doctor.sh: cold-start check (tools, vendor hashes, kit and kit2 builds, brand packs)",
+     "ins": 22,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "ec51bea23075a8da7c37ec777f72fc51aedca556",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal: eight more brand packs (editorial-serif, terminal, newsprint, midnight-ink, pastel-pop, blueprint, warm-lab, high-vis), all passing the contrast check",
+     "ins": 338,
+     "del": 0,
+     "merge": false,
+     "files": 10
+    },
+    {
+     "sha": "170b3ce737bc80df253d355374a1fafae032b30f",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal seats: 5 SHIP, 9 SHIP-WITH-NOTES, 1 REVISE; cross-lane findings and the kit2 matrix verdict",
+     "ins": 59,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "dd9578f68b81a5cc09c86a69a847046e25a380d6",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: webgl-scene (keyed camera slerp, baked 1,000-box field, extruded and outlined headlines)",
+     "ins": 363,
+     "del": 0,
+     "merge": false,
+     "files": 7
+    },
+    {
+     "sha": "4835e088758e0acbe9de82d05540494a64b8c2a7",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Ignore kit2 proof stills and log",
+     "ins": 4,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "2d5d7a2674b5ef2a16dc98da5df0d18f1e6daf26",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Record the arsenal gallery artifact",
+     "ins": 4,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "0c0e6843f7ce738c54b59c337d055011399b9ca9",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal index with atlas backlinks; proof (vii) shoots every demo and checks the brand packs",
+     "ins": 47,
+     "del": 1,
+     "merge": false,
+     "files": 2
+    },
+    {
+     "sha": "c7d90b544c169263328cd9017db9f30e6c58a28f",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Kit v2: brand, chrome and material injected; 32-cell proof on two films with zero film edits",
+     "ins": 8831,
+     "del": 0,
+     "merge": false,
+     "files": 49
+    },
+    {
+     "sha": "acbdd19d8e1bcaa1db20bf61571f32dac3a40e46",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: mass elements (1k/10k/50k marks; canvas2d paths, baked WebGL geometry, instancing probe and benchmarks)",
+     "ins": 601,
+     "del": 0,
+     "merge": false,
+     "files": 6
+    },
+    {
+     "sha": "c7c4408ff38f1f1738f0533168188168f63c6a66",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: shader materials, final card",
+     "ins": 11,
+     "del": 2,
+     "merge": false,
+     "files": 3
+    },
+    {
+     "sha": "2a778e7bd39765885d4ebf18b8eb3cf5d8c5d8f4",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: shader materials (neon, halftone, risograph, chalk filters over a framebuffer scene)",
+     "ins": 308,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "12c1bfad877c79393fb1bb15d79767c600ec12a2",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: generator scenes and frame-accurate export (MP4 and GIF via Playwright and ffmpeg, hash-verified)",
+     "ins": 448,
+     "del": 0,
+     "merge": false,
+     "files": 7
+    },
+    {
+     "sha": "5ff3de872b23aae44f970c00eb23b2e94fd1c9d5",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lanes: timeline core (tracks, builder, scenes, captions; migration note) and morph-type (contour morphs, digit ticker, weight rise)",
+     "ins": 899,
+     "del": 0,
+     "merge": false,
+     "files": 18
+    },
+    {
+     "sha": "a93b1d0a5a9454cf9d05df0c85218931453f5e14",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: physics (fixed-timestep resimulation, springs vs closed form, pour, flock, steering)",
+     "ins": 396,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "925d6f4f7a71e75ca4e30c5353803fcca59c77ea",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: structures (pure layouts: grid, wall, ring, columns, rows, timeline, tree, scatter, transitions)",
+     "ins": 473,
+     "del": 0,
+     "merge": false,
+     "files": 6
+    },
+    {
+     "sha": "b51cc9a679d5fcbb725291c7cf3fcb3d714ff6df",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: brand tokens (pack schema, contrast check, OKLCH ramps, palette swatch sheets)",
+     "ins": 524,
+     "del": 2,
+     "merge": false,
+     "files": 9
+    },
+    {
+     "sha": "656a68e02ee3759c0ba212bcc23b15ea5659560b",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: explorable (interactive widgets with claims, describe(), event-driven redraw)",
+     "ins": 261,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "303d6fcbdf0deda644c395c06cf47365c8b2254b",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: camera (keyed 2D camera, log zoom, focus masks, pinned labels, cuts vs moves)",
+     "ins": 358,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "1a0c5f3470d482148cec8d42fae9c6f864c24500",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: layers (frozen field, spotlight, iris, wipe, pure-of-t comets)",
+     "ins": 270,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "0826fdd10a963bffc4e39ad2a522beb2db250c3f",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: drawn materials (ink, pencil, stitch, chalk, marker, blueprint) with one-scene demo",
+     "ins": 394,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "abad702b91563d7ea67f3c9bb4eb5e55b1e6e30c",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Ignore individual arsenal stills; keep contact sheets and reports",
+     "ins": 5,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "985075ac774106b9ed10d273373354970e794720",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: fields (streamlines, seamless grid wave, drift trails, breath texture)",
+     "ins": 433,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "a06e8f6cfe9c228dc3966ee8fe66281c4c82a56d",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal lane: reveal (arc-length draw-on, pen tip, dashed, stagger)",
+     "ins": 334,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "a155e65d12f5ea08e23ebe25020f62113e18741b",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Arsenal: self-interview against the atlas, the shared brief, four brand packs and the shoot harness",
+     "ins": 155,
+     "del": 0,
+     "merge": false,
+     "files": 7
+    },
+    {
+     "sha": "19074e99a698e7a0b9d77f74e09dbd334a50c087",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add the p5.js Explainer Atlas as the plugin's reference index",
+     "ins": 26848,
+     "del": 0,
+     "merge": false,
+     "files": 452
+    },
+    {
+     "sha": "69ccbe55d60aaf551159b0b3157ffc10636fd6a3",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Regression film: honest line on stage; seat SHIP after fix; baseline and catalogue updated",
+     "ins": 89,
+     "del": 41,
+     "merge": false,
+     "files": 10
+    },
+    {
+     "sha": "9028df1de7536ff033360f344b4f865fd09cf64d",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Seat verdicts for all fifteen films: 14 SHIP, 1 REVISE, 0 VETO",
+     "ins": 214,
+     "del": 0,
+     "merge": false,
+     "files": 10
+    },
+    {
+     "sha": "f81533d548cae9c98c998a6751e08e4f4845b792",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Seat verdicts so far",
+     "ins": 12,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "969e9975dd1cbb5c843959450593a0fe291a48bb",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory ship: README, ship log, catalogue, baselines, proof (vi), artifact links, seat verdicts",
+     "ins": 813,
+     "del": 5,
+     "merge": false,
+     "files": 11
+    },
+    {
+     "sha": "cb380d45f4039c0d8f72e612c445c373e5b42c63",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Seat verdict: sunk-cost",
+     "ins": 24,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "6c71a205940c1aca6be5214f0971fde2bccc7391",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Keep every built standalone page in the repo (D10)",
+     "ins": 29938,
+     "del": 0,
+     "merge": false,
+     "files": 24
+    },
+    {
+     "sha": "37d2c729a15f7f9ca848139bcd22287a666fd8c5",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Seat verdict: goodhart",
+     "ins": 26,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "c209005ba960e8c64adbba07b4c7d4dfb966965a",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory film: volatility drag, gate PASS",
+     "ins": 973,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "7225ac22171dc822fd421a149dc96d42e2232e53",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory film: selection into treatment, gate PASS; topic files as built",
+     "ins": 1274,
+     "del": 134,
+     "merge": false,
+     "files": 7
+    },
+    {
+     "sha": "ed2a0c697eb07aa36bfac8c45069734a705f77c7",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory film: sample size and margin of error, gate PASS",
+     "ins": 1304,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "d470bb00ab43576fdb1433b598397f71433e600a",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory film: correlated risk, gate PASS; winner's curse beat sheet as built",
+     "ins": 856,
+     "del": 1,
+     "merge": false,
+     "files": 6
+    },
+    {
+     "sha": "98545040c17b07a7b95db7c71c0052c20b46a534",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory film: regression to the mean, gate PASS",
+     "ins": 965,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "2ffc1dd3d0fc54f932699119414a814f2a96cc44",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory films: cost of delay and Brooks' law, gate PASS",
+     "ins": 2025,
+     "del": 0,
+     "merge": false,
+     "files": 10
+    },
+    {
+     "sha": "283e2b716e4b9c68f8e1fe6d76e297d3229ff2f2",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory films: Amdahl's law and streaks in randomness, gate PASS",
+     "ins": 2148,
+     "del": 0,
+     "merge": false,
+     "files": 10
+    },
+    {
+     "sha": "c92f82ab32aae6829086f76c9944128ea179896a",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory films: the winner's curse and Simpson's paradox, gate PASS",
+     "ins": 2230,
+     "del": 0,
+     "merge": false,
+     "files": 10
+    },
+    {
+     "sha": "683e1fa2961570139795c316e4adcc3bf2545da8",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory film: utilization and queues, gate PASS",
+     "ins": 996,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "1907d0edd28cefef67ab3aec8441eef992cac22b",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory film: survivorship bias, gate PASS",
+     "ins": 800,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "0715021459ecddea5f64804143c749a51eeb0800",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory film: sunk cost, gate PASS",
+     "ins": 988,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "a73f0c0f39e9d77d417ee27aafd64cf8e4307179",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory film: Goodhart's law, gate PASS",
+     "ins": 498,
+     "del": 0,
+     "merge": false,
+     "files": 5
+    },
+    {
+     "sha": "ab0b3a393ceb2abf5058fd21a59dbca082e017f1",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topic: streaks in random sequences",
+     "ins": 768,
+     "del": 0,
+     "merge": false,
+     "files": 3
+    },
+    {
+     "sha": "a2e08d3151dd8c689ea3e47b1eb79e2030d28309",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory chromes: tender set, ledger, memo",
+     "ins": 897,
+     "del": 0,
+     "merge": false,
+     "files": 6
+    },
+    {
+     "sha": "283f276a988cbe108cc513ca4603d72efb288f12",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Ignore factory stills",
+     "ins": 2,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "1b9b496fc423dd574f350650b82bf95bb0801262",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topic: correlated risk (ten bets, one bet)",
+     "ins": 637,
+     "del": 0,
+     "merge": false,
+     "files": 3
+    },
+    {
+     "sha": "37bbe3c88060c304d50f55a55c0b47e5707df8b4",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory skill, scaffold and catalogue; topics: selection, sample size, cost of delay",
+     "ins": 2815,
+     "del": 0,
+     "merge": false,
+     "files": 16
+    },
+    {
+     "sha": "28ebb6765324bf6545633561cb9d52487325c479",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topics: regression to the mean, sunk cost, utilization and queues",
+     "ins": 1869,
+     "del": 0,
+     "merge": false,
+     "files": 9
+    },
+    {
+     "sha": "c32addf102a77d63a68c95474f255609aecf0f7d",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory kit: shell, kit.js, player.js, build.py, probe and the smoke film; volatility-drag topic",
+     "ins": 1674,
+     "del": 0,
+     "merge": false,
+     "files": 12
+    },
+    {
+     "sha": "63436f2a7cc9e8c4a8ba819e1905d91de10bb3de",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topics: briefs, claims and beat sheets",
+     "ins": 481,
+     "del": 0,
+     "merge": false,
+     "files": 3
+    },
+    {
+     "sha": "fe8592d62bb24839eb3150e57332d74392020cb4",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topic: Amdahl's law, final brief and claims",
+     "ins": 9,
+     "del": 9,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "2a3a8748d27ba5b247f8888ef1c8b0b41dcc5afb",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topic: Brooks' law (n(n-1)/2 paths, OS/360, the 12 man-month example)",
+     "ins": 502,
+     "del": 0,
+     "merge": false,
+     "files": 3
+    },
+    {
+     "sha": "b551de1565d3dcef91bfae45e16811aae80cd99d",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory gate: nine rows over a built film",
+     "ins": 586,
+     "del": 0,
+     "merge": false,
+     "files": 2
+    },
+    {
+     "sha": "dbd2e09d262134fb865d944ec2d020dd9f1cc7aa",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topics: briefs, claims and beat sheets",
+     "ins": 346,
+     "del": 0,
+     "merge": false,
+     "files": 3
+    },
+    {
+     "sha": "8e2f0acf72a05edb7a52740924fc928c6dd6d058",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topic: the winner's curse (1969 North Slope sale, the jar auctions)",
+     "ins": 556,
+     "del": 0,
+     "merge": false,
+     "files": 3
+    },
+    {
+     "sha": "017cf073705e6515c23053810848bbaa48b0f745",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topic: Simpson's paradox (Berkeley 1973 admissions)",
+     "ins": 762,
+     "del": 0,
+     "merge": false,
+     "files": 3
+    },
+    {
+     "sha": "fd7194f8b0e14bc5092af958e882f48a33e68cfe",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Factory topic: Goodhart's law (Wells Fargo cross-selling)",
+     "ins": 294,
+     "del": 0,
+     "merge": false,
+     "files": 3
+    },
+    {
+     "sha": "e2562c9b0882117e434d09ff948106c9a08d7de2",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add the factory format: the 75-second case",
+     "ins": 70,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "f54591261d198f517e641bc09e6513f0b1758373",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add The Opera House, the exec-room gold standard, as rebuildable sources",
+     "ins": 1218,
+     "del": 5,
+     "merge": false,
+     "files": 13
+    },
+    {
+     "sha": "21881d31f1ac1cacb2846172d5d2676f76fa33a8",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Record the decisions taken on 2026-10-08",
+     "ins": 56,
+     "del": 0,
+     "merge": false,
+     "files": 1
+    },
+    {
+     "sha": "0185b5fd17f56292b69b22729da4b56829a27e39",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add the study: readers, consults, blueprint and the phase-zero proof",
+     "ins": 2964,
+     "del": 0,
+     "merge": false,
+     "files": 23
+    },
+    {
+     "sha": "d11093f7f2d9deeb1452660a1d7645317972dae4",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Document the layout and the merge",
+     "ins": 199,
+     "del": 6,
+     "merge": false,
+     "files": 2
+    },
+    {
+     "sha": "80d337646a4042224d4409128f2b5f5486a1ae94",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add channel scripts, requirements and tests",
+     "ins": 2323,
+     "del": 0,
+     "merge": false,
+     "files": 16
+    },
+    {
+     "sha": "58e31da323b01fd6f949bd6bd5fe658c8e037885",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add the p5 studio skills and move the harness skills to contrib/",
+     "ins": 4464,
+     "del": 1942,
+     "merge": false,
+     "files": 83
+    },
+    {
+     "sha": "fca63e4a65982b8da6845cc999ffa8eb59e239b3",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add the studio, Atelier and research references",
+     "ins": 5401,
+     "del": 0,
+     "merge": false,
+     "files": 42
+    },
+    {
+     "sha": "44e601a78310355f732487090ea57d01ee5b32ea",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add the source films: base-rate, typesafe, grasp",
+     "ins": 3118,
+     "del": 0,
+     "merge": false,
+     "files": 22
+    },
+    {
+     "sha": "2effdacfc77713085e22e4e21584bc63c47798e2",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add the eight Atelier chromes",
+     "ins": 10951,
+     "del": 0,
+     "merge": false,
+     "files": 86
+    },
+    {
+     "sha": "446fdacd51d7f6c031b741fd95f1a23b14d2d1e5",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add the module library under library/",
+     "ins": 14287,
+     "del": 0,
+     "merge": false,
+     "files": 79
+    },
+    {
+     "sha": "99c4d4f13fef0760340f8b9d4bc5d426636aab14",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Add the Atelier runtime under runtime/",
+     "ins": 2212,
+     "del": 0,
+     "merge": false,
+     "files": 9
+    },
+    {
+     "sha": "067d60f9d29bbd3c3a71898c5783ecdb462e2bf8",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Vendor p5 2.3.4 and the film fonts",
+     "ins": 2332,
+     "del": 0,
+     "merge": false,
+     "files": 53
+    },
+    {
+     "sha": "296d862c1799085b7e110a1df68ccb4a355cdf31",
+     "date": "2026-10-08",
+     "name": "Claude",
+     "subject": "Make the repo root the plugin root",
+     "ins": 116,
+     "del": 0,
+     "merge": false,
+     "files": 4
+    },
+    {
+     "sha": "d6a12de8f10fe60610c09aa2967a4f32e46bdd39",
+     "date": "2026-10-06",
+     "name": "Manu Mulaveesala",
+     "subject": "Merge branch 'feature/jev-eval-lane'",
+     "ins": 0,
+     "del": 0,
+     "merge": true,
+     "files": 0
+    },
+    {
+     "sha": "12cdd3a0e269c021d44cfc4cc9c6c39fd05d6aa8",
+     "date": "2026-10-05",
+     "name": "Manu Mulaveesala",
+     "subject": "Add the engine assets, references, and the frame-eval corpus tool",
+     "ins": 5943,
+     "del": 89,
+     "merge": false,
+     "files": 20
+    },
+    {
+     "sha": "caa11fa5b64903036a30a188497e6b937230edb1",
+     "date": "2026-10-05",
+     "name": "Manu Mulaveesala",
+     "subject": "Add operadic-interview skill and the Jev eval handoff",
+     "ins": 1526,
+     "del": 0,
+     "merge": false,
+     "files": 12
+    }
+   ]
+  }
+ },
+ "tree": {
+  "files": 1346,
+  "files_own": 1266,
+  "binary_files": 96,
+  "lines": 163803,
+  "lines_own": 130539,
+  "bytes": 65746121,
+  "excluded_pattern": "(^|/)(vendor|node_modules|dist|build|third_party)/|(^|/)[^/]*\\.egg-info/|\\.min\\.(js|css)$|(^|/)(package-lock\\.json|yarn\\.lock|pnpm-lock\\.yaml|Cargo\\.lock|poetry\\.lock|Gemfile\\.lock|composer\\.lock)$",
+  "excluded_files": 80,
+  "languages": {
+   "Markdown": {
+    "files": 702,
+    "lines": 47510,
+    "files_own": 701,
+    "lines_own": 47483
+   },
+   "JavaScript": {
+    "files": 176,
+    "lines": 38309,
+    "files_own": 174,
+    "lines_own": 37428
+   },
+   "JSON": {
+    "files": 252,
+    "lines": 36046,
+    "files_own": 251,
+    "lines_own": 35571
+   },
+   "Python": {
+    "files": 42,
+    "lines": 5491,
+    "files_own": 42,
+    "lines_own": 5491
+   },
+   "HTML": {
+    "files": 35,
+    "lines": 32774,
+    "files_own": 13,
+    "lines_own": 2845
+   },
+   "CSS": {
+    "files": 6,
+    "lines": 615,
+    "files_own": 6,
+    "lines_own": 615
+   },
+   "CSV": {
+    "files": 1,
+    "lines": 535,
+    "files_own": 1,
+    "lines_own": 535
+   },
+   "Shell": {
+    "files": 11,
+    "lines": 196,
+    "files_own": 11,
+    "lines_own": 196
+   },
+   "YAML": {
+    "files": 1,
+    "lines": 145,
+    "files_own": 1,
+    "lines_own": 145
+   },
+   "XML": {
+    "files": 1,
+    "lines": 112,
+    "files_own": 1,
+    "lines_own": 112
+   },
+   "other": {
+    "files": 100,
+    "lines": 68,
+    "files_own": 63,
+    "lines_own": 67
+   },
+   "no extension": {
+    "files": 2,
+    "lines": 96,
+    "files_own": 1,
+    "lines_own": 42
+   },
+   "Text": {
+    "files": 17,
+    "lines": 1906,
+    "files_own": 1,
+    "lines_own": 9
+   }
+  },
+  "code_languages": [
+   "JavaScript",
+   "Python",
+   "HTML",
+   "CSS",
+   "Shell"
+  ],
+  "top_dirs": [
+   [
+    "references/",
+    494
+   ],
+   [
+    "arsenal/",
+    226
+   ],
+   [
+    "factory/",
+    211
+   ],
+   [
+    "chromes/",
+    86
+   ],
+   [
+    "library/",
+    79
+   ],
+   [
+    "skills/",
+    53
+   ],
+   [
+    "contrib/",
+    27
+   ],
+   [
+    "films/",
+    27
+   ],
+   [
+    "docs/",
+    24
+   ],
+   [
+    "scripts/",
+    10
+   ],
+   [
+    "tests/",
+    9
+   ],
+   [
+    "runtime/",
+    7
+   ],
+   [
+    "notebooks/",
+    3
+   ],
+   [
+    "eval/",
+    2
+   ],
+   [
+    ".claude-plugin/",
+    1
+   ],
+   [
+    ".gitignore",
+    1
+   ],
+   [
+    "HANDOFF-JEV-EVAL.md",
+    1
+   ],
+   [
+    "HANDOFF.md",
+    1
+   ],
+   [
+    "MERGE-NOTES.md",
+    1
+   ],
+   [
+    "README.md",
+    1
+   ],
+   [
+    "REQUIREMENTS.md",
+    1
+   ],
+   [
+    "RUN.md",
+    1
+   ]
+  ],
+  "largest_files_own": [
+   {
+    "path": "references/atlas/graph/triples.jsonl",
+    "lines": 2561
+   },
+   {
+    "path": "factory/kit2/proof/results.json",
+    "lines": 1358
+   },
+   {
+    "path": "scripts/channels/channels.py",
+    "lines": 1112
+   },
+   {
+    "path": "films/typesafe/scenes.js",
+    "lines": 1069
+   },
+   {
+    "path": "chromes/bunraku/bunraku.kit.js",
+    "lines": 1005
+   }
+  ]
+ },
+ "tests": {
+  "pattern": "(^|/)(tests?|__tests__|specs?)/.*\\.(py|js|mjs|cjs|ts|tsx|jsx|go|rs|rb|java|kt|sh|php|cs|swift|c|cc|cpp)$|(^|/)test_[^/]*\\.py$|_test\\.(py|go)$|\\.(test|spec)\\.(js|mjs|cjs|ts|tsx|jsx)$|(^|/)test\\.(js|mjs|py)$|_spec\\.rb$|(^|/)[^/]*Tests?\\.(java|kt|cs|swift)$",
+  "files": 10,
+  "files_list": [
+   "library/plan/modules/commit-predict-reveal/test.mjs",
+   "library/plan/modules/contrast-split/test.mjs",
+   "library/plan/modules/ladder-build/test.mjs",
+   "library/plan/modules/mass-reseat/test.mjs",
+   "library/plan/modules/recap-retrieve/test.mjs",
+   "library/plan/modules/trap-and-correct/test.mjs",
+   "tests/node/_load.mjs",
+   "tests/node/am-cam-mix.test.mjs",
+   "tests/node/tokens-light-hue.test.mjs",
+   "tests/proofs.sh"
+  ],
+  "functions_static": {
+   "javascript": 4
+  },
+  "functions_total": 4,
+  "runners": [
+   {
+    "runner": "node --test",
+    "evidence": "2 test files import node:test (e.g. tests/node/am-cam-mix.test.mjs)"
+   }
+  ],
+  "files_without_recognised_function": [
+   "library/plan/modules/commit-predict-reveal/test.mjs",
+   "library/plan/modules/contrast-split/test.mjs",
+   "library/plan/modules/ladder-build/test.mjs",
+   "library/plan/modules/mass-reseat/test.mjs",
+   "library/plan/modules/recap-retrieve/test.mjs",
+   "library/plan/modules/trap-and-correct/test.mjs",
+   "tests/node/_load.mjs",
+   "tests/proofs.sh"
+  ],
+  "executed": false
+ },
+ "readme": {
+  "headings": [
+   {
+    "level": 1,
+    "text": "CETI Explainer",
+    "line": 1
+   },
+   {
+    "level": 2,
+    "text": "Tagline",
+    "line": 11
+   },
+   {
+    "level": 2,
+    "text": "Run an episode",
+    "line": 17
+   },
+   {
+    "level": 2,
+    "text": "Experiment E0",
+    "line": 31
+   },
+   {
+    "level": 2,
+    "text": "Quality bar",
+    "line": 46
+   },
+   {
+    "level": 2,
+    "text": "Course (five episodes)",
+    "line": 56
+   },
+   {
+    "level": 2,
+    "text": "Repo layout",
+    "line": 64
+   },
+   {
+    "level": 2,
+    "text": "Layout",
+    "line": 81
+   },
+   {
+    "level": 3,
+    "text": "Build from the repo: the four proofs",
+    "line": 112
+   },
+   {
+    "level": 1,
+    "text": "(i) an Atelier chrome film: build, then the 10-row gate",
+    "line": 118
+   },
+   {
+    "level": 1,
+    "text": "(ii) the module operad: lint a beat graph, then compose and build it in one material",
+    "line": 121
+   },
+   {
+    "level": 1,
+    "text": "(iii) the plan library: lint (L1-L13 + p5 budget) and build the base-rate film",
+    "line": 124
+   },
+   {
+    "level": 1,
+    "text": "(iv) the SVG episode gate and the plan-module tests",
+    "line": 126
+   },
+   {
+    "level": 2,
+    "text": "Org note",
+    "line": 133
+   },
+   {
+    "level": 2,
+    "text": "Papers",
+    "line": 137
+   }
+  ],
+  "first_paragraph": "Short-course explainers for sheaves, operads, and cohomology — for people who do not live in journals.",
+  "para_lines": [
+   3,
+   3
+  ],
+  "quote": "Short-course explainers for sheaves, operads, and cohomology — for people who do not live in journals.",
+  "quote_words": 15,
+  "lines": 141,
+  "path": "README.md"
+ },
+ "docs": {
+  "pattern": "\\.(md|markdown|rst|adoc|txt)$",
+  "files_own": 702,
+  "top_level": [
+   "HANDOFF-JEV-EVAL.md",
+   "HANDOFF.md",
+   "MERGE-NOTES.md",
+   "README.md",
+   "REQUIREMENTS.md",
+   "RUN.md"
+  ],
+  "docs_dir": true
+ },
+ "manifests": [
+  {
+   "path": ".claude-plugin/plugin.json",
+   "kind": "claude-plugin",
+   "name": "ceti-explainer-atelier",
+   "version": "0.2.0",
+   "deps": [],
+   "dev_deps": [],
+   "notes": [],
+   "description": "CETI explainer studio: the SVG episode engine, the p5 film tier (Explainer Atelier runtime, eight chromes, the AM module operad and materials), the plan-compiled explainer library, and the p5 studio skills, in one plugin with vendored p5 2.3.4 and fonts."
+  },
+  {
+   "path": "scripts/requirements.txt",
+   "kind": "requirements",
+   "name": null,
+   "version": null,
+   "deps": [
+    "playwright>=1.45,<2",
+    "fonttools>=4.50",
+    "brotli>=1.1",
+    "Pillow>=10"
+   ],
+   "dev_deps": [],
+   "notes": []
+  }
+ ],
+ "dependents": "not knowable from a local clone (who imports or vendors this repo lives outside it)"
+}

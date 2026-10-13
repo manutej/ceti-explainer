@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>gl-labels · arsenal pattern</title>
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}#park{position:absolute;left:-9999px;top:0}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="./pattern.js"></script></head><body><main></main><div id="park" hidden></div>
+<script>
+/* ?brand=<id> (default ceti-dark) · ?variant=<name> · ?only=<name> · ?p={json overrides} · ?t=<s> */
+const Q = new URLSearchParams(location.search), PAT = ARSENAL.patterns['gl-labels'];
+const TK = ARSENAL.brands[Q.get('brand') || 'ceti-dark'] || ARSENAL.brands['ceti-dark'];
+document.documentElement.style.background = document.body.style.background = TK.color.bg;
+const ALL = PAT.variants.map(v => v.name), NAMES = Q.get('only') ? [Q.get('only')] : ALL, cache = {};
+let P = null, cur = null, last = null, resolveReady; const readyP = new Promise(r => resolveReady = r);
+const paramsOf = (n, extra) => { const v = PAT.variants.find(x => x.name === n); return Object.assign({}, PAT.params, v.params, Q.get('p') ? JSON.parse(Q.get('p')) : {}, extra || {}); };
+new p5(p => {
+  P = p;
+  p.setup = async () => { await p.createCanvas(960, 540, p.WEBGL); p.pixelDensity(2); p.noLoop();
+    for (const n of NAMES) { const params = paramsOf(n); cache[n] = { params, st: await PAT.setup(p, { seed: 7, w: 960, h: 540, tokens: TK }, params) }; }
+    resolveReady(); };
+  p.draw = () => {};
+}, document.querySelector('main'));
+/* p5 2.x WEBGL text adds a hidden canvas ahead of the film canvas: park it so querySelector('canvas') is the film */
+function tidy() { document.querySelectorAll('canvas:not(.p5Canvas)').forEach(c => document.getElementById('park').appendChild(c)); }
+function sync() { const gl = P.drawingContext, b = new Uint8Array(4); gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, b); }
+function seek(t, v) { v = v || Q.get('variant') || NAMES[0]; cur = v; P.resetMatrix(); last = PAT.draw(P, t, cache[v].st, cache[v].params, TK); tidy(); sync(); return { t, counts: last.counts }; }
+const optsFor = (c, hold) => ({ w: 960, h: 540, fps: c.params.fps, hold: hold == null ? c.params.hold : hold, leader: c.params.leader, occlusion: c.params.occlusion,
+  occluders: c.params.occlusion ? c.st.occ : null, reserve: c.params.reserve, callout: c.st.callout, measure: c.st.measure, measureKey: c.st.fontKey });
+window.__film = {
+  ready: () => readyP.then(() => { tidy(); if (Q.has('t')) seek(+Q.get('t')); }),
+  seek, count: (t, v) => PAT.count(t, cache[v || cur || NAMES[0]].st, cache[v || cur || NAMES[0]].params),
+  info: { variants: NAMES, dur: PAT.params.dur, brand: TK.id, renderer: 'webgl' },
+  /* projection check: the solver's analytic projection vs p5's worldToScreen under the same camera (max |dx|,|dy| in sheet units) */
+  projErr(v, t) { v = v || cur || NAMES[0]; const c = cache[v]; seek(t == null ? 5 : t, v); const cam = c.st.cam(t == null ? 5 : t), pr = PAT.project(cam, 960, 540);
+    P.push(); P.resetMatrix(); P.setCamera(c.st.work); let e = 0;
+    for (const a of c.st.anchors.slice(0, 40)) { const s = P.worldToScreen(new p5.Vector(a.x, a.y, a.z)), q = pr([a.x, a.y, a.z]); e = Math.max(e, Math.abs(s.x - q[0]), Math.abs(s.y - q[1])); }
+    P.pop(); return e; },
+  stats: () => { const c = cache[cur]; return { fontNote: c && c.st.fontNote, anchors: c && c.st.anchors.length, counts: last && last.counts }; },
+  /* honest s/frame: draw + GPU finish (readPixels); cold = fresh memo (a re-seek to an unseen t), warm = the next frame in sequence */
+  bench(v) { const c = cache[v], ms = [], sol = { cold: [], warm: [] };
+    for (const f of [0.5, 0.15, 0.35, 0.55, 0.75, 0.95, 1]) { const a = performance.now(); seek(f * PAT.params.dur, v); ms.push(performance.now() - a); }
+    ms.shift();
+    for (const f of [0.2, 0.4, 0.6, 0.8]) { const t = f * PAT.params.dur + 0.0123, anc = c.st.anchors.slice();   // a new array = a cold memo
+      let a = performance.now(); PAT.solve(t, c.st.cam, anc, optsFor(c)); sol.cold.push(performance.now() - a);
+      a = performance.now(); PAT.solve(t + 1 / 30, c.st.cam, anc, optsFor(c)); sol.warm.push(performance.now() - a); }
+    const mean = x => +(x.reduce((a, b) => a + b, 0) / x.length).toFixed(1);
+    return { v, mean_ms: mean(ms), max_ms: Math.max(...ms).toFixed(0), solve_cold_ms: mean(sol.cold), solve_warm_ms: mean(sol.warm) }; },
+  /* coherence: step the whole clip at 30 fps; count visibility toggles and candidate jumps, solved vs naive (hold 0) */
+  flicker(v) { const c = cache[v], out = {};
+    for (const [name, hold, sticky] of [['solved', c.params.hold, 'chain'], ['window-only', c.params.hold, 'window'], ['naive', 0, 'window']]) {
+      const anc = c.st.anchors.slice(); let ovl = 0, prev = null, tog = 0, jump = 0, shortRuns = 0, run = new Map(), cuts = 0, coPrev = null, coBoth = 0;
+      for (let k = 0; k <= PAT.params.dur * 30; k++) {
+        const s = PAT.solve(k / 30, c.st.cam, anc, Object.assign(optsFor(c, hold), { sticky })), m = new Map(s.placements.filter(q => !q.callout).map(q => [q.id, q.cand]));
+        ovl += s.counts.overlap; const co = s.placements.filter(q => q.callout); if (co.length > 1) coBoth++; const cid = co.length ? co[0].id : null; if (coPrev !== null && cid !== coPrev) cuts++; coPrev = cid;
+        if (prev) { for (const id of anc.map(x => x.id)) { const a = prev.has(id), b = m.has(id);
+          if (a !== b) { tog++; const r = run.has(id) ? run.get(id) : 1e9; if (r + 1 < c.params.hold) shortRuns++; run.set(id, 0); } else run.set(id, (run.has(id) ? run.get(id) : 1e9) + 1);
+          if (a && b && prev.get(id) !== m.get(id)) jump++; } }
+        prev = m; }
+      out[name] = { toggles: tog, toggles_after_short_run: shortRuns, candidate_jumps: jump, callout_cuts: cuts, frames_with_two_callouts: coBoth, overlapped_label_frames: ovl }; }
+    return out; },
+};
+</script></body></html>

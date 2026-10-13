@@ -1,0 +1,24 @@
+{
+  "id": "survivorship",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "returned 380 = 400 x (a0..a5 sum 0.95)", "status": "ok", "note": "0.8+0.08+0.05+0.01+0.005+0.005 = 0.95; 400 x 0.95 = 380; lost = 20"},
+    {"claim": "80 hit = 60 holed home + 20 lost = 400 - 320", "status": "ok", "note": "recomputed; rests on the memo's model (unhit planes always return), which the honest limits state"},
+    {"claim": "1 in 4, 25 in 100, 20 ÷ 80", "status": "ok", "note": "20/80 = 0.25"},
+    {"claim": "32 / 20 / 8 holed planes", "status": "ok", "note": "0.08 x 400 = 32, 0.05 x 400 = 20, 60 - 52 = 8"},
+    {"claim": "q = 0.851, p = 0.149", "status": "ok", "note": "bisection on sum a_i / q^i = 1 gives q = 0.8510; matches the memo's printed root; the 4/2/2 split is drawn only as dots"},
+    {"claim": "YOU 8 of 80 from a guess of 10 in 100", "status": "ok", "note": "round(10 x 80 / 100) = 8"},
+    {"claim": "1943, Wald, SRG Columbia; memo title", "status": "ok", "note": "WALD43 / CNA reprint as cited; the brief flags that the primary PDF was not fetched, and the honest limits say the 400 is a worked example"}
+  ],
+  "craft": 4,
+  "originality": 4,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 10.9, "what": "'60 came home with holes' is on screen during the commit; it is not derived from the answer (20 of 80) but it is a case number shown before the seal", "severity": "low"},
+    {"t": 30.6, "what": "The holed-plane breakdown ('32 one hole · 20 two · 8 three to five') is set small beside the 60 squares; readable at 1080 but secondary at best", "severity": "low"},
+    {"t": 1.0, "what": "Hook is a single short row of holed squares; the stop comes from the caption, not the image", "severity": "low"}
+  ],
+  "one_line": "The grid of 400 with the bottom row of 20 empties is the whole lesson in one picture, and every number traces to the memo; ship it."
+}

@@ -1,0 +1,13 @@
+{ "id": "newsprint--dark", "name": "Newsprint (warm grey, black, one red) [dark]",
+  "color": {
+    "bg": "#0F0D09",
+    "ink": "#CFCECE",
+    "accent": "#D7312E",
+    "accent2": "#848383",
+    "muted": "#79766E",
+    "line": "rgba(207,206,206,0.28)",
+    "panel": "#1B170F",
+    "chalk": "#D5D5D5" },
+  "type": { "disp": {"family": "Alegreya Sans", "weight": 500}, "mono": {"family": "DM Mono", "weight": 400}, "body": {"family": "Alegreya Sans", "weight": 400} },
+  "texture": "halftone", "tempo": {"ease": "quad", "beat_s": 3.5},
+  "voice": {"register": "a front page: flat declaratives, the headline does the arguing", "end_card": "CETI", "derived": {"from": "newsprint", "transforms": ["dark"]}} }

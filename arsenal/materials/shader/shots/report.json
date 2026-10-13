@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/materials/shader/demo.html",
+ "errors": [],
+ "variants": {
+  "neon": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/neon-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/neon-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/neon-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/neon-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "halftone": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/halftone-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/halftone-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/halftone-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/halftone-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "riso": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/riso-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/riso-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/riso-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/riso-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "chalk": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/chalk-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/chalk-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/chalk-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/materials/shader/shots/chalk-t4.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 22.3,
+ "contact": "/home/user/ceti-explainer/arsenal/materials/shader/shots/contact.png"
+}

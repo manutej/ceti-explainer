@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>formula-bind</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="./pattern.js"></script></head><body><main></main>
+<script>
+/* ?brand=<id> (default ceti-dark) · ?variant=<name> · ?only=<name> (one variant: per-variant s/frame) · ?t=<s> · ?p=<json params> */
+const Q = new URLSearchParams(location.search), PAT = ARSENAL.patterns['formula-bind'];
+const TK = ARSENAL.brands[Q.get('brand') || 'ceti-dark'] || ARSENAL.brands['ceti-dark'];
+document.body.style.background = TK.color.bg;
+const ALL = PAT.variants.map(v => v.name), NAMES = Q.get('only') ? [Q.get('only')] : ALL, cache = {};
+const paramsOf = n => Object.assign({}, PAT.params, PAT.variants.find(v => v.name === n).params, Q.get('p') ? JSON.parse(Q.get('p')) : {});
+let P = null, cur = null, last = null, resolveReady; const readyP = new Promise(r => (resolveReady = r));
+new p5(p => {
+  P = p;
+  p.setup = async () => {
+    p.createCanvas(960, 540); p.pixelDensity(2); p.noLoop();
+    p.describe('Formula bind: a formula whose terms keep a role colour, light the marks they count, fly into them, and return with the computed result. Variants: ' + NAMES.join(', '));
+    for (const v of NAMES) { const params = paramsOf(v), t0 = performance.now(); cache[v] = { params, st: await PAT.setup(p, { seed: 7, w: 960, h: 540, tokens: TK }, params) }; cache[v].setupMs = performance.now() - t0; }
+    resolveReady();
+  };
+  p.draw = () => {};
+}, document.querySelector('main'));
+function seek(t, v) {
+  v = v || Q.get('variant') || NAMES[0]; cur = v;
+  P.push(); P.resetMatrix(); last = PAT.draw(P, t, cache[v].st, cache[v].params, TK); P.pop(); return last;
+}
+window.__film = {
+  ready: () => readyP.then(() => { if (Q.has('t')) seek(+Q.get('t')); }), seek,
+  count: (t, v) => PAT.count(t, cache[v || cur || NAMES[0]].st, cache[v || cur || NAMES[0]].params),
+  info: { variants: NAMES, dur: PAT.params.dur, brand: TK.id, renderer: 'p2d', atlas: PAT.atlas },
+  stats: () => ({ variant: cur, last, setupMs: cache[cur] && cache[cur].setupMs, fonts: cache[cur] && cache[cur].st.fontInfo }),
+};
+</script></body></html>

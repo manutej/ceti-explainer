@@ -1,0 +1,13 @@
+{ "id": "ceti-greenhouse-dark--light", "name": "CETI greenhouse dark [light]",
+  "color": {
+    "bg": "#ECEEE6",
+    "ink": "#242019",
+    "accent": "#38550A",
+    "accent2": "#00623A",
+    "muted": "#5D5441",
+    "line": "rgba(36,32,25,0.3)",
+    "panel": "#D5DACB",
+    "chalk": "#18140D" },
+  "type": { "disp": {"family": "Fraunces", "weight": 300, "style": "italic"}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400} },
+  "texture": "none", "tempo": {"ease": "expo", "beat_s": 4},
+  "voice": {"register": "Academy greenhouse dark: a greenhouse in low sun, moss and clay", "end_card": "CETI", "derived": {"from": "ceti-greenhouse-dark", "transforms": ["light"]}} }

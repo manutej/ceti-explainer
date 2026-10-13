@@ -1,0 +1,213 @@
+{
+  "film": "how-a-network-learns",
+  "page": "factory/films/how-a-network-learns/drafts/b/build/how-a-network-learns.ceti-neosage-dark.none.html",
+  "filmDir": "factory/films/how-a-network-learns/drafts/b",
+  "date": "2026-10-10T09:34:58.391Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 2664 ms; stage sd 24.6s:26.4 61.5s:30.5 98.4s:29.6",
+      "data": {
+        "readyMs": 2664,
+        "stats": [
+          {
+            "t": 24.6,
+            "mean": 22.143528607260155,
+            "sd": 26.391953439970745
+          },
+          {
+            "t": 61.5,
+            "mean": 26.748202102625996,
+            "sd": 30.48902944133842
+          },
+          {
+            "t": 98.4,
+            "mean": 34.30469867862835,
+            "sd": 29.63131877190056
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 12.3, 36.9, 61.5, 86.1, 110.7 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, commit-off.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 123 s; material 120 s (want 90–120, format feature) + brand 3 s; total ≤ 123"
+    },
+    {
+      "id": "G4b",
+      "name": "format · beats",
+      "status": "PASS",
+      "evidence": "order HOOK → CASE → COUNT → MONDAY; t0 H0 C12 C58 M108"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit {\"enabled\":false}"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Fast at first. The last few cost the most.\"; frame at 122 s sd 14.3; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Graded on the 150 it learned from; new flowers untested. One tiny network, one l\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "6 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "69 claims, 30 with formula, 30 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 22 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "22 visible number(s) not in claims (chrome?): 79 @46s \"STEP 79\"; 179 @47s \"STEP 179\"; 279 @48s \"STEP 279\"; 379 @49s \"STEP 379\"; 479 @50s \"STEP 479\"; 579 @51s \"STEP 579\"",
+      "data": {
+        "unknown": [
+          "79 @46s \"STEP 79\"",
+          "179 @47s \"STEP 179\"",
+          "279 @48s \"STEP 279\"",
+          "379 @49s \"STEP 379\"",
+          "479 @50s \"STEP 479\"",
+          "579 @51s \"STEP 579\"",
+          "679 @52s \"STEP 679\"",
+          "779 @53s \"STEP 779\"",
+          "879 @54s \"STEP 879\"",
+          "979 @55s \"STEP 979\"",
+          "6 @89s \"STEP 6\"",
+          "17 @91s \"STEP 17\"",
+          "27 @92s \"STEP 27\"",
+          "44 @93s \"STEP 44\"",
+          "69 @94s \"STEP 69\"",
+          "108 @95s \"STEP 108\"",
+          "169 @96s \"STEP 169\"",
+          "264 @97s \"STEP 264\"",
+          "411 @98s \"STEP 411\"",
+          "641 @99s \"STEP 641\"",
+          "84 @101s \"ROW 84\"",
+          "134 @105s \"ROW 134\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "17 must-read / 13 secondary / 5 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot factory/films/how-a-network-learns/drafts/b/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 17,
+          "secondary": 13,
+          "chrome": 5
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 61 s (count.at); first ratio \"OF 150 · 90 %\" at 67 s (svg); commit disabled (D11): no seal, counts-before-ratios only"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 117.0 KB (film.js 73.3, film.json 26.4, claims.json 17.4) < 120 KB; page 1.294 MB < 1.3 MB",
+      "data": {
+        "code": 119831,
+        "page": 1294177
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand ceti-neosage-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "ceti-neosage-dark",
+          "chrome": "none",
+          "material": "ink",
+          "texture": "none",
+          "texture_declared": "none",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 17.27, 33.53, 49.8, 66.07, 82.33, 98.6, 123 s → factory/films/how-a-network-learns/drafts/b/shots"
+    }
+  ]
+}

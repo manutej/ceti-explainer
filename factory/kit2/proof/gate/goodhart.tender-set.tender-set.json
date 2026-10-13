@@ -1,0 +1,203 @@
+{
+  "film": "goodhart",
+  "page": "/home/user/ceti-explainer/factory/kit2/proof/build/goodhart.tender-set.tender-set.html",
+  "filmDir": "/home/user/ceti-explainer/factory/films/goodhart",
+  "date": "2026-10-08T15:32:33.968Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 514 ms; stage sd 15s:31.7 37.5s:33.4 60s:28.8",
+      "data": {
+        "readyMs": 514,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 210.18045427274603,
+            "sd": 31.695158919158843
+          },
+          {
+            "t": 37.5,
+            "mean": 208.2374953607074,
+            "sd": 33.4086450803208
+          },
+          {
+            "t": 60,
+            "mean": 206.95599116511482,
+            "sd": 28.771720819682326
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit2.js, player.js (player: rAF/Date/perf allowed), materials.js, tender-set.js",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 11 s (want 8–16); film-mode default 100"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"When a measure becomes a target, it stops measuring.\"; frame at 74 s sd 17.8; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"The 3.5 million is the bank's own review estimate of potentially unauthorised ac\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "6 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "17 claims, 14 with formula, 14 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 14 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "11 visible number(s) not in claims (chrome?): 40 @36s \"40\"; 160 @36.5s \"160\"; 280 @37s \"280\"; 520 @38s \"520\"; 640 @38.5s \"640\"; 760 @39s \"760\"",
+      "data": {
+        "unknown": [
+          "40 @36s \"40\"",
+          "160 @36.5s \"160\"",
+          "280 @37s \"280\"",
+          "520 @38s \"520\"",
+          "640 @38.5s \"640\"",
+          "760 @39s \"760\"",
+          "880 @39.5s \"880\"",
+          "11 @46s \"11\"",
+          "13 @46.5s \"13\"",
+          "16 @47s \"16\"",
+          "18 @47.5s \"18\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "23 must-read / 13 secondary / 62 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 23,
+          "secondary": 13,
+          "chrome": 62
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 36 s (count.at); first ratio \"≈ 2 IN 100\" at 54.5 s (svg)"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 18.0 KB (film.js 9.5, film.json 5.4, claims.json 3.2) < 120 KB; page 1.158 MB < 1.3 MB",
+      "data": {
+        "code": 18448,
+        "page": 1157598
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand tender-set, chrome tender-set, material ink, texture paper; level exec (default); via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "tender-set",
+          "chrome": "tender-set",
+          "material": "ink",
+          "texture": "paper",
+          "texture_declared": "paper",
+          "level": "exec",
+          "box": {
+            "x0": 40,
+            "y0": 96,
+            "x1": 938,
+            "y1": 410,
+            "s": 1,
+            "ox": 0,
+            "oy": 0
+          }
+        },
+        "level": "exec",
+        "bad": []
+      }
+    }
+  ]
+}

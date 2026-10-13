@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Arsenal pattern: scale-anchor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>@font-face{font-family:'Big Shoulders Display';font-weight:600;src:url(../../../vendor/fonts/big-shoulders-display-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;src:url(../../../vendor/fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'DM Sans';font-weight:400;src:url(../../../vendor/fonts/dm-sans-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Sofia Sans Extra Condensed';font-weight:700;src:url(../../../vendor/fonts/sofia-sans-extra-condensed-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Space Mono';font-weight:400;src:url(../../../vendor/fonts/space-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-weight:600;src:url(../../../vendor/fonts/jost-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Red Hat Mono';font-weight:400;src:url(../../../vendor/fonts/red-hat-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-weight:400;src:url(../../../vendor/fonts/jost-latin-400-normal.woff2) format('woff2')}
+html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="./pattern.js"></script></head><body>
+<script>
+/* ?brand=<id> (default ceti-dark) · ?variant=<name> · ?t=<s> · ?p=<json params> */
+const Q = new URLSearchParams(location.search), PAT = ARSENAL.patterns['scale-anchor'], SEED = 11;
+const TOK = ARSENAL.brands[Q.get('brand')] || ARSENAL.brands['ceti-dark'];
+const paramsOf = n => Object.assign({}, PAT.params, PAT.variants.find(v => v.name === n).params, Q.get('p') ? JSON.parse(Q.get('p')) : {});
+const NAMES = PAT.variants.map(v => v.name), cache = {}; let cur = Q.get('variant') || NAMES[0], P_inst, readyRes, last = null;
+const ready = new Promise(r => readyRes = r);
+document.body.style.background = TOK.color.bg;
+function build(v) { if (!cache[v]) { const params = paramsOf(v); cache[v] = { params, st: PAT.setup(P_inst, { seed: SEED, w: 960, h: 540, tokens: TOK }, params) }; } cur = v; return cache[v]; }
+function render(t, v) { const c = build(v || cur); last = PAT.draw(P_inst, t, c.st, c.params, TOK); return last; }
+new p5(p => {
+  P_inst = p;
+  p.setup = () => {
+    p.pixelDensity(2); p.createCanvas(960, 540); p.noLoop(); p.describe('Scale anchor: log zoom from 1 to 100,000 units against a constant-size anchor');
+    const fams = Object.values(TOK.type).map(f => f.weight + ' 16px "' + f.family + '"');
+    Promise.all(fams.map(f => document.fonts.load(f))).then(() => document.fonts.ready).then(() => { render(+Q.get('t') || 0); readyRes(true); });
+  };
+});
+const DUR = Math.max(...NAMES.map(n => PAT.timeline(paramsOf(n)).dur));
+window.__film = { ready: () => ready, seek: (t, v) => render(t, v), count: (t, v) => PAT.count(t, paramsOf(v || cur)), timeline: v => PAT.timeline(paramsOf(v || cur)),
+  info: { dur: DUR, variants: NAMES, pattern: 'scale-anchor', brand: TOK.id, renderer: 'p2d' }, stats: () => last };
+</script></body></html>

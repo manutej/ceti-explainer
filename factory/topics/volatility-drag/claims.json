@@ -1,0 +1,343 @@
+{
+  "film": "volatility-drag",
+  "params": {
+    "start": 100,
+    "up": 1.5,
+    "down": 0.6,
+    "p": 0.5,
+    "rounds": 100,
+    "players": 100,
+    "seed": 1,
+    "guess": 150
+  },
+  "sources": [
+    "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+    "Peters, O. & Gell-Mann, M. (2016). Evaluating gambles using dynamics. Chaos 26, 023103. doi:10.1063/1.4940236 (arXiv:1405.0585)",
+    "Peters, O. (2023). Insurance as an ergodicity problem. Annals of Actuarial Science 17, 215-218. doi:10.1017/S1748499523000131",
+    "Kelly, J. L. Jr. (1956). A new interpretation of information rate. Bell System Technical Journal 35(4), 917-926. doi:10.1002/j.1538-7305.1956.tb03809.x",
+    "Doctor, J. N., Wakker, P. P. & Wang, T. V. (2020). Economists' views on the ergodicity problem. Nature Physics 16, 1168. doi:10.1038/s41567-020-01106-x"
+  ],
+  "claims": [
+    {
+      "id": "stake",
+      "text": "£100 (the starting stake; also the COUNT's £100 gridline)",
+      "value": 100,
+      "formula": "start",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "HOOK bet bar label; COMMIT prompt \"What's left of £100?\"; CASE ghost outline; COUNT \"£100 EACH\", £100 gridline; captions 1, 4, 5, 8, 9"
+    },
+    {
+      "id": "win_pct",
+      "text": "+50 %",
+      "value": 50,
+      "formula": "Math.round((up-1)*100)",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "HOOK heads bar label \"HEADS +50 %\"; caption 1"
+    },
+    {
+      "id": "loss_pct",
+      "text": "−40 %",
+      "value": -40,
+      "formula": "Math.round((down-1)*100)",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "HOOK tails bar label \"TAILS −40 %\"; caption 1"
+    },
+    {
+      "id": "heads_value",
+      "text": "£150",
+      "value": 150,
+      "formula": "start*up",
+      "source": "Arithmetic on the gamble terms of Peters 2019 / Peters & Gell-Mann 2016",
+      "where": "HOOK heads bar value; CASE ledger \"HEADS ×1.5 → £150\"; caption 5"
+    },
+    {
+      "id": "heads_factor",
+      "text": "×1.5",
+      "value": 1.5,
+      "formula": "up",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "CASE ledger line 1"
+    },
+    {
+      "id": "tails_factor",
+      "text": "×0.6",
+      "value": 0.6,
+      "formula": "down",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "CASE ledger line 2"
+    },
+    {
+      "id": "tails_value",
+      "text": "£60",
+      "value": 60,
+      "formula": "start*down",
+      "source": "Arithmetic on the gamble terms of Peters 2019 / Peters & Gell-Mann 2016",
+      "where": "HOOK tails bar value; CASE swap demo \"TAILS FIRST: £60 → £90\""
+    },
+    {
+      "id": "avg_one_round",
+      "text": "£105 (average of £150 and £60)",
+      "value": 105,
+      "formula": "start*(up+down)/2",
+      "source": "Arithmetic on the gamble terms of Peters 2019 / Peters & Gell-Mann 2016",
+      "where": "HOOK dashed average line label \"AVERAGE £105\""
+    },
+    {
+      "id": "ev_rate",
+      "text": "+5 % a round (expected value)",
+      "value": 5,
+      "formula": "Math.round(((up+down)/2-1)*100)",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "HOOK average label \"+5 %\"; COUNT closing headline \"AVERAGE +5 % A ROUND\"; caption 2 implies it (no digit)"
+    },
+    {
+      "id": "rounds",
+      "text": "100 rounds",
+      "value": 100,
+      "formula": "rounds",
+      "source": "Topic definition (commit question); Peters 2023 Fig. 2 also shows 100 realisations",
+      "where": "COMMIT prompt \"100 ROUNDS · ALL REINVESTED\"; COUNT round counter \"ROUND n / 100\"; caption 3"
+    },
+    {
+      "id": "round_counter",
+      "text": "ROUND n / 100, n = 0..100 (integer, dynamic)",
+      "value": 100,
+      "formula": "rounds",
+      "params": {
+        "rounds": 100
+      },
+      "source": "Seeded simulation of the Peters coin game: mulberry32(seed), round-major draws (for each round, for each player), heads iff rnd() < p; recomputed by the formula",
+      "where": "COUNT top-right counter, 37.8 s to 49.8 s; every n is an integer in 0..rounds"
+    },
+    {
+      "id": "pair_value",
+      "text": "£90 (win then loss, or loss then win)",
+      "value": 90,
+      "formula": "Math.round(start*up*down*1e6)/1e6",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "CASE ledger \"TAILS ×0.6 → £90\"; swap demo; caption 5"
+    },
+    {
+      "id": "pair_loss",
+      "text": "−£10 / costs 10 % per win-loss pair",
+      "value": 10,
+      "formula": "Math.round((1-up*down)*100)",
+      "source": "Arithmetic on the gamble terms of Peters 2019 / Peters & Gell-Mann 2016",
+      "where": "CASE gap label \"−£10\" against the £100 ghost; caption 6 \"costs 10 %\""
+    },
+    {
+      "id": "pair_factor",
+      "text": "×0.9 per pair",
+      "value": 0.9,
+      "formula": "Math.round(up*down*1e9)/1e9",
+      "source": "Arithmetic on the gamble terms of Peters 2019 / Peters & Gell-Mann 2016",
+      "where": "CASE ledger \"WIN + LOSS = ×0.9\"; caption 7"
+    },
+    {
+      "id": "typical_heads",
+      "text": "50 heads, 50 tails (the median run)",
+      "value": 50,
+      "formula": "(()=>{const n=rounds;let c=1,s=0;const P=[];for(let k=0;k<=n;k++){P.push(c);c=c*(n-k)/(k+1);}const tot=Math.pow(2,n);for(let k=0;k<=n;k++){s+=P[k]/tot;if(s>=0.5)return k;}})()",
+      "source": "Exact median of Binomial(rounds, 1/2): P(K<=49)=0.4602, P(K<=50)=0.5398, so the median run has 50 heads",
+      "where": "CASE ledger \"50 HEADS · 50 TAILS\"; caption 7"
+    },
+    {
+      "id": "pairs",
+      "text": "50 pairs (×0.9, fifty times)",
+      "value": 50,
+      "formula": "rounds/2",
+      "source": "Arithmetic on the gamble terms of Peters 2019 / Peters & Gell-Mann 2016",
+      "where": "CASE pair counter \"PAIR n / 50\"; caption 7"
+    },
+    {
+      "id": "case_pair_value",
+      "text": "£ after n pairs, n = 0..50 (dynamic, shown to the penny)",
+      "value": 0.5153775207,
+      "formula": "start*Math.pow(up*down,n)",
+      "params": {
+        "n": 50
+      },
+      "source": "Arithmetic on the gamble terms of Peters 2019 / Peters & Gell-Mann 2016",
+      "where": "CASE readout during the ×0.9 run, 25.6 s to 30.6 s; final frame £0.52"
+    },
+    {
+      "id": "typical_final",
+      "text": "£0.52 / 52p left of £100 for the typical player",
+      "value": 0.5153775207,
+      "formula": "start*Math.pow(up*down,rounds/2)",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0; Exact median of Binomial(rounds, 1/2): P(K<=49)=0.4602, P(K<=50)=0.5398, so the median run has 50 heads",
+      "where": "CASE \"£0.52 · TRUE SCALE\"; COUNT \"TYPICAL PLAYER £0.52\"; captions 8 and 12"
+    },
+    {
+      "id": "typical_rate",
+      "text": "−5.1 % a round for the typical player",
+      "value": -5.1317,
+      "formula": "Math.round((Math.sqrt(up*down)-1)*1e6)/1e4",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "COUNT closing headline \"TYPICAL −5.1 % A ROUND\" (after all counts)"
+    },
+    {
+      "id": "ev_final",
+      "text": "£13,150 (expected value after 100 rounds; 131.5× the stake)",
+      "value": 13150.1258,
+      "formula": "Math.round(start*Math.pow((up+down)/2,rounds)*1e4)/1e4",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "COUNT expected-value line label at round 100 \"EXPECTED £13,150\"; caption 12"
+    },
+    {
+      "id": "ev_line",
+      "text": "£ expected value after r rounds, r = 0..100 (dynamic, whole pounds)",
+      "value": 13150.1258,
+      "formula": "Math.round(start*Math.pow((up+down)/2,r)*1e4)/1e4",
+      "params": {
+        "r": 100
+      },
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "COUNT expected-value line label while rounds run, 37.8 s to 49.8 s"
+    },
+    {
+      "id": "players",
+      "text": "100 players",
+      "value": 100,
+      "formula": "players",
+      "source": "Topic definition; matches the 100 realisations of Peters 2023 Fig. 2",
+      "where": "COUNT headline \"100 PLAYERS · £100 EACH\"; \"n OF 100\" readouts; caption 9 and 11"
+    },
+    {
+      "id": "default_guess",
+      "text": "£150 (film-mode default guess)",
+      "value": 150,
+      "formula": "guess",
+      "source": "Editorial default guess for film mode (film.json defaultGuess); a positive-EV believer's \"a bit more than I put in\"",
+      "where": "COMMIT box typed default in film mode; COUNT guess rule label \"YOUR £150\""
+    },
+    {
+      "id": "sim_lost",
+      "text": "87 of 100 lost money (final stake below £100)",
+      "value": 87,
+      "formula": "(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().filter(w=>w<start).length",
+      "source": "Seeded simulation of the Peters coin game: mulberry32(seed), round-major draws (for each round, for each player), heads iff rnd() < p; recomputed by the formula (exact expectation 86.4 of 100)",
+      "where": "COUNT tally \"LOST MONEY 87 OF 100\"; caption 11"
+    },
+    {
+      "id": "sim_under_1",
+      "text": "55 of 100 have less than £1",
+      "value": 55,
+      "formula": "(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().filter(w=>w<1).length",
+      "source": "Seeded simulation of the Peters coin game: mulberry32(seed), round-major draws (for each round, for each player), heads iff rnd() < p; recomputed by the formula (exact expectation 54.0 of 100)",
+      "where": "COUNT bracket under the floor \"UNDER £1 · 55\"; caption 11"
+    },
+    {
+      "id": "sim_reach_guess",
+      "text": "12 of 100 got to the default guess (£150 or more)",
+      "value": 12,
+      "formula": "(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().filter(w=>w>=guess).length",
+      "source": "Seeded simulation of the Peters coin game: mulberry32(seed), round-major draws (for each round, for each player), heads iff rnd() < p; recomputed by the formula (exact expectation 9.7 of 100); live page recomputes for the viewer's own guess",
+      "where": "COUNT guess readout \"12 OF 100 GOT THERE\" (film mode)"
+    },
+    {
+      "id": "sim_median",
+      "text": "£0.52 realised median of the 100 (ranks 50 and 51)",
+      "value": 0.5153775207,
+      "formula": "(()=>{const w=(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().sort((x,y)=>x-y);return (w[49]+w[50])/2;})()",
+      "source": "Seeded simulation of the Peters coin game: mulberry32(seed), round-major draws (for each round, for each player), heads iff rnd() < p; recomputed by the formula",
+      "where": "COUNT: the two highlighted middle bars carry the \"TYPICAL PLAYER £0.52\" label; cross-check of typical_final"
+    },
+    {
+      "id": "sim_above_ev",
+      "text": "2 of 100 end above the expected-value line",
+      "value": 2,
+      "formula": "(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().filter(w=>w>start*Math.pow((up+down)/2,rounds)).length",
+      "source": "Seeded simulation of the Peters coin game: mulberry32(seed), round-major draws (for each round, for each player), heads iff rnd() < p; recomputed by the formula",
+      "where": "COUNT (optional) label beside the two bars above the line \"2 ABOVE THE LINE\""
+    },
+    {
+      "id": "sim_under_1p",
+      "text": "18 of 100 below 1p (drawn as floor stubs)",
+      "value": 18,
+      "formula": "(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().filter(w=>w<0.01).length",
+      "source": "Seeded simulation of the Peters coin game: mulberry32(seed), round-major draws (for each round, for each player), heads iff rnd() < p; recomputed by the formula",
+      "where": "COUNT (optional) floor label \"18 UNDER 1p\""
+    },
+    {
+      "id": "sim_mean",
+      "text": "£5,232 the 100 players' own average after 100 rounds",
+      "value": 5232.3393,
+      "formula": "(()=>{const w=(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})();return Math.round(w.reduce((a,b)=>a+b,0)/w.length*1e4)/1e4;})()",
+      "source": "Seeded simulation of the Peters coin game: mulberry32(seed), round-major draws (for each round, for each player), heads iff rnd() < p; recomputed by the formula",
+      "where": "Transcript and try-it panel only (not on stage): the realised average sits far below £13,150"
+    },
+    {
+      "id": "sim_top_share",
+      "text": "92 % of all the money held by one player",
+      "value": 91.73,
+      "formula": "(()=>{const w=(()=>{let a=seed|0;const rnd=()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const h=new Array(players).fill(0);for(let i=1;i<=rounds;i++)for(let q=0;q<players;q++)if(rnd()<p)h[q]++;return h.map(k=>start*Math.pow(up,k)*Math.pow(down,rounds-k));})().sort((x,y)=>x-y);return Math.round(w[w.length-1]/w.reduce((a,b)=>a+b,0)*1e4)/100;})()",
+      "source": "Seeded simulation of the Peters coin game: mulberry32(seed), round-major draws (for each round, for each player), heads iff rnd() < p; recomputed by the formula",
+      "where": "Transcript only (not on stage)"
+    },
+    {
+      "id": "kelly_rate",
+      "text": "about +0.6 % a round for the typical player betting a quarter of the pot",
+      "value": 0.623,
+      "formula": "Math.round((Math.sqrt((1+0.25*(up-1))*(1-0.25*(1-down)))-1)*1e5)/1e3",
+      "source": "Kelly 1956 growth-optimal fraction f* = 0.25 for this game; arithmetic on Peters 2019 terms",
+      "where": "Live page only: try-it panel and honest-limits block (not on stage)"
+    },
+    {
+      "id": "axis_1p",
+      "text": "1p",
+      "value": 0.01,
+      "formula": "0.01",
+      "source": "Design constant: log axis of the COUNT, 40 units per decade, floor 1p (gridline labels)",
+      "where": "COUNT axis floor label"
+    },
+    {
+      "id": "axis_1",
+      "text": "£1",
+      "value": 1,
+      "formula": "1",
+      "source": "Design constant: log axis of the COUNT, 40 units per decade, floor 1p (gridline labels)",
+      "where": "COUNT gridline label; also the \"UNDER £1\" bracket threshold"
+    },
+    {
+      "id": "axis_10k",
+      "text": "£10,000",
+      "value": 10000,
+      "formula": "10000",
+      "source": "Design constant: log axis of the COUNT, 40 units per decade, floor 1p (gridline labels)",
+      "where": "COUNT gridline label"
+    },
+    {
+      "id": "axis_1m",
+      "text": "£1M",
+      "value": 1000000,
+      "formula": "1000000",
+      "source": "Design constant: log axis of the COUNT, 40 units per decade, floor 1p (gridline labels)",
+      "where": "COUNT top gridline label"
+    },
+    {
+      "id": "countdown",
+      "text": "commit ring 5, 4, 3, 2, 1",
+      "value": 5,
+      "formula": "5",
+      "source": "Format constant: commit countdown ring (FORMAT.md, COMMIT beat; decision Q13)",
+      "where": "COMMIT ring digits, 10.0 s to 15.0 s (film mode); the live page holds 8 s with a bar, no digits"
+    },
+    {
+      "id": "src_peters_2019",
+      "text": "2019 (Peters, Nature Physics)",
+      "value": 2019,
+      "formula": "2019",
+      "source": "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216-1221. doi:10.1038/s41567-019-0732-0",
+      "where": "CASE source chip \"PETERS 2019 · NATURE PHYSICS\"; sources list"
+    },
+    {
+      "id": "src_pgm_2016",
+      "text": "2016 (Peters & Gell-Mann, Chaos)",
+      "value": 2016,
+      "formula": "2016",
+      "source": "Peters, O. & Gell-Mann, M. (2016). Evaluating gambles using dynamics. Chaos 26, 023103. doi:10.1063/1.4940236 (arXiv:1405.0585)",
+      "where": "Sources list on the live page"
+    }
+  ]
+}

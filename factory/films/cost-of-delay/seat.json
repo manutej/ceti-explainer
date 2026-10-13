@@ -1,0 +1,23 @@
+{
+  "id": "cost-of-delay",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "biggest first (A, C, B): 200x3 + 50x5 + 100x6 = 1,450 = 29 marks", "status": "ok", "note": "recomputed"},
+    {"claim": "cheapest first (B, C, A): 100x1 + 50x3 + 200x6 = 1,450 = 29 marks", "status": "ok", "note": "recomputed"},
+    {"claim": "CD3 order (B, A, C): 100x1 + 200x4 + 50x6 = 1,200 = 24 marks; saves 250 = 5 marks", "status": "ok", "note": "recomputed; CD3 100 / 67 / 25 is Smith's ratio rule"},
+    {"claim": "Maersk: 82 hours, 46 weeks, 38 waiting, over $200k a week, 38 x 200k = $7.6M vs 'nearly $8M'", "status": "ok", "note": "Arnold & Yüce 2013 and blackswanfarming.com as cited; the brief notes one secondary source says 106 hours"},
+    {"claim": "guess 500 = 10 marks; 950 more than you said", "status": "ok", "note": "film-mode default"}
+  ],
+  "craft": 3,
+  "originality": 3,
+  "stop": 3,
+  "legibility_phone": "weak",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 60.2, "what": "The results (29, 24, £1,200k, 5 marks · £250k) are set in a small face at the foot of the tally; '£1.45M' never appears large on the stage and the mark tally at phone width is a thin strip", "severity": "med"},
+    {"t": 1.0, "what": "The hook frame is empty apart from the caption and the ledger; the Gantt only arrives in the commit beat", "severity": "low"},
+    {"t": 20.7, "what": "'82 hours of work.' sits alone for several seconds before the 46-week strip appears; fine as a beat, but the frame is mostly blank", "severity": "low"},
+    {"t": 40.5, "what": "Three stacked structures on one frame (Gantt, per-month mark columns, running tally) plus the legend; the eye has to find which one is the count", "severity": "low"}
+  ],
+  "one_line": "Counting the unearned months under three orders is the right mechanism and the arithmetic is clean; the results deserve the headline face, not the footnote face."
+}

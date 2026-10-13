@@ -1,0 +1,1956 @@
+{
+ "page": "factory/films/goodhart/drafts/ledger/build/goodhart.ceti-dark.ledger.html",
+ "film": "goodhart",
+ "dur": 75,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-dark",
+ "axes": {
+  "brand": "ceti-dark",
+  "chrome": "ledger",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "exec",
+  "renderer": "2d",
+  "box": {
+   "x0": 120,
+   "y0": 128,
+   "x1": 824,
+   "y1": 448,
+   "s": 0.784,
+   "ox": 88.62,
+   "oy": 89.65
+  }
+ },
+ "knobs": [
+  {
+   "name": "hookT0",
+   "range": [
+    0.4,
+    1.2
+   ],
+   "step": 0.1,
+   "what": "s: second the first of the 8 slots starts to fill in HOOK (later = slower open)",
+   "value": 0.6
+  },
+  {
+   "name": "hookStep",
+   "range": [
+    0.3,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "s: gap between one slot starting to fill and the next in HOOK (bigger = slower count to eight)",
+   "value": 0.5
+  },
+  {
+   "name": "slotSize",
+   "range": [
+    48,
+    64
+   ],
+   "step": 1,
+   "what": "px: edge of one household slot (bigger = heavier row; keep below slotPitch)",
+   "value": 60
+  },
+  {
+   "name": "slotPitch",
+   "range": [
+    66,
+    76
+   ],
+   "step": 1,
+   "what": "px: slot-to-slot distance in the household row (bigger = wider row, wider ruler)",
+   "value": 72
+  },
+  {
+   "name": "rowX",
+   "range": [
+    64,
+    200
+   ],
+   "step": 4,
+   "what": "px: left edge of the household row and its ruler on the film sheet (bigger = further right)",
+   "value": 120
+  },
+  {
+   "name": "rulerTick",
+   "range": [
+    4,
+    12
+   ],
+   "step": 1,
+   "what": "px: distance between fine ticks on the travelling ruler (bigger = fewer, calmer ticks)",
+   "value": 6
+  },
+  {
+   "name": "rulerOp",
+   "range": [
+    0.4,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the ruler's edge and ticks (lower = fainter ruler)",
+   "value": 0.85
+  },
+  {
+   "name": "rulerW",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "px: stroke width of the ruler's top edge (bigger = bolder straightedge)",
+   "value": 1.4
+  },
+  {
+   "name": "gridPitch",
+   "range": [
+    10.5,
+    12
+   ],
+   "step": 0.25,
+   "what": "px: centre-to-centre distance of the 1,000 marks (bigger = larger grid; keep gridSize below it)",
+   "value": 11.25
+  },
+  {
+   "name": "gridSize",
+   "range": [
+    7.5,
+    10
+   ],
+   "step": 0.25,
+   "what": "px: edge of one mark in the 1,000 grid (bigger = denser grid, smaller gap)",
+   "value": 8.75
+  },
+  {
+   "name": "scanT0",
+   "range": [
+    40,
+    40.6
+   ],
+   "step": 0.1,
+   "what": "s: second the ruler starts its scan down the grid (the metric counting)",
+   "value": 40.2
+  },
+  {
+   "name": "scanDur",
+   "range": [
+    1.4,
+    2.6
+   ],
+   "step": 0.1,
+   "what": "s: length of the ruler's scan down the grid (bigger = slower sweep)",
+   "value": 2
+  },
+  {
+   "name": "flagT0",
+   "range": [
+    43.8,
+    44.6
+   ],
+   "step": 0.1,
+   "what": "s: second the first flagged mark turns red (later = review lands later)",
+   "value": 44
+  },
+  {
+   "name": "flagStep",
+   "range": [
+    0.15,
+    0.3
+   ],
+   "step": 0.05,
+   "what": "s: gap between one flagged mark turning red and the next (bigger = slower review)",
+   "value": 0.2
+  },
+  {
+   "name": "gatherT0",
+   "range": [
+    48.4,
+    49
+   ],
+   "step": 0.1,
+   "what": "s: second the red marks start to gather into the first slots",
+   "value": 48.6
+  },
+  {
+   "name": "gatherDur",
+   "range": [
+    1.2,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: travel time of one mark during the gather (bigger = slower, calmer)",
+   "value": 1.6
+  },
+  {
+   "name": "guessT0",
+   "range": [
+    50.8,
+    51.6
+   ],
+   "step": 0.1,
+   "what": "s: second the graphite outline of the viewer's guess starts to draw",
+   "value": 51
+  },
+  {
+   "name": "guessDur",
+   "range": [
+    1.4,
+    2.6
+   ],
+   "step": 0.1,
+   "what": "s: time the guess outline takes to draw round its perimeter (bigger = slower)",
+   "value": 2
+  },
+  {
+   "name": "ratioT0",
+   "range": [
+    53.6,
+    55
+   ],
+   "step": 0.1,
+   "what": "s: second the ratio line appears, after the count and the guess",
+   "value": 54
+  },
+  {
+   "name": "floorT0",
+   "range": [
+    56.6,
+    57.6
+   ],
+   "step": 0.1,
+   "what": "s: second the 979 ink marks begin to ease back, leaving the floor of red",
+   "value": 57
+  },
+  {
+   "name": "floorOp",
+   "range": [
+    0.2,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "opacity the ink marks settle to in the floor phase (lower = red stands out more)",
+   "value": 0.35
+  },
+  {
+   "name": "monGrid",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.05,
+   "what": "opacity the grid fades to under the Monday question (lower = cleaner card)",
+   "value": 0.1
+  },
+  {
+   "name": "typeCps",
+   "range": [
+    24,
+    60
+   ],
+   "step": 2,
+   "what": "characters per second the ledger lines type on in CASE (bigger = faster)",
+   "value": 40
+  }
+ ],
+ "ms_per_frame": 11,
+ "s_per_frame": 0.011,
+ "purity": {
+  "pass": true,
+  "at": {
+   "15": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "60": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "37.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Target: 8 products per customer. Your team is hitting it.",
+   "chapter": {
+    "id": "hook",
+    "title": "The target"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "One bank ran on that exact target. Your guess first.",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "One bank ran on that exact target. Your guess first.",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "One bank ran on that exact target. Your guess first.",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "One bank ran on that exact target. Your guess first.",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "One bank ran on that exact target. Your guess first.",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "One bank ran on that exact target. Your guess first.",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "One bank ran on that exact target. Your guess first.",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": "Of 1,000 accounts opened, how many were never authorised?",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "Of 1,000 accounts opened, how many were never authorised?",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "Of 1,000 accounts opened, how many were never authorised?",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "Of 1,000 accounts opened, how many were never authorised?",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "Of 1,000 accounts opened, how many were never authorised?",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "Of 1,000 accounts opened, how many were never authorised?",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "Of 1,000 accounts opened, how many were never authorised?",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "Of 1,000 accounts opened, how many were never authorised?",
+   "chapter": {
+    "id": "commit",
+    "title": "Your guess first"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "Wells Fargo, 2002 to 2016: \"Eight is great.\"",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "Wells Fargo, 2002 to 2016: \"Eight is great.\"",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "Wells Fargo, 2002 to 2016: \"Eight is great.\"",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Wells Fargo, 2002 to 2016: \"Eight is great.\"",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Wells Fargo, 2002 to 2016: \"Eight is great.\"",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Wells Fargo, 2002 to 2016: \"Eight is great.\"",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Wells Fargo, 2002 to 2016: \"Eight is great.\"",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Wells Fargo, 2002 to 2016: \"Eight is great.\"",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Feb 2015: 6.13 on average. One household in four had 8+.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Feb 2015: 6.13 on average. One household in four had 8+.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Feb 2015: 6.13 on average. One household in four had 8+.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Feb 2015: 6.13 on average. One household in four had 8+.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Feb 2015: 6.13 on average. One household in four had 8+.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Feb 2015: 6.13 on average. One household in four had 8+.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "Feb 2015: 6.13 on average. One household in four had 8+.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "Feb 2015: 6.13 on average. One household in four had 8+.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "Feb 2015: 6.13 on average. One household in four had 8+.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "2017: the full review says 3.5 M. 2020: $3 B to settle.",
+   "chapter": {
+    "id": "case",
+    "title": "Eight is great"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "165 M accounts opened, 2009 to 2016. Here are 1,000.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "165 M accounts opened, 2009 to 2016. Here are 1,000.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "165 M accounts opened, 2009 to 2016. Here are 1,000.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "165 M accounts opened, 2009 to 2016. Here are 1,000.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "165 M accounts opened, 2009 to 2016. Here are 1,000.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "165 M accounts opened, 2009 to 2016. Here are 1,000.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "165 M accounts opened, 2009 to 2016. Here are 1,000.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "165 M accounts opened, 2009 to 2016. Here are 1,000.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "165 M accounts opened, 2009 to 2016. Here are 1,000.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "The metric counted every one as a product sold.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "The metric counted every one as a product sold.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "The metric counted every one as a product sold.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "The metric counted every one as a product sold.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "The metric counted every one as a product sold.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "The metric counted every one as a product sold.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "The review flagged 21. The metric still counted them.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "Your guess, outlined. The review found 21.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "21 is the floor. Unused products sold were counted too.",
+   "chapter": {
+    "id": "count",
+    "title": "A thousand accounts"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Monday: what could move this number with nothing behind it?",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "Limits: 3.5 M is an estimate. One bank, one metric.",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Limits: 3.5 M is an estimate. One bank, one metric.",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Limits: 3.5 M is an estimate. One bank, one metric.",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Limits: 3.5 M is an estimate. One bank, one metric.",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "Limits: 3.5 M is an estimate. One bank, one metric.",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "Limits: 3.5 M is an estimate. One bank, one metric.",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "Limits: 3.5 M is an estimate. One bank, one metric.",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "Limits: 3.5 M is an estimate. One bank, one metric.",
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  },
+  {
+   "t": 74.99,
+   "file": "thumbs/t-0074.99.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "One question"
+   }
+  }
+ ]
+}

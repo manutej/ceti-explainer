@@ -1,0 +1,27 @@
+{
+ "source": "S3 (+S4)",
+ "developers": 16,
+ "issues": 246,
+ "design": "each issue randomised to AI allowed or forbidden",
+ "forecast_time_change_pct": -24,
+ "belief_after_time_change_pct": -20,
+ "measured_time_change_pct": 19,
+ "ci95": [
+  2,
+  39
+ ],
+ "encoding": {
+  "baseline": 100,
+  "forecast_height": 76,
+  "belief_after_height": 80,
+  "measured_height": 119,
+  "note": "arm-mean heights as a schematic; per-issue times and per-developer issue counts are NOT claimed; do not cluster 246 under 16"
+ },
+ "followup_2026": {
+  "status": "not on screen",
+  "reason": "METR: selection effects, 'very weak evidence'",
+  "returning_time_change": -18,
+  "new_time_change": -4,
+  "grade": "C"
+ }
+}

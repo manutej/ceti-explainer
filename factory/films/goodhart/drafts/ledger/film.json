@@ -1,0 +1,465 @@
+{
+ "id": "goodhart",
+ "title": "Eight Is Great",
+ "eyebrow": "CETI case · Goodhart's law",
+ "lede": "A bank set a target of eight products per household. The metric counted every account its staff opened, including the ones customers never asked for. When a measure becomes a target, it stops measuring.",
+ "format": "case",
+ "level": "exec",
+ "renderer": "2d",
+ "look": {
+  "brand": "ceti-dark",
+  "chrome": "ledger",
+  "material": "ink"
+ },
+ "dur": 75,
+ "seed": 2017,
+ "params": {
+  "targetProducts": 8,
+  "crossSellFeb2015": 6.13,
+  "shareAt8Of": 4,
+  "cfpbDeposit": 1534280,
+  "cfpbCard": 565443,
+  "fired": 5300,
+  "penCFPB_M": 100,
+  "penOCC_M": 35,
+  "penLA_M": 50,
+  "reviewOrig_M": 2.55,
+  "reviewExtra_M": 0.981,
+  "reviewed_M": 165,
+  "doj_B": 3,
+  "sec_M": 500,
+  "gridN": 1000,
+  "gridCols": 40,
+  "gridRows": 25,
+  "defaultGuess": 100,
+  "yConductStart": 2002,
+  "yConductEnd": 2016,
+  "yXsell": 2015,
+  "yOrder": 2016,
+  "yReview": 2017,
+  "ySettle": 2020,
+  "yReviewStart": 2009,
+  "yReviewEnd": 2016
+ },
+ "commit": {
+  "at": 12,
+  "title": "YOUR GUESS",
+  "prompt": "Of every 1,000 accounts opened, how many did customers never authorise?",
+  "unit": "of 1,000",
+  "default": 100,
+  "min": 0,
+  "max": 1000,
+  "step": 1
+ },
+ "count": {
+  "at": 36
+ },
+ "grid": {
+  "cols": 40,
+  "rows": 25,
+  "flagged": 21,
+  "seed": 2017
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 8,
+   "eyebrow": "CASE · GOODHART",
+   "title": "The target"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 8,
+   "t1": 16,
+   "eyebrow": "CASE · GOODHART · YOUR GUESS",
+   "title": "Your guess first"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 16,
+   "t1": 36,
+   "eyebrow": "WELLS FARGO · COMMUNITY BANK",
+   "title": "Eight is great"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 36,
+   "t1": 62,
+   "eyebrow": "THE COUNT · ONE MARK PER ACCOUNT",
+   "title": "A thousand accounts"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 62,
+   "t1": 72,
+   "eyebrow": "CASE · GOODHART · MONDAY",
+   "title": "One question"
+  }
+ ],
+ "captions": [
+  [
+   0.5,
+   7.6,
+   "Target: 8 products per customer. Your team is hitting it."
+  ],
+  [
+   8.2,
+   11.8,
+   "One bank ran on that exact target. Your guess first."
+  ],
+  [
+   12.0,
+   15.8,
+   "Of 1,000 accounts opened, how many were never authorised?"
+  ],
+  [
+   16.2,
+   20.4,
+   "Wells Fargo, 2002 to 2016: \"Eight is great.\""
+  ],
+  [
+   20.6,
+   25.4,
+   "Feb 2015: 6.13 on average. One household in four had 8+."
+  ],
+  [
+   25.6,
+   30.6,
+   "2016: 2.1 M accounts flagged. 5,300 fired. $185 M fines."
+  ],
+  [
+   30.8,
+   35.8,
+   "2017: the full review says 3.5 M. 2020: $3 B to settle."
+  ],
+  [
+   36.2,
+   40.8,
+   "165 M accounts opened, 2009 to 2016. Here are 1,000."
+  ],
+  [
+   41.0,
+   43.8,
+   "The metric counted every one as a product sold."
+  ],
+  [
+   44.0,
+   48.8,
+   "The review flagged 21. The metric still counted them."
+  ],
+  [
+   51.0,
+   56.0,
+   "Your guess, outlined. The review found 21."
+  ],
+  [
+   57.0,
+   61.8,
+   "21 is the floor. Unused products sold were counted too."
+  ],
+  [
+   62.4,
+   67.4,
+   "Monday: what could move this number with nothing behind it?"
+  ],
+  [
+   67.6,
+   71.8,
+   "Limits: 3.5 M is an estimate. One bank, one metric."
+  ]
+ ],
+ "ledger": [
+  [
+   0.8,
+   "TARGET SET · EIGHT"
+  ],
+  [
+   11.2,
+   "GUESS · SEALED"
+  ],
+  [
+   16.5,
+   "CASE · WELLS FARGO"
+  ],
+  [
+   36.2,
+   "COUNT · ONE MARK EACH"
+  ],
+  [
+   62.4,
+   "MONDAY · ONE QUESTION"
+  ]
+ ],
+ "brand": {
+  "takeaway": "When a measure becomes a target, it stops measuring.",
+  "at": 72,
+  "dur": 3
+ },
+ "sources": [
+  [
+   "CFPB16",
+   "Consumer Financial Protection Bureau, Consent Order, In the Matter of Wells Fargo Bank, N.A., File No. 2016-CFPB-0015, 8 September 2016, and press release of the same day ($100 M penalty; OCC $35 M; Los Angeles $50 M)."
+  ],
+  [
+   "WFBR17",
+   "Independent Directors of the Board of Wells Fargo & Company, Sales Practices Investigation Report, 10 April 2017 (Shearman & Sterling LLP)."
+  ],
+  [
+   "WF17",
+   "Wells Fargo & Company, \"Wells Fargo Reports Completion of Expanded Third-Party Review of Retail Banking Accounts\", press release, 31 August 2017 (Form 8-K, Exhibit 99.1)."
+  ],
+  [
+   "DOJ20",
+   "U.S. Department of Justice, \"Wells Fargo Agrees to Pay $3 Billion to Resolve Criminal and Civil Investigations into Sales Practices Involving the Opening of Millions of Accounts without Customer Authorization\", 21 February 2020, with the Deferred Prosecution Agreement, Exhibit A, Statement of Facts."
+  ],
+  [
+   "WF10Q15",
+   "Wells Fargo & Company, Form 10-Q for the quarter ended 31 March 2015 (retail banking household cross-sell 6.13 in February 2015; goal of eight; one in four households with eight or more)."
+  ],
+  [
+   "STR97",
+   "M. Strathern, \"'Improving ratings': audit in the British University system\", European Review 5(3), 1997, 305-321; after C. A. E. Goodhart, \"Problems of Monetary Management: The U.K. Experience\", Reserve Bank of Australia, 1975."
+  ]
+ ],
+ "honest": "3.5 M is the bank's review estimate (it may include some authorised accounts and misses unwanted products sold with consent); one bank and one metric, not proof that every target goes bad.",
+ "knobs": {
+  "hookT0": 0.6,
+  "hookStep": 0.5,
+  "slotSize": 60,
+  "slotPitch": 72,
+  "rowX": 120,
+  "rulerTick": 6,
+  "rulerOp": 0.85,
+  "rulerW": 1.4,
+  "gridPitch": 11.25,
+  "gridSize": 8.75,
+  "scanT0": 40.2,
+  "scanDur": 2.0,
+  "flagT0": 44.0,
+  "flagStep": 0.2,
+  "gatherT0": 48.6,
+  "gatherDur": 1.6,
+  "guessT0": 51,
+  "guessDur": 2,
+  "ratioT0": 54,
+  "floorT0": 57,
+  "floorOp": 0.35,
+  "monGrid": 0.1,
+  "typeCps": 40
+ },
+ "knobs_doc": [
+  {
+   "name": "hookT0",
+   "range": [
+    0.4,
+    1.2
+   ],
+   "step": 0.1,
+   "what": "s: second the first of the 8 slots starts to fill in HOOK (later = slower open)"
+  },
+  {
+   "name": "hookStep",
+   "range": [
+    0.3,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "s: gap between one slot starting to fill and the next in HOOK (bigger = slower count to eight)"
+  },
+  {
+   "name": "slotSize",
+   "range": [
+    48,
+    64
+   ],
+   "step": 1,
+   "what": "px: edge of one household slot (bigger = heavier row; keep below slotPitch)"
+  },
+  {
+   "name": "slotPitch",
+   "range": [
+    66,
+    76
+   ],
+   "step": 1,
+   "what": "px: slot-to-slot distance in the household row (bigger = wider row, wider ruler)"
+  },
+  {
+   "name": "rowX",
+   "range": [
+    64,
+    200
+   ],
+   "step": 4,
+   "what": "px: left edge of the household row and its ruler on the film sheet (bigger = further right)"
+  },
+  {
+   "name": "rulerTick",
+   "range": [
+    4,
+    12
+   ],
+   "step": 1,
+   "what": "px: distance between fine ticks on the travelling ruler (bigger = fewer, calmer ticks)"
+  },
+  {
+   "name": "rulerOp",
+   "range": [
+    0.4,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the ruler's edge and ticks (lower = fainter ruler)"
+  },
+  {
+   "name": "rulerW",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "px: stroke width of the ruler's top edge (bigger = bolder straightedge)"
+  },
+  {
+   "name": "gridPitch",
+   "range": [
+    10.5,
+    12
+   ],
+   "step": 0.25,
+   "what": "px: centre-to-centre distance of the 1,000 marks (bigger = larger grid; keep gridSize below it)"
+  },
+  {
+   "name": "gridSize",
+   "range": [
+    7.5,
+    10
+   ],
+   "step": 0.25,
+   "what": "px: edge of one mark in the 1,000 grid (bigger = denser grid, smaller gap)"
+  },
+  {
+   "name": "scanT0",
+   "range": [
+    40,
+    40.6
+   ],
+   "step": 0.1,
+   "what": "s: second the ruler starts its scan down the grid (the metric counting)"
+  },
+  {
+   "name": "scanDur",
+   "range": [
+    1.4,
+    2.6
+   ],
+   "step": 0.1,
+   "what": "s: length of the ruler's scan down the grid (bigger = slower sweep)"
+  },
+  {
+   "name": "flagT0",
+   "range": [
+    43.8,
+    44.6
+   ],
+   "step": 0.1,
+   "what": "s: second the first flagged mark turns red (later = review lands later)"
+  },
+  {
+   "name": "flagStep",
+   "range": [
+    0.15,
+    0.3
+   ],
+   "step": 0.05,
+   "what": "s: gap between one flagged mark turning red and the next (bigger = slower review)"
+  },
+  {
+   "name": "gatherT0",
+   "range": [
+    48.4,
+    49
+   ],
+   "step": 0.1,
+   "what": "s: second the red marks start to gather into the first slots"
+  },
+  {
+   "name": "gatherDur",
+   "range": [
+    1.2,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: travel time of one mark during the gather (bigger = slower, calmer)"
+  },
+  {
+   "name": "guessT0",
+   "range": [
+    50.8,
+    51.6
+   ],
+   "step": 0.1,
+   "what": "s: second the graphite outline of the viewer's guess starts to draw"
+  },
+  {
+   "name": "guessDur",
+   "range": [
+    1.4,
+    2.6
+   ],
+   "step": 0.1,
+   "what": "s: time the guess outline takes to draw round its perimeter (bigger = slower)"
+  },
+  {
+   "name": "ratioT0",
+   "range": [
+    53.6,
+    55
+   ],
+   "step": 0.1,
+   "what": "s: second the ratio line appears, after the count and the guess"
+  },
+  {
+   "name": "floorT0",
+   "range": [
+    56.6,
+    57.6
+   ],
+   "step": 0.1,
+   "what": "s: second the 979 ink marks begin to ease back, leaving the floor of red"
+  },
+  {
+   "name": "floorOp",
+   "range": [
+    0.2,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "opacity the ink marks settle to in the floor phase (lower = red stands out more)"
+  },
+  {
+   "name": "monGrid",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.05,
+   "what": "opacity the grid fades to under the Monday question (lower = cleaner card)"
+  },
+  {
+   "name": "typeCps",
+   "range": [
+    24,
+    60
+   ],
+   "step": 2,
+   "what": "characters per second the ledger lines type on in CASE (bigger = faster)"
+  }
+ ]
+}

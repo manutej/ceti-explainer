@@ -1,0 +1,4527 @@
+{
+ "page": "factory/films/noether-frontier/build/noether-frontier.ceti-coastal-dark.none.html",
+ "film": "noether-frontier",
+ "dur": 153,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-coastal-dark",
+ "axes": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "sP",
+   "range": [
+    10,
+    40
+   ],
+   "step": 1,
+   "what": "world units per orbit unit: the size of the tangle (where each planet is)",
+   "value": 24
+  },
+  {
+   "name": "sL",
+   "range": [
+    80,
+    200
+   ],
+   "step": 5,
+   "what": "world units per unit of spin: the radius of the six shells",
+   "value": 140
+  },
+  {
+   "name": "sA",
+   "range": [
+    50,
+    140
+   ],
+   "step": 2,
+   "what": "world units per unit of weight size (the training cloud's width and depth)",
+   "value": 95
+  },
+  {
+   "name": "sC",
+   "range": [
+    60,
+    160
+   ],
+   "step": 5,
+   "what": "world units per unit of the sum a^2 - b^2: the gap between the five layers",
+   "value": 110
+  },
+  {
+   "name": "hT",
+   "range": [
+    120,
+    340
+   ],
+   "step": 10,
+   "what": "height of the time axis in the training cloud before it is re-plotted by the sum",
+   "value": 250
+  },
+  {
+   "name": "dotR",
+   "range": [
+    0.8,
+    2
+   ],
+   "step": 0.05,
+   "what": "dot radius of the 30,000 recall dots (world units, before the depth size cue)",
+   "value": 1.1
+  },
+  {
+   "name": "dotRNet",
+   "range": [
+    0.8,
+    2
+   ],
+   "step": 0.05,
+   "what": "dot radius of the 24,000 training dots",
+   "value": 1
+  },
+  {
+   "name": "sizeCue",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how much nearer dots are drawn larger (depth size cue)",
+   "value": 0.5
+  },
+  {
+   "name": "fog",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.05,
+   "what": "fog toward the far side of a cloud (manager level cap 0.3)",
+   "value": 0.25
+  },
+  {
+   "name": "stag",
+   "range": [
+    0,
+    0.25
+   ],
+   "step": 0.01,
+   "what": "stagger of the moves: each orbit or neuron leaves up to this fraction later, its dots together",
+   "value": 0.18
+  },
+  {
+   "name": "brightFollow",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "how much brighter the followed orbit's 100 dots are (brighter, not bigger)",
+   "value": 0.6
+  },
+  {
+   "name": "ghost",
+   "range": [
+    0.05,
+    0.4
+   ],
+   "step": 0.01,
+   "what": "how much of the recall cloud still shows while a published result is quoted (a ghost)",
+   "value": 0.18
+  },
+  {
+   "name": "dimOthers",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "how far the dots of the other 475 neurons sink while one neuron per layer is followed (they keep their layer colour)",
+   "value": 0.6
+  },
+  {
+   "name": "cometLen",
+   "range": [
+    5,
+    60
+   ],
+   "step": 1,
+   "what": "length of the lit trail behind each followed head, in per cent of that neuron's path",
+   "value": 25
+  },
+  {
+   "name": "growComet",
+   "range": [
+    0,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "how much bigger the dots of a followed neuron's path are drawn (the head is drawn separately, headR)",
+   "value": 1
+  },
+  {
+   "name": "pathBase",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "how lit the whole path of a followed neuron is (its 50 moments), ahead of and behind the head",
+   "value": 0.45
+  },
+  {
+   "name": "headR",
+   "range": [
+    1.5,
+    6
+   ],
+   "step": 0.1,
+   "what": "radius of the drawn head of a followed neuron (world units): its place at the current moment of the slide",
+   "value": 4.5
+  },
+  {
+   "name": "headRing",
+   "range": [
+    0,
+    4
+   ],
+   "step": 0.1,
+   "what": "radius of the thin ring round each head, in head radii (0 = no ring)",
+   "value": 2.2
+  },
+  {
+   "name": "follow0",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 1, counted from the most negative sum; a long, smooth path",
+   "value": 115
+  },
+  {
+   "name": "follow1",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 2, counted from the most negative sum; a long, smooth path",
+   "value": 51
+  },
+  {
+   "name": "follow2",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 3, counted from the most negative sum; a long, smooth path",
+   "value": 32
+  },
+  {
+   "name": "follow3",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 4, counted from the most negative sum; a long, smooth path",
+   "value": 368
+  },
+  {
+   "name": "follow4",
+   "range": [
+    0,
+    479
+   ],
+   "step": 1,
+   "what": "the followed neuron (unit = run x 8 + i) in layer 5, counted from the most negative sum; a long, smooth path",
+   "value": 314
+  },
+  {
+   "name": "recLen",
+   "range": [
+    4,
+    30
+   ],
+   "step": 1,
+   "what": "length of the comet that runs along the followed orbit's 100 dots (one lap = perS seconds)",
+   "value": 14
+  },
+  {
+   "name": "growFollow",
+   "range": [
+    0,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "how much bigger the comet head (and, a little, the followed orbit's dots) are drawn",
+   "value": 1.6
+  },
+  {
+   "name": "fdimRec",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "how far the other 29,900 recall dots sink so the followed orbit shows",
+   "value": 0.3
+  },
+  {
+   "name": "ringOp",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the thin outline ring round each shell",
+   "value": 0.9
+  },
+  {
+   "name": "ringW",
+   "range": [
+    0.8,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "line weight of the shell outline rings",
+   "value": 1.8
+  },
+  {
+   "name": "plateOp",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the thin outline of each of the five layers",
+   "value": 0.45
+  },
+  {
+   "name": "featOrbit",
+   "range": [
+    0,
+    299
+   ],
+   "step": 1,
+   "what": "which of the 300 orbits is followed (its 100 dots a little brighter, one planet slides along its shell)",
+   "value": 272
+  },
+  {
+   "name": "perS",
+   "range": [
+    3,
+    10
+   ],
+   "step": 0.5,
+   "what": "seconds per lap of the followed planet",
+   "value": 5
+  },
+  {
+   "name": "toyK",
+   "range": [
+    8,
+    18
+   ],
+   "step": 1,
+   "what": "world units per unit of a sub-answer: box length (4, 7, 9 of them)",
+   "value": 14
+  },
+  {
+   "name": "toyGap",
+   "range": [
+    0.3,
+    1.5
+   ],
+   "step": 0.1,
+   "what": "gap between the three marks of a row, in units of a sub-answer",
+   "value": 0.8
+  },
+  {
+   "name": "toyH",
+   "range": [
+    6,
+    20
+   ],
+   "step": 1,
+   "what": "height of a toy mark",
+   "value": 20
+  },
+  {
+   "name": "toyBoxD",
+   "range": [
+    6,
+    16
+   ],
+   "step": 1,
+   "what": "depth of a toy mark",
+   "value": 16
+  },
+  {
+   "name": "toyRow",
+   "range": [
+    1.2,
+    2.4
+   ],
+   "step": 0.1,
+   "what": "row pitch in box depths",
+   "value": 1.9
+  },
+  {
+   "name": "ansS",
+   "range": [
+    10,
+    30
+   ],
+   "step": 1,
+   "what": "side of the answer cube at the end of each toy row",
+   "value": 22
+  },
+  {
+   "name": "ansGap",
+   "range": [
+    0.6,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "gap before the answer cube, in units of a sub-answer",
+   "value": 1.4
+  },
+  {
+   "name": "plateW",
+   "range": [
+    280,
+    460
+   ],
+   "step": 10,
+   "what": "width of the plate under the toy",
+   "value": 380
+  },
+  {
+   "name": "plateD",
+   "range": [
+    120,
+    220
+   ],
+   "step": 10,
+   "what": "depth of the plate under the toy",
+   "value": 190
+  },
+  {
+   "name": "rowStep",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "seconds between one row and the next counting in",
+   "value": 0.5
+  },
+  {
+   "name": "treeW",
+   "range": [
+    140,
+    280
+   ],
+   "step": 10,
+   "what": "half width of the question tree (x from the data runs -1 to 1)",
+   "value": 190
+  },
+  {
+   "name": "treeD",
+   "range": [
+    50,
+    100
+   ],
+   "step": 5,
+   "what": "distance between the three layers of the tree",
+   "value": 90
+  },
+  {
+   "name": "treeBox",
+   "range": [
+    10,
+    28
+   ],
+   "step": 1,
+   "what": "side of a question box",
+   "value": 24
+  },
+  {
+   "name": "linkW",
+   "range": [
+    0.8,
+    3
+   ],
+   "step": 0.2,
+   "what": "width of the thin bars to the parent",
+   "value": 1.6
+  },
+  {
+   "name": "treeIn",
+   "range": [
+    1.5,
+    3.5
+   ],
+   "step": 0.1,
+   "what": "seconds the 19 boxes take to count in",
+   "value": 2.5
+  },
+  {
+   "name": "swapArc",
+   "range": [
+    0,
+    60
+   ],
+   "step": 2,
+   "what": "how far the near-going child steps toward the camera while the two children swap (depth)",
+   "value": 24
+  },
+  {
+   "name": "swapLift",
+   "range": [
+    0,
+    80
+   ],
+   "step": 2,
+   "what": "how high the far-going child and its subtree lift off the plate while the two children swap",
+   "value": 32
+  },
+  {
+   "name": "swapSecs",
+   "range": [
+    2,
+    4
+   ],
+   "step": 0.25,
+   "what": "seconds the two children take to swap places",
+   "value": 3
+  },
+  {
+   "name": "fov",
+   "range": [
+    20,
+    40
+   ],
+   "step": 1,
+   "what": "lens, degrees (never changes inside a move)",
+   "value": 30
+  },
+  {
+   "name": "lensX",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.01,
+   "what": "lens shift: the subject sits left of the centre by this fraction of the half width (clear of the panel)",
+   "value": 0.44
+  },
+  {
+   "name": "lensY",
+   "range": [
+    -0.2,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "lens shift up (fraction of the half height), clear of the caption band",
+   "value": 0.09
+  },
+  {
+   "name": "drift",
+   "range": [
+    0,
+    2
+   ],
+   "step": 0.1,
+   "what": "ambient drift of the camera in degrees (holds stay within 3)",
+   "value": 0.8
+  },
+  {
+   "name": "camHookAz",
+   "range": [
+    -90,
+    90
+   ],
+   "step": 1,
+   "what": "recall cloud, azimuth of the HOOK frame (the landing of M1 is the same frame)",
+   "value": 20
+  },
+  {
+   "name": "camHookEl",
+   "range": [
+    0,
+    60
+   ],
+   "step": 1,
+   "what": "recall cloud, elevation",
+   "value": 20
+  },
+  {
+   "name": "camHookD",
+   "range": [
+    900,
+    1800
+   ],
+   "step": 25,
+   "what": "recall cloud, camera distance",
+   "value": 1350
+  },
+  {
+   "name": "camM0Az",
+   "range": [
+    -90,
+    90
+   ],
+   "step": 1,
+   "what": "M0: how far the camera orbits while the shells un-sort (M1 orbits back the same way)",
+   "value": 50
+  },
+  {
+   "name": "camNetAz",
+   "range": [
+    -120,
+    120
+   ],
+   "step": 1,
+   "what": "training cloud, azimuth at the match cut",
+   "value": -75
+  },
+  {
+   "name": "camNetEl",
+   "range": [
+    0,
+    60
+   ],
+   "step": 1,
+   "what": "training cloud, elevation at the match cut",
+   "value": 22
+  },
+  {
+   "name": "camNetD",
+   "range": [
+    700,
+    1500
+   ],
+   "step": 25,
+   "what": "training cloud, camera distance",
+   "value": 950
+  },
+  {
+   "name": "camM2Az",
+   "range": [
+    0,
+    120
+   ],
+   "step": 1,
+   "what": "M2: how far the camera orbits while the dots are re-plotted by the sum",
+   "value": 60
+  },
+  {
+   "name": "camM2El",
+   "range": [
+    0,
+    40
+   ],
+   "step": 1,
+   "what": "M2: elevation at the settle",
+   "value": 15
+  },
+  {
+   "name": "camM3El",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "M3: elevation at the end of the bigger steps (low: the layers are seen edge-on)",
+   "value": 6
+  },
+  {
+   "name": "camM3Dolly",
+   "range": [
+    0,
+    0.15
+   ],
+   "step": 0.01,
+   "what": "M3: how far the camera pushes in (fraction of the distance)",
+   "value": 0.12
+  },
+  {
+   "name": "camToyAz",
+   "range": [
+    -45,
+    45
+   ],
+   "step": 1,
+   "what": "toy, azimuth",
+   "value": 10
+  },
+  {
+   "name": "camToyEl",
+   "range": [
+    10,
+    70
+   ],
+   "step": 1,
+   "what": "toy, elevation",
+   "value": 40
+  },
+  {
+   "name": "camToyD",
+   "range": [
+    600,
+    1300
+   ],
+   "step": 25,
+   "what": "toy, camera distance",
+   "value": 925
+  },
+  {
+   "name": "camToyZ",
+   "range": [
+    -100,
+    100
+   ],
+   "step": 5,
+   "what": "toy, look-at depth",
+   "value": 0
+  },
+  {
+   "name": "camTreeAz",
+   "range": [
+    -45,
+    45
+   ],
+   "step": 1,
+   "what": "tree, azimuth",
+   "value": 0
+  },
+  {
+   "name": "camTreeEl",
+   "range": [
+    20,
+    80
+   ],
+   "step": 1,
+   "what": "tree, elevation",
+   "value": 50
+  },
+  {
+   "name": "camTreeD",
+   "range": [
+    600,
+    1300
+   ],
+   "step": 25,
+   "what": "tree, camera distance",
+   "value": 1000
+  },
+  {
+   "name": "camTreeZ",
+   "range": [
+    -100,
+    100
+   ],
+   "step": 5,
+   "what": "tree, look-at depth",
+   "value": 25
+  },
+  {
+   "name": "camWideAz",
+   "range": [
+    -45,
+    45
+   ],
+   "step": 1,
+   "what": "Monday wide frame, azimuth",
+   "value": 0
+  },
+  {
+   "name": "camWideEl",
+   "range": [
+    20,
+    80
+   ],
+   "step": 1,
+   "what": "Monday wide frame, elevation",
+   "value": 42
+  },
+  {
+   "name": "camWideD",
+   "range": [
+    800,
+    1600
+   ],
+   "step": 25,
+   "what": "Monday wide frame, camera distance",
+   "value": 1150
+  },
+  {
+   "name": "camWideZ",
+   "range": [
+    -150,
+    150
+   ],
+   "step": 5,
+   "what": "Monday wide frame, look-at depth (moves the tree up or down the stage)",
+   "value": 30
+  },
+  {
+   "name": "tReveal",
+   "range": [
+    1.5,
+    5
+   ],
+   "step": 0.25,
+   "what": "HOOK: seconds the 30,000 dots take to appear, shell by shell",
+   "value": 3
+  },
+  {
+   "name": "tM0",
+   "range": [
+    10,
+    14
+   ],
+   "step": 0.5,
+   "what": "M0 start: the rule is taken away (the shells un-sort)",
+   "value": 12
+  },
+  {
+   "name": "tM0e",
+   "range": [
+    18,
+    22
+   ],
+   "step": 0.5,
+   "what": "M0 end",
+   "value": 20
+  },
+  {
+   "name": "tM1",
+   "range": [
+    26,
+    32
+   ],
+   "step": 0.5,
+   "what": "M1 start: a blind search puts the tangle back on the shells",
+   "value": 28
+  },
+  {
+   "name": "tM1e",
+   "range": [
+    34,
+    38
+   ],
+   "step": 0.5,
+   "what": "M1 end",
+   "value": 36
+  },
+  {
+   "name": "tGhost",
+   "range": [
+    36.5,
+    41
+   ],
+   "step": 0.5,
+   "what": "the cloud dims to a ghost; the published result is quoted",
+   "value": 38.5
+  },
+  {
+   "name": "tNet",
+   "range": [
+    49,
+    53
+   ],
+   "step": 0.5,
+   "what": "match cut to the training cloud; the 24,000 dots start to count in",
+   "value": 50.5
+  },
+  {
+   "name": "tNetC",
+   "range": [
+    54,
+    60
+   ],
+   "step": 0.5,
+   "what": "the last training dot has arrived",
+   "value": 56.5
+  },
+  {
+   "name": "tM2",
+   "range": [
+    60,
+    66
+   ],
+   "step": 0.5,
+   "what": "M2 start: each dot is re-plotted by the sum",
+   "value": 62
+  },
+  {
+   "name": "tM2e",
+   "range": [
+    68,
+    74
+   ],
+   "step": 0.5,
+   "what": "M2 end",
+   "value": 70
+  },
+  {
+   "name": "tFollow",
+   "range": [
+    76,
+    82
+   ],
+   "step": 0.5,
+   "what": "one run's neurons brighten, the rest sink",
+   "value": 78.5
+  },
+  {
+   "name": "tComet",
+   "range": [
+    77,
+    84
+   ],
+   "step": 0.5,
+   "what": "the comet starts to run along every arc",
+   "value": 80
+  },
+  {
+   "name": "tCometE",
+   "range": [
+    85,
+    91
+   ],
+   "step": 0.5,
+   "what": "the comet has run the length of the arcs",
+   "value": 88
+  },
+  {
+   "name": "tM3",
+   "range": [
+    86,
+    92
+   ],
+   "step": 0.5,
+   "what": "M3 start: bigger steps",
+   "value": 88
+  },
+  {
+   "name": "tM3e",
+   "range": [
+    94,
+    99
+   ],
+   "step": 0.5,
+   "what": "M3 end",
+   "value": 96
+  },
+  {
+   "name": "tToy",
+   "range": [
+    97,
+    101
+   ],
+   "step": 0.5,
+   "what": "hard cut to the toy (3 marks)",
+   "value": 98.5
+  },
+  {
+   "name": "tRows",
+   "range": [
+    103,
+    108
+   ],
+   "step": 0.5,
+   "what": "the 6 rows start to count in",
+   "value": 106
+  },
+  {
+   "name": "tSame",
+   "range": [
+    107,
+    111
+   ],
+   "step": 0.5,
+   "what": "all rows one colour: the total is the same",
+   "value": 109
+  },
+  {
+   "name": "tModel",
+   "range": [
+    110,
+    114
+   ],
+   "step": 0.5,
+   "what": "rows recolour: the order-sensitive toy model",
+   "value": 112
+  },
+  {
+   "name": "tChen",
+   "range": [
+    113,
+    117
+   ],
+   "step": 0.5,
+   "what": "rows dim to a ghost; the published result is quoted",
+   "value": 115
+  },
+  {
+   "name": "tTree",
+   "range": [
+    117,
+    122
+   ],
+   "step": 0.5,
+   "what": "hard cut to the tree; the 19 boxes count in",
+   "value": 119
+  },
+  {
+   "name": "tSwap",
+   "range": [
+    129,
+    133
+   ],
+   "step": 0.5,
+   "what": "the two children of the 2nd question swap places; one node keeps a ring",
+   "value": 131
+  },
+  {
+   "name": "tMon",
+   "range": [
+    133,
+    137
+   ],
+   "step": 0.5,
+   "what": "Monday: the camera eases back to a wide frame",
+   "value": 135
+  },
+  {
+   "name": "tMonE",
+   "range": [
+    138,
+    143
+   ],
+   "step": 0.5,
+   "what": "end of the ease",
+   "value": 141
+  },
+  {
+   "name": "tHon",
+   "range": [
+    140,
+    144
+   ],
+   "step": 0.5,
+   "what": "the honest line on stage",
+   "value": 141.5
+  },
+  {
+   "name": "pX",
+   "range": [
+    620,
+    700
+   ],
+   "step": 2,
+   "what": "left edge of the readout panel (the right third of the stage)",
+   "value": 652
+  },
+  {
+   "name": "pinX",
+   "range": [
+    100,
+    600
+   ],
+   "step": 5,
+   "what": "the one pin: left edge of its word",
+   "value": 300
+  },
+  {
+   "name": "pinY",
+   "range": [
+    100,
+    150
+   ],
+   "step": 2,
+   "what": "the one pin: baseline of its word",
+   "value": 112
+  },
+  {
+   "name": "monY",
+   "range": [
+    330,
+    410
+   ],
+   "step": 2,
+   "what": "baseline of the first Monday line",
+   "value": 390
+  },
+  {
+   "name": "honY",
+   "range": [
+    400,
+    450
+   ],
+   "step": 2,
+   "what": "baseline of the first line of the honest sentence",
+   "value": 436
+  },
+  {
+   "name": "stageSize",
+   "range": [
+    28,
+    36
+   ],
+   "step": 1,
+   "what": "size of the set type (Monday question, honest sentence)",
+   "value": 30
+  },
+  {
+   "name": "stageLH",
+   "range": [
+    34,
+    46
+   ],
+   "step": 1,
+   "what": "line height of the set type",
+   "value": 38
+  }
+ ],
+ "ms_per_frame": 248,
+ "s_per_frame": 0.248,
+ "purity": {
+  "pass": true,
+  "at": {
+   "30.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "76.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "122.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png",
+  "strip-22.png",
+  "strip-23.png",
+  "strip-24.png",
+  "strip-25.png",
+  "strip-26.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "Last time, a dot could not leave its shell.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "Each shell is a number that never changes.",
+   "chapter": {
+    "id": "hook",
+    "title": "A dot cannot leave its shell"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Take the rule away. Plot only where things are.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Each dot is one moment of one orbit.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "That is 30,000 moments, tangled, with no rule.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "A computer hunts for any number that stays put.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "It lands on the same shells, told nothing.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "It lands on the same shells, told nothing.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "It lands on the same shells, told nothing.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "It lands on the same shells, told nothing.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "In 2021, a team tried this on 5 test systems.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "It found every number that truly never changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "It also flagged numbers that only nearly hold.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "Small, clean systems, and the laws were known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "Small, clean systems, and the laws were known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "Small, clean systems, and the laws were known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Small, clean systems, and the laws were known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "Small, clean systems, and the laws were known.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "Now something that learns: a small network.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "Each dot: one neuron, one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "Each dot: one neuron, one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "Each dot: one neuron, one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "Each dot: one neuron, one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "Each dot: one neuron, one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "Each dot: one neuron, one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "Each dot: one neuron, one moment of training.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "24,000 dots, tangled like before.",
+   "chapter": {
+    "id": "case",
+    "title": "Take the rule away"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Plot each by one sum of its neuron's weights.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Each network here has 8 neurons.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Each neuron keeps one sum fixed: 8 in all.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Now let it train. Follow one neuron per layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Now let it train. Follow one neuron per layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Now let it train. Follow one neuron per layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Now let it train. Follow one neuron per layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Now let it train. Follow one neuron per layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Now let it train. Follow one neuron per layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "Now let it train. Follow one neuron per layer.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "Each slides along its layer and never leaves it.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "Bigger steps, and the layers start to leak.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "The fixed sums hold only for tiny steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "The fixed sums hold only for tiny steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "The fixed sums hold only for tiny steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "The fixed sums hold only for tiny steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "Now try it on questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "Now try it on questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "Now try it on questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "Now try it on questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "3 questions that don't need each other.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "They can be asked in 6 orders.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "The total is 20 in every order.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "A model that cares about order contradicts itself.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "Reordering cost more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "Reordering cost more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "Reordering cost more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "Reordering cost more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "Reordering cost more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "Reordering cost more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "Reordering cost more than 30 % in some tests.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "Our program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": "Our program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": "Our program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": "Our program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": "Our program starts with a tree of questions.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 123,
+   "file": "thumbs/t-0123.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 123.5,
+   "file": "thumbs/t-0123.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 7,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 124,
+   "file": "thumbs/t-0124.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 8,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 124.5,
+   "file": "thumbs/t-0124.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 9,
+   "caption": "19 questions, in 3 layers.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 125,
+   "file": "thumbs/t-0125.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 125.5,
+   "file": "thumbs/t-0125.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 11,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 126,
+   "file": "thumbs/t-0126.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 0,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 126.5,
+   "file": "thumbs/t-0126.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 1,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 127,
+   "file": "thumbs/t-0127.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 2,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 127.5,
+   "file": "thumbs/t-0127.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 3,
+   "caption": "4 broad, 8 narrower, 7 narrowest.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 128,
+   "file": "thumbs/t-0128.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 128.5,
+   "file": "thumbs/t-0128.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 5,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 129,
+   "file": "thumbs/t-0129.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 6,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 129.5,
+   "file": "thumbs/t-0129.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 7,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 130,
+   "file": "thumbs/t-0130.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 8,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 130.5,
+   "file": "thumbs/t-0130.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 9,
+   "caption": "Behind it: 9 modules and 22 sources.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 131,
+   "file": "thumbs/t-0131.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 131.5,
+   "file": "thumbs/t-0131.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 11,
+   "caption": "A claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 132,
+   "file": "thumbs/t-0132.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 0,
+   "caption": "A claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 132.5,
+   "file": "thumbs/t-0132.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 1,
+   "caption": "A claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 133,
+   "file": "thumbs/t-0133.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 2,
+   "caption": "A claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 133.5,
+   "file": "thumbs/t-0133.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 3,
+   "caption": "A claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 134,
+   "file": "thumbs/t-0134.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 4,
+   "caption": "A claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 134.5,
+   "file": "thumbs/t-0134.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 5,
+   "caption": "A claim that survives reordering is a candidate.",
+   "chapter": {
+    "id": "count",
+    "title": "Training, questions and a tree"
+   }
+  },
+  {
+   "t": 135,
+   "file": "thumbs/t-0135.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 135.5,
+   "file": "thumbs/t-0135.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 7,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 136,
+   "file": "thumbs/t-0136.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 8,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 136.5,
+   "file": "thumbs/t-0136.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 9,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 137,
+   "file": "thumbs/t-0137.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 10,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 137.5,
+   "file": "thumbs/t-0137.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 11,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 138,
+   "file": "thumbs/t-0138.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 0,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 138.5,
+   "file": "thumbs/t-0138.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 1,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 139,
+   "file": "thumbs/t-0139.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 2,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 139.5,
+   "file": "thumbs/t-0139.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 3,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 140,
+   "file": "thumbs/t-0140.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 4,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 140.5,
+   "file": "thumbs/t-0140.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 5,
+   "caption": "Monday: reorder a question's parts. Same answer?",
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 141,
+   "file": "thumbs/t-0141.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 141.5,
+   "file": "thumbs/t-0141.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 142,
+   "file": "thumbs/t-0142.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 142.5,
+   "file": "thumbs/t-0142.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 143,
+   "file": "thumbs/t-0143.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 143.5,
+   "file": "thumbs/t-0143.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 144,
+   "file": "thumbs/t-0144.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 144.5,
+   "file": "thumbs/t-0144.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 145,
+   "file": "thumbs/t-0145.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 145.5,
+   "file": "thumbs/t-0145.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 146,
+   "file": "thumbs/t-0146.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 146.5,
+   "file": "thumbs/t-0146.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 147,
+   "file": "thumbs/t-0147.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 147.5,
+   "file": "thumbs/t-0147.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 148,
+   "file": "thumbs/t-0148.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 148.5,
+   "file": "thumbs/t-0148.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 149,
+   "file": "thumbs/t-0149.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 149.5,
+   "file": "thumbs/t-0149.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 150,
+   "file": "thumbs/t-0150.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 150.5,
+   "file": "thumbs/t-0150.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 151,
+   "file": "thumbs/t-0151.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 151.5,
+   "file": "thumbs/t-0151.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 152,
+   "file": "thumbs/t-0152.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 152.5,
+   "file": "thumbs/t-0152.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  },
+  {
+   "t": 152.99,
+   "file": "thumbs/t-0152.99.jpg",
+   "strip": "strip-26.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Reorder the parts of a question"
+   }
+  }
+ ]
+}

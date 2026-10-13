@@ -1,0 +1,3837 @@
+{
+ "page": "factory/films/a-bell-from-dice/build/a-bell-from-dice.midnight-ink.none.html",
+ "film": "a-bell-from-dice",
+ "dur": 123,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "midnight-ink",
+ "axes": {
+  "brand": "midnight-ink",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "paper",
+  "texture_declared": "paper",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "countT0",
+   "range": [
+    12.2,
+    13
+   ],
+   "step": 0.1,
+   "what": "s: second the first roll lands on the table (the lane is empty before it)",
+   "value": 12.4
+  },
+  {
+   "name": "countT1",
+   "range": [
+    21.5,
+    23.8
+   ],
+   "step": 0.1,
+   "what": "s: second the last of the rolls lands (the count reads all of them by 24.0)",
+   "value": 23.6
+  },
+  {
+   "name": "countWin",
+   "range": [
+    0.005,
+    0.06
+   ],
+   "step": 0.005,
+   "what": "share of the rolls that are still settling at once during the count-in (larger = softer front)",
+   "value": 0.02
+  },
+  {
+   "name": "hotFlash",
+   "range": [
+    0.5,
+    2
+   ],
+   "step": 0.1,
+   "what": "how long a newly landed roll stays bright, as a factor of the settling window",
+   "value": 1
+  },
+  {
+   "name": "waffPitch",
+   "range": [
+    1.2,
+    1.8
+   ],
+   "step": 0.05,
+   "what": "world units: spacing of the 500 x 200 field of rolls on the table",
+   "value": 1.5
+  },
+  {
+   "name": "waffFill",
+   "range": [
+    0.4,
+    0.95
+   ],
+   "step": 0.05,
+   "what": "share of the field spacing a mark fills (smaller = more felt between marks)",
+   "value": 0.7
+  },
+  {
+   "name": "cubePitch",
+   "range": [
+    1.6,
+    2.6
+   ],
+   "step": 0.1,
+   "what": "world units: spacing of the stacked marks (one box per roll); scales every stack",
+   "value": 2
+  },
+  {
+   "name": "cubeFill",
+   "range": [
+    0.5,
+    0.95
+   ],
+   "step": 0.05,
+   "what": "share of the stack spacing a box fills (smaller = a visible seam between rolls)",
+   "value": 0.8
+  },
+  {
+   "name": "fdW",
+   "range": [
+    12,
+    28
+   ],
+   "step": 1,
+   "what": "boxes across one first-die stack (the six stacks)",
+   "value": 20
+  },
+  {
+   "name": "fdD",
+   "range": [
+    6,
+    16
+   ],
+   "step": 1,
+   "what": "boxes deep in one first-die stack",
+   "value": 12
+  },
+  {
+   "name": "fdGap",
+   "range": [
+    10,
+    60
+   ],
+   "step": 2,
+   "what": "world units: air between the six first-die stacks",
+   "value": 60
+  },
+  {
+   "name": "sumW",
+   "range": [
+    8,
+    16
+   ],
+   "step": 1,
+   "what": "boxes across one sum stack (26 stacks; with sumGap it sets the width of the bell)",
+   "value": 12
+  },
+  {
+   "name": "sumD",
+   "range": [
+    3,
+    8
+   ],
+   "step": 1,
+   "what": "boxes deep in one sum stack (fewer = taller bell)",
+   "value": 5
+  },
+  {
+   "name": "sumGap",
+   "range": [
+    4,
+    16
+   ],
+   "step": 1,
+   "what": "world units: air between the 26 sum stacks",
+   "value": 8
+  },
+  {
+   "name": "fd0",
+   "range": [
+    27,
+    29
+   ],
+   "step": 0.1,
+   "what": "s: the first roll leaves the field for its first-die stack (arrival order)",
+   "value": 28
+  },
+  {
+   "name": "fdSpread",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.1,
+   "what": "s: from the first roll leaving to the last roll leaving (fd0 + fdSpread + fdFly <= 33.6)",
+   "value": 3.4
+  },
+  {
+   "name": "fdFly",
+   "range": [
+    0.6,
+    2.4
+   ],
+   "step": 0.1,
+   "what": "s: flight time of one roll from the field to its stack",
+   "value": 1.6
+  },
+  {
+   "name": "fdLift",
+   "range": [
+    0,
+    80
+   ],
+   "step": 2,
+   "what": "world units: hop height of a roll in flight to the first-die stacks",
+   "value": 34
+  },
+  {
+   "name": "sum0",
+   "range": [
+    43.2,
+    45
+   ],
+   "step": 0.1,
+   "what": "s: the first roll leaves its first-die stack for its sum stack",
+   "value": 44
+  },
+  {
+   "name": "sumSpread",
+   "range": [
+    0.8,
+    2.4
+   ],
+   "step": 0.1,
+   "what": "s: from the first roll leaving to the last (sum0 + sumSpread + sumFly <= 47.4)",
+   "value": 1.8
+  },
+  {
+   "name": "sumFly",
+   "range": [
+    0.5,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: flight time of one roll to its sum stack",
+   "value": 1.2
+  },
+  {
+   "name": "sumLift",
+   "range": [
+    0,
+    100
+   ],
+   "step": 2,
+   "what": "world units: hop height of a roll in flight to the sum stacks",
+   "value": 46
+  },
+  {
+   "name": "diceT0",
+   "range": [
+    1.4,
+    2.6
+   ],
+   "step": 0.1,
+   "what": "s: the first of the five dice lands",
+   "value": 2
+  },
+  {
+   "name": "diceStep",
+   "range": [
+    0.2,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "s: between one die landing and the next",
+   "value": 0.4
+  },
+  {
+   "name": "diceSize",
+   "range": [
+    44,
+    80
+   ],
+   "step": 2,
+   "what": "sheet units: edge of a die in the hook",
+   "value": 62
+  },
+  {
+   "name": "sumAt",
+   "range": [
+    4,
+    5
+   ],
+   "step": 0.1,
+   "what": "s: the sum of the throw appears",
+   "value": 4.2
+  },
+  {
+   "name": "flatAt",
+   "range": [
+    8,
+    9
+   ],
+   "step": 0.1,
+   "what": "s: the belief's flat line appears over the empty 5-30 axis",
+   "value": 8.2
+  },
+  {
+   "name": "hookOut",
+   "range": [
+    10.8,
+    11.8
+   ],
+   "step": 0.1,
+   "what": "s: the hook throw starts to fade (gone 0.8 s later)",
+   "value": 11.4
+  },
+  {
+   "name": "landAt",
+   "range": [
+    24,
+    24.4
+   ],
+   "step": 0.1,
+   "what": "s: the running counter is replaced by the landed count (never before the count-in ends)",
+   "value": 24
+  },
+  {
+   "name": "pinsFirstAt",
+   "range": [
+    33.6,
+    35
+   ],
+   "step": 0.1,
+   "what": "s: the six first-die counts pin on their stacks",
+   "value": 34
+  },
+  {
+   "name": "pinsFirstOut",
+   "range": [
+    38.5,
+    40
+   ],
+   "step": 0.1,
+   "what": "s: the first-die pins start to fade",
+   "value": 39.6
+  },
+  {
+   "name": "equalAt",
+   "range": [
+    46.5,
+    48
+   ],
+   "step": 0.1,
+   "what": "s: the equal-odds line (3,846 per sum) appears over the sum stacks",
+   "value": 47
+  },
+  {
+   "name": "pinsSumAt",
+   "range": [
+    55,
+    56
+   ],
+   "step": 0.1,
+   "what": "s: the peak and end counts pin on their stacks (after the side view lands)",
+   "value": 55.4
+  },
+  {
+   "name": "tailLitAt",
+   "range": [
+    58,
+    59.5
+   ],
+   "step": 0.1,
+   "what": "s: the five tail stacks start to turn accent (1.2 s ramp)",
+   "value": 58.4
+  },
+  {
+   "name": "pinsTailAt",
+   "range": [
+    59.5,
+    62
+   ],
+   "step": 0.1,
+   "what": "s: the five tail counts pin on their stacks",
+   "value": 60.4
+  },
+  {
+   "name": "volIn",
+   "range": [
+    66,
+    66.6
+   ],
+   "step": 0.1,
+   "what": "s: the cross-fade from the stacks to the counted cells starts",
+   "value": 66
+  },
+  {
+   "name": "volFade",
+   "range": [
+    0.3,
+    1.2
+   ],
+   "step": 0.1,
+   "what": "s: length of that cross-fade",
+   "value": 0.6
+  },
+  {
+   "name": "volBuild",
+   "range": [
+    0.4,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: the cells grow in over this long, left to right",
+   "value": 0.9
+  },
+  {
+   "name": "volStagger",
+   "range": [
+    0.1,
+    1
+   ],
+   "step": 0.05,
+   "what": "share of the build window one cell takes (1 = all at once)",
+   "value": 0.6
+  },
+  {
+   "name": "volAlpha",
+   "range": [
+    0.3,
+    0.85
+   ],
+   "step": 0.05,
+   "what": "opacity of a counted cell (the cut plane shows through lower values)",
+   "value": 0.55
+  },
+  {
+   "name": "volCutDim",
+   "range": [
+    0.1,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity factor of the cells the cut has passed",
+   "value": 0.45
+  },
+  {
+   "name": "cutT0",
+   "range": [
+    69,
+    71
+   ],
+   "step": 0.1,
+   "what": "s: the cut starts at sum 5",
+   "value": 70
+  },
+  {
+   "name": "cutT1",
+   "range": [
+    75,
+    76
+   ],
+   "step": 0.1,
+   "what": "s: the cut reaches the 25 / 26 edge (the tail count lands at tailAt)",
+   "value": 76
+  },
+  {
+   "name": "tailAt",
+   "range": [
+    76,
+    77
+   ],
+   "step": 0.1,
+   "what": "s: the tail cells light and the tail count lands (count 2)",
+   "value": 76
+  },
+  {
+   "name": "ratioAt",
+   "range": [
+    80,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the share appears under the tail count (always after it)",
+   "value": 82
+  },
+  {
+   "name": "beliefAt",
+   "range": [
+    85,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: the equal-odds line and its tail box return",
+   "value": 86
+  },
+  {
+   "name": "timesAt",
+   "range": [
+    87,
+    90
+   ],
+   "step": 0.1,
+   "what": "s: \"about 12 times too many\" appears",
+   "value": 88
+  },
+  {
+   "name": "exactT0",
+   "range": [
+    91.5,
+    93
+   ],
+   "step": 0.1,
+   "what": "s: the exact bell (expected rolls per sum) starts drawing, left to right",
+   "value": 92
+  },
+  {
+   "name": "exactT1",
+   "range": [
+    94,
+    97
+   ],
+   "step": 0.1,
+   "what": "s: the exact bell is drawn",
+   "value": 96
+  },
+  {
+   "name": "waysAt",
+   "range": [
+    95,
+    97
+   ],
+   "step": 0.1,
+   "what": "s: the ways of 7,776 appear",
+   "value": 96
+  },
+  {
+   "name": "tailExactAt",
+   "range": [
+    97.5,
+    99
+   ],
+   "step": 0.1,
+   "what": "s: the exact tail (126 ways predict 1,620) appears",
+   "value": 98
+  },
+  {
+   "name": "agreeAt",
+   "range": [
+    101.5,
+    103
+   ],
+   "step": 0.1,
+   "what": "s: the agreement lines (largest gap, mean, sd) appear",
+   "value": 102
+  },
+  {
+   "name": "cutOffAt",
+   "range": [
+    78,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the cut plane is put away (the passed cells undim; the tail stays lit)",
+   "value": 80
+  },
+  {
+   "name": "mondayAt",
+   "range": [
+    107,
+    108
+   ],
+   "step": 0.1,
+   "what": "s: the cells fade and the rolls return for Monday",
+   "value": 107.6
+  },
+  {
+   "name": "bandAt",
+   "range": [
+    108.5,
+    111
+   ],
+   "step": 0.1,
+   "what": "s: the middle band (sums 14 to 21) lights",
+   "value": 109
+  },
+  {
+   "name": "bandDim",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.02,
+   "what": "how far rolls outside the band fade toward muted (1 = all the way)",
+   "value": 0.72
+  },
+  {
+   "name": "feltMargin",
+   "range": [
+    20,
+    160
+   ],
+   "step": 5,
+   "what": "world units: felt around the field of rolls",
+   "value": 70
+  },
+  {
+   "name": "readSize",
+   "range": [
+    40,
+    80
+   ],
+   "step": 2,
+   "what": "sheet units: the tail count (must-read, display face)",
+   "value": 76
+  },
+  {
+   "name": "ratioSize",
+   "range": [
+    28,
+    44
+   ],
+   "step": 2,
+   "what": "sheet units: the share under the tail count (must-read)",
+   "value": 32
+  },
+  {
+   "name": "pinSub",
+   "range": [
+    14,
+    18
+   ],
+   "step": 1,
+   "what": "sheet units: small line under a pin (secondary floor 14)",
+   "value": 14
+  },
+  {
+   "name": "labHold",
+   "range": [
+    0,
+    12
+   ],
+   "step": 1,
+   "what": "frames a pin must be pushed before it hides (gl-labels hysteresis)",
+   "value": 4
+  },
+  {
+   "name": "labLeader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "sheet units: pin leader length",
+   "value": 22
+  },
+  {
+   "name": "exactW",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.2,
+   "what": "sheet units: stroke of the exact bell line",
+   "value": 2.2
+  },
+  {
+   "name": "camStartZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · start pose: ortho magnification",
+   "value": 1.05
+  },
+  {
+   "name": "camObliqueT0",
+   "range": [
+    24.5,
+    34
+   ],
+   "step": 0.1,
+   "what": "camera rig · oblique (orbit): start (s)",
+   "value": 26
+  },
+  {
+   "name": "camObliqueT1",
+   "range": [
+    24.5,
+    34
+   ],
+   "step": 0.1,
+   "what": "camera rig · oblique (orbit): end (s)",
+   "value": 31
+  },
+  {
+   "name": "camObliqueEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · oblique (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camObliqueAz",
+   "range": [
+    -58,
+    22
+   ],
+   "step": 5,
+   "what": "camera rig · oblique (orbit): degrees swept round the centre",
+   "value": 0
+  },
+  {
+   "name": "camObliqueEl",
+   "range": [
+    5,
+    45
+   ],
+   "step": 1,
+   "what": "camera rig · oblique (orbit): end elevation (deg above the centre)",
+   "value": 24
+  },
+  {
+   "name": "camObliqueZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · oblique (orbit): ortho magnification",
+   "value": 1.15
+  },
+  {
+   "name": "camPlanT0",
+   "range": [
+    39,
+    44
+   ],
+   "step": 0.1,
+   "what": "camera rig · plan (orbit): start (s)",
+   "value": 40
+  },
+  {
+   "name": "camPlanT1",
+   "range": [
+    39,
+    44
+   ],
+   "step": 0.1,
+   "what": "camera rig · plan (orbit): end (s)",
+   "value": 43
+  },
+  {
+   "name": "camPlanEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · plan (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camPlanAz",
+   "range": [
+    -22,
+    58
+   ],
+   "step": 5,
+   "what": "camera rig · plan (orbit): degrees swept round the centre",
+   "value": 0
+  },
+  {
+   "name": "camPlanEl",
+   "range": [
+    70,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · plan (orbit): end elevation (deg above the centre)",
+   "value": 89
+  },
+  {
+   "name": "camPlanZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · plan (orbit): ortho magnification",
+   "value": 1
+  },
+  {
+   "name": "camSideT0",
+   "range": [
+    48,
+    58
+   ],
+   "step": 0.1,
+   "what": "camera rig · side (orbit): start (s)",
+   "value": 52
+  },
+  {
+   "name": "camSideT1",
+   "range": [
+    48,
+    58
+   ],
+   "step": 0.1,
+   "what": "camera rig · side (orbit): end (s)",
+   "value": 55
+  },
+  {
+   "name": "camSideEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · side (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camSideEl",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "camera rig · side (orbit): end elevation (deg above the centre)",
+   "value": 4
+  },
+  {
+   "name": "camTailT0",
+   "range": [
+    58,
+    66
+   ],
+   "step": 0.1,
+   "what": "camera rig · tail (lookat): start (s)",
+   "value": 58
+  },
+  {
+   "name": "camTailT1",
+   "range": [
+    58,
+    66
+   ],
+   "step": 0.1,
+   "what": "camera rig · tail (lookat): end (s)",
+   "value": 63
+  },
+  {
+   "name": "camTailEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · tail (lookat): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camTailTarget",
+   "range": [
+    0,
+    26
+   ],
+   "step": 1,
+   "what": "camera rig · tail (lookat): data index the camera aims or focuses at",
+   "value": 21
+  },
+  {
+   "name": "camTailDist",
+   "range": [
+    1500,
+    4000
+   ],
+   "step": 10,
+   "what": "camera rig · tail (lookat): distance to the centre / target (world units; lookat 0 = pan from the eye)",
+   "value": 2400
+  },
+  {
+   "name": "camTailZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · tail (lookat): ortho magnification",
+   "value": 2.3
+  },
+  {
+   "name": "camWideT0",
+   "range": [
+    66,
+    70.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · wide (lookat): start (s)",
+   "value": 66.6
+  },
+  {
+   "name": "camWideT1",
+   "range": [
+    66,
+    70.5
+   ],
+   "step": 0.1,
+   "what": "camera rig · wide (lookat): end (s)",
+   "value": 70
+  },
+  {
+   "name": "camWideEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · wide (lookat): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camWideTarget",
+   "range": [
+    0,
+    26
+   ],
+   "step": 1,
+   "what": "camera rig · wide (lookat): data index the camera aims or focuses at",
+   "value": 26
+  },
+  {
+   "name": "camWideDist",
+   "range": [
+    1500,
+    4000
+   ],
+   "step": 10,
+   "what": "camera rig · wide (lookat): distance to the centre / target (world units; lookat 0 = pan from the eye)",
+   "value": 2400
+  },
+  {
+   "name": "camWideZoom",
+   "range": [
+    0.6,
+    3
+   ],
+   "step": 0.05,
+   "what": "camera rig · wide (lookat): ortho magnification",
+   "value": 0.75
+  },
+  {
+   "name": "camTiltT0",
+   "range": [
+    70,
+    77
+   ],
+   "step": 0.1,
+   "what": "camera rig · tilt (orbit): start (s)",
+   "value": 70
+  },
+  {
+   "name": "camTiltT1",
+   "range": [
+    70,
+    77
+   ],
+   "step": 0.1,
+   "what": "camera rig · tilt (orbit): end (s)",
+   "value": 76
+  },
+  {
+   "name": "camTiltEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · tilt (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camTiltAz",
+   "range": [
+    -60,
+    20
+   ],
+   "step": 5,
+   "what": "camera rig · tilt (orbit): degrees swept round the centre",
+   "value": -20
+  },
+  {
+   "name": "camTiltEl",
+   "range": [
+    5,
+    45
+   ],
+   "step": 1,
+   "what": "camera rig · tilt (orbit): end elevation (deg above the centre)",
+   "value": 14
+  },
+  {
+   "name": "camFlatT0",
+   "range": [
+    84,
+    92
+   ],
+   "step": 0.1,
+   "what": "camera rig · flat (orbit): start (s)",
+   "value": 86
+  },
+  {
+   "name": "camFlatT1",
+   "range": [
+    84,
+    92
+   ],
+   "step": 0.1,
+   "what": "camera rig · flat (orbit): end (s)",
+   "value": 91.5
+  },
+  {
+   "name": "camFlatEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · flat (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camFlatAz",
+   "range": [
+    -20,
+    60
+   ],
+   "step": 5,
+   "what": "camera rig · flat (orbit): degrees swept round the centre",
+   "value": 20
+  },
+  {
+   "name": "camFlatEl",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "camera rig · flat (orbit): end elevation (deg above the centre)",
+   "value": 3
+  }
+ ],
+ "ms_per_frame": 1115,
+ "s_per_frame": 1.115,
+ "purity": {
+  "pass": true,
+  "at": {
+   "24.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "61.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "98.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "One throw"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "Sort the same rolls by the first die alone.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "From the side: 17 and 18 tower; the ends vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "From the side: 17 and 18 tower; the ends vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "From the side: 17 and 18 tower; the ends vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "From the side: 17 and 18 tower; the ends vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "From the side: 17 and 18 tower; the ends vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "From the side: 17 and 18 tower; the ends vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "From the side: 17 and 18 tower; the ends vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "From the side: 17 and 18 tower; the ends vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The table"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The tail"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "Monday: is your total many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "Fair, independent dice. Linked parts break it.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 122.99,
+   "file": "thumbs/t-0122.99.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  }
+ ]
+}

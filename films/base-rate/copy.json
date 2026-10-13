@@ -1,0 +1,286 @@
+{
+  "_doc": "Writer's copy for the channel compiler (library/channels). Every number here must be one the film prints (QA Q6). Edit freely; re-run channels.py.",
+  "url": "cetiai.co/explainers/base-rate",
+  "series": "CETI Explainers",
+  "hashtags": [
+    "#BaseRates",
+    "#Statistics",
+    "#DecisionMaking",
+    "#Kahneman",
+    "#CETIExplainers"
+  ],
+  "honestyLine": "A classroom problem: the dots draw the stated proportions.",
+  "reel": {
+    "hook": [
+      "Most people say 80 %.",
+      "It’s 41 %."
+    ],
+    "captions": {
+      "city": "1,000 cabs. Only 150 are Blue.",
+      "question": "A witness says Blue. How sure are you?",
+      "commit": "Most people answer 80 %.",
+      "wrong": "Trust her: right 80 % of the time…",
+      "break": "…but 850 of the 1,000 cabs are Green.",
+      "count1": "Test her on every cab.",
+      "count2": "120 Blue and 170 Green get called Blue.",
+      "count3": "120 of 290. That’s 41 %.",
+      "gap": "Most of us land near 80. The count says 41.",
+      "name": "The base rate decides.",
+      "land": "Before you trust the witness, count the city."
+    },
+    "cta": "Follow for the next count",
+    "post": {
+      "hookLine": "Most people say 80 %. The answer is 41 %. Here’s the 1,000-cab count that proves it ↓",
+      "caption": "A cab hit someone at night. A witness who is right 80 % of the time says it was Blue. Only 150 of the city’s 1,000 cabs are Blue, so she would call 120 Blue cabs and 170 Green cabs Blue. 120 of 290 is 41 %.\n\nThe cab problem is Daniel Kahneman’s (Thinking, Fast and Slow, ch. 16).\n\nSave this for the next time someone quotes an accuracy number at you."
+    },
+    "beats": [
+      {
+        "id": "cold",
+        "headline": "Most people say 80 %.",
+        "numeral": "41%",
+        "numeralLabel": "the real odds the cab was Blue"
+      },
+      {
+        "id": "city",
+        "headline": "1,000 cabs. Only 150 are Blue."
+      },
+      {
+        "id": "strip",
+        "headline": "A witness, right 80 times in 100."
+      },
+      {
+        "id": "wrong",
+        "headline": "She says Blue. Most people trust her: 80 %."
+      },
+      {
+        "id": "break",
+        "headline": "But 850 of the 1,000 cabs are Green."
+      },
+      {
+        "id": "ringed",
+        "headline": "She’d call 290 of them Blue."
+      },
+      {
+        "id": "count",
+        "headline": "Only 120 of those 290 are Blue.",
+        "numeral": "41%"
+      },
+      {
+        "id": "contrast",
+        "headline": "Same witness, a half-Blue city: 80 %.",
+        "tags": [
+          "CITY A · 15 % BLUE",
+          "CITY B · HALF BLUE"
+        ]
+      },
+      {
+        "id": "end",
+        "headline": "The denominator decides.",
+        "cta": "Save this. Then ask: how many are out there?"
+      }
+    ]
+  },
+  "carousel": {
+    "slides": [
+      {
+        "scene": "reveal",
+        "kicker": "THE CAB PROBLEM · KAHNEMAN CH. 16",
+        "headline": "She’s 80 % reliable. The real odds:",
+        "numeral": "41%",
+        "body": "",
+        "swipe": "How? Swipe →"
+      },
+      {
+        "scene": "city",
+        "kicker": "THE CITY",
+        "headline": "1,000 cabs. Only 150 are Blue.",
+        "body": "Each dot is one cab. Every number here is counted on this picture."
+      },
+      {
+        "scene": "wrongbreak",
+        "kicker": "THE COMMON ANSWER",
+        "headline": "80 % ignores the city.",
+        "body": "Fair only if Blue and Green cabs were equally common. 850 of the 1,000 are Green."
+      },
+      {
+        "scene": "count",
+        "kicker": "COUNTED",
+        "headline": "120 of 290 “Blue” calls are right.",
+        "numeral": "41%",
+        "body": "150 × 0.8 = 120 Blue and 850 × 0.2 = 170 Green get called Blue.",
+        "source": "K16"
+      },
+      {
+        "scene": "denominator",
+        "kicker": "39 POINTS OFF",
+        "headline": "The denominator decides.",
+        "body": "One “Blue”, two sources: 120 Blue seen right, 170 Green seen wrong.",
+        "honesty": true
+      },
+      {
+        "scene": "contrast",
+        "kicker": "ONE DIFFERENCE",
+        "headline": "Same witness, a half-Blue city: 80 %.",
+        "body": "80 % is right only in a city that is half Blue. City B is hypothetical."
+      },
+      {
+        "scene": "cta",
+        "kicker": "BEFORE YOU TRUST THE WITNESS",
+        "headline": "Save this. Then ask: how many are out there?",
+        "body": ""
+      }
+    ],
+    "post": {
+      "hookLine": "Most people say 80 %. The answer is 41 %. Here’s the 1,000-cab count that proves it ↓",
+      "caption": "A witness who is right 80 % of the time says the cab was Blue. Swipe for the count: 120 of the 290 cabs she would call Blue are Blue. The witness doesn’t decide the answer; the city does.\n\nThe cab problem is Daniel Kahneman’s (Thinking, Fast and Slow, ch. 16).\n\nSave this for the next “highly accurate” test someone shows you."
+    }
+  },
+  "linkedin": {
+    "cover": {
+      "kicker": "CETI EXPLAINERS · BASE-RATE NEGLECT",
+      "headline": "You’d say 80 %. Here’s the 1,000-cab count.",
+      "body": "Kahneman’s cab problem, counted on one picture."
+    },
+    "setup": {
+      "kicker": "THE QUESTION",
+      "headline": "A cab hit someone at night.",
+      "body": "A witness says it was Blue. Tested at night, she names the colour right 80 times in 100, whichever colour she is shown. Only 150 of the city’s 1,000 cabs are Blue. What is the chance the cab was Blue? Write your number down."
+    },
+    "bodies": {
+      "po.first": "Each dot is one cab: 150 Blue, 850 Green. Every number on the next pages is counted on this picture, so you can check it by eye.",
+      "wrong": "The obvious answer, fairly put: she is right 80 % of the time, so it is 80 % Blue. That model is right in one kind of city: one where Blue and Green cabs are equally common.",
+      "break": "It never looked at the city. 850 of the 1,000 cabs are Green. The witness is the same; the question is which cabs she could be describing when she says Blue.",
+      "count": "Test her on every cab. 150 × 0.8 = 120 Blue cabs get called Blue. 850 × 0.2 = 170 Green cabs get called Blue too. Only those 290 are still in question, and 120 of them are Blue.",
+      "gap": "Most of us land near 80. The count says 41: a gap of 39 points. Most cabs she would call Blue are Green, because there are so many more Green cabs.",
+      "contrast": "Change one thing: a city where half the cabs are Blue. Same witness, same 80 %, same way of counting. Now it is 400 of 500: 80 %. City B is hypothetical.",
+      "named": "The base rate picks the denominator. Ignoring it means answering as if the city were half Blue. The evidence only rings the cabs that could have produced it."
+    },
+    "arithmetic": {
+      "kicker": "THE ARITHMETIC",
+      "headline": "Bayes, counted.",
+      "lines": [
+        "Blue cabs called Blue:  150 × 0.8 = 120",
+        "Green cabs called Blue:  850 × 0.2 = 170",
+        "All “Blue” calls:  120 + 170 = 290",
+        "Chance it was Blue:  120 ÷ 290 = 41 %"
+      ],
+      "body": "Natural frequencies make Bayes countable (Gigerenzer & Hoffrage 1995). The same count for a city that is only 5 % Blue: 40 of 230, about 17 %."
+    },
+    "honesty": {
+      "kicker": "WHERE THIS STOPS",
+      "headline": "What the count does not say.",
+      "items": [
+        "A classroom problem: the dots draw the stated proportions, not data.",
+        "It assumes the witness’s errors are independent of everything else.",
+        "The 80 % reliability is the textbook’s, tested at night.",
+        "City B is hypothetical: the textbook’s city is 15 % Blue."
+      ]
+    },
+    "cta": {
+      "kicker": "SOURCES · TRY IT",
+      "headline": "Save this. Then ask: how many are out there?",
+      "body": "The interactive version lets you change the city and the witness and see the denominator re-form.",
+      "url": "cetiai.co/explainers/base-rate"
+    },
+    "post": {
+      "hook": "Most people say 80 %. The answer is 41 %.\nHere’s the 1,000-cab count behind the gap ↓",
+      "caption": "A witness who is right 80 % of the time is not right 80 % of the time about a rare cab. Kahneman’s cab problem (Thinking, Fast and Slow, ch. 16), counted on 1,000 dots instead of solved with a formula.\n\nThe same trap sits under every “highly accurate” test, alert and model score: before you trust the signal, count the base rate.\n\nInteractive version: cetiai.co/explainers/base-rate"
+    },
+    "pageBodies": {
+      "city": "Each dot is one cab: 150 Blue, 850 Green. Every number on the next pages is counted on this picture, so you can check it by eye.",
+      "wrongbreak": "The obvious answer, fairly put: she is right 80 % of the time, so it is 80 % Blue. That is right only in a city where Blue and Green cabs are equally common. Here 850 of the 1,000 are Green.",
+      "count": "Test her on every cab: 150 × 0.8 = 120 Blue and 850 × 0.2 = 170 Green get called Blue. Only those 290 are in question.",
+      "denominator": "One “Blue” has two sources: 120 Blue cabs seen right and 170 Green cabs seen wrong. Most of us land near 80; the count says 41.",
+      "contrast": "Change one thing: a city where half the cabs are Blue. Same witness, same 80 %. Now it is 400 of 500: 80 %. City B is hypothetical."
+    }
+  },
+  "video": {
+    "claim": [
+      "The witness doesn’t decide.",
+      "The city does."
+    ],
+    "cta": "cetiai.co/explainers/base-rate",
+    "post": "The witness doesn’t decide. The city does. One minute on why an 80 % reliable witness gets you to 41 %, counted on 1,000 dots. Interactive version: cetiai.co/explainers/base-rate"
+  },
+  "blog": {
+    "title": "The denominator decides: why an 80 % reliable witness gets you to 41 %",
+    "dek": "Kahneman’s cab problem, counted on one picture of 1,000 cabs instead of solved with a formula.",
+    "sections": [
+      {
+        "id": "question",
+        "heading": "The question",
+        "frame": "question",
+        "caption": "Before anything is counted: the witness says Blue. What is the chance it was?",
+        "text": "A cab hit someone at night and drove off. A witness says the cab was Blue. The court, being careful, tested her under the same night conditions: shown cabs one at a time, she named the colour right 80 times in 100, and she was just as good with Blue cabs as with Green ones. In this city, 150 of the 1,000 cabs are Blue and the other 850 are Green.\n\nWhat is the chance the cab was Blue?\n\nBefore you read on, write down a number. The point of the exercise is not to be right on the first try. It is to notice where your first answer came from, because the same reflex is at work every time someone hands you an accuracy figure and asks you to act on it."
+      },
+      {
+        "id": "misconception",
+        "heading": "The obvious answer, fairly put",
+        "frame": "wrong",
+        "caption": "Run that model and it says 80 %, with confidence.",
+        "text": "The most common answer is 80 % (Kahneman, *Thinking, Fast and Slow*, chapter 16). It has a real argument behind it, and it deserves to be stated fairly: she is right 80 % of the time, so when she says Blue she is probably right, about 80 % of the time.\n\nThat model is not foolish. It gives exactly the right answer in one kind of city: a city where Blue and Green cabs are equally common. It is the answer your intuition reaches for because the witness is vivid and specific, and the city is a dull statistic in the background. Kahneman’s point is that we let the vivid, causal story crowd out the statistical one.\n\nThe trouble is that this model never looked at this city."
+      },
+      {
+        "id": "break",
+        "heading": "What it ignored",
+        "frame": "break",
+        "caption": "But it never looked at the city: 850 of the 1,000 cabs are Green.",
+        "text": "Eight hundred and fifty of the 1,000 cabs are Green. The witness is the same witness, with the same eyes and the same 80 %; what changes is the set of cabs she could be describing.\n\nA “Blue” can come from two places: a Blue cab seen right, or a Green cab seen wrong. With so many Green cabs on the road, the second source is not small. Her error rate is low, but it is applied to a large group, and a small fraction of a large group can outnumber a large fraction of a small one. That is the whole trick, and it is easier to see than to say."
+      },
+      {
+        "id": "count",
+        "heading": "Count it",
+        "frame": "count",
+        "caption": "Count the Blue ones among them: 120 of 290. About 41 %, not 80 %.",
+        "text": "Instead of a formula, test her on every cab in the city, one dot per cab.\n\n- Of the 150 Blue cabs, she calls 150 × 0.8 = **120** Blue.\n- Of the 850 Green cabs, she calls 850 × 0.2 = **170** Blue.\n\nSo 290 cabs would be called Blue, and only those 290 are still in question: the rest stay in the city, faint, but they are no longer part of the answer. The Blue ones are 120 of them: **120 ÷ 290 = 41 %**.\n\nMost of us land near 80; the count says 41, a gap of 39 points. This is Bayes’ rule, done by counting natural frequencies instead of multiplying conditional probabilities. Gigerenzer and Hoffrage showed in 1995 that when the same problem is posed as counts of people (or cabs) rather than percentages, far more people get it right. The film never shows the formula; it shows the denominator forming."
+      },
+      {
+        "id": "contrast",
+        "heading": "One difference",
+        "frame": "contrast",
+        "caption": "What differs: only the base rate. 41 % in one city, 80 % in the other.",
+        "text": "To see which part of the problem does the work, split the city in two and change exactly one thing. City A is the textbook’s: 15 % Blue. City B is hypothetical: half its cabs are Blue. Same witness, same 80 %, same way of counting, same seed for the dots.\n\nIn City A the count is 120 of 290, 41 %. In City B it is 400 of 500, 80 %. Nothing about the witness changed between the two halves; only the base rate did. So the common answer is the right answer only in a city that is half Blue. Answering 80 % in City A means answering as if the city were half Blue. That is base-rate neglect: not a lack of arithmetic, but a silent swap of the city you are in for a simpler one."
+      },
+      {
+        "id": "limits",
+        "heading": "Where this stops",
+        "frame": null,
+        "caption": "",
+        "text": "The film is honest about its own edges, and so is this post:\n\n- It is a classroom problem: the dots draw the stated proportions, not data.\n- It assumes the witness’s errors are independent of everything else: the light, the street, which cabs drive at night.\n- The 80 % reliability is the textbook’s, measured under night conditions.\n- City B is hypothetical; the textbook’s city is 15 % Blue.\n\nNone of these change the lesson; they change how far you can carry the exact numbers. In a real case you would want the actual base rate for the time and place, and a reliability measured under the conditions that matter."
+      },
+      {
+        "id": "retrieve",
+        "heading": "One question for you",
+        "frame": "retrieve",
+        "caption": "Count it: 40 Blue cabs called Blue, 190 Green cabs called Blue. 40 of 230.",
+        "text": "Same witness, but now only 5 % of the cabs are Blue. Is the chance that a “Blue” call is right above or below 41 %? Answer before you scroll.\n\n<details><summary>The count</summary>\n\nIn a city of 1,000 with 50 Blue cabs: 50 × 0.8 = 40 Blue cabs get called Blue, and 950 × 0.2 = 190 Green cabs do too. That is 40 of 230, about 17 %. The rarer the Blue cabs, the less a “Blue” means.\n\n</details>"
+      },
+      {
+        "id": "land",
+        "heading": "Back to the case",
+        "frame": null,
+        "caption": "",
+        "text": "A witness says the cab was Blue. The chance it was Blue is 41 %, not 80 %. The witness doesn’t decide; the city does.\n\nThe same structure sits under every accuracy figure you are handed: a highly accurate test for a rare condition, an alert that is usually right about a rare fault, a model with a high score on a rare class, a reference check on a rare kind of fraud. In each case the question to ask first is the one the cab problem teaches: how many of each are out there? Before you trust the signal, count the base rate. **The denominator decides.**"
+      }
+    ]
+  },
+  "newsletter": {
+    "subject": "41 %",
+    "preheader": "the cab problem, counted on 1,000 dots",
+    "headline": "The witness doesn’t decide. The city does.",
+    "question": "A cab hit someone at night. A witness who names colours right 80 % of the time, tested under the same night conditions, says it was Blue. Only 150 of the city’s 1,000 cabs are Blue; the other 850 are Green. How sure should you be that the cab was Blue? Pick a number before you scroll.",
+    "misconception": "Most people say 80 %. It sounds like the witness’s reliability, and it is a fair answer in one kind of city: one where Blue and Green cabs are equally common. Kahneman uses this problem in chapter 16 of Thinking, Fast and Slow to show how a vivid witness crowds out a dull statistic about the city.",
+    "count": "So count instead. Test her on every cab: 120 Blue cabs are seen right, and 170 Green cabs are seen wrong and called Blue too. Only those 290 are still in question, and 120 of them are Blue. The rest of the city stays on the page, faint, but it is no longer part of the answer.",
+    "number": "120 of 290 = 41 %",
+    "aha": "The base rate picks the denominator; the evidence only rings the cabs that could have produced it. Swap in a city that is half Blue and the same witness gives you 80 %.",
+    "honesty": "It is a classroom problem: the dots draw the stated proportions, not data, and it assumes the witness’s errors are independent of everything else.",
+    "cta": "Try it yourself: change the city, keep the witness, and watch the count move",
+    "signoff": "Manu · CETI.AI",
+    "figures": [
+      "city",
+      "count.gif",
+      "contrast"
+    ]
+  },
+  "brand": "CETI.AI · enterprise AI training"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "sunk-cost",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "used15 = 74, empty15 = 16, mean 4.11", "status": "ok", "note": "round(18 x 4.11) = 74; 74/18 = 4.111; 74 is the only total in 0..90 that rounds to 4.11; 90 - 74 = 16"},
+    {"claim": "used8 = 56, empty8 = 29, mean 3.29", "status": "ok", "note": "round(17 x 3.29) = 56; 56/17 = 3.294; unique; 85 - 56 = 29"},
+    {"claim": "used13 = 63, empty13 = 32, mean 3.32", "status": "ok", "note": "round(19 x 3.32) = 63; 63/19 = 3.316; unique; 95 - 63 = 32"},
+    {"claim": "n15/n13/n8 = 18/19/17, 54 counted", "status": "ok", "note": "20 per group (F07) minus couples 2/1/3 (AB85) = 54; the brief's second-half-mean cross-check supports n = 18 and 17"},
+    {"claim": "$15 / $13 / $8, five plays, 1982-83, first 60 buyers", "status": "ok", "note": "AB85 as cited"},
+    {"claim": "$4M in the hook", "status": "ok", "note": "declared illustrative in claims and in the honest limits; never presented as data"}
+  ],
+  "craft": 4,
+  "originality": 4,
+  "stop": 3,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 50.3, "what": "Empty counters are mid-tick ('10 EMPTY', '18 EMPTY') while the caption already states 'The stubs say 29 went unused'; for several seconds the stage and the caption disagree and two non-claim digits are on screen", "severity": "med"},
+    {"t": 40.5, "what": "Caption 'Paid $15: 18 people, 90 tickets. 74 used, 16 empty.' lands while the counter still reads '62 USED'; the caption gives the result before the count has finished", "severity": "low"},
+    {"t": 1.0, "what": "The hook is a single small ink rectangle (the $4M bar) on an empty page; nothing to stop on but the caption", "severity": "low"},
+    {"t": 1.0, "what": "Ledger and plate type-on shows partial words ('Q · $4M S', 'ARK'); chrome only", "severity": "low"}
+  ],
+  "one_line": "The stubs count honestly and the per-person ratios come only after the empties are counted; the one thing to watch is captions outrunning the counters."
+}

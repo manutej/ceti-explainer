@@ -1,0 +1,305 @@
+{
+ "film": "correlated-risk",
+ "params": {
+  "n": 10,
+  "p": 0.1,
+  "k": 5,
+  "years": 100,
+  "seed": 630,
+  "mcSeed": 2008,
+  "mcDraws": 10000
+ },
+ "claims": [
+  {
+   "id": "hook-n",
+   "text": "10 suppliers",
+   "value": 10,
+   "formula": "n",
+   "source": "derived (scenario parameter)",
+   "renders": [
+    "10 SUPPLIERS"
+   ],
+   "where": "HOOK 0-8 s: headline over the supplier row; caption 1 (in words); commit prompt"
+  },
+  {
+   "id": "hook-p",
+   "text": "each 10 % likely to fail this year",
+   "value": 10,
+   "formula": "100*p",
+   "source": "derived (scenario parameter)",
+   "where": "HOOK: label under the supplier row; caption 2; commit prompt"
+  },
+  {
+   "id": "commit-k",
+   "text": "5 or more of the 10 fail in the same year",
+   "value": 5,
+   "formula": "k",
+   "source": "derived (scenario parameter)",
+   "where": "COMMIT 8-16 s: prompt and caption 3; COUNT counter label 'YEARS WITH 5+'"
+  },
+  {
+   "id": "commit-years",
+   "text": "out of 100 years",
+   "value": 100,
+   "formula": "years",
+   "source": "derived (scenario parameter)",
+   "renders": [
+    "100 YEARS",
+    "100"
+   ],
+   "where": "COMMIT prompt and caption 3; COUNT header '100 YEARS'; caption 9; scale label 'per 100 years'"
+  },
+  {
+   "id": "commit-default",
+   "text": "film-mode default guess: 1 year in 100",
+   "value": 1,
+   "source": "derived (scenario parameter)",
+   "where": "COMMIT 13 s in film mode: typed into the box; COUNT 56.5 s: YOU marker"
+  },
+  {
+   "id": "case-year",
+   "text": "2006: banks pool mortgages and slice them",
+   "value": 2006,
+   "source": "FCIC11",
+   "where": "CASE 16-36 s: eyebrow; captions 5 and 8"
+  },
+  {
+   "id": "case-p",
+   "text": "two mortgages, each 10 % likely to default",
+   "value": 10,
+   "formula": "100*p",
+   "source": "CJS09",
+   "where": "CASE: label under each of the two mortgage marks; caption 5"
+  },
+  {
+   "id": "case-senior-indep",
+   "text": "top (senior) slice fails only if both fail: 1 in 100 if independent",
+   "value": 1,
+   "formula": "100*p*p",
+   "source": "CJS09",
+   "renders": [
+    "1 OF 100 YEARS",
+    "1 year of 100"
+   ],
+   "where": "CASE: senior slice readout; caption 6"
+  },
+  {
+   "id": "case-senior-corr",
+   "text": "if they fail together (perfect correlation): 10 in 100",
+   "value": 10,
+   "formula": "100*p",
+   "source": "CJS09",
+   "renders": [
+    "10 OF 100 YEARS",
+    "10 years of 100"
+   ],
+   "where": "CASE: senior slice readout after the tie; caption 7"
+  },
+  {
+   "id": "case-83",
+   "text": "Moody's 2006 triple-A mortgage securities: 83 % ultimately downgraded",
+   "value": 83,
+   "source": "FCIC11",
+   "renders": [
+    "83 OF EVERY 100",
+    "83 of 100"
+   ],
+   "where": "CASE 30-36 s: ledger line; caption 8"
+  },
+  {
+   "id": "case-aaa-share",
+   "text": "roughly 60 % of global structured products were AAA-rated",
+   "value": 60,
+   "source": "CJS09",
+   "where": "page only: sources note / transcript (optional on screen)"
+  },
+  {
+   "id": "case-aaa-corp",
+   "text": "less than 1 % of corporate issues were AAA-rated",
+   "value": 1,
+   "source": "CJS09",
+   "where": "page only: sources note / transcript (optional on screen)"
+  },
+  {
+   "id": "rho-0",
+   "text": "no shared shock, rho 0",
+   "value": 0,
+   "formula": "((rho)=>rho)(0)",
+   "source": "derived (VAS02, LI00)",
+   "where": "COUNT: rho label 'ρ 0'; scale label"
+  },
+  {
+   "id": "rho-03",
+   "text": "some shared shock, rho 0.3",
+   "value": 0.3,
+   "formula": "((rho)=>rho)(0.3)",
+   "source": "derived (VAS02, LI00)",
+   "where": "COUNT: rho label 'ρ 0.3'; scale label"
+  },
+  {
+   "id": "rho-06",
+   "text": "strong shared shock, rho 0.6",
+   "value": 0.6,
+   "formula": "((rho)=>rho)(0.6)",
+   "source": "derived (VAS02, LI00)",
+   "where": "COUNT: rho label 'ρ 0.6'; scale label"
+  },
+  {
+   "id": "grid-fail-0",
+   "text": "failures in the 100-year grid at rho 0",
+   "value": 100,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(seed,years,rho);return o.reduce((a,b)=>a+b,0);})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0)",
+   "source": "derived (VAS02 model, seeded draw)",
+   "where": "COUNT 41.5 s: counter FAILURES; caption 10"
+  },
+  {
+   "id": "grid-fail-03",
+   "text": "failures in the 100-year grid at rho 0.3",
+   "value": 98,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(seed,years,rho);return o.reduce((a,b)=>a+b,0);})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.3)",
+   "source": "derived (VAS02 model, seeded draw)",
+   "where": "COUNT 50.5 s: counter FAILURES"
+  },
+  {
+   "id": "grid-fail-06",
+   "text": "failures in the 100-year grid at rho 0.6",
+   "value": 99,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(seed,years,rho);return o.reduce((a,b)=>a+b,0);})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.6)",
+   "source": "derived (VAS02 model, seeded draw)",
+   "where": "COUNT 54.5 s: counter FAILURES"
+  },
+  {
+   "id": "grid-bad-0",
+   "text": "years with 5+ of 10 failed, rho 0",
+   "value": 0,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(seed,years,rho);return o.filter(x=>x>=k).length;})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0)",
+   "source": "derived (VAS02 model, seeded draw)",
+   "where": "COUNT 41.5 s: counter YEARS WITH 5+; caption 10 (as 'Zero')"
+  },
+  {
+   "id": "grid-bad-03",
+   "text": "years with 5+ of 10 failed, rho 0.3",
+   "value": 3,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(seed,years,rho);return o.filter(x=>x>=k).length;})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.3)",
+   "source": "derived (VAS02 model, seeded draw)",
+   "where": "COUNT 50.5 s: counter; scale 'counted 3'"
+  },
+  {
+   "id": "grid-bad-06",
+   "text": "years with 5+ of 10 failed, rho 0.6",
+   "value": 7,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(seed,years,rho);return o.filter(x=>x>=k).length;})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.6)",
+   "source": "derived (VAS02 model, seeded draw)",
+   "where": "COUNT 54.5 s: counter; scale 'counted 7'; caption 12"
+  },
+  {
+   "id": "grid-zero-0",
+   "text": "years with no failure, rho 0",
+   "value": 37,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(seed,years,rho);return o.filter(x=>x===0).length;})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0)",
+   "source": "derived (VAS02 model, seeded draw)",
+   "where": "try-it panel / transcript only"
+  },
+  {
+   "id": "grid-zero-06",
+   "text": "years with no failure, rho 0.6",
+   "value": 65,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(seed,years,rho);return o.filter(x=>x===0).length;})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.6)",
+   "source": "derived (VAS02 model, seeded draw)",
+   "where": "try-it panel / transcript only"
+  },
+  {
+   "id": "truth-0",
+   "text": "chance at least 5 of 10 fail, independent",
+   "value": 0.163494,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const C=(a,b)=>{let r=1;for(let i=0;i<b;i++)r=r*(a-i)/(i+1);return r;};const tail=(q,kk)=>{let s=0;for(let j=kk;j<=n;j++)s+=C(n,j)*q**j*(1-q)**(n-j);return s;};const P=(r,kk)=>{if(r===0)return 100*tail(p,kk);const c=invPhi(p),h=0.001;let s=0;for(let z=-8+h/2;z<8;z+=h){s+=tail(Phi((c-M.sqrt(r)*z)/M.sqrt(1-r)),kk)*M.exp(-z*z/2)/M.sqrt(2*M.PI)*h;}return 100*s;};return P(rho,k);})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0)",
+   "source": "derived (VAS02, LI00)",
+   "renders": [
+    "0.16",
+    "0.16 %"
+   ],
+   "where": "COUNT 56.5 s: scale mark '0.16' per 100 years, then '0.16 %'; caption 12"
+  },
+  {
+   "id": "truth-03",
+   "text": "chance at least 5 of 10 fail, rho 0.3",
+   "value": 3.21792,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const C=(a,b)=>{let r=1;for(let i=0;i<b;i++)r=r*(a-i)/(i+1);return r;};const tail=(q,kk)=>{let s=0;for(let j=kk;j<=n;j++)s+=C(n,j)*q**j*(1-q)**(n-j);return s;};const P=(r,kk)=>{if(r===0)return 100*tail(p,kk);const c=invPhi(p),h=0.001;let s=0;for(let z=-8+h/2;z<8;z+=h){s+=tail(Phi((c-M.sqrt(r)*z)/M.sqrt(1-r)),kk)*M.exp(-z*z/2)/M.sqrt(2*M.PI)*h;}return 100*s;};return P(rho,k);})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.3)",
+   "source": "derived (VAS02, LI00)",
+   "renders": [
+    "3.2",
+    "3.2 %"
+   ],
+   "where": "COUNT 56.5 s: scale mark '3.2', then '3.2 %'"
+  },
+  {
+   "id": "truth-06",
+   "text": "chance at least 5 of 10 fail, rho 0.6",
+   "value": 6.92486,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const C=(a,b)=>{let r=1;for(let i=0;i<b;i++)r=r*(a-i)/(i+1);return r;};const tail=(q,kk)=>{let s=0;for(let j=kk;j<=n;j++)s+=C(n,j)*q**j*(1-q)**(n-j);return s;};const P=(r,kk)=>{if(r===0)return 100*tail(p,kk);const c=invPhi(p),h=0.001;let s=0;for(let z=-8+h/2;z<8;z+=h){s+=tail(Phi((c-M.sqrt(r)*z)/M.sqrt(1-r)),kk)*M.exp(-z*z/2)/M.sqrt(2*M.PI)*h;}return 100*s;};return P(rho,k);})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.6)",
+   "source": "derived (VAS02, LI00)",
+   "renders": [
+    "6.9",
+    "6.9 %"
+   ],
+   "where": "COUNT 56.5 s: scale mark '6.9', then '6.9 %'"
+  },
+  {
+   "id": "truth-ratio",
+   "text": "rho 0.6 vs independent: about 42 times",
+   "value": 42.3555,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rhoHi,rhoLo)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const C=(a,b)=>{let r=1;for(let i=0;i<b;i++)r=r*(a-i)/(i+1);return r;};const tail=(q,kk)=>{let s=0;for(let j=kk;j<=n;j++)s+=C(n,j)*q**j*(1-q)**(n-j);return s;};const P=(r,kk)=>{if(r===0)return 100*tail(p,kk);const c=invPhi(p),h=0.001;let s=0;for(let z=-8+h/2;z<8;z+=h){s+=tail(Phi((c-M.sqrt(r)*z)/M.sqrt(1-r)),kk)*M.exp(-z*z/2)/M.sqrt(2*M.PI)*h;}return 100*s;};return P(rhoHi,k)/P(rhoLo,k);})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.6,0)",
+   "source": "derived (VAS02, LI00)",
+   "renders": [
+    "≈ 42×"
+   ],
+   "where": "COUNT 59 s: bracket between the 0.16 and 6.9 marks"
+  },
+  {
+   "id": "axis-max",
+   "text": "scale runs 0 to 10 bad years per 100",
+   "value": 10,
+   "source": "derived (scenario parameter)",
+   "where": "COUNT 54.5-62 s: axis end labels"
+  },
+  {
+   "id": "mc-0",
+   "text": "seeded Monte Carlo cross-check, rho 0",
+   "value": 0.14,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(mcSeed,mcDraws,rho);return 100*o.filter(x=>x>=k).length/mcDraws;})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0)",
+   "source": "derived (VAS02 model, seeded Monte Carlo)",
+   "where": "page only: sources note"
+  },
+  {
+   "id": "mc-03",
+   "text": "seeded Monte Carlo cross-check, rho 0.3",
+   "value": 3.41,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(mcSeed,mcDraws,rho);return 100*o.filter(x=>x>=k).length/mcDraws;})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.3)",
+   "source": "derived (VAS02 model, seeded Monte Carlo)",
+   "where": "page only: sources note"
+  },
+  {
+   "id": "mc-06",
+   "text": "seeded Monte Carlo cross-check, rho 0.6",
+   "value": 7.11,
+   "formula": "((M,n,p,k,years,seed,mcSeed,mcDraws,rho)=>(()=>{const erf=x=>{const t=M.abs(x);let r;if(t<3){let s=t,term=t;for(let n=1;n<200;n++){term*=-t*t/n;s+=term/(2*n+1);}r=2/M.sqrt(M.PI)*s;}else{let f=0;for(let q=60;q>=1;q--)f=q/2/(t+f);r=1-M.exp(-t*t)/M.sqrt(M.PI)/(t+f);}return x<0?-r:r;};const Phi=x=>0.5*(1+erf(x/M.SQRT2));const invPhi=u=>{let lo=-10,hi=10;for(let i=0;i<200;i++){const m=(lo+hi)/2;if(Phi(m)<u)lo=m;else hi=m;}return (lo+hi)/2;};const mb=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=M.imul(a^a>>>15,1|a);t=t+M.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};const sim=(seed,years,rho)=>{const r=mb(seed),c=invPhi(p),nrm=()=>{const u1=1-r(),u2=r();return M.sqrt(-2*M.log(u1))*M.cos(2*M.PI*u2);};const out=[];for(let y=0;y<years;y++){const Z=nrm();let f=0;for(let j=0;j<n;j++){const e=nrm();if(M.sqrt(rho)*Z+M.sqrt(1-rho)*e<c)f++;}out.push(f);}return out;};const o=sim(mcSeed,mcDraws,rho);return 100*o.filter(x=>x>=k).length/mcDraws;})())(Math,n,p,k,years,seed,mcSeed,mcDraws,0.6)",
+   "source": "derived (VAS02 model, seeded Monte Carlo)",
+   "where": "page only: sources note"
+  },
+  {
+   "id": "seed",
+   "text": "the film's 100-year draw uses mulberry32 seed 630",
+   "value": 630,
+   "formula": "seed",
+   "source": "derived (seed rule, NOTES.md)",
+   "where": "ledger row DRAW · SEED 630 (chrome)"
+  },
+  {
+   "id": "commit-ring",
+   "text": "the kit commit ring counts 4 to 1",
+   "value": 4,
+   "source": "derived (kit commitBox device)",
+   "where": "COMMIT 9-13 s: ring digits"
+  }
+ ]
+}

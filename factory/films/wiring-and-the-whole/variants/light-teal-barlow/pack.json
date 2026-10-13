@@ -1,0 +1,13 @@
+{ "id": "midnight-ink--light-acc0f766e-typebarlow", "name": "Midnight ink (navy, bone, gold) · film-local copy: disp set in Newsreader 600 because kit2/build.py embeds only style-normal faces and Cormorant Garamond is vendored italic-only [light, accent #0F766E, type Barlow:600/_/_]",
+  "color": {
+    "bg": "#E4EDFF",
+    "ink": "#2C2618",
+    "accent": "#0F766E",
+    "accent2": "#90505E",
+    "muted": "#5E667D",
+    "line": "rgba(44,38,24,0.18)",
+    "panel": "#CCDCFF",
+    "chalk": "#1C180F" },
+  "type": { "disp": {"family": "Barlow", "weight": 600}, "mono": {"family": "DM Mono", "weight": 400}, "body": {"family": "Newsreader", "weight": 400} },
+  "texture": "paper", "tempo": {"ease": "sine", "beat_s": 5},
+  "voice": {"register": "a letterpress invitation read by candlelight, formal and slow", "end_card": "CETI", "derived": {"from": "midnight-ink", "transforms": ["light", "accent #0F766E", "type Barlow:600/_/_"]}} }

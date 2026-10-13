@@ -1,0 +1,13 @@
+{ "id": "ceti-dark--light", "name": "CETI dark [light]",
+  "color": {
+    "bg": "#EAEDF3",
+    "ink": "#26221C",
+    "accent": "#7C5319",
+    "accent2": "#DF584B",
+    "muted": "#716D5F",
+    "line": "rgba(38,34,28,0.18)",
+    "panel": "#F8FAFF",
+    "chalk": "#2E2B26" },
+  "type": { "disp": {"family": "Big Shoulders Display", "weight": 600}, "mono": {"family": "IBM Plex Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400} },
+  "texture": "none", "tempo": {"ease": "cubic", "beat_s": 4},
+  "voice": {"register": "typeset numbers, few words", "end_card": "CETI", "derived": {"from": "ceti-dark", "transforms": ["light"]}} }

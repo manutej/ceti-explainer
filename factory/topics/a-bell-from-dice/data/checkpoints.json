@@ -1,0 +1,162 @@
+{
+ "meta": {
+  "rolls": 100000,
+  "dice": 5,
+  "faces": 6,
+  "seed": 1733,
+  "generator": "mulberry32 (S4), one stream, draw 5*i+j is die j of roll i, face = 1 + floor(u*6)",
+  "outcomes": 7776,
+  "tail": "sum > 25",
+  "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --write",
+  "what": "after the first k rolls: tail count, first die = 6 count, sum of sums; and the first 10 rolls"
+ },
+ "at": {
+  "1": {
+   "tail": 0,
+   "first6": 0,
+   "sumOfSums": 18
+  },
+  "10": {
+   "tail": 0,
+   "first6": 2,
+   "sumOfSums": 197
+  },
+  "100": {
+   "tail": 1,
+   "first6": 22,
+   "sumOfSums": 1784
+  },
+  "1000": {
+   "tail": 16,
+   "first6": 178,
+   "sumOfSums": 17618
+  },
+  "10000": {
+   "tail": 149,
+   "first6": 1694,
+   "sumOfSums": 175229
+  },
+  "50000": {
+   "tail": 835,
+   "first6": 8275,
+   "sumOfSums": 875740
+  },
+  "100000": {
+   "tail": 1655,
+   "first6": 16519,
+   "sumOfSums": 1750158
+  }
+ },
+ "first10": [
+  {
+   "faces": [
+    2,
+    3,
+    2,
+    5,
+    6
+   ],
+   "first": 2,
+   "sum": 18
+  },
+  {
+   "faces": [
+    5,
+    3,
+    5,
+    4,
+    4
+   ],
+   "first": 5,
+   "sum": 21
+  },
+  {
+   "faces": [
+    4,
+    6,
+    2,
+    1,
+    6
+   ],
+   "first": 4,
+   "sum": 19
+  },
+  {
+   "faces": [
+    2,
+    4,
+    4,
+    6,
+    4
+   ],
+   "first": 2,
+   "sum": 20
+  },
+  {
+   "faces": [
+    5,
+    5,
+    3,
+    1,
+    2
+   ],
+   "first": 5,
+   "sum": 16
+  },
+  {
+   "faces": [
+    5,
+    6,
+    5,
+    6,
+    3
+   ],
+   "first": 5,
+   "sum": 25
+  },
+  {
+   "faces": [
+    6,
+    1,
+    6,
+    3,
+    4
+   ],
+   "first": 6,
+   "sum": 20
+  },
+  {
+   "faces": [
+    2,
+    6,
+    3,
+    6,
+    1
+   ],
+   "first": 2,
+   "sum": 18
+  },
+  {
+   "faces": [
+    3,
+    5,
+    6,
+    5,
+    5
+   ],
+   "first": 3,
+   "sum": 24
+  },
+  {
+   "faces": [
+    6,
+    3,
+    4,
+    2,
+    1
+   ],
+   "first": 6,
+   "sum": 16
+  }
+ ]
+}

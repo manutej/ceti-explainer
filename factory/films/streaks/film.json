@@ -1,0 +1,249 @@
+{
+ "id": "streaks",
+ "title": "Three bad months",
+ "eyebrow": "CETI case · streaks in random sequences",
+ "lede": "Sales fell three months in a row. Before anyone looks for a cause, look at what a fair coin does: in 100 flips, a run of seven of the same side turns up more often than not.",
+ "dur": 75,
+ "seed": 23,
+ "palette": {
+  "paper": "#E8DCC2",
+  "ink": "#1E3A5C",
+  "accent": "#C8452E",
+  "muted": "#8E887C",
+  "chalk": "#F2ECDD",
+  "dark": "#0A0D12",
+  "soft": "#B9A277"
+ },
+ "type": {
+  "disp": "Big Shoulders Display",
+  "mono": "IBM Plex Mono"
+ },
+ "fonts": [
+  {
+   "family": "Big Shoulders Display",
+   "weight": 600,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 400,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 500,
+   "style": "normal"
+  }
+ ],
+ "commit": {
+  "at": 11.0,
+  "title": "LONGEST RUN",
+  "prompt": "In 100 fair coin flips, what is the longest run of the same side in a row?",
+  "unit": "flips in a row",
+  "default": 4,
+  "min": 1,
+  "max": 100,
+  "step": 1
+ },
+ "count": {
+  "at": 36.0
+ },
+ "params": {
+  "n": 100,
+  "hookSeed": 140,
+  "months": 12,
+  "fall": 3,
+  "wallSeed": 1985,
+  "wallN": 1000,
+  "rowsShown": 10,
+  "guessDefault": 4,
+  "holdSeconds": 8,
+  "fans": 100,
+  "fansYes": 91,
+  "shooterPct": 50,
+  "afterHitGuess": 61,
+  "afterMissGuess": 42,
+  "team": 76,
+  "season": 1981,
+  "gvtYear": 1985,
+  "msYear": 2018,
+  "simSeed": 1,
+  "simN": 100000,
+  "simGe7": 54372,
+  "simGe5": 97240,
+  "simLe4": 2760,
+  "simMean": 6.9813,
+  "years": 100,
+  "msN": 100,
+  "msK": 3
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 8,
+   "eyebrow": "CASE · STREAKS",
+   "title": "Three bad months"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 8,
+   "t1": 16,
+   "eyebrow": "BEFORE THE CASE",
+   "title": "Pick a number"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 16,
+   "t1": 36,
+   "eyebrow": "1985 · COGNITIVE PSYCHOLOGY",
+   "title": "The fans"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 36,
+   "t1": 62,
+   "eyebrow": "THE COUNT · PURE CHANCE",
+   "title": "Rows of 100"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 62,
+   "t1": 72,
+   "eyebrow": "MONDAY",
+   "title": "The question"
+  }
+ ],
+ "captions": [
+  [
+   0.5,
+   3.9,
+   "Sales fell three months in a row."
+  ],
+  [
+   4.1,
+   7.8,
+   "The room says: something is wrong. Is it?"
+  ],
+  [
+   8.2,
+   10.8,
+   "First, a coin. Flip it 100 times. Pure chance."
+  ],
+  [
+   11.0,
+   15.8,
+   "Longest run of one side in a row? Pick a number."
+  ],
+  [
+   16.2,
+   20.6,
+   "1985: Gilovich, Vallone and Tversky ask 100 fans."
+  ],
+  [
+   20.8,
+   25.6,
+   "91 of 100: likelier to score after 2 or 3 hits than misses."
+  ],
+  [
+   25.8,
+   30.6,
+   "Hits 50 of 100? Fans guess 61 after a hit, 42 after a miss."
+  ],
+  [
+   30.8,
+   35.8,
+   "76ers, 1980–81: no sign that hits bred more hits."
+  ],
+  [
+   36.2,
+   40.8,
+   "Now pure coin flips: 100 per row, up or down."
+  ],
+  [
+   41.0,
+   46.6,
+   "Ten rows. The longest run in each one is boxed."
+  ],
+  [
+   47.0,
+   52.8,
+   "1,000 rows of pure chance, stacked by longest run."
+  ],
+  [
+   53.0,
+   61.8,
+   "7 or more: 546 of 1,000. Your number sits on the same pile."
+  ],
+  [
+   62.4,
+   67.4,
+   "Monday: would a coin flip have made this streak too?"
+  ],
+  [
+   67.6,
+   71.8,
+   "Limit: chance makes streaks. A hot hand may still exist."
+  ]
+ ],
+ "brand": {
+  "takeaway": "Chance makes streaks. Ask what a coin would have done."
+ },
+ "sources": [
+  [
+   "S1",
+   "Gilovich, T., Vallone, R., & Tversky, A. (1985). The hot hand in basketball: On the misperception of random sequences. Cognitive Psychology, 17(3), 295–314. doi:10.1016/0010-0285(85)90010-6"
+  ],
+  [
+   "S2",
+   "Miller, J. B., & Sanjurjo, A. (2018). Surprised by the hot hand fallacy? A truth in the law of small numbers. Econometrica, 86(6), 2019–2047. doi:10.3982/ECTA14943"
+  ],
+  [
+   "S3",
+   "Schilling, M. F. (1990). The longest run of heads. The College Mathematics Journal, 21(3), 196–207. doi:10.2307/2686886"
+  ],
+  [
+   "S4",
+   "Tversky, A., & Kahneman, D. (1971). Belief in the law of small numbers. Psychological Bulletin, 76(2), 105–110. doi:10.1037/h0031322"
+  ],
+  [
+   "S5",
+   "This film's computation: exact recursion over every 100-flip sequence; seeded simulation mulberry32 (seed 1985 for the 1,000 rows, 140 for the 12-month strip, 1 for a 100,000-trial check). Formulas in claims.json."
+  ]
+ ],
+ "honest": [
+  "Chance makes streaks; that does not prove the hot hand is a myth. Miller and Sanjurjo (2018) found a bias in the 1985 test: in a finite record, the share of hits right after a streak of hits is expected to fall below the base rate even when shots are independent (in 100 fair flips, 0.46 after three heads, not 0.50). Corrected, the data allow a modest hot hand.",
+  "Real sales months are not coin flips: trend, seasonality and momentum are real. The coin is the comparison to make before acting, not a diagnosis that your business is random.",
+  "The 12-month strip in the hook was picked from seeded coin flips to end on three falls. The 1,000 rows are one seeded stream (mulberry32, seed 1985), not hand-picked; their counts differ slightly from the exact odds (546 vs 542 expected for 7 or more)."
+ ],
+ "tryit": {
+  "title": "Try it",
+  "note": "Change the number of flips and the run length; the exact odds are recomputed over every possible sequence.",
+  "seek": 60,
+  "inputs": [
+   {
+    "id": "n",
+    "label": "Flips (or months)",
+    "min": 10,
+    "max": 500,
+    "step": 1,
+    "value": 100,
+    "unit": "flips"
+   },
+   {
+    "id": "k",
+    "label": "A run of at least",
+    "min": 2,
+    "max": 20,
+    "step": 1,
+    "value": 7,
+    "unit": "in a row"
+   }
+  ]
+ }
+}

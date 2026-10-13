@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/physics/demo.html",
+ "errors": [],
+ "variants": {
+  "settle": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/settle-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/settle-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/settle-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/settle-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "pour": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/pour-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/pour-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/pour-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/pour-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "flock": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/flock-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/flock-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/flock-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/flock-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "steer": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/steer-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/steer-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/steer-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/physics/shots/steer-t8.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 21.8,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/physics/shots/contact.png"
+}

@@ -1,0 +1,37 @@
+{
+ "id": "high-vis",
+ "name": "High-vis (black, safety yellow)",
+ "color": {
+  "bg": "#0C0C0C",
+  "ink": "#F4F4F0",
+  "accent": "#FFD500",
+  "accent2": "#FF5A1F",
+  "muted": "#9A9A92",
+  "line": "rgba(244,244,240,0.22)",
+  "panel": "#1A1A18",
+  "chalk": "#FFFFFF"
+ },
+ "type": {
+  "disp": {
+   "family": "Sofia Sans Extra Condensed",
+   "weight": 700
+  },
+  "mono": {
+   "family": "Space Mono",
+   "weight": 400
+  },
+  "body": {
+   "family": "Barlow Semi Condensed",
+   "weight": 500
+  }
+ },
+ "texture": "halftone",
+ "tempo": {
+  "ease": "expo",
+  "beat_s": 2.5
+ },
+ "voice": {
+  "register": "a site warning sign: imperative, capitalised, one instruction per beat",
+  "end_card": "CETI"
+ }
+}

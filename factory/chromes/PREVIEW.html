@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chrome proofs</title>
+<!-- Proof sheet for factory/chromes. Runs with no kit: the primitives below are inline copies of
+     factory/kit/kit.js (E, tx, ln, rc, dim, stamp, caption, seg, ease, lerp, clamp), one pool per stage.
+     Fonts and p5 come from ../../vendor by relative path; nothing is fetched from the network. -->
+<style>
+@font-face { font-family: 'Big Shoulders Display'; font-weight: 600; src: url(../../vendor/fonts/big-shoulders-display-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 400; src: url(../../vendor/fonts/ibm-plex-mono-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 500; src: url(../../vendor/fonts/ibm-plex-mono-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Newsreader'; font-weight: 400; src: url(../../vendor/fonts/newsreader-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Newsreader'; font-weight: 600; src: url(../../vendor/fonts/newsreader-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Red Hat Mono'; font-weight: 400; src: url(../../vendor/fonts/red-hat-mono-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Red Hat Mono'; font-weight: 500; src: url(../../vendor/fonts/red-hat-mono-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Space Mono'; font-weight: 400; src: url(../../vendor/fonts/space-mono-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Space Mono'; font-weight: 700; src: url(../../vendor/fonts/space-mono-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 400; src: url(../../vendor/fonts/dm-sans-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 500; src: url(../../vendor/fonts/dm-sans-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: 'DM Sans'; font-weight: 600; src: url(../../vendor/fonts/dm-sans-latin-600-normal.woff2) format('woff2'); }
+:root { --bg: #D9D5CC; --ink: #23272B; --muted: #5E5A52; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'IBM Plex Mono', monospace; }
+main { width: 960px; margin: 0 auto; padding: 32px 16px 48px; }
+h1 { font-family: 'Big Shoulders Display', sans-serif; font-weight: 600; font-size: 34px; letter-spacing: .02em; margin: 0 0 4px; }
+.lede { font-size: 13px; color: var(--muted); margin: 0 0 28px; max-width: 70ch; }
+section { margin: 0 0 40px; }
+h2 { font-size: 13px; letter-spacing: .2em; font-weight: 500; margin: 0 0 10px; text-transform: uppercase; }
+h2 span { color: var(--muted); letter-spacing: .04em; text-transform: none; font-weight: 400; }
+.stage { position: relative; width: 960px; height: 540px; overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,.18), 0 6px 18px rgba(0,0,0,.10); }
+.stage canvas, .stage svg { position: absolute; inset: 0; width: 960px; height: 540px; }
+.pair { display: flex; gap: 20px; margin-top: 14px; }
+.mini { width: 470px; height: 264.4px; overflow: hidden; box-shadow: 0 1px 0 rgba(0,0,0,.18); }
+.mini .stage { transform: scale(.48958); transform-origin: 0 0; box-shadow: none; }
+.tag { font-size: 11px; color: var(--muted); letter-spacing: .12em; margin-top: 6px; }
+@media (max-width: 1000px) { main { width: auto; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Chrome proofs</h1>
+  <p class="lede">Three exec-clean chromes for the 75-second case, each rendered at 960 by 540 with placeholder content: the frame, then its question card and its CETI brand card. Placeholder numbers are illustrative only.</p>
+  <div id="sheets"></div>
+</main>
+<script src="../../vendor/p5-2.3.4.min.js"></script>
+<script src="tender-set.js"></script>
+<script src="ledger.js"></script>
+<script src="memo.js"></script>
+<script>
+'use strict';
+/* ═════ inline kit primitives (copied from factory/kit/kit.js; one pool per stage) ═════ */
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const ease = (u) => u < 0.5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+const lerp = (a, b, u) => a + (b - a) * u;
+const ADV = { mono: 0.6, disp: 0.46, sans: 0.52 };
+function wrap(s, maxW, size, fam = 'mono') {
+  const per = Math.max(4, Math.floor(maxW / (size * (ADV[fam] || 0.55))));
+  const out = []; let cur = '';
+  for (const w of String(s).split(/\s+/)) { if (!w) continue; const nx = cur ? cur + ' ' + w : w; if (nx.length > per && cur) { out.push(cur); cur = w; } else cur = nx; }
+  if (cur) out.push(cur); return out;
+}
+function makeKit(svg, chrome, captionText) {
+  const NS = 'http://www.w3.org/2000/svg', L = {}, POOL = new Map();
+  const C = Object.assign({ paper: '#E8DCC2', ink: '#1E3A5C', accent: '#C8452E', chalk: '#F2ECDD', dark: '#0A0D12' }, chrome.toKit().palette);
+  const T = chrome.toKit().type;
+  const FONT = { mono: `'${T.mono}', monospace`, disp: `'${T.disp}', sans-serif`, sans: `'${T.sans}', sans-serif` };
+  ['field', 'marks', 'labels', 'chrome', 'cap', 'card', 'top'].forEach(k => { const g = document.createElementNS(NS, 'g'); g.setAttribute('data-layer', k); svg.appendChild(g); L[k] = g; });
+  const f2 = (v) => (+v).toFixed(2), opv = (o) => o.op != null ? +clamp(o.op).toFixed(3) : 1;
+  function E(key, tag, layer, attrs, text) {
+    let el = POOL.get(key);
+    if (!el) { el = document.createElementNS(NS, tag); L[layer].appendChild(el); POOL.set(key, el); }
+    for (const k in attrs) { const v = attrs[k]; if (v == null) el.removeAttribute(k); else el.setAttribute(k, v); }
+    if (text !== undefined) el.textContent = text;
+    return el;
+  }
+  function tx(key, layer, x, y, s, o = {}) {
+    const fam = o.fam || 'mono', tr = o.rot ? `rotate(${o.rot} ${(+x).toFixed(1)} ${(+y).toFixed(1)})` : (o.tr || null);
+    return E(key, 'text', layer, { x: f2(x), y: f2(y), 'font-family': FONT[fam] || fam, 'font-size': o.size || 14, fill: o.fill || C.ink,
+      'text-anchor': o.anchor || 'start', 'letter-spacing': o.ls != null ? o.ls : 0, opacity: opv(o), 'font-weight': o.weight || (fam === 'disp' ? 600 : 400), transform: tr }, String(s));
+  }
+  function ln(key, layer, x1, y1, x2, y2, o = {}) {
+    return E(key, 'line', layer, { x1: f2(x1), y1: f2(y1), x2: f2(x2), y2: f2(y2), stroke: o.stroke || C.ink, 'stroke-width': o.w || 0.75, opacity: opv(o), 'stroke-dasharray': o.dash || null, 'stroke-linecap': o.cap || 'square' });
+  }
+  function rc(key, layer, x, y, w, h, o = {}) {
+    return E(key, 'rect', layer, { x: f2(x), y: f2(y), width: f2(Math.max(0, w)), height: f2(Math.max(0, h)), fill: o.fill || 'none', 'fill-opacity': o.fo != null ? o.fo : 1,
+      stroke: o.stroke || 'none', 'stroke-width': o.w || 0, rx: o.rx || 0, opacity: opv(o), 'stroke-dasharray': o.dash || null, transform: o.tr || null });
+  }
+  function dim(key, layer, x1, x2, y, label, op = 1, o = {}) {
+    if (op <= 0) return;
+    const col = o.stroke || C.ink, sz = o.size || 14;
+    ln(key + 'l', layer, x1, y, x2, y, { op, stroke: col, w: o.w || 0.75 });
+    ln(key + 'a', layer, x1 - 4, y + 4, x1 + 4, y - 4, { op, stroke: col, w: 1.1 }); ln(key + 'b', layer, x2 - 4, y + 4, x2 + 4, y - 4, { op, stroke: col, w: 1.1 });
+    ln(key + 'c', layer, x1, y - 7, x1, y + 7, { op: op * 0.6, stroke: col }); ln(key + 'd', layer, x2, y - 7, x2, y + 7, { op: op * 0.6, stroke: col });
+    if (label) {
+      const w = String(label).length * sz * ADV.mono + 10;
+      rc(key + 'bg', layer, (x1 + x2) / 2 - w / 2, y - sz * 0.7, w, sz * 1.4, { fill: o.bg || C.paper, op });
+      tx(key + 't', layer, (x1 + x2) / 2, y + sz * 0.36, label, { anchor: 'middle', size: sz, op, fill: col, weight: 500, ls: '0.04em' });
+    }
+  }
+  // stamp: as kit.js, plus honouring o.fam (the kit sets its face via FILM.type.disp; here the chrome's face is passed)
+  function stamp(key, layer, cx, cy, s, text, o = {}) {
+    const op = o.op != null ? o.op : 1; if (op <= 0) return;
+    const fs = (o.fs || 26) * s, w = (o.w || Math.max(120, String(text).length * (o.fs || 26) * ADV.disp + 36)) * s, h = (o.h || 44) * s, rot = o.rot != null ? o.rot : -7;
+    const tr = `rotate(${rot} ${cx.toFixed(1)} ${cy.toFixed(1)})`, rim = o.rim || C.ink;
+    rc(key + 'f', layer, cx - w / 2, cy - h / 2, w, h, { fill: o.face || C.chalk, stroke: rim, w: 2.4 * s, rx: 5 * s, op, tr });
+    rc(key + 'i', layer, cx - w / 2 + 4 * s, cy - h / 2 + 4 * s, w - 8 * s, h - 8 * s, { stroke: rim, w: 0.9 * s, rx: 3 * s, op, tr });
+    tx(key + 't', layer, cx, cy + fs * 0.36, text, { fam: o.fam || 'disp', size: fs, anchor: 'middle', fill: rim, op, ls: '0.08em', tr, weight: 600 });
+  }
+  // caption: as kit.js, with the caption text injected instead of read from FILM.captions
+  function caption(t, o = {}) {
+    if (!captionText) return;
+    const K = Object.assign({ x: 48, y: 474, w: 864, size: 28, lh: 34 }, o), op = 1;
+    const lines = wrap(captionText, K.w, K.size, K.fam || 'mono').slice(0, K.max || 2);
+    const y0 = K.y - (lines.length - 1) * K.lh * (K.up === false ? 0 : 1);
+    rc('cp.r', 'cap', K.x, y0 - K.size - 6, 10, 2, { fill: C.accent, op });
+    lines.forEach((s, i) => tx('cp.t' + i, 'cap', K.x, y0 + i * K.lh, s, { size: K.size, op, weight: 500, fam: K.fam || 'mono', fill: K.fill || C.ink }));
+  }
+  return { E, tx, ln, rc, dim, stamp, caption, seg, ease, lerp, clamp, C, FONT };
+}
+
+/* ═════ placeholder content (what a film would draw in marks/labels) ═════ */
+const CH = window.CETI_CHROMES;
+const TAKE = 'Ask how the last thousand went before you sign a date.';
+function PhiInv(p) { // Acklam, as in the kit
+  const a = [-39.69683028665376, 220.9460984245205, -275.9285104469687, 138.357751867269, -30.66479806614716, 2.506628277459239], b = [-54.47609879822406, 161.5858368580409, -155.6989798598866, 66.80131188771972, -13.28068155288572];
+  const q = p - 0.5, r = q * q;
+  return (((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * q / (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1);
+}
+const PLATES = [
+  { id: 'tender-set', note: 'the Opera House drafting sheet, parameterised',
+    ch: { eyebrow: 'CASE 00 · TENDER SET · PREVIEW', title: 'Twenty like it' },
+    cap: 'Twenty projects like yours. Six finished on plan.',
+    opts: { ledger: { rows: [[0, 'REV A · THE PLAN: 12 MONTHS'], [0, 'REV B · YOUR MONTH SEALED'], [0, 'REV C · 20 LIKE IT, DRAWN'], [0, 'REV D · 6 OF 20 ON PLAN']], hl: 3 },
+            block: { title: 'PROJECT SAIL', lines: ['SHEET 00 · SCHEDULE', 'ISSUED FOR TENDER'] }, slot: { label: 'OPENED' } },
+    card: { t0: 0, t1: 9, q: ['Everyone has signed the schedule.'], sub: 'FIVE TASKS · NOTHING MISSING' },
+    content(k, P, F) {
+      const x0 = 70, ppm = 15, y0 = 128;
+      k.rc('pc.plan', 'marks', x0, y0, 12 * ppm, 14, { fill: P.chalk, fo: 0.9, stroke: P.ink, w: 1.6 });
+      k.tx('pc.pl', 'labels', x0 - 8, y0 + 11, 'PLAN', { fam: F.mono, size: 14, anchor: 'end', fill: P.ink, weight: 500 });
+      k.dim('pc.dm', 'labels', x0, x0 + 12 * ppm, y0 + 34, '12 MO', 1, { stroke: P.ink, bg: P.bg });
+      let on = 0;
+      for (let i = 0; i < 20; i++) {
+        const r = Math.exp(0.2555 + 0.487 * PhiInv((i + 1) / 21)), y = 190 + i * 10.5, wPlan = Math.min(r, 1) * 12 * ppm, wAll = r * 12 * ppm;
+        if (r <= 1) on++;
+        k.rc('pc.b' + i, 'marks', x0, y, wPlan, 7, { fill: P.ink, fo: 0.55 });
+        if (wAll > wPlan) k.rc('pc.o' + i, 'marks', x0 + wPlan, y, wAll - wPlan, 7, { fill: P.accent, fo: 0.6 });
+      }
+      k.ln('pc.cut', 'marks', x0 + 12 * ppm, 180, x0 + 12 * ppm, 412, { stroke: P.accent, w: 1.6, op: 0.85 });
+      k.tx('pc.n', 'labels', 470, 300, on + ' OF 20', { fam: F.mono, size: 44, fill: P.accent, weight: 500 });
+      k.tx('pc.ns', 'labels', 470, 326, 'FINISHED BY MONTH 12', { fam: F.mono, size: 14, fill: P.ink, ls: '0.08em' });
+    } },
+  { id: 'ledger', note: 'the accountant’s page: the count on the ruled rows, the running tally in the margin',
+    ch: { eyebrow: 'CASE 00 · LEDGER · PREVIEW', title: 'One hundred, entered' },
+    cap: 'Ten rows of ten projects. Three in every row came in on time.',
+    opts: { tally: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(i => [0, String((i + 1) * 3)]), slot: { label: 'AUDITED' } },
+    card: { t0: 0, t1: 9, q: ['Before you sign a date:', 'how did the last hundred go?'], sub: 'ENTER ONE NUMBER' },
+    content(k, P, F, chrome) {
+      const R = chrome.layout.rows;
+      for (let i = 0; i < R.n; i++) {
+        const yb = R.y0 + i * R.pitch;
+        for (let j = 0; j < 10; j++) k.rc(`pc.m${i}.${j}`, 'marks', 136 + j * 13, yb - 19, 4, 18, { fill: j < 3 ? P.accent : P.ink, fo: j < 3 ? 0.9 : 0.6 });
+        k.tx('pc.r' + i, 'labels', 280, R.baseline(i), '3 OF 10', { fam: F.mono, size: 16, fill: P.ink, op: 0.7 });
+      }
+      k.tx('pc.h', 'labels', 560, R.baseline(4), '30 OF 100', { fam: F.mono, size: 44, fill: P.accent, weight: 500 });
+      k.tx('pc.hs', 'labels', 560, R.baseline(5), 'ON TIME, COUNTED', { fam: F.mono, size: 16, fill: P.ink, ls: '0.08em' });
+    } },
+  { id: 'memo', note: 'the one-page memo: letterhead, wide text column, red-pencil margin for the headline number',
+    ch: { eyebrow: 'CASE 00 · PAGE 1 OF 1 · PREVIEW', title: 'The schedule we are about to sign' },
+    cap: 'The plan says 12 months. The typical one took 15.5.',
+    opts: { headline: { value: '3 IN 10', lines: ['300 OF 1,000', 'ON PLAN OR EARLIER'] } },
+    card: { t0: 0, t1: 9, q: ['When will it really be done?'], sub: 'WRITE DOWN A MONTH' },
+    content(k, P, F) {
+      ['The plan in front of the board says twelve months.', 'A thousand comparable projects say otherwise.'].forEach((s, i) =>
+        k.tx('pc.p' + i, 'labels', 48, 200 + i * 26, s, { fam: F.sans, size: 18, fill: P.ink }));
+      const x0 = 160, ppm = 22;
+      [['PLAN', 12, '12 MO', 0], ['TYPICAL', 15.5, '15.5 MO', 1]].forEach(([nm, m, lab, i]) => {
+        const y = 286 + i * 64;
+        k.tx('pc.l' + i, 'labels', 48, y + 22, nm, { fam: F.mono, size: 14, fill: P.ink, ls: '0.08em' });
+        k.rc('pc.b' + i, 'marks', x0, y, m * ppm, 32, i ? { fill: P.ink, fo: 0.85 } : { fill: P.chalk, stroke: P.ink, w: 1.4 });
+        k.tx('pc.v' + i, 'labels', x0 + m * ppm + 12, y + 26, lab, { fam: F.mono, size: 28, fill: P.ink, weight: 700 });
+      });
+    } },
+];
+
+function stageEl() { const d = document.createElement('div'); d.className = 'stage'; const c = document.createElement('canvas'); c.width = 1920; c.height = 1080;
+  const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); s.setAttribute('viewBox', '0 0 960 540'); d.append(c, s); return { d, c, s }; }
+function paintGround(c, g) { const x = c.getContext('2d'); x.setTransform(2, 0, 0, 2, 0, 0); x.drawImage(g.elt, 0, 0, 960, 540); }
+
+const host = document.getElementById('sheets');
+const jobs = PLATES.map(pl => {
+  const ch = CH[pl.id], sec = document.createElement('section');
+  sec.innerHTML = `<h2>${pl.id} <span>· ${pl.note}</span></h2>`;
+  const main = stageEl(); sec.appendChild(main.d);
+  const pair = document.createElement('div'); pair.className = 'pair';
+  const cardS = stageEl(), brandS = stageEl();
+  [[cardS, 'QUESTION CARD'], [brandS, 'CETI BRAND CARD · t0 + 2.5 s']].forEach(([s, lab]) => { const w = document.createElement('div'); const m = document.createElement('div'); m.className = 'mini'; m.appendChild(s.d); const tg = document.createElement('div'); tg.className = 'tag'; tg.textContent = lab; w.append(m, tg); pair.appendChild(w); });
+  sec.appendChild(pair); host.appendChild(sec);
+  return { pl, ch, main, cardS, brandS };
+});
+
+Promise.all([...document.fonts].map(f => f.load())).catch(() => null).then(() => document.fonts.ready).then(() => {
+  new p5((p) => {
+    p.setup = () => {
+      p.createCanvas(4, 4); p.noLoop();
+      for (const { pl, ch, main, cardS, brandS } of jobs) {
+        const g = ch.ground(p, undefined);
+        [main, cardS, brandS].forEach(s => paintGround(s.c, g));
+        const P = ch.palette, F = ch.type;
+        const k = makeKit(main.s, ch, pl.cap);
+        pl.content(k, P, F, ch);
+        ch.frame(k, 12, pl.ch, pl.opts);
+        const kc = makeKit(cardS.s, ch, null);
+        ch.frame(kc, 12, pl.ch, Object.assign({}, pl.opts, { caption: false }));
+        ch.card(kc, 3, pl.card);
+        const kb = makeKit(brandS.s, ch, pl.cap);
+        pl.content(kb, P, F, ch); ch.frame(kb, 12, pl.ch, pl.opts);
+        ch.brand(kb, 72.5, 70, TAKE);
+      }
+      document.body.dataset.ready = '1';
+    };
+  });
+});
+</script>
+</body>
+</html>

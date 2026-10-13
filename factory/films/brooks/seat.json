@@ -1,0 +1,22 @@
+{
+  "id": "brooks",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "paths n(n-1)/2: 5 -> 10, 10 -> 45, 20 -> 190, 1,000 -> 499,500", "status": "ok", "note": "recomputed; 35 and 145 new paths"},
+    {"claim": "x2 people, x4.5 paths", "status": "ok", "note": "45/10"},
+    {"claim": "Brooks ch. 2 example: 12 man-months, 3 people, 4 months; milestone met at month 2; 9 left; +2 people; 3 man-months training; >7 left at month 3 with 1 month to go", "status": "ok", "note": "matches the book's worked example as quoted; 12 - 3 = 9; 9 - 2 = 7"},
+    {"claim": "OS/360: manager in 1964, over 1,000 at peak, about 5,000 man-years 1963-1966", "status": "ok", "note": "MMM75 preface and ch. 3 as cited; shown as '1,000+' and 'probably'"}
+  ],
+  "craft": 4,
+  "originality": 3,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 60.2, "what": "'OS/360 PEAK · 1,000 PEOPLE / 499,500 PATHS' presents possible pairs as paths of a real project without the word 'possible' on the stage; the claim and honest limits say it, the frame does not", "severity": "low"},
+    {"t": 69.5, "what": "The Monday headline and the honest line are typeset over the ghosted 20-person ring; readable but muddy", "severity": "low"},
+    {"t": 69.5, "what": "The honest line ('Paths count possible pairs, not meetings...') is on the stage only; the captions and transcript carry only the Monday question", "severity": "low"},
+    {"t": 1.0, "what": "Hook frame is blank apart from the caption; the ring arrives after 1 s", "severity": "low"}
+  ],
+  "one_line": "Drawing every path as the ring fills makes n(n-1)/2 felt rather than stated, and Brooks's own arithmetic is quoted straight; ship it."
+}

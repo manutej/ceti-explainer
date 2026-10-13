@@ -1,0 +1,35 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/explorable/demo.html",
+ "errors": [],
+ "variants": {
+  "sample-size": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/sample-size-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/sample-size-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/sample-size-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/sample-size-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "queue": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/queue-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/queue-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/queue-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/queue-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "compounding": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/compounding-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/compounding-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/compounding-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/compounding-t6.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 12.8,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/explorable/shots/contact.png"
+}

@@ -1,0 +1,665 @@
+{
+ "film": "how-a-network-learns",
+ "version": 1,
+ "date": "2026-10-10",
+ "note": "Values tagged S4 come from recompute.py (numpy, seed 0); run `python3 factory/topics/how-a-network-learns/recompute.py --check` to re-derive all of them. iris.csv was written from memory with no network: verify the 150 rows against the UCI copy (S3) before public use.",
+ "params": {
+  "N": 150,
+  "perSpecies": 50,
+  "species": 3,
+  "measurements": 4,
+  "cloudAxes": 3,
+  "hidden": 8,
+  "steps": 1000,
+  "lr": 0.5,
+  "seed": 0,
+  "pct90": 90,
+  "pct99": 99,
+  "gridCols": 120,
+  "gridRows": 80,
+  "checkpoints": [
+   0,
+   10,
+   50,
+   100,
+   1000
+  ],
+  "milestone": 140
+ },
+ "claims": [
+  {
+   "id": "n_flowers",
+   "text": "flowers in Fisher's iris table",
+   "value": 150,
+   "formula": "params.N",
+   "source": "S1",
+   "where": "captions c1, c4, c12, c16, c22; readout 'OF 150'"
+  },
+  {
+   "id": "per_species",
+   "text": "flowers per species",
+   "value": 50,
+   "formula": "params.perSpecies",
+   "source": "S1",
+   "where": "CASE c5 (species pins)"
+  },
+  {
+   "id": "n_species",
+   "text": "species",
+   "value": 3,
+   "formula": "params.species",
+   "source": "S1",
+   "where": "captions c4, c7"
+  },
+  {
+   "id": "n_measurements",
+   "text": "measurements per flower (sepal length, sepal width, petal length, petal width)",
+   "value": 4,
+   "formula": "params.measurements",
+   "source": "S1",
+   "where": "captions c4, c7"
+  },
+  {
+   "id": "n_axes_shown",
+   "text": "measurements drawn as the cloud's axes (petal length, petal width, sepal length)",
+   "value": 3,
+   "formula": "params.cloudAxes",
+   "source": "input",
+   "where": "CASE c4 (point cloud axes)"
+  },
+  {
+   "id": "fisher_year",
+   "text": "Fisher's paper",
+   "value": 1936,
+   "formula": null,
+   "source": "S1",
+   "where": "caption c3"
+  },
+  {
+   "id": "anderson_year",
+   "text": "Anderson's measurements published",
+   "value": 1935,
+   "formula": null,
+   "source": "S2",
+   "where": "caption c3"
+  },
+  {
+   "id": "setosa_pl_max",
+   "text": "longest setosa petal (cm)",
+   "value": 1.9,
+   "formula": null,
+   "source": "S1",
+   "where": "caption c5"
+  },
+  {
+   "id": "versicolor_pl_max",
+   "text": "longest versicolor petal (cm)",
+   "value": 5.1,
+   "formula": null,
+   "source": "S1",
+   "where": "caption c6; S1 overlap band"
+  },
+  {
+   "id": "virginica_pl_min",
+   "text": "shortest virginica petal (cm)",
+   "value": 4.5,
+   "formula": null,
+   "source": "S1",
+   "where": "caption c6; S1 overlap band"
+  },
+  {
+   "id": "petal_overlap",
+   "text": "flowers inside the versicolor/virginica petal-length overlap (versicolor >= 4.5 cm plus virginica <= 5.1 cm)",
+   "value": 37,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get petal_overlap_flowers",
+   "expect": "37",
+   "where": "caption c6"
+  },
+  {
+   "id": "n_hidden",
+   "text": "hidden units",
+   "value": 8,
+   "formula": "params.hidden",
+   "source": "S4",
+   "where": "caption c7; S3 hidden layer"
+  },
+  {
+   "id": "n_params",
+   "text": "weights and biases in the network",
+   "value": 67,
+   "formula": "n_measurements*n_hidden + n_hidden + n_hidden*n_species + n_species",
+   "source": "derived",
+   "where": "caption c8"
+  },
+  {
+   "id": "n_params_held",
+   "text": "weights held fixed under the surface slice",
+   "value": 65,
+   "formula": "n_params - 2",
+   "source": "derived",
+   "where": "S2 footnote (14 units)"
+  },
+  {
+   "id": "steps_total",
+   "text": "gradient-descent steps in the run",
+   "value": 1000,
+   "formula": "params.steps",
+   "source": "S4",
+   "where": "captions c10, c16; S2 footnote",
+   "renders": [
+    "1,000",
+    "1000"
+   ]
+  },
+  {
+   "id": "step_10",
+   "text": "checkpoint step: the hook's question",
+   "value": 10,
+   "formula": "params.checkpoints[1]",
+   "source": "S4",
+   "where": "captions c2, c14"
+  },
+  {
+   "id": "step_50",
+   "text": "checkpoint step",
+   "value": 50,
+   "formula": "params.checkpoints[2]",
+   "source": "S4",
+   "where": "caption c15"
+  },
+  {
+   "id": "step_100",
+   "text": "checkpoint step",
+   "value": 100,
+   "formula": "params.checkpoints[3]",
+   "source": "S4",
+   "where": "caption c15"
+  },
+  {
+   "id": "milestone_140",
+   "text": "milestone used to split the run (flowers right)",
+   "value": 140,
+   "formula": "params.milestone",
+   "source": "S4",
+   "where": "caption c18"
+  },
+  {
+   "id": "lr",
+   "text": "fixed learning rate",
+   "value": 0.5,
+   "formula": "params.lr",
+   "source": "S4",
+   "where": "live page model block only"
+  },
+  {
+   "id": "seed",
+   "text": "initialisation seed",
+   "value": 0,
+   "formula": "params.seed",
+   "source": "S4",
+   "where": "live page model block only"
+  },
+  {
+   "id": "surface_cells",
+   "text": "cells in the loss-surface grid (120 x 80)",
+   "value": 9600,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get surface_cells",
+   "expect": "9600",
+   "where": "heightfield mesh; live page only"
+  },
+  {
+   "id": "surface_weights",
+   "text": "the two weights on the surface's ground plane (the two that travel furthest from init to final)",
+   "value": "W2[2,2], W1[2,2]",
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get surface_weights",
+   "expect": "W2[2,2], W1[2,2]",
+   "where": "S2 axis labels (add renders)"
+  },
+  {
+   "id": "loss_0",
+   "text": "loss at step 0 (mean cross-entropy, nats)",
+   "value": 1.393,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get loss_0",
+   "expect": "1.393",
+   "where": "caption c10; S2 pin START"
+  },
+  {
+   "id": "loss_10",
+   "text": "loss at step 10",
+   "value": 0.368,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get loss_10",
+   "expect": "0.368",
+   "where": "live page only"
+  },
+  {
+   "id": "loss_50",
+   "text": "loss at step 50",
+   "value": 0.123,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get loss_50",
+   "expect": "0.123",
+   "where": "live page only"
+  },
+  {
+   "id": "loss_100",
+   "text": "loss at step 100",
+   "value": 0.074,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get loss_100",
+   "expect": "0.074",
+   "where": "live page only"
+  },
+  {
+   "id": "loss_final",
+   "text": "loss at step 1,000",
+   "value": 0.039,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get loss_final",
+   "expect": "0.039",
+   "where": "caption c11; S2 pin END"
+  },
+  {
+   "id": "correct_0",
+   "text": "flowers right at step 0 (random weights)",
+   "value": 13,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get correct_0",
+   "expect": "13",
+   "where": "captions c13, c18 (count.at 61.0)"
+  },
+  {
+   "id": "correct_10",
+   "text": "flowers right after 10 steps: the answer to the hook's question",
+   "value": 135,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get correct_10",
+   "expect": "135",
+   "where": "caption c14; S3 headline readout"
+  },
+  {
+   "id": "correct_50",
+   "text": "flowers right at step 50",
+   "value": 144,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get correct_50",
+   "expect": "144",
+   "where": "caption c15"
+  },
+  {
+   "id": "correct_100",
+   "text": "flowers right at step 100",
+   "value": 146,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get correct_100",
+   "expect": "146",
+   "where": "caption c15"
+  },
+  {
+   "id": "correct_final",
+   "text": "flowers right at step 1,000",
+   "value": 148,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get correct_final",
+   "expect": "148",
+   "where": "caption c16; S1 pin STEP 231 · 148"
+  },
+  {
+   "id": "chance_correct",
+   "text": "flowers a coin-flip guesser gets right on average",
+   "value": 50,
+   "formula": "n_flowers / n_species",
+   "source": "derived",
+   "where": "live page only (context)"
+  },
+  {
+   "id": "gained_first_10",
+   "text": "flowers gained in the first 10 steps",
+   "value": 122,
+   "formula": "correct_10 - correct_0",
+   "source": "derived",
+   "where": "caption c14"
+  },
+  {
+   "id": "gained_after_100",
+   "text": "flowers gained in the last 900 steps",
+   "value": 2,
+   "formula": "correct_final - correct_100",
+   "source": "derived",
+   "where": "COUNT c18"
+  },
+  {
+   "id": "steps_after_100",
+   "text": "steps after step 100",
+   "value": 900,
+   "formula": "steps_total - step_100",
+   "source": "derived",
+   "where": "COUNT c18"
+  },
+  {
+   "id": "wrong_final",
+   "text": "flowers still wrong at step 1,000",
+   "value": 2,
+   "formula": "n_flowers - correct_final",
+   "source": "derived",
+   "where": "captions c16, c20"
+  },
+  {
+   "id": "setosa_right_10",
+   "text": "setosa right at step 10",
+   "value": 50,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get setosa_right_10",
+   "expect": "50",
+   "where": "S3 slab readout"
+  },
+  {
+   "id": "versicolor_right_10",
+   "text": "versicolor right at step 10",
+   "value": 39,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get versicolor_right_10",
+   "expect": "39",
+   "where": "S3 slab readout"
+  },
+  {
+   "id": "virginica_right_10",
+   "text": "virginica right at step 10",
+   "value": 46,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get virginica_right_10",
+   "expect": "46",
+   "where": "S3 slab readout"
+  },
+  {
+   "id": "check_10",
+   "text": "the three species slabs sum to the count",
+   "value": 135,
+   "formula": "setosa_right_10 + versicolor_right_10 + virginica_right_10",
+   "source": "derived",
+   "where": "consistency only (not on screen)"
+  },
+  {
+   "id": "setosa_right_final",
+   "text": "setosa right at step 1,000",
+   "value": 50,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get setosa_right_final",
+   "expect": "50",
+   "where": "S3 slab readout at step 1,000"
+  },
+  {
+   "id": "versicolor_right_final",
+   "text": "versicolor right at step 1,000",
+   "value": 49,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get versicolor_right_final",
+   "expect": "49",
+   "where": "S3 slab readout at step 1,000"
+  },
+  {
+   "id": "virginica_right_final",
+   "text": "virginica right at step 1,000",
+   "value": 49,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get virginica_right_final",
+   "expect": "49",
+   "where": "S3 slab readout at step 1,000"
+  },
+  {
+   "id": "confused_pair",
+   "text": "the two species that stay confused",
+   "value": "versicolor, virginica",
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get confused_pair",
+   "expect": "versicolor, virginica",
+   "where": "caption c20 (words)"
+  },
+  {
+   "id": "wrong_rows",
+   "text": "table rows of the two flowers still wrong (versicolor 84 called virginica; virginica 134 called versicolor)",
+   "value": "84, 134",
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get wrong_final_rows_1based",
+   "expect": "84, 134",
+   "where": "S1 pins ROW 84, ROW 134"
+  },
+  {
+   "id": "acc_10_pct",
+   "text": "share right after 10 steps",
+   "value": 90.0,
+   "formula": "round(100*correct_10/n_flowers, 1)",
+   "source": "derived",
+   "where": "S3 readout sub-line 'OF 150 · 90 %' (after count.at)",
+   "renders": [
+    "90 %",
+    "90%"
+   ]
+  },
+  {
+   "id": "acc_final_pct",
+   "text": "share right at step 1,000",
+   "value": 98.7,
+   "formula": "round(100*correct_final/n_flowers, 1)",
+   "source": "derived",
+   "where": "live page only",
+   "renders": [
+    "98.7 %"
+   ]
+  },
+  {
+   "id": "pct_90",
+   "text": "threshold: 90 % of the total loss drop",
+   "value": 90,
+   "formula": "params.pct90",
+   "source": "S4",
+   "where": "caption c17"
+  },
+  {
+   "id": "pct_99",
+   "text": "threshold: 99 % of the total loss drop",
+   "value": 99,
+   "formula": "params.pct99",
+   "source": "S4",
+   "where": "S1 pin STEP 201 · 99 % (optional)"
+  },
+  {
+   "id": "step_90_drop",
+   "text": "first step by which 90 % of the total loss drop (step 0 to 1,000) has happened",
+   "value": 34,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get step_90pct_drop",
+   "expect": "34",
+   "where": "caption c17; S1 pin STEP 34"
+  },
+  {
+   "id": "step_99_drop",
+   "text": "first step by which 99 % of the total loss drop has happened",
+   "value": 201,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get step_99pct_drop",
+   "expect": "201",
+   "where": "S1 pin (optional)"
+  },
+  {
+   "id": "correct_at_s90",
+   "text": "flowers right at that 90 % step",
+   "value": 143,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get correct_at_s90",
+   "expect": "143",
+   "where": "S1 pin '143 RIGHT'"
+  },
+  {
+   "id": "correct_at_s99",
+   "text": "flowers right at that 99 % step",
+   "value": 147,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get correct_at_s99",
+   "expect": "147",
+   "where": "live page only"
+  },
+  {
+   "id": "drop_pct_by_10",
+   "text": "per cent of the total loss drop done by step 10 (unrounded losses)",
+   "value": 76,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get drop_pct_by_10",
+   "expect": "76",
+   "where": "live page only",
+   "renders": [
+    "76 %"
+   ]
+  },
+  {
+   "id": "drop_pct_by_10_check",
+   "text": "the same from the rounded claims",
+   "value": 76,
+   "formula": "round(100*(loss_0 - loss_10)/(loss_0 - loss_final))",
+   "source": "derived",
+   "where": "consistency only"
+  },
+  {
+   "id": "step_reach_140",
+   "text": "first step with at least 140 right",
+   "value": 23,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get step_reach_140",
+   "expect": "23",
+   "where": "caption c18"
+  },
+  {
+   "id": "step_reach_148",
+   "text": "first step with 148 right (the best the run reaches)",
+   "value": 231,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get first_step_best",
+   "expect": "231",
+   "where": "S1 pin STEP 231"
+  },
+  {
+   "id": "flowers_to_140",
+   "text": "flowers gained from step 0 to step 23",
+   "value": 127,
+   "formula": "milestone_140 - correct_0",
+   "source": "derived",
+   "where": "COUNT c18"
+  },
+  {
+   "id": "last_8",
+   "text": "the last flowers gained (140 to 148)",
+   "value": 8,
+   "formula": "correct_final - milestone_140",
+   "source": "derived",
+   "where": "caption c18"
+  },
+  {
+   "id": "steps_140_to_148",
+   "text": "steps those last 8 took",
+   "value": 208,
+   "formula": "step_reach_148 - step_reach_140",
+   "source": "derived",
+   "where": "caption c18"
+  },
+  {
+   "id": "steps_after_best",
+   "text": "steps after the last new flower, none gained",
+   "value": 769,
+   "formula": "steps_total - step_reach_148",
+   "source": "derived",
+   "where": "caption c19"
+  },
+  {
+   "id": "robust_seeds",
+   "text": "seeds rerun with nothing else changed",
+   "value": 20,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get robust_seeds",
+   "expect": "20",
+   "where": "live page limits block"
+  },
+  {
+   "id": "robust_c10_min",
+   "text": "fewest right after 10 steps over the 20 seeds",
+   "value": 122,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get robust_c10_min",
+   "expect": "122",
+   "where": "live page limits block"
+  },
+  {
+   "id": "robust_c10_max",
+   "text": "most right after 10 steps over the 20 seeds",
+   "value": 139,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get robust_c10_max",
+   "expect": "139",
+   "where": "live page limits block"
+  },
+  {
+   "id": "robust_s90_min",
+   "text": "earliest 90 %-drop step over the 20 seeds",
+   "value": 31,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get robust_s90_min",
+   "expect": "31",
+   "where": "live page limits block"
+  },
+  {
+   "id": "robust_s90_max",
+   "text": "latest 90 %-drop step over the 20 seeds",
+   "value": 63,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get robust_s90_max",
+   "expect": "63",
+   "where": "live page limits block"
+  },
+  {
+   "id": "robust_cfinal",
+   "text": "flowers right at step 1,000 on every one of the 20 seeds",
+   "value": 148,
+   "formula": null,
+   "source": "S4",
+   "recompute": "python3 factory/topics/how-a-network-learns/recompute.py --get robust_cfinal_min",
+   "expect": "148",
+   "where": "live page limits block"
+  }
+ ]
+}

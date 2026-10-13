@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>track-unit · arsenal pattern</title>
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="../../structures/structures.js"></script>
+<script src="./pattern.js"></script></head><body><main></main>
+<script>
+/* ?brand=<id> (default ceti-dark) · ?variant=<name> · ?only=<name> · ?p={json overrides} · ?t=<s> · ?lint=0 hides the lint overlay */
+const Q = new URLSearchParams(location.search), PAT = ARSENAL.patterns['track-unit'];
+const TK = ARSENAL.brands[Q.get('brand') || 'ceti-dark'] || ARSENAL.brands['ceti-dark'];
+document.documentElement.style.background = document.body.style.background = TK.color.bg;
+const ALL = PAT.variants.map(v => v.name), NAMES = Q.get('only') ? [Q.get('only')] : ALL, cache = {}, SEED = 11;
+let P = null, cur = null, resolveReady; const readyP = new Promise(r => resolveReady = r);
+const paramsOf = (n, extra) => Object.assign({}, PAT.params, PAT.variants.find(x => x.name === n).params, Q.get('p') ? JSON.parse(Q.get('p')) : {}, extra || {});
+/* faces: the pack's disp and mono from arsenal/fonts/fonts.js (TTF data URLs, no fetch); a missing face falls back visibly */
+async function faces() {
+  const want = ['disp', 'mono'].map(r => TK.type[r]), notes = [];
+  for (const f of want) {
+    const key = f.family + '|' + f.weight, src = (window.ARSENAL_FONTS || {})[key];
+    if (!src) { notes.push('missing ' + key); continue; }
+    const ff = new FontFace(f.family, 'url(' + src + ')', { weight: String(f.weight) }); document.fonts.add(await ff.load());
+  }
+  return notes;
+}
+new p5(p => {
+  P = p;
+  p.setup = async () => {
+    p.pixelDensity(2); p.createCanvas(960, 540); p.noLoop();
+    p.describe('Unit marks re-partition while tagged units leave a comet trail and a ghost at their origin; a two-cell lamp counts before the ratio.');
+    window.__fontNotes = await faces();
+    for (const n of NAMES) { const params = paramsOf(n); const st = PAT.setup(p, { seed: SEED, w: 960, h: 540, tokens: TK }, params); cache[n] = { params, st, lint: PAT.lint(st, params) }; }
+    resolveReady();
+  };
+  p.draw = () => {};
+}, document.querySelector('main'));
+function overlay(c, t) {   /* demo-only lint readout, drawn after the module (pure: lint is computed in setup, check(t) is pure) */
+  if (Q.get('lint') === '0') return;
+  const ctx = P.drawingContext, L = c.lint, k = PAT.check(t, c.st, c.params), f = TK.type.mono;
+  const s = 'LINT ' + L.frames + ' FRAMES ' + (L.ok ? 'PASS' : 'FAIL') + ' · NOW ' + k.count + '/' + k.n + ' UNITS · AREA Δ ' + k.areaErr.toExponential(0) + (k.ok ? ' · OK' : ' · BROKEN');
+  ctx.save(); ctx.font = f.weight + ' 11px "' + f.family + '", monospace'; ctx.textAlign = 'right'; ctx.globalAlpha = 1;
+  ctx.fillStyle = TK.color[L.ok && k.ok ? 'muted' : 'accent2']; ctx.fillText(s, 944, 30); ctx.restore();
+}
+function seek(t, v) { v = v || Q.get('variant') || NAMES[0]; cur = v; const c = cache[v]; P.push(); const r = PAT.draw(P, t, c.st, c.params, TK); P.pop(); overlay(c, t); return r; }
+window.__film = {
+  ready: () => readyP.then(() => { if (Q.has('t')) seek(+Q.get('t')); }),
+  seek, count: (t, v) => { const c = cache[v || cur || NAMES[0]]; return PAT.count(t, c.st, c.params); },
+  check: (t, v) => { const c = cache[v || cur || NAMES[0]]; return PAT.check(t, c.st, c.params); },
+  lint: (v) => cache[v || cur || NAMES[0]].lint,
+  lintWith: (v, extra) => { const params = paramsOf(v, extra); return PAT.lint(PAT.setup(P, { seed: SEED, w: 960, h: 540, tokens: TK }, params), params); },
+  info: { variants: NAMES, dur: PAT.dur, brand: TK.id, renderer: 'p2d' },
+  stats: () => ({ fontNotes: window.__fontNotes, sizes: Object.fromEntries(NAMES.map(n => [n, { S: cache[n].st.S, legible: cache[n].st.legible, from: cache[n].st.LA.kind, to: cache[n].st.LB.kind }])) }),
+  bench(v) { const ms = []; for (const f of [0.5, 0.1, 0.3, 0.45, 0.6, 0.75, 0.9, 1]) { const a = performance.now(); seek(f * PAT.dur, v); P.drawingContext.getImageData(0, 0, 1, 1); ms.push(performance.now() - a); } ms.shift(); return { v, mean_ms: ms.reduce((a, b) => a + b, 0) / ms.length, max_ms: Math.max(...ms) }; },
+};
+</script></body></html>

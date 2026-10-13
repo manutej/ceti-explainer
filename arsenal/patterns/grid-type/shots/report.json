@@ -1,0 +1,35 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/grid-type/demo.html",
+ "errors": [],
+ "variants": {
+  "editorial": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/editorial-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/editorial-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/editorial-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/editorial-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "poster": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/poster-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/poster-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/poster-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/poster-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "sheet": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/sheet-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/sheet-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/sheet-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/sheet-t8.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 7.1,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/grid-type/shots/contact.png"
+}

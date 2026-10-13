@@ -1,0 +1,312 @@
+{
+ "film": "amdahl",
+ "params": {
+  "h1": 4,
+  "h2": 12,
+  "h3": 6,
+  "h4": 10,
+  "h5": 30,
+  "h6": 14,
+  "h7": 6,
+  "h8": 10,
+  "h9": 3,
+  "h10": 5,
+  "nSteps": 10,
+  "s": 10,
+  "gDefault": 4,
+  "ring": 4,
+  "ibmDays": 7,
+  "ibmWorkMinutes": 90,
+  "ibmAfterHours": 4,
+  "ibmDesks": 5,
+  "workdayHours": 8,
+  "stripUnits": 588,
+  "amdahlYear": 1967,
+  "hcYear": 1993,
+  "dnYear": 1994,
+  "pHalf": 0.5,
+  "pHigh": 0.8
+ },
+ "claims": [
+  {
+   "id": "claim10x",
+   "text": "the room's claim: 10× faster",
+   "value": 10,
+   "formula": "s",
+   "source": "MODEL",
+   "renders": [
+    "10×"
+   ],
+   "where": "hook claim line; captions 1, 3, 10, 12; commit prompt; promise pin"
+  },
+  {
+   "id": "steps",
+   "text": "the process has 10 steps",
+   "value": 10,
+   "formula": "nSteps",
+   "source": "MODEL",
+   "renders": [
+    "10-step"
+   ],
+   "where": "caption 2"
+  },
+  {
+   "id": "totalHours",
+   "text": "the process takes 100 hours",
+   "value": 100,
+   "formula": "sum(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10)",
+   "source": "MODEL",
+   "renders": [
+    "100 HOURS",
+    "100 hours",
+    "WAS 100",
+    "HOUR 100",
+    "of every 100"
+   ],
+   "where": "hook counter; captions 2, 3, 9, 12, 13, 14; count tally; ghost label; Monday question"
+  },
+  {
+   "id": "draftHours",
+   "text": "drafting takes 30 of the 100 hours",
+   "value": 30,
+   "formula": "h5",
+   "source": "MODEL",
+   "renders": [
+    "30 HOURS",
+    "30 hours",
+    "30 → 3"
+   ],
+   "where": "commit label; caption 3, 10; count label"
+  },
+  {
+   "id": "ring",
+   "text": "commit countdown ring digits 4 to 1",
+   "value": 4,
+   "formula": "ring",
+   "source": "FMT",
+   "where": "commit box ring (film mode), 9.0–13.0 s"
+  },
+  {
+   "id": "defaultGuess",
+   "text": "film-mode default guess 4×",
+   "value": 4,
+   "formula": "gDefault",
+   "source": "FMT",
+   "renders": [
+    "4×"
+   ],
+   "where": "commit box (film mode); YOU pin 54–62 s"
+  },
+  {
+   "id": "ibmDays",
+   "text": "an IBM Credit financing quote took 7 days on average",
+   "value": 7,
+   "formula": "ibmDays",
+   "source": "HC93",
+   "renders": [
+    "7 DAYS",
+    "7 days"
+   ],
+   "where": "case strip; captions 5, 8"
+  },
+  {
+   "id": "ibmDesks",
+   "text": "the request passed 5 desks (five departments)",
+   "value": 5,
+   "formula": "ibmDesks",
+   "source": "DN94",
+   "renders": [
+    "5 DESKS",
+    "5 desks"
+   ],
+   "where": "case chrome; caption 5"
+  },
+  {
+   "id": "ibmWork",
+   "text": "the actual work took 90 minutes",
+   "value": 90,
+   "formula": "ibmWorkMinutes",
+   "source": "HC93",
+   "renders": [
+    "90 MINUTES",
+    "90 minutes",
+    "−90 MIN"
+   ],
+   "where": "case sliver label; captions 6, 7"
+  },
+  {
+   "id": "ibmAfter",
+   "text": "after the redesign, turnaround was 4 hours",
+   "value": 4,
+   "formula": "ibmAfterHours",
+   "source": "HC93",
+   "renders": [
+    "4 HOURS",
+    "4 hours"
+   ],
+   "where": "case after-strip; caption 8"
+  },
+  {
+   "id": "ibmSliverUnits",
+   "text": "geometry: the 90-minute sliver is 15.75 of 588 units (7 days of 8 working hours)",
+   "value": 15.75,
+   "formula": "stripUnits * ibmWorkMinutes / (ibmDays * workdayHours * 60)",
+   "source": "HC93",
+   "where": "case strip geometry, no digits on screen"
+  },
+  {
+   "id": "ibmAfterUnits",
+   "text": "geometry: the 4-hour after-strip is 42 of 588 units",
+   "value": 42,
+   "formula": "stripUnits * ibmAfterHours / (ibmDays * workdayHours)",
+   "source": "HC93",
+   "where": "case after-strip geometry, no digits on screen"
+  },
+  {
+   "id": "hcYear",
+   "text": "Hammer & Champy 1993",
+   "value": 1993,
+   "formula": "hcYear",
+   "source": "HC93",
+   "where": "ledger row (chrome)"
+  },
+  {
+   "id": "dnYear",
+   "text": "Davenport & Nohria 1994",
+   "value": 1994,
+   "formula": "dnYear",
+   "source": "DN94",
+   "where": "ledger row (chrome)"
+  },
+  {
+   "id": "draftAfter",
+   "text": "10× faster, drafting's 30 hours become 3",
+   "value": 3,
+   "formula": "h5 / s",
+   "source": "MODEL",
+   "renders": [
+    "→ 3",
+    "become 3"
+   ],
+   "where": "count label; caption 10"
+  },
+  {
+   "id": "untouched",
+   "text": "70 hours untouched",
+   "value": 70,
+   "formula": "sum(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10) - h5",
+   "source": "MODEL",
+   "renders": [
+    "UNTOUCHED 70",
+    "70 hours",
+    "HOUR 70",
+    "100 ÷ 70"
+   ],
+   "where": "count tally; caption 11, 13; ceiling pin"
+  },
+  {
+   "id": "newTotal",
+   "text": "the whole process now takes 73 hours",
+   "value": 73,
+   "formula": "sum(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10) - h5 + h5 / s",
+   "source": "MODEL",
+   "renders": [
+    "73 HOURS",
+    "HOUR 73",
+    "100 ÷ 73",
+    "takes 73"
+   ],
+   "where": "count counter; done rule; caption 11, 12; ratio"
+  },
+  {
+   "id": "speedup",
+   "text": "whole-process speed-up 1.37×",
+   "value": 1.37,
+   "formula": "round(sum(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10) / (sum(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10) - h5 + h5 / s), 2)",
+   "source": "AMD67",
+   "renders": [
+    "1.37×"
+   ],
+   "where": "ratio 55–59.8 s; TRUE pin; caption 12"
+  },
+  {
+   "id": "speedupLaw",
+   "text": "cross-check: 1 / ((1 − 0.3) + 0.3 / 10)",
+   "value": 1.37,
+   "formula": "round(1 / ((1 - h5 / 100) + (h5 / 100) / s), 2)",
+   "source": "AMD67",
+   "where": "not on screen; try-it formula"
+  },
+  {
+   "id": "ceiling",
+   "text": "even instant drafting: at most 1.43×",
+   "value": 1.43,
+   "formula": "round(sum(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10) / (sum(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10) - h5), 2)",
+   "source": "AMD67",
+   "renders": [
+    "1.43×"
+   ],
+   "where": "ceiling ratio 59.8–62 s; TRUE pin; caption 13"
+  },
+  {
+   "id": "promiseHour",
+   "text": "the promise read as an hour: done at hour 10",
+   "value": 10,
+   "formula": "sum(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10) / s",
+   "source": "MODEL",
+   "renders": [
+    "HOUR 10"
+   ],
+   "where": "PROMISE pin"
+  },
+  {
+   "id": "guessHour",
+   "text": "the default guess read as an hour: done at hour 25",
+   "value": 25,
+   "formula": "sum(h1,h2,h3,h4,h5,h6,h7,h8,h9,h10) / gDefault",
+   "source": "MODEL",
+   "renders": [
+    "HOUR 25"
+   ],
+   "where": "YOU pin (film mode)"
+  },
+  {
+   "id": "amdahlYear",
+   "text": "Amdahl, AFIPS 1967",
+   "value": 1967,
+   "formula": "amdahlYear",
+   "source": "AMD67",
+   "renders": [
+    "1967"
+   ],
+   "where": "ceiling chrome; ledger"
+  },
+  {
+   "id": "halfCap",
+   "text": "if AI touches half the hours: never more than 2×",
+   "value": 2,
+   "formula": "1 / (1 - pHalf)",
+   "source": "AMD67",
+   "renders": [
+    "2×"
+   ],
+   "where": "Monday line; try-it"
+  },
+  {
+   "id": "p80s10",
+   "text": "80 of 100 hours at 10×: 3.57×",
+   "value": 3.57,
+   "formula": "round(1 / ((1 - pHigh) + pHigh / s), 2)",
+   "source": "AMD67",
+   "where": "try-it only"
+  },
+  {
+   "id": "p80total",
+   "text": "80 of 100 hours at 10×: the process takes 28 hours",
+   "value": 28,
+   "formula": "round((100 - pHigh * 100) + pHigh * 100 / s)",
+   "source": "MODEL",
+   "where": "try-it only"
+  }
+ ]
+}

@@ -1,0 +1,388 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/demo.html",
+ "t": 6,
+ "variant": "iso-sorted",
+ "brands": {
+  "blueprint": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#0B2A5B",
+   "status": "error"
+  },
+  "ceti-boardwalk-dark": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#1C1821",
+   "status": "error"
+  },
+  "ceti-boardwalk-light": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#F6F0DF",
+   "status": "error"
+  },
+  "ceti-coastal-dark": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#161C1D",
+   "status": "error"
+  },
+  "ceti-coastal-light": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#EFECE1",
+   "status": "error"
+  },
+  "ceti-dark": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "ceti-dark",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 19.7,
+   "samples": [
+    {
+     "px": "#1B1B21",
+     "dist": 19.7
+    },
+    {
+     "px": "#1B1B21",
+     "dist": 19.7
+    },
+    {
+     "px": "#1B1B21",
+     "dist": 19.7
+    },
+    {
+     "px": "#1B1B21",
+     "dist": 19.7
+    }
+   ],
+   "pack_bg": "#0F1115",
+   "status": "applied"
+  },
+  "ceti-greenhouse-dark": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#13140F",
+   "status": "error"
+  },
+  "ceti-greenhouse-light": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#EFEBE1",
+   "status": "error"
+  },
+  "ceti-marketing": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#1A1F2E",
+   "status": "error"
+  },
+  "ceti-neosage-dark": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#131118",
+   "status": "error"
+  },
+  "ceti-neosage-light": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#F5F4EF",
+   "status": "error"
+  },
+  "ceti-owala-soft": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#F4E4D2",
+   "status": "error"
+  },
+  "editorial-serif": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#F6F0E2",
+   "status": "error"
+  },
+  "high-vis": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#0C0C0C",
+   "status": "error"
+  },
+  "midnight-ink": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#0F1A33",
+   "status": "error"
+  },
+  "neon-lab": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "neon-lab",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 22.5,
+   "samples": [
+    {
+     "px": "#10121E",
+     "dist": 22.5
+    },
+    {
+     "px": "#10121E",
+     "dist": 22.5
+    },
+    {
+     "px": "#10121E",
+     "dist": 22.5
+    },
+    {
+     "px": "#10121E",
+     "dist": 22.5
+    }
+   ],
+   "pack_bg": "#07080C",
+   "status": "applied"
+  },
+  "newsprint": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#D9D5CC",
+   "status": "error"
+  },
+  "pastel-pop": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#FFF4EC",
+   "status": "error"
+  },
+  "swiss-grid": {
+   "errors": [],
+   "applied": false,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "swiss-grid",
+   "bg_match": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": 75.3,
+   "samples": [
+    {
+     "px": "#C9D2E4",
+     "dist": 75.3
+    },
+    {
+     "px": "#C9D2E4",
+     "dist": 75.3
+    },
+    {
+     "px": "#C9D2E4",
+     "dist": 75.3
+    },
+    {
+     "px": "#C9D2E4",
+     "dist": 75.3
+    }
+   ],
+   "pack_bg": "#FFFFFF",
+   "status": "not applied"
+  },
+  "tender-set": {
+   "errors": [],
+   "applied": true,
+   "via": [
+    "query/inline"
+   ],
+   "ok": true,
+   "film_brand": "tender-set",
+   "bg_match": true,
+   "same_as_ceti_dark": false,
+   "bg_dist": 9.6,
+   "samples": [
+    {
+     "px": "#E6E1CA",
+     "dist": 9.6
+    },
+    {
+     "px": "#E6E1CA",
+     "dist": 9.6
+    },
+    {
+     "px": "#E6E1CA",
+     "dist": 9.6
+    },
+    {
+     "px": "#E6E1CA",
+     "dist": 9.6
+    }
+   ],
+   "pack_bg": "#E8DCC2",
+   "status": "applied"
+  },
+  "terminal": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#0A0D0A",
+   "status": "error"
+  },
+  "warm-lab": {
+   "errors": [
+    "TypeError: Cannot read properties of undefined (reading 'id')",
+    "FATAL Error: page.evaluate: TypeError: Cannot read properties of undefined (reading 'ready')\n    at eval (eval at evaluate (:290:30), <anonymous>:1:21)\n    at UtilityScript.evaluate (<anonymous>:292:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+   ],
+   "applied": false,
+   "via": [],
+   "ok": false,
+   "same_as_ceti_dark": false,
+   "bg_dist": null,
+   "samples": [],
+   "pack_bg": "#EBDCC3",
+   "status": "error"
+  }
+ },
+ "sheet": "/home/user/ceti-explainer/arsenal/patterns/webgl-scene/shots/sweep.png"
+}

@@ -1,0 +1,74 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/demo.html",
+ "errors": [],
+ "variants": {
+  "hop": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/hop-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/hop-t4.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/hop-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/hop-t8.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/hop-t10.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/hop-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "qdots-20": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-20-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-20-t4.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-20-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-20-t8.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-20-t10.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-20-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "qdots-50": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-50-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-50-t4.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-50-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-50-t8.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-50-t10.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/qdots-50-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "ensemble": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/ensemble-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/ensemble-t4.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/ensemble-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/ensemble-t8.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/ensemble-t10.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/ensemble-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "commit": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-t4.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-t8.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-t10.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "commit-qdots": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-qdots-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-qdots-t4.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-qdots-t7.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-qdots-t8.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-qdots-t10.80.png",
+    "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/commit-qdots-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 2.7,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/uncertainty-hop/shots/contact.png"
+}

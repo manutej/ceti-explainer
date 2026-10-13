@@ -1,0 +1,50 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/text-reveal/demo.html",
+ "errors": [],
+ "variants": {
+  "rise-stagger": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/rise-stagger-t0.49.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/rise-stagger-t0.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/rise-stagger-t0.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/rise-stagger-t1.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/rise-stagger-t2.10.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/rise-stagger-t3.15.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/rise-stagger-t4.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/rise-stagger-t5.60.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/rise-stagger-t7.00.png"
+   ],
+   "purity": "identical"
+  },
+  "attach-leader": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/attach-leader-t0.49.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/attach-leader-t0.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/attach-leader-t0.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/attach-leader-t1.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/attach-leader-t2.10.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/attach-leader-t3.15.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/attach-leader-t4.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/attach-leader-t5.60.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/attach-leader-t7.00.png"
+   ],
+   "purity": "identical"
+  },
+  "counter-land": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/counter-land-t0.49.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/counter-land-t0.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/counter-land-t0.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/counter-land-t1.40.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/counter-land-t2.10.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/counter-land-t3.15.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/counter-land-t4.20.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/counter-land-t5.60.png",
+    "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/counter-land-t7.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 10,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/text-reveal/shots/contact.png"
+}

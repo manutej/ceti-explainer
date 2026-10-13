@@ -1,0 +1,37 @@
+{
+ "id": "terminal",
+ "name": "Terminal (near-black, phosphor green)",
+ "color": {
+  "bg": "#0A0D0A",
+  "ink": "#C9E8CF",
+  "accent": "#39FF7A",
+  "accent2": "#FFB000",
+  "muted": "#6F8F78",
+  "line": "rgba(57,255,122,0.22)",
+  "panel": "#111712",
+  "chalk": "#E8FFEE"
+ },
+ "type": {
+  "disp": {
+   "family": "Red Hat Mono",
+   "weight": 500
+  },
+  "mono": {
+   "family": "Red Hat Mono",
+   "weight": 400
+  },
+  "body": {
+   "family": "Red Hat Mono",
+   "weight": 400
+  }
+ },
+ "texture": "grain",
+ "tempo": {
+  "ease": "linear",
+  "beat_s": 2.5
+ },
+ "voice": {
+  "register": "a command line reporting back, terse, lowercase, no adjectives",
+  "end_card": "> ceti_"
+ }
+}

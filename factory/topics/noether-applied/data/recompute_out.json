@@ -1,0 +1,117 @@
+{
+ "A": {
+  "R": {
+   "verlet_1e9": {
+    "dE_final": -2.512e-05,
+    "dL_final": 2.79e-12,
+    "maxdE": 6.908e-05,
+    "maxdL": 2.79e-12
+   },
+   "verlet_1e7": {
+    "dE_final": -4.395e-05,
+    "dL_final": -2.473e-13,
+    "maxdE": 6.959e-05,
+    "maxdL": 2.592e-13
+   },
+   "rk4_1e6": {
+    "dE_final": 0.001741,
+    "dL_final": -0.0008667,
+    "maxdE": 0.001741,
+    "maxdL": 0.0008667
+   },
+   "rk4_1e7": {
+    "dE_final": 0.01892,
+    "dL_final": -0.009301,
+    "maxdE": 0.01892,
+    "maxdL": 0.009301
+   }
+  },
+  "snaps": 1000,
+  "verlet_maxE_snap": 6.975013109e-05,
+  "verlet_maxL_snap": 2.789935441e-12,
+  "verlet_a_min": 1.0,
+  "verlet_a_max": 1.000069755,
+  "rk4_first_unbound_step": 64686077,
+  "rk4_last_bound_step": 63358050,
+  "rk4_a_min_before": 0.6484299408,
+  "rk4_unbound_after_snaps": 133,
+  "rk4_final_dE": -267.0755226,
+  "rk4_snap_1e7": {
+   "step": 10000001,
+   "dE": 0.01891878429
+  },
+  "verlet_snap_1e7": {
+   "step": 10000001,
+   "dE": -4.184988515e-05
+  }
+ },
+ "B": {
+  "plain": {
+   "E0": 0.245,
+   "E_min": 0.24717890653092478,
+   "E_max": 0.3626517935575507,
+   "E_last": 0.3622882062486641,
+   "mse": 0.01015237679389514
+  },
+  "hamiltonian": {
+   "E0": 0.245,
+   "E_min": 0.24039093986021143,
+   "E_max": 0.2457641848946883,
+   "E_last": 0.24093833507497947,
+   "mse": 3.844584478661869e-06
+  },
+  "toy_mse_ratio": 2640.6954640332774,
+  "periods": 300,
+  "balanced": {
+   "runs": 100,
+   "states": 10000,
+   "w_move": 0.23776802015320586,
+   "c_move": 0.0009516651131693376,
+   "ratio": 249.84421185869178
+  }
+ },
+ "C": {
+  "frames": 30,
+  "parcels": 2000,
+  "circ_first": 0.999998355060093,
+  "circ_max_rel_change": 0.002981370367020064,
+  "length_first": 3.1415913616617575,
+  "length_last": 17.220348985835102,
+  "stretch": 5.481409579865387,
+  "vortex_strength_enclosed": 1.0
+ },
+ "D": {
+  "residues": 2180,
+  "equivariant_rel_err": 5.662689072907202e-15,
+  "plain_rel_err": 2.0858137010582127,
+  "dist_rel_err": 4.068646922976068e-16,
+  "chain_extent": 11.42154481346861
+ },
+ "V": {
+  "steps": 1000000000,
+  "stepsPerOrbit": 100,
+  "orbits": 10000000,
+  "snapshots": 1000,
+  "snapshotsBoth": 2000,
+  "verletEPct": 0.007,
+  "verletLPlaces": 11,
+  "verletLerr": 2.79e-12,
+  "rk4StepsGone": 65,
+  "rk4EPct1e7": 1.9,
+  "verletE1e7": 6.959e-05,
+  "integratorRatio": 272,
+  "hnnBase": 170,
+  "hnnHam": 0.38,
+  "hnnRatio": 447,
+  "hnnRatioWords": 450,
+  "hnnHidden": 200,
+  "hnnTrainSteps": 2000,
+  "netRuns": 100,
+  "netStates": 10000,
+  "wMove": 0.24,
+  "cMove": 0.00095,
+  "residues": 2180,
+  "kelvinParcels": 2000
+ },
+ "seed": 20261010
+}

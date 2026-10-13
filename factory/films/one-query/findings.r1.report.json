@@ -1,0 +1,133 @@
+{
+ "film": "one-query",
+ "findings": "factory/films/one-query/findings.r1.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:zStretch",
+   "old": 0.4,
+   "new": 0.2,
+   "finding": {
+    "t": 112.0,
+    "frame": "drafts/b strip-19.png cell 8 (thumbs/t-0112.00.jpg); also strip-22.png cell 4 (t-0128.00.jpg)",
+    "severity": "major",
+    "what": "The terrain does not carry '15 times': each mesa is a ridge 25 rows deep, and at the landing its top surface projects as height, so Ireland reads about 2-3x its neighbours and the 1.5 % World mesa about a quarter of Ireland.",
+    "why": "Halving the depth of a cell (cells and values unchanged, a view choice) removes most of the depth term, so screen height follows the value; check round 2 that Ireland now towers over World.",
+    "knob": "zStretch",
+    "proposed_value": 0.2
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:camTiltEl",
+   "old": 22,
+   "new": 14,
+   "finding": {
+    "t": 109.0,
+    "frame": "drafts/b strip-19.png cell 2 (thumbs/t-0109.00.jpg)",
+    "severity": "major",
+    "what": "The tilt lands at 22 deg, above the brief's own landing rule (elevation view, el <= 20, P10); from that height the receding tops still inflate the low mesas.",
+    "why": "A flatter landing reads heights, not footprints; one camera knob, check round 2 that Ireland does not hide the Netherlands behind it.",
+    "knob": "camTiltEl",
+    "proposed_value": 14
+   }
+  },
+  {
+   "n": 2,
+   "target": "knob:hscale",
+   "old": 110,
+   "new": 150,
+   "finding": {
+    "t": 112.0,
+    "frame": "drafts/b strip-19.png cell 8 (thumbs/t-0112.00.jpg)",
+    "severity": "major",
+    "what": "With the depth term removed the whole terrain would shrink; the height scale is the lever that keeps the true ratio large on screen.",
+    "why": "Height of the value 25 from 110 to 150 (scale still fixed, vmin 0, vmax 25): Ireland keeps about its present screen size while World stays a sliver; check round 2 the Ireland top stays clear of the 7,663 GWh readout.",
+    "knob": "hscale",
+    "proposed_value": 150
+   }
+  },
+  {
+   "n": 3,
+   "target": "knob:camSwingEl",
+   "old": 18,
+   "new": 14,
+   "finding": {
+    "t": 125.0,
+    "frame": "drafts/b strip-21.png cell 10 to strip-22.png cell 4 (t-0125.00.jpg .. t-0128.00.jpg)",
+    "severity": "minor",
+    "what": "The swing to the US column rises from the tilt's elevation to 18 deg while 176 TWh and 4.4 % land, changing two camera axes under new numbers.",
+    "why": "Holding the landing elevation makes the swing an azimuth-only drift (one change at a time, T5) and keeps the elevation view through MONDAY.",
+    "knob": "camSwingEl",
+    "proposed_value": 14
+   }
+  },
+  {
+   "n": 4,
+   "target": "caption:15",
+   "old": "Against the world's electricity: 1.5 %.",
+   "new": "Against the grey, all the world's electricity: 1.5 %.",
+   "finding": {
+    "t": 77.4,
+    "frame": "drafts/b strip-13.png cell 11, strip-14.png cell 0 (thumbs/t-0078.00.jpg)",
+    "severity": "major",
+    "what": "The denominator is not named on the picture: the grey field has no legend ('1 MARK = 1 TWh' only), so 1.5 % lands against an unexplained texture.",
+    "why": "The caption points at the grey as the world's electricity (borrowed from draft A's legend); 1.5 is the worldPct claim already in this caption.",
+    "caption_index": 15,
+    "proposed_value": "Against the grey, all the world's electricity: 1.5 %."
+   }
+  },
+  {
+   "n": 5,
+   "target": "knob:dimA",
+   "old": 0.6,
+   "new": 0.8,
+   "finding": {
+    "t": 139.5,
+    "frame": "drafts/b strip-24.png cell 3 to strip-25.png cell 11 (t-0139.50.jpg, t-0145.00.jpg)",
+    "severity": "minor",
+    "what": "In MONDAY the question 'per grid?' sits on the Ireland mesa and the honest-limits plate overprints the mesa row; the veil leaves 40 % of the terrain.",
+    "why": "A heavier veil (20 % left) makes the terrain a backdrop so the question and the honest line read as the beat's figure.",
+    "knob": "dimA",
+    "proposed_value": 0.8
+   }
+  },
+  {
+   "n": 6,
+   "target": "caption:27",
+   "old": "One vendor's median text prompt. Not agents.",
+   "new": "One vendor's median text prompt. The anchors are assumed.",
+   "finding": {
+    "t": 141.8,
+    "frame": "drafts/b strip-24.png cell 7 to strip-25.png cell 11 (t-0145.00.jpg)",
+    "severity": "minor",
+    "what": "The last caption repeats only the vendor half of the honest line; the director asked that the anchors be named as assumptions, and the caption drops them.",
+    "why": "Captions carry the film for a silent viewer; the new text names both halves of the on-stage line, no digits.",
+    "caption_index": 27,
+    "proposed_value": "One vendor's median text prompt. The anchors are assumed."
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/one-query/build/one-query.ceti-boardwalk-dark.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/one-query/build/one-query.ceti-boardwalk-dark.none.html  1286848 bytes  sha256 68222e9ac2f0fcf52b721ea78e731b22a666d7a5a68d99db831b07bb769d6da7  (film code 51914 bytes; brand ceti-boardwalk-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 16.3  muted 10.5  accent 13.0  onDark/dark 16.3\nrenderer webgl; knobs 117; fonts3d none; libs lib/arsenal.gen.js\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/one-query/gate.json",
+  "log": "WARN  4 visible number(s) not in claims (chrome?): 19 @67s \"19\"; 116 @68s \"116\"; 248 @69s \"248\"; 365 @70s \"365\"\n  G6 legibility                  PASS  19 must-read / 28 secondary / 5 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 604/390 OVERFLOW\n  G7 counts first                PASS  count at 17.2 s (count.at); first ratio \"Against the grey, all the world's electr\" at 77.4 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 69.7 KB (film.js 31.5, film.json 19.2, claims.json 19.0) < 120 KB; page 1.287 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand ceti-boardwalk-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes\n  G11 text overlap               PASS  307 samples every 0.5 s, 107 distinct texts (texts with data-role), caption showing at 272; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames one-query: 307 frames every 0.5 s → 26 strip(s) in factory/films/one-query/frames; 0.245 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0"
+ }
+}

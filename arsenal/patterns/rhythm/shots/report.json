@@ -1,0 +1,53 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/rhythm/demo.html",
+ "errors": [],
+ "variants": {
+  "tempo-2.5": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-2.5-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-2.5-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-2.5-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-2.5-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "tempo-4": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-4-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-4-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-4-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-4-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "tempo-5": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-5-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-5-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-5-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/tempo-5-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "easing-chart": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/easing-chart-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/easing-chart-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/easing-chart-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/easing-chart-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "emphasis": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/emphasis-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/emphasis-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/emphasis-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/emphasis-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 3.5,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/rhythm/shots/contact.png"
+}

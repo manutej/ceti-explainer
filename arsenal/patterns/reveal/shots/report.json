@@ -1,0 +1,35 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/reveal/demo.html",
+ "errors": [],
+ "variants": {
+  "diagram": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/diagram-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/diagram-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/diagram-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/diagram-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "signature": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/signature-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/signature-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/signature-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/signature-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "network": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/network-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/network-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/network-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/network-t4.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 8.1,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/reveal/shots/contact.png"
+}

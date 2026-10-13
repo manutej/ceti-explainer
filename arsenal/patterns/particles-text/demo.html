@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>particles-text</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="./pattern.js"></script>
+</head><body><script>
+// brand packs come from arsenal/brands/packs.js (inlined, file:// safe); pick with ?brand=<id>
+const Q = new URLSearchParams(location.search);
+const tokens = ARSENAL.brands[Q.get('brand')] || ARSENAL.brands['ceti-dark'];
+const PAT = ARSENAL.patterns['particles-text'], DUR = 8, SEED = 7;
+const states = {}; let cur = null, tcur = 0, P5;
+function merged(name) { const v = PAT.variants.find(x => x.name === name) || PAT.variants[0]; return Object.assign({}, PAT.params, v.params); }
+function render() {
+  if (!cur) return; const p = P5, prm = merged(cur);
+  p.push(); p.resetMatrix(); PAT.draw(p, tcur, states[cur], prm, tokens); p.pop();
+}
+let resolveReady; const readyP = new Promise(r => (resolveReady = r));
+new p5(p => {
+  P5 = p;
+  p.setup = async () => {
+    p.createCanvas(960, 540); p.pixelDensity(2); p.noLoop(); p.draw = () => {};
+    p.describe('Particles assemble into words, a numeral and a headline, then disperse into the next shape.');
+    for (const v of PAT.variants) states[v.name] = await PAT.setup(p, { seed: SEED, tokens, W: 960, H: 540 }, merged(v.name));
+    cur = PAT.variants[0].name;
+    const qv = Q.get('variant'); if (qv) cur = qv; if (Q.get('t')) tcur = +Q.get('t');
+    render(); resolveReady();
+  };
+});
+window.__film = {
+  ready: () => readyP,
+  seek(t, v) { if (v) cur = v; tcur = t; render(); },
+  info: { variants: PAT.variants.map(v => v.name), dur: DUR, atlas: PAT.atlas },
+};
+</script></body></html>

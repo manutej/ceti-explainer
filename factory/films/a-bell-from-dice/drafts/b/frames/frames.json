@@ -1,0 +1,4037 @@
+{
+ "page": "factory/films/a-bell-from-dice/drafts/b/build/a-bell-from-dice.midnight-ink.none.html",
+ "film": "a-bell-from-dice",
+ "dur": 123,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "midnight-ink",
+ "axes": {
+  "brand": "midnight-ink",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "paper",
+  "texture_declared": "paper",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "rainT0",
+   "range": [
+    12.2,
+    13
+   ],
+   "step": 0.1,
+   "what": "s: the first roll falls (the rain starts; HOOK ends at 12)",
+   "value": 12.4
+  },
+  {
+   "name": "rainT1",
+   "range": [
+    21,
+    23.8
+   ],
+   "step": 0.1,
+   "what": "s: the last of the 100,000 rolls has landed (before the count lands at 24)",
+   "value": 23.6
+  },
+  {
+   "name": "rainWin",
+   "range": [
+    0.005,
+    0.06
+   ],
+   "step": 0.005,
+   "what": "share of the 100,000 marks in the air at once (longer = slower, denser rain)",
+   "value": 0.02
+  },
+  {
+   "name": "rainDrop",
+   "range": [
+    150,
+    700
+   ],
+   "step": 10,
+   "what": "world units: height a mark falls from into its first-die bin",
+   "value": 420
+  },
+  {
+   "name": "landAt",
+   "range": [
+    24,
+    25
+   ],
+   "step": 0.1,
+   "what": "s: the count lands: '100,000 ROLLS' replaces the running counter (count.at is 24)",
+   "value": 24
+  },
+  {
+   "name": "cube",
+   "range": [
+    1,
+    1.9
+   ],
+   "step": 0.05,
+   "what": "world units: edge of one mark (one roll); must stay under pitch",
+   "value": 1.6
+  },
+  {
+   "name": "pitch",
+   "range": [
+    1.6,
+    3
+   ],
+   "step": 0.1,
+   "what": "world units: slot pitch of the marks in a bin or a column (scales every stack)",
+   "value": 2
+  },
+  {
+   "name": "binFX",
+   "range": [
+    10,
+    40
+   ],
+   "step": 2,
+   "what": "marks across one first-die bin (footprint width)",
+   "value": 16
+  },
+  {
+   "name": "binFZ",
+   "range": [
+    4,
+    16
+   ],
+   "step": 1,
+   "what": "marks deep in one first-die bin",
+   "value": 12
+  },
+  {
+   "name": "binGap",
+   "range": [
+    40,
+    120
+   ],
+   "step": 5,
+   "what": "world units: air between the six bins",
+   "value": 100
+  },
+  {
+   "name": "colFX",
+   "range": [
+    8,
+    16
+   ],
+   "step": 1,
+   "what": "marks across one sum column (footprint width)",
+   "value": 10
+  },
+  {
+   "name": "colFZ",
+   "range": [
+    4,
+    14
+   ],
+   "step": 1,
+   "what": "marks deep in one sum column",
+   "value": 10
+  },
+  {
+   "name": "colGap",
+   "range": [
+    2,
+    20
+   ],
+   "step": 1,
+   "what": "world units: air between the 26 columns (the streets of the skyline)",
+   "value": 10
+  },
+  {
+   "name": "facesAt",
+   "range": [
+    28,
+    33
+   ],
+   "step": 0.1,
+   "what": "s: the pip faces appear under the six bins",
+   "value": 28.6
+  },
+  {
+   "name": "pinFirstAt",
+   "range": [
+    33.5,
+    36
+   ],
+   "step": 0.1,
+   "what": "s: the six first-die counts are pinned and the a-sixth line drawn",
+   "value": 34
+  },
+  {
+   "name": "pinFirstOut",
+   "range": [
+    39,
+    41
+   ],
+   "step": 0.1,
+   "what": "s: the first-die pins and line leave (the crane up starts at 40)",
+   "value": 40
+  },
+  {
+   "name": "sortT0",
+   "range": [
+    43.5,
+    45
+   ],
+   "step": 0.1,
+   "what": "s: the same marks leave their first-die bins for their sum columns",
+   "value": 44
+  },
+  {
+   "name": "sortT1",
+   "range": [
+    46,
+    48
+   ],
+   "step": 0.1,
+   "what": "s: the last mark reaches its sum column",
+   "value": 47
+  },
+  {
+   "name": "sortStagger",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "share of the re-sort spent staggering by layer (0 = all marks move at once; bottom layers first)",
+   "value": 0.55
+  },
+  {
+   "name": "sortLift",
+   "range": [
+    0,
+    160
+   ],
+   "step": 5,
+   "what": "world units: arc height of a mark travelling to its sum column",
+   "value": 40
+  },
+  {
+   "name": "beliefAt",
+   "range": [
+    46.5,
+    49
+   ],
+   "step": 0.1,
+   "what": "s: the equal-odds line (3,846 per sum) and its label appear",
+   "value": 47
+  },
+  {
+   "name": "beliefOut",
+   "range": [
+    56,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: the equal-odds line leaves",
+   "value": 58
+  },
+  {
+   "name": "pinColAt",
+   "range": [
+    54.5,
+    56.5
+   ],
+   "step": 0.1,
+   "what": "s: peak and end pins (17, 18, 5, 30) appear in the side view",
+   "value": 55.2
+  },
+  {
+   "name": "pinColOut",
+   "range": [
+    57.5,
+    59
+   ],
+   "step": 0.1,
+   "what": "s: peak and end pins leave as the push into the tail starts",
+   "value": 58
+  },
+  {
+   "name": "tailLitAt",
+   "range": [
+    58,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: the five tail columns (sums above 25) turn accent",
+   "value": 58.4
+  },
+  {
+   "name": "pinTailAt",
+   "range": [
+    59.5,
+    63
+   ],
+   "step": 0.1,
+   "what": "s: the five tail counts are pinned",
+   "value": 61
+  },
+  {
+   "name": "pinTailOut",
+   "range": [
+    64.5,
+    66
+   ],
+   "step": 0.1,
+   "what": "s: the tail pins leave",
+   "value": 65.4
+  },
+  {
+   "name": "stackOut0",
+   "range": [
+    64.5,
+    66
+   ],
+   "step": 0.1,
+   "what": "s: the 100,000 marks start to fade into the ground",
+   "value": 65.4
+  },
+  {
+   "name": "stackOut1",
+   "range": [
+    65.8,
+    66.6
+   ],
+   "step": 0.1,
+   "what": "s: the marks are gone; the counted cells take over",
+   "value": 66.2
+  },
+  {
+   "name": "volBuild0",
+   "range": [
+    66.2,
+    68
+   ],
+   "step": 0.1,
+   "what": "s: the counted cells start to grow (left to right by sum)",
+   "value": 66.6
+  },
+  {
+   "name": "volBuild1",
+   "range": [
+    68.5,
+    70.5
+   ],
+   "step": 0.1,
+   "what": "s: the last cell has grown",
+   "value": 70
+  },
+  {
+   "name": "volCutIn",
+   "range": [
+    69,
+    71
+   ],
+   "step": 0.1,
+   "what": "s (volCutIn): the cut starts travelling from sum 5",
+   "value": 70
+  },
+  {
+   "name": "volCutEnd",
+   "range": [
+    75.5,
+    77
+   ],
+   "step": 0.1,
+   "what": "s: the cut reaches the 25 | 26 edge and the tail count lands (count 2)",
+   "value": 76
+  },
+  {
+   "name": "volCutTo",
+   "range": [
+    0.8,
+    0.8076
+   ],
+   "step": 0.0005,
+   "what": "volCutTo: where the cut stops along the sum axis (stays on the 25 | 26 edge, so RIGHT = the tail count)",
+   "value": 0.8065
+  },
+  {
+   "name": "volTail",
+   "range": [
+    25,
+    25.9
+   ],
+   "step": 0.1,
+   "what": "volTail: tail threshold on the sum axis; snapped to the 25 | 26 bin edge (lit cells sum to the tail count)",
+   "value": 25.5
+  },
+  {
+   "name": "volCutDim",
+   "range": [
+    0.1,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "volCutDim: opacity of the cells the cut has passed (lower = the tail street stands out more)",
+   "value": 0.35
+  },
+  {
+   "name": "volH",
+   "range": [
+    140,
+    300
+   ],
+   "step": 5,
+   "what": "world units: height of the densest cell (cell height = count)",
+   "value": 210
+  },
+  {
+   "name": "volZ",
+   "range": [
+    120,
+    260
+   ],
+   "step": 5,
+   "what": "world units: depth of the six first-die rows of cells",
+   "value": 200
+  },
+  {
+   "name": "volGap",
+   "range": [
+    0.05,
+    0.35
+   ],
+   "step": 0.01,
+   "what": "share of a cell left as street between slabs",
+   "value": 0.16
+  },
+  {
+   "name": "volAlpha",
+   "range": [
+    0.3,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "opacity of a counted cell (sorted transparency)",
+   "value": 0.55
+  },
+  {
+   "name": "ratioAt",
+   "range": [
+    81,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the ratio '= 1.7 %' appears under the tail count (always after the count)",
+   "value": 82
+  },
+  {
+   "name": "insetAt",
+   "range": [
+    85,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: the flat inset of the 26 sums appears with the equal-odds line",
+   "value": 86
+  },
+  {
+   "name": "glassT0",
+   "range": [
+    91,
+    93
+   ],
+   "step": 0.1,
+   "what": "s: the exact bell (glass) starts drawing left to right",
+   "value": 92
+  },
+  {
+   "name": "glassT1",
+   "range": [
+    93,
+    95
+   ],
+   "step": 0.1,
+   "what": "s: the glass is complete",
+   "value": 94
+  },
+  {
+   "name": "fillT0",
+   "range": [
+    93,
+    95.5
+   ],
+   "step": 0.1,
+   "what": "s: the counted bars start to rise into the glass",
+   "value": 94
+  },
+  {
+   "name": "fillT1",
+   "range": [
+    95.5,
+    98
+   ],
+   "step": 0.1,
+   "what": "s: the counted bars are full",
+   "value": 96.5
+  },
+  {
+   "name": "waysAt",
+   "range": [
+    95,
+    97.5
+   ],
+   "step": 0.1,
+   "what": "s: the ways row (1 · 5 · 15 … 780 · 780 … 15 · 5 · 1) appears",
+   "value": 96
+  },
+  {
+   "name": "expTailAt",
+   "range": [
+    97.5,
+    100
+   ],
+   "step": 0.1,
+   "what": "s: '126 OF 7,776 WAYS' and expected against counted appear",
+   "value": 98
+  },
+  {
+   "name": "agreeAt",
+   "range": [
+    101,
+    104
+   ],
+   "step": 0.1,
+   "what": "s: the agreement lines (largest gap, mean, sd) and the mean line appear",
+   "value": 102
+  },
+  {
+   "name": "volOut0",
+   "range": [
+    106,
+    107.6
+   ],
+   "step": 0.1,
+   "what": "s: the cells start to fade (MONDAY at 108)",
+   "value": 107
+  },
+  {
+   "name": "volOut1",
+   "range": [
+    107.8,
+    108.6
+   ],
+   "step": 0.1,
+   "what": "s: the cells are gone",
+   "value": 108.2
+  },
+  {
+   "name": "diceAt",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: the first of the five dice lands (0.4 s apart)",
+   "value": 2
+  },
+  {
+   "name": "sumAt",
+   "range": [
+    4,
+    5
+   ],
+   "step": 0.1,
+   "what": "s: the sum 18 appears",
+   "value": 4.2
+  },
+  {
+   "name": "hookLineAt",
+   "range": [
+    8,
+    9.5
+   ],
+   "step": 0.1,
+   "what": "s: the empty 5-30 axis and the flat 'anything can happen' line appear",
+   "value": 8.2
+  },
+  {
+   "name": "hookOut",
+   "range": [
+    11,
+    12
+   ],
+   "step": 0.1,
+   "what": "s: the throw fades out (the rain starts at rainT0)",
+   "value": 11.6
+  },
+  {
+   "name": "mondayAt",
+   "range": [
+    108,
+    109.5
+   ],
+   "step": 0.1,
+   "what": "s: the throw returns with the 14-21 band",
+   "value": 108.3
+  },
+  {
+   "name": "countSize",
+   "range": [
+    44,
+    72
+   ],
+   "step": 2,
+   "what": "units: the count in the display face (must-read floor 28)",
+   "value": 56
+  },
+  {
+   "name": "pinSize",
+   "range": [
+    28,
+    36
+   ],
+   "step": 1,
+   "what": "units: pinned counts in the display face (must-read floor 28)",
+   "value": 28
+  },
+  {
+   "name": "subSize",
+   "range": [
+    14,
+    18
+   ],
+   "step": 1,
+   "what": "units: lines under a count (secondary floor 14)",
+   "value": 14
+  },
+  {
+   "name": "noteSize",
+   "range": [
+    14,
+    20
+   ],
+   "step": 1,
+   "what": "units: the exact-against-counted lines in the COUNT left column (secondary floor 14)",
+   "value": 16
+  },
+  {
+   "name": "insetX",
+   "range": [
+    540,
+    620
+   ],
+   "step": 2,
+   "what": "units: left edge of the flat inset of the 26 sums",
+   "value": 576
+  },
+  {
+   "name": "insetW",
+   "range": [
+    300,
+    380
+   ],
+   "step": 2,
+   "what": "units: width of the inset",
+   "value": 352
+  },
+  {
+   "name": "insetY",
+   "range": [
+    90,
+    130
+   ],
+   "step": 2,
+   "what": "units: top of the inset",
+   "value": 100
+  },
+  {
+   "name": "insetH",
+   "range": [
+    280,
+    330
+   ],
+   "step": 2,
+   "what": "units: height of the inset (keep its bottom above the captions at 440)",
+   "value": 316
+  },
+  {
+   "name": "labHold",
+   "range": [
+    0,
+    15
+   ],
+   "step": 1,
+   "what": "frames a pin must be pushed before it hides (gl-labels hold)",
+   "value": 4
+  },
+  {
+   "name": "labLeader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "units: pin leader length (gl-labels leader)",
+   "value": 20
+  },
+  {
+   "name": "litAmb",
+   "range": [
+    0.3,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "ambient light on the marks (higher = flatter, brighter fronts)",
+   "value": 0.55
+  },
+  {
+   "name": "litKey",
+   "range": [
+    0.2,
+    0.7
+   ],
+   "step": 0.05,
+   "what": "key light on the marks (higher = brighter tops)",
+   "value": 0.45
+  },
+  {
+   "name": "camStartEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye x",
+   "value": -345
+  },
+  {
+   "name": "camStartEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye y",
+   "value": -384
+  },
+  {
+   "name": "camStartEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye z",
+   "value": 949
+  },
+  {
+   "name": "camStartCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point x",
+   "value": 0
+  },
+  {
+   "name": "camStartCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point y",
+   "value": -95
+  },
+  {
+   "name": "camStartCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point z",
+   "value": 0
+  },
+  {
+   "name": "camStartFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · start pose: vertical field of view (deg)",
+   "value": 30
+  },
+  {
+   "name": "camFrontT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · front (orbit): start (s)",
+   "value": 28
+  },
+  {
+   "name": "camFrontT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · front (orbit): end (s)",
+   "value": 33
+  },
+  {
+   "name": "camFrontEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · front (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camFrontAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · front (orbit): degrees swept round the centre",
+   "value": 20
+  },
+  {
+   "name": "camFrontEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · front (orbit): end elevation (deg above the centre)",
+   "value": 5
+  },
+  {
+   "name": "camFrontR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "camera rig · front (orbit): end radius as a factor of the start",
+   "value": 1
+  },
+  {
+   "name": "camPlanT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · plan (orbit): start (s)",
+   "value": 40
+  },
+  {
+   "name": "camPlanT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · plan (orbit): end (s)",
+   "value": 43
+  },
+  {
+   "name": "camPlanEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · plan (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camPlanAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · plan (orbit): degrees swept round the centre",
+   "value": 0
+  },
+  {
+   "name": "camPlanEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · plan (orbit): end elevation (deg above the centre)",
+   "value": 89
+  },
+  {
+   "name": "camPlanR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "camera rig · plan (orbit): end radius as a factor of the start",
+   "value": 2
+  },
+  {
+   "name": "camPlanFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · plan (orbit): vertical field of view (deg)",
+   "value": 14
+  },
+  {
+   "name": "camSideT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · side (orbit): start (s)",
+   "value": 50
+  },
+  {
+   "name": "camSideT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · side (orbit): end (s)",
+   "value": 55
+  },
+  {
+   "name": "camSideEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · side (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camSideAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · side (orbit): degrees swept round the centre",
+   "value": -18
+  },
+  {
+   "name": "camSideEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · side (orbit): end elevation (deg above the centre)",
+   "value": 6
+  },
+  {
+   "name": "camSideR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "camera rig · side (orbit): end radius as a factor of the start",
+   "value": 0.45
+  },
+  {
+   "name": "camSideFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · side (orbit): vertical field of view (deg)",
+   "value": 30
+  },
+  {
+   "name": "camTailT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · tail (lookat): start (s)",
+   "value": 58
+  },
+  {
+   "name": "camTailT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · tail (lookat): end (s)",
+   "value": 63
+  },
+  {
+   "name": "camTailEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · tail (lookat): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camTailTarget",
+   "range": [
+    0,
+    25
+   ],
+   "step": 1,
+   "what": "camera rig · tail (lookat): data index the camera aims or focuses at (19 = sum 24: the push centres just left of the tail so sum 18 stays at the left edge for scale)",
+   "value": 19
+  },
+  {
+   "name": "camTailDist",
+   "range": [
+    0,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · tail (lookat): distance to the centre / target (world units; lookat 0 = pan from the eye)",
+   "value": 520
+  },
+  {
+   "name": "camPullT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · pull (key): start (s)",
+   "value": 66
+  },
+  {
+   "name": "camPullT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · pull (key): end (s)",
+   "value": 70
+  },
+  {
+   "name": "camPullEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · pull (key): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camPullEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): eye x",
+   "value": -727
+  },
+  {
+   "name": "camPullEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): eye y",
+   "value": -788
+  },
+  {
+   "name": "camPullEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): eye z",
+   "value": 1250
+  },
+  {
+   "name": "camPullCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): aim point x",
+   "value": -170
+  },
+  {
+   "name": "camPullCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): aim point y",
+   "value": -60
+  },
+  {
+   "name": "camPullCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): aim point z",
+   "value": 0
+  },
+  {
+   "name": "camAsideT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · aside (key): start (s)",
+   "value": 86
+  },
+  {
+   "name": "camAsideT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · aside (key): end (s)",
+   "value": 90
+  },
+  {
+   "name": "camAsideEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · aside (key): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camAsideEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): eye x",
+   "value": -327
+  },
+  {
+   "name": "camAsideEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): eye y",
+   "value": -1208
+  },
+  {
+   "name": "camAsideEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): eye z",
+   "value": 1943
+  },
+  {
+   "name": "camAsideCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): aim point x",
+   "value": 380
+  },
+  {
+   "name": "camAsideCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): aim point y",
+   "value": -200
+  },
+  {
+   "name": "camAsideCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): aim point z",
+   "value": 0
+  },
+  {
+   "name": "camDriftT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): start (s)",
+   "value": 90
+  },
+  {
+   "name": "camDriftT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): end (s)",
+   "value": 106
+  },
+  {
+   "name": "camDriftEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · drift (orbit): ease (arsenal/core/timeline curves)",
+   "value": "inout"
+  },
+  {
+   "name": "camDriftAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · drift (orbit): degrees swept round the centre (volOrbit: the slow orbit over the counted cells)",
+   "value": 8
+  }
+ ],
+ "ms_per_frame": 457,
+ "s_per_frame": 0.457,
+ "purity": {
+  "pass": true,
+  "at": {
+   "24.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "61.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "98.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Random means anything can happen. Right?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Roll five dice and add them. This roll makes 18.",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "Is a sum above 25 as likely as one in the middle?",
+   "chapter": {
+    "id": "hook",
+    "title": "The throw"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "Now roll them 100,000 times. One mark is one roll.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Every roll counted in, in the order it was thrown.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "100,000 rolls. Nothing smoothed, nothing left out.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "Each roll fell into the bin of its first die.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Six piles, each between 16,519 and 16,797. Flat.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "One die really is anything-can-happen.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Now sort by the sum: 26 piles, from 5 to 30.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "From above, every sum looks just as likely.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "From the side: 17 and 18 tower, the ends almost vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "From the side: 17 and 18 tower, the ends almost vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "From the side: 17 and 18 tower, the ends almost vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "From the side: 17 and 18 tower, the ends almost vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "From the side: 17 and 18 tower, the ends almost vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "From the side: 17 and 18 tower, the ends almost vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "From the side: 17 and 18 tower, the ends almost vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "From the side: 17 and 18 tower, the ends almost vanish.",
+   "chapter": {
+    "id": "case",
+    "title": "The rain"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Push in on the right edge: sums from 26 to 30.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Five thin piles. Now count every roll in them.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "A cut travels along the sums, counting as it goes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Above 25: 1,655 rolls out of 100,000.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "That is 1.7 %. Equal odds would put 19,231 there.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "Equal odds over-count the tail about 12 times.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "Count the ways instead: 126 of 7,776 outcomes.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "That predicts 1,620. The dice gave 1,655.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "All 26 sums agree within 0.09 points. Mean 17.5.",
+   "chapter": {
+    "id": "count",
+    "title": "The last lit street"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "Monday: is your total a sum of many small, separate parts?",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "Fair, independent dice. Linked parts break the bell.",
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  },
+  {
+   "t": 122.99,
+   "file": "thumbs/t-0122.99.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Plan for the middle"
+   }
+  }
+ ]
+}

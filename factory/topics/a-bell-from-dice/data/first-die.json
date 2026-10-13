@@ -1,0 +1,44 @@
+{
+ "meta": {
+  "rolls": 100000,
+  "dice": 5,
+  "faces": 6,
+  "seed": 1733,
+  "generator": "mulberry32 (S4), one stream, draw 5*i+j is die j of roll i, face = 1 + floor(u*6)",
+  "outcomes": 7776,
+  "tail": "sum > 25",
+  "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --write"
+ },
+ "rows": [
+  {
+   "first": 1,
+   "simulated": 16736,
+   "expected": 16666.666666666668
+  },
+  {
+   "first": 2,
+   "simulated": 16653,
+   "expected": 16666.666666666668
+  },
+  {
+   "first": 3,
+   "simulated": 16665,
+   "expected": 16666.666666666668
+  },
+  {
+   "first": 4,
+   "simulated": 16797,
+   "expected": 16666.666666666668
+  },
+  {
+   "first": 5,
+   "simulated": 16630,
+   "expected": 16666.666666666668
+  },
+  {
+   "first": 6,
+   "simulated": 16519,
+   "expected": 16666.666666666668
+  }
+ ]
+}

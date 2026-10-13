@@ -1,0 +1,35 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/handwriting/demo.html",
+ "errors": [],
+ "variants": {
+  "glyph-sheet": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/glyph-sheet-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/glyph-sheet-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/glyph-sheet-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/glyph-sheet-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "arithmetic": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/arithmetic-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/arithmetic-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/arithmetic-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/arithmetic-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "annotation": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/annotation-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/annotation-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/annotation-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/annotation-t8.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 7.2,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/handwriting/shots/contact.png"
+}

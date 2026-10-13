@@ -1,0 +1,429 @@
+{
+  "film": "pass-every-time",
+  "page": "factory/films/pass-every-time/build/pass-every-time.midnight-ink.none.hero.html",
+  "filmDir": "factory/films/pass-every-time",
+  "date": "2026-10-11T13:44:37.994Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 4827 ms; stage sd 30.6s:31.7 76.5s:46.6 122.4s:38.6",
+      "data": {
+        "readyMs": 4827,
+        "stats": [
+          {
+            "t": 30.6,
+            "mean": 39.084408680555484,
+            "sd": 31.65585017809692
+          },
+          {
+            "t": 76.5,
+            "mean": 48.51372058256121,
+            "sd": 46.61972648367921
+          },
+          {
+            "t": 122.4,
+            "mean": 35.26605685763534,
+            "sd": 38.57844512053968
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 15.3, 45.9, 76.5, 107.1, 137.7 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, pattern.js, text-reveal.js",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 153 s; material 150 s (want 140–180, format feature-long) + brand 3 s; total ≤ 183"
+    },
+    {
+      "id": "G4b",
+      "name": "format · beats",
+      "status": "PASS",
+      "evidence": "order HOOK → CASE → COUNT → MONDAY; t0 H0 C12 C60 M136.5"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit disabled (D11): no commit box, no hold, no film-mode default; page info.commit {\"enabled\":false}"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"A pass is not a pass every time.\"; frame at 152 s sd 22.3; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"One 2024 model, and agents that could not revise: newer ones may do better.\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "7 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "30 claims, 23 with formula, 23 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 29 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "PASS",
+      "evidence": "every visible SVG number is a claim value",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "7 must-read / 17 secondary / 12 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 400/390 OVERFLOW, shot /tmp/claude-0/-home-user/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/gshots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 7,
+          "secondary": 17,
+          "chrome": 12
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 12.5 s (count.at); first ratio \"Tries that pass: 60.4 %.\" at 35 s (caption); commit disabled (D11): no seal, counts-before-ratios only"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 115.1 KB (film.js 73.3, film.json 27.6, claims.json 14.3) < 120 KB; page 1.300 MB < 1.3 MB",
+      "data": {
+        "code": 117871,
+        "page": 1299575
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand midnight-ink, chrome none, material hero, texture paper; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "midnight-ink",
+          "chrome": "none",
+          "material": "hero",
+          "texture": "paper",
+          "texture_declared": "paper",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    },
+    {
+      "id": "G11",
+      "name": "text overlap",
+      "status": "PASS",
+      "evidence": "307 samples every 0.5 s, 95 distinct texts (texts with data-role), caption showing at 214; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.",
+      "data": {
+        "step": 0.5,
+        "samples": 307,
+        "mode": "texts with data-role",
+        "canvasText": "not seen",
+        "fail": 0,
+        "warn": 0,
+        "legacy": false,
+        "instances": []
+      }
+    },
+    {
+      "id": "G12",
+      "name": "rhythm",
+      "status": "PASS",
+      "evidence": "beat 0.5 s (15 frames; +-2 frames): 53/53 starts on the grid = 100 % (captions 29/29, moves 24/24; want >= 80 %); captions holding >= 1.3 s + 0.06 s/char: 29/29; dead holds > 8 s: 0. WARN-only (D16); the moves counted are in data.moves.",
+      "data": {
+        "fps": 30,
+        "tolFrames": 2,
+        "beat": 0.5,
+        "refBeat": 0.5,
+        "onGrid": 53,
+        "events": 53,
+        "share": 1,
+        "want": 0.8,
+        "captions": {
+          "n": 29,
+          "onGrid": 29,
+          "holdOk": 29,
+          "holdFail": 0,
+          "rule": "1.3 s + 0.06 s/char"
+        },
+        "moves": [
+          {
+            "t": 0,
+            "names": [
+              "hookT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 1.5,
+            "names": [
+              "hookLitT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 10.5,
+            "names": [
+              "pullT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 12.5,
+            "names": [
+              "tileT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 18.5,
+            "names": [
+              "pushT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 21,
+            "names": [
+              "cubeT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 28.5,
+            "names": [
+              "litT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 40,
+            "names": [
+              "m1T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 42,
+            "names": [
+              "stackT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 60,
+            "names": [
+              "m2T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 62.5,
+            "names": [
+              "in44T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 67.5,
+            "names": [
+              "out44T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 71.5,
+            "names": [
+              "m3T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 77.5,
+            "names": [
+              "wideT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 99,
+            "names": [
+              "trav1T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 101,
+            "names": [
+              "prT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 111.5,
+            "names": [
+              "m4T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 119.5,
+            "names": [
+              "trav2T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 121.5,
+            "names": [
+              "min27T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 126.5,
+            "names": [
+              "out27T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 128.5,
+            "names": [
+              "min289T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 136.5,
+            "names": [
+              "trav3T0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 138.5,
+            "names": [
+              "bookT0",
+              "dimT0"
+            ],
+            "off": 0,
+            "on": true
+          },
+          {
+            "t": 140.5,
+            "names": [
+              "bookCamT0"
+            ],
+            "off": 0,
+            "on": true
+          }
+        ],
+        "nMoves": 24,
+        "nMovesOn": 24,
+        "holdFail": [],
+        "dead": [],
+        "deadRule": "no caption change, time knob, rig move or brand card for > 8 s"
+      }
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 21.27, 41.53, 61.8, 82.07, 102.33, 122.6, 153 s → /tmp/claude-0/-home-user/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/gshots"
+    }
+  ]
+}

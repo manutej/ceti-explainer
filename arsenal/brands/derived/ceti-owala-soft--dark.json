@@ -1,0 +1,13 @@
+{ "id": "ceti-owala-soft--dark", "name": "CETI Owala soft [dark]",
+  "color": {
+    "bg": "#130C04",
+    "ink": "#D8D3CD",
+    "accent": "#BA6883",
+    "accent2": "#004F46",
+    "muted": "#907EA4",
+    "line": "rgba(216,211,205,1)",
+    "panel": "#1E1301",
+    "chalk": "#D9D4CE" },
+  "type": { "disp": {"family": "Fraunces", "weight": 300, "style": "italic"}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400} },
+  "texture": "none", "tempo": {"ease": "expo", "beat_s": 4},
+  "voice": {"register": "Owala soft: warm cream, one deep ink, berry as the live colour, a tide of teal for the other voice", "end_card": "CETI", "derived": {"from": "ceti-owala-soft", "transforms": ["dark"]}} }

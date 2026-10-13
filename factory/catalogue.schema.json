@@ -1,0 +1,53 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "factory-catalogue/1",
+ "title": "The explainer factory catalogue",
+ "description": "Written by factory/tools/catalogue.py from factory/films/*/film.json, factory/films/<id>/gate.json and factory/films/<id>/build/. Never edited by hand. page.sha256 is the baseline a rebuild must match (catalogue.py --check).",
+ "type": "object",
+ "required": ["schema", "films"],
+ "additionalProperties": false,
+ "properties": {
+  "schema": {"const": "factory-catalogue/1"},
+  "generated_by": {"type": "string"},
+  "films": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": ["id", "title"],
+    "additionalProperties": false,
+    "properties": {
+     "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{1,47}$"},
+     "title": {"type": ["string", "null"]},
+     "eyebrow": {"type": ["string", "null"]},
+     "dur": {"type": ["number", "null"], "description": "seconds, material plus the 3 s brand card"},
+     "chapters": {"type": "integer"},
+     "captions": {"type": "integer"},
+     "sources": {"type": "integer"},
+     "claims": {"type": ["integer", "null"]},
+     "takeaway": {"type": ["string", "null"]},
+     "folder": {"type": "string"},
+     "gate": {
+      "type": ["object", "null"],
+      "required": ["verdict", "file"],
+      "properties": {
+       "verdict": {"type": ["string", "null"], "description": "PASS, FAIL, or the gate's own word, upper-cased"},
+       "file": {"type": "string"},
+       "failed_of_total": {"type": ["array", "null"], "items": {"type": "integer"}, "minItems": 2, "maxItems": 2}
+      }
+     },
+     "page": {
+      "type": ["object", "null"],
+      "required": ["path", "bytes", "sha256"],
+      "properties": {
+       "path": {"type": "string"},
+       "bytes": {"type": "integer"},
+       "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+     },
+     "warning": {"type": "string"},
+     "error": {"type": "string"}
+    }
+   }
+  }
+ }
+}

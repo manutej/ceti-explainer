@@ -1,0 +1,7 @@
+step,denominator,group,marks_TWh,share_pct,claim_id,note
+1,world grid,data centres (flagged),415,1.5,worldTwh/worldPct,1 mark = 1 TWh; flagged marks are the 415
+1,world grid,everything else (grey backdrop),27252,98.5,worldGridTwh-worldTwh,back-solved from the rounded 1.5 %; number not printed
+2,data-centre total,United States,187,45,usDc/usPctDc,derived from the IEA share
+2,data-centre total,China,104,25,cnDc/cnPctDc,derived
+2,data-centre total,Europe,62,15,euDc/euPctDc,derived
+2,data-centre total,rest of world,62,15,restDc,415-187-104-62

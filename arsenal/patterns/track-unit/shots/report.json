@@ -1,0 +1,292 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/track-unit/demo.html",
+ "errors": [],
+ "variants": {
+  "pooled-split": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/pooled-split-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/pooled-split-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/pooled-split-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/pooled-split-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "stack-ring": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/stack-ring-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/stack-ring-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/stack-ring-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/stack-ring-t12.00.png"
+   ],
+   "purity": "identical"
+  },
+  "grid-columns-lamp": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/grid-columns-lamp-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/grid-columns-lamp-t3.96.png",
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/grid-columns-lamp-t8.04.png",
+    "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/grid-columns-lamp-t12.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 7.8,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/track-unit/shots/contact.png",
+ "lint": {
+  "pooled-split": {
+   "frames": 50,
+   "count": 4526,
+   "areaFrom": 104279.04,
+   "areaTo": 104279.04,
+   "areaErrMax": 0,
+   "maxStep": 32.989,
+   "maxPath": 510.533,
+   "continuous": true,
+   "failures": 0,
+   "firstFailure": null,
+   "sizeMode": "common",
+   "ok": true
+  },
+  "stack-ring": {
+   "frames": 50,
+   "count": 360,
+   "areaFrom": 18125,
+   "areaTo": 18125,
+   "areaErrMax": 0,
+   "maxStep": 42.623,
+   "maxPath": 664.882,
+   "continuous": true,
+   "failures": 0,
+   "firstFailure": null,
+   "sizeMode": "common",
+   "ok": true
+  },
+  "grid-columns-lamp": {
+   "frames": 50,
+   "count": 1000,
+   "areaFrom": 67412.742,
+   "areaTo": 67412.742,
+   "areaErrMax": 0,
+   "maxStep": 38.682,
+   "maxPath": 601.348,
+   "continuous": true,
+   "failures": 0,
+   "firstFailure": null,
+   "sizeMode": "common",
+   "ok": true
+  }
+ },
+ "negative_control": {
+  "pooled-split": {
+   "sizeMode": "own",
+   "ok": true,
+   "failures": 0,
+   "areaErrMax": 0
+  },
+  "stack-ring": {
+   "sizeMode": "own",
+   "ok": false,
+   "failures": 49,
+   "areaErrMax": 0.34963579604578354
+  },
+  "grid-columns-lamp": {
+   "sizeMode": "own",
+   "ok": false,
+   "failures": 49,
+   "areaErrMax": 1.2972540807299124
+  }
+ },
+ "bench": {
+  "pooled-split": {
+   "v": "pooled-split",
+   "mean_ms": 5.285714285714286,
+   "max_ms": 8.399999999906868
+  },
+  "stack-ring": {
+   "v": "stack-ring",
+   "mean_ms": 1.0999999999933476,
+   "max_ms": 1.5999999998603016
+  },
+  "grid-columns-lamp": {
+   "v": "grid-columns-lamp",
+   "mean_ms": 2.0857142857275903,
+   "max_ms": 3.5
+  }
+ },
+ "count_at": {
+  "pooled-split": [
+   {
+    "t": 0,
+    "units": 4526,
+    "shown": 4526,
+    "inFlight": 0,
+    "tagged": 2,
+    "phase": "from",
+    "u": 0,
+    "lamp": null
+   },
+   {
+    "t": 4,
+    "units": 4526,
+    "shown": 4526,
+    "inFlight": 4526,
+    "tagged": 2,
+    "phase": "move",
+    "u": 0.375,
+    "lamp": null
+   },
+   {
+    "t": 8,
+    "units": 4526,
+    "shown": 4526,
+    "inFlight": 0,
+    "tagged": 2,
+    "phase": "to",
+    "u": 1,
+    "lamp": null
+   },
+   {
+    "t": 12,
+    "units": 4526,
+    "shown": 4526,
+    "inFlight": 0,
+    "tagged": 2,
+    "phase": "to",
+    "u": 1,
+    "lamp": null
+   }
+  ],
+  "stack-ring": [
+   {
+    "t": 0,
+    "units": 360,
+    "shown": 360,
+    "inFlight": 0,
+    "tagged": 1,
+    "phase": "from",
+    "u": 0,
+    "lamp": null
+   },
+   {
+    "t": 4,
+    "units": 360,
+    "shown": 360,
+    "inFlight": 0,
+    "tagged": 1,
+    "phase": "from",
+    "u": 0,
+    "lamp": null
+   },
+   {
+    "t": 8,
+    "units": 360,
+    "shown": 360,
+    "inFlight": 360,
+    "tagged": 1,
+    "phase": "move",
+    "u": 0.5,
+    "lamp": null
+   },
+   {
+    "t": 12,
+    "units": 360,
+    "shown": 360,
+    "inFlight": 0,
+    "tagged": 1,
+    "phase": "to",
+    "u": 1,
+    "lamp": null
+   }
+  ],
+  "grid-columns-lamp": [
+   {
+    "t": 0,
+    "units": 1000,
+    "shown": 1000,
+    "inFlight": 0,
+    "tagged": 1,
+    "phase": "from",
+    "u": 0,
+    "lamp": {
+     "base": 0,
+     "baseOf": 98,
+     "hit": 0,
+     "hitOf": 9,
+     "ratioShown": false
+    }
+   },
+   {
+    "t": 4,
+    "units": 1000,
+    "shown": 1000,
+    "inFlight": 0,
+    "tagged": 1,
+    "phase": "from",
+    "u": 0,
+    "lamp": {
+     "base": 98,
+     "baseOf": 98,
+     "hit": 6,
+     "hitOf": 9,
+     "ratioShown": false
+    }
+   },
+   {
+    "t": 8,
+    "units": 1000,
+    "shown": 1000,
+    "inFlight": 1000,
+    "tagged": 1,
+    "phase": "move",
+    "u": 0.4286,
+    "lamp": {
+     "base": 98,
+     "baseOf": 98,
+     "hit": 9,
+     "hitOf": 9,
+     "ratioShown": true
+    }
+   },
+   {
+    "t": 12,
+    "units": 1000,
+    "shown": 1000,
+    "inFlight": 0,
+    "tagged": 1,
+    "phase": "to",
+    "u": 1,
+    "lamp": {
+     "base": 98,
+     "baseOf": 98,
+     "hit": 9,
+     "hitOf": 9,
+     "ratioShown": true
+    }
+   }
+  ]
+ },
+ "stats": {
+  "fontNotes": [],
+  "sizes": {
+   "pooled-split": {
+    "S": 4.800000000000001,
+    "legible": false,
+    "from": "bars",
+    "to": "split"
+   },
+   "stack-ring": {
+    "S": 10,
+    "legible": true,
+    "from": "stack",
+    "to": "ring"
+   },
+   "grid-columns-lamp": {
+    "S": 8.210526315789474,
+    "legible": true,
+    "from": "grid",
+    "to": "bars"
+   }
+  }
+ },
+ "verify_errors": []
+}

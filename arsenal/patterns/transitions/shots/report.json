@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/transitions/demo.html",
+ "errors": [],
+ "variants": {
+  "four-scenes": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/four-scenes-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/four-scenes-t4.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/four-scenes-t8.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/four-scenes-t10.80.png"
+   ],
+   "purity": "identical"
+  },
+  "plain-cuts": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/plain-cuts-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/plain-cuts-t4.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/plain-cuts-t8.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/plain-cuts-t10.80.png"
+   ],
+   "purity": "identical"
+  },
+  "match-cut": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/match-cut-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/match-cut-t4.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/match-cut-t8.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/match-cut-t10.80.png"
+   ],
+   "purity": "identical"
+  },
+  "zoom-through": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/zoom-through-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/zoom-through-t4.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/zoom-through-t8.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/zoom-through-t10.80.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 13.4,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/transitions/shots/contact.png"
+}

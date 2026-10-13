@@ -1,0 +1,20 @@
+{
+ "id": "pass-every-time",
+ "verdict": "SHIP",
+ "seat": "director, after two tier-1 rounds (knobs, captions) and one tier-2 film.js revision; before/after sheet and strips read at 480x270; commit beat off (D11)",
+ "truth": [
+  {"claim": "tau-bench retail, GPT-4o, 2024: 115 tasks x 4 tries = 460 cubes; 278 lit; 44 tasks pass all four, 22 never pass; 60.4 % per try, 38.3 % every time", "status": "ok", "note": "counts on screen before each ratio (278 of 460, 44 of 115); the paper's pass^8 under 25 % stays a sourced caption; no simulated 8-try readout (director's choice)"},
+  {"claim": "296 SWE-bench-passing pull requests read by 4 maintainers: about half would not be merged", "status": "ok", "note": "METR 2025; shown as a split of the same 296 marks, 'about half' as the paper words it"},
+  {"claim": "METR horizons: 27 minutes at the 80 % bar, 4 h 49 min (289 min) at the 50 % bar, about 10 times", "status": "ok", "note": "one cube = one minute; both columns on one frame before the ratio; the CI is in claims, not on stage"}
+ ],
+ "craft": 4, "originality": 4, "stop": 4,
+ "legibility_phone": "ok (readouts at or above 16 units; G6 overflow is the kit shell)",
+ "format": {"counts_first": true, "commit_before_number": "n/a (D11)", "brand_card": true, "honest_line": true, "exec_clean": "n/a (level manager)"},
+ "moves_3d": ["plan field to columns (36-52 s)", "re-sort into five bands by tries passed (60-72 s)", "the cut plane at four high (77-91 s)", "the PR sheet split (100-119 s)", "the minute columns (121-135 s)", "return to the plan field for Monday (137 s)"],
+ "defects": [
+  {"t": 70, "what": "G5c reads the running count-in as unclaimed digits (kit defect 7)", "severity": "low"},
+  {"t": 100, "what": "the first PR row lands exactly at the cut; a cold viewer gets 0.5 s of near-empty stage", "severity": "low"},
+  {"t": 145, "what": "the Monday type and the honest line share the frame with the field; both read, but the frame is full", "severity": "low"}
+ ],
+ "notes": "Numbers were read from search snippets (egress blocked); re-verify tau-bench (Yao et al. 2024), METR 2025 horizons and the PR study before public use. What it buys a viewer: the same cubes give 60 % and 38 %; which one was quoted?"
+}

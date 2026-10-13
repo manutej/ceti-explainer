@@ -1,0 +1,43 @@
+{
+ "film": "who-gains",
+ "findings": "factory/films/who-gains/findings.r2.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:devLookDz",
+   "old": -20,
+   "new": -45,
+   "finding": {
+    "t": 89.0,
+    "frame": "strip-15.png cell 10 (thumbs/t-0089.00.jpg)",
+    "severity": "minor",
+    "what": "After round 1 the agents row is dim and clear of the readout, but a brown stub of the lowest fifth stays cut by the left canvas edge in every thumb 77-101 s.",
+    "why": "Shifting the developers view further from the agents row takes the stub out of frame; check the developers wall stays centred and the +26 % pin stays clear of the right edge.",
+    "knob": "devLookDz",
+    "proposed_value": -45
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-neosage-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/who-gains/build/who-gains.ceti-neosage-dark.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/who-gains/build/who-gains.ceti-neosage-dark.none.html  1298912 bytes  sha256 4a826aa38971f432a78bd523438128926d6169b15ddeac9e67a4b0f6b916223c  (film code 82577 bytes; brand ceti-neosage-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 17.5  muted 11.4  accent 12.8  onDark/dark 17.5\nrenderer webgl; knobs 161; fonts3d none; libs lib/gl-post.js\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/who-gains/gate.json",
+  "log": "laims (chrome?): 351 @13s \"351\"; 937 @14s \"937\"; 1,522 @15s \"1,522\"; 2,693 @17s \"2,693\"; 3,279 @18s \"3,279\"; 3,864 @19s \"3,864\"\n  G6 legibility                  PASS  14 must-read / 14 secondary / 29 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390\n  G7 counts first                PASS  count at 22 s (count.at); first ratio \"On average: +14 % issues resolved per ho\" at 26 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 89.8 KB (film.js 57.9, film.json 22.8, claims.json 9.2) < 120 KB; page 1.299 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand ceti-neosage-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes\n  G11 text overlap               PASS  307 samples every 0.5 s, 93 distinct texts (texts with data-role), caption showing at 266; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames who-gains: 307 frames every 0.5 s → 26 strip(s) in factory/films/who-gains/frames; 0.445 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0"
+ }
+}

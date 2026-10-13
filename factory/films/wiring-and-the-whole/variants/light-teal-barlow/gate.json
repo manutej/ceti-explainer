@@ -1,0 +1,184 @@
+{
+  "film": "wiring-and-the-whole",
+  "page": "factory/films/wiring-and-the-whole/build/wiring-and-the-whole.midnight-ink--light-acc0f766e-typebarlow.none.html",
+  "filmDir": "factory/films/wiring-and-the-whole",
+  "date": "2026-10-10T07:27:13.852Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 609 ms; stage sd 23s:33.6 57.5s:33.6 92s:34.1",
+      "data": {
+        "readyMs": 609,
+        "stats": [
+          {
+            "t": 23,
+            "mean": 225.27557112263875,
+            "sd": 33.59999569601699
+          },
+          {
+            "t": 57.5,
+            "mean": 221.95541700420637,
+            "sd": 33.61066007639057
+          },
+          {
+            "t": 92,
+            "mean": 224.19569038382943,
+            "sd": 34.142781047489926
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 11.5, 34.5, 57.5, 80.5, 103.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 115 s; material 112 s (want 90–120, format feature) + brand 3 s; total ≤ 123"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C9 C17 C55 M104"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 10 s (want 8–16); film-mode default 9"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Ship the wiring, not the whole.\"; frame at 114 s sd 20.3; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Every number here is the repo's own report (README, HANDOFF, the results files, \""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "11 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "99 claims, 99 with formula, 99 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 29 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "PASS",
+      "evidence": "every visible SVG number is a claim value",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "15 must-read / 27 secondary / 12 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 15,
+          "secondary": 27,
+          "chrome": 12
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 55 s (count.at); first ratio \"93.8% vs 95.3%, at 63% of the tokens. No\" at 77 s (caption)"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 119.9 KB (film.js 93.3, film.json 10.1, claims.json 16.5) < 120 KB; page 1.292 MB < 1.3 MB",
+      "data": {
+        "code": 122735,
+        "page": 1291871
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand midnight-ink--light-acc0f766e-typebarlow, chrome none, material ink, texture paper; level exec (default); via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "midnight-ink--light-acc0f766e-typebarlow",
+          "chrome": "none",
+          "material": "ink",
+          "texture": "paper",
+          "texture_declared": "paper",
+          "level": "exec",
+          "renderer": "2d",
+          "box": null
+        },
+        "level": "exec",
+        "bad": []
+      }
+    }
+  ]
+}

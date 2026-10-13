@@ -1,0 +1,3731 @@
+{
+ "page": "factory/films/how-a-network-learns/drafts/b/build/how-a-network-learns.ceti-neosage-dark.none.html",
+ "film": "how-a-network-learns",
+ "dur": 123,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-neosage-dark",
+ "axes": {
+  "brand": "ceti-neosage-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "revealAt0",
+   "range": [
+    0,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: the first flower appears (HOOK count-in starts)",
+   "value": 0.4
+  },
+  {
+   "name": "revealAt1",
+   "range": [
+    1,
+    10
+   ],
+   "step": 0.1,
+   "what": "s: all 150 flowers are in",
+   "value": 4
+  },
+  {
+   "name": "speciesAt",
+   "range": [
+    10,
+    20
+   ],
+   "step": 0.1,
+   "what": "s: species colours come up (CASE)",
+   "value": 12.4
+  },
+  {
+   "name": "turnAt0",
+   "range": [
+    12,
+    26
+   ],
+   "step": 0.1,
+   "what": "s: the camera starts turning to the petal-length axis",
+   "value": 17.6
+  },
+  {
+   "name": "turnAt1",
+   "range": [
+    14,
+    29
+   ],
+   "step": 0.1,
+   "what": "s: the camera faces petal length x petal width",
+   "value": 22.4
+  },
+  {
+   "name": "bandAt",
+   "range": [
+    20,
+    29.5
+   ],
+   "step": 0.1,
+   "what": "s: the shared 4.5-5.1 cm band and its callout appear",
+   "value": 26.6
+  },
+  {
+   "name": "xfade",
+   "range": [
+    0.1,
+    1.2
+   ],
+   "step": 0.05,
+   "what": "s: half-length of the fade through the ground at each structure cut",
+   "value": 0.4
+  },
+  {
+   "name": "landAt",
+   "range": [
+    28,
+    34
+   ],
+   "step": 0.1,
+   "what": "s: cut from the cloud to the loss landscape",
+   "value": 30
+  },
+  {
+   "name": "riseAt0",
+   "range": [
+    30,
+    40
+   ],
+   "step": 0.1,
+   "what": "s: the landscape starts rising out of the ground (and tilting from plan)",
+   "value": 33
+  },
+  {
+   "name": "riseAt1",
+   "range": [
+    33,
+    44
+   ],
+   "step": 0.1,
+   "what": "s: the landscape is at full height, camera at camEl",
+   "value": 40
+  },
+  {
+   "name": "ballAt",
+   "range": [
+    36,
+    44
+   ],
+   "step": 0.1,
+   "what": "s: the ball appears at the start, START callout",
+   "value": 40.2
+  },
+  {
+   "name": "runAt",
+   "range": [
+    42,
+    48
+   ],
+   "step": 0.1,
+   "what": "s: the ball starts descending (step 0)",
+   "value": 45.2
+  },
+  {
+   "name": "stepsPerSec",
+   "range": [
+    40,
+    300
+   ],
+   "step": 10,
+   "what": "steps per second on the linear step clock of the descent",
+   "value": 100
+  },
+  {
+   "name": "cutAt",
+   "range": [
+    47,
+    56
+   ],
+   "step": 0.1,
+   "what": "s: the section cut snaps to the ball, END callout, profile inset",
+   "value": 50.8
+  },
+  {
+   "name": "ribAt",
+   "range": [
+    56,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: cut to the network ribbons",
+   "value": 58
+  },
+  {
+   "name": "ride0",
+   "range": [
+    58,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: the 150 marks ride the step-0 network (count lands at ride0 + rideDur)",
+   "value": 58.2
+  },
+  {
+   "name": "ride10",
+   "range": [
+    61,
+    66
+   ],
+   "step": 0.1,
+   "what": "s: the marks ride the step-10 network",
+   "value": 63
+  },
+  {
+   "name": "ride50",
+   "range": [
+    68,
+    75
+   ],
+   "step": 0.1,
+   "what": "s: the marks ride the step-50 network",
+   "value": 72.2
+  },
+  {
+   "name": "ride100",
+   "range": [
+    72,
+    78
+   ],
+   "step": 0.1,
+   "what": "s: the marks ride the step-100 network",
+   "value": 75.2
+  },
+  {
+   "name": "ride1000",
+   "range": [
+    76,
+    81
+   ],
+   "step": 0.1,
+   "what": "s: the marks ride the step-1,000 network",
+   "value": 78.4
+  },
+  {
+   "name": "rideDur",
+   "range": [
+    2.2,
+    4.5
+   ],
+   "step": 0.1,
+   "what": "s: one ride, input slabs to the species trays",
+   "value": 3
+  },
+  {
+   "name": "subLag",
+   "range": [
+    0.4,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: delay of the OF 150 · 90 % line after the 135 count lands",
+   "value": 1
+  },
+  {
+   "name": "cloudAt",
+   "range": [
+    82,
+    86
+   ],
+   "step": 0.1,
+   "what": "s: cut back to the flower cloud, brushed",
+   "value": 84
+  },
+  {
+   "name": "clock0",
+   "range": [
+    84,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: the brush step clock starts at step 0",
+   "value": 84.4
+  },
+  {
+   "name": "clock1",
+   "range": [
+    94,
+    102
+   ],
+   "step": 0.1,
+   "what": "s: the brush step clock reaches step 1,000",
+   "value": 100
+  },
+  {
+   "name": "dollyAt0",
+   "range": [
+    99,
+    104
+   ],
+   "step": 0.1,
+   "what": "s: dolly to the two wrong flowers starts, ROW 84 callout",
+   "value": 101
+  },
+  {
+   "name": "dollyAt1",
+   "range": [
+    101,
+    107
+   ],
+   "step": 0.1,
+   "what": "s: dolly ends",
+   "value": 104
+  },
+  {
+   "name": "row134At",
+   "range": [
+    102,
+    107
+   ],
+   "step": 0.1,
+   "what": "s: the callout cuts from ROW 84 to ROW 134",
+   "value": 104.6
+  },
+  {
+   "name": "mondayAt",
+   "range": [
+    107,
+    110
+   ],
+   "step": 0.1,
+   "what": "s: MONDAY: the cloud holds and dims",
+   "value": 108
+  },
+  {
+   "name": "cloudSize",
+   "range": [
+    280,
+    460
+   ],
+   "step": 10,
+   "what": "cloud cube edge, world units",
+   "value": 380
+  },
+  {
+   "name": "pointR",
+   "range": [
+    2,
+    9
+   ],
+   "step": 0.2,
+   "what": "flower disc radius, world px",
+   "value": 5.2
+  },
+  {
+   "name": "sizeCue",
+   "range": [
+    0,
+    1.2
+   ],
+   "step": 0.05,
+   "what": "extra disc size by view depth",
+   "value": 0.6
+  },
+  {
+   "name": "fog",
+   "range": [
+    0,
+    0.3
+   ],
+   "step": 0.02,
+   "what": "fog toward the night ground (<= 0.3 per the card)",
+   "value": 0.3
+  },
+  {
+   "name": "fogStart",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "fraction of cube depth where fog begins",
+   "value": 0.15
+  },
+  {
+   "name": "dim",
+   "range": [
+    0.3,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "how far a wrong flower dims toward the ground under the brush",
+   "value": 0.7
+  },
+  {
+   "name": "litGrow",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "disc growth when a flower comes right",
+   "value": 0.25
+  },
+  {
+   "name": "litMix",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "lit flowers mixed toward the accent (dawn tint)",
+   "value": 0.2
+  },
+  {
+   "name": "camSwing",
+   "range": [
+    0,
+    90
+   ],
+   "step": 5,
+   "what": "HOOK orbit, deg of yaw",
+   "value": 40
+  },
+  {
+   "name": "camPitch",
+   "range": [
+    0,
+    45
+   ],
+   "step": 1,
+   "what": "HOOK camera pitch, deg",
+   "value": 20
+  },
+  {
+   "name": "camDist",
+   "range": [
+    700,
+    1300
+   ],
+   "step": 10,
+   "what": "cloud camera distance",
+   "value": 980
+  },
+  {
+   "name": "frontPitch",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "pitch of the petal-length view, deg",
+   "value": 4
+  },
+  {
+   "name": "camSwing3",
+   "range": [
+    0,
+    60
+   ],
+   "step": 2,
+   "what": "COUNT orbit over the brushed cloud, deg",
+   "value": 24
+  },
+  {
+   "name": "pitch3",
+   "range": [
+    0,
+    40
+   ],
+   "step": 1,
+   "what": "COUNT camera pitch, deg",
+   "value": 14
+  },
+  {
+   "name": "dolly",
+   "range": [
+    380,
+    900
+   ],
+   "step": 10,
+   "what": "camera distance at the end of the dolly to rows 84 and 134",
+   "value": 620
+  },
+  {
+   "name": "bandAlpha",
+   "range": [
+    0.04,
+    0.4
+   ],
+   "step": 0.01,
+   "what": "opacity of the shared petal-length band",
+   "value": 0.14
+  },
+  {
+   "name": "brushClock",
+   "options": [
+    "log",
+    "linear"
+   ],
+   "what": "step clock of the brushed cloud",
+   "value": "log"
+  },
+  {
+   "name": "dawn",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.02,
+   "what": "glow behind the cloud as the step clock nears 1,000",
+   "value": 0.32
+  },
+  {
+   "name": "frame",
+   "options": [
+    "on",
+    "off"
+   ],
+   "what": "the data cube edges",
+   "value": "on"
+  },
+  {
+   "name": "mondayDim",
+   "range": [
+    0.3,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "MONDAY dim over the held cloud",
+   "value": 0.7
+  },
+  {
+   "name": "hscale",
+   "range": [
+    60,
+    260
+   ],
+   "step": 10,
+   "what": "height of loss 1.4 in world units",
+   "value": 170
+  },
+  {
+   "name": "contours",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "contour intervals over loss 0 to 1.4 (0 = off)",
+   "value": 8
+  },
+  {
+   "name": "contourRole",
+   "options": [
+    "muted",
+    "chalk",
+    "ink",
+    "accent"
+   ],
+   "what": "contour line role",
+   "value": "muted"
+  },
+  {
+   "name": "camEl0",
+   "range": [
+    60,
+    89
+   ],
+   "step": 1,
+   "what": "plan-view elevation before the tilt, deg",
+   "value": 89
+  },
+  {
+   "name": "camEl",
+   "range": [
+    10,
+    70
+   ],
+   "step": 1,
+   "what": "elevation after the tilt, deg",
+   "value": 32
+  },
+  {
+   "name": "camAz0",
+   "range": [
+    -60,
+    30
+   ],
+   "step": 2,
+   "what": "azimuth after the tilt, deg",
+   "value": -14
+  },
+  {
+   "name": "camAz1",
+   "range": [
+    -70,
+    30
+   ],
+   "step": 2,
+   "what": "azimuth by the end of the run, deg",
+   "value": -26
+  },
+  {
+   "name": "camAzCut",
+   "range": [
+    -85,
+    -20
+   ],
+   "step": 1,
+   "what": "azimuth for the section cut (negative to see the face), deg",
+   "value": -58
+  },
+  {
+   "name": "camDist2",
+   "range": [
+    0.9,
+    1.6
+   ],
+   "step": 0.02,
+   "what": "landscape camera distance x mesh width",
+   "value": 1.3
+  },
+  {
+   "name": "liftY2",
+   "range": [
+    0,
+    160
+   ],
+   "step": 5,
+   "what": "landscape raised in world units (keeps the near edge off the captions)",
+   "value": 110
+  },
+  {
+   "name": "ballR",
+   "range": [
+    3,
+    14
+   ],
+   "step": 0.5,
+   "what": "ball radius, world units",
+   "value": 7
+  },
+  {
+   "name": "trailW",
+   "range": [
+    0.5,
+    5
+   ],
+   "step": 0.1,
+   "what": "descent trail width, px",
+   "value": 2.2
+  },
+  {
+   "name": "dropLine",
+   "range": [
+    0,
+    3
+   ],
+   "step": 0.1,
+   "what": "drop line from the ball to the ground, px (0 = off)",
+   "value": 1.2
+  },
+  {
+   "name": "cutMode",
+   "options": [
+    "section",
+    "band",
+    "off"
+   ],
+   "what": "how the cut at the ball is drawn",
+   "value": "section"
+  },
+  {
+   "name": "insetW",
+   "range": [
+    200,
+    360
+   ],
+   "step": 10,
+   "what": "section inset width, sheet units",
+   "value": 270
+  },
+  {
+   "name": "insetH",
+   "range": [
+    90,
+    180
+   ],
+   "step": 5,
+   "what": "section inset height, sheet units",
+   "value": 120
+  },
+  {
+   "name": "layerX",
+   "range": [
+    420,
+    760
+   ],
+   "step": 10,
+   "what": "spread from input slabs to species slabs",
+   "value": 600
+  },
+  {
+   "name": "widthGain",
+   "range": [
+    4,
+    14
+   ],
+   "step": 0.5,
+   "what": "ribbon width per unit |weight|, world px",
+   "value": 7.5
+  },
+  {
+   "name": "gap",
+   "range": [
+    4,
+    24
+   ],
+   "step": 1,
+   "what": "gap between slabs of one layer",
+   "value": 9
+  },
+  {
+   "name": "slabW",
+   "range": [
+    8,
+    40
+   ],
+   "step": 1,
+   "what": "slab width",
+   "value": 16
+  },
+  {
+   "name": "slabD",
+   "range": [
+    10,
+    60
+   ],
+   "step": 1,
+   "what": "slab depth",
+   "value": 26
+  },
+  {
+   "name": "zSpread",
+   "range": [
+    0,
+    120
+   ],
+   "step": 2,
+   "what": "depth between nodes of one layer",
+   "value": 36
+  },
+  {
+   "name": "curv",
+   "range": [
+    0.3,
+    0.7
+   ],
+   "step": 0.05,
+   "what": "ribbon spline handle length",
+   "value": 0.5
+  },
+  {
+   "name": "thick",
+   "range": [
+    4,
+    40
+   ],
+   "step": 1,
+   "what": "ribbon band depth",
+   "value": 8
+  },
+  {
+   "name": "grow",
+   "range": [
+    0.3,
+    2
+   ],
+   "step": 0.1,
+   "what": "ribbon draw-on seconds per layer",
+   "value": 0.5
+  },
+  {
+   "name": "tail",
+   "range": [
+    0.3,
+    1.5
+   ],
+   "step": 0.1,
+   "what": "s at the end of a ride kept for the marks to settle",
+   "value": 0.6
+  },
+  {
+   "name": "markSize",
+   "range": [
+    1.2,
+    7
+   ],
+   "step": 0.2,
+   "what": "mark side, world px",
+   "value": 4.2
+  },
+  {
+   "name": "halo",
+   "range": [
+    0,
+    0.5
+   ],
+   "step": 0.02,
+   "what": "glow around each riding mark",
+   "value": 0.22
+  },
+  {
+   "name": "fogK",
+   "range": [
+    0,
+    0.35
+   ],
+   "step": 0.05,
+   "what": "depth fog toward the ground on ribbons",
+   "value": 0.3
+  },
+  {
+   "name": "stripes",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.1,
+   "what": "travelling stripes on ribbons (0: WARN in the brief)",
+   "value": 0
+  },
+  {
+   "name": "ribbonMix",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.05,
+   "what": "ribbon colour strength over the ground",
+   "value": 0.38
+  },
+  {
+   "name": "pulse",
+   "range": [
+    0,
+    0.5
+   ],
+   "step": 0.02,
+   "what": "ribbon brightening as the signal passes",
+   "value": 0.35
+  },
+  {
+   "name": "ribYaw",
+   "range": [
+    -40,
+    40
+   ],
+   "step": 1,
+   "what": "network camera yaw, deg",
+   "value": -16
+  },
+  {
+   "name": "ribPitch",
+   "range": [
+    0,
+    35
+   ],
+   "step": 1,
+   "what": "network camera pitch, deg",
+   "value": 12
+  },
+  {
+   "name": "ribDist",
+   "range": [
+    650,
+    1200
+   ],
+   "step": 10,
+   "what": "network camera distance",
+   "value": 960
+  },
+  {
+   "name": "ribDrift",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "slow yaw drift over the COUNT ribbons, deg",
+   "value": 6
+  },
+  {
+   "name": "ribLookX",
+   "range": [
+    -100,
+    160
+   ],
+   "step": 5,
+   "what": "network camera look-at x (larger = network further left)",
+   "value": 70
+  },
+  {
+   "name": "ribLookY",
+   "range": [
+    -120,
+    60
+   ],
+   "step": 5,
+   "what": "network camera look-at y (negative = network lower)",
+   "value": -40
+  },
+  {
+   "name": "trayCols",
+   "range": [
+    6,
+    20
+   ],
+   "step": 1,
+   "what": "marks per row in a species tray",
+   "value": 16
+  },
+  {
+   "name": "trayGap",
+   "range": [
+    6,
+    40
+   ],
+   "step": 1,
+   "what": "gap from a species slab to its tray",
+   "value": 16
+  },
+  {
+   "name": "hold",
+   "range": [
+    0,
+    15
+   ],
+   "step": 1,
+   "what": "frames a label must be pushed before it hides (gl-labels)",
+   "value": 6
+  },
+  {
+   "name": "leader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "label leader length, sheet units",
+   "value": 22
+  },
+  {
+   "name": "calloutLeader",
+   "range": [
+    40,
+    90
+   ],
+   "step": 2,
+   "what": "travelling callout leader length",
+   "value": 56
+  },
+  {
+   "name": "calloutSize",
+   "range": [
+    28,
+    48
+   ],
+   "step": 1,
+   "what": "travelling callout size (result face)",
+   "value": 32
+  },
+  {
+   "name": "maxShown",
+   "range": [
+    1,
+    12
+   ],
+   "step": 1,
+   "what": "label budget per frame",
+   "value": 8
+  },
+  {
+   "name": "headSize",
+   "range": [
+    40,
+    96
+   ],
+   "step": 2,
+   "what": "size of the ribbon headline count",
+   "value": 72
+  }
+ ],
+ "ms_per_frame": 143,
+ "s_per_frame": 0.143,
+ "purity": {
+  "pass": true,
+  "at": {
+   "24.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "61.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "98.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "A small network is shown 150 flowers and their names.",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "After 10 steps of learning, how many does it get right?",
+   "chapter": {
+    "id": "hook",
+    "title": "Still training"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "Irises measured by Edgar Anderson in 1935; Fisher, 1936.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "150 flowers, 3 species, 4 measurements. Three drawn here.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Setosa stands apart: no petal longer than 1.9 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Setosa stands apart: no petal longer than 1.9 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "Setosa stands apart: no petal longer than 1.9 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "Setosa stands apart: no petal longer than 1.9 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "Setosa stands apart: no petal longer than 1.9 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "Setosa stands apart: no petal longer than 1.9 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "Setosa stands apart: no petal longer than 1.9 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "Versicolor and virginica overlap: 37 share 4.5–5.1 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "Versicolor and virginica overlap: 37 share 4.5–5.1 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "Versicolor and virginica overlap: 37 share 4.5–5.1 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "Versicolor and virginica overlap: 37 share 4.5–5.1 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "Versicolor and virginica overlap: 37 share 4.5–5.1 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "Versicolor and virginica overlap: 37 share 4.5–5.1 cm.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "The network: 4 measurements in, 8 hidden units, 3 names out.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "67 weights decide its answers. Wrong answers cost loss.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "67 weights decide its answers. Wrong answers cost loss.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "67 weights decide its answers. Wrong answers cost loss.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "67 weights decide its answers. Wrong answers cost loss.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "67 weights decide its answers. Wrong answers cost loss.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "67 weights decide its answers. Wrong answers cost loss.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "67 weights decide its answers. Wrong answers cost loss.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "67 weights decide its answers. Wrong answers cost loss.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "67 weights decide its answers. Wrong answers cost loss.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Two of the weights as ground, loss as height.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Two of the weights as ground, loss as height.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "Two of the weights as ground, loss as height.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "Two of the weights as ground, loss as height.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "Two of the weights as ground, loss as height.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "Two of the weights as ground, loss as height.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "Two of the weights as ground, loss as height.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "Two of the weights as ground, loss as height.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "Two of the weights as ground, loss as height.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": "Learning is 1,000 steps downhill. It starts at loss 1.393.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "Off the wall at once, then a long crawl down to 0.039.",
+   "chapter": {
+    "id": "case",
+    "title": "The flowers and the slope"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "The same 150 flowers ride through the network.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "The same 150 flowers ride through the network.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "The same 150 flowers ride through the network.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "The same 150 flowers ride through the network.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "The same 150 flowers ride through the network.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Random weights: 13 land on the right name.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "Random weights: 13 land on the right name.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Random weights: 13 land on the right name.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Random weights: 13 land on the right name.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Random weights: 13 land on the right name.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Random weights: 13 land on the right name.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Random weights: 13 land on the right name.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Random weights: 13 land on the right name.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Random weights: 13 land on the right name.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "After 10 steps: 135 right. 122 more, in 10 steps.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Step 50: 144. Step 100: 146. The weights keep growing.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "Step 1,000: 148 of 150. 2 never land right.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "Lit = right. 90 % of the loss drop is done by step 34.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "From 13 to 140 right took 23 steps. The last 8 took 208.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "Then 769 more steps, and not one more flower.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "The 2 it misses sit where versicolor and virginica overlap.",
+   "chapter": {
+    "id": "count",
+    "title": "Fast at first"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "Monday: when the curve goes flat, what is it still missing?",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "Graded on the 150 it learned from; new flowers untested.",
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  },
+  {
+   "t": 122.99,
+   "file": "thumbs/t-0122.99.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "When the curve goes flat"
+   }
+  }
+ ]
+}

@@ -1,0 +1,3772 @@
+{
+ "page": "factory/films/women-and-children/drafts/a/build/women-and-children.ceti-boardwalk-dark.none.html",
+ "film": "women-and-children",
+ "dur": 123,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-boardwalk-dark",
+ "axes": {
+  "brand": "ceti-boardwalk-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "caseT0",
+   "range": [
+    11.5,
+    12.5
+   ],
+   "step": 0.1,
+   "what": "s: film time at which the stack-city clock starts (CASE t0); the module's local time is t - caseT0",
+   "value": 12
+  },
+  {
+   "name": "caseT1",
+   "range": [
+    56,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: film time at which the stack-city clock ends (CASE t1); beats below are converted to fractions of caseT1 - caseT0",
+   "value": 58
+  },
+  {
+   "name": "arrive0",
+   "range": [
+    12,
+    14
+   ],
+   "step": 0.1,
+   "what": "s: the first person boards (boxes start dropping into the three pooled columns)",
+   "value": 12.4
+  },
+  {
+   "name": "arrive1",
+   "range": [
+    20,
+    24
+   ],
+   "step": 0.1,
+   "what": "s: the last person has boarded; must be <= count.at 24.0 so 2,201 is landed before any ratio",
+   "value": 23.6
+  },
+  {
+   "name": "arrW",
+   "range": [
+    0.01,
+    0.1
+   ],
+   "step": 0.01,
+   "what": "fraction of the CASE clock one box takes to fall and grow into its berth (larger = softer arrival)",
+   "value": 0.04
+  },
+  {
+   "name": "drop",
+   "range": [
+    0,
+    100
+   ],
+   "step": 5,
+   "what": "world units a box falls from as it arrives (0 = boxes appear in place)",
+   "value": 60
+  },
+  {
+   "name": "lit0",
+   "range": [
+    25,
+    30
+   ],
+   "step": 0.1,
+   "what": "s: survivors start to light, bottom-up in every column",
+   "value": 29.8
+  },
+  {
+   "name": "lit1",
+   "range": [
+    30,
+    34
+   ],
+   "step": 0.1,
+   "what": "s: every survivor is lit (the LIVED row of the ledger lands)",
+   "value": 32
+  },
+  {
+   "name": "poolPins",
+   "range": [
+    35,
+    37
+   ],
+   "step": 0.1,
+   "what": "s: the pooled pins appear with their counts (N OF M)",
+   "value": 36
+  },
+  {
+   "name": "ratioDelay",
+   "range": [
+    1.5,
+    4
+   ],
+   "step": 0.1,
+   "what": "s: a pin's % waits this long after its count (floor 1.5: counts before ratios)",
+   "value": 1.5
+  },
+  {
+   "name": "poolOut",
+   "range": [
+    46,
+    48.4
+   ],
+   "step": 0.1,
+   "what": "s: the pooled pins fade before the re-berthing starts",
+   "value": 47.6
+  },
+  {
+   "name": "move0",
+   "range": [
+    48,
+    50
+   ],
+   "step": 0.1,
+   "what": "s: the boxes leave the pooled columns for their class berths",
+   "value": 48.5
+  },
+  {
+   "name": "move1",
+   "range": [
+    53,
+    57
+   ],
+   "step": 0.1,
+   "what": "s: the last box is in its class berth",
+   "value": 55.5
+  },
+  {
+   "name": "stagger",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "0-1: how spread out in time the boxes leave (0 = all at once; each box keeps its own path)",
+   "value": 0.25
+  },
+  {
+   "name": "lift",
+   "range": [
+    0,
+    40
+   ],
+   "step": 1,
+   "what": "world units: height of the arc each box makes between its two berths",
+   "value": 22
+  },
+  {
+   "name": "orderMix",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "0 = seeded order, 1 = class order (the berths fill one class after another)",
+   "value": 0.5
+  },
+  {
+   "name": "berth0",
+   "range": [
+    40,
+    48
+   ],
+   "step": 0.1,
+   "what": "s: the class berths start to show as outlines on the deck (the empty crew-children berth among them)",
+   "value": 46
+  },
+  {
+   "name": "berth1",
+   "range": [
+    41,
+    50
+   ],
+   "step": 0.1,
+   "what": "s: the berth outlines are fully drawn",
+   "value": 48.5
+  },
+  {
+   "name": "berthOp",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "0-1: opacity of the berth outlines",
+   "value": 0.6
+  },
+  {
+   "name": "tag0",
+   "range": [
+    44,
+    49
+   ],
+   "step": 0.1,
+   "what": "s: the two followed people (a third-class child, a first-class man) take the accent and a riding pin",
+   "value": 47
+  },
+  {
+   "name": "tag1",
+   "range": [
+    56,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: the followed people return to their group colour; pins off",
+   "value": 58
+  },
+  {
+   "name": "turn0",
+   "range": [
+    47,
+    51
+   ],
+   "step": 0.1,
+   "what": "s: the camera starts its turn (keep equal to move0: the turn and the re-berthing are one gesture)",
+   "value": 48.5
+  },
+  {
+   "name": "turn1",
+   "range": [
+    53,
+    57
+   ],
+   "step": 0.1,
+   "what": "s: the camera arrives at the berth view",
+   "value": 55.5
+  },
+  {
+   "name": "az0",
+   "range": [
+    0,
+    60
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the pooled view (0 = straight on the three columns)",
+   "value": 24
+  },
+  {
+   "name": "az1",
+   "range": [
+    70,
+    120
+   ],
+   "step": 1,
+   "what": "degrees: azimuth of the berth view (90 = square on to the class row)",
+   "value": 102
+  },
+  {
+   "name": "elev0",
+   "range": [
+    8,
+    45
+   ],
+   "step": 1,
+   "what": "degrees: elevation of the pooled view (higher shows more roofs)",
+   "value": 26
+  },
+  {
+   "name": "elev1",
+   "range": [
+    6,
+    40
+   ],
+   "step": 1,
+   "what": "degrees: elevation of the berth view (lower flattens the row, higher separates labels)",
+   "value": 24
+  },
+  {
+   "name": "orbitAmp",
+   "range": [
+    0,
+    8
+   ],
+   "step": 0.5,
+   "what": "degrees: amplitude of the calm orbit sway, the whole film (0 = still camera)",
+   "value": 3
+  },
+  {
+   "name": "orbitPeriod",
+   "range": [
+    20,
+    240
+   ],
+   "step": 5,
+   "what": "s: period of the calm orbit sway (longer = slower)",
+   "value": 60
+  },
+  {
+   "name": "fit0",
+   "range": [
+    0.8,
+    1.8
+   ],
+   "step": 0.05,
+   "what": "ortho extent multiplier in the pooled view (larger = further away)",
+   "value": 1.42
+  },
+  {
+   "name": "fit1",
+   "range": [
+    0.8,
+    1.8
+   ],
+   "step": 0.05,
+   "what": "ortho extent multiplier in the berth view (larger = further away)",
+   "value": 1.3
+  },
+  {
+   "name": "fitReveal",
+   "range": [
+    0.8,
+    1.1
+   ],
+   "step": 0.01,
+   "what": "multiplier on the extent during the reveal (below 1 = a slow push in)",
+   "value": 0.94
+  },
+  {
+   "name": "lookY",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "0-1 of the city height the camera looks at (larger moves the city down the frame)",
+   "value": 0.46
+  },
+  {
+   "name": "boxSize",
+   "range": [
+    4,
+    9
+   ],
+   "step": 0.1,
+   "what": "world units: edge of one person's box",
+   "value": 6.4
+  },
+  {
+   "name": "boxGap",
+   "range": [
+    0.3,
+    2
+   ],
+   "step": 0.1,
+   "what": "world units: seam between boxes",
+   "value": 0.8
+  },
+  {
+   "name": "slabLayers",
+   "range": [
+    12,
+    26
+   ],
+   "step": 1,
+   "what": "boxes high a class berth is (rate form: every berth the same height, so lit height = share who lived)",
+   "value": 20
+  },
+  {
+   "name": "slabDepth",
+   "range": [
+    2,
+    6
+   ],
+   "step": 1,
+   "what": "boxes deep a class berth is (along the view axis of the berth view)",
+   "value": 4
+  },
+  {
+   "name": "slabGap",
+   "range": [
+    6,
+    40
+   ],
+   "step": 1,
+   "what": "world units: aisle between classes",
+   "value": 26
+  },
+  {
+   "name": "pairGap",
+   "range": [
+    2,
+    16
+   ],
+   "step": 1,
+   "what": "world units: gap between the women, children and men berths of one class",
+   "value": 7
+  },
+  {
+   "name": "groupGap",
+   "range": [
+    10,
+    80
+   ],
+   "step": 1,
+   "what": "world units: gap between the three pooled columns",
+   "value": 56
+  },
+  {
+   "name": "poolLayers",
+   "range": [
+    12,
+    26
+   ],
+   "step": 1,
+   "what": "boxes high a pooled column is (rate form: width = how many, lit height = share who lived)",
+   "value": 20
+  },
+  {
+   "name": "poolDepth",
+   "range": [
+    2,
+    12
+   ],
+   "step": 1,
+   "what": "boxes deep a pooled column is",
+   "value": 8
+  },
+  {
+   "name": "deckPad",
+   "range": [
+    20,
+    160
+   ],
+   "step": 5,
+   "what": "world units: deck margin around the berths",
+   "value": 70
+  },
+  {
+   "name": "planks",
+   "range": [
+    0,
+    40
+   ],
+   "step": 1,
+   "what": "number of plank seams across the deck (0 = plain deck)",
+   "value": 16
+  },
+  {
+   "name": "dim",
+   "range": [
+    0.4,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "0-1: how far a person who did not live is mixed toward the deck (larger = darker)",
+   "value": 0.62
+  },
+  {
+   "name": "maskDim",
+   "range": [
+    0.5,
+    0.95
+   ],
+   "step": 0.01,
+   "what": "0-1: how far everyone outside the counted pair dims during the reveal",
+   "value": 0.86
+  },
+  {
+   "name": "ambient",
+   "range": [
+    0.2,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "fill light on every face (display-linear multiplier)",
+   "value": 0.5
+  },
+  {
+   "name": "keyLight",
+   "range": [
+    0.1,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "key light from above-left (display-linear multiplier)",
+   "value": 0.5
+  },
+  {
+   "name": "rimLight",
+   "range": [
+    0,
+    0.4
+   ],
+   "step": 0.02,
+   "what": "rim light from behind-right (display-linear multiplier)",
+   "value": 0.1
+  },
+  {
+   "name": "deckMix",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "0-1: deck colour from ground (0) to panel (1)",
+   "value": 0.85
+  },
+  {
+   "name": "plankMix",
+   "range": [
+    0,
+    0.4
+   ],
+   "step": 0.01,
+   "what": "0-1: plank seam colour from ground toward muted",
+   "value": 0.1
+  },
+  {
+   "name": "berthMix",
+   "range": [
+    0,
+    0.8
+   ],
+   "step": 0.02,
+   "what": "0-1: berth outline colour from ground toward accent",
+   "value": 0.32
+  },
+  {
+   "name": "hold",
+   "range": [
+    0,
+    15
+   ],
+   "step": 1,
+   "what": "frames a label must be pushed before it hides (gl-labels hysteresis)",
+   "value": 8
+  },
+  {
+   "name": "leader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "sheet units: leader length of a slab pin",
+   "value": 20
+  },
+  {
+   "name": "maxShown",
+   "range": [
+    1,
+    14
+   ],
+   "step": 1,
+   "what": "label budget per frame (manager: 12)",
+   "value": 12
+  },
+  {
+   "name": "pinLift",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "world units: a pin's anchor above its berth's roof",
+   "value": 4
+  },
+  {
+   "name": "pinSize",
+   "range": [
+    14,
+    20
+   ],
+   "step": 1,
+   "what": "sheet units: slab pin type (secondary floor 14)",
+   "value": 14
+  },
+  {
+   "name": "poolPinSize",
+   "range": [
+    28,
+    36
+   ],
+   "step": 1,
+   "what": "sheet units: pooled pin type (result floor 28)",
+   "value": 28
+  },
+  {
+   "name": "calloutSize",
+   "range": [
+    28,
+    48
+   ],
+   "step": 1,
+   "what": "sheet units: callout type (result)",
+   "value": 34
+  },
+  {
+   "name": "calloutLeader",
+   "range": [
+    40,
+    90
+   ],
+   "step": 2,
+   "what": "sheet units: callout leader length",
+   "value": 56
+  },
+  {
+   "name": "revealSize",
+   "range": [
+    28,
+    56
+   ],
+   "step": 1,
+   "what": "sheet units: the two reveal results",
+   "value": 40
+  },
+  {
+   "name": "per10Size",
+   "range": [
+    28,
+    48
+   ],
+   "step": 1,
+   "what": "sheet units: the natural-frequency line in the reveal",
+   "value": 36
+  },
+  {
+   "name": "plate",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.02,
+   "what": "0-1: opacity of the dark plate behind a pin's text",
+   "value": 0.72
+  },
+  {
+   "name": "chromeDim",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the slab pins the callout does not name",
+   "value": 0.4
+  },
+  {
+   "name": "dispAdv",
+   "range": [
+    0.4,
+    0.62
+   ],
+   "step": 0.01,
+   "what": "em: average advance of the display face, for label boxes",
+   "value": 0.5
+  },
+  {
+   "name": "slabPins",
+   "range": [
+    58,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: the eleven slab pins enter with their counts",
+   "value": 58.4
+  },
+  {
+   "name": "call0",
+   "range": [
+    62,
+    66
+   ],
+   "step": 0.1,
+   "what": "s: callout on the first- and second-class children",
+   "value": 64
+  },
+  {
+   "name": "call1",
+   "range": [
+    68,
+    72
+   ],
+   "step": 0.1,
+   "what": "s: callout hard cuts to the third-class children",
+   "value": 70
+  },
+  {
+   "name": "call2",
+   "range": [
+    74,
+    78
+   ],
+   "step": 0.1,
+   "what": "s: callout hard cuts to the first-class men",
+   "value": 76
+  },
+  {
+   "name": "callEnd",
+   "range": [
+    81,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the callout ends before the reveal",
+   "value": 83
+  },
+  {
+   "name": "crewAt",
+   "range": [
+    99,
+    102
+   ],
+   "step": 0.1,
+   "what": "s: the slab pins return and the callout names the crew men",
+   "value": 100
+  },
+  {
+   "name": "reveal0",
+   "range": [
+    83,
+    86
+   ],
+   "step": 0.1,
+   "what": "s: everyone outside the counted pair starts to dim",
+   "value": 84
+  },
+  {
+   "name": "reveal1",
+   "range": [
+    84.5,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: the dim is complete",
+   "value": 86
+  },
+  {
+   "name": "revealPins",
+   "range": [
+    85,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: the two results appear (labels after post, flat)",
+   "value": 86
+  },
+  {
+   "name": "per10At",
+   "range": [
+    89,
+    93
+   ],
+   "step": 0.1,
+   "what": "s: the natural-frequency line appears",
+   "value": 90
+  },
+  {
+   "name": "revealEnd0",
+   "range": [
+    97,
+    100
+   ],
+   "step": 0.1,
+   "what": "s: the reveal starts to lift",
+   "value": 99
+  },
+  {
+   "name": "revealEnd1",
+   "range": [
+    98,
+    101.5
+   ],
+   "step": 0.1,
+   "what": "s: the reveal has lifted (crew beat)",
+   "value": 100.5
+  },
+  {
+   "name": "postLevel",
+   "options": [
+    "exec",
+    "manager",
+    "engineer"
+   ],
+   "what": "gl-post level: exec = tone map only; manager = bloom, vignette (and dof)",
+   "value": "manager"
+  },
+  {
+   "name": "bloomGain",
+   "range": [
+    0,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "bloom strength on the counted pair (0.04-0.12 typical; 0 = off)",
+   "value": 0.08
+  },
+  {
+   "name": "bloom0",
+   "range": [
+    84,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: bloom starts to rise (after the dim, so only the counted pair glows)",
+   "value": 86
+  },
+  {
+   "name": "bloom1",
+   "range": [
+    85,
+    90
+   ],
+   "step": 0.1,
+   "what": "s: bloom at full gain",
+   "value": 87.5
+  },
+  {
+   "name": "bloom2",
+   "range": [
+    94,
+    98
+   ],
+   "step": 0.1,
+   "what": "s: bloom starts to fall",
+   "value": 96
+  },
+  {
+   "name": "bloom3",
+   "range": [
+    95,
+    99
+   ],
+   "step": 0.1,
+   "what": "s: bloom off",
+   "value": 98
+  },
+  {
+   "name": "glowGain",
+   "range": [
+    1,
+    6
+   ],
+   "step": 0.1,
+   "what": "emission of the counted pair's lit boxes in the reveal (> 1 glows)",
+   "value": 3
+  },
+  {
+   "name": "vignetteGain",
+   "range": [
+    0,
+    0.15
+   ],
+   "step": 0.01,
+   "what": "corner darkening in the reveal window",
+   "value": 0.08
+  },
+  {
+   "name": "dofGain",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "depth of field (0 = off: ortho scene, and it costs ~0.5 s/frame)",
+   "value": 0
+  },
+  {
+   "name": "exposure",
+   "range": [
+    0.5,
+    2
+   ],
+   "step": 0.05,
+   "what": "pre-tonemap exposure, the whole film",
+   "value": 1
+  },
+  {
+   "name": "monday0",
+   "range": [
+    107,
+    109
+   ],
+   "step": 0.1,
+   "what": "s: the city starts to dim for Monday",
+   "value": 108
+  },
+  {
+   "name": "monday1",
+   "range": [
+    108.5,
+    112
+   ],
+   "step": 0.1,
+   "what": "s: the city is at Monday exposure",
+   "value": 110
+  },
+  {
+   "name": "mondayExposure",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.05,
+   "what": "exposure of the city under the Monday question",
+   "value": 0.55
+  },
+  {
+   "name": "mondayGlow",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "emission of the counted pair under the Monday question (a faint glow, no bloom)",
+   "value": 1.4
+  },
+  {
+   "name": "hookAt",
+   "range": [
+    0.2,
+    2
+   ],
+   "step": 0.1,
+   "what": "s: the rule starts to type",
+   "value": 0.6
+  },
+  {
+   "name": "hookCps",
+   "range": [
+    8,
+    40
+   ],
+   "step": 1,
+   "what": "characters per second the rule types",
+   "value": 18
+  },
+  {
+   "name": "hookOut",
+   "range": [
+    10,
+    11.8
+   ],
+   "step": 0.1,
+   "what": "s: the rule fades before the first person boards",
+   "value": 11.2
+  },
+  {
+   "name": "hookSize",
+   "range": [
+    28,
+    60
+   ],
+   "step": 1,
+   "what": "sheet units: the rule (display face)",
+   "value": 44
+  },
+  {
+   "name": "ledgerSize",
+   "range": [
+    28,
+    44
+   ],
+   "step": 1,
+   "what": "sheet units: ledger numbers (must-read)",
+   "value": 34
+  },
+  {
+   "name": "ledgerDim",
+   "range": [
+    0.3,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the ledger once the re-berthing starts",
+   "value": 0.6
+  },
+  {
+   "name": "ledgerOut",
+   "range": [
+    55,
+    58.4
+   ],
+   "step": 0.1,
+   "what": "s: the ledger leaves (before the slab pins, which need its corner)",
+   "value": 57
+  },
+  {
+   "name": "mondaySize",
+   "range": [
+    28,
+    48
+   ],
+   "step": 1,
+   "what": "sheet units: the Monday question",
+   "value": 36
+  }
+ ],
+ "ms_per_frame": 379,
+ "s_per_frame": 0.379,
+ "purity": {
+  "pass": true,
+  "at": {
+   "24.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "61.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "98.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "“Women and children first.” The rule everyone remembers.",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "Did it hold that night for every child aboard?",
+   "chapter": {
+    "id": "hook",
+    "title": "The rule, as remembered"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "The Titanic, April 1912. One box is one person aboard.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Passengers and crew: everyone the inquiry counted.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "2,201 people. Lit boxes are the ones who lived.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "711 lived. 1,490 did not.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "Lived: 316 of 425 women, 57 of 109 children, 338 of 1,667 men.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "Women and children together: 373 of 534, or 70 %. Men: 20 %.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "On average the rule held. Now split the same 2,201 by class.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "First, second, third class and the crew. No box added or removed.",
+   "chapter": {
+    "id": "case",
+    "title": "The manifest, pooled"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "Each slab: how many were aboard, and how many lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "Children in first and second class: 30 of 30 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "Children in third class: 27 of 79 lived. 52 did not.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Men in first class: 57 of 175 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "34 % and 33 %: a third-class child lived as often as a first-class man.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "About 3 in 10 of each. Class weighed as much as being a child.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "The crew: 885 people, 40 % of everyone aboard. 212 lived.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "Of the 1,667 men, 1,324 were crew or third class. The men’s 20 % is mostly them.",
+   "chapter": {
+    "id": "count",
+    "title": "Re-berthed by class"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "Monday: your “on average” result. Which group does it leave out?",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "One night, one inquiry’s count: it shows who lived, not why.",
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  },
+  {
+   "t": 122.99,
+   "file": "thumbs/t-0122.99.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "Which group does it leave out?"
+   }
+  }
+ ]
+}

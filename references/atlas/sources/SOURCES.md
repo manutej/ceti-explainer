@@ -1,0 +1,428 @@
+# SOURCES — registry of evidence
+
+Stable ids; never renumber (merges remap by appending). A claim citing an id not
+in this file is a prov.coverage violation.
+
+Built in EXTRACT phase 1 from the 21-branch corpus `research_notes/p5js explainer frontier/B01..B21`.
+533 branch source rows deduped by normalized URL (case, scheme, www, trailing slash, #fragment) into 416 global ids.
+Branch→global mapping: `_meta/source-map.tsv`. `kind` is the branch author's label (primary | docs | community | academic).
+reliability: primary = docs/primary repos/release notes; secondary = community/academic/aggregators.
+
+Note: [B10-24-none] in the corpus is a placeholder meaning *no source*; it maps to nothing — treat such claims as Unverified.
+
+- **S1** — Reference index (v2) · https://p5js.org/reference/ · Processing Foundation / p5.js · undated (v2.3.x) · kind: docs · reliability: primary · branches: B01-1, B19-1
+- **S2** — setup() reference · https://p5js.org/reference/p5/setup/ · p5.js · undated (v2.3.3) · kind: docs · reliability: primary · branches: B01-2
+- **S3** — beginShape() reference · https://p5js.org/reference/p5/beginShape/ · p5.js · undated (v2.3.3) · kind: docs · reliability: primary · branches: B01-3, B06-19, B18-14
+- **S4** — p5.js v2.0.0 release notes · https://github.com/processing/p5.js/releases/tag/v2.0.0 · p5.js maintainers · 2025 · kind: primary · reliability: primary · branches: B01-4, B02-14, B04-13, B06-1, B18-16, B19-8
+- **S5** — splineVertex() reference · https://p5js.org/reference/p5/splineVertex/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-5, B19-15
+- **S6** — bezierVertex() reference · https://p5js.org/reference/p5/bezierVertex/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-6
+- **S7** — bezierOrder() reference · https://p5js.org/reference/p5/bezierOrder/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-7
+- **S8** — draw() reference · https://p5js.org/reference/p5/draw/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-8, B18-8
+- **S9** — redraw() reference · https://p5js.org/reference/p5/redraw/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-9, B07-5
+- **S10** — p5.js GitHub releases page (v2.3.1 to v2.3.4) · https://github.com/processing/p5.js/releases · p5.js maintainers · Jul to 25 Sep (2.3.x) · kind: primary · reliability: primary · branches: B01-10, B05-2, B06-7, B14-1, B16-9, B17-48, B19-7, B21-12
+- **S11** — p5.js-compatibility add-ons · https://github.com/processing/p5.js-compatibility · Processing Foundation · v0.1.2, 15 Apr 2025 · kind: docs / primary · reliability: primary · branches: B01-11, B04-12, B05-10, B06-2, B09-4, B14-3, B16-11, B17-45, B18-18, B19-9
+- **S12** — spline() reference · https://p5js.org/reference/p5/spline/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-12
+- **S13** — createGraphics() reference · https://p5js.org/reference/p5/createGraphics/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-13, B15-7, B18-11
+- **S14** — createCanvas() reference · https://p5js.org/reference/p5/createCanvas/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-14
+- **S15** — push() reference · https://p5js.org/reference/p5/push/ · p5.js · undated (v2.3.3) · kind: docs · reliability: primary · branches: B01-15, B18-9
+- **S16** — strokeCap() reference · https://p5js.org/reference/p5/strokeCap/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-16
+- **S17** — pixelDensity() reference · https://p5js.org/reference/p5/pixelDensity/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-17, B15-5
+- **S18** — frameRate() reference · https://p5js.org/reference/p5/frameRate/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-18, B07-2
+- **S19** — endShape() reference · https://p5js.org/reference/p5/endShape/ · p5.js · undated (v2.3.1) · kind: docs · reliability: primary · branches: B01-19
+- **S20** — RFC issue #6766, vertex function API redesign · https://github.com/processing/p5.js/issues/6766 · p5.js contributors · undated · kind: primary · reliability: primary · branches: B01-20
+- **S21** — p5.js tutorials index · https://p5js.org/tutorials/ · p5.js · undated · kind: docs / primary · reliability: primary · branches: B01-21, B06-20, B21-18
+- **S22** — splineProperty() reference · https://p5js.org/reference/p5/splineProperty/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-22
+- **S23** — bezierPoint() reference · https://p5js.org/reference/p5/bezierPoint/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-23
+- **S24** — beginContour() reference · https://p5js.org/reference/p5/beginContour/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-24
+- **S25** — arc() reference · https://p5js.org/reference/p5/arc/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-25
+- **S26** — Tutorial: Custom Shapes and Smooth Curves · https://p5js.org/tutorials/custom-shapes-and-smooth-curves · p5.js · undated (v2.3.3) · kind: docs · reliability: primary · branches: B01-26
+- **S27** — Teachers' Guide to p5.js v2 · https://p5js.org/tutorials/v2_transition · p5.js · undated · kind: docs / primary · reliability: primary · branches: B01-27, B05-26, B06-5, B14-4, B17-46
+- **S28** — translate() reference · https://p5js.org/reference/p5/translate/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-28
+- **S29** — noLoop() reference · https://p5js.org/reference/p5/noLoop/ · p5.js · undated · kind: docs · reliability: primary · branches: B01-29
+- **S30** — colorMode() reference · https://p5js.org/reference/p5/colorMode/ · p5.js docs (v2.3.3) · undated · kind: docs · reliability: primary · branches: B02-1, B06-18
+- **S31** — color() reference · https://p5js.org/reference/p5/color/ · p5.js docs (v2.3.3) · undated · kind: docs · reliability: primary · branches: B02-2
+- **S32** — p5.Font textToPoints() reference · https://p5js.org/reference/p5.Font/textToPoints/ · p5.js docs (v2.3.3) · undated · kind: docs · reliability: primary · branches: B02-3
+- **S33** — loadFont() reference · https://p5js.org/reference/p5/loadFont/ · p5.js docs · undated · kind: docs · reliability: primary · branches: B02-4
+- **S34** — textWeight() reference · https://p5js.org/reference/p5/textWeight/ · p5.js docs · undated · kind: docs · reliability: primary · branches: B02-5
+- **S35** — textWidth() reference · https://p5js.org/reference/p5/textWidth/ · p5.js docs · undated · kind: docs · reliability: primary · branches: B02-6
+- **S36** — blendMode() reference · https://p5js.org/reference/p5/blendMode/ · p5.js docs (v2.3.3) · undated · kind: docs · reliability: primary · branches: B02-7
+- **S37** — pixels reference · https://p5js.org/reference/p5/pixels/ · p5.js docs (v2.3.1) · undated · kind: docs · reliability: primary · branches: B02-8
+- **S38** — filter() reference · https://p5js.org/reference/p5/filter/ · p5.js docs (v2.3.1) · undated · kind: docs · reliability: primary · branches: B02-9, B03-8
+- **S39** — set() reference · https://p5js.org/reference/p5/set/ · p5.js docs (v2.3.1) · undated · kind: docs · reliability: primary · branches: B02-10
+- **S40** — loadImage() reference · https://p5js.org/reference/p5/loadImage/ · p5.js docs · undated · kind: docs · reliability: primary · branches: B02-11
+- **S41** — erase() reference · https://p5js.org/reference/p5/erase/ · p5.js docs (v2.3.3) · undated · kind: docs · reliability: primary · branches: B02-12
+- **S42** — lerpColor() reference · https://p5js.org/reference/p5/lerpColor/ · p5.js docs · undated · kind: docs · reliability: primary · branches: B02-13
+- **S43** — Issue 4992, variable font support request · https://github.com/processing/p5.js/issues/4992 · GitHub (processing/p5.js) · undated · kind: primary · reliability: primary · branches: B02-15
+- **S44** — PR 8088, fontWidth() and textWidth() docs · https://github.com/processing/p5.js/pull/8088 · GitHub (processing/p5.js) · undated · kind: primary · reliability: primary · branches: B02-16
+- **S45** — p5.variableFont · https://github.com/arthurcloche/p5.variableFont · Arthur Cloche · undated · kind: community · reliability: secondary · branches: B02-17
+- **S46** — Coding Train p5.js 2.0 typography · https://thecodingtrain.com/tracks/p5js-2.0/p5js-2.0/typography/ · The Coding Train · undated · kind: community / primary · reliability: primary · branches: B02-18, B16-25, B20-28
+- **S47** — p5.js 2.1 and 2.2: Expanding Graphics Avenues with p5.strands improvements and WebGPU · https://processingfoundation.org/blog/p5js-21-and-22-expanding-graphics-avenues-with-p5strands-improvements-and-webgpu · Processing Foundation · 2026-03-09 · kind: primary · reliability: primary · branches: B03-1, B06-13, B14-2, B15-17, B16-1
+- **S48** — WebGPU in p5.js · https://www.davepagurek.com/blog/p5-webgpu · Dave Pagurek · 2026-01-01 · kind: primary · reliability: primary · branches: B03-2, B16-2
+- **S49** — p5.strands: Introduction to Shaders (tutorial) · https://p5js.org/tutorials/intro-to-p5-strands/ · Luke Plowden / p5.js · undated (links editor v2.3.3) · kind: docs · reliability: primary · branches: B03-3
+- **S50** — Beginner-Friendly Shader Programming in p5.js v2 (LGM 2026 talk page) · https://pretalx.c3voc.de/lgm-2026/talk/VECVVA/ · Libre Graphics Meeting · 2026-04-22 · kind: primary · reliability: primary · branches: B03-4
+- **S51** — Reference baseMaterialShader() · https://p5js.org/reference/p5/baseMaterialShader/ · p5.js · undated · kind: docs · reliability: primary · branches: B03-5
+- **S52** — Reference buildMaterialShader() · https://p5js.org/reference/p5/buildMaterialShader/ · p5.js · undated · kind: docs · reliability: primary · branches: B03-6
+- **S53** — Reference p5.Framebuffer · https://p5js.org/reference/p5/p5.Framebuffer/ · p5.js · undated · kind: docs · reliability: primary · branches: B03-7
+- **S54** — Reference p5.Camera · https://p5js.org/reference/p5/p5.Camera/ · p5.js · undated · kind: docs · reliability: primary · branches: B03-9
+- **S55** — Reference loadModel() · https://p5js.org/reference/p5/loadModel/ · p5.js · undated · kind: docs · reliability: primary · branches: B03-10
+- **S56** — Contribute: Using WebGPU mode · https://beta.p5js.org/contribute/webgpu/ · p5.js · undated (refers to Dec 2025 browser status) · kind: docs · reliability: primary · branches: B03-11
+- **S57** — Reference p5.StorageBuffer.read() · https://p5js.org/reference/p5.StorageBuffer/read/ · p5.js · undated (v2.3.3) · kind: docs · reliability: primary · branches: B03-12
+- **S58** — Reference createShader() · https://p5js.org/reference/p5/createShader/ · p5.js · undated · kind: docs · reliability: primary · branches: B03-13
+- **S59** — Dave Pagurek personal site · https://www.davepagurek.com/ · Dave Pagurek · captured 2026 · kind: primary · reliability: primary · branches: B03-14
+- **S60** — Reference buildComputeShader() · https://p5js.org/reference/p5/buildComputeShader/ · p5.js · undated · kind: docs · reliability: primary · branches: B03-15
+- **S61** — Layered Rendering with Framebuffers · https://p5js.org/tutorials/layered-rendering-with-framebuffers/ · Dave Pagurek, Adam Ferriss · undated · kind: docs · reliability: primary · branches: B03-16, B15-3
+- **S62** — p5.js 2.3.1 release notes (mirror) · https://newreleases.io/project/github/processing/p5.js/release/v2.3.1 · GitHub release via newreleases.io · date not shown (page said "2 months ago") · kind: primary / primary (mirror) · reliability: primary · branches: B03-17, B16-4
+- **S63** — Processing Foundation Dev blog category listing · https://processingfoundation.org/blog/category/dev · Processing Foundation · captured after 2026-08-10 · kind: primary · reliability: primary · branches: B03-18, B16-5
+- **S64** — Introduction to GLSL (tutorial) · https://p5js.org/tutorials/intro-to-glsl/ · Dave Pagurek, Austin Lee Slominski, Adam Ferriss · undated (links editor v2.3.3) · kind: docs · reliability: primary · branches: B03-19
+- **S65** — noise() reference (p5.js 2.3.3) · https://p5js.org/reference/p5/noise/ · p5.js / Processing Foundation · undated (v2.3.3) · kind: docs · reliability: primary · branches: B04-1, B07-8
+- **S66** — randomGaussian() reference · https://p5js.org/reference/p5/randomGaussian/ · p5.js · undated (v2.3.3) · kind: docs · reliability: primary · branches: B04-2
+- **S67** — p5.Vector reference · https://p5js.org/reference/p5/p5.Vector/ · p5.js · undated · kind: docs · reliability: primary · branches: B04-3
+- **S68** — map() reference · https://p5js.org/reference/p5/map/ · p5.js · undated · kind: docs · reliability: primary · branches: B04-4
+- **S69** — lerp() reference · https://p5js.org/reference/p5/lerp/ · p5.js · undated · kind: docs · reliability: primary · branches: B04-5
+- **S70** — angleMode() reference (v2.3.1) · https://p5js.org/reference/p5/angleMode/ · p5.js · undated · kind: docs · reliability: primary · branches: B04-6
+- **S71** — noiseDetail() reference · https://p5js.org/reference/p5/noiseDetail/ · p5.js · undated · kind: docs · reliability: primary · branches: B04-7
+- **S72** — noiseSeed() reference · https://p5js.org/reference/p5/noiseSeed/ · p5.js · undated · kind: docs · reliability: primary · branches: B04-8, B07-4
+- **S73** — atan2() reference · https://p5js.org/reference/p5/atan2/ · p5.js · undated · kind: docs · reliability: primary · branches: B04-9
+- **S74** — createVector() reference (v2.3.3) · https://p5js.org/reference/p5/createVector/ · p5.js · undated · kind: docs · reliability: primary · branches: B04-10
+- **S75** — [dev updates] p5.js 2.0: You Are Here · https://discourse.processing.org/t/dev-updates-p5-js-2-0-you-are-here/46130 · Processing Foundation Discourse · 2025 (exact date not captured) · kind: community / community (maintainer posts) / community/official-adjacent / primary · reliability: primary · branches: B04-11, B05-28, B06-3, B07-20, B09-14, B13-9, B16-12, B17-47, B18-17, B19-13
+- **S76** — src/math/noise.js (main branch) · https://raw.githubusercontent.com/processing/p5.js/main/src/math/noise.js · p5.js source · undated · kind: primary · reliability: primary · branches: B04-14
+- **S77** — src/math/random.js (main branch) · https://raw.githubusercontent.com/processing/p5.js/main/src/math/random.js · p5.js source · undated · kind: primary · reliability: primary · branches: B04-15
+- **S78** — src/math/p5.Vector.js (main branch) · https://raw.githubusercontent.com/processing/p5.js/main/src/math/p5.Vector.js · p5.js source · undated · kind: primary · reliability: primary · branches: B04-16
+- **S79** — src/math/calculation.js (main branch) · https://raw.githubusercontent.com/processing/p5.js/main/src/math/calculation.js · p5.js source · undated · kind: primary · reliability: primary · branches: B04-17
+- **S80** — Easing functions cheat sheet · https://easings.net/ · Andrey Sitnik / Ai (easings.net) · undated · kind: docs · reliability: primary · branches: B04-18
+- **S81** — easingsFunctions.ts · https://raw.githubusercontent.com/ai/easings.net/master/src/easings/easingsFunctions.ts · easings.net repo · undated · kind: primary · reliability: primary · branches: B04-19
+- **S82** — The Nature of Code, Vectors chapter · https://natureofcode.com/vectors/ · Daniel Shiffman · 2024 edition · kind: primary · reliability: primary · branches: B04-20
+- **S83** — The Nature of Code, Randomness chapter · https://natureofcode.com/random/ · Daniel Shiffman · 2024 edition · kind: primary · reliability: primary · branches: B04-21
+- **S84** — The Nature of Code, Autonomous Agents chapter · https://natureofcode.com/autonomous-agents/ · Daniel Shiffman · 2024 edition · kind: primary · reliability: primary · branches: B04-22
+- **S85** — The Nature of Code, Oscillation chapter · https://natureofcode.com/oscillation/ · Daniel Shiffman · 2024 edition · kind: primary · reliability: primary · branches: B04-23
+- **S86** — The Nature of Code, Forces chapter · https://natureofcode.com/forces/ · Daniel Shiffman · 2024 edition · kind: primary (only first 100k characters read) · reliability: primary · branches: B04-24
+- **S87** — I.2 Perlin Noise and p5.js Tutorial · https://thecodingtrain.com/tracks/noise/noc/perlin/intro-to-perlin-noise · The Coding Train · undated (site shows 2016-) · kind: community · reliability: secondary · branches: B04-25
+- **S88** — Coding Challenge 24: Perlin Noise Flow Field · https://TheCodingTrain.com/challenges/24-perlin-noise-flow-field · The Coding Train · undated · kind: community · reliability: secondary · branches: B04-26
+- **S89** — p5.js reference: mouseClicked() · https://p5js.org/reference/p5/mouseClicked/ · p5.js / Processing Foundation · v2.3.3 docs, undated · kind: docs · reliability: primary · branches: B05-1
+- **S90** — p5.js reference: createSlider() · https://p5js.org/reference/p5/createSlider/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-3
+- **S91** — p5.js-compatibility PR #32 README change · https://github.com/processing/p5.js-compatibility/pull/32/files · Processing Foundation · undated · kind: primary · reliability: primary · branches: B05-4
+- **S92** — p5.js reference: p5.Element · https://p5js.org/reference/p5/p5.Element/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-5
+- **S93** — p5.js reference: createCapture() · https://p5js.org/reference/p5/createCapture/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-6
+- **S94** — Tweakpane docs home · https://tweakpane.github.io/docs/ · Tweakpane (cocopon) · undated, shows 4.0.5 · kind: docs · reliability: primary · branches: B05-7
+- **S95** — lil-gui docs · https://lil-gui.georgealways.com/ · George Michael Brower · undated · kind: docs · reliability: primary · branches: B05-8
+- **S96** — p5.js wiki: Global and instance mode · https://github.com/processing/p5.js/wiki/Global-and-instance-mode · p5.js · undated · kind: docs · reliability: primary · branches: B05-9, B18-15
+- **S97** — p5.js reference: keyIsDown() · https://p5js.org/reference/p5/keyIsDown/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-11
+- **S98** — p5.js reference: createVideo() · https://p5js.org/reference/p5/createVideo/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-12
+- **S99** — p5.gui README · https://github.com/bitcraftlab/p5.gui · bitcraftlab · undated · kind: docs · reliability: primary · branches: B05-13
+- **S100** — Discourse: pause/noLoop sketch when not visible · https://discourse.processing.org/t/pause-stop-noloop-p5-sketch-when-not-actively-seen-by-the-user-e-g-after-scrolling-out-of-window/32294/2 · GoToLoop on Processing Community Forum · 2021-09-18 · kind: community · reliability: secondary · branches: B05-14
+- **S101** — p5.js reference: p5() constructor · https://p5js.org/reference/p5/p5/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-15
+- **S102** — p5.js reference: touches · https://p5js.org/reference/p5/touches/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-16
+- **S103** — p5.js reference: p5.MediaElement · https://p5js.org/reference/p5/p5.MediaElement/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-17
+- **S104** — p5.js reference: createAudio() · https://p5js.org/reference/p5/createAudio/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-18
+- **S105** — Aatish Bhatia, Creating Explorable Documents With p5.js (template) · https://aatishb.com/interactivesandbox · aatishb.com · undated · kind: community · reliability: secondary · branches: B05-19, B11-26
+- **S106** — awesome-explorables list · https://github.com/blob42/awesome-explorables · blob42 · undated · kind: community · reliability: secondary · branches: B05-20
+- **S107** — p5.js reference: mousePressed() · https://p5js.org/reference/p5/mousePressed/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-21
+- **S108** — p5.js reference: createSelect() · https://p5js.org/reference/p5/createSelect/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-22
+- **S109** — p5.js reference: createInput() · https://p5js.org/reference/p5/createInput/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-23
+- **S110** — Tweakpane getting started · https://tweakpane.github.io/docs/getting-started/ · Tweakpane · undated · kind: docs · reliability: primary · branches: B05-24
+- **S111** — p5.js reference: changed() · https://p5js.org/reference/p5/changed/ · p5.js · v2.3.3 docs · kind: docs · reliability: primary · branches: B05-25
+- **S112** — Asynchronous p5.js 2.0 · https://dev.to/limzykenneth/asynchronous-p5js-20-458f · Kenneth Lim (p5.js maintainer, dev.to) · undated · kind: community · reliability: secondary · branches: B05-27, B13-7
+- **S113** — Discourse: How to trigger p5js sketch with scroll · https://discourse.processing.org/t/how-to-trigger-p5js-sketch-with-scroll/26990 · community · undated · kind: community · reliability: secondary · branches: B05-29
+- **S114** — Issue #8870 plan to make 2.x the Editor default · https://github.com/processing/p5.js/issues/8870 · processing/p5.js · 2026 · kind: primary · reliability: primary · branches: B06-4, B16-13, B21-11
+- **S115** — p5.js-compatibility README raw (differences list) · https://raw.githubusercontent.com/processing/p5.js-compatibility/main/README.md · Processing org · undated · kind: primary · reliability: primary · branches: B06-6
+- **S116** — Greetings from p5.js 2.0: Animation, Interaction, and Typography in 2D and 3D · https://p5js.org/tutorials/typography-2.0 · Dave Pagurek and Kit Kuksenok, p5js.org · undated (references 2.0.3) · kind: docs · reliability: primary · branches: B06-8
+- **S117** — Designing an addon library system for p5.js 2.0 · https://dev.to/limzykenneth/designing-an-addon-library-system-for-p5js-20-3d4p · Kenneth Lim (limzykenneth) · undated · kind: community (contributor blog) / primary · reliability: primary · branches: B06-9, B09-3
+- **S118** — Creating an Addon Library · https://p5js.org/contribute/creating_libraries/ · p5js.org · undated · kind: docs · reliability: primary · branches: B06-10, B09-2
+- **S119** — Releases page 2 (2.2.3, 2.3.0 RCs, 1.11.12-1.11.14 RCs) · https://github.com/processing/p5.js/releases?page=2 · processing/p5.js · month/day only · kind: primary · reliability: primary · branches: B06-11
+- **S120** — p5.js v2.1.0 release notes · https://github.com/processing/p5.js/releases/tag/v2.1.0 · processing/p5.js · undated · kind: primary · reliability: primary · branches: B06-12
+- **S121** — p5.js v2.3.0 release notes · https://github.com/processing/p5.js/releases/tag/v2.3.0 · processing/p5.js · "28 May" · kind: primary · reliability: primary · branches: B06-14
+- **S122** — p5.js v2.3.4 release notes · https://github.com/processing/p5.js/releases/tag/v2.3.4 · processing/p5.js · "25 Sep" · kind: primary · reliability: primary · branches: B06-15
+- **S123** — Speed of set(x, y, color) in p5.js 2.1.2 vs 1.11.11 · https://discourse.processing.org/t/speed-of-set-x-y-color-in-p5-js-2-1-2-vs-1-11-11/47769 · Processing Community Forum · undated · kind: community · reliability: secondary · branches: B06-16
+- **S124** — Looking for a p5 2.x.x tutorial · https://discourse.processing.org/t/looking-for-a-p5-2-x-x-tutorial/47999 · Processing Community Forum · undated · kind: community · reliability: secondary · branches: B06-17, B13-3
+- **S125** — Switching versions on p5.js Editor · https://discourse.processing.org/t/switching-versions-on-p5-js-editor/46656 · Processing Community Forum · July 3, 2025 · kind: community · reliability: secondary · branches: B06-21, B14-16
+- **S126** — mouseX reference · https://p5js.org/reference/p5/mouseX/ · p5js.org · current · kind: docs · reliability: primary · branches: B06-22
+- **S127** — deltaTime · https://p5js.org/reference/p5/deltaTime/ · p5.js reference (v2.3.3) · undated · kind: docs · reliability: primary · branches: B07-1, B18-23
+- **S128** — randomSeed() · https://p5js.org/reference/p5/randomSeed/ · p5.js reference · undated · kind: docs · reliability: primary · branches: B07-3
+- **S129** — frameCount · https://p5js.org/reference/p5/frameCount/ · p5.js reference · undated · kind: docs · reliability: primary · branches: B07-6
+- **S130** — millis() · https://p5js.org/reference/p5/millis/ · p5.js reference · undated · kind: docs · reliability: primary · branches: B07-7
+- **S131** — Best way to export an animation from a p5.js sketch in 2026 · https://discourse.processing.org/t/best-way-to-export-an-animation-from-a-p5-js-sketch-in-2026/48274 · Processing Discourse (poster slacle; replies by davepagurek) · 2026 (per title) · kind: community · reliability: secondary · branches: B07-9, B08-8, B12-5, B13-1, B15-19
+- **S132** — How to export your p5.js as a video · https://lab.arts.ac.uk/books/creative-coding/page/how-to-export-your-p5js-as-a-video · UAL Creative Computing Institute Lab · undated · kind: community · reliability: secondary · branches: B07-10, B13-5, B20-36
+- **S133** — Challenge 137: 4D OpenSimplex Noise Loop · https://thecodingtrain.com/challenges/137-4d-opensimplex-noise-loop · The Coding Train (Daniel Shiffman) · undated · kind: community · reliability: secondary · branches: B07-11
+- **S134** — p5.save-frames · https://www.npmjs.com/package/p5.save-frames · npm package page · undated · kind: community · reliability: secondary · branches: B07-12
+- **S135** — FOTD: loopsin · https://bit-101.com/blog/posts/2024-01-27/fotd-loopsin/ · Keith Peters (BIT-101) · 2024-01-27 · kind: community · reliability: secondary · branches: B07-13
+- **S136** — Looping Noise Part 1: Ending at the Beginning · https://derivative.ca/community-post/tutorial/looping-noise-part-1-ending-beginning · Simon Alexander-Adams (Polyhop), TouchDesigner community · 2019-11-24 · kind: community · reliability: secondary · branches: B07-14
+- **S137** — Export Pipeline (p5js agent-skill reference) · https://download.hermesedi.duckdns.org/.hermes/hermes-agent/skills/creative/p5js/references/export-pipeline.md · third-party "hermes-agent" skill doc, hosted on a personal domain · undated · kind: community / community (unverified, low authority) · reliability: secondary · branches: B07-15, B08-9
+- **S138** — CCapture.js README · https://github.com/spite/ccapture.js · spite (Jaume Sanchez) · undated · kind: primary / primary (library author) · reliability: primary · branches: B07-16, B08-5
+- **S139** — canvas-sketch: Animated Sketches · https://github.com/mattdesl/canvas-sketch/blob/master/docs/animated-sketches.md · Matt DesLauriers · undated · kind: primary (library author) · reliability: primary · branches: B07-17
+- **S140** — canvas-sketch: Exporting Artwork · https://github.com/mattdesl/canvas-sketch/blob/master/docs/exporting-artwork.md · Matt DesLauriers · undated · kind: primary / primary (library author) · reliability: primary · branches: B07-18, B08-13, B21-8
+- **S141** — p5.createLoop · https://github.com/peteyhayman/p5.createLoop · Petey Hayman · README mentions 0.3.0 dated 04/02/2023 · kind: primary / primary (library author) · reliability: primary · branches: B07-19, B08-15, B17-13
+- **S142** — Bees & Bombs cube wave challenge page · https://thecodingtrain.com/challenges/86-cube-wave-by-bees-and-bombs · The Coding Train · undated · kind: community (search hit only; not read, see Gaps) / primary · reliability: primary · branches: B07-21, B20-26
+- **S143** — p5.js reference: saveGif() · https://p5js.org/reference/p5/saveGif/ · p5.js docs (page links v2.3.3 source) · undated · kind: docs · reliability: primary · branches: B08-1, B18-24, B20-33
+- **S144** — p5.js reference: saveFrames() · https://p5js.org/reference/p5/saveFrames/ · p5.js docs · undated · kind: docs · reliability: primary · branches: B08-2
+- **S145** — tapioca24/p5.capture README · https://github.com/tapioca24/p5.capture · tapioca24 · undated · kind: primary · reliability: primary · branches: B08-3, B10-22
+- **S146** — "I wrote a new library for recording p5.js sketches" · https://dev.to/tapioca24/i-wrote-a-new-library-for-recording-p5js-sketches-kim · tapioca24 · 2022-03-27 · kind: community / primary · reliability: primary · branches: B08-4, B13-14, B17-11, B20-35
+- **S147** — Vanilagy/mp4-muxer README · https://github.com/Vanilagy/mp4-muxer · Vanilagy · undated · kind: primary · reliability: primary · branches: B08-6
+- **S148** — Mediabunny CanvasSource API · https://mediabunny.dev/api/CanvasSource · Mediabunny docs · undated · kind: docs · reliability: primary · branches: B08-7
+- **S149** — p5.js issue #7958 saveFrames doesn't honor frame rate (via goodfirstissue.org) · https://goodfirstissue.org/processing/p5.js/issues/7958 · GitHub issue mirror · 2025-07 · kind: community · reliability: secondary · branches: B08-10
+- **S150** — p5.js PR #9012 terminate saveFrames by frame count · https://github.com/processing/p5.js/issues/9012 · harshiltewari2004 / ksen0 · latest comment 2026-09-27 · kind: primary · reliability: primary · branches: B08-11
+- **S151** — p5.js PR #8130 saveGif black initial frames in 2.0+ · https://github.com/processing/p5.js/pull/8130 · GitHub contributor · undated · kind: primary · reliability: primary · branches: B08-12
+- **S152** — amandaghassaei/canvas-capture README · https://github.com/amandaghassaei/canvas-capture · Amanda Ghassaei · undated (footer 2026) · kind: primary · reliability: primary · branches: B08-14
+- **S153** — Discourse: server-side render using node-canvas · https://discourse.processing.org/t/p5js-server-side-render-using-node-canvas/29126 · DCsan, micuat · 2021-04-05 · kind: community · reliability: secondary · branches: B08-16
+- **S154** — UAL Creative Computing Institute wiki: export p5 as a video · https://lab.arts.ac.uk/books/creative-coding/page/how-to-export-your-p5js-as-a-video/revisions/3172 · UAL · undated · kind: community · reliability: secondary · branches: B08-17
+- **S155** — Search listing only (not opened): canvas-record WebCodecsEncoder, Mediabunny quick-start/writing-media-files, p5.save-frames on npm, abachman/p5.webm-capture, p5.createLoop on npm · (no URL — search listing) · URLs in search results of 2026-10-08 · kind: community (unverified) · reliability: secondary · branches: B08-18
+- **S156** — p5.js Libraries page · https://p5js.org/libraries/ · Processing Foundation/p5.js · checked 2026-10-08 · kind: docs · reliability: primary · branches: B09-1, B16-35, B19-12
+- **S157** — p5.brush repo · https://github.com/acamposuribe/p5.brush · Alejandro Campos Uribe · undated · kind: primary · reliability: primary · branches: B09-5
+- **S158** — p5.sound.js repo · https://github.com/processing/p5.sound.js · Processing Foundation · undated · kind: primary · reliability: primary · branches: B09-6, B19-11
+- **S159** — npm registry metadata (p5, p5.sound, p5.brush, p5.grain, p5.js-svg, p5.fillgradient, p5play, tone, ml5, p5.collide2d, p5.createloop, p5.capture, p5.plotsvg, p5.tree, matter-js, roughjs) · https://registry.npmjs.org/<package> · npm · queried 2026-10-08 · kind: primary · reliability: primary · branches: B09-7
+- **S160** — p5play progress June 2025 · https://q5js.substack.com/p/p5play-progress-june-2025 · q5js/p5play author newsletter · June 2025 · kind: primary · reliability: primary · branches: B09-8
+- **S161** — p5.js-svg repo · https://github.com/zenozeng/p5.js-svg · Zeno Zeng · undated · kind: primary · reliability: primary · branches: B09-9
+- **S162** — p5.collide2D repo · https://github.com/bmoren/p5.collide2D · Ben Moren · undated · kind: primary · reliability: primary · branches: B09-10
+- **S163** — rough.js repo · https://github.com/rough-stuff/rough · Preet Shihn / rough-stuff · undated · kind: primary · reliability: primary · branches: B09-11
+- **S164** — matter-js npm entry (via registry) · https://registry.npmjs.org/matter-js · npm · queried 2026-10-08 · kind: primary · reliability: primary · branches: B09-12
+- **S165** — Announcing the new p5.sound.js library · https://processingfoundation.org/blog/announcing-the-new-p5soundjs-library/ · Processing Foundation · 2024-12-16 · kind: primary · reliability: primary · branches: B09-13, B17-49
+- **S166** — p5.grain repo · https://github.com/meezwhite/p5.grain · meezwhite / Joseph Miclaus · undated · kind: primary · reliability: primary · branches: B09-15
+- **S167** — p5.scribble.js repo · https://github.com/generative-light/p5.scribble.js · generative-light · undated · kind: primary · reliability: primary · branches: B09-16
+- **S168** — p5.fillGradient repo · https://github.com/alterebro/p5.fillGradient · Jorge Moreno (alterebro) · undated · kind: primary · reliability: primary · branches: B09-17
+- **S169** — p5play README (v3.35.3) · https://cdn.jsdelivr.net/npm/p5play@3.35.3/README.md · Quinton Ashley · 2026 · kind: docs · reliability: primary · branches: B09-18
+- **S170** — p5.tween repo · https://github.com/Milchreis/p5.tween · Milchreis · undated · kind: primary · reliability: primary · branches: B09-19, B17-1
+- **S171** — Coding Train 6.1 Matter.js Introduction · https://thecodingtrain.com/tracks/physics-libraries/noc/6-physics-libraries/1-matterjs-introduction · The Coding Train (Daniel Shiffman) · undated · kind: community · reliability: secondary · branches: B09-20
+- **S172** — ml5-next-gen repo · https://github.com/ml5js/ml5-next-gen · ml5.js · undated · kind: primary · reliability: primary · branches: B09-21
+- **S173** — ml5 docs · https://docs.ml5js.org/ · ml5.js · undated · kind: docs · reliability: primary · branches: B09-22
+- **S174** — NYU IDM "P5 Riso Printing" · https://idm.engineering.nyu.edu/index.php/p5-riso-printing/ · NYU · undated · kind: community · reliability: secondary · branches: B09-23
+- **S175** — Search result: p5.Polar (WPI thesis "p5.Polar - Programming For Geometric Patterns") · https://digitalcommons.wpi.edu/etd-theses/1353 · undated · kind: academic (title only, not fetched) · reliability: secondary · branches: B09-24
+- **S176** — Search result: p5.tween / p5-easing npm · https://npmjs.com/package/p5-easing · undated · kind: community (title only, not fetched) · reliability: secondary · branches: B09-25
+- **S177** — Daniel Shiffman's The Nature of Code gets updated for 2024 · https://waxy.org/2024/04/daniel-shiffmans-the-nature-of-code-gets-updated-for-2024 · Waxy.org · 2024-04 · kind: community · reliability: secondary · branches: B10-1, B20-19
+- **S178** — The Nature of Code refreshed · https://flowingdata.com/2024/04/29/the-nature-of-code-refreshed/ · FlowingData · 2024-04-29 · kind: community · reliability: secondary · branches: B10-2, B11-23
+- **S179** — The Nature of Code (book site) · https://natureofcode.com/ · Daniel Shiffman · undated · kind: primary · reliability: primary · branches: B10-3, B11-22, B18-25, B20-20
+- **S180** — The Coding Train: About · https://thecodingtrain.com/about · Coding Train · undated · kind: primary · reliability: primary · branches: B10-4, B20-24
+- **S181** — The Coding Train: FAQ / site structure · https://thecodingtrain.com/faq · Coding Train · undated · kind: primary · reliability: primary · branches: B10-5
+- **S182** — The Coding Train: Challenges catalog · https://thecodingtrain.com/challenges · Coding Train · page shows entries to April 2026 · kind: primary · reliability: primary · branches: B10-6
+- **S183** — The Coding Train YouTube channel about · https://www.youtube.com/@TheCodingTrain/about · YouTube/Coding Train · undated · kind: primary · reliability: primary · branches: B10-7
+- **S184** — Etienne Jacob (bleuje) site home · https://bleuje.com/ · Etienne Jacob · undated · kind: primary · reliability: primary · branches: B10-8
+- **S185** — bleuje FAQ · https://bleuje.com/faq/ · Etienne Jacob · undated · kind: primary · reliability: primary · branches: B10-9
+- **S186** — bleuje loop tutorial (periodic function + offset) · https://bleuje.com/tutorial2/ · Etienne Jacob · undated · kind: primary · reliability: primary · branches: B10-10
+- **S187** — Colossal: Etienne Jacob GIFs · https://www.thisiscolossal.com/2024/01/etienne-jacob-gifs · Colossal · 2024-01 · kind: community (press) · reliability: secondary · branches: B10-11
+- **S188** — Bees and Bombs (AMS blog on math blogs) · https://blogs.ams.org/blogonmathblogs/2017/11/13/bees-and-bombs/ · American Mathematical Society blog · 2017-11-13 · kind: community / community (press/interview) · reliability: secondary · branches: B10-12, B20-29
+- **S189** — Patt Vira p5.js course writeup · https://www.freecodecamp.org/news/art-of-coding-with-p5js/ · freeCodeCamp (Beau Carnes) · undated · kind: community · reliability: secondary · branches: B10-13, B20-41
+- **S190** — Patt Vira YouTube channel · https://www.youtube.com/@pattvira · YouTube · undated · kind: primary · reliability: primary · branches: B10-14
+- **S191** — Tim Rodenbröker YouTube channel · https://www.youtube.com/@timrodenbroeker · YouTube · undated · kind: primary · reliability: primary · branches: B10-15
+- **S192** — Tim Rodenbröker Patreon · https://www.patreon.com/timrodenbroeker · Patreon · undated · kind: primary · reliability: primary · branches: B10-16
+- **S193** — Barney Codes YouTube channel · https://www.youtube.com/@BarneyCodes · YouTube · undated · kind: primary · reliability: primary · branches: B10-17
+- **S194** — Saskia Freeke, Processing Foundation fellowship · https://processingfoundation.org/programs/fellowships/2017/saskia-freeke/ · Processing Foundation · 2017 · kind: primary · reliability: primary · branches: B10-18
+- **S195** — Unexpected Learnings From Coding Artwork Every Day For Five Years · https://shop.smashingmagazine.com/2020/09/learnings-coding-artwork/ · Smashing Magazine (Saskia Freeke per the page content returned) · 2020-09 · kind: community · reliability: secondary · branches: B10-19
+- **S196** — Lauren Lee McCarthy site · https://lauren-mccarthy.com/ · Lauren Lee McCarthy · undated · kind: primary · reliability: primary · branches: B10-20
+- **S197** — p5.js Education Resources · https://p5js.org/education-resources · p5.js · undated · kind: docs · reliability: primary · branches: B10-21
+- **S198** — Kazuki Umeda YouTube channel · https://www.youtube.com/@KazukiUmeda · YouTube · undated · kind: primary (content unreadable) · reliability: primary · branches: B10-23
+- **S199** — Khan Academy launches computer science (Dice) · https://insights.dice.com/2012/08/28/khan-academy-launches-computer-science/ · Dice · 2012-08 · kind: community · reliability: secondary · branches: B11-1
+- **S200** — Which parts of ProcessingJS does Khan Academy support · https://support.khanacademy.org/hc/da/articles/202260404-Which-parts-of-ProcessingJS-does-Khan-Academy-support · Khan Academy support · undated · kind: docs · reliability: primary · branches: B11-2
+- **S201** — John Resig, Projects: Khan Academy · https://johnresig.com/projects/khan-academy · John Resig · undated · kind: primary · reliability: primary · branches: B11-3
+- **S202** — How does our real-time editor work · https://cs-blog.khanacademy.org/2015/04/how-does-our-real-time-editor-work-find.html · Khan Academy CS blog · 2015-04-20 · kind: primary · reliability: primary · branches: B11-4
+- **S203** — Does Khan Academy use Processing? · https://discourse.processing.org/t/does-khan-academy-use-processing/1711 · Processing Discourse · 2018 · kind: community · reliability: secondary · branches: B11-5
+- **S204** — A Study of Editor Features in a Creative Coding Classroom · https://arxiv.org/pdf/2301.13302 · McNutt, Outkine, Chugh (CHI '23) · 2023 · kind: academic · reliability: secondary · branches: B11-6
+- **S205** — Does Interdisciplinary Creative Coding Boost Creativity? · https://arxiv.org/pdf/2307.00800 · Duyver, Groeneveld, Aerts (KU Leuven) · 2023 · kind: academic · reliability: secondary · branches: B11-7
+- **S206** — Exploring Individual and Collaborative Storytelling in an Introductory Creative Coding Class · https://ar5iv.labs.arxiv.org/html/2110.09252 · Suh, Lee, Zhao, Law, Latulipe · 2021 · kind: academic · reliability: secondary · branches: B11-8
+- **S207** — Programming Politics: Using p5.js to Create Interactive Art Connected to Current Events · https://fisherpub.sjf.edu/commj_facpub/36 · Jeremy Sarachan, SIGCSE '19 lightning talk · 2019 · kind: academic · reliability: secondary · branches: B11-9
+- **S208** — Zoom-Teaching p5.js to Children Grades 3-6 · https://processingfoundation.org/blog/zoom-teaching-p5js-to-children-grades-36/ · Processing Foundation (Michael O'Connell interview) · 2020-09-02 · kind: primary · reliability: primary · branches: B11-10
+- **S209** — Making Processing Available in NYC Schools · https://processingfoundation.org/blog/making-processing-available-in-nyc-schools/ · Processing Foundation · 2018-09-19 · kind: primary · reliability: primary · branches: B11-11
+- **S210** — Everyone Can Code (creative coding curriculum, low computer literacy) · https://processingfoundation.org/blog/everyone-can-code-a-creative-coding-curriculum-for-students-with-low-computer-literacy/ · Processing Foundation (Niklas Peters) · 2017-08-29 · kind: primary · reliability: primary · branches: B11-12
+- **S211** — Improving Science and Math Education Using p5.js · https://processingfoundation.org/blog/improving-science-and-math-education-using-p5js/ · Processing Foundation (Jithin KS, GSoC 2018) · 2018-10-22 · kind: primary · reliability: primary · branches: B11-13
+- **S212** — Meet our 2021 fellows · https://processingfoundation.org/blog/meet-our-2021-fellows/ · Processing Foundation · 2021 · kind: primary · reliability: primary · branches: B11-14
+- **S213** — p5.js Showcase announcement · https://processingfoundation.org/blog/p5js-showcase/ · Processing Foundation (Ashley Kang, GSoC) · 2019-08 · kind: primary · reliability: primary · branches: B11-15
+- **S214** — Intro to Computational Media: Code (ITP) · https://itp.nyu.edu/icm · NYU ITP · undated · kind: docs · reliability: primary · branches: B11-16
+- **S215** — Machine Learning for the Web (ITP) · https://github.com/yining1023/machine-learning-for-the-web · Yining Shi · undated · kind: docs · reliability: primary · branches: B11-17
+- **S216** — Introduction to Machine Learning for the Arts (NYU IMA) · https://itp.nyu.edu/ima/introduction-to-machine-learning-for-the-arts/ · NYU IMA · undated · kind: docs · reliability: primary · branches: B11-18
+- **S217** — Teaching the Machine with p5.js and ml5.js (ITP Camp 2023) · https://itp.nyu.edu/camp2023/session/130 · NYU ITP · 2023-06-14 · kind: docs · reliability: primary · branches: B11-19
+- **S218** — Teachable Machine: Approachable Web-Based Tool for Exploring ML Classification · https://research.google/pubs/pub49436 · Howell et al., Google Research · 2020 · kind: academic · reliability: secondary · branches: B11-20
+- **S219** — ml5.js About · https://ml5js.org/about/ · ml5.js project · undated · kind: primary · reliability: primary · branches: B11-21
+- **S220** — The Nature of Code (p5.js) listing · https://creativeapplications.net/books/the-nature-of-code-p5-js-daniel-shiffman · CreativeApplications.Net · undated · kind: community · reliability: secondary · branches: B11-24
+- **S221** — Coding Train Challenge 130: Fourier Transform and Epicycles · https://thecodingtrain.com/challenges/130-drawing-with-fourier-transform-and-epicycles · The Coding Train · undated · kind: primary · reliability: primary · branches: B11-25
+- **S222** — APS April Meeting 2022 abstract, interactive physics simulations with Processing/p5.js · https://archive.aps.org/apr/2022/f01/32 · Bellis & DeLouker, Siena College · 2022 · kind: academic · reliability: secondary · branches: B11-27
+- **S223** — Migrating Game Lab code off Code.org with p5.play · https://forum.code.org/t/migrating-game-lab-code-off-code-org-with-p5-play/25333 · Code.org forum · undated · kind: community · reliability: secondary · branches: B11-28
+- **S224** — CodeHS p5play library · https://help.codehs.com/en/articles/10249264-codehs-p5play-library · CodeHS help · undated · kind: docs · reliability: primary · branches: B11-29
+- **S225** — Accessible web visuals and code with p5.js · https://flowingdata.com/2014/08/07/accessible-web-visuals-and-code-with-p5-js/ · FlowingData · 2014-08-07 · kind: community · reliability: secondary · branches: B11-30
+- **S226** — The ProPublica Pair Programming Project (checked, not a p5 source) · https://www.propublica.org/nerds/pair-programming-participant-1-julius-troeger · ProPublica · undated · kind: primary · reliability: primary · branches: B11-31
+- **S227** — Remotion vs Motion Canvas (Remotion docs) · https://www.remotion.dev/docs/compare/motion-canvas · Remotion team · undated · kind: docs (vendor-authored, biased toward Remotion) · reliability: primary · branches: B12-1
+- **S228** — Remotion vs Motion Canvas vs Revideo programmatic video 2026 · https://www.pkgpulse.com/guides/remotion-vs-motion-canvas-vs-revideo-programmatic-video-2026 · PkgPulse · 2026 (exact date not seen) · kind: community · reliability: secondary · branches: B12-2
+- **S229** — Remotion vs Motion Canvas vs Manim: Best Code-to-Video Tool 2026 · https://beginnersinai.org/remotion-vs-motion-canvas-vs-manim/ · beginnersinai.org · 2026 · kind: community (author's benchmarks on one M3 MacBook Pro) · reliability: secondary · branches: B12-3
+- **S230** — Revideo docs, Designing animations · https://docs.re.video/designing-animations · Revideo · undated · kind: docs · reliability: primary · branches: B12-4
+- **S231** — Motion Canvas docs, LaTeX · https://motioncanvas.io/docs/latex · Motion Canvas · undated · kind: docs · reliability: primary · branches: B12-6
+- **S232** — 3b1b/manim README · https://github.com/3b1b/manim · Grant Sanderson / contributors · undated · kind: primary · reliability: primary · branches: B12-7
+- **S233** — p5.record.js · https://github.com/limzykenneth/p5.record.js · limzykenneth · undated · kind: primary · reliability: primary · branches: B12-8
+- **S234** — Manim Community FAQ index · https://docs.manim.community/en/stable/faq/index.html · Manim Community · undated · kind: docs · reliability: primary · branches: B12-9
+- **S235** — Remotion 5.0 planning issue #3310 · https://github.com/remotion-dev/remotion/issues/3310 · Remotion maintainers · 2023-12-29 · kind: primary (planning issue, not a shipped change) · reliability: primary · branches: B12-10
+- **S236** — How to export a p5.js animation in high quality video · https://discourse.processing.org/t/how-to-export-a-p5-js-animation-in-high-quality-video/32655 · Processing Discourse (camilleroux, KumuPaul, GoToLoop) · 2021-10-06 · kind: community · reliability: secondary · branches: B13-2, B15-20
+- **S237** — Friendly Error points to executing line in the p5.js file (issue #8212) · https://github.com/processing/p5.js/issues/8212 · GitHub issue thread · undated · kind: community · reliability: secondary · branches: B13-4
+- **S238** — How to manually modify the P5js plugin (stable version) to use the 2.0 version? · https://discourse.processing.org/t/how-to-manually-modify-the-p5js-plugin-stable-version-to-use-the-2-0-version/48536 · Processing Discourse (EricRogerGarcia, glv, quark) · 2026-05-14 to 2026-06-01 · kind: community · reliability: secondary · branches: B13-6, B14-14, B21-19
+- **S239** — p5.js preload system removed from v2 · https://q5js.substack.com/p/p5js-preload-system-removed-from · Quinton Ashley (q5.js author), Substack · 2025-01-20 (modified 2025-11-19) · kind: community · reliability: secondary · branches: B13-8
+- **S240** — p5.webm-capture · https://github.com/abachman/p5.webm-capture · GitHub repo README (abachman) · undated · kind: community · reliability: secondary · branches: B13-10
+- **S241** — Make JavaScript art with p5.js 2.0 (This Week in JavaScript) · https://dev.to/thisweekinjavascript/make-javascript-art-with-p5js-20-new-react-19-features-solidjs-just-turned-10-and-more-309p · DEV Community newsletter · 2025-04-28 · kind: community · reliability: secondary · branches: B13-11
+- **S242** — Genuary 2026 repo (greggelong) · https://codeberg.org/greggelong/genuary2026 · Codeberg README · Jan 2026 (month inferred from repo name; exact date not shown) · kind: community · reliability: secondary · branches: B13-12
+- **S243** — How to Optimize Your Sketches · https://p5js.org/tutorials/how-to-optimize-your-sketches/ · p5js.org tutorial by Greg Benedis-Grab and Dave Pagurek · undated · kind: docs · reliability: primary · branches: B13-13
+- **S244** — p5.capture README v1.6.1 · https://cdn.jsdelivr.net/npm/p5.capture@1.6.1/README.md · library README on jsDelivr · undated · kind: community / docs / primary · reliability: primary · branches: B13-15, B17-10, B20-34
+- **S245** — PR #8114 TypeScript type generation refactor · https://github.com/processing/p5.js/pull/8114 · p5.js contributors · undated · kind: primary · reliability: primary · branches: B14-5
+- **S246** — p5.js Get Started tutorial (editor link pins version=2.3.3) · https://p5js.org/tutorials/get-started/ · p5js.org · undated · kind: docs · reliability: primary · branches: B14-6
+- **S247** — Discourse: preload() with Vite + TypeScript error · https://discourse.processing.org/t/error-when-using-preload-with-vite-typescript-cannot-read-properties-of-undefined-reading-pixels/46431 · Processing Community Forum · undated · kind: community · reliability: secondary · branches: B14-7
+- **S248** — p5.js issue #8302 (TS + `import p5/global`, v2.1.1) · https://github.com/processing/p5.js/issues/8302 · p5.js contributors · undated · kind: primary · reliability: primary · branches: B14-8
+- **S249** — P5-wrapper/react README · https://github.com/P5-wrapper/react · P5 Wrapper authors · undated · kind: docs · reliability: primary · branches: B14-9
+- **S250** — antfu/p5i README · https://github.com/antfu/p5i · Anthony Fu · undated · kind: docs · reliability: primary · branches: B14-10
+- **S251** — p5.js issue #6311 (remove() before _setupDone leaves canvas; 1.7.0) · https://github.com/processing/p5.js/issues/6311 · p5.js contributors · undated · kind: primary · reliability: primary · branches: B14-11
+- **S252** — Chatting with/about Code (Ciston, Martinez, Atairu) · https://p5js.org/tutorials/criticalai1-chatting-with-about-code · p5js.org · undated (refs 2024) · kind: docs · reliability: primary · branches: B14-12, B16-36
+- **S253** — hermes-agent p5js creative skill (commit listing) · https://gitcode.com/ChrisBob/hermes-agent/tree/main/skills/creative/p5js/scripts · community · undated · kind: community · reliability: secondary · branches: B14-13
+- **S254** — Oliver Steele, VS Code for p5.js · https://notes.osteele.com/tools/vscode/p5js/ · Oliver Steele · undated · kind: community · reliability: secondary · branches: B14-15
+- **S255** — Optimizing p5.js Code for Performance (wiki) · https://github.com/processing/p5.js/wiki/Optimizing-p5.js-Code-for-Performance · p5.js contributors · undated (figures tied to p5 v0.5.2) · kind: docs · reliability: primary · branches: B15-1
+- **S256** — Optimizing WebGL Sketches (tutorial) · https://p5js.org/tutorials/optimizing-webgl-sketches/ · Dave Pagurek, Adam Ferriss / p5.js · undated · kind: docs · reliability: primary · branches: B15-2
+- **S257** — createFramebuffer() reference · https://p5js.org/reference/p5/createFramebuffer/ · p5.js · undated · kind: docs · reliability: primary · branches: B15-4, B18-13
+- **S258** — setAttributes() reference · https://p5js.org/reference/p5/setAttributes/ · p5.js · undated · kind: docs · reliability: primary · branches: B15-6
+- **S259** — p5.Graphics reference · https://p5js.org/reference/p5/p5.Graphics · p5.js · undated · kind: docs · reliability: primary · branches: B15-8, B18-12
+- **S260** — noSmooth() reference · https://p5js.org/reference/p5/noSmooth/ · p5.js · undated · kind: docs · reliability: primary · branches: B15-9
+- **S261** — loadPixels() reference · https://p5js.org/reference/p5/loadPixels/ · p5.js · undated · kind: docs · reliability: primary · branches: B15-10
+- **S262** — buildGeometry() reference · https://p5js.org/reference/p5/buildGeometry/ · p5.js · undated · kind: docs · reliability: primary · branches: B15-11
+- **S263** — p5.Framebuffer pixelDensity() reference · https://p5js.org/reference/p5.Framebuffer/pixelDensity/ · p5.js · undated · kind: docs · reliability: primary · branches: B15-12
+- **S264** — Performance differences with POINTS between 1.11 and 2.0 · https://discourse.processing.org/t/performance-differences-with-points-between-1-11-and-2-0/46959 · Processing Discourse users (davepagurek et al.) · 2025 (undated on fetch) · kind: community · reliability: secondary · branches: B15-13
+- **S265** — Issue #8316 "noise() is laggier in 2.x" · https://github.com/processing/p5.js/issues/8316 · GitHub, processing/p5.js · undated (concerns 2.1.1) · kind: primary · reliability: primary · branches: B15-14
+- **S266** — Issue #8289 pixelDensity() applies only to the canvas, not p5.Graphics, in 2.x · https://github.com/processing/p5.js/issues/8289 · GitHub, processing/p5.js · undated (concerns 2.1.1) · kind: primary · reliability: primary · branches: B15-15
+- **S267** — Issue #7026 Typography module revamp RFC · https://github.com/processing/p5.js/issues/7026 · GitHub, processing/p5.js · undated · kind: primary · reliability: primary · branches: B15-16
+- **S268** — Greetings from p5.js 2.0: Animation, Interaction, and Typography in 2D and 3D · https://beta.p5js.org/tutorials/typography-2.0/ · p5.js · undated · kind: docs · reliability: primary · branches: B15-18, B20-31
+- **S269** — Slow performance when passing multiple PGraphics into each other as shader textures · https://discourse.processing.org/t/slow-performance-when-passing-multiple-pgraphics-into-each-other-as-shader-textures/23384 · Processing Discourse (Processing/Java, not p5) · undated · kind: community · reliability: secondary · branches: B15-21
+- **S270** — Optimization question about WEBGL · https://discourse.processing.org/t/optimization-question-about-webgl/39196 · Processing Discourse · undated · kind: community · reliability: secondary · branches: B15-22
+- **S271** — Troubleshooting (p5js skill reference) · https://download.hermesedi.duckdns.org/.hermes/hermes-agent/skills/creative/p5js/references/troubleshooting.md · third-party agent skill doc, unattributed, figures unsourced · undated · kind: community (low confidence) · reliability: secondary · branches: B15-23
+- **S272** — Basic PPI Question · https://discourse.processing.org/t/basic-ppi-question/43677 · Processing Discourse · undated · kind: community · reliability: secondary · branches: B15-24
+- **S273** — Exporting video in Processing · https://dev.brendandawes.com/blog/exportingvideoinp5 · Brendan Dawes · undated · kind: community (about Processing/Java, not p5.js) · reliability: secondary · branches: B15-25
+- **S274** — What's New in p5.js 2.3.0! · https://processingfoundation.org/blog/whats-new-in-p5js-230 · Processing Foundation · 2026-06-22 · kind: primary · reliability: primary · branches: B16-3
+- **S275** — Drawing a Forest in One Line: A Preview of Instancing in p5.strands · https://processingfoundation.org/blog/drawing-a-forest-in-one-line-a-preview-of-instancing-in-p5strands · Akshat Patil / Processing Foundation · 2026-08-10 · kind: primary · reliability: primary · branches: B16-6
+- **S276** — ml5-next-gen releases · https://github.com/ml5js/ml5-next-gen/releases · ml5.js team · v1.4.0 dated 07 Aug (2026 inferred; see Gaps) · kind: primary · reliability: primary · branches: B16-7
+- **S277** — Using ml5.js with p5.js 2.0: Now with Async Model Constructors · https://ml5js.org/blog/using-ml5-with-p5-2/ · Bairui Su / ml5.js · 2025-07-29 · kind: primary · reliability: primary · branches: B16-8
+- **S278** — Issue #8911: p5.strands instancing API tracking · https://github.com/processing/p5.js/issues/8911 · processing/p5.js · 2026 · kind: primary · reliability: primary · branches: B16-10
+- **S279** — Announcing Roxana Hadad and Xin Xin as Executive Co-Directors · https://processingfoundation.org/blog/announcing-roxana-hadad-and-xin-xin-as-executive-co-directors-of-the-processing-foundation/ · Processing Foundation · 2024-11-08 · kind: primary · reliability: primary · branches: B16-14
+- **S280** — Riot Games Backs the Processing Foundation Fellowship Program as Corporate Supporter · https://processingfoundation.org/blog/riot-games-fellowship-news · Processing Foundation · 2026-10-01 · kind: primary · reliability: primary · branches: B16-15
+- **S281** — Questions about Processing grant this year (2026) · https://discourse.processing.org/t/questions-about-processing-grant-this-year-2026/48938 · Processing forum (community, with a quoted staff statement) · 2026-07-01/02 · kind: community · reliability: secondary · branches: B16-16
+- **S282** — Anthropic algorithmic-art skill listing · https://vibeindex.ai/skills/anthropics/skills/algorithmic-art · vibeindex (aggregator of anthropics/skills) · updated 2026-06-09 · kind: community · reliability: secondary · branches: B16-17
+- **S283** — hermes-agent p5js skill · https://www.skills.sh/nousresearch/hermes-agent/p5js · skills.sh listing of nousresearch/hermes-agent · first seen 2026-04-15 · kind: community · reliability: secondary · branches: B16-18
+- **S284** — genart-mcp (@genart-dev/mcp-server) · https://glama.ai/mcp/servers/ra21vzt6ns · glama.ai MCP directory · undated · kind: community · reliability: secondary · branches: B16-19
+- **S285** — TheoremExplainAgent · https://arxiv.org/abs/2502.19400 · Ku, Chong, Leung, Shah, Yu, Chen · 2025-02-26 (v2 2025-05-25) · kind: academic · reliability: secondary · branches: B16-20
+- **S286** — PhysicsSolutionAgent · https://arxiv.org/abs/2601.13453 · Thole, Agrawal, Ramamoorthy, Kumar · 2026-01-19 · kind: academic · reliability: secondary · branches: B16-21
+- **S287** — LLM2Manim: Pedagogy-Aware AI Generation of STEM Animations · https://arxiv.org/abs/2604.05266 · Joshi, Ke, Gajjar, Christian, Wang, Chen (SDSU) · 2026-04-07 · kind: academic · reliability: secondary · branches: B16-22
+- **S288** — PR #8125: fix textOutput()/gridOutput() examples · https://github.com/processing/p5.js/pull/8125 · processing/p5.js · undated · kind: primary · reliability: primary · branches: B16-23
+- **S289** — describe() reference · https://p5js.org/reference/p5/describe/ · p5js.org · v2.3.3 reference · kind: docs · reliability: primary · branches: B16-24
+- **S290** — Reflexa: LLM-Supported Reflection Scaffolding in Creative Coding · https://arxiv.org/abs/2601.17769 · Wang, Li, Luo, Tong, Hui (HKUST) · 2026-01-25 · kind: academic · reliability: secondary · branches: B16-26
+- **S291** — Spellburst: Node-based Interface for Exploratory Creative Coding with Natural Language Prompts · https://arxiv.org/pdf/2308.03921 · authors not verified · 2023-08 (arXiv 2308) · kind: academic (title only verified via search) · reliability: secondary · branches: B16-27
+- **S292** — Announcing our Google Summer of Code Contributors (2026) · https://processingfoundation.org/blog/announcing-our-google-summer-of-code-contributors · Processing Foundation · 2026-07-02 · kind: primary · reliability: primary · branches: B16-28
+- **S293** — Announcing Google Summer of Code 2025 Projects · https://processingfoundation.org/blog/announcing-google-summer-of-code-2025-projects/ · Processing Foundation · 2025-06-10 · kind: primary · reliability: primary · branches: B16-29
+- **S294** — OSS Microgrants 2026: Dorine Tipo · https://processingfoundation.org/programs/grants/oss-microgrants/2026/dorine-tipo/ · Processing Foundation · 2026 · kind: primary · reliability: primary · branches: B16-30
+- **S295** — Issue #8003: Distributing custom builds (p5.js 2.0) · https://github.com/processing/p5.js/issues/8003 · processing/p5.js (limzykenneth et al.) · undated · kind: primary · reliability: primary · branches: B16-31
+- **S296** — LGM 2026 talk: p5.js beginner-friendly shader programming · https://libregraphicsmeeting.org/2026/program/talk_p5js-beginner-friendly-shader-programming/ · Libre Graphics Meeting / Kit Kuksenok · 2026-04-22 · kind: primary · reliability: primary · branches: B16-32
+- **S297** — PCD @ Worldwide 2026 · https://discourse.processing.org/t/pcd-worldwide-2026/48081 · Call for Organizers · Raphaël de Courville / Processing forum · 2026 · kind: primary · reliability: primary · branches: B16-33
+- **S298** — Processing Foundation and Tezos Foundation partner on p5.js 2.0 educational programming · https://chainwire.org/2025/10/14/processing-foundation-and-tezos-foundation-partner-to-launch-p5-js-2-0-educational-programming-with-leading-generative-artists/ · Chainwire press release · 2025-10-14 · kind: primary (press release) · reliability: primary · branches: B16-34
+- **S299** — p5.strands example: 3D Filter Shader · https://p5js.org/examples/3D-Filter-Shader-p5strands/ · p5js.org · undated · kind: docs · reliability: primary · branches: B16-37
+- **S300** — p5.js Community Libraries directory · https://p5js.org/libraries/directory/ · Processing Foundation · undated (accessed 2026-10-08) · kind: docs · reliability: primary · branches: B17-2
+- **S301** — p5.SceneManager README · https://github.com/mveteanu/p5.scenemanager · mveteanu / CodeGuppy · undated · kind: primary · reliability: primary · branches: B17-3
+- **S302** — p5_animationFramework README · https://github.com/pirelaurent/p5_animationFramework · pirelaurent · undated · kind: primary · reliability: primary · branches: B17-4
+- **S303** — "Free productive animation framework for p5.js" · https://discourse.processing.org/t/free-productive-animation-framework-for-p5-js/36202 · pirela (Processing Forum) · 2022-04-07 · kind: community · reliability: secondary · branches: B17-5
+- **S304** — "P5.js Simple Timeline" · https://discourse.processing.org/t/p5-js-simple-timeline/23212 · Processing Forum · 2020 · kind: community · reliability: secondary · branches: B17-6
+- **S305** — timeplate README · https://cdn.jsdelivr.net/npm/timeplate@0.1.0/README.md · ScarletsFiction/StefansArya · undated · kind: primary · reliability: primary · branches: B17-7
+- **S306** — keyframes README · https://github.com/mattdesl/keyframes · Matt DesLauriers · undated · kind: primary · reliability: primary · branches: B17-8
+- **S307** — Timeliner README · https://github.com/halfdanj/timeliner · HalfdanJ (fork of zz85) · undated · kind: primary · reliability: primary · branches: B17-9
+- **S308** — "How to save canvas animations with CCapture" · https://www.freecodecamp.org/news/how-to-save-canvas-animations-with-ccapture-78c70f0e86ac/ · Ibby EL-Serafy · 2019-03-22 · kind: community · reliability: secondary · branches: B17-12
+- **S309** — p5.animS README · https://github.com/wixette/p5.animS · wixette · undated · kind: primary · reliability: primary · branches: B17-14
+- **S310** — p5.videorecorder README · https://github.com/calebfoss/p5.videorecorder · Caleb Foss · undated · kind: primary · reliability: primary · branches: B17-15
+- **S311** — Revideo "Animation flow" · https://docs.re.video/flow · Revideo (Motion Canvas fork) · undated · kind: docs · reliability: primary · branches: B17-16
+- **S312** — Motion Canvas Quickstart · https://motioncanvas.io/docs/quickstart · Motion Canvas · undated · kind: docs · reliability: primary · branches: B17-17
+- **S313** — Motion Canvas Time Events · https://motioncanvas.io/docs/time-events · Motion Canvas · undated · kind: docs · reliability: primary · branches: B17-18
+- **S314** — Motion Canvas Signals · https://motioncanvas.io/docs/signals · Motion Canvas · undated · kind: docs · reliability: primary · branches: B17-19
+- **S315** — Motion Canvas Rendering · https://motioncanvas.io/docs/rendering · Motion Canvas · undated · kind: docs · reliability: primary · branches: B17-20
+- **S316** — Motion Canvas tutorial part 1 · https://slama.dev/motion-canvas/1/ · Tomáš Sláma · 2024-10-04 · kind: community · reliability: secondary · branches: B17-21
+- **S317** — Remotion "CSS animations" troubleshooting · https://www.remotion.dev/docs/troubleshooting/css-animations · Remotion · undated · kind: docs · reliability: primary · branches: B17-22, B21-3
+- **S318** — Remotion "The fundamentals" · https://www.remotion.dev/docs/the-fundamentals · Remotion · undated · kind: docs · reliability: primary · branches: B17-23
+- **S319** — Remotion `<Sequence>` · https://www.remotion.dev/docs/sequence · Remotion · undated · kind: docs · reliability: primary · branches: B17-24
+- **S320** — Remotion `<ThreeCanvas>` · https://www.remotion.dev/docs/three-canvas · Remotion · undated · kind: docs · reliability: primary · branches: B17-25
+- **S321** — Remotion `useGsapTimeline()` · https://www.remotion.dev/docs/gsap/use-gsap-timeline · Remotion · undated (v4.0.517+) · kind: docs · reliability: primary · branches: B17-26
+- **S322** — Manim Community `Scene` reference · https://docs.manim.community/en/stable/reference/manim.scene.scene.Scene.html · Manim Community · undated · kind: docs · reliability: primary · branches: B17-27
+- **S323** — Manim Community `Animation` reference · https://docs.manim.community/en/stable/reference/manim.animation.animation.Animation.html · Manim Community · undated · kind: docs · reliability: primary · branches: B17-28
+- **S324** — "Show HN: I ported Manim to TypeScript" (manim-web, github.com/maloyan/manim-web) · https://hn.svelte.dev/item/47155375 · maloyan + HN commenters · c. early 2026 ("7 months ago") · kind: community · reliability: secondary · branches: B17-29
+- **S325** — "p5.teach: Teaching Math through Animations and Simulations" · https://processingfoundation.org/blog/p5teach-teaching-math-through-animations-and-simulations/ · Aditya Siddheshwar / Processing Foundation · 2021-09-22 · kind: primary · reliability: primary · branches: B17-30, B20-39
+- **S326** — "Animating maths in p5.js" · https://discourse.processing.org/t/animating-maths-in-p5-js/31583 · two.ticks (Processing Forum) · 2021-08-05 · kind: community · reliability: secondary · branches: B17-31
+- **S327** — "P5 Math in Motion – GSoC Proposal" · https://discourse.processing.org/t/p5-math-in-motion-gsoc-proposal/10072 · Processing Forum · 2019-04-08 · kind: community · reliability: secondary · branches: B17-32
+- **S328** — Manim.js README · https://github.com/JazonJiao/Manim.js · Jazon Jiao · undated · kind: primary · reliability: primary · branches: B17-33, B20-38
+- **S329** — Theatre.js @theatre/core API · https://www.theatrejs.com/docs/latest/api/core · Theatre.js · undated · kind: docs · reliability: primary · branches: B17-34
+- **S330** — Theatre.js "Using Audio" · https://www.theatrejs.com/docs/latest/manual/audio · Theatre.js · undated · kind: docs · reliability: primary · branches: B17-35
+- **S331** — Theatre.js "Prop types" · https://www.theatrejs.com/docs/latest/manual/prop-types · Theatre.js · undated · kind: docs · reliability: primary · branches: B17-36
+- **S332** — GSAP core docs · https://gsap.com/docs/v3/GSAP/ · GSAP (Webflow) · undated · kind: docs · reliability: primary · branches: B17-37
+- **S333** — "Webflow makes GSAP 100% free" · https://webflow.com/blog/gsap-becomes-free · Webflow · 2025 (last updated 2026-06-16) · kind: primary · reliability: primary · branches: B17-38
+- **S334** — p5.Font `textToContours()` reference · https://beta.p5js.org/reference/p5.Font/textToContours · p5.js (v2.3.3) · undated · kind: docs · reliability: primary · branches: B17-39, B20-32
+- **S335** — p5.Camera `slerp()` reference · https://beta.p5js.org/reference/p5.Camera/slerp/ · p5.js (v2.3.3) · undated · kind: docs · reliability: primary · branches: B17-40
+- **S336** — `saveFrames()` reference · https://beta.p5js.org/reference/p5/saveFrames/ · p5.js · undated · kind: docs · reliability: primary · branches: B17-41
+- **S337** — `deltaTime` reference · https://beta.p5js.org/reference/p5/deltaTime/ · p5.js · undated · kind: docs · reliability: primary · branches: B17-42
+- **S338** — `redraw()` reference · https://beta.p5js.org/reference/p5/redraw/ · p5.js · undated · kind: docs · reliability: primary · branches: B17-43
+- **S339** — `lerpColor()` reference · https://beta.p5js.org/reference/p5/lerpColor/ · p5.js · undated · kind: docs · reliability: primary · branches: B17-44
+- **S340** — p5.SoundFile `addCue()` (v1 reference) · https://v1.p5js.org/reference/p5.SoundFile/addCue/ · p5.js · undated · kind: docs · reliability: primary · branches: B17-50
+- **S341** — Coding Challenge #81 Circle Morphing · https://thecodingtrain.com/challenges/81-circle-morphing · Daniel Shiffman / The Coding Train · undated · kind: community · reliability: secondary · branches: B17-51
+- **S342** — p5.js About · https://p5js.org/about/ · p5.js / Processing Foundation · undated (live 2026) · kind: primary · reliability: primary · branches: B18-1
+- **S343** — p5.js Access Statement · https://p5js.org/contribute/access/ · p5.js contributors · undated · kind: primary · reliability: primary · branches: B18-2
+- **S344** — A Modern Prometheus (Processing history) · https://processingfoundation.org/blog/a-modern-prometheus/ · Processing Foundation (Reas & Fry) · undated · kind: primary · reliability: primary · branches: B18-3
+- **S345** — Processing Foundation: About / History · https://processingfoundation.org/about/history · Processing Foundation · undated (lists 2026 events) · kind: primary · reliability: primary · branches: B18-4
+- **S346** — Fellowships 2013: p5.js · https://processingfoundation.org/programs/fellowships/2013/p5-js · Processing Foundation · 2013 · kind: primary · reliability: primary · branches: B18-5
+- **S347** — Friendly Error System (contributor docs) · https://p5js.org/contribute/friendly_error_system/ · p5.js contributors · undated · kind: docs · reliability: primary · branches: B18-6
+- **S348** — Writing Accessible Canvas Descriptions (tutorial) · https://p5js.org/tutorials/writing-accessible-canvas-descriptions/ · p5.js · undated · kind: docs · reliability: primary · branches: B18-7
+- **S349** — Coordinates and Transformations (tutorial) · https://p5js.org/tutorials/coordinates-and-transformations/ · p5.js · undated · kind: docs · reliability: primary · branches: B18-10
+- **S350** — Creating Libraries (2.x contributor docs) · https://beta.p5js.org/contribute/creating_libraries/ · p5.js contributors · undated · kind: docs · reliability: primary · branches: B18-19
+- **S351** — Intro to p5.strands (tutorial) · https://beta.p5js.org/tutorials/intro-to-p5-strands/ · p5.js · undated · kind: docs · reliability: primary · branches: B18-20
+- **S352** — McNutt, Outkine, Chugh, "A Study of Editor Features in a Creative Coding Classroom," CHI '23 · https://arxiv.org/abs/2301.13302 · ACM CHI · 2023 · kind: academic · reliability: secondary · branches: B18-21
+- **S353** — Make: Getting Started with p5.js (McCarthy, Reas, Fry) · https://www.makershed.com/collections/all-education/products/make-getting-started-with-p5-js · Maker Media · 2015 (per bibliographic listings) · kind: primary · reliability: primary · branches: B18-22
+- **S354** — Bocoup: p5.js website rebuild · https://bocoup.com/blog/p5-js · Bocoup (Lazarus Letcher) · 2024-02-22 · kind: community · reliability: secondary · branches: B18-26
+- **S355** — p5.js Community page · https://p5js.org/community/ · p5.js · undated · kind: primary · reliability: primary · branches: B18-27
+- **S356** — Announcing our new p5.js project lead Kit Kuksenok · https://processingfoundation.org/blog/announcing-our-new-p5js-project-lead-kit-kuksenok/ · Processing Foundation · 2024 · kind: primary (title only verified via search listing) · reliability: primary · branches: B18-28
+- **S357** — p5.js-website repo, `src/content/reference/en` (main branch, last commit 2026-09-30; parsed 759 .mdx entries + 140 constants + 5 types) · https://github.com/processing/p5.js-website/tree/main/src/content/reference/en · Processing Foundation · 2026-09-30 · kind: primary · reliability: primary · branches: B19-2
+- **S358** — p5.js-website repo, `v1` branch reference (1.x reference; parsed 905 entries) · https://github.com/processing/p5.js-website/tree/v1/src/content/reference/en · Processing Foundation · 2026-10-02 · kind: primary · reliability: primary · branches: B19-3
+- **S359** — p5.js source at tag v2.3.4 (`src/` folder; JSDoc @module/@submodule/@method/@beta/@deprecated tags parsed) · https://github.com/processing/p5.js/tree/v2.3.4/src · Processing Foundation · 2026-09-25 · kind: primary · reliability: primary · branches: B19-4
+- **S360** — p5.js source on `main` (commit aa192a2, 2026-10-07; post-2.3.4 work) · https://github.com/processing/p5.js/tree/main/src · Processing Foundation · 2026-10-07 · kind: primary · reliability: primary · branches: B19-5
+- **S361** — p5.js source at tag v1.11.10 (1.x baseline for removed/moved diff) · https://github.com/processing/p5.js/tree/v1.11.10/src · Processing Foundation · undated (1.11.x line) · kind: primary · reliability: primary · branches: B19-6
+- **S362** — npm registry metadata for `p5` (dist-tags latest 2.3.4, r1 1.11.13, beta 2.3.1-rc.2; 2.0.0 published 2025-04-17) · https://registry.npmjs.org/p5 · npm · accessed 2026-10-08 · kind: primary · reliability: primary · branches: B19-10, B21-15
+- **S363** — p5.js-website `src/globals/p5-version.ts` (p5Version 2.3.3, p5SoundVersion 0.4.1) · https://github.com/processing/p5.js-website/blob/main/src/globals/p5-version.ts · Processing Foundation · 2026-09-30 · kind: primary · reliability: primary · branches: B19-14
+- **S364** — npm registry metadata for `p5.sound` (latest 0.4.1) · https://registry.npmjs.org/p5.sound · npm · accessed 2026-10-08 · kind: primary · reliability: primary · branches: B19-16
+- **S365** — Fidenza · https://www.tylerxhobbs.com/words/fidenza · Tyler Hobbs · 2021 · kind: primary · reliability: primary · branches: B20-1
+- **S366** — Flow Fields · https://www.tylerxhobbs.com/words/flow-fields · Tyler Hobbs · 2020 · kind: primary · reliability: primary · branches: B20-2
+- **S367** — Code Review: Fidenza by Tyler Hobbs · https://lostpixels.io/writings/code-review-fidenza · James Merrill (Lostpixels) · 2021-12-15 · kind: community · reliability: secondary · branches: B20-3
+- **S368** — In Conversation with Tyler Hobbs on Fidenza · https://www.artblocks.io/article/in-conversation-with-tyler-hobbs-on-fidenza · Art Blocks (Jeff Davis) · 2021-06-04 · kind: primary · reliability: primary · branches: B20-4
+- **S369** — Fidenza project page · https://www.artblocks.io/collections/curated/projects/0xa7d8d9ef8d8ce8992df33d8b8cf4aebabd5bd270/78 · Art Blocks · undated (release 2021-06-11) · kind: primary · reliability: primary · branches: B20-5
+- **S370** — Probability Distributions for Algorithmic Artists · https://www.tylerxhobbs.com/words/probability-distributions-for-algorithmic-artists · Tyler Hobbs · undated · kind: primary · reliability: primary · branches: B20-6
+- **S371** — Working with Color in Generative Art · https://www.tylerxhobbs.com/words/working-with-color-in-generative-art · Tyler Hobbs · 2016-10-23 · kind: primary · reliability: primary · branches: B20-7
+- **S372** — Aesthetically Pleasing Triangle Subdivision · https://www.tylerxhobbs.com/words/aesthetically-pleasing-triangle-subdivision · Tyler Hobbs · 2017-07-27 · kind: primary · reliability: primary · branches: B20-8
+- **S373** — Remembrance of Things Future: A Conversation with Tyler Hobbs · https://unframed.lacma.org/node/3685 · LACMA Unframed (Lady Cactoid) · 2024-06-05 · kind: primary · reliability: primary · branches: B20-9
+- **S374** — Building Your Project (artist docs) · https://docs.artblocks.io/creator-onboarding/artists/1-building-your-project · Art Blocks · undated · kind: docs · reliability: primary · branches: B20-10
+- **S375** — The Art Blocks Generator · https://docs.artblocks.io/protocol/on-chain-generator/ · Art Blocks · undated · kind: docs · reliability: primary · branches: B20-11
+- **S376** — artblocks npm package · https://www.npmjs.com/package/artblocks · npm · undated · kind: docs · reliability: primary · branches: B20-12
+- **S377** — How Chromie Squiggles pioneered generative NFT art · https://nftnow.com/art/how-chromie-squiggles-pioneered-generative-nft-art/ · nft now · 2022-11-28 · kind: community · reliability: secondary · branches: B20-13
+- **S378** — Art Buyer Turned $1,400 Into $3.3 Million… · https://decrypt.co/79247/art-blocks-fidenza-nft-3-3-million-ethereum?amp=1 · Decrypt · 2021-08-23 · kind: community · reliability: secondary · branches: B20-14
+- **S379** — In Conversation with Kjetil Golid on Archetype · https://www.artblocks.io/article/in-conversation-with-kjetil-golid-on-archetype · Art Blocks · 2021-02-04 · kind: primary · reliability: primary · branches: B20-15
+- **S380** — Kjetil Golid: A Bright Star in Generative Art · https://www.gncrypto.news/news/kjetil-golid-a-bright-star-in-generative-art/ · GNcrypto · undated · kind: community · reliability: secondary · branches: B20-16
+- **S381** — In Conversation with Ben Kovach · https://www.artblocks.io/article/in-conversation-with-ben-kovach · Art Blocks · c.2021 (undated) · kind: primary · reliability: primary · branches: B20-17
+- **S382** — Ringers #29 lot · https://phillips.com/detail/dmitri-cherniak/UK090322/8 · Phillips · 2022-07 · kind: primary · reliability: primary · branches: B20-18
+- **S383** — noc-book-2 repo · https://github.com/nature-of-code/noc-book-2 · Nature of Code · undated · kind: primary · reliability: primary · branches: B20-21
+- **S384** — Daniel Shiffman · https://en.wikipedia.org/wiki/Daniel_Shiffman · Wikipedia · undated · kind: community · reliability: secondary · branches: B20-22
+- **S385** — createCanvas: Interview with Dan Shiffman, part 2 · https://processingfoundation.org/blog/createcanvas-interview-with-dan-shiffman-part-2/ · Processing Foundation · 2019-11-15 · kind: primary · reliability: primary · branches: B20-23
+- **S386** — Coding Challenge #27 Fireworks · https://thecodingtrain.com/challenges/27-fireworks · The Coding Train · undated · kind: primary · reliability: primary · branches: B20-25
+- **S387** — Coding Challenge #135 Making a GIF Loop · https://thecodingtrain.com/challenges/135-making-a-gif-loop-in-processing · The Coding Train · undated · kind: primary · reliability: primary · branches: B20-27
+- **S388** — Genuary 2024 · https://isohedral.ca/genuary-2024/ · Craig S. Kaplan · 2024 · kind: primary · reliability: primary · branches: B20-30
+- **S389** — 3Blue1Brown like videos using P5JS · https://discourse.processing.org/t/3blue1brown-like-videos-using-p5js/27007 · Processing Discourse · 2021-01-13 · kind: community · reliability: secondary · branches: B20-37
+- **S390** — Generative Design Code-Package-p5.js · https://github.com/generative-design/Code-Package-p5.js · Groß, Bohnacker, Laub, Lazzeroni · undated · kind: primary · reliability: primary · branches: B20-40
+- **S391** — Experimental Typography for the Web · https://www.superhi.com/courses/experimental-typography-for-the-web · SuperHi · undated · kind: primary · reliability: primary · branches: B20-42
+- **S392** — Beginner's guide to fxhash using p5.js · https://fxhash.substack.com/p/beginners-guide-to-fxhash-using-p5js · fxhash Substack (unnamed author) · undated · kind: community · reliability: secondary · branches: B20-43
+- **S393** — Zach Lieberman on Medium · https://zachlieberman.medium.com/ · Zach Lieberman · 2018–2025 · kind: primary · reliability: primary · branches: B20-44
+- **S394** — Gorilla Sun · https://gorillasun.de/about · About · Ahmad Moussa · undated · kind: primary · reliability: primary · branches: B20-45
+- **S395** — Amy Goodchild Substack · https://amygoodchild.substack.com/ · Amy Goodchild · undated · kind: primary · reliability: primary · branches: B20-46
+- **S396** — Remotion docs, Third-party libraries · https://www.remotion.dev/docs/third-party · Remotion · undated · kind: docs · reliability: primary · branches: B21-1
+- **S397** — Remotion docs, GSAP · https://www.remotion.dev/docs/gsap · Remotion · undated · kind: docs · reliability: primary · branches: B21-2
+- **S398** — Remotion docs, Lottie · https://www.remotion.dev/docs/lottie/ · Remotion · undated · kind: docs · reliability: primary · branches: B21-4
+- **S399** — canvas-sketch docs README · https://github.com/mattdesl/canvas-sketch/blob/master/docs/README.md · Matt DesLauriers · undated · kind: primary · reliability: primary · branches: B21-5
+- **S400** — canvas-sketch docs, WebGL/Three.js/P5.js section · https://github.com/mattdesl/canvas-sketch/blob/master/docs/webgl.md · Matt DesLauriers · undated · kind: primary · reliability: primary · branches: B21-6
+- **S401** — canvas-sketch example animated-p5.js · https://github.com/mattdesl/canvas-sketch/blob/master/examples/animated-p5.js · Matt DesLauriers · undated · kind: primary · reliability: primary · branches: B21-7
+- **S402** — canvas-sketch docs, Installation · https://github.com/mattdesl/canvas-sketch/blob/master/docs/installation.md · Matt DesLauriers · undated · kind: primary · reliability: primary · branches: B21-9
+- **S403** — Theatre.js docs, Sheet Objects · https://www.theatrejs.com/docs/latest/manual/objects · Theatre.js · undated · kind: docs · reliability: primary · branches: B21-10
+- **S404** — p5.js Web Editor GitHub Releases · https://github.com/processing/p5.js-web-editor/releases · Processing Foundation · day/month only (year not shown) · kind: primary · reliability: primary · branches: B21-13
+- **S405** — p5.js Download page · https://p5js.org/download/ · p5.js team · undated · kind: primary · reliability: primary · branches: B21-14
+- **S406** — jsDelivr package page for p5 · https://www.jsdelivr.com/package/npm/p5 · jsDelivr · fetched 2026-10-08 · kind: primary · reliability: primary · branches: B21-16
+- **S407** — cdnjs library page for p5.js · https://cdnjs.com/libraries/p5.js · cdnjs · fetched 2026-10-08 · kind: primary · reliability: primary · branches: B21-17
+- **S408** — Processing Forum, "Processing vs p5.js specifically for brand design" · https://discourse.processing.org/t/processing-vs-p5-js-specifically-for-brand-design/39715 · community (josephh, quark, GoToLoop) · Nov 2022 · kind: community · reliability: secondary · branches: B21-20
+- **S409** — D3 docs, What is D3? · https://d3js.org/what-is-d3 · Observable / D3 · undated · kind: docs · reliability: primary · branches: B21-21
+- **S410** — three.js manual, Fundamentals · https://threejs.org/manual/en/fundamentals.html · three.js · undated · kind: docs · reliability: primary · branches: B21-22
+- **S411** — openFrameworks, About · https://openframeworks.cc/about/ · openFrameworks · undated · kind: primary · reliability: primary · branches: B21-23
+- **S412** — Processing.org home · https://processing.org/ · Processing Foundation · undated · kind: primary · reliability: primary · branches: B21-24
+- **S413** — Lottie home · https://lottie.airbnb.tech/ · Airbnb · undated · kind: primary · reliability: primary · branches: B21-25
+- **S414** — Derivative product page · https://derivative.ca/product · Derivative · undated · kind: primary (thin) · reliability: primary · branches: B21-26
+- **S415** — Hermes-agent p5js skill file (mirror) · https://czmissioncontrol.duckdns.org/skills/creative/p5js/SKILL.md · unnamed author · undated · kind: community (mirror of an agent skill; low provenance) · reliability: secondary · branches: B21-27
+- **S416** — HN item 33386020 "Ask HN: Creative Coding Communities?" (search hit only, comments not read; fetch returned error 419) · https://news.ycombinator.com/item?id=33386020 · HN · 2022-10-29 · kind: community · reliability: secondary · branches: B21-28

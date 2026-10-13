@@ -1,0 +1,23 @@
+{
+  "id": "winners-curse",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "198 of 400 guesses high, 40 of 40 winners high, mean win $12.4M, +$2.4M, 24 %", "status": "ok", "note": "all 36 formulas recompute from mulberry32(1971): 198, 40, 12.364, 2.364, 23.6 %; crowd mean 9.96 -> $10.0M"},
+    {"claim": "theory: E[max of 10 uniform ±30 %] = $12.5M; winner high in 1,023 of 1,024", "status": "ok", "note": "10 x (1 + 0.3 x 9/11) = 12.45; 1 - 2^-10"},
+    {"claim": "North Slope 1969: $900M winning bids vs $370M second bids; gap $530M; 2.4x", "status": "ok", "note": "Thaler 1988 reporting Capen, Clapp & Campbell 1971; 900 - 370 = 530; 900/370 = 2.43"},
+    {"claim": "jar worth $8.00, average estimate $5.13, average winning bid $10.01, loss $2.01", "status": "ok", "note": "Bazerman & Samuelson 1983 as cited; 10.01 - 8.00 = 2.01; the film correctly calls 5.13 the estimate, not the bid"},
+    {"claim": "48 classroom auctions = 12 x 4", "status": "ok", "note": "chrome only"}
+  ],
+  "craft": 4,
+  "originality": 3,
+  "stop": 3,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 50.3, "what": "The 400 guess marks are tiny dots (about 1 unit) on the ruler; the winners in red are hard to tell from the crowd at 1080 and vanish at phone width, so the count is carried by the counters, not the marks", "severity": "med"},
+    {"t": 40.5, "what": "Caption 'One auction: 10 honest guesses around the truth. 5 high.' lands while the counter reads '3 of 10'; caption ahead of the count (same at 50 s: '169 of 330' under a caption about 40 auctions)", "severity": "low"},
+    {"t": 20.7, "what": "The North Slope frame shows only the winning-bids bar while the caption already gives both $900M and $370M; the second bar arrives later", "severity": "low"},
+    {"t": 60.2, "what": "The '+$2.4M A DEAL' bracket, 'AVG WIN $12.4M' label, 'YOU' tick and 'TRUE $10M' line all sit in the same 150-unit band at the top of the ruler; crowded", "severity": "low"}
+  ],
+  "one_line": "The forty-auctions count makes the curse mechanical rather than moral, and the numbers hold; make the winners' marks visible and it is a strong film."
+}

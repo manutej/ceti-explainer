@@ -1,0 +1,10 @@
+[
+ {"t": 79.0, "frame": "strip-14.png cells 2-3 (thumbs/t-0079.00.jpg, t-0079.50.jpg)", "severity": "minor",
+  "what": "With the higher cut view (camM3El 38) the cut plane now enters as a wide disc. At 78.5-80 s it is clipped by the top edge of the canvas and runs over the colour legend.",
+  "why": "Starting the plane at 170 instead of 230 world units keeps the whole disc inside the frame as it enters. It only changes where the plane starts; the place it stops (the equator) and the lit count stay the same.",
+  "knob": "cutTop", "proposed_value": 170},
+ {"t": 15.0, "frame": "strip-03.png cells 4-6 (thumbs/t-0014.50.jpg .. t-0015.00.jpg)", "severity": "minor",
+  "what": "The first orbit's dots count in at 14.0 s right on top of the fading plate 'Emmy Noether · 1918', so the year is overprinted by marks for about 1 s.",
+  "why": "Starting the count-in at 15.2 s lets the plate clear first. The 3,000th dot still lands at 26.0 s (count.at unchanged).",
+  "knob": "tReveal0", "proposed_value": 15.2}
+]

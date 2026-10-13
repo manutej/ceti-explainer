@@ -1,0 +1,62 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/materials-demo/demo.html",
+ "errors": [],
+ "variants": {
+  "ink": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/ink-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/ink-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/ink-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/ink-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "pencil": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/pencil-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/pencil-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/pencil-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/pencil-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "stitch": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/stitch-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/stitch-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/stitch-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/stitch-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "chalk": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/chalk-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/chalk-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/chalk-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/chalk-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "marker": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/marker-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/marker-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/marker-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/marker-t4.00.png"
+   ],
+   "purity": "identical"
+  },
+  "blueprint": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/blueprint-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/blueprint-t1.32.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/blueprint-t2.68.png",
+    "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/blueprint-t4.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 20.7,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/materials-demo/shots/contact.png"
+}

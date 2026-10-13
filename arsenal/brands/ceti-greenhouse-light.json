@@ -1,0 +1,7 @@
+{ "id": "ceti-greenhouse-light",
+  "name": "CETI greenhouse light",
+  "color": {"bg": "#EFEBE1", "ink": "#1D170C", "accent": "#5C7231", "accent2": "#2F6A4B", "muted": "#564839", "line": "rgba(51,66,36,0.18)", "panel": "#E1DCD0", "chalk": "#1D170C"},
+  "type": {"disp": {"family": "Fraunces", "weight": 300, "style": "italic"}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400}},
+  "texture": "none",
+  "tempo": {"ease": "expo", "beat_s": 4},
+  "voice": {"register": "Academy greenhouse light: a greenhouse in low sun, moss and clay", "end_card": "CETI"} }

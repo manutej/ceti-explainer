@@ -1,0 +1,208 @@
+{
+ "film": "noether-symmetry",
+ "findings": "factory/films/noether-symmetry/findings.r1.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:starN",
+   "old": 420,
+   "new": 0,
+   "finding": {
+    "t": 75.0,
+    "frame": "strip-13.png cell 6 (thumbs/t-0075.00.jpg); strip-03.png cells 0-11",
+    "severity": "major",
+    "what": "About 420 star dots fill the sky in every frame; next to the 3,000 data dots they read as stray data marks, and stars are decoration on an ink-and-clean manager stage.",
+    "why": "In a film where every dot is one moment of one orbit, no dot may be scenery: zero stars makes every mark on screen a datum (I2 visible) and keeps the exec stage ink and clean.",
+    "knob": "starN",
+    "proposed_value": 0
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:camM3El",
+   "old": 13,
+   "new": 38,
+   "finding": {
+    "t": 85.0,
+    "frame": "strip-15.png cells 2-11 (thumbs/t-0085.00.jpg, t-0086.00.jpg)",
+    "severity": "major",
+    "what": "The cut plane is seen at about 13 degrees, so the lit specks on it squash into one flat band; 'each cut shows rings' is told by caption, the six rings are not visible.",
+    "why": "Ending the cut at 38 degrees opens the plane into a disc so the concentric rings of lit specks separate; with M1 landing at 30 degrees (next finding) the cut tilts only 8 degrees in 5 s, inside R-E P6 (slice x hold or slow orbit). Round 2: check the 62 pin clears the plane edge.",
+    "knob": "camM3El",
+    "proposed_value": 38
+   }
+  },
+  {
+   "n": 2,
+   "target": "knob:camM1El",
+   "old": 20,
+   "new": 30,
+   "finding": {
+    "t": 68.0,
+    "frame": "strip-12.png cell 4 to strip-13.png cell 11 (thumbs/t-0068.00.jpg .. t-0078.00.jpg)",
+    "severity": "major",
+    "what": "M1 lands at 20 degrees; the cut that follows needs a higher view, and starting it from 20 would make the slice a 18-degree tilt.",
+    "why": "Nested spheres project the same from any elevation, so landing M1 at 30 degrees costs the shell view nothing and lets the cut stay almost still (T5, one change at a time). Round 2: check M2 still lands flat on the five layers.",
+    "knob": "camM1El",
+    "proposed_value": 30
+   }
+  },
+  {
+   "n": 3,
+   "target": "knob:wireDim",
+   "old": 0.45,
+   "new": 0.25,
+   "finding": {
+    "t": 75.0,
+    "frame": "strip-13.png cells 4-11 (thumbs/t-0074.00.jpg, t-0075.00.jpg)",
+    "severity": "major",
+    "what": "At the landing the 300 specks on 6 shells project into one filled disc; the dotted guide rings that mark the shells are almost invisible (wireDim 0.45).",
+    "why": "Brighter guides outline the six shells and, in the cut, the six rings, so 'thin shells' has a picture; the HOOK floor rings get brighter too (check round 2).",
+    "knob": "wireDim",
+    "proposed_value": 0.25
+   }
+  },
+  {
+   "n": 4,
+   "target": "caption:23",
+   "old": "The cut keeps the orbits near the equator lit.",
+   "new": "62 orbits lit: ten dots on each of them.",
+   "finding": {
+    "t": 85.0,
+    "frame": "strip-15.png cells 2-5 (thumbs/t-0086.00.jpg)",
+    "severity": "major",
+    "what": "The cut's counts live only in a 14-unit pin ('62 ORBITS LIT, 620 OF 3,000 DOTS'); the caption 'The cut keeps the orbits near the equator lit' carries no count and uses 'equator'.",
+    "why": "Counts first, results never in the small face: the caption carries the counts in the 28-unit face (cutOrbits 62, perOrbit ten), wording borrowed from draft B caption 22. '620' cannot go in a caption: the digit reader strips the lShells render '6' and sees '20' (the same quirk as the G5c WARN at 86 s).",
+    "caption_index": 23,
+    "proposed_value": "62 orbits lit: ten dots on each of them."
+   }
+  },
+  {
+   "n": 5,
+   "target": "knob:leader",
+   "old": 22,
+   "new": 30,
+   "finding": {
+    "t": 127.0,
+    "frame": "strip-22.png cells 0-11 (thumbs/t-0126.00.jpg .. t-0129.50.jpg)",
+    "severity": "major",
+    "what": "The pins '0.00095' (126.0 s) and 'about 250 times less' (128.5 s) never appear on stage; the 0.24 pin shows at 123.5-125.9 s, then the comparison and its ratio live only in captions.",
+    "why": "Likely the label solver finds no free slot among the dense shell guides; a longer leader widens its 24 candidates. Experimental: if round 2 still shows no pin, the cause is film.js (see Beyond scope 2), do not adjust again.",
+    "knob": "leader",
+    "proposed_value": 30
+   }
+  },
+  {
+   "n": 6,
+   "target": "caption:2",
+   "old": "In 1918, Emmy Noether found where such rules come from.",
+   "new": "Emmy Noether, 1918: where such rules come from.",
+   "finding": {
+    "t": 13.0,
+    "frame": "strip-03.png cells 2-11 (thumbs/t-0013.00.jpg .. t-0019.50.jpg)",
+    "severity": "minor",
+    "what": "Caption 2 (55 chars) wraps to two lines for 7.4 s and climbs toward the count-in.",
+    "why": "One line under about 50 characters; same year, same claim (noetherYear).",
+    "caption_index": 2,
+    "proposed_value": "Emmy Noether, 1918: where such rules come from."
+   }
+  },
+  {
+   "n": 7,
+   "target": "caption:21",
+   "old": "Spin and energy: under 1 in a trillion apart.",
+   "new": "Spin and energy change by under 1 in a trillion.",
+   "finding": {
+    "t": 75.6,
+    "frame": "strip-13.png cells 7-11 (thumbs/t-0076.00.jpg)",
+    "severity": "minor",
+    "what": "'Spin and energy: under 1 in a trillion apart.' reads as if spin and energy were apart from each other; the claim is that each barely changes inside one orbit.",
+    "why": "Plain words for what the pin shows; '1 in a trillion' is the trillion claim's render.",
+    "caption_index": 21,
+    "proposed_value": "Spin and energy change by under 1 in a trillion."
+   }
+  },
+  {
+   "n": 8,
+   "target": "caption:26",
+   "old": "Rotation gives shells. Time gives layers.",
+   "new": "Turning gives shells. Waiting gives layers.",
+   "finding": {
+    "t": 100.2,
+    "frame": "strip-17.png cells 8-11 (thumbs/t-0101.00.jpg)",
+    "severity": "minor",
+    "what": "'Rotation gives shells. Time gives layers.' uses two physics nouns while the stage table under it says 'turn it round' and 'change the day'.",
+    "why": "Borrowed from draft B (caption 25): everyday verbs that match the stage table, no new digit.",
+    "caption_index": 26,
+    "proposed_value": "Turning gives shells. Waiting gives layers."
+   }
+  },
+  {
+   "n": 9,
+   "target": "caption:31",
+   "old": "Re-plot each run by the sum that should not change.",
+   "new": "Re-plot each run by the sum that stays fixed.",
+   "finding": {
+    "t": 115.0,
+    "frame": "strip-20.png cells 2-9 (thumbs/t-0115.00.jpg .. t-0118.50.jpg)",
+    "severity": "minor",
+    "what": "Caption 31 (51 chars) wraps to two lines during M4.",
+    "why": "One line, and the same words as caption 30 ('some sums stay fixed'), so the viewer meets one name for the invariant.",
+    "caption_index": 31,
+    "proposed_value": "Re-plot each run by the sum that stays fixed."
+   }
+  },
+  {
+   "n": 10,
+   "target": "caption:37",
+   "old": "Monday: what stays fixed in your data while it moves?",
+   "new": "Monday: what stays fixed while your data moves?",
+   "finding": {
+    "t": 136.0,
+    "frame": "strip-23.png cells 8-11 to strip-24.png cell 11 (thumbs/t-0136.00.jpg .. t-0140.50.jpg)",
+    "severity": "minor",
+    "what": "The Monday caption (53 chars) wraps to two lines for 5.5 s under the set-type question.",
+    "why": "One line, same question.",
+    "caption_index": 37,
+    "proposed_value": "Monday: what stays fixed while your data moves?"
+   }
+  },
+  {
+   "n": 11,
+   "target": "knob:honestSize",
+   "old": 26,
+   "new": 28,
+   "finding": {
+    "t": 142.0,
+    "frame": "strip-24.png cells 8-11 to strip-25.png (thumbs/t-0142.00.jpg .. t-0149.50.jpg)",
+    "severity": "minor",
+    "what": "The honest line, the film's one limits statement, sits on stage at 26 units, below the 28-unit must-read face.",
+    "why": "28 units puts the limits line in the must-read face (law: legibility 28 / 14 / 12); it still fits in two lines.",
+    "knob": "honestSize",
+    "proposed_value": 28
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html  1287853 bytes  sha256 cce34b63c6a92af375f516e6d8d38679c135bc2becab197ede3b9dcc53a2c8a0  (film code 95764 bytes; brand ceti-coastal-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 16.0  muted 10.9  accent 13.7  onDark/dark 16.0\nrenderer webgl; knobs 158; fonts3d none; libs none\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/noether-symmetry/gate.json",
+  "log": "ue or render\n  G5c claims · on-screen digits  WARN  1 visible number(s) not in claims (chrome?): 20 @86s \"ORBITS LIT · 620 OF 3,000 DOTS\"\n  G6 legibility                  PASS  8 must-read / 11 secondary / 0 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 553/390 OVERFLOW\n  G7 counts first                PASS  count at 26 s (count.at); first ratio \"Only 0.011 % apart.\" at 53.6 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 110.3 KB (film.js 70.6, film.json 22.9, claims.json 16.8) < 120 KB; page 1.288 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand ceti-coastal-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes\n  G11 text overlap               PASS  307 samples every 0.5 s, 65 distinct texts (texts with data-role), caption showing at 231; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames noether-symmetry: 307 frames every 0.5 s → 26 strip(s) in factory/films/noether-symmetry/frames; 0.161 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0"
+ }
+}

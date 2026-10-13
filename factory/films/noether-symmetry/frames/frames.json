@@ -1,0 +1,4437 @@
+{
+ "page": "factory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html",
+ "film": "noether-symmetry",
+ "dur": 153,
+ "every": 0.5,
+ "per_row": 12,
+ "brand": "ceti-coastal-dark",
+ "axes": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink",
+  "texture": "none",
+  "texture_declared": "none",
+  "level": "manager",
+  "renderer": "webgl",
+  "box": null
+ },
+ "knobs": [
+  {
+   "name": "sP",
+   "range": [
+    10,
+    40
+   ],
+   "step": 1,
+   "what": "world units per orbit unit: the size of the tangle (where each planet is)",
+   "value": 24
+  },
+  {
+   "name": "sL",
+   "range": [
+    80,
+    200
+   ],
+   "step": 5,
+   "what": "world units per unit of spin: the radius of the six shells, and of the rings inside the layers",
+   "value": 140
+  },
+  {
+   "name": "sW",
+   "range": [
+    30,
+    90
+   ],
+   "step": 2,
+   "what": "world units per unit of the weight-space picture (the network, before its sort)",
+   "value": 58
+  },
+  {
+   "name": "sC",
+   "range": [
+    80,
+    200
+   ],
+   "step": 5,
+   "what": "world units per unit of the fixed sum: the radius of the network shells",
+   "value": 140
+  },
+  {
+   "name": "layerGap",
+   "range": [
+    20,
+    60
+   ],
+   "step": 1,
+   "what": "world units between two energy layers",
+   "value": 30
+  },
+  {
+   "name": "dotR",
+   "range": [
+    0.8,
+    2
+   ],
+   "step": 0.05,
+   "what": "dot radius of the 30,000 orbit dots (world units, before the depth size cue)",
+   "value": 1.15
+  },
+  {
+   "name": "dotRNet",
+   "range": [
+    0.8,
+    2.5
+   ],
+   "step": 0.05,
+   "what": "dot radius of the 10,000 network dots",
+   "value": 1.3
+  },
+  {
+   "name": "hookDotK",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.1,
+   "what": "dot size factor while only our planet's 100 dots are on stage (0-60 s)",
+   "value": 1.6
+  },
+  {
+   "name": "planetR",
+   "range": [
+    2,
+    6
+   ],
+   "step": 0.1,
+   "what": "radius of our moving planet (the one dot that moves with the clock)",
+   "value": 3.6
+  },
+  {
+   "name": "sizeCue",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how much nearer dots are drawn larger (depth size cue)",
+   "value": 0.5
+  },
+  {
+   "name": "fog",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.05,
+   "what": "fog toward the far side of the cloud",
+   "value": 0.25
+  },
+  {
+   "name": "featHi",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "how far our planet's dots are mixed toward ink: brighter, not bigger",
+   "value": 1
+  },
+  {
+   "name": "featDim",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "how far the other dots sink toward the ground while our planet is followed",
+   "value": 0.8
+  },
+  {
+   "name": "shellDim",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "how far the other shells' dots sink while our planet's shell is lit",
+   "value": 0.8
+  },
+  {
+   "name": "shellRing",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the thin outline ring drawn round each shell (its silhouette as the camera sees it)",
+   "value": 0.55
+  },
+  {
+   "name": "shellStep",
+   "range": [
+    0.2,
+    1
+   ],
+   "step": 0.05,
+   "what": "the '6 shells' hold: seconds each shell stays lit as they light one at a time, inner to outer",
+   "value": 0.45
+  },
+  {
+   "name": "trackA",
+   "range": [
+    0,
+    1
+   ],
+   "step": 0.05,
+   "what": "opacity of the thin line through our planet's 100 dots while it is followed on its shell and in its layer",
+   "value": 0.6
+  },
+  {
+   "name": "stag",
+   "range": [
+    0,
+    0.25
+   ],
+   "step": 0.01,
+   "what": "stagger of the sorts: each orbit's dots leave together, orbits leave up to this fraction apart",
+   "value": 0.18
+  },
+  {
+   "name": "wireR",
+   "range": [
+    0.5,
+    2
+   ],
+   "step": 0.1,
+   "what": "radius of the guide dots (our planet's path, Earth's ellipse)",
+   "value": 1.1
+  },
+  {
+   "name": "featOrbit",
+   "range": [
+    0,
+    299
+   ],
+   "step": 1,
+   "what": "which simulated orbit is our planet (270: spin 1.3, the outer shell; energy level 3 of 5; eccentricity 0.65)",
+   "value": 270
+  },
+  {
+   "name": "perS",
+   "range": [
+    3,
+    10
+   ],
+   "step": 0.1,
+   "what": "film seconds per turn of our planet round its sun",
+   "value": 5
+  },
+  {
+   "name": "laterShift",
+   "range": [
+    0.1,
+    0.9
+   ],
+   "step": 0.01,
+   "what": "start the clock later: how far ahead the planet jumps (a fraction of one turn)",
+   "value": 0.37
+  },
+  {
+   "name": "turnDeg",
+   "range": [
+    90,
+    360
+   ],
+   "step": 15,
+   "what": "turn the whole picture: degrees about its own axis",
+   "value": 360
+  },
+  {
+   "name": "spinF",
+   "range": [
+    0.3,
+    0.95
+   ],
+   "step": 0.01,
+   "what": "length of the flat spin bar (distance × speed around), fraction of the full bar",
+   "value": 0.62
+  },
+  {
+   "name": "enF",
+   "range": [
+    0.2,
+    0.95
+   ],
+   "step": 0.01,
+   "what": "length of the flat energy bar, fraction of the full bar",
+   "value": 0.48
+  },
+  {
+   "name": "pX",
+   "range": [
+    620,
+    700
+   ],
+   "step": 2,
+   "what": "left edge of the readout panel (the right third of the stage)",
+   "value": 652
+  },
+  {
+   "name": "barW",
+   "range": [
+    150,
+    286
+   ],
+   "step": 2,
+   "what": "full length of a bar in the panel",
+   "value": 260
+  },
+  {
+   "name": "barH",
+   "range": [
+    6,
+    16
+   ],
+   "step": 1,
+   "what": "height of a bar in the panel",
+   "value": 14
+  },
+  {
+   "name": "barMax",
+   "range": [
+    4456,
+    6000
+   ],
+   "step": 10,
+   "what": "Earth's two product bars: the value a full bar stands for (million km × km/s; both on one scale)",
+   "value": 4700
+  },
+  {
+   "name": "honestSize",
+   "range": [
+    16,
+    28
+   ],
+   "step": 1,
+   "what": "type size of the honest line (in the panel, 141.6-149.9 s)",
+   "value": 24
+  },
+  {
+   "name": "earthTheta",
+   "range": [
+    0,
+    90
+   ],
+   "step": 1,
+   "what": "direction of Earth's closest point in the picture (degrees)",
+   "value": 35
+  },
+  {
+   "name": "arrowK",
+   "range": [
+    1,
+    4
+   ],
+   "step": 0.1,
+   "what": "world units per km/s for Earth's speed arrows",
+   "value": 2
+  },
+  {
+   "name": "earthDot",
+   "range": [
+    2,
+    8
+   ],
+   "step": 0.5,
+   "what": "radius of Earth's two lit moments",
+   "value": 4.5
+  },
+  {
+   "name": "ringR",
+   "range": [
+    70,
+    170
+   ],
+   "step": 5,
+   "what": "world units: radius of the smoke ring",
+   "value": 120
+  },
+  {
+   "name": "ringTube",
+   "range": [
+    20,
+    60
+   ],
+   "step": 2,
+   "what": "world units: radius of the ring's tube",
+   "value": 38
+  },
+  {
+   "name": "ringW",
+   "range": [
+    0.3,
+    2.5
+   ],
+   "step": 0.1,
+   "what": "radians per second the air circles round the tube",
+   "value": 1.1
+  },
+  {
+   "name": "ringV",
+   "range": [
+    0,
+    20
+   ],
+   "step": 1,
+   "what": "world units per second the ring travels",
+   "value": 9
+  },
+  {
+   "name": "fov",
+   "range": [
+    20,
+    45
+   ],
+   "step": 1,
+   "what": "vertical field of view (degrees), the same in every shot",
+   "value": 30
+  },
+  {
+   "name": "lensX",
+   "range": [
+    0,
+    0.6
+   ],
+   "step": 0.01,
+   "what": "lens shift: the subject sits left of the centre by this fraction of the half width (clear of the panel)",
+   "value": 0.44
+  },
+  {
+   "name": "lensY",
+   "range": [
+    -0.2,
+    0.2
+   ],
+   "step": 0.01,
+   "what": "lens shift up (fraction of the half height), clear of the caption band",
+   "value": 0.09
+  },
+  {
+   "name": "camHookAz",
+   "range": [
+    -180,
+    180
+   ],
+   "step": 5,
+   "what": "our planet, close (0-12 s, 32-60 s): azimuth (degrees)",
+   "value": 20
+  },
+  {
+   "name": "camHookEl",
+   "range": [
+    5,
+    85
+   ],
+   "step": 1,
+   "what": "our planet, close: elevation (degrees)",
+   "value": 62
+  },
+  {
+   "name": "camHookDist",
+   "range": [
+    400,
+    2000
+   ],
+   "step": 10,
+   "what": "our planet, close: distance",
+   "value": 560
+  },
+  {
+   "name": "camEarthAz",
+   "range": [
+    -180,
+    180
+   ],
+   "step": 5,
+   "what": "Earth's orbit (12-32 s): azimuth",
+   "value": -12
+  },
+  {
+   "name": "camEarthEl",
+   "range": [
+    5,
+    85
+   ],
+   "step": 1,
+   "what": "Earth's orbit: elevation",
+   "value": 40
+  },
+  {
+   "name": "camEarthDist",
+   "range": [
+    300,
+    1500
+   ],
+   "step": 10,
+   "what": "Earth's orbit: distance",
+   "value": 560
+  },
+  {
+   "name": "camCloudEl",
+   "range": [
+    5,
+    85
+   ],
+   "step": 1,
+   "what": "the 30,000 dots (cut at 60 s; same azimuth as the close shot): elevation",
+   "value": 46
+  },
+  {
+   "name": "camCloudDist",
+   "range": [
+    800,
+    2500
+   ],
+   "step": 10,
+   "what": "the 30,000 dots: distance",
+   "value": 1350
+  },
+  {
+   "name": "camSort1Az",
+   "range": [
+    -90,
+    90
+   ],
+   "step": 5,
+   "what": "sort by spin (move): degrees swept round the cloud",
+   "value": 35
+  },
+  {
+   "name": "camSort2El",
+   "range": [
+    0,
+    40
+   ],
+   "step": 1,
+   "what": "sort by energy (move): end elevation, nearly edge-on to the layers",
+   "value": 9
+  },
+  {
+   "name": "camNetAz",
+   "range": [
+    -180,
+    180
+   ],
+   "step": 5,
+   "what": "the network (cut at 106 s): azimuth",
+   "value": 20
+  },
+  {
+   "name": "camNetEl",
+   "range": [
+    5,
+    85
+   ],
+   "step": 1,
+   "what": "the network: elevation",
+   "value": 24
+  },
+  {
+   "name": "camNetDist",
+   "range": [
+    800,
+    2500
+   ],
+   "step": 10,
+   "what": "the network: distance",
+   "value": 1300
+  },
+  {
+   "name": "camNSortAz",
+   "range": [
+    -90,
+    90
+   ],
+   "step": 5,
+   "what": "the network sort (move): degrees swept",
+   "value": 35
+  },
+  {
+   "name": "camWideAz",
+   "range": [
+    -180,
+    180
+   ],
+   "step": 5,
+   "what": "MONDAY wide shot (cut at 135 s): azimuth",
+   "value": 0
+  },
+  {
+   "name": "camWideEl",
+   "range": [
+    5,
+    85
+   ],
+   "step": 1,
+   "what": "MONDAY wide shot: elevation",
+   "value": 18
+  },
+  {
+   "name": "camWideDist",
+   "range": [
+    1200,
+    4000
+   ],
+   "step": 10,
+   "what": "MONDAY wide shot: distance",
+   "value": 2250
+  },
+  {
+   "name": "camWideCX",
+   "range": [
+    0,
+    700
+   ],
+   "step": 10,
+   "what": "MONDAY wide shot: aim point x (between the two clouds)",
+   "value": 330
+  },
+  {
+   "name": "tBar1",
+   "range": [
+    0,
+    9
+   ],
+   "step": 0.1,
+   "what": "HOOK: the distance bar fades in (s)",
+   "value": 3
+  },
+  {
+   "name": "tBar2",
+   "range": [
+    0,
+    11.4
+   ],
+   "step": 0.1,
+   "what": "HOOK: the speed-around bar (s)",
+   "value": 5.4
+  },
+  {
+   "name": "tBar3",
+   "range": [
+    1.8,
+    13.8
+   ],
+   "step": 0.1,
+   "what": "HOOK: the flat product bar (s)",
+   "value": 7.8
+  },
+  {
+   "name": "tNever",
+   "range": [
+    4,
+    16
+   ],
+   "step": 0.1,
+   "what": "HOOK: 'NEVER CHANGES' under the flat bar (s)",
+   "value": 10
+  },
+  {
+   "name": "tE0",
+   "range": [
+    6,
+    18
+   ],
+   "step": 0.1,
+   "what": "cut to Earth (CASE starts) (s)",
+   "value": 12
+  },
+  {
+   "name": "tRp",
+   "range": [
+    9,
+    21
+   ],
+   "step": 0.1,
+   "what": "Earth: closest distance lands (the first measured number; film.json count.at) (s)",
+   "value": 15
+  },
+  {
+   "name": "tVp",
+   "range": [
+    11.8,
+    23.8
+   ],
+   "step": 0.1,
+   "what": "Earth: closest speed lands (s)",
+   "value": 17.8
+  },
+  {
+   "name": "tRa",
+   "range": [
+    14.6,
+    26.6
+   ],
+   "step": 0.1,
+   "what": "Earth: farthest distance lands (s)",
+   "value": 20.6
+  },
+  {
+   "name": "tVa",
+   "range": [
+    17.4,
+    29.4
+   ],
+   "step": 0.1,
+   "what": "Earth: farthest speed lands (s)",
+   "value": 23.4
+  },
+  {
+   "name": "tProd",
+   "range": [
+    20.2,
+    32.2
+   ],
+   "step": 0.1,
+   "what": "Earth: the two products land (s)",
+   "value": 26.2
+  },
+  {
+   "name": "tPct",
+   "range": [
+    23.2,
+    35.2
+   ],
+   "step": 0.1,
+   "what": "Earth: 'only 0.011 % apart' (the first ratio) (s)",
+   "value": 29.2
+  },
+  {
+   "name": "tBack",
+   "range": [
+    26,
+    38
+   ],
+   "step": 0.1,
+   "what": "cut back to our planet (s)",
+   "value": 32
+  },
+  {
+   "name": "tSpinName",
+   "range": [
+    29,
+    41
+   ],
+   "step": 0.1,
+   "what": "'= SPIN' under the flat bar (s)",
+   "value": 35
+  },
+  {
+   "name": "tEnergy",
+   "range": [
+    31.6,
+    43.6
+   ],
+   "step": 0.1,
+   "what": "the energy bar fades in (s)",
+   "value": 37.6
+  },
+  {
+   "name": "tTurn0",
+   "range": [
+    34.4,
+    46.4
+   ],
+   "step": 0.1,
+   "what": "turn the whole picture: start (s)",
+   "value": 40.4
+  },
+  {
+   "name": "tTurn1",
+   "range": [
+    40.4,
+    52.4
+   ],
+   "step": 0.1,
+   "what": "turn the whole picture: end (s)",
+   "value": 46.4
+  },
+  {
+   "name": "tTurnRow",
+   "range": [
+    39.6,
+    51.6
+   ],
+   "step": 0.1,
+   "what": "panel row 'TURN IT → SPIN STAYS' (s)",
+   "value": 45.6
+  },
+  {
+   "name": "tLater",
+   "range": [
+    42.6,
+    54.6
+   ],
+   "step": 0.1,
+   "what": "start the clock later: the planet jumps ahead (s)",
+   "value": 48.6
+  },
+  {
+   "name": "tLaterRow",
+   "range": [
+    45.2,
+    57.2
+   ],
+   "step": 0.1,
+   "what": "panel row 'START LATER → ENERGY STAYS' (s)",
+   "value": 51.2
+  },
+  {
+   "name": "tCloud",
+   "range": [
+    54,
+    66
+   ],
+   "step": 0.1,
+   "what": "cut to the cloud (COUNT starts) (s)",
+   "value": 60
+  },
+  {
+   "name": "tCount0",
+   "range": [
+    54.3,
+    66.3
+   ],
+   "step": 0.1,
+   "what": "count-in of the other 29,900 dots: start (s)",
+   "value": 60.3
+  },
+  {
+   "name": "tCount1",
+   "range": [
+    57.2,
+    69.2
+   ],
+   "step": 0.1,
+   "what": "count-in ends: '30,000 dots' lands (s)",
+   "value": 63.2
+  },
+  {
+   "name": "tFollow",
+   "range": [
+    60.2,
+    72.2
+   ],
+   "step": 0.1,
+   "what": "follow our planet: pin and readout (s)",
+   "value": 66.2
+  },
+  {
+   "name": "tSort1",
+   "range": [
+    64,
+    76
+   ],
+   "step": 0.1,
+   "what": "sort by spin: start (camera move with it) (s)",
+   "value": 70
+  },
+  {
+   "name": "tSort1e",
+   "range": [
+    72,
+    84
+   ],
+   "step": 0.1,
+   "what": "sort by spin: end (s)",
+   "value": 78
+  },
+  {
+   "name": "tPFeat",
+   "range": [
+    75,
+    87
+   ],
+   "step": 0.1,
+   "what": "our planet's shell lit, pin 'STAYS ON ONE SHELL' (s)",
+   "value": 81
+  },
+  {
+   "name": "tSort2",
+   "range": [
+    84,
+    96
+   ],
+   "step": 0.1,
+   "what": "sort by energy: start (camera tilt with it) (s)",
+   "value": 90
+  },
+  {
+   "name": "tSort2e",
+   "range": [
+    91,
+    103
+   ],
+   "step": 0.1,
+   "what": "sort by energy: end (s)",
+   "value": 97
+  },
+  {
+   "name": "tPFeat2",
+   "range": [
+    94,
+    106
+   ],
+   "step": 0.1,
+   "what": "pin 'STAYS IN ITS LAYER' (s)",
+   "value": 100
+  },
+  {
+   "name": "tNet0",
+   "range": [
+    100,
+    112
+   ],
+   "step": 0.1,
+   "what": "cut to the network; its count-in starts (s)",
+   "value": 106
+  },
+  {
+   "name": "tNetC1",
+   "range": [
+    103.2,
+    115.2
+   ],
+   "step": 0.1,
+   "what": "'10,000 dots' lands (s)",
+   "value": 109.2
+  },
+  {
+   "name": "tNSort",
+   "range": [
+    108,
+    120
+   ],
+   "step": 0.1,
+   "what": "the network sort: start (s)",
+   "value": 114
+  },
+  {
+   "name": "tNSorte",
+   "range": [
+    114,
+    126
+   ],
+   "step": 0.1,
+   "what": "the network sort: end (s)",
+   "value": 120
+  },
+  {
+   "name": "tPW",
+   "range": [
+    116.6,
+    128.6
+   ],
+   "step": 0.1,
+   "what": "'0.24 THE WEIGHTS MOVED' (s)",
+   "value": 122.6
+  },
+  {
+   "name": "tPC",
+   "range": [
+    118.4,
+    130.4
+   ],
+   "step": 0.1,
+   "what": "'0.00095 THE FIXED SUM MOVED' (s)",
+   "value": 124.4
+  },
+  {
+   "name": "tPRatio",
+   "range": [
+    120,
+    132
+   ],
+   "step": 0.1,
+   "what": "'about 250 times less' (s)",
+   "value": 126
+  },
+  {
+   "name": "tRing0",
+   "range": [
+    121.8,
+    133.8
+   ],
+   "step": 0.1,
+   "what": "the smoke-ring plate starts (s)",
+   "value": 127.8
+  },
+  {
+   "name": "tSwap",
+   "range": [
+    125.4,
+    137.4
+   ],
+   "step": 0.1,
+   "what": "the smoke ring swaps its two airs (s)",
+   "value": 131.4
+  },
+  {
+   "name": "tWide",
+   "range": [
+    129,
+    141
+   ],
+   "step": 0.1,
+   "what": "cut to the MONDAY wide shot (s)",
+   "value": 135
+  },
+  {
+   "name": "tQ",
+   "range": [
+    129.4,
+    141.4
+   ],
+   "step": 0.1,
+   "what": "the second question in the panel (s)",
+   "value": 135.4
+  },
+  {
+   "name": "tHonest",
+   "range": [
+    135.6,
+    147.6
+   ],
+   "step": 0.1,
+   "what": "the honest line in the panel (to 149.9 s) (s)",
+   "value": 141.6
+  }
+ ],
+ "ms_per_frame": 362,
+ "s_per_frame": 0.362,
+ "purity": {
+  "pass": true,
+  "at": {
+   "30.6": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "76.5": {
+    "canvas": "identical",
+    "svg": "identical"
+   },
+   "122.4": {
+    "canvas": "identical",
+    "svg": "identical"
+   }
+  }
+ },
+ "errors": [],
+ "strips": [
+  "strip-01.png",
+  "strip-02.png",
+  "strip-03.png",
+  "strip-04.png",
+  "strip-05.png",
+  "strip-06.png",
+  "strip-07.png",
+  "strip-08.png",
+  "strip-09.png",
+  "strip-10.png",
+  "strip-11.png",
+  "strip-12.png",
+  "strip-13.png",
+  "strip-14.png",
+  "strip-15.png",
+  "strip-16.png",
+  "strip-17.png",
+  "strip-18.png",
+  "strip-19.png",
+  "strip-20.png",
+  "strip-21.png",
+  "strip-22.png",
+  "strip-23.png",
+  "strip-24.png",
+  "strip-25.png",
+  "strip-26.png"
+ ],
+ "frames": [
+  {
+   "t": 0,
+   "file": "thumbs/t-0000.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 0.5,
+   "file": "thumbs/t-0000.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 1,
+   "caption": "A made-up planet goes round its sun.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 1,
+   "file": "thumbs/t-0001.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 2,
+   "caption": "A made-up planet goes round its sun.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 1.5,
+   "file": "thumbs/t-0001.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 3,
+   "caption": "A made-up planet goes round its sun.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 2,
+   "file": "thumbs/t-0002.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 4,
+   "caption": "A made-up planet goes round its sun.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 2.5,
+   "file": "thumbs/t-0002.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 5,
+   "caption": "A made-up planet goes round its sun.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 3,
+   "file": "thumbs/t-0003.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 6,
+   "caption": "Its distance from the sun swings.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 3.5,
+   "file": "thumbs/t-0003.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 7,
+   "caption": "Its distance from the sun swings.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 4,
+   "file": "thumbs/t-0004.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 8,
+   "caption": "Its distance from the sun swings.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 4.5,
+   "file": "thumbs/t-0004.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 9,
+   "caption": "Its distance from the sun swings.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 5,
+   "file": "thumbs/t-0005.00.jpg",
+   "strip": "strip-01.png",
+   "cell": 10,
+   "caption": "Its distance from the sun swings.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 5.5,
+   "file": "thumbs/t-0005.50.jpg",
+   "strip": "strip-01.png",
+   "cell": 11,
+   "caption": "Its speed around the sun swings too.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 6,
+   "file": "thumbs/t-0006.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 0,
+   "caption": "Its speed around the sun swings too.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 6.5,
+   "file": "thumbs/t-0006.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 1,
+   "caption": "Its speed around the sun swings too.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 7,
+   "file": "thumbs/t-0007.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 2,
+   "caption": "Its speed around the sun swings too.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 7.5,
+   "file": "thumbs/t-0007.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 3,
+   "caption": "Its speed around the sun swings too.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 8,
+   "file": "thumbs/t-0008.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 4,
+   "caption": "Multiply them: that bar never moves.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 8.5,
+   "file": "thumbs/t-0008.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 5,
+   "caption": "Multiply them: that bar never moves.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 9,
+   "file": "thumbs/t-0009.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 6,
+   "caption": "Multiply them: that bar never moves.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 9.5,
+   "file": "thumbs/t-0009.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 7,
+   "caption": "Multiply them: that bar never moves.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 10,
+   "file": "thumbs/t-0010.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 8,
+   "caption": "A number that never changes: it is conserved.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 10.5,
+   "file": "thumbs/t-0010.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 9,
+   "caption": "A number that never changes: it is conserved.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 11,
+   "file": "thumbs/t-0011.00.jpg",
+   "strip": "strip-02.png",
+   "cell": 10,
+   "caption": "A number that never changes: it is conserved.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 11.5,
+   "file": "thumbs/t-0011.50.jpg",
+   "strip": "strip-02.png",
+   "cell": 11,
+   "caption": "A number that never changes: it is conserved.",
+   "chapter": {
+    "id": "hook",
+    "title": "A number that never changes"
+   }
+  },
+  {
+   "t": 12,
+   "file": "thumbs/t-0012.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 12.5,
+   "file": "thumbs/t-0012.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 1,
+   "caption": "Is that real? Take Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 13,
+   "file": "thumbs/t-0013.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 2,
+   "caption": "Is that real? Take Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 13.5,
+   "file": "thumbs/t-0013.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 3,
+   "caption": "Is that real? Take Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 14,
+   "file": "thumbs/t-0014.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 4,
+   "caption": "Is that real? Take Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 14.5,
+   "file": "thumbs/t-0014.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 5,
+   "caption": "Is that real? Take Earth around the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 15,
+   "file": "thumbs/t-0015.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 6,
+   "caption": "Closest: 147.095 million km from the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 15.5,
+   "file": "thumbs/t-0015.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 7,
+   "caption": "Closest: 147.095 million km from the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 16,
+   "file": "thumbs/t-0016.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 8,
+   "caption": "Closest: 147.095 million km from the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 16.5,
+   "file": "thumbs/t-0016.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 9,
+   "caption": "Closest: 147.095 million km from the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 17,
+   "file": "thumbs/t-0017.00.jpg",
+   "strip": "strip-03.png",
+   "cell": 10,
+   "caption": "Closest: 147.095 million km from the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 17.5,
+   "file": "thumbs/t-0017.50.jpg",
+   "strip": "strip-03.png",
+   "cell": 11,
+   "caption": "Closest: 147.095 million km from the Sun.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 18,
+   "file": "thumbs/t-0018.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 0,
+   "caption": "Its speed there: 30.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 18.5,
+   "file": "thumbs/t-0018.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 1,
+   "caption": "Its speed there: 30.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 19,
+   "file": "thumbs/t-0019.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 2,
+   "caption": "Its speed there: 30.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 19.5,
+   "file": "thumbs/t-0019.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 3,
+   "caption": "Its speed there: 30.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 20,
+   "file": "thumbs/t-0020.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 4,
+   "caption": "Its speed there: 30.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 20.5,
+   "file": "thumbs/t-0020.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 21,
+   "file": "thumbs/t-0021.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 6,
+   "caption": "Farthest: 152.100 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 21.5,
+   "file": "thumbs/t-0021.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 7,
+   "caption": "Farthest: 152.100 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 22,
+   "file": "thumbs/t-0022.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 8,
+   "caption": "Farthest: 152.100 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 22.5,
+   "file": "thumbs/t-0022.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 9,
+   "caption": "Farthest: 152.100 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 23,
+   "file": "thumbs/t-0023.00.jpg",
+   "strip": "strip-04.png",
+   "cell": 10,
+   "caption": "Farthest: 152.100 million km.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 23.5,
+   "file": "thumbs/t-0023.50.jpg",
+   "strip": "strip-04.png",
+   "cell": 11,
+   "caption": "Its speed there: 29.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 24,
+   "file": "thumbs/t-0024.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 0,
+   "caption": "Its speed there: 29.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 24.5,
+   "file": "thumbs/t-0024.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 1,
+   "caption": "Its speed there: 29.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 25,
+   "file": "thumbs/t-0025.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 2,
+   "caption": "Its speed there: 29.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 25.5,
+   "file": "thumbs/t-0025.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 3,
+   "caption": "Its speed there: 29.29 km/s.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 26,
+   "file": "thumbs/t-0026.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 26.5,
+   "file": "thumbs/t-0026.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 5,
+   "caption": "Multiply each pair: 4,455.5 and 4,455.0.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 27,
+   "file": "thumbs/t-0027.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 6,
+   "caption": "Multiply each pair: 4,455.5 and 4,455.0.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 27.5,
+   "file": "thumbs/t-0027.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 7,
+   "caption": "Multiply each pair: 4,455.5 and 4,455.0.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 28,
+   "file": "thumbs/t-0028.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 8,
+   "caption": "Multiply each pair: 4,455.5 and 4,455.0.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 28.5,
+   "file": "thumbs/t-0028.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 9,
+   "caption": "Multiply each pair: 4,455.5 and 4,455.0.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 29,
+   "file": "thumbs/t-0029.00.jpg",
+   "strip": "strip-05.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 29.5,
+   "file": "thumbs/t-0029.50.jpg",
+   "strip": "strip-05.png",
+   "cell": 11,
+   "caption": "Only 0.011 % apart: the same number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 30,
+   "file": "thumbs/t-0030.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 0,
+   "caption": "Only 0.011 % apart: the same number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 30.5,
+   "file": "thumbs/t-0030.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 1,
+   "caption": "Only 0.011 % apart: the same number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 31,
+   "file": "thumbs/t-0031.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 2,
+   "caption": "Only 0.011 % apart: the same number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 31.5,
+   "file": "thumbs/t-0031.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 3,
+   "caption": "Only 0.011 % apart: the same number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 32,
+   "file": "thumbs/t-0032.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 32.5,
+   "file": "thumbs/t-0032.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 5,
+   "caption": "Why is it fixed? Back to our planet.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 33,
+   "file": "thumbs/t-0033.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 6,
+   "caption": "Why is it fixed? Back to our planet.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 33.5,
+   "file": "thumbs/t-0033.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 7,
+   "caption": "Why is it fixed? Back to our planet.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 34,
+   "file": "thumbs/t-0034.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 8,
+   "caption": "Why is it fixed? Back to our planet.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 34.5,
+   "file": "thumbs/t-0034.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 9,
+   "caption": "Why is it fixed? Back to our planet.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 35,
+   "file": "thumbs/t-0035.00.jpg",
+   "strip": "strip-06.png",
+   "cell": 10,
+   "caption": "Its fixed number is called spin.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 35.5,
+   "file": "thumbs/t-0035.50.jpg",
+   "strip": "strip-06.png",
+   "cell": 11,
+   "caption": "Its fixed number is called spin.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 36,
+   "file": "thumbs/t-0036.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 0,
+   "caption": "Its fixed number is called spin.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 36.5,
+   "file": "thumbs/t-0036.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 1,
+   "caption": "Its fixed number is called spin.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 37,
+   "file": "thumbs/t-0037.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 2,
+   "caption": "Its fixed number is called spin.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 37.5,
+   "file": "thumbs/t-0037.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 38,
+   "file": "thumbs/t-0038.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 4,
+   "caption": "Its energy never changes either.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 38.5,
+   "file": "thumbs/t-0038.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 5,
+   "caption": "Its energy never changes either.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 39,
+   "file": "thumbs/t-0039.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 6,
+   "caption": "Its energy never changes either.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 39.5,
+   "file": "thumbs/t-0039.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 7,
+   "caption": "Its energy never changes either.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 40,
+   "file": "thumbs/t-0040.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 8,
+   "caption": "Its energy never changes either.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 40.5,
+   "file": "thumbs/t-0040.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 9,
+   "caption": "Now turn the whole picture round.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 41,
+   "file": "thumbs/t-0041.00.jpg",
+   "strip": "strip-07.png",
+   "cell": 10,
+   "caption": "Now turn the whole picture round.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 41.5,
+   "file": "thumbs/t-0041.50.jpg",
+   "strip": "strip-07.png",
+   "cell": 11,
+   "caption": "Now turn the whole picture round.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 42,
+   "file": "thumbs/t-0042.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 0,
+   "caption": "Now turn the whole picture round.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 42.5,
+   "file": "thumbs/t-0042.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 1,
+   "caption": "Now turn the whole picture round.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 43,
+   "file": "thumbs/t-0043.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 2,
+   "caption": "Turn it: nothing changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 43.5,
+   "file": "thumbs/t-0043.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 3,
+   "caption": "Turn it: nothing changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 44,
+   "file": "thumbs/t-0044.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 4,
+   "caption": "Turn it: nothing changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 44.5,
+   "file": "thumbs/t-0044.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 5,
+   "caption": "Turn it: nothing changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 45,
+   "file": "thumbs/t-0045.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 6,
+   "caption": "Turn it: nothing changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 45.5,
+   "file": "thumbs/t-0045.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 46,
+   "file": "thumbs/t-0046.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 8,
+   "caption": "That is why spin is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 46.5,
+   "file": "thumbs/t-0046.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 9,
+   "caption": "That is why spin is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 47,
+   "file": "thumbs/t-0047.00.jpg",
+   "strip": "strip-08.png",
+   "cell": 10,
+   "caption": "That is why spin is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 47.5,
+   "file": "thumbs/t-0047.50.jpg",
+   "strip": "strip-08.png",
+   "cell": 11,
+   "caption": "That is why spin is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 48,
+   "file": "thumbs/t-0048.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 0,
+   "caption": "That is why spin is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 48.5,
+   "file": "thumbs/t-0048.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 49,
+   "file": "thumbs/t-0049.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 2,
+   "caption": "Start the clock later: nothing changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 49.5,
+   "file": "thumbs/t-0049.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 3,
+   "caption": "Start the clock later: nothing changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 50,
+   "file": "thumbs/t-0050.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 4,
+   "caption": "Start the clock later: nothing changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 50.5,
+   "file": "thumbs/t-0050.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 5,
+   "caption": "Start the clock later: nothing changes.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 51,
+   "file": "thumbs/t-0051.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 51.5,
+   "file": "thumbs/t-0051.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 7,
+   "caption": "That is why energy is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 52,
+   "file": "thumbs/t-0052.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 8,
+   "caption": "That is why energy is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 52.5,
+   "file": "thumbs/t-0052.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 9,
+   "caption": "That is why energy is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 53,
+   "file": "thumbs/t-0053.00.jpg",
+   "strip": "strip-09.png",
+   "cell": 10,
+   "caption": "That is why energy is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 53.5,
+   "file": "thumbs/t-0053.50.jpg",
+   "strip": "strip-09.png",
+   "cell": 11,
+   "caption": "That is why energy is conserved.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 54,
+   "file": "thumbs/t-0054.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 0,
+   "caption": "A change that changes nothing: a symmetry.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 54.5,
+   "file": "thumbs/t-0054.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 1,
+   "caption": "A change that changes nothing: a symmetry.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 55,
+   "file": "thumbs/t-0055.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 2,
+   "caption": "A change that changes nothing: a symmetry.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 55.5,
+   "file": "thumbs/t-0055.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 3,
+   "caption": "A change that changes nothing: a symmetry.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 56,
+   "file": "thumbs/t-0056.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 4,
+   "caption": "A change that changes nothing: a symmetry.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 56.5,
+   "file": "thumbs/t-0056.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 5,
+   "caption": "A change that changes nothing: a symmetry.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 57,
+   "file": "thumbs/t-0057.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 6,
+   "caption": "Noether, 1918: each symmetry fixes one number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 57.5,
+   "file": "thumbs/t-0057.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 7,
+   "caption": "Noether, 1918: each symmetry fixes one number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 58,
+   "file": "thumbs/t-0058.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 8,
+   "caption": "Noether, 1918: each symmetry fixes one number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 58.5,
+   "file": "thumbs/t-0058.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 9,
+   "caption": "Noether, 1918: each symmetry fixes one number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 59,
+   "file": "thumbs/t-0059.00.jpg",
+   "strip": "strip-10.png",
+   "cell": 10,
+   "caption": "Noether, 1918: each symmetry fixes one number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 59.5,
+   "file": "thumbs/t-0059.50.jpg",
+   "strip": "strip-10.png",
+   "cell": 11,
+   "caption": "Noether, 1918: each symmetry fixes one number.",
+   "chapter": {
+    "id": "case",
+    "title": "Earth, and a change that changes nothing"
+   }
+  },
+  {
+   "t": 60,
+   "file": "thumbs/t-0060.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 60.5,
+   "file": "thumbs/t-0060.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 1,
+   "caption": "Now 300 made-up planets, 100 moments each.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 61,
+   "file": "thumbs/t-0061.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 2,
+   "caption": "Now 300 made-up planets, 100 moments each.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 61.5,
+   "file": "thumbs/t-0061.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 3,
+   "caption": "Now 300 made-up planets, 100 moments each.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 62,
+   "file": "thumbs/t-0062.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 4,
+   "caption": "Now 300 made-up planets, 100 moments each.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 62.5,
+   "file": "thumbs/t-0062.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 5,
+   "caption": "Now 300 made-up planets, 100 moments each.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 63,
+   "file": "thumbs/t-0063.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 63.5,
+   "file": "thumbs/t-0063.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 7,
+   "caption": "30,000 dots, each where a planet was.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 64,
+   "file": "thumbs/t-0064.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 8,
+   "caption": "30,000 dots, each where a planet was.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 64.5,
+   "file": "thumbs/t-0064.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 9,
+   "caption": "30,000 dots, each where a planet was.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 65,
+   "file": "thumbs/t-0065.00.jpg",
+   "strip": "strip-11.png",
+   "cell": 10,
+   "caption": "30,000 dots, each where a planet was.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 65.5,
+   "file": "thumbs/t-0065.50.jpg",
+   "strip": "strip-11.png",
+   "cell": 11,
+   "caption": "30,000 dots, each where a planet was.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 66,
+   "file": "thumbs/t-0066.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 66.5,
+   "file": "thumbs/t-0066.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 1,
+   "caption": "A tangle. The bright dots are our planet.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 67,
+   "file": "thumbs/t-0067.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 2,
+   "caption": "A tangle. The bright dots are our planet.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 67.5,
+   "file": "thumbs/t-0067.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 3,
+   "caption": "A tangle. The bright dots are our planet.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 68,
+   "file": "thumbs/t-0068.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 4,
+   "caption": "A tangle. The bright dots are our planet.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 68.5,
+   "file": "thumbs/t-0068.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 5,
+   "caption": "A tangle. The bright dots are our planet.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 69,
+   "file": "thumbs/t-0069.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 6,
+   "caption": "A tangle. The bright dots are our planet.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 69.5,
+   "file": "thumbs/t-0069.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 7,
+   "caption": "A tangle. The bright dots are our planet.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 70,
+   "file": "thumbs/t-0070.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 8,
+   "caption": "Now sort every dot by its spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 70.5,
+   "file": "thumbs/t-0070.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 9,
+   "caption": "Now sort every dot by its spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 71,
+   "file": "thumbs/t-0071.00.jpg",
+   "strip": "strip-12.png",
+   "cell": 10,
+   "caption": "Now sort every dot by its spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 71.5,
+   "file": "thumbs/t-0071.50.jpg",
+   "strip": "strip-12.png",
+   "cell": 11,
+   "caption": "Now sort every dot by its spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 72,
+   "file": "thumbs/t-0072.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 0,
+   "caption": "Now sort every dot by its spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 72.5,
+   "file": "thumbs/t-0072.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 1,
+   "caption": "Now sort every dot by its spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 73,
+   "file": "thumbs/t-0073.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 2,
+   "caption": "Now sort every dot by its spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 73.5,
+   "file": "thumbs/t-0073.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 3,
+   "caption": "Now sort every dot by its spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 74,
+   "file": "thumbs/t-0074.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 4,
+   "caption": "Each dot keeps its direction from the sun.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 74.5,
+   "file": "thumbs/t-0074.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 5,
+   "caption": "Each dot keeps its direction from the sun.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 75,
+   "file": "thumbs/t-0075.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 6,
+   "caption": "Each dot keeps its direction from the sun.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 75.5,
+   "file": "thumbs/t-0075.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 7,
+   "caption": "Each dot keeps its direction from the sun.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 76,
+   "file": "thumbs/t-0076.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 8,
+   "caption": "Each dot keeps its direction from the sun.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 76.5,
+   "file": "thumbs/t-0076.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 9,
+   "caption": "Each dot keeps its direction from the sun.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 77,
+   "file": "thumbs/t-0077.00.jpg",
+   "strip": "strip-13.png",
+   "cell": 10,
+   "caption": "Each dot keeps its direction from the sun.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 77.5,
+   "file": "thumbs/t-0077.50.jpg",
+   "strip": "strip-13.png",
+   "cell": 11,
+   "caption": "Each dot keeps its direction from the sun.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 78,
+   "file": "thumbs/t-0078.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 78.5,
+   "file": "thumbs/t-0078.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 1,
+   "caption": "6 shells: one for each spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 79,
+   "file": "thumbs/t-0079.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 2,
+   "caption": "6 shells: one for each spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 79.5,
+   "file": "thumbs/t-0079.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 3,
+   "caption": "6 shells: one for each spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 80,
+   "file": "thumbs/t-0080.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 4,
+   "caption": "6 shells: one for each spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 80.5,
+   "file": "thumbs/t-0080.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 5,
+   "caption": "6 shells: one for each spin.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 81,
+   "file": "thumbs/t-0081.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 6,
+   "caption": "Our planet's 100 dots land on one shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 81.5,
+   "file": "thumbs/t-0081.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 7,
+   "caption": "Our planet's 100 dots land on one shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 82,
+   "file": "thumbs/t-0082.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 8,
+   "caption": "Our planet's 100 dots land on one shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 82.5,
+   "file": "thumbs/t-0082.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 9,
+   "caption": "Our planet's 100 dots land on one shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 83,
+   "file": "thumbs/t-0083.00.jpg",
+   "strip": "strip-14.png",
+   "cell": 10,
+   "caption": "Our planet's 100 dots land on one shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 83.5,
+   "file": "thumbs/t-0083.50.jpg",
+   "strip": "strip-14.png",
+   "cell": 11,
+   "caption": "Our planet's 100 dots land on one shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 84,
+   "file": "thumbs/t-0084.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 0,
+   "caption": "As it moves, it slides along its shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 84.5,
+   "file": "thumbs/t-0084.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 1,
+   "caption": "As it moves, it slides along its shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 85,
+   "file": "thumbs/t-0085.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 2,
+   "caption": "As it moves, it slides along its shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 85.5,
+   "file": "thumbs/t-0085.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 3,
+   "caption": "As it moves, it slides along its shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 86,
+   "file": "thumbs/t-0086.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 4,
+   "caption": "As it moves, it slides along its shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 86.5,
+   "file": "thumbs/t-0086.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 5,
+   "caption": "As it moves, it slides along its shell.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 87,
+   "file": "thumbs/t-0087.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 6,
+   "caption": "It never leaves: its spin is fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 87.5,
+   "file": "thumbs/t-0087.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 7,
+   "caption": "It never leaves: its spin is fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 88,
+   "file": "thumbs/t-0088.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 8,
+   "caption": "It never leaves: its spin is fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 88.5,
+   "file": "thumbs/t-0088.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 9,
+   "caption": "It never leaves: its spin is fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 89,
+   "file": "thumbs/t-0089.00.jpg",
+   "strip": "strip-15.png",
+   "cell": 10,
+   "caption": "It never leaves: its spin is fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 89.5,
+   "file": "thumbs/t-0089.50.jpg",
+   "strip": "strip-15.png",
+   "cell": 11,
+   "caption": "It never leaves: its spin is fixed.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 90,
+   "file": "thumbs/t-0090.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 0,
+   "caption": "Now sort the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 90.5,
+   "file": "thumbs/t-0090.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 1,
+   "caption": "Now sort the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 91,
+   "file": "thumbs/t-0091.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 2,
+   "caption": "Now sort the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 91.5,
+   "file": "thumbs/t-0091.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 3,
+   "caption": "Now sort the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 92,
+   "file": "thumbs/t-0092.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 4,
+   "caption": "Now sort the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 92.5,
+   "file": "thumbs/t-0092.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 5,
+   "caption": "Now sort the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 93,
+   "file": "thumbs/t-0093.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 6,
+   "caption": "Now sort the same dots by energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 93.5,
+   "file": "thumbs/t-0093.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 94,
+   "file": "thumbs/t-0094.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 8,
+   "caption": "Higher up means more energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 94.5,
+   "file": "thumbs/t-0094.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 9,
+   "caption": "Higher up means more energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 95,
+   "file": "thumbs/t-0095.00.jpg",
+   "strip": "strip-16.png",
+   "cell": 10,
+   "caption": "Higher up means more energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 95.5,
+   "file": "thumbs/t-0095.50.jpg",
+   "strip": "strip-16.png",
+   "cell": 11,
+   "caption": "Higher up means more energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 96,
+   "file": "thumbs/t-0096.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 0,
+   "caption": "Higher up means more energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 96.5,
+   "file": "thumbs/t-0096.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 1,
+   "caption": "Higher up means more energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 97,
+   "file": "thumbs/t-0097.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 97.5,
+   "file": "thumbs/t-0097.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 3,
+   "caption": "5 layers: one for each energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 98,
+   "file": "thumbs/t-0098.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 4,
+   "caption": "5 layers: one for each energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 98.5,
+   "file": "thumbs/t-0098.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 5,
+   "caption": "5 layers: one for each energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 99,
+   "file": "thumbs/t-0099.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 6,
+   "caption": "5 layers: one for each energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 99.5,
+   "file": "thumbs/t-0099.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 7,
+   "caption": "5 layers: one for each energy.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 100,
+   "file": "thumbs/t-0100.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 8,
+   "caption": "Our planet stays in its layer as it moves.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 100.5,
+   "file": "thumbs/t-0100.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 9,
+   "caption": "Our planet stays in its layer as it moves.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 101,
+   "file": "thumbs/t-0101.00.jpg",
+   "strip": "strip-17.png",
+   "cell": 10,
+   "caption": "Our planet stays in its layer as it moves.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 101.5,
+   "file": "thumbs/t-0101.50.jpg",
+   "strip": "strip-17.png",
+   "cell": 11,
+   "caption": "Our planet stays in its layer as it moves.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 102,
+   "file": "thumbs/t-0102.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 0,
+   "caption": "Our planet stays in its layer as it moves.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 102.5,
+   "file": "thumbs/t-0102.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 1,
+   "caption": "Our planet stays in its layer as it moves.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 103,
+   "file": "thumbs/t-0103.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 2,
+   "caption": "Two symmetries, two fixed numbers.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 103.5,
+   "file": "thumbs/t-0103.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 3,
+   "caption": "Two symmetries, two fixed numbers.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 104,
+   "file": "thumbs/t-0104.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 4,
+   "caption": "Two symmetries, two fixed numbers.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 104.5,
+   "file": "thumbs/t-0104.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 5,
+   "caption": "Two symmetries, two fixed numbers.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 105,
+   "file": "thumbs/t-0105.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 6,
+   "caption": "Two symmetries, two fixed numbers.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 105.5,
+   "file": "thumbs/t-0105.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 7,
+   "caption": "Two symmetries, two fixed numbers.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 106,
+   "file": "thumbs/t-0106.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 106.5,
+   "file": "thumbs/t-0106.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 9,
+   "caption": "Not only planets: a tiny network learning.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 107,
+   "file": "thumbs/t-0107.00.jpg",
+   "strip": "strip-18.png",
+   "cell": 10,
+   "caption": "Not only planets: a tiny network learning.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 107.5,
+   "file": "thumbs/t-0107.50.jpg",
+   "strip": "strip-18.png",
+   "cell": 11,
+   "caption": "Not only planets: a tiny network learning.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 108,
+   "file": "thumbs/t-0108.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 0,
+   "caption": "Not only planets: a tiny network learning.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 108.5,
+   "file": "thumbs/t-0108.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 1,
+   "caption": "Not only planets: a tiny network learning.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 109,
+   "file": "thumbs/t-0109.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 109.5,
+   "file": "thumbs/t-0109.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 3,
+   "caption": "100 runs, 100 steps each: 10,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 110,
+   "file": "thumbs/t-0110.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 4,
+   "caption": "100 runs, 100 steps each: 10,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 110.5,
+   "file": "thumbs/t-0110.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 5,
+   "caption": "100 runs, 100 steps each: 10,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 111,
+   "file": "thumbs/t-0111.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 6,
+   "caption": "100 runs, 100 steps each: 10,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 111.5,
+   "file": "thumbs/t-0111.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 7,
+   "caption": "100 runs, 100 steps each: 10,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 112,
+   "file": "thumbs/t-0112.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 8,
+   "caption": "100 runs, 100 steps each: 10,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 112.5,
+   "file": "thumbs/t-0112.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 9,
+   "caption": "100 runs, 100 steps each: 10,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 113,
+   "file": "thumbs/t-0113.00.jpg",
+   "strip": "strip-19.png",
+   "cell": 10,
+   "caption": "100 runs, 100 steps each: 10,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 113.5,
+   "file": "thumbs/t-0113.50.jpg",
+   "strip": "strip-19.png",
+   "cell": 11,
+   "caption": "100 runs, 100 steps each: 10,000 dots.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 114,
+   "file": "thumbs/t-0114.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 0,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 114.5,
+   "file": "thumbs/t-0114.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 1,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 115,
+   "file": "thumbs/t-0115.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 2,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 115.5,
+   "file": "thumbs/t-0115.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 3,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 116,
+   "file": "thumbs/t-0116.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 4,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 116.5,
+   "file": "thumbs/t-0116.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 5,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 117,
+   "file": "thumbs/t-0117.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 6,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 117.5,
+   "file": "thumbs/t-0117.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 7,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 118,
+   "file": "thumbs/t-0118.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 8,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 118.5,
+   "file": "thumbs/t-0118.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 9,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 119,
+   "file": "thumbs/t-0119.00.jpg",
+   "strip": "strip-20.png",
+   "cell": 10,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 119.5,
+   "file": "thumbs/t-0119.50.jpg",
+   "strip": "strip-20.png",
+   "cell": 11,
+   "caption": "Sort them by a sum that should not change.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 120,
+   "file": "thumbs/t-0120.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 120.5,
+   "file": "thumbs/t-0120.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 1,
+   "caption": "The same picture: 3 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 121,
+   "file": "thumbs/t-0121.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 2,
+   "caption": "The same picture: 3 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 121.5,
+   "file": "thumbs/t-0121.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 3,
+   "caption": "The same picture: 3 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 122,
+   "file": "thumbs/t-0122.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 4,
+   "caption": "The same picture: 3 shells.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 122.5,
+   "file": "thumbs/t-0122.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 123,
+   "file": "thumbs/t-0123.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 6,
+   "caption": "The weights moved 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 123.5,
+   "file": "thumbs/t-0123.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 7,
+   "caption": "The weights moved 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 124,
+   "file": "thumbs/t-0124.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 8,
+   "caption": "The weights moved 0.24.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 124.5,
+   "file": "thumbs/t-0124.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 9,
+   "caption": "The fixed sum moved 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 125,
+   "file": "thumbs/t-0125.00.jpg",
+   "strip": "strip-21.png",
+   "cell": 10,
+   "caption": "The fixed sum moved 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 125.5,
+   "file": "thumbs/t-0125.50.jpg",
+   "strip": "strip-21.png",
+   "cell": 11,
+   "caption": "The fixed sum moved 0.00095.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 126,
+   "file": "thumbs/t-0126.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 0,
+   "caption": "About 250 times less.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 126.5,
+   "file": "thumbs/t-0126.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 1,
+   "caption": "About 250 times less.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 127,
+   "file": "thumbs/t-0127.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 2,
+   "caption": "About 250 times less.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 127.5,
+   "file": "thumbs/t-0127.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 3,
+   "caption": "About 250 times less.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 128,
+   "file": "thumbs/t-0128.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 4,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 128.5,
+   "file": "thumbs/t-0128.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 5,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 129,
+   "file": "thumbs/t-0129.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 6,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 129.5,
+   "file": "thumbs/t-0129.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 7,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 130,
+   "file": "thumbs/t-0130.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 8,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 130.5,
+   "file": "thumbs/t-0130.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 9,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 131,
+   "file": "thumbs/t-0131.00.jpg",
+   "strip": "strip-22.png",
+   "cell": 10,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 131.5,
+   "file": "thumbs/t-0131.50.jpg",
+   "strip": "strip-22.png",
+   "cell": 11,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 132,
+   "file": "thumbs/t-0132.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 0,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 132.5,
+   "file": "thumbs/t-0132.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 1,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 133,
+   "file": "thumbs/t-0133.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 2,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 133.5,
+   "file": "thumbs/t-0133.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 3,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 134,
+   "file": "thumbs/t-0134.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 4,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 134.5,
+   "file": "thumbs/t-0134.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 5,
+   "caption": "Smoke rings too: swap the air, the swirl stays.",
+   "chapter": {
+    "id": "count",
+    "title": "30,000 dots, sorted by what stays"
+   }
+  },
+  {
+   "t": 135,
+   "file": "thumbs/t-0135.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 135.5,
+   "file": "thumbs/t-0135.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 7,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 136,
+   "file": "thumbs/t-0136.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 8,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 136.5,
+   "file": "thumbs/t-0136.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 9,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 137,
+   "file": "thumbs/t-0137.00.jpg",
+   "strip": "strip-23.png",
+   "cell": 10,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 137.5,
+   "file": "thumbs/t-0137.50.jpg",
+   "strip": "strip-23.png",
+   "cell": 11,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 138,
+   "file": "thumbs/t-0138.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 0,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 138.5,
+   "file": "thumbs/t-0138.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 1,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 139,
+   "file": "thumbs/t-0139.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 2,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 139.5,
+   "file": "thumbs/t-0139.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 3,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 140,
+   "file": "thumbs/t-0140.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 4,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 140.5,
+   "file": "thumbs/t-0140.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 5,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 141,
+   "file": "thumbs/t-0141.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 6,
+   "caption": "Monday: what stays fixed while your data moves?",
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 141.5,
+   "file": "thumbs/t-0141.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 142,
+   "file": "thumbs/t-0142.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 142.5,
+   "file": "thumbs/t-0142.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 143,
+   "file": "thumbs/t-0143.00.jpg",
+   "strip": "strip-24.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 143.5,
+   "file": "thumbs/t-0143.50.jpg",
+   "strip": "strip-24.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 144,
+   "file": "thumbs/t-0144.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 144.5,
+   "file": "thumbs/t-0144.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 145,
+   "file": "thumbs/t-0145.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 145.5,
+   "file": "thumbs/t-0145.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 146,
+   "file": "thumbs/t-0146.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 146.5,
+   "file": "thumbs/t-0146.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 147,
+   "file": "thumbs/t-0147.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 147.5,
+   "file": "thumbs/t-0147.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 7,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 148,
+   "file": "thumbs/t-0148.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 8,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 148.5,
+   "file": "thumbs/t-0148.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 9,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 149,
+   "file": "thumbs/t-0149.00.jpg",
+   "strip": "strip-25.png",
+   "cell": 10,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 149.5,
+   "file": "thumbs/t-0149.50.jpg",
+   "strip": "strip-25.png",
+   "cell": 11,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 150,
+   "file": "thumbs/t-0150.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 0,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 150.5,
+   "file": "thumbs/t-0150.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 1,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 151,
+   "file": "thumbs/t-0151.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 2,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 151.5,
+   "file": "thumbs/t-0151.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 3,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 152,
+   "file": "thumbs/t-0152.00.jpg",
+   "strip": "strip-26.png",
+   "cell": 4,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 152.5,
+   "file": "thumbs/t-0152.50.jpg",
+   "strip": "strip-26.png",
+   "cell": 5,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  },
+  {
+   "t": 152.99,
+   "file": "thumbs/t-0152.99.jpg",
+   "strip": "strip-26.png",
+   "cell": 6,
+   "caption": null,
+   "chapter": {
+    "id": "monday",
+    "title": "What stays fixed in your data?"
+   }
+  }
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/demo.html",
+ "errors": [],
+ "variants": {
+  "sheet": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/sheet-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/sheet-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/sheet-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/sheet-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "system": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/system-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/system-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/system-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/system-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "stack": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/stack-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/stack-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/stack-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/stack-t8.00.png"
+   ],
+   "purity": "identical"
+  },
+  "floors": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/floors-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/floors-t2.64.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/floors-t5.36.png",
+    "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/floors-t8.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 7,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/glyphs-iso/shots/contact.png"
+}

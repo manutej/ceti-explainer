@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>webgl-scene</title>
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="./font.js"></script>
+<script src="./pattern.js"></script></head><body><main></main><div id="junk" hidden></div>
+<script>
+const BRANDS={"neon-lab": {"id": "neon-lab", "name": "Neon lab (dark, luminous)", "color": {"bg": "#07080C", "ink": "#E8F1FF", "accent": "#3DF5C3", "accent2": "#FF4FA3", "muted": "#7C86A2", "line": "rgba(232,241,255,0.16)", "panel": "#0E1119", "chalk": "#FFFFFF"}, "type": {"disp": {"family": "Sofia Sans Extra Condensed", "weight": 700}, "mono": {"family": "Space Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400}}, "texture": "grain", "tempo": {"ease": "expo", "beat_s": 3}, "voice": {"register": "glow on black, thin rules", "end_card": "CETI"}}, "ceti-dark": {"id": "ceti-dark", "name": "CETI dark", "color": {"bg": "#0F1115", "ink": "#EDE8DF", "accent": "#E0B27A", "accent2": "#B8322A", "muted": "#8B8778", "line": "rgba(237,232,223,0.18)", "panel": "#171A21", "chalk": "#F6F3EC"}, "type": {"disp": {"family": "Big Shoulders Display", "weight": 600}, "mono": {"family": "IBM Plex Mono", "weight": 400}, "body": {"family": "DM Sans", "weight": 400}}, "texture": "none", "tempo": {"ease": "cubic", "beat_s": 4}, "voice": {"register": "typeset numbers, few words", "end_card": "CETI"}}, "tender-set": {"id": "tender-set", "name": "Tender set (the Opera House sheet)", "color": {"bg": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "accent2": "#B9A277", "muted": "#716B5F", "line": "rgba(30,58,92,0.25)", "panel": "#F5EEDF", "chalk": "#0F2540"}, "type": {"disp": {"family": "Big Shoulders Display", "weight": 600}, "mono": {"family": "IBM Plex Mono", "weight": 400}, "body": {"family": "IBM Plex Mono", "weight": 400}}, "texture": "paper", "tempo": {"ease": "cubic", "beat_s": 4}, "voice": {"register": "drafting sheet, revisions ledger", "end_card": "CETI"}}, "swiss-grid": {"id": "swiss-grid", "name": "Swiss grid (clean, high contrast)", "color": {"bg": "#FFFFFF", "ink": "#111111", "accent": "#E63312", "accent2": "#1F4FB8", "muted": "#6B6B6B", "line": "rgba(17,17,17,0.2)", "panel": "#F2F2F2", "chalk": "#000000"}, "type": {"disp": {"family": "Jost", "weight": 600}, "mono": {"family": "Red Hat Mono", "weight": 400}, "body": {"family": "Jost", "weight": 400}}, "texture": "none", "tempo": {"ease": "expo", "beat_s": 3}, "voice": {"register": "grid, flush left, one accent", "end_card": "CETI"}}};
+const Q=new URLSearchParams(location.search), PAT=ARSENAL.patterns['webgl-scene'], TK=BRANDS[Q.get('brand')||'ceti-dark'];
+const NAMES=PAT.variants.map(v=>v.name), cache={}; let cur=null, curT=0, fonts=null, P=null, last=null;
+const paramsOf=n=>Object.assign({},PAT.params,PAT.variants.find(v=>v.name===n).params,Q.get('p')?JSON.parse(Q.get('p')):{});
+let resolveReady; const readyP=new Promise(r=>resolveReady=r);
+new p5(p=>{
+  P=p;
+  p.setup=async()=>{ if(Q.get('aa')==='0')p.setAttributes('antialias',false); await p.createCanvas(960,540,p.WEBGL); p.pixelDensity(2); p.noLoop();
+    fonts=await PAT.load(p); resolveReady(); };
+  p.draw=()=>{};
+},document.querySelector('main'));
+/* p5 2.x WEBGL text inserts a hidden 1x1 canvas ahead of the real one; park it so querySelector('canvas') stays the film canvas */
+function tidy(){ document.querySelectorAll('canvas:not(.p5Canvas)').forEach(c=>document.getElementById('junk').appendChild(c)); }
+function seek(t,v){ v=v||Q.get('variant')||NAMES[0]; if(!cache[v]){ const params=paramsOf(v); cache[v]={params,st:PAT.setup(P,{seed:7,fonts},params)}; }
+  cur=v; curT=t; P.resetMatrix(); last=PAT.draw(P,t,cache[v].st,cache[v].params,TK); tidy(); return last; }
+window.__film={ ready:()=>readyP.then(()=>{ if(Q.has('t')) seek(+Q.get('t')); }), seek, info:{variants:NAMES,dur:PAT.params.dur,brand:TK.id} };
+window.__film.stats=()=>{const s=cache[cur]&&cache[cur].st;return {head:s&&s.head&&s.head.kind,verts:s&&s.head&&s.head.verts,err:s&&(s.headError||s.headError2)}};
+</script></body></html>

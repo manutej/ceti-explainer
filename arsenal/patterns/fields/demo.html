@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>fields demo</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="./pattern.js"></script>
+</head><body>
+<script>
+const q = new URLSearchParams(location.search);
+const tokens = ARSENAL.brands[q.get('brand')] || ARSENAL.brands['ceti-dark'];   // packs.js inlined by <script>, select with ?brand=
+document.body.style.background = tokens.color.bg;
+const pat = ARSENAL.patterns.fields, DUR = 6, SEED = 7;
+const cache = {};
+let cur = null, resolveReady; const readyP = new Promise(r => resolveReady = r);
+function params(v) { const vv = pat.variants.find(x => x.name === v) || pat.variants[0]; return Object.assign({}, pat.params, vv.params); }
+function stateFor(p5i, v) { if (!cache[v]) cache[v] = pat.setup(p5i, { seed: SEED, w: 960, h: 540 }, params(v)); return cache[v]; }
+new p5(p => {
+  p.setup = () => {
+    p.createCanvas(960, 540); p.pixelDensity(2); p.noLoop();
+    p.describe('Ambient generative field motion, a pure function of seed and time.');
+    cur = p; resolveReady();
+    const v = q.get('variant') || pat.variants[0].name, t = +(q.get('t') || 0);
+    window.__film.seek(t, v);
+  };
+  p.draw = () => {};
+});
+window.__film = {
+  ready: () => readyP,
+  info: { variants: pat.variants.map(v => v.name), dur: DUR, seed: SEED, brand: tokens.id },
+  last: null,
+  seek(t, v) {
+    v = v || pat.variants[0].name;
+    const st = stateFor(cur, v), t0 = performance.now();
+    pat.draw(cur, t, st, params(v), tokens);
+    this.last = { variant: v, t, ms: performance.now() - t0 };
+    return this.last;
+  }
+};
+</script></body></html>

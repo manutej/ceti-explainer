@@ -1,0 +1,279 @@
+{
+ "film": "queues",
+ "params": {
+  "rhoA": 0.5,
+  "rhoB": 0.9,
+  "rho80": 0.8,
+  "rho85": 0.85,
+  "rho95": 0.95,
+  "seed": 3,
+  "warm": 2000,
+  "n": 100,
+  "defaultGuess": 2,
+  "hoursPerDay": 10,
+  "bedsShown": 100,
+  "bagustYear": 1999,
+  "bagustRisk": 85,
+  "bagustCrisis": 90,
+  "nhsOcc": 92,
+  "nhsYear": 2022
+ },
+ "claims": [
+  {
+   "id": "hook-busy",
+   "text": "busy 9 hours of 10, i.e. 90 % busy",
+   "value": 90,
+   "formula": "Math.round(rhoB*100)",
+   "source": "FILM",
+   "where": "HOOK readout and caption 1 (as 9 of 10); brand card takeaway (90 %)"
+  },
+  {
+   "id": "hook-hours",
+   "text": "9 of 10 hours inked",
+   "value": 9,
+   "formula": "Math.round(rhoB*hoursPerDay)",
+   "source": "FILM",
+   "where": "HOOK hour strip: 9 inked blocks of 10; captions 1 and 4; desk B label BUSY 9 OF 10"
+  },
+  {
+   "id": "hook-day",
+   "text": "a day of 10 hours ('IN 10')",
+   "value": 10,
+   "formula": "hoursPerDay",
+   "source": "FILM",
+   "where": "HOOK and COMMIT hour strips (10 blocks); COUNT desk labels 'BUSY 5 IN 10', 'BUSY 9 IN 10'"
+  },
+  {
+   "id": "anchor-50",
+   "text": "50 % busy",
+   "value": 50,
+   "formula": "Math.round(rhoA*100)",
+   "source": "FILM",
+   "where": "COMMIT caption 3; second hour strip (5 of 10 inked)"
+  },
+  {
+   "id": "anchor-50-hours",
+   "text": "5 of 10 hours inked",
+   "value": 5,
+   "formula": "Math.round(rhoA*hoursPerDay)",
+   "source": "FILM",
+   "where": "COMMIT hour strip; caption 3; desk A label BUSY 5 OF 10"
+  },
+  {
+   "id": "anchor-wait-50",
+   "text": "waits about one job's length (1)",
+   "value": 1,
+   "formula": "Math.round((rhoA/(1-rhoA))*10)/10",
+   "source": "KL75",
+   "where": "COMMIT caption 3; commit box anchor line"
+  },
+  {
+   "id": "commit-default",
+   "text": "YOUR GUESS 2 (film mode)",
+   "value": 2,
+   "formula": "defaultGuess",
+   "source": "FILM",
+   "where": "COMMIT box (film mode); COUNT guess line label"
+  },
+  {
+   "id": "case-year",
+   "text": "1999",
+   "value": 1999,
+   "formula": "bagustYear",
+   "source": "BPP99",
+   "where": "CASE caption 5; eyebrow"
+  },
+  {
+   "id": "case-beds",
+   "text": "100 beds",
+   "value": 100,
+   "formula": "bedsShown",
+   "source": "FILM",
+   "where": "CASE 10 x 10 bed grid; captions 6 to 8 ('of 100')"
+  },
+  {
+   "id": "case-85",
+   "text": "85 of 100 beds full: risk shows",
+   "value": 85,
+   "formula": "bagustRisk",
+   "source": "BPP99",
+   "where": "CASE caption 6; grid fill"
+  },
+  {
+   "id": "case-90",
+   "text": "90 of 100: regular shortages, periodic crises",
+   "value": 90,
+   "formula": "bagustCrisis",
+   "source": "BPP99",
+   "where": "CASE caption 7; grid fill"
+  },
+  {
+   "id": "case-92",
+   "text": "England ran at 92 of 100 (Oct to Dec 2022)",
+   "value": 92,
+   "formula": "Math.round(nhsOcc)",
+   "source": "KH03",
+   "where": "CASE caption 8; grid fill"
+  },
+  {
+   "id": "case-2022",
+   "text": "Oct to Dec 2022",
+   "value": 2022,
+   "formula": "nhsYear",
+   "source": "KH03",
+   "where": "CASE caption 8"
+  },
+  {
+   "id": "count-jobs",
+   "text": "100 jobs",
+   "value": 100,
+   "formula": "n",
+   "source": "SIM",
+   "where": "COUNT caption 9, 10, 11; 100 columns per desk; '÷ 100'"
+  },
+  {
+   "id": "count-a-total",
+   "text": "half-busy desk: 99 jobs found ahead",
+   "value": 99,
+   "formula": "(function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm)s+=d.length-p;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoA)",
+   "source": "SIM",
+   "where": "COUNT caption 10; desk A counter"
+  },
+  {
+   "id": "count-b-total",
+   "text": "nine-tenths desk: 837 jobs found ahead",
+   "value": 837,
+   "formula": "(function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm)s+=d.length-p;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoB)",
+   "source": "SIM",
+   "where": "COUNT caption 11; caption 12; desk B counter"
+  },
+  {
+   "id": "count-a-each",
+   "text": "99 ÷ 100 ≈ 1 a job",
+   "value": 1,
+   "formula": "Math.round((function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm)s+=d.length-p;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoA)/n)",
+   "source": "SIM",
+   "where": "COUNT desk A readout"
+  },
+  {
+   "id": "count-b-each",
+   "text": "837 ÷ 100 = 8.4 a job",
+   "value": 8.4,
+   "formula": "Math.round(((function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm)s+=d.length-p;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoB)/n)*10)/10",
+   "source": "SIM",
+   "where": "COUNT caption 12; desk B readout and dotted line"
+  },
+  {
+   "id": "long-run-90",
+   "text": "long run at 90 %: 9",
+   "value": 9,
+   "formula": "Math.round((rhoB/(1-rhoB))*10)/10",
+   "source": "KL75",
+   "where": "COUNT caption 12; 'LONG RUN 9' line; ladder tick; brand card"
+  },
+  {
+   "id": "ladder-50",
+   "text": "50 % → 1",
+   "value": 1,
+   "formula": "Math.round((rhoA/(1-rhoA))*10)/10",
+   "source": "KL75",
+   "where": "COUNT ladder tick on desk B axis"
+  },
+  {
+   "id": "ladder-80",
+   "text": "80 % → 4",
+   "value": 4,
+   "formula": "Math.round((rho80/(1-rho80))*10)/10",
+   "source": "KL75",
+   "where": "COUNT ladder tick on desk B axis"
+  },
+  {
+   "id": "ladder-95",
+   "text": "95 % → 19",
+   "value": 19,
+   "formula": "Math.round((rho95/(1-rho95))*10)/10",
+   "source": "KL75",
+   "where": "COUNT ladder tick on desk B axis"
+  },
+  {
+   "id": "monday-85",
+   "text": "above 85 % busy",
+   "value": 85,
+   "formula": "bagustRisk",
+   "source": "BPP99",
+   "where": "MONDAY caption 13"
+  },
+  {
+   "id": "limits-steady",
+   "text": "perfectly regular jobs at 90 %: 4.5 (half of 9)",
+   "value": 4.5,
+   "formula": "Math.round((rhoB/(2*(1-rhoB)))*10)/10",
+   "source": "KI61",
+   "where": "live page honest-limits panel and transcript only (not on the film stage)"
+  },
+  {
+   "id": "limits-85-mult",
+   "text": "one desk at 85 %: about 5.7",
+   "value": 5.7,
+   "formula": "Math.round((rho85/(1-rho85))*10)/10",
+   "source": "KL75",
+   "where": "live page try-it panel default readout only"
+  },
+  {
+   "id": "count-a-zero",
+   "text": "42 of 100 walked straight in (desk A)",
+   "value": 42,
+   "formula": "(function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm&&d.length-p===0)s++;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoA)",
+   "source": "SIM",
+   "where": "optional COUNT chrome; not required on screen"
+  },
+  {
+   "id": "count-b-zero",
+   "text": "4 of 100 walked straight in (desk B)",
+   "value": 4,
+   "formula": "(function(rho){let a=seed|0,A=0,Dp=0,d=[],p=0,s=0;const r=()=>{a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};for(let k=0;k<warm+n;k++){const ea=-Math.log(1-r()),es=-Math.log(1-r());A+=ea/rho;while(p<d.length&&d[p]<=A)p++;if(k>=warm&&d.length-p===0)s++;const st=Math.max(A,Dp);Dp=st+es;d.push(Dp)}return s})(rhoB)",
+   "source": "SIM",
+   "where": "optional COUNT chrome; not required on screen"
+  },
+  {
+   "id": "count-running",
+   "text": "running counters start at 0 and climb, arrival by arrival, to 99 and 837 (partial sums of the series in topics/queues/beats.md)",
+   "value": 0,
+   "formula": "0*n",
+   "source": "SIM",
+   "where": "COUNT counters 36 to 48 s"
+  },
+  {
+   "id": "ladder-pct-50",
+   "text": "50 % (ladder label)",
+   "value": 50,
+   "formula": "Math.round(rhoA*100)",
+   "source": "KL75",
+   "where": "COUNT ladder labels in the right gutter (60 s on)"
+  },
+  {
+   "id": "ladder-pct-80",
+   "text": "80 % (ladder label)",
+   "value": 80,
+   "formula": "Math.round(rho80*100)",
+   "source": "KL75",
+   "where": "COUNT ladder labels in the right gutter (60 s on)"
+  },
+  {
+   "id": "ladder-pct-90",
+   "text": "90 % (ladder label)",
+   "value": 90,
+   "formula": "Math.round(rhoB*100)",
+   "source": "KL75",
+   "where": "COUNT ladder labels in the right gutter (60 s on)"
+  },
+  {
+   "id": "ladder-pct-95",
+   "text": "95 % (ladder label)",
+   "value": 95,
+   "formula": "Math.round(rho95*100)",
+   "source": "KL75",
+   "where": "COUNT ladder labels in the right gutter (60 s on)"
+  }
+ ]
+}

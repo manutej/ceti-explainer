@@ -1,0 +1,448 @@
+{
+ "film": "noether-applied",
+ "params": {
+  "seed": 20261010,
+  "ecc": 0.0167,
+  "stepsPerOrbit": 100,
+  "steps": 1000000000,
+  "snapshots": 1000,
+  "compareOrbits": 100000,
+  "rk4Err1e7": 0.01892,
+  "verletErr1e7": 6.959e-05,
+  "verletEmax": 6.975e-05,
+  "verletLerr": 2.79e-12,
+  "rk4FirstUnbound": 64686077,
+  "rk4LastBound": 63358050,
+  "hnnBase": 170,
+  "hnnHam": 0.38,
+  "hnnHidden": 200,
+  "hnnTrainSteps": 2000,
+  "hnnYear": 2019,
+  "duYear": 2018,
+  "netRuns": 100,
+  "netStates": 10000,
+  "netHidden": 16,
+  "wMoveRaw": 0.23776802,
+  "cMoveRaw": 0.00095167,
+  "residues": 2180,
+  "kelvinParcels": 2000,
+  "kelvinCircDriftMax": 0.00298,
+  "kelvinStretch": 5.48,
+  "equivErr": 5.7e-15
+ },
+ "rounding": "grades: A = primary or recomputed here (gcc/numpy, seed 20261010); B = reputable secondary; nothing C on screen. Egress blocked every WebFetch, so nothing was opened; everything read through WebSearch text. 'key' names the value recompute.py --check compares.",
+ "sources": {
+  "S1": "NASA NSSDC Earth Fact Sheet (eccentricity 0.0167): https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html . Not opened (egress); same source and grade as part 1 S1.",
+  "S2": "factory/topics/noether-applied/verlet_vs_rk4.c (A, derived) + data/trace.c + recompute.py: Earth-shaped orbit e = 0.0167, G*M = 1, 100 steps per lap, velocity Verlet vs classical RK4. gcc -O2; reproducible.",
+  "S3": "Wisdom and Holman, Symplectic maps for the N-body problem, Astron. J. 102, 1528-1538 (1991), doi 10.1086/115978 (A, bibliographic); Hairer, Lubich, Wanner, Geometric numerical integration illustrated by the Stormer-Verlet method, Acta Numerica 2003 (B, backward error analysis); Laskar and Gastineau, Nature 459, 817-819 (2009) (A). No number from these is on screen.",
+  "S4": "Stepsize errors in the N-body problem (arXiv 2111.08835) and Brown/perihelion note arXiv math-ph/0608012 (B, snippets): large steps and adaptive steps break the symplectic guarantee. Backs the honest line only.",
+  "S5": "Greydanus, Dzamba, Yosinski, Hamiltonian Neural Networks, NeurIPS 2019, arXiv 1906.01563: Table 1 ideal mass-spring energy error 170 +/- 20 (baseline) vs 0.38 +/- 0.1 (HNN), units 1e-3; 3 layers, 200 hidden units, tanh, 2,000 gradient steps (setup confirmed in a second search extraction this session). Not opened (egress).",
+  "S6": "Du, Hu, Lee, Algorithmic regularization in learning deep homogeneous models: layers are automatically balanced, NeurIPS 2018, arXiv 1806.00900 (A, three extractions).",
+  "S7": "Kunin, Sagastuy-Brena, Ganguli, Yamins, Tanaka, Neural mechanics, ICLR 2021, arXiv 2012.04728: finite learning rates and weight decay break the conservation law (A). Backs the honest line and the 0.00095 note.",
+  "S8": "factory/topics/noether-symmetry/recompute.py v2, seed 20261010: 100 runs x 100 recorded steps of a 2-layer ReLU net, 16 hidden units; median weights travel 0.2378, median conserved-sum movement 0.000952 (data/recompute_out.json C). Reused unchanged; MODEL.",
+  "S9": "Kelvin 1869 (circulation theorem); Salmon, Annu. Rev. Fluid Mech. 20, 225-256 (1988) and Salmon 2013 (relabelling gives the vorticity laws by Noether, B); UK Met Office GungHo programme (a dynamical core designed to improve conservation properties, B). data/kelvin_loop.csv: three point vortices stir a loop of 2,000 parcels (our MODEL). No number from the literature is on screen.",
+  "S10": "Jumper et al., Highly accurate protein structure prediction with AlphaFold, Nature 596, 583-589 (2021), doi 10.1038/s41586-021-03819-2, Fig. 1d caption: CASP14 target T1044 (PDB 6VR4), a 2,180-residue single chain (A, PMC8371605 caption read in two extractions); the structure module is invariant to rotation and translation of the input frame (B, secondary reads; AlphaFold 3 dropped the explicit guarantee, B). recompute.py D: our stand-in chain and equivariant layer (MODEL)."
+ },
+ "claims": [
+  {
+   "id": "steps",
+   "text": "each stepper takes 1,000,000,000 tiny steps (100 per lap)",
+   "value": 1000000000,
+   "formula": null,
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 28.6 s readout row '1,000,000,000 steps'",
+   "renders": [
+    "1,000,000,000 steps",
+    "1,000,000,000",
+    "a billion"
+   ],
+   "key": "steps"
+  },
+  {
+   "id": "stepsPerOrbit",
+   "text": "100 steps per lap of the orbit (setup, not drawn)",
+   "value": 100,
+   "formula": null,
+   "source": "S2",
+   "grade": "A",
+   "onscreen": false,
+   "where": "brief only; honest-limit note",
+   "key": "stepsPerOrbit"
+  },
+  {
+   "id": "orbits",
+   "text": "1,000,000,000 steps at 100 per lap is 10,000,000 laps",
+   "value": 10000000,
+   "formula": "steps/stepsPerOrbit",
+   "source": "S2",
+   "grade": "A",
+   "onscreen": false,
+   "where": "off screen (the film says 'a billion steps' only)",
+   "key": "orbits"
+  },
+  {
+   "id": "snapshots",
+   "text": "one dot is one snapshot; 1,000 snapshots per stepper, log-spaced over the billion steps",
+   "value": 1000,
+   "formula": null,
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 26.0 s readout row '1,000 snapshots per stepper' (the first count)",
+   "renders": [
+    "1,000 snapshots",
+    "1,000"
+   ],
+   "key": "snapshots"
+  },
+  {
+   "id": "snapshotsBoth",
+   "text": "2,000 dots in the first scene (2 steppers x 1,000)",
+   "value": 2000,
+   "formula": "2*snapshots",
+   "source": "S2",
+   "grade": "A",
+   "onscreen": false,
+   "where": "off screen (data check)",
+   "key": "snapshotsBoth"
+  },
+  {
+   "id": "verletEPct",
+   "text": "the energy-keeping stepper's energy error never exceeds 0.007 % in 1,000 snapshots over 1,000,000,000 steps (max 0.006975 %)",
+   "value": 0.007,
+   "formula": "verletEmax*100",
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 44.5 s readout row 'never more than 0.007 %'",
+   "renders": [
+    "0.007 %",
+    "0.007%"
+   ],
+   "key": "verletEPct",
+   "note": "ceiling of 0.006975 %; shown to 3 decimals"
+  },
+  {
+   "id": "compareSteps",
+   "text": "the like-for-like comparison is at 10,000,000 steps (100,000 laps)",
+   "value": 10000000,
+   "formula": "compareOrbits*stepsPerOrbit",
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 47.0 s readout row 'after 10,000,000 steps'",
+   "renders": [
+    "10,000,000 steps",
+    "10,000,000",
+    "ten million"
+   ]
+  },
+  {
+   "id": "rk4EPct1e7",
+   "text": "the plain (RK4) stepper's energy error after 10,000,000 steps is 1.892 % (shown 1.9 %)",
+   "value": 1.9,
+   "formula": "rk4Err1e7*100",
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 47.0 s readout row '1.9 % off'",
+   "renders": [
+    "1.9 %",
+    "1.9%"
+   ],
+   "key": "rk4EPct1e7"
+  },
+  {
+   "id": "integratorRatio",
+   "text": "at 10,000,000 steps the plain stepper's energy error is 272 times the keeper's",
+   "value": 272,
+   "formula": "round(rk4Err1e7/verletErr1e7)",
+   "source": "S2",
+   "grade": "A",
+   "onscreen": false,
+   "where": "off screen (the screen shows the rounded one)",
+   "key": "integratorRatio"
+  },
+  {
+   "id": "integratorRatioWords",
+   "text": "about 270 times (272 rounded to tens)",
+   "value": 270,
+   "formula": "round(integratorRatio/10)*10",
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 51.0 s callout 'about 270 times' (a ratio: after the count at 26.0 and 1.5 s after the last number)",
+   "renders": [
+    "about 270 times",
+    "270 times",
+    "270"
+   ]
+  },
+  {
+   "id": "rk4StepsGone",
+   "text": "the plain stepper's planet is no longer bound (thrown out) by the snapshot at step 64,686,077; last bound snapshot 63,358,050; shown as 65 million",
+   "value": 65,
+   "formula": "round(rk4FirstUnbound/1000000)",
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 53.5 s readout row 'thrown out by 65 million steps'",
+   "renders": [
+    "65 million steps",
+    "65 million",
+    "65"
+   ],
+   "key": "rk4StepsGone",
+   "note": "the plain orbit also shrinks first: smallest semi-major axis 0.648 of the start; the 65 is a ceiling, not an exact step"
+  },
+  {
+   "id": "verletLPlaces",
+   "text": "the keeper's spin number (angular momentum) is off by 2.79e-12 at most over 1,000,000,000 steps: right to 11 decimal places",
+   "value": 11,
+   "formula": null,
+   "source": "S2",
+   "grade": "A",
+   "onscreen": true,
+   "where": "CASE 56.0 s readout row 'spin right to 11 places'",
+   "renders": [
+    "11 places",
+    "11"
+   ],
+   "key": "verletLPlaces",
+   "note": "rotation symmetry survives the code exactly (to rounding); this one IS Noether; the energy band is backward-error analysis (cousin)"
+  },
+  {
+   "id": "verletLerr",
+   "text": "raw spin error of the keeper (off screen)",
+   "value": 2.79e-12,
+   "formula": null,
+   "source": "S2",
+   "grade": "A",
+   "onscreen": false,
+   "where": "off screen",
+   "key": "verletLerr"
+  },
+  {
+   "id": "netRuns",
+   "text": "100 training runs of a small network (part 1's fixture, reused)",
+   "value": 100,
+   "formula": null,
+   "source": "S8",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 72.0 s readout row '10,000 steps from 100 runs'",
+   "renders": [
+    "100 runs",
+    "100"
+   ],
+   "key": "netRuns"
+  },
+  {
+   "id": "netStates",
+   "text": "one dot is one recorded training step; 100 runs x 100 steps = 10,000 dots",
+   "value": 10000,
+   "formula": "netRuns*100",
+   "source": "S8",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 72.0 s readout row (the second count lands)",
+   "renders": [
+    "10,000 steps",
+    "10,000"
+   ],
+   "key": "netStates"
+  },
+  {
+   "id": "duYear",
+   "text": "Du, Hu and Lee showed in 2018 that learning keeps the gaps between layers fixed",
+   "value": 2018,
+   "formula": null,
+   "source": "S6",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 74.5 s tag 'Du, Hu, Lee \u00b7 2018'",
+   "renders": [
+    "2018"
+   ]
+  },
+  {
+   "id": "wMove",
+   "text": "the weights travel 0.24 (median over 100 runs, simulated)",
+   "value": 0.24,
+   "formula": "round(wMoveRaw*100)/100",
+   "source": "S8",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 83.0 s readout row 'weights moved 0.24'",
+   "renders": [
+    "0.24"
+   ],
+   "key": "wMove",
+   "note": "same fixture as part 1; MODEL, tagged SIMULATED"
+  },
+  {
+   "id": "cMove",
+   "text": "the gap between layers moves 0.00095 (median, simulated; exact only for infinitely small steps)",
+   "value": 0.00095,
+   "formula": "round(cMoveRaw*100000)/100000",
+   "source": "S8",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 86.0 s readout row 'the gap moved 0.00095'",
+   "renders": [
+    "0.00095"
+   ],
+   "key": "cMove",
+   "note": "finite step: Kunin 2021 says finite learning rates break the law a little"
+  },
+  {
+   "id": "hnnHidden",
+   "text": "both networks have 200 hidden units (3 layers, tanh)",
+   "value": 200,
+   "formula": null,
+   "source": "S5",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 97.0 s readout row '200 units \u00b7 2,000 training steps'",
+   "renders": [
+    "200 units",
+    "200"
+   ],
+   "key": "hnnHidden"
+  },
+  {
+   "id": "hnnTrainSteps",
+   "text": "both networks trained for 2,000 gradient steps",
+   "value": 2000,
+   "formula": null,
+   "source": "S5",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 97.0 s readout row",
+   "renders": [
+    "2,000 training steps",
+    "2,000"
+   ],
+   "key": "hnnTrainSteps"
+  },
+  {
+   "id": "hnnYear",
+   "text": "Greydanus, Dzamba and Yosinski, NeurIPS 2019",
+   "value": 2019,
+   "formula": null,
+   "source": "S5",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 91.0 s tag 'Greydanus et al. \u00b7 2019'",
+   "renders": [
+    "2019"
+   ]
+  },
+  {
+   "id": "hnnBase",
+   "text": "energy error of the plain network on the ideal mass-spring, Table 1: 170 (units 1e-3)",
+   "value": 170,
+   "formula": null,
+   "source": "S5",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 100.0 s readout row 'plain network: energy error 170'",
+   "renders": [
+    "170"
+   ],
+   "key": "hnnBase",
+   "note": "pair reported in three extractions (research file); open Table 1 before ship"
+  },
+  {
+   "id": "hnnHam",
+   "text": "energy error of the Hamiltonian network, same table: 0.38",
+   "value": 0.38,
+   "formula": null,
+   "source": "S5",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 102.5 s readout row 'Hamiltonian network: 0.38'",
+   "renders": [
+    "0.38"
+   ],
+   "key": "hnnHam"
+  },
+  {
+   "id": "hnnRatio",
+   "text": "170 / 0.38 = 447",
+   "value": 447,
+   "formula": "round(hnnBase/hnnHam)",
+   "source": "S5",
+   "grade": "A",
+   "onscreen": false,
+   "where": "off screen",
+   "key": "hnnRatio"
+  },
+  {
+   "id": "hnnRatioWords",
+   "text": "about 450 times lower",
+   "value": 450,
+   "formula": "round(hnnRatio/50)*50",
+   "source": "S5",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 106.5 s callout 'about 450 times' (a ratio: after the counts 200 and 2,000 and 1.5 s after the last number)",
+   "renders": [
+    "about 450 times",
+    "450 times",
+    "450"
+   ],
+   "key": "hnnRatioWords"
+  },
+  {
+   "id": "residues",
+   "text": "CASP14 target T1044, an RNA polymerase, is a single chain of 2,180 residues (Jumper et al. 2021, Fig. 1d)",
+   "value": 2180,
+   "formula": null,
+   "source": "S10",
+   "grade": "A",
+   "onscreen": true,
+   "where": "COUNT 124.5 s readout row '2,180 residues' (the third count)",
+   "renders": [
+    "2,180 residues",
+    "2,180"
+   ],
+   "key": "residues",
+   "note": "the dots on stage are a stand-in chain, labelled so; only the count is T1044's"
+  },
+  {
+   "id": "kelvinParcels",
+   "text": "the ribbon picture follows a loop of 2,000 tagged parcels (off screen)",
+   "value": 2000,
+   "formula": null,
+   "source": "S9",
+   "grade": "A",
+   "onscreen": false,
+   "where": "fluids beat, no digit on screen",
+   "key": "kelvinParcels"
+  },
+  {
+   "id": "kelvinCircDrift",
+   "text": "discrete circulation around the moving loop changes by at most 0.30 % while the loop stretches 5.5 times (point-vortex model)",
+   "value": 0.00298,
+   "formula": null,
+   "source": "S9",
+   "grade": "A",
+   "onscreen": false,
+   "where": "off screen; backs the caption 'the swirl around it stays the same'",
+   "note": "vortex model, not weather data"
+  },
+  {
+   "id": "equivErr",
+   "text": "after a random turn, the output of an equivariant layer equals the turned output to 5.7e-15; a plain layer is off by 2.1 (relative)",
+   "value": 5.7e-15,
+   "formula": null,
+   "source": "S10",
+   "grade": "A",
+   "onscreen": false,
+   "where": "off screen; backs the caption 'turn the input, the answer turns'"
+  }
+ ]
+}

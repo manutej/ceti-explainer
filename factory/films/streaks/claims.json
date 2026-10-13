@@ -1,0 +1,468 @@
+{
+ "film": "streaks",
+ "params": {
+  "n": 100,
+  "hookSeed": 140,
+  "months": 12,
+  "fall": 3,
+  "wallSeed": 1985,
+  "wallN": 1000,
+  "rowsShown": 10,
+  "guessDefault": 4,
+  "holdSeconds": 8,
+  "fans": 100,
+  "fansYes": 91,
+  "shooterPct": 50,
+  "afterHitGuess": 61,
+  "afterMissGuess": 42,
+  "team": 76,
+  "season": 1981,
+  "gvtYear": 1985,
+  "msYear": 2018,
+  "simSeed": 1,
+  "simN": 100000,
+  "simGe7": 54372,
+  "simGe5": 97240,
+  "simLe4": 2760,
+  "simMean": 6.9813,
+  "years": 100,
+  "msN": 100,
+  "msK": 3
+ },
+ "rounding": "percentages on stage are Math.round(100*p): 54.23 -> 54 %, 97.17 -> 97 %; 58.37 -> 58 of 100 years",
+ "claims": [
+  {
+   "id": "hookMonths",
+   "text": "12 monthly ticks (J F M A M J J A S O N D), up or down",
+   "value": 12,
+   "formula": "months",
+   "source": "film fixture; the strip is the first 12 flips of mulberry32(hookSeed 140): UUUDUDUUUDDD",
+   "where": "HOOK strip; MONDAY strip + readout \"12 coin flips\""
+  },
+  {
+   "id": "hookFall",
+   "text": "3 months down in a row (the strip ends D D D)",
+   "value": 3,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(hookSeed);let q='';for(let i=0;i<months;i++)q+=r()<0.5?'U':'D';return q;})()).match(/D+$/)[0].length",
+   "source": "film fixture, mulberry32(hookSeed 140); disclosed as coin flips in MONDAY",
+   "where": "HOOK tag \"3 MONTHS DOWN\"; MONDAY readout"
+  },
+  {
+   "id": "hookUp3",
+   "text": "the same strip opens with 3 months up, which nobody flagged",
+   "value": 3,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(hookSeed);let q='';for(let i=0;i<months;i++)q+=r()<0.5?'U':'D';return q;})()).match(/^U+/)[0].length",
+   "source": "film fixture, mulberry32(hookSeed 140)",
+   "where": "HOOK strip (unlabelled, visible); MONDAY strip"
+  },
+  {
+   "id": "flips",
+   "text": "100 flips of a fair coin",
+   "value": 100,
+   "formula": "n",
+   "source": "exact computation over all 2^100 sequences (Markov recursion on current run length); cross-checked with a fraction-exact Python recursion and a 100,000-trial seeded simulation (mulberry32 seed 1); see Schilling 1990, College Mathematics Journal 21(3):196-207",
+   "where": "COMMIT box prompt; caption 3; caption 9 (\"100 per row\"); COUNT row length"
+  },
+  {
+   "id": "hold",
+   "text": "8-second commit countdown",
+   "value": 8,
+   "formula": "holdSeconds",
+   "source": "FORMAT.md / DECISIONS Q13",
+   "where": "COMMIT box countdown 8..0 (12.0 to 15.8 s)"
+  },
+  {
+   "id": "guess",
+   "text": "film-mode default guess: 4",
+   "value": 4,
+   "formula": "guessDefault",
+   "source": "film.json commit.default (assumed typical intuitive guess; invented sequences rarely hold long runs, Schilling 1990, College Mathematics Journal 21(3):196-207)",
+   "where": "COMMIT box (film mode, typed at 12.2 s); COUNT rows readout and tally guess rule (44 s on)"
+  },
+  {
+   "id": "fans",
+   "text": "100 basketball fans surveyed (Cornell and Stanford)",
+   "value": 100,
+   "formula": "fans",
+   "source": "Gilovich, Vallone & Tversky 1985, Cognitive Psychology 17(3):295-314, doi:10.1016/0010-0285(85)90010-6, Study 1 (survey of fans); verify the N against the printed page before shipping",
+   "where": "caption 5; CASE 10 x 10 square tally"
+  },
+  {
+   "id": "fansYes",
+   "text": "91 of 100 fans: better chance after 2 or 3 hits than after 2 or 3 misses",
+   "value": 91,
+   "formula": "fansYes",
+   "source": "Gilovich, Vallone & Tversky 1985, Cognitive Psychology 17(3):295-314, doi:10.1016/0010-0285(85)90010-6, abstract and Study 1 (\"91% of the fans believed...\")",
+   "where": "caption 6; CASE tally (91 squares filled), readout \"91 OF 100\""
+  },
+  {
+   "id": "twoThree",
+   "text": "\"2 or 3\" shots (the survey wording)",
+   "value": 2,
+   "formula": "2",
+   "source": "Gilovich, Vallone & Tversky 1985, Cognitive Psychology 17(3):295-314, doi:10.1016/0010-0285(85)90010-6, Study 1 question wording (\"his last two or three shots\")",
+   "where": "caption 6"
+  },
+  {
+   "id": "shooter",
+   "text": "a shooter who hits 50 of 100",
+   "value": 50,
+   "formula": "shooterPct",
+   "source": "Gilovich, Vallone & Tversky 1985, Cognitive Psychology 17(3):295-314, doi:10.1016/0010-0285(85)90010-6, Study 1",
+   "where": "caption 7; CASE bar label \"SHOOTS 50 OF 100\" and value"
+  },
+  {
+   "id": "afterHit",
+   "text": "fans estimate 61% after a hit",
+   "value": 61,
+   "formula": "afterHitGuess",
+   "source": "Gilovich, Vallone & Tversky 1985, Cognitive Psychology 17(3):295-314, doi:10.1016/0010-0285(85)90010-6, Study 1 (mean estimate for a 50% shooter after a hit)",
+   "where": "caption 7; CASE readout \"61\""
+  },
+  {
+   "id": "afterMiss",
+   "text": "fans estimate 42% after a miss",
+   "value": 42,
+   "formula": "afterMissGuess",
+   "source": "Gilovich, Vallone & Tversky 1985, Cognitive Psychology 17(3):295-314, doi:10.1016/0010-0285(85)90010-6, Study 1 (mean estimate for a 50% shooter after a miss)",
+   "where": "caption 7; CASE readout \"42\""
+  },
+  {
+   "id": "team",
+   "text": "Philadelphia 76ers, 1980-81 season field-goal records: no positive correlation between successive shots",
+   "value": 76,
+   "formula": "team",
+   "renders": [
+    "76ers",
+    "1980–81",
+    "1980-81"
+   ],
+   "source": "Gilovich, Vallone & Tversky 1985, Cognitive Psychology 17(3):295-314, doi:10.1016/0010-0285(85)90010-6, Study 2 (Philadelphia 76ers, 1980-81 home games, nine players)",
+   "where": "caption 8; CASE readout"
+  },
+  {
+   "id": "row1",
+   "text": "row 1: longest run 8",
+   "value": 8,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[0]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 1 label (right column)"
+  },
+  {
+   "id": "row2",
+   "text": "row 2: longest run 6",
+   "value": 6,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[1]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 2 label (right column)"
+  },
+  {
+   "id": "row3",
+   "text": "row 3: longest run 4",
+   "value": 4,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[2]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 3 label (right column)"
+  },
+  {
+   "id": "row4",
+   "text": "row 4: longest run 8",
+   "value": 8,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[3]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 4 label (right column)"
+  },
+  {
+   "id": "row5",
+   "text": "row 5: longest run 6",
+   "value": 6,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[4]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 5 label (right column)"
+  },
+  {
+   "id": "row6",
+   "text": "row 6: longest run 7",
+   "value": 7,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[5]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 6 label (right column)"
+  },
+  {
+   "id": "row7",
+   "text": "row 7: longest run 10",
+   "value": 10,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[6]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 7 label (right column)"
+  },
+  {
+   "id": "row8",
+   "text": "row 8: longest run 5",
+   "value": 5,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[7]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 8 label (right column)"
+  },
+  {
+   "id": "row9",
+   "text": "row 9: longest run 7",
+   "value": 7,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[8]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 9 label (right column)"
+  },
+  {
+   "id": "row10",
+   "text": "row 10: longest run 8",
+   "value": 8,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})())[9]",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT row 10 label (right column)"
+  },
+  {
+   "id": "rows",
+   "text": "10 rows shown",
+   "value": 10,
+   "formula": "rowsShown",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "caption 10 (\"Ten rows\"); COUNT"
+  },
+  {
+   "id": "rowsBeatGuess",
+   "text": "9 of 10 rows have a longer run than the default guess 4",
+   "value": 9,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).slice(0,rowsShown).filter(x=>x>guessDefault).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT readout \"9 OF 10 ROWS BEAT YOUR 4\" (44.0 to 46.8 s, film default)"
+  },
+  {
+   "id": "wallN",
+   "text": "1,000 rows of 100 flips",
+   "value": 1000,
+   "formula": "wallN",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "caption 11, caption 12; COUNT ROWS counter; tally"
+  },
+  {
+   "id": "bin4",
+   "text": "33 of 1,000 rows have longest run exactly 4",
+   "value": 33,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x===4).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"4\" count label"
+  },
+  {
+   "id": "bin5",
+   "text": "158 of 1,000 rows have longest run exactly 5",
+   "value": 158,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x===5).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"5\" count label"
+  },
+  {
+   "id": "bin6",
+   "text": "263 of 1,000 rows have longest run exactly 6",
+   "value": 263,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x===6).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"6\" count label"
+  },
+  {
+   "id": "bin7",
+   "text": "244 of 1,000 rows have longest run exactly 7",
+   "value": 244,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x===7).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"7\" count label"
+  },
+  {
+   "id": "bin8",
+   "text": "150 of 1,000 rows have longest run exactly 8",
+   "value": 150,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x===8).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"8\" count label"
+  },
+  {
+   "id": "bin9",
+   "text": "82 of 1,000 rows have longest run exactly 9",
+   "value": 82,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x===9).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"9\" count label"
+  },
+  {
+   "id": "bin10",
+   "text": "33 of 1,000 rows have longest run exactly 10",
+   "value": 33,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x===10).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"10\" count label"
+  },
+  {
+   "id": "bin11",
+   "text": "23 of 1,000 rows have longest run exactly 11",
+   "value": 23,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x===11).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"11\" count label"
+  },
+  {
+   "id": "bin12",
+   "text": "8 of 1,000 rows have longest run exactly 12",
+   "value": 8,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x===12).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"12\" count label"
+  },
+  {
+   "id": "bin13",
+   "text": "6 of 1,000 rows have longest run 13 or more (13: 5, 14: 1)",
+   "value": 6,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x>=13).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally column \"13+\" count label"
+  },
+  {
+   "id": "axis11",
+   "text": "tally axis labels 4 to 12 and 13+ (11 is the only label no other claim carries)",
+   "value": 11,
+   "formula": "11",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally axis labels"
+  },
+  {
+   "id": "binMax",
+   "text": "longest run in all 1,000 rows: 14 (axis label \"13+\")",
+   "value": 13,
+   "formula": "13",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT tally axis label \"13+\""
+  },
+  {
+   "id": "wallLeGuess",
+   "text": "33 of 1,000 rows stay at 4 or less (default guess)",
+   "value": 33,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x<=guessDefault).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT guess bracket; caption 12"
+  },
+  {
+   "id": "wallGtGuess",
+   "text": "967 of 1,000 rows beat 4 (= 5 or more)",
+   "value": 967,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x>guessDefault).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT guess bracket (right side)"
+  },
+  {
+   "id": "wallGe7",
+   "text": "546 of 1,000 rows reach a run of 7 or more",
+   "value": 546,
+   "formula": "((()=>{function m(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}const r=m(wallSeed),L=[];for(let i=0;i<wallN;i++){let b=1,c=0,p=-1;for(let j=0;j<n;j++){const u=r()<0.5?1:0;c=(u===p)?c+1:1;p=u;if(c>b)b=c;}L.push(b);}return L;})()).filter(x=>x>=7).length",
+   "source": "seeded simulation: mulberry32(wallSeed), 1,000 sequences x 100 flips, flip = r() < 0.5 ? up : down, sequences generated in order; the first 10 are the COUNT rows",
+   "where": "COUNT bracket \"7 OR MORE\"; caption 12"
+  },
+  {
+   "id": "seven",
+   "text": "threshold 7",
+   "value": 7,
+   "formula": "7",
+   "source": "exact computation over all 2^100 sequences (Markov recursion on current run length); cross-checked with a fraction-exact Python recursion and a 100,000-trial seeded simulation (mulberry32 seed 1); see Schilling 1990, College Mathematics Journal 21(3):196-207",
+   "where": "COUNT bracket label; caption 12"
+  },
+  {
+   "id": "exactGe7",
+   "text": "exact chance of a run of 7 or more in 100 flips: 54 %",
+   "value": 54.23,
+   "formula": "(1-((N,K)=>{let s=new Array(K+1).fill(0);s[1]=1;for(let i=1;i<N;i++){const x=new Array(K+1).fill(0);for(let r=1;r<K;r++){x[1]+=s[r]/2;if(r+1<K)x[r+1]+=s[r]/2;}s=x;}return s.reduce((a,b)=>a+b,0);})(n,7))*100",
+   "source": "exact computation over all 2^100 sequences (Markov recursion on current run length); cross-checked with a fraction-exact Python recursion and a 100,000-trial seeded simulation (mulberry32 seed 1); see Schilling 1990, College Mathematics Journal 21(3):196-207",
+   "where": "COUNT readout \"54 %\" (59.0 s on, only after the counts)"
+  },
+  {
+   "id": "exactGe5",
+   "text": "exact chance of a run of 5 or more in 100 flips: 97 %",
+   "value": 97.17,
+   "formula": "(1-((N,K)=>{let s=new Array(K+1).fill(0);s[1]=1;for(let i=1;i<N;i++){const x=new Array(K+1).fill(0);for(let r=1;r<K;r++){x[1]+=s[r]/2;if(r+1<K)x[r+1]+=s[r]/2;}s=x;}return s.reduce((a,b)=>a+b,0);})(n,5))*100",
+   "source": "exact computation over all 2^100 sequences (Markov recursion on current run length); cross-checked with a fraction-exact Python recursion and a 100,000-trial seeded simulation (mulberry32 seed 1); see Schilling 1990, College Mathematics Journal 21(3):196-207",
+   "where": "COUNT readout \"97 %\" (59.0 s on, only after the counts)"
+  },
+  {
+   "id": "exactLe4",
+   "text": "exact chance the longest run is 4 or less: 2.8 %",
+   "value": 2.83,
+   "formula": "(1-(1-((N,K)=>{let s=new Array(K+1).fill(0);s[1]=1;for(let i=1;i<N;i++){const x=new Array(K+1).fill(0);for(let r=1;r<K;r++){x[1]+=s[r]/2;if(r+1<K)x[r+1]+=s[r]/2;}s=x;}return s.reduce((a,b)=>a+b,0);})(n,5)))*100",
+   "source": "exact computation over all 2^100 sequences (Markov recursion on current run length); cross-checked with a fraction-exact Python recursion and a 100,000-trial seeded simulation (mulberry32 seed 1); see Schilling 1990, College Mathematics Journal 21(3):196-207",
+   "where": "try-it panel and transcript only"
+  },
+  {
+   "id": "exactMean",
+   "text": "expected longest run in 100 flips: 6.98 (about 7; log2(100) = 6.64 is the rule-of-thumb scale)",
+   "value": 6.977,
+   "formula": "((N)=>{let E=0;for(let K=1;K<=N;K++){let s=new Array(K+1).fill(0);s[1]=1;for(let i=1;i<N;i++){const x=new Array(K+1).fill(0);for(let r=1;r<K;r++){x[1]+=s[r]/2;if(r+1<K)x[r+1]+=s[r]/2;}s=x;}E+=1-s.reduce((a,b)=>a+b,0);}return E;})(n)",
+   "source": "exact computation over all 2^100 sequences (Markov recursion on current run length); cross-checked with a fraction-exact Python recursion and a 100,000-trial seeded simulation (mulberry32 seed 1); see Schilling 1990, College Mathematics Journal 21(3):196-207",
+   "where": "try-it panel and transcript only"
+  },
+  {
+   "id": "log2n",
+   "text": "log2(100) = 6.64, the scale of the longest run",
+   "value": 6.644,
+   "formula": "log2(n)",
+   "source": "Schilling 1990, College Mathematics Journal 21(3):196-207",
+   "where": "transcript only"
+  },
+  {
+   "id": "simGe7",
+   "text": "100,000 seeded trials (mulberry32 seed 1): 54,372 had a run of 7 or more",
+   "value": 54372,
+   "source": "seeded simulation, scratch script sim (mulberry32(simSeed 1), 100,000 x 100 flips); agrees with exact 54,234 expected",
+   "where": "brief / NOTES verification only; not on screen"
+  },
+  {
+   "id": "simGe5",
+   "text": "100,000 seeded trials: 97,240 had a run of 5 or more",
+   "value": 97240,
+   "source": "seeded simulation, mulberry32(simSeed 1); agrees with exact 97,169 expected",
+   "where": "brief / NOTES verification only; not on screen"
+  },
+  {
+   "id": "simLe4",
+   "text": "100,000 seeded trials: 2,760 stayed at 4 or less",
+   "value": 2760,
+   "source": "seeded simulation, mulberry32(simSeed 1); agrees with exact 2,831 expected",
+   "where": "brief / NOTES verification only; not on screen"
+  },
+  {
+   "id": "simMean",
+   "text": "100,000 seeded trials: mean longest run 6.98",
+   "value": 6.9813,
+   "source": "seeded simulation, mulberry32(simSeed 1); exact 6.977",
+   "where": "brief / NOTES verification only; not on screen"
+  },
+  {
+   "id": "yearFall",
+   "text": "in 100 years of coin-flip months, 58 contain a fall of 3 months in a row",
+   "value": 58,
+   "formula": "round((1-((N,K)=>{const f=[];for(let x=0;x<=N;x++){if(x<K)f.push(2**x);else{let s=0;for(let j=1;j<=K;j++)s+=f[x-j];f.push(s);}}return f[N]/2**N;})(months,fall))*years)",
+   "source": "exact computation: 12 independent fair up/down months, P(some run of 3+ downs) = 1 - 1705/4096 = 0.584 (tribonacci count of strings with no 3 consecutive downs)",
+   "where": "MONDAY readout \"58 OF 100 YEARS\""
+  },
+  {
+   "id": "years",
+   "text": "out of 100 years",
+   "value": 100,
+   "formula": "years",
+   "source": "exact computation (natural-frequency framing of 0.584)",
+   "where": "MONDAY readout"
+  },
+  {
+   "id": "msBias",
+   "text": "in 100 fair flips, the expected share of heads right after 3 heads is 0.46, not 0.50 (the streak selection bias)",
+   "value": 0.4605,
+   "tolerance": 0.003,
+   "source": "Miller & Sanjurjo 2018, Econometrica 86(6):2019-2047, doi:10.3982/ECTA14943; recomputed here, 1,000,000 seeded trials (mulberry32 seed 2018): 0.4605; expected gap P(H|HHH) - P(H|TTT) = -0.079",
+   "where": "brief honest-limits; try-it panel/transcript only (not on the stage)"
+  }
+ ]
+}

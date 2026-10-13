@@ -1,0 +1,70 @@
+{
+  "film": "cost-of-delay",
+  "formulaContext": "Each formula is a JS expression evaluated with node vm.runInNewContext(formula, Object.assign({}, params, claim.params || {})); every key of params is a bare global. Money in the teaching object is £k; Maersk money is US$.",
+  "params": {
+    "codA": 200, "durA": 3,
+    "codB": 100, "durB": 1,
+    "codC": 50,  "durC": 2,
+    "unit": 50,
+    "guess": 500,
+    "mHours": 82, "mWeeks": 46, "mWait": 38, "mWeekly": 200000, "mEstimate": 8000000,
+    "mPortfolio": 100000000, "mAvgDays": 150, "mOverYearPct": 24
+  },
+  "sources": {
+    "S1": "Reinertsen, D. G. The Principles of Product Development Flow. Celeritas, 2009. Ch. 2 (cost of delay); WSJF = cost of delay ÷ duration.",
+    "S2": "Arnold, J. J. & Yüce, Ö. Black Swan Farming Using Cost of Delay. Agile Conference 2013, IEEE, pp. 101-116, doi:10.1109/AGILE.2013.16.",
+    "S3": "Arnold, J. J. Cost of Delay. Black Swan Farming, https://blackswanfarming.com/cost-of-delay/ (Maersk feature: 82 h, 46 wk, 38 wk queues, > $200,000/wk, nearly $8m).",
+    "S4": "Arnold & Yüce, authors' repost, https://blackswanfarming.com/black-swan-farming-using-cost-of-delay/ (150 days average; 24 % over a year).",
+    "S5": "Smith, W. E. Various optimizers for single-stage production. Naval Research Logistics Quarterly 3(1-2), 1956, 59-66, doi:10.1002/nav.3800030106.",
+    "T": "Declared teaching object: stated values, not data (brief.md).",
+    "D": "Film-mode default guess from film.json; a stand-in answer, not data."
+  },
+  "claims": [
+    {"id": "codA", "text": "A: £200k a month", "value": 200, "formula": "codA", "source": "T", "where": "HOOK board label A; COUNT board label A; CD3 label"},
+    {"id": "durA", "text": "A: 3 months of work", "value": 3, "formula": "durA", "source": "T", "where": "HOOK board label A; bar A length; CD3 label"},
+    {"id": "codB", "text": "B: £100k a month", "value": 100, "formula": "codB", "source": "T", "where": "HOOK board label B; COUNT; CD3 label"},
+    {"id": "durB", "text": "B: 1 month of work", "value": 1, "formula": "durB", "source": "T", "where": "HOOK board label B; bar B length; CD3 label"},
+    {"id": "codC", "text": "C: £50k a month", "value": 50, "formula": "codC", "source": "T", "where": "HOOK board label C; COUNT; CD3 label"},
+    {"id": "durC", "text": "C: 2 months of work", "value": 2, "formula": "durC", "source": "T", "where": "HOOK board label C; bar C length; CD3 label"},
+    {"id": "horizon", "text": "six months (month columns 1 to 6)", "value": 6, "formula": "durA + durB + durC", "source": "T", "where": "board column heads 1..6 (HOOK, COUNT)"},
+    {"id": "unit", "text": "one mark = £50k not yet earned, per month", "value": 50, "formula": "unit", "source": "T", "where": "COUNT legend; caption 8"},
+    {"id": "marksA", "text": "A drops 4 marks a month until it ships", "value": 4, "formula": "codA / unit", "source": "T", "where": "COUNT geometry (A-tone marks per column)"},
+    {"id": "marksB", "text": "B drops 2 marks a month until it ships", "value": 2, "formula": "codB / unit", "source": "T", "where": "COUNT geometry (B-tone marks per column)"},
+    {"id": "marksC", "text": "C drops 1 mark a month until it ships", "value": 1, "formula": "codC / unit", "source": "T", "where": "COUNT geometry (C-tone marks per column)"},
+    {"id": "month1", "text": "month 1 under any order: 7 marks", "value": 7, "formula": "(codA + codB + codC) / unit", "source": "T", "where": "COUNT first column of every order (geometry)"},
+
+    {"id": "colsBig", "text": "biggest first (A, C, B): marks per month 7 7 7 3 3 2", "value": "7,7,7,3,3,2", "formula": "(function(){var o=[['A',codA,durA],['C',codC,durC],['B',codB,durB]],t=0,s={},r=[];o.forEach(function(f){t+=f[2];s[f[0]]=[t,f[1]];});for(var m=1;m<=6;m++){var n=0;for(var k in s){if(s[k][0]>=m)n+=s[k][1]/unit;}r.push(n);}return r.join(',');})()", "source": "T", "where": "COUNT order 1: stacked marks per month column (geometry; no foot figures typeset)"},
+    {"id": "marksBig", "text": "biggest first: 29 marks", "value": 29, "formula": "(codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)) / unit", "source": "T", "where": "COUNT counter; caption 9; tally row 1"},
+    {"id": "costBig", "text": "biggest first: £1.45M (£1,450k)", "value": 1450, "formula": "codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)", "source": "T", "where": "COUNT total under counter; caption 9; tally row 1 label"},
+
+    {"id": "colsCheap", "text": "cheapest first (B, C, A): marks per month 7 5 5 4 4 4", "value": "7,5,5,4,4,4", "formula": "(function(){var o=[['B',codB,durB],['C',codC,durC],['A',codA,durA]],t=0,s={},r=[];o.forEach(function(f){t+=f[2];s[f[0]]=[t,f[1]];});for(var m=1;m<=6;m++){var n=0;for(var k in s){if(s[k][0]>=m)n+=s[k][1]/unit;}r.push(n);}return r.join(',');})()", "source": "T", "where": "COUNT order 2: stacked marks per month column (geometry; no foot figures typeset)"},
+    {"id": "marksCheap", "text": "cheapest first: 29 marks", "value": 29, "formula": "(codB*durB + codC*(durB+durC) + codA*(durB+durC+durA)) / unit", "source": "T", "where": "COUNT counter; caption 10; tally row 2"},
+    {"id": "costCheap", "text": "cheapest first: the same £1.45M", "value": 1450, "formula": "codB*durB + codC*(durB+durC) + codA*(durB+durC+durA)", "source": "T", "where": "COUNT total; caption 10; tally row 2 label"},
+
+    {"id": "colsCD3", "text": "CD3 order (B, A, C): marks per month 7 5 5 5 1 1", "value": "7,5,5,5,1,1", "formula": "(function(){var o=[['B',codB,durB],['A',codA,durA],['C',codC,durC]],t=0,s={},r=[];o.forEach(function(f){t+=f[2];s[f[0]]=[t,f[1]];});for(var m=1;m<=6;m++){var n=0;for(var k in s){if(s[k][0]>=m)n+=s[k][1]/unit;}r.push(n);}return r.join(',');})()", "source": "T", "where": "COUNT order 3: stacked marks per month column (geometry; no foot figures typeset)"},
+    {"id": "marksCD3", "text": "reordered by CD3: 24 marks", "value": 24, "formula": "(codB*durB + codA*(durB+durA) + codC*(durB+durA+durC)) / unit", "source": "T", "where": "COUNT counter; caption 11; tally row 3"},
+    {"id": "costCD3", "text": "reordered by CD3: £1.2M (£1,200k)", "value": 1200, "formula": "codB*durB + codA*(durB+durA) + codC*(durB+durA+durC)", "source": "T", "where": "COUNT total; caption 11; tally row 3 label"},
+    {"id": "savedMarks", "text": "5 marks fewer", "value": 5, "formula": "((codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)) - (codB*durB + codA*(durB+durA) + codC*(durB+durA+durC))) / unit", "source": "T", "where": "tally row 3: bracket over the 5 empty slots"},
+    {"id": "saved", "text": "£250k saved by the order alone", "value": 250, "formula": "(codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)) - (codB*durB + codA*(durB+durA) + codC*(durB+durA+durC))", "source": "T", "where": "tally row 3 bracket label"},
+
+    {"id": "cd3A", "text": "A: 200 ÷ 3 = 67 a month per month of work", "value": 67, "formula": "Math.round(codA / durA)", "source": "S1", "where": "COUNT end, CD3 label on bar A (exact 66.7, shown rounded)"},
+    {"id": "cd3B", "text": "B: 100 ÷ 1 = 100", "value": 100, "formula": "codB / durB", "source": "S1", "where": "COUNT end, CD3 label on bar B"},
+    {"id": "cd3C", "text": "C: 50 ÷ 2 = 25", "value": 25, "formula": "codC / durC", "source": "S1", "where": "COUNT end, CD3 label on bar C"},
+
+    {"id": "guess", "text": "YOU: £500k (film-mode default; the live page shows the viewer's own number)", "value": 500, "formula": "guess", "source": "D", "where": "COMMIT box (film mode typed value); COUNT pin on tally row 1"},
+    {"id": "guessMarks", "text": "your number as marks: 10", "value": 10, "formula": "guess / unit", "source": "D", "where": "COUNT pin position on tally row 1 (geometry, x = guess ÷ 50 slots)"},
+    {"id": "guessGap", "text": "£950k more than you said", "value": 950, "formula": "(codA*durA + codC*(durA+durC) + codB*(durA+durC+durB)) - guess", "source": "D", "where": "COUNT bracket between pin and mark 29 (sign-aware: 'more than' / 'less than' you said)"},
+
+    {"id": "mHours", "text": "one feature, 82 hours of work", "value": 82, "formula": "mHours", "source": "S3", "where": "CASE caption 4; strip annotation"},
+    {"id": "mWeeks", "text": "46 weeks idea to launch", "value": 46, "formula": "mWeeks", "source": "S3", "where": "CASE caption 5; 46 week cells on the strip"},
+    {"id": "mWait", "text": "38 weeks waiting in queues (38 marks)", "value": 38, "formula": "mWait", "source": "S3", "where": "CASE caption 5 and 7; 38 marked cells; counter"},
+    {"id": "mOther", "text": "the other 8 weeks (unmarked cells)", "value": 8, "formula": "mWeeks - mWait", "source": "S3", "where": "CASE strip geometry only, no figure typeset"},
+    {"id": "mWeekly", "text": "over $200,000 a week ($200k per mark)", "value": 200000, "formula": "mWeekly", "source": "S3", "where": "CASE caption 6 and 7; mark legend"},
+    {"id": "mLost", "text": "38 × $200k = $7.6M", "value": 7600000, "formula": "mWait * mWeekly", "source": "S3", "where": "CASE caption 7; strip total"},
+    {"id": "mEstimate", "text": "their estimate: nearly $8M", "value": 8000000, "formula": "mEstimate", "source": "S3", "where": "CASE caption 7; strip total, second line"},
+    {"id": "mPortfolio", "text": "portfolio about $100M", "value": 100000000, "formula": "mPortfolio", "source": "S2", "where": "CASE eyebrow (chrome, 12 to 14 units; optional)"},
+    {"id": "mAvgDays", "text": "150 days on average, idea to value (before Oct 2010)", "value": 150, "formula": "mAvgDays", "source": "S4", "where": "sources panel / transcript only (not on stage)"},
+    {"id": "mOverYear", "text": "24 % of requirements took over a year", "value": 24, "formula": "mOverYearPct", "source": "S4", "where": "sources panel / transcript only (not on stage)"},
+    {"id": "year", "text": "Agile 2013", "value": 2013, "source": "S2", "where": "CASE eyebrow source tag; sources panel"}
+  ]
+}

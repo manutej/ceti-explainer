@@ -1,0 +1,62 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/gl-instances/demo.html",
+ "errors": [],
+ "variants": {
+  "dots-10k": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/dots-10k-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/dots-10k-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/dots-10k-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/dots-10k-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "flat-100k": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/flat-100k-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/flat-100k-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/flat-100k-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/flat-100k-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "boxes-30k": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/boxes-30k-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/boxes-30k-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/boxes-30k-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/boxes-30k-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "bars-100k": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/bars-100k-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/bars-100k-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/bars-100k-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/bars-100k-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "brushed-50k": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/brushed-50k-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/brushed-50k-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/brushed-50k-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/brushed-50k-t10.00.png"
+   ],
+   "purity": "identical"
+  },
+  "density-100k": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/density-100k-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/density-100k-t3.30.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/density-100k-t6.70.png",
+    "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/density-100k-t10.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 348.2,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/gl-instances/shots/contact.png"
+}

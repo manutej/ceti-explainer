@@ -1,0 +1,163 @@
+{
+ "film": "who-gains",
+ "findings": "factory/films/who-gains/findings.r1.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:dots1",
+   "old": 104.6,
+   "new": 103.0,
+   "finding": {
+    "t": 103.5,
+    "frame": "strip-18.png cell 3 (thumbs/t-0103.50.jpg)",
+    "severity": "major",
+    "what": "Caption 15 says 16 developers from 102.0 s while the stage readout still counts 5, 10, 15; the 16 lands at 104.6 s, 0.2 s before the caption leaves.",
+    "why": "All 16 dots in by 103.0 s gives the counted 16 a 1.8 s hold under its own caption (counts land with their caption).",
+    "knob": "dots1",
+    "proposed_value": 103.0
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:issues1",
+   "old": 108.8,
+   "new": 107.0,
+   "finding": {
+    "t": 106.0,
+    "frame": "strip-18.png cell 8 (thumbs/t-0106.00.jpg)",
+    "severity": "major",
+    "what": "Caption 16 says 246 issues from 105.0 s; the readout ticks 29, 135, 230 and reaches 246 only at 108.8 s, 2 s before the forecast caption.",
+    "why": "Landing the last issue column at 107.0 s halves the caption lead and holds 246 for 4 s before the 24 % appears at 111 s.",
+    "knob": "issues1",
+    "proposed_value": 107.0
+   }
+  },
+  {
+   "n": 2,
+   "target": "knob:ghostMix",
+   "old": 0.7,
+   "new": 1.0,
+   "finding": {
+    "t": 130.0,
+    "frame": "strip-22.png cell 8 (thumbs/t-0130.00.jpg)",
+    "severity": "major",
+    "what": "In the measured side view the believed-after and forecast ghost frames are near-invisible next to the baseline line; the 20 % pin reads as pointing at the column face, so the belief (below the line) and the measurement (above it) are not two visible levels.",
+    "why": "Full accent mix makes the believed level a distinct line below the baseline, so the gap belief vs stopwatch is seen, not only captioned.",
+    "knob": "ghostMix",
+    "proposed_value": 1.0
+   }
+  },
+  {
+   "n": 3,
+   "target": "knob:frameW",
+   "old": 1.6,
+   "new": 2.6,
+   "finding": {
+    "t": 129.0,
+    "frame": "strip-22.png cells 6-11 (thumbs/t-0129.00.jpg)",
+    "severity": "minor",
+    "what": "Frame lines (baseline, forecast, believed-after) are 1.6 wide and vanish at 480 px; at phone width they are gone.",
+    "why": "A heavier line keeps the three levels legible at thumb and phone size; check next round that it does not read as a chart axis.",
+    "knob": "frameW",
+    "proposed_value": 2.6
+   }
+  },
+  {
+   "n": 4,
+   "target": "knob:readDim",
+   "old": 0.6,
+   "new": 0.85,
+   "finding": {
+    "t": 36.0,
+    "frame": "strip-07.png cells 0-11 (thumbs/t-0036.00.jpg)",
+    "severity": "minor",
+    "what": "During M1 (34-44 s) the 5,179 readout dims to 0.6 and is barely readable at thumb size; the invariant (same count) should be visible while the boxes travel.",
+    "why": "A lighter dim keeps 5,179 readable through the move (I2 visible on stage), still subordinate to the moving marks.",
+    "knob": "readDim",
+    "proposed_value": 0.85
+   }
+  },
+  {
+   "n": 5,
+   "target": "knob:bgFade",
+   "old": 0.55,
+   "new": 0.85,
+   "finding": {
+    "t": 89.0,
+    "frame": "strip-15.png cell 10 (thumbs/t-0089.00.jpg)",
+    "severity": "minor",
+    "what": "76-101 s: the agents' five fifths stay half-lit at the left edge beside the developers wall, inviting a cross-study height comparison the brief forbids (F6: different outcomes and scales).",
+    "why": "Dimming the agents row further keeps it as context only, so the developers wall is the one lit object.",
+    "knob": "bgFade",
+    "proposed_value": 0.85
+   }
+  },
+  {
+   "n": 6,
+   "target": "knob:devLookDz",
+   "old": 40,
+   "new": -20,
+   "finding": {
+    "t": 80.0,
+    "frame": "strip-14.png cell 4 (thumbs/t-0080.00.jpg)",
+    "severity": "minor",
+    "what": "The agents row is cut by the left canvas edge and the 2,531/4,867 developer readout sits over its column tops.",
+    "why": "Shifting the developers view away from the agents row clears the readout and the cut-off columns; check the wall stays centred.",
+    "knob": "devLookDz",
+    "proposed_value": -20
+   }
+  },
+  {
+   "n": 7,
+   "target": "caption:21",
+   "old": "Before you roll AI out, split the gain by experience.",
+   "new": "Before rollout, split the gain by experience.",
+   "finding": {
+    "t": 137.0,
+    "frame": "strip-23.png cell 10 (thumbs/t-0137.00.jpg)",
+    "severity": "minor",
+    "what": "Caption 21 (53 chars) wraps to two lines and climbs toward the honest line in MONDAY 135.4-141.6 s.",
+    "why": "A 45-character caption fits one line; same meaning, no digits.",
+    "caption_index": 21,
+    "proposed_value": "Before rollout, split the gain by experience."
+   }
+  },
+  {
+   "n": 8,
+   "target": "knob:postLevel",
+   "old": "manager",
+   "new": "exec",
+   "finding": {
+    "t": 125.5,
+    "frame": "strip-21.png cell 11 (thumbs/t-0125.50.jpg)",
+    "severity": "minor",
+    "what": "s/frame 2.30 against the wave budget of 1.5 (measured under load; draft a measured 1.05 in the same run); bloom and vignette add little at the manager level on an ink film.",
+    "why": "Tone map only keeps the stage ink and clean and should cut the post cost; check s/frame and that the measured top still reads next round.",
+    "knob": "postLevel",
+    "proposed_value": "exec"
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-neosage-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/who-gains/build/who-gains.ceti-neosage-dark.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/who-gains/build/who-gains.ceti-neosage-dark.none.html  1298912 bytes  sha256 4dd647144eed6f3189ef97e98e1c618c6e2b7f9fcd225e41d16f95c54dbdc320  (film code 82577 bytes; brand ceti-neosage-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 17.5  muted 11.4  accent 12.8  onDark/dark 17.5\nrenderer webgl; knobs 161; fonts3d none; libs lib/gl-post.js\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/who-gains/gate.json",
+  "log": "laims (chrome?): 351 @13s \"351\"; 937 @14s \"937\"; 1,522 @15s \"1,522\"; 2,693 @17s \"2,693\"; 3,279 @18s \"3,279\"; 3,864 @19s \"3,864\"\n  G6 legibility                  PASS  14 must-read / 14 secondary / 29 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390\n  G7 counts first                PASS  count at 22 s (count.at); first ratio \"On average: +14 % issues resolved per ho\" at 26 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 89.8 KB (film.js 57.9, film.json 22.8, claims.json 9.2) < 120 KB; page 1.299 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand ceti-neosage-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes\n  G11 text overlap               PASS  307 samples every 0.5 s, 93 distinct texts (texts with data-role), caption showing at 266; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames who-gains: 307 frames every 0.5 s → 26 strip(s) in factory/films/who-gains/frames; 1.162 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0"
+ }
+}

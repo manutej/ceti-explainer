@@ -1,0 +1,1595 @@
+{
+ "film": "a-bell-from-dice",
+ "params": {
+  "rolls": 100000,
+  "dice": 5,
+  "faces": 6,
+  "seed": 1733,
+  "tailCut": 25,
+  "ways5": 1,
+  "ways6": 5,
+  "ways7": 15,
+  "ways8": 35,
+  "ways9": 70,
+  "ways10": 126,
+  "ways11": 205,
+  "ways12": 305,
+  "ways13": 420,
+  "ways14": 540,
+  "ways15": 651,
+  "ways16": 735,
+  "ways17": 780,
+  "ways18": 780,
+  "ways19": 735,
+  "ways20": 651,
+  "ways21": 540,
+  "ways22": 420,
+  "ways23": 305,
+  "ways24": 205,
+  "ways25": 126,
+  "ways26": 70,
+  "ways27": 35,
+  "ways28": 15,
+  "ways29": 5,
+  "ways30": 1,
+  "sim5": 21,
+  "sim6": 62,
+  "sim7": 173,
+  "sim8": 460,
+  "sim9": 872,
+  "sim10": 1571,
+  "sim11": 2603,
+  "sim12": 3925,
+  "sim13": 5429,
+  "sim14": 7031,
+  "sim15": 8345,
+  "sim16": 9419,
+  "sim17": 10034,
+  "sim18": 10091,
+  "sim19": 9517,
+  "sim20": 8340,
+  "sim21": 6996,
+  "sim22": 5404,
+  "sim23": 3936,
+  "sim24": 2555,
+  "sim25": 1561,
+  "sim26": 939,
+  "sim27": 462,
+  "sim28": 176,
+  "sim29": 63,
+  "sim30": 15,
+  "first1": 16736,
+  "first2": 16653,
+  "first3": 16665,
+  "first4": 16797,
+  "first5": 16630,
+  "first6": 16519,
+  "tailFirst1": 0,
+  "tailFirst2": 12,
+  "tailFirst3": 71,
+  "tailFirst4": 201,
+  "tailFirst5": 445,
+  "tailFirst6": 926,
+  "simMean": 17.50158,
+  "simSd": 3.8074949118285106,
+  "roll0Sum": 18
+ },
+ "note": "exact claims: `formula` over params (JS and Python alike; ** is power). Simulated claims: source S5 = this package's recompute.py (mulberry32, seed 1733, one stream, 5 draws per roll, face = 1 + floor(u*6)); run `recompute` and compare to `expect`, or `python3 factory/tools/repo_topic.py --check factory/topics/a-bell-from-dice/claims.json`. Display claims round with Math.round to the shown precision; the unrounded value is its own claim.",
+ "sources": [
+  {
+   "tag": "S1",
+   "author": "Abraham de Moivre",
+   "title": "The Doctrine of Chances (2nd ed., with the 1733 approximation of the binomial by the normal curve)",
+   "year": 1738,
+   "where": "London: Woodfall"
+  },
+  {
+   "tag": "S2",
+   "author": "Pierre-Simon Laplace",
+   "title": "Theorie analytique des probabilites (sums of many independent errors tend to the normal law)",
+   "year": 1812,
+   "where": "Paris: Courcier"
+  },
+  {
+   "tag": "S3",
+   "author": "Charles M. Grinstead, J. Laurie Snell",
+   "title": "Introduction to Probability, 2nd rev. ed.: ch. 7 (sums of independent random variables, convolution of dice), ch. 9 (central limit theorem)",
+   "year": 1997,
+   "where": "American Mathematical Society; free PDF (GNU FDL)"
+  },
+  {
+   "tag": "S4",
+   "author": "Tommy Ettinger",
+   "title": "Mulberry32, a 32-bit state PRNG (public domain)",
+   "year": 2017,
+   "where": "gist by tommyettinger; the arsenal's copy in arsenal/patterns/*/pattern.js"
+  },
+  {
+   "tag": "S5",
+   "author": "this package",
+   "title": "factory/topics/a-bell-from-dice/recompute.py (the simulation; seed 1733)",
+   "year": 2026,
+   "where": "python3 factory/topics/a-bell-from-dice/recompute.py"
+  }
+ ],
+ "claims": [
+  {
+   "id": "rolls",
+   "text": "100,000 rolls of five dice, one mark each",
+   "value": 100000,
+   "formula": "rolls",
+   "source": "input",
+   "where": "CASE count-in; every caption that names the total",
+   "renders": [
+    "100,000"
+   ]
+  },
+  {
+   "id": "dice",
+   "text": "five dice per roll",
+   "value": 5,
+   "formula": "dice",
+   "source": "input",
+   "where": "HOOK / CASE caption (word or digit)"
+  },
+  {
+   "id": "faces",
+   "text": "six faces per die, 1 to 6",
+   "value": 6,
+   "formula": "faces",
+   "source": "input",
+   "where": "CASE first-die partition: six columns"
+  },
+  {
+   "id": "tailCut",
+   "text": "the tail: sums above 25 (26 to 30)",
+   "value": 25,
+   "formula": "tailCut",
+   "source": "input",
+   "where": "HOOK question; COUNT tail, cut line"
+  },
+  {
+   "id": "seed",
+   "text": "mulberry32 seed of the one stream (not on screen)",
+   "value": 1733,
+   "formula": "seed",
+   "source": "S5",
+   "where": "recompute.py docstring; film lib"
+  },
+  {
+   "id": "outcomes",
+   "text": "6 x 6 x 6 x 6 x 6 = 7,776 equally likely outcomes of five dice",
+   "value": 7776,
+   "formula": "faces**dice",
+   "source": "derived",
+   "where": "COUNT exact caption",
+   "renders": [
+    "7,776"
+   ]
+  },
+  {
+   "id": "sumMin",
+   "text": "lowest sum (all ones)",
+   "value": 5,
+   "formula": "dice",
+   "source": "derived",
+   "where": "axis left end"
+  },
+  {
+   "id": "sumMax",
+   "text": "highest sum (all sixes)",
+   "value": 30,
+   "formula": "dice*faces",
+   "source": "derived",
+   "where": "axis right end"
+  },
+  {
+   "id": "nSums",
+   "text": "26 possible sums, 5 to 30",
+   "value": 26,
+   "formula": "dice*faces-dice+1",
+   "source": "derived",
+   "where": "CASE sum partition: 26 columns"
+  },
+  {
+   "id": "ways5",
+   "text": "ways five dice make 5 (of 7,776)",
+   "value": 1,
+   "formula": "4*3*2*1/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways6",
+   "text": "ways five dice make 6 (of 7,776)",
+   "value": 5,
+   "formula": "5*4*3*2/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways7",
+   "text": "ways five dice make 7 (of 7,776)",
+   "value": 15,
+   "formula": "6*5*4*3/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways8",
+   "text": "ways five dice make 8 (of 7,776)",
+   "value": 35,
+   "formula": "7*6*5*4/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways9",
+   "text": "ways five dice make 9 (of 7,776)",
+   "value": 70,
+   "formula": "8*7*6*5/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways10",
+   "text": "ways five dice make 10 (of 7,776)",
+   "value": 126,
+   "formula": "9*8*7*6/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways11",
+   "text": "ways five dice make 11 (of 7,776)",
+   "value": 205,
+   "formula": "10*9*8*7/24-5*4*3*2*1/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways12",
+   "text": "ways five dice make 12 (of 7,776)",
+   "value": 305,
+   "formula": "11*10*9*8/24-5*5*4*3*2/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways13",
+   "text": "ways five dice make 13 (of 7,776)",
+   "value": 420,
+   "formula": "12*11*10*9/24-5*6*5*4*3/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways14",
+   "text": "ways five dice make 14 (of 7,776)",
+   "value": 540,
+   "formula": "13*12*11*10/24-5*7*6*5*4/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways15",
+   "text": "ways five dice make 15 (of 7,776)",
+   "value": 651,
+   "formula": "14*13*12*11/24-5*8*7*6*5/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways16",
+   "text": "ways five dice make 16 (of 7,776)",
+   "value": 735,
+   "formula": "15*14*13*12/24-5*9*8*7*6/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways17",
+   "text": "ways five dice make 17 (of 7,776)",
+   "value": 780,
+   "formula": "16*15*14*13/24-5*10*9*8*7/24+10*4*3*2*1/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways18",
+   "text": "ways five dice make 18 (of 7,776)",
+   "value": 780,
+   "formula": "17*16*15*14/24-5*11*10*9*8/24+10*5*4*3*2/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways19",
+   "text": "ways five dice make 19 (of 7,776)",
+   "value": 735,
+   "formula": "18*17*16*15/24-5*12*11*10*9/24+10*6*5*4*3/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways20",
+   "text": "ways five dice make 20 (of 7,776)",
+   "value": 651,
+   "formula": "19*18*17*16/24-5*13*12*11*10/24+10*7*6*5*4/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways21",
+   "text": "ways five dice make 21 (of 7,776)",
+   "value": 540,
+   "formula": "20*19*18*17/24-5*14*13*12*11/24+10*8*7*6*5/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways22",
+   "text": "ways five dice make 22 (of 7,776)",
+   "value": 420,
+   "formula": "21*20*19*18/24-5*15*14*13*12/24+10*9*8*7*6/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways23",
+   "text": "ways five dice make 23 (of 7,776)",
+   "value": 305,
+   "formula": "22*21*20*19/24-5*16*15*14*13/24+10*10*9*8*7/24-10*4*3*2*1/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways24",
+   "text": "ways five dice make 24 (of 7,776)",
+   "value": 205,
+   "formula": "23*22*21*20/24-5*17*16*15*14/24+10*11*10*9*8/24-10*5*4*3*2/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways25",
+   "text": "ways five dice make 25 (of 7,776)",
+   "value": 126,
+   "formula": "24*23*22*21/24-5*18*17*16*15/24+10*12*11*10*9/24-10*6*5*4*3/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways26",
+   "text": "ways five dice make 26 (of 7,776)",
+   "value": 70,
+   "formula": "25*24*23*22/24-5*19*18*17*16/24+10*13*12*11*10/24-10*7*6*5*4/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways27",
+   "text": "ways five dice make 27 (of 7,776)",
+   "value": 35,
+   "formula": "26*25*24*23/24-5*20*19*18*17/24+10*14*13*12*11/24-10*8*7*6*5/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways28",
+   "text": "ways five dice make 28 (of 7,776)",
+   "value": 15,
+   "formula": "27*26*25*24/24-5*21*20*19*18/24+10*15*14*13*12/24-10*9*8*7*6/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways29",
+   "text": "ways five dice make 29 (of 7,776)",
+   "value": 5,
+   "formula": "28*27*26*25/24-5*22*21*20*19/24+10*16*15*14*13/24-10*10*9*8*7/24+5*4*3*2*1/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "ways30",
+   "text": "ways five dice make 30 (of 7,776)",
+   "value": 1,
+   "formula": "29*28*27*26/24-5*23*22*21*20/24+10*17*16*15*14/24-10*11*10*9*8/24+5*5*4*3*2/24",
+   "source": "derived",
+   "where": "data/sums.json; COUNT exact bell",
+   "note": "inclusion-exclusion, S3"
+  },
+  {
+   "id": "waysTotal",
+   "text": "the ways add back to 7,776",
+   "value": 7776,
+   "formula": "ways5+ways6+ways7+ways8+ways9+ways10+ways11+ways12+ways13+ways14+ways15+ways16+ways17+ways18+ways19+ways20+ways21+ways22+ways23+ways24+ways25+ways26+ways27+ways28+ways29+ways30",
+   "source": "derived",
+   "where": "check"
+  },
+  {
+   "id": "waysTail",
+   "text": "ways to roll above 25: 70+35+15+5+1",
+   "value": 126,
+   "formula": "ways26+ways27+ways28+ways29+ways30",
+   "source": "derived",
+   "where": "COUNT exact caption"
+  },
+  {
+   "id": "waysMode",
+   "text": "the middle sums 17 and 18: 780 ways each",
+   "value": 780,
+   "formula": "ways17",
+   "source": "derived",
+   "where": "COUNT exact bell peak"
+  },
+  {
+   "id": "modeLo",
+   "text": "the likeliest sums are 17 and 18 (lower)",
+   "value": 17,
+   "formula": "dice*(faces+1)/2-0.5",
+   "source": "derived",
+   "where": "COUNT bell peak label"
+  },
+  {
+   "id": "modeHi",
+   "text": "the likeliest sums are 17 and 18 (upper)",
+   "value": 18,
+   "formula": "dice*(faces+1)/2+0.5",
+   "source": "derived",
+   "where": "COUNT bell peak label"
+  },
+  {
+   "id": "midLo",
+   "text": "middle band starts at 14 (mean minus one sd, rounded up)",
+   "value": 14,
+   "formula": "Math.ceil(dice*(faces+1)/2-(dice*(faces*faces-1)/12)**0.5)",
+   "source": "derived",
+   "where": "MONDAY / COUNT middle band"
+  },
+  {
+   "id": "midHi",
+   "text": "middle band ends at 21 (mean plus one sd, rounded down)",
+   "value": 21,
+   "formula": "Math.floor(dice*(faces+1)/2+(dice*(faces*faces-1)/12)**0.5)",
+   "source": "derived",
+   "where": "MONDAY / COUNT middle band"
+  },
+  {
+   "id": "waysMid",
+   "text": "ways to roll 14 to 21 (the middle eight sums)",
+   "value": 5412,
+   "formula": "ways14+ways15+ways16+ways17+ways18+ways19+ways20+ways21",
+   "source": "derived",
+   "where": "MONDAY / COUNT middle band"
+  },
+  {
+   "id": "pExact5",
+   "text": "exact probability of sum 5",
+   "value": 0.0001286008230452675,
+   "formula": "ways5/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact6",
+   "text": "exact probability of sum 6",
+   "value": 0.0006430041152263374,
+   "formula": "ways6/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact7",
+   "text": "exact probability of sum 7",
+   "value": 0.0019290123456790122,
+   "formula": "ways7/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact8",
+   "text": "exact probability of sum 8",
+   "value": 0.0045010288065843625,
+   "formula": "ways8/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact9",
+   "text": "exact probability of sum 9",
+   "value": 0.009002057613168725,
+   "formula": "ways9/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact10",
+   "text": "exact probability of sum 10",
+   "value": 0.016203703703703703,
+   "formula": "ways10/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact11",
+   "text": "exact probability of sum 11",
+   "value": 0.026363168724279837,
+   "formula": "ways11/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact12",
+   "text": "exact probability of sum 12",
+   "value": 0.03922325102880658,
+   "formula": "ways12/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact13",
+   "text": "exact probability of sum 13",
+   "value": 0.05401234567901234,
+   "formula": "ways13/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact14",
+   "text": "exact probability of sum 14",
+   "value": 0.06944444444444445,
+   "formula": "ways14/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact15",
+   "text": "exact probability of sum 15",
+   "value": 0.08371913580246913,
+   "formula": "ways15/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact16",
+   "text": "exact probability of sum 16",
+   "value": 0.09452160493827161,
+   "formula": "ways16/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact17",
+   "text": "exact probability of sum 17",
+   "value": 0.10030864197530864,
+   "formula": "ways17/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact18",
+   "text": "exact probability of sum 18",
+   "value": 0.10030864197530864,
+   "formula": "ways18/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact19",
+   "text": "exact probability of sum 19",
+   "value": 0.09452160493827161,
+   "formula": "ways19/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact20",
+   "text": "exact probability of sum 20",
+   "value": 0.08371913580246913,
+   "formula": "ways20/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact21",
+   "text": "exact probability of sum 21",
+   "value": 0.06944444444444445,
+   "formula": "ways21/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact22",
+   "text": "exact probability of sum 22",
+   "value": 0.05401234567901234,
+   "formula": "ways22/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact23",
+   "text": "exact probability of sum 23",
+   "value": 0.03922325102880658,
+   "formula": "ways23/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact24",
+   "text": "exact probability of sum 24",
+   "value": 0.026363168724279837,
+   "formula": "ways24/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact25",
+   "text": "exact probability of sum 25",
+   "value": 0.016203703703703703,
+   "formula": "ways25/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact26",
+   "text": "exact probability of sum 26",
+   "value": 0.009002057613168725,
+   "formula": "ways26/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact27",
+   "text": "exact probability of sum 27",
+   "value": 0.0045010288065843625,
+   "formula": "ways27/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact28",
+   "text": "exact probability of sum 28",
+   "value": 0.0019290123456790122,
+   "formula": "ways28/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact29",
+   "text": "exact probability of sum 29",
+   "value": 0.0006430041152263374,
+   "formula": "ways29/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "pExact30",
+   "text": "exact probability of sum 30",
+   "value": 0.0001286008230452675,
+   "formula": "ways30/(faces**dice)",
+   "source": "derived",
+   "where": "data/sums.json"
+  },
+  {
+   "id": "expect5",
+   "text": "expected rolls with sum 5 out of 100,000",
+   "value": 12.860082304526749,
+   "formula": "rolls*ways5/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect6",
+   "text": "expected rolls with sum 6 out of 100,000",
+   "value": 64.30041152263375,
+   "formula": "rolls*ways6/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect7",
+   "text": "expected rolls with sum 7 out of 100,000",
+   "value": 192.90123456790124,
+   "formula": "rolls*ways7/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect8",
+   "text": "expected rolls with sum 8 out of 100,000",
+   "value": 450.1028806584362,
+   "formula": "rolls*ways8/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect9",
+   "text": "expected rolls with sum 9 out of 100,000",
+   "value": 900.2057613168724,
+   "formula": "rolls*ways9/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect10",
+   "text": "expected rolls with sum 10 out of 100,000",
+   "value": 1620.3703703703704,
+   "formula": "rolls*ways10/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect11",
+   "text": "expected rolls with sum 11 out of 100,000",
+   "value": 2636.3168724279835,
+   "formula": "rolls*ways11/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect12",
+   "text": "expected rolls with sum 12 out of 100,000",
+   "value": 3922.3251028806585,
+   "formula": "rolls*ways12/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect13",
+   "text": "expected rolls with sum 13 out of 100,000",
+   "value": 5401.234567901234,
+   "formula": "rolls*ways13/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect14",
+   "text": "expected rolls with sum 14 out of 100,000",
+   "value": 6944.444444444444,
+   "formula": "rolls*ways14/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect15",
+   "text": "expected rolls with sum 15 out of 100,000",
+   "value": 8371.913580246914,
+   "formula": "rolls*ways15/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect16",
+   "text": "expected rolls with sum 16 out of 100,000",
+   "value": 9452.160493827161,
+   "formula": "rolls*ways16/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect17",
+   "text": "expected rolls with sum 17 out of 100,000",
+   "value": 10030.864197530864,
+   "formula": "rolls*ways17/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect18",
+   "text": "expected rolls with sum 18 out of 100,000",
+   "value": 10030.864197530864,
+   "formula": "rolls*ways18/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect19",
+   "text": "expected rolls with sum 19 out of 100,000",
+   "value": 9452.160493827161,
+   "formula": "rolls*ways19/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect20",
+   "text": "expected rolls with sum 20 out of 100,000",
+   "value": 8371.913580246914,
+   "formula": "rolls*ways20/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect21",
+   "text": "expected rolls with sum 21 out of 100,000",
+   "value": 6944.444444444444,
+   "formula": "rolls*ways21/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect22",
+   "text": "expected rolls with sum 22 out of 100,000",
+   "value": 5401.234567901234,
+   "formula": "rolls*ways22/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect23",
+   "text": "expected rolls with sum 23 out of 100,000",
+   "value": 3922.3251028806585,
+   "formula": "rolls*ways23/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect24",
+   "text": "expected rolls with sum 24 out of 100,000",
+   "value": 2636.3168724279835,
+   "formula": "rolls*ways24/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect25",
+   "text": "expected rolls with sum 25 out of 100,000",
+   "value": 1620.3703703703704,
+   "formula": "rolls*ways25/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect26",
+   "text": "expected rolls with sum 26 out of 100,000",
+   "value": 900.2057613168724,
+   "formula": "rolls*ways26/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect27",
+   "text": "expected rolls with sum 27 out of 100,000",
+   "value": 450.1028806584362,
+   "formula": "rolls*ways27/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect28",
+   "text": "expected rolls with sum 28 out of 100,000",
+   "value": 192.90123456790124,
+   "formula": "rolls*ways28/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect29",
+   "text": "expected rolls with sum 29 out of 100,000",
+   "value": 64.30041152263375,
+   "formula": "rolls*ways29/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "expect30",
+   "text": "expected rolls with sum 30 out of 100,000",
+   "value": 12.860082304526749,
+   "formula": "rolls*ways30/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT: the exact bell drawn flat over the cut"
+  },
+  {
+   "id": "pTailExact",
+   "text": "exact chance of a sum above 25: 126 / 7,776",
+   "value": 0.016203703703703703,
+   "formula": "(ways26+ways27+ways28+ways29+ways30)/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT"
+  },
+  {
+   "id": "expTail",
+   "text": "expected tail rolls of 100,000 (exact)",
+   "value": 1620.3703703703702,
+   "formula": "rolls*(ways26+ways27+ways28+ways29+ways30)/(faces**dice)",
+   "source": "derived",
+   "where": "COUNT"
+  },
+  {
+   "id": "expTailRound",
+   "text": "about 1,620 expected above 25",
+   "value": 1620,
+   "formula": "Math.round(rolls*(ways26+ways27+ways28+ways29+ways30)/(faces**dice))",
+   "source": "derived",
+   "where": "COUNT exact caption",
+   "renders": [
+    "1,620"
+   ]
+  },
+  {
+   "id": "tailPctExact",
+   "text": "1.6 % exact",
+   "value": 1.6,
+   "formula": "Math.round(1000*(ways26+ways27+ways28+ways29+ways30)/(faces**dice))/10",
+   "source": "derived",
+   "where": "COUNT ratio (after the count)",
+   "renders": [
+    "1.6 %",
+    "1.6%"
+   ]
+  },
+  {
+   "id": "pModePct",
+   "text": "the likeliest sum (17 or 18): 10.0 % each",
+   "value": 10.0,
+   "formula": "Math.round(1000*ways17/(faces**dice))/10",
+   "source": "derived",
+   "where": "COUNT bell peak",
+   "renders": [
+    "10.0 %",
+    "10 %"
+   ]
+  },
+  {
+   "id": "pEdgePct",
+   "text": "sum 5 or sum 30: 0.013 % each (1 way)",
+   "value": 0.013,
+   "formula": "Math.round(100000*ways5/(faces**dice))/1000",
+   "source": "derived",
+   "where": "COUNT bell edge",
+   "renders": [
+    "0.013 %"
+   ]
+  },
+  {
+   "id": "meanExact",
+   "text": "exact mean of the sum: 5 x 3.5",
+   "value": 17.5,
+   "formula": "dice*(faces+1)/2",
+   "source": "derived",
+   "where": "COUNT centre line"
+  },
+  {
+   "id": "varExact",
+   "text": "exact variance: 5 x 35/12",
+   "value": 14.583333333333334,
+   "formula": "dice*(faces*faces-1)/12",
+   "source": "derived",
+   "where": "formula line"
+  },
+  {
+   "id": "sdExact",
+   "text": "exact standard deviation sqrt(5 x 35/12)",
+   "value": 3.8188130791298667,
+   "formula": "(dice*(faces*faces-1)/12)**0.5",
+   "source": "derived",
+   "where": "COUNT width bracket",
+   "renders": [
+    "3.82",
+    "3.8"
+   ]
+  },
+  {
+   "id": "beliefTail",
+   "text": "if every sum were equally likely: 5 of 26 sums, 19,231 rolls above 25",
+   "value": 19231,
+   "formula": "Math.round(rolls*5/(dice*faces-dice+1))",
+   "source": "derived",
+   "where": "HOOK/CASE belief picture; COUNT comparison",
+   "renders": [
+    "19,231"
+   ]
+  },
+  {
+   "id": "beliefEach",
+   "text": "if every sum were equally likely: 3,846 rolls per sum",
+   "value": 3846,
+   "formula": "Math.round(rolls/(dice*faces-dice+1))",
+   "source": "derived",
+   "where": "CASE flat line over the sum columns",
+   "renders": [
+    "3,846"
+   ]
+  },
+  {
+   "id": "beliefGuess",
+   "text": "the belief's round number: about 20,000",
+   "value": 20000,
+   "formula": "Math.round(rolls*5/(dice*faces-dice+1)/10000)*10000",
+   "source": "derived",
+   "where": "HOOK question / COUNT comparison",
+   "renders": [
+    "20,000"
+   ]
+  },
+  {
+   "id": "first1",
+   "text": "rolls whose first die shows 1",
+   "value": 16736,
+   "formula": "first1",
+   "source": "S5",
+   "where": "CASE first-die column 1",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim first1",
+   "expect": "16736"
+  },
+  {
+   "id": "first2",
+   "text": "rolls whose first die shows 2",
+   "value": 16653,
+   "formula": "first2",
+   "source": "S5",
+   "where": "CASE first-die column 2",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim first2",
+   "expect": "16653"
+  },
+  {
+   "id": "first3",
+   "text": "rolls whose first die shows 3",
+   "value": 16665,
+   "formula": "first3",
+   "source": "S5",
+   "where": "CASE first-die column 3",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim first3",
+   "expect": "16665"
+  },
+  {
+   "id": "first4",
+   "text": "rolls whose first die shows 4",
+   "value": 16797,
+   "formula": "first4",
+   "source": "S5",
+   "where": "CASE first-die column 4",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim first4",
+   "expect": "16797"
+  },
+  {
+   "id": "first5",
+   "text": "rolls whose first die shows 5",
+   "value": 16630,
+   "formula": "first5",
+   "source": "S5",
+   "where": "CASE first-die column 5",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim first5",
+   "expect": "16630"
+  },
+  {
+   "id": "first6",
+   "text": "rolls whose first die shows 6",
+   "value": 16519,
+   "formula": "first6",
+   "source": "S5",
+   "where": "CASE first-die column 6",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim first6",
+   "expect": "16519"
+  },
+  {
+   "id": "firstMin",
+   "text": "smallest first-die pile",
+   "value": 16519,
+   "formula": "Math.min(first1,first2,first3,first4,first5,first6)",
+   "source": "derived",
+   "where": "CASE flat caption"
+  },
+  {
+   "id": "firstMax",
+   "text": "largest first-die pile",
+   "value": 16797,
+   "formula": "Math.max(first1,first2,first3,first4,first5,first6)",
+   "source": "derived",
+   "where": "CASE flat caption"
+  },
+  {
+   "id": "firstExpect",
+   "text": "a sixth of 100,000 (exact share per face)",
+   "value": 16666.666666666668,
+   "formula": "rolls/faces",
+   "source": "derived",
+   "where": "CASE flat line",
+   "renders": [
+    "16,667"
+   ]
+  },
+  {
+   "id": "sim5",
+   "text": "simulated rolls with sum 5",
+   "value": 21,
+   "formula": "sim5",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim5",
+   "expect": "21"
+  },
+  {
+   "id": "sim6",
+   "text": "simulated rolls with sum 6",
+   "value": 62,
+   "formula": "sim6",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim6",
+   "expect": "62"
+  },
+  {
+   "id": "sim7",
+   "text": "simulated rolls with sum 7",
+   "value": 173,
+   "formula": "sim7",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim7",
+   "expect": "173"
+  },
+  {
+   "id": "sim8",
+   "text": "simulated rolls with sum 8",
+   "value": 460,
+   "formula": "sim8",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim8",
+   "expect": "460"
+  },
+  {
+   "id": "sim9",
+   "text": "simulated rolls with sum 9",
+   "value": 872,
+   "formula": "sim9",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim9",
+   "expect": "872"
+  },
+  {
+   "id": "sim10",
+   "text": "simulated rolls with sum 10",
+   "value": 1571,
+   "formula": "sim10",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim10",
+   "expect": "1571"
+  },
+  {
+   "id": "sim11",
+   "text": "simulated rolls with sum 11",
+   "value": 2603,
+   "formula": "sim11",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim11",
+   "expect": "2603"
+  },
+  {
+   "id": "sim12",
+   "text": "simulated rolls with sum 12",
+   "value": 3925,
+   "formula": "sim12",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim12",
+   "expect": "3925"
+  },
+  {
+   "id": "sim13",
+   "text": "simulated rolls with sum 13",
+   "value": 5429,
+   "formula": "sim13",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim13",
+   "expect": "5429"
+  },
+  {
+   "id": "sim14",
+   "text": "simulated rolls with sum 14",
+   "value": 7031,
+   "formula": "sim14",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim14",
+   "expect": "7031"
+  },
+  {
+   "id": "sim15",
+   "text": "simulated rolls with sum 15",
+   "value": 8345,
+   "formula": "sim15",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim15",
+   "expect": "8345"
+  },
+  {
+   "id": "sim16",
+   "text": "simulated rolls with sum 16",
+   "value": 9419,
+   "formula": "sim16",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim16",
+   "expect": "9419"
+  },
+  {
+   "id": "sim17",
+   "text": "simulated rolls with sum 17",
+   "value": 10034,
+   "formula": "sim17",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim17",
+   "expect": "10034"
+  },
+  {
+   "id": "sim18",
+   "text": "simulated rolls with sum 18",
+   "value": 10091,
+   "formula": "sim18",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim18",
+   "expect": "10091"
+  },
+  {
+   "id": "sim19",
+   "text": "simulated rolls with sum 19",
+   "value": 9517,
+   "formula": "sim19",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim19",
+   "expect": "9517"
+  },
+  {
+   "id": "sim20",
+   "text": "simulated rolls with sum 20",
+   "value": 8340,
+   "formula": "sim20",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim20",
+   "expect": "8340"
+  },
+  {
+   "id": "sim21",
+   "text": "simulated rolls with sum 21",
+   "value": 6996,
+   "formula": "sim21",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim21",
+   "expect": "6996"
+  },
+  {
+   "id": "sim22",
+   "text": "simulated rolls with sum 22",
+   "value": 5404,
+   "formula": "sim22",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim22",
+   "expect": "5404"
+  },
+  {
+   "id": "sim23",
+   "text": "simulated rolls with sum 23",
+   "value": 3936,
+   "formula": "sim23",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim23",
+   "expect": "3936"
+  },
+  {
+   "id": "sim24",
+   "text": "simulated rolls with sum 24",
+   "value": 2555,
+   "formula": "sim24",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim24",
+   "expect": "2555"
+  },
+  {
+   "id": "sim25",
+   "text": "simulated rolls with sum 25",
+   "value": 1561,
+   "formula": "sim25",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim25",
+   "expect": "1561"
+  },
+  {
+   "id": "sim26",
+   "text": "simulated rolls with sum 26",
+   "value": 939,
+   "formula": "sim26",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim26",
+   "expect": "939"
+  },
+  {
+   "id": "sim27",
+   "text": "simulated rolls with sum 27",
+   "value": 462,
+   "formula": "sim27",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim27",
+   "expect": "462"
+  },
+  {
+   "id": "sim28",
+   "text": "simulated rolls with sum 28",
+   "value": 176,
+   "formula": "sim28",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim28",
+   "expect": "176"
+  },
+  {
+   "id": "sim29",
+   "text": "simulated rolls with sum 29",
+   "value": 63,
+   "formula": "sim29",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim29",
+   "expect": "63"
+  },
+  {
+   "id": "sim30",
+   "text": "simulated rolls with sum 30",
+   "value": 15,
+   "formula": "sim30",
+   "source": "S5",
+   "where": "CASE sum column; COUNT cells",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim sim30",
+   "expect": "15"
+  },
+  {
+   "id": "simTotal",
+   "text": "the simulated sums add back to 100,000",
+   "value": 100000,
+   "formula": "sim5+sim6+sim7+sim8+sim9+sim10+sim11+sim12+sim13+sim14+sim15+sim16+sim17+sim18+sim19+sim20+sim21+sim22+sim23+sim24+sim25+sim26+sim27+sim28+sim29+sim30",
+   "source": "derived",
+   "where": "check"
+  },
+  {
+   "id": "simTail",
+   "text": "rolls above 25 in the 100,000 (the count that lands)",
+   "value": 1655,
+   "formula": "sim26+sim27+sim28+sim29+sim30",
+   "source": "derived",
+   "where": "COUNT tail count (display face), before any ratio",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim simTail",
+   "expect": "1655"
+  },
+  {
+   "id": "tailPctSim",
+   "text": "simulated share above 25, 1 decimal",
+   "value": 1.7,
+   "formula": "Math.round(1000*(sim26+sim27+sim28+sim29+sim30)/rolls)/10",
+   "source": "derived",
+   "where": "COUNT ratio (after the count)",
+   "renders": [
+    "1.6 %",
+    "1.6%"
+   ]
+  },
+  {
+   "id": "tailGap",
+   "text": "simulated tail minus exact expectation (rolls)",
+   "value": 35,
+   "formula": "(sim26+sim27+sim28+sim29+sim30)-Math.round(rolls*(ways26+ways27+ways28+ways29+ways30)/(faces**dice))",
+   "source": "derived",
+   "where": "COUNT agreement caption"
+  },
+  {
+   "id": "beliefTimes",
+   "text": "the belief over-counts the tail about this many times",
+   "value": 12,
+   "formula": "Math.round(Math.round(rolls*5/(dice*faces-dice+1))/(sim26+sim27+sim28+sim29+sim30))",
+   "source": "derived",
+   "where": "COUNT comparison caption"
+  },
+  {
+   "id": "simMid",
+   "text": "simulated rolls with sums 14 to 21",
+   "value": 69773,
+   "formula": "sim14+sim15+sim16+sim17+sim18+sim19+sim20+sim21",
+   "source": "derived",
+   "where": "MONDAY / COUNT middle band"
+  },
+  {
+   "id": "midPctExact",
+   "text": "exact share of sums 14 to 21, 1 decimal",
+   "value": 69.6,
+   "formula": "Math.round(1000*(ways14+ways15+ways16+ways17+ways18+ways19+ways20+ways21)/(faces**dice))/10",
+   "source": "derived",
+   "where": "COUNT middle band",
+   "renders": [
+    "69.6 %"
+   ]
+  },
+  {
+   "id": "simMidPct",
+   "text": "simulated share of sums 14 to 21, 1 decimal",
+   "value": 69.8,
+   "formula": "Math.round(1000*(sim14+sim15+sim16+sim17+sim18+sim19+sim20+sim21)/rolls)/10",
+   "source": "derived",
+   "where": "COUNT middle band",
+   "renders": [
+    "69.8 %"
+   ]
+  },
+  {
+   "id": "roll0Sum",
+   "text": "the first roll of the stream: faces 2-3-2-5-6, sum 18",
+   "value": 18,
+   "formula": "roll0Sum",
+   "source": "S5",
+   "where": "HOOK: the one roll on screen (pips) and its sum",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim roll0Sum",
+   "expect": "18",
+   "faces": [
+    2,
+    3,
+    2,
+    5,
+    6
+   ]
+  },
+  {
+   "id": "tailFirst1",
+   "text": "rolls above 25 whose first die shows 1",
+   "value": 0,
+   "formula": "tailFirst1",
+   "source": "S5",
+   "where": "COUNT (draft b: 2D volume rows)",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim tailFirst1",
+   "expect": "0"
+  },
+  {
+   "id": "tailFirst2",
+   "text": "rolls above 25 whose first die shows 2",
+   "value": 12,
+   "formula": "tailFirst2",
+   "source": "S5",
+   "where": "COUNT (draft b: 2D volume rows)",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim tailFirst2",
+   "expect": "12"
+  },
+  {
+   "id": "tailFirst3",
+   "text": "rolls above 25 whose first die shows 3",
+   "value": 71,
+   "formula": "tailFirst3",
+   "source": "S5",
+   "where": "COUNT (draft b: 2D volume rows)",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim tailFirst3",
+   "expect": "71"
+  },
+  {
+   "id": "tailFirst4",
+   "text": "rolls above 25 whose first die shows 4",
+   "value": 201,
+   "formula": "tailFirst4",
+   "source": "S5",
+   "where": "COUNT (draft b: 2D volume rows)",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim tailFirst4",
+   "expect": "201"
+  },
+  {
+   "id": "tailFirst5",
+   "text": "rolls above 25 whose first die shows 5",
+   "value": 445,
+   "formula": "tailFirst5",
+   "source": "S5",
+   "where": "COUNT (draft b: 2D volume rows)",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim tailFirst5",
+   "expect": "445"
+  },
+  {
+   "id": "tailFirst6",
+   "text": "rolls above 25 whose first die shows 6",
+   "value": 926,
+   "formula": "tailFirst6",
+   "source": "S5",
+   "where": "COUNT (draft b: 2D volume rows)",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim tailFirst6",
+   "expect": "926"
+  },
+  {
+   "id": "simMean",
+   "text": "simulated mean of the 100,000 sums",
+   "value": 17.50158,
+   "formula": "simMean",
+   "source": "S5",
+   "where": "COUNT centre line (sim)",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim simMean",
+   "expect": "17.50158",
+   "renders": [
+    "17.50"
+   ]
+  },
+  {
+   "id": "simSd",
+   "text": "simulated standard deviation (population, /N)",
+   "value": 3.8074949118285106,
+   "formula": "simSd",
+   "source": "S5",
+   "where": "COUNT width bracket (sim)",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim simSd",
+   "expect": "3.8074949118285106",
+   "renders": [
+    "3.81"
+   ]
+  },
+  {
+   "id": "maxGapSum",
+   "text": "the sum where simulated and exact frequencies differ most",
+   "value": 14,
+   "formula": "14",
+   "source": "S5",
+   "where": "COUNT agreement caption",
+   "recompute": "python3 factory/topics/a-bell-from-dice/recompute.py --claim maxGapSum",
+   "expect": "14"
+  },
+  {
+   "id": "maxGap",
+   "text": "largest |simulated - exact| frequency over the 26 sums",
+   "value": 0.00086555555555555,
+   "formula": "Math.abs(sim14/rolls-ways14/(faces**dice))",
+   "source": "derived",
+   "where": "COUNT agreement caption"
+  },
+  {
+   "id": "maxGapPts",
+   "text": "largest gap in percentage points, 2 decimals",
+   "value": 0.09,
+   "formula": "Math.round(10000*Math.abs(sim14/rolls-ways14/(faces**dice)))/100",
+   "source": "derived",
+   "where": "COUNT agreement caption",
+   "renders": [
+    "0.09"
+   ]
+  },
+  {
+   "id": "maxGapRolls",
+   "text": "the same gap in rolls (simulated minus expected, absolute, rounded)",
+   "value": 87,
+   "formula": "Math.round(Math.abs(sim14-rolls*ways14/(faces**dice)))",
+   "source": "derived",
+   "where": "COUNT agreement caption"
+  }
+ ]
+}

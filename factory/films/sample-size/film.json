@@ -1,0 +1,300 @@
+{
+ "id": "sample-size",
+ "title": "Thirty Customers",
+ "eyebrow": "CETI · the 75-second case · sample size and margin of error",
+ "lede": "Why 30 responses tell you almost nothing, and why 2.4 million can still be wrong: noise shrinks with the square root of the sample; bias does not shrink at all.",
+ "dur": 75,
+ "seed": 30,
+ "palette": {
+  "paper": "#E8DCC2",
+  "ink": "#1E3A5C",
+  "accent": "#C8452E",
+  "muted": "#8E887C",
+  "chalk": "#F2ECDD",
+  "dark": "#0A0D12",
+  "soft": "#B9A277"
+ },
+ "type": {
+  "disp": "Big Shoulders Display",
+  "mono": "IBM Plex Mono"
+ },
+ "fonts": [
+  {
+   "family": "Big Shoulders Display",
+   "weight": 600,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 400,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 500,
+   "style": "normal"
+  }
+ ],
+ "params": {
+  "z": 1.96,
+  "p0": 0.5,
+  "n30": 30,
+  "n100": 100,
+  "n1000": 1000,
+  "yesHook": 18,
+  "popN": 1000,
+  "popYes": 500,
+  "popSeed": 36,
+  "seed30": 10227,
+  "seed1000": 14,
+  "nSurveys": 20,
+  "surveys30": [
+   18,
+   11,
+   11,
+   17,
+   18,
+   20,
+   10,
+   16,
+   17,
+   13,
+   14,
+   14,
+   13,
+   18,
+   15,
+   13,
+   15,
+   14,
+   14,
+   15
+  ],
+  "surveys1000": [
+   496,
+   491,
+   518,
+   527,
+   523,
+   514,
+   519,
+   503,
+   499,
+   508,
+   504,
+   474,
+   494,
+   491,
+   500,
+   482,
+   514,
+   488,
+   518,
+   502
+  ],
+  "year": 1936,
+  "mailed": 10000000,
+  "returned": 2376523,
+  "landonD": 1293669,
+  "fdrD": 972897,
+  "gallupN": 50000,
+  "gallupDigestN": 3000,
+  "gallupFDR": 56,
+  "fdrShareAll": 60.8,
+  "defaultGuess": 55
+ },
+ "commit": {
+  "at": 9,
+  "title": "AS LOW AS",
+  "prompt": "30 customers answered; 60 % said yes. The true share could plausibly be as low as … %",
+  "unit": "%",
+  "default": 55,
+  "min": 0,
+  "max": 100,
+  "step": 1
+ },
+ "count": {
+  "at": 3
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 8,
+   "eyebrow": "SAMPLE SIZE · THE HOOK",
+   "title": "The survey says"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 8,
+   "t1": 16,
+   "eyebrow": "SAMPLE SIZE · YOUR NUMBER",
+   "title": "How low could it be?"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 16,
+   "t1": 36,
+   "eyebrow": "SAMPLE SIZE · THE CASE",
+   "title": "The biggest poll ever taken"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 36,
+   "t1": 62,
+   "eyebrow": "SAMPLE SIZE · THE COUNT",
+   "title": "Same market, twenty surveys"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 62,
+   "t1": 72,
+   "eyebrow": "SAMPLE SIZE · MONDAY",
+   "title": "Before you read the percentage"
+  }
+ ],
+ "captions": [
+  [
+   0.6,
+   4,
+   "Thirty customers answered. Eighteen said yes."
+  ],
+  [
+   4,
+   8,
+   "The survey says 60 % of customers want it."
+  ],
+  [
+   8.2,
+   15.8,
+   "How low could the true share plausibly be?"
+  ],
+  [
+   16,
+   20,
+   "1936: a magazine mails 10 million ballots."
+  ],
+  [
+   20,
+   24,
+   "2.4 million come back. Verdict: Landon, 57 %."
+  ],
+  [
+   24,
+   28,
+   "Gallup asks 50,000. Verdict: Roosevelt, 56 %."
+  ],
+  [
+   28,
+   32,
+   "Roosevelt wins 61 %. The 2.4 million missed by 18 points."
+  ],
+  [
+   32,
+   36,
+   "Not too few: the wrong people were asked, and answered."
+  ],
+  [
+   36,
+   40,
+   "A market split exactly 500 yes, 500 no."
+  ],
+  [
+   40,
+   46,
+   "Ask 30 of them. Then again. And again."
+  ],
+  [
+   46,
+   51,
+   "Same market: from 10 to 20 yes out of 30."
+  ],
+  [
+   51,
+   56,
+   "Ask 1,000: every survey lands within 3 points."
+  ],
+  [
+   56,
+   62,
+   "18 of 30 could come from a market at just 42 %."
+  ],
+  [
+   62,
+   72,
+   "Ask: out of how many, and who didn't answer?"
+  ]
+ ],
+ "brand": {
+  "takeaway": "Noise shrinks with √n. Bias does not shrink at all."
+ },
+ "sources": [
+  [
+   "S1",
+   "Squire, Peverill (1988). \"Why the 1936 Literary Digest Poll Failed.\" Public Opinion Quarterly 52(1): 125–133. doi:10.1086/269085"
+  ],
+  [
+   "S2",
+   "Lusinchi, Dominic (2012). \"'President' Landon and the 1936 Literary Digest Poll: Were Automobile and Telephone Owners to Blame?\" Social Science History 36(1): 23–54. doi:10.1215/01455532-1461650"
+  ],
+  [
+   "S3",
+   "Lohr, Sharon L. and J. Michael Brick (2017). \"Roosevelt Predicted to Win: Revisiting the 1936 Literary Digest Poll.\" Statistics, Politics and Policy 8(1): 65–84. doi:10.1515/spp-2016-0006"
+  ],
+  [
+   "S4",
+   "Freedman, David, Robert Pisani and Roger Purves (2007). Statistics, 4th ed. New York: W. W. Norton. Ch. 19 (the 1936 table: Digest 43, Gallup 56, sample sizes 2.4 million / 50,000 / 3,000) and Ch. 20–21 (standard error and confidence interval for a percentage, SE = √(p(1−p)/n), 95 % ≈ ±2 SE; 1.96 used here)"
+  ],
+  [
+   "S5",
+   "\"Landon, 1,293,669; Roosevelt, 972,897.\" The Literary Digest, 31 October 1936; reproduced by History Matters, George Mason University, https://historymatters.gmu.edu/d/5168/"
+  ],
+  [
+   "S6",
+   "1936 United States presidential election, official returns: Roosevelt 60.8 %, Landon 36.5 %, electoral votes 523 to 8 (Office of the Clerk, U.S. House of Representatives, Statistics of the Presidential and Congressional Election of November 3, 1936; as summarised in Encyclopaedia Britannica, \"United States presidential election of 1936\"). Gallup final 55.7 % vs 60.8 %: \"The Gallup scorecard,\" Christian Science Monitor, 30 Oct 1980"
+  ],
+  [
+   "S7",
+   "Wilson, Edwin B. (1927). \"Probable Inference, the Law of Succession, and Statistical Inference.\" Journal of the American Statistical Association 22(158): 209–212. doi:10.1080/01621459.1927.10502953"
+  ],
+  [
+   "S8",
+   "Constructed teaching object (this film): a 1,000-customer market with exactly 500 yes, laid out by a mulberry32 shuffle (seed 36); 20 surveys of 30 (seed 10227) and 20 of 1,000 (seed 14), each response an independent draw with replacement from the 1,000 marks. The hook survey (18 of 30) is survey 1 of this draw."
+  ]
+ ],
+ "honest": [
+  "The ± covers chance only, not who chose to answer. The margin 1.96·√(p(1−p)/n) assumes a random sample from the people you care about and is a normal approximation, rough at n = 30 (an exact interval for 18 of 30 starts at 40.6 %, Wilson at 42.3 %).",
+  "The market of 1,000 customers and its 40 surveys are a constructed teaching object: seeded draws (mulberry32; market seed 36, surveys of 30 seed 10227, surveys of 1,000 seed 14), each response drawn with replacement. The hook survey is survey 1 of that draw.",
+  "The 1936 figures are as published: the Digest's 43 / 57 is a share of Landon + Roosevelt ballots, the 61 % a share of all votes; like for like the miss is 19.5 to 19.9 points rather than 18. How much of it came from the mailing list and how much from who mailed back is still argued (Squire 1988, Lusinchi 2012, Lohr and Brick 2017)."
+ ],
+ "tryit": {
+  "title": "Try it",
+  "note": "Change how many answered and the share who said yes; the noise band follows. It cannot show bias.",
+  "seek": 58,
+  "inputs": [
+   {
+    "id": "n",
+    "label": "Customers who answered",
+    "min": 10,
+    "max": 3000,
+    "step": 10,
+    "value": 30,
+    "unit": ""
+   },
+   {
+    "id": "yes",
+    "label": "Said yes",
+    "min": 0,
+    "max": 100,
+    "step": 1,
+    "value": 60,
+    "unit": "%"
+   }
+  ]
+ }
+}

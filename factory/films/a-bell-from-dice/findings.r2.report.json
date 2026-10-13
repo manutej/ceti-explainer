@@ -1,0 +1,73 @@
+{
+ "film": "a-bell-from-dice",
+ "findings": "factory/films/a-bell-from-dice/findings.r2.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:camPlanAz",
+   "old": 18,
+   "new": 0,
+   "finding": {
+    "t": 48.0,
+    "frame": "strip-08.png cells 4-11, strip-09.png cells 0-9 (thumbs/t-0044.00.jpg .. t-0052.50.jpg)",
+    "severity": "major",
+    "what": "Side effect of round 1's camObliqueAz 0: the plan crane still sweeps +18 deg, so the plan view now lies on a diagonal (row and stage plane tilted 42-52.5 s) and every later pose inherits the extra 18 deg.",
+    "why": "The sweeps add up: round 1 had -18 then +18 = 0 in plan. With the oblique at 0, a plan sweep of 0 restores the square plan row and the round-1 azimuths after it. Not a reversal: a different knob from round 1.",
+    "knob": "camPlanAz",
+    "proposed_value": 0
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:fdGap",
+   "old": 50,
+   "new": 60,
+   "finding": {
+    "t": 36.0,
+    "frame": "strip-06.png cell 10, strip-07.png cells 0-7 (thumbs/t-0035.00.jpg .. t-0039.50.jpg)",
+    "severity": "major",
+    "what": "fdGap 50 helped by half: four of six pins now (16,736, 16,653, 16,665, 16,797), but 16,630 and 16,519 are still missing and two pins overprint their stacks.",
+    "why": "The last step of the same knob (top of its range) widens the row by about 11 % more; camObliqueZoom stays at 1.15 so the caption band stays clear at 29-31.5 s. If the pins stay at four, the cause is the label solver (film.js) and it is parked.",
+    "knob": "fdGap",
+    "proposed_value": 60
+   }
+  },
+  {
+   "n": 2,
+   "target": "knob:camWideZoom",
+   "old": 0.85,
+   "new": 0.75,
+   "finding": {
+    "t": 71.5,
+    "frame": "strip-12.png cells 10-11, strip-13.png cells 0-1 (thumbs/t-0071.00.jpg .. t-0072.50.jpg)",
+    "severity": "minor",
+    "what": "camWideZoom 0.85 brought the cut readout into frame from 73 s, but its number is still clipped by the top edge at 71-72.5 s.",
+    "why": "A further step on the same knob, which acted on the problem; the 1,655 and tail cells at 77 s were well clear at 0.85, so there is room.",
+    "knob": "camWideZoom",
+    "proposed_value": 0.75
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "midnight-ink",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/a-bell-from-dice/build/a-bell-from-dice.midnight-ink.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/a-bell-from-dice/build/a-bell-from-dice.midnight-ink.none.html  1268874 bytes  sha256 13f57f9e4509bcefc9a2261fe2a0f10a6c3395556d307b127ec8cb314e4e14a8  (film code 49025 bytes; brand midnight-ink, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Mono 400, Newsreader 400, Newsreader 600)\ncontrast on paper: ink 13.9  muted 6.9  accent 8.3  onDark/dark 16.0\nrenderer webgl; knobs 102; fonts3d none; libs lib/arsenal.gen.js\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/a-bell-from-dice/gate.json",
+  "log": " 3)\n  G5a claims · formulas          PASS  163 claims, 163 with formula, 163 recompute\n  G5b claims · caption digits    PASS  every number in 23 captions is a claim value or render\n  G5c claims · on-screen digits  WARN  10 visible number(s) not in claims (chrome?): 846 @13s \"846\"; 5,650 @14s \"5,650\"; 13,938 @15s \"13,938\"; 24,840 @16s \"24,840\"; 37,484 @17s \"37,484\"; 51,000 @18s \"51,000\"\n  G6 legibility                  PASS  12 must-read / 10 secondary / 9 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390\n  G7 counts first                PASS  count at 24 s (count.at); first ratio \"That is 1.7 %. Equal odds would put 19,2\" at 82 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 90.6 KB (film.js 29.6, film.json 18.3, claims.json 42.7) < 120 KB; page 1.269 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand midnight-ink, chrome none, material ink, texture paper; level manager; via window.__film.info.axes\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames a-bell-from-dice: 247 frames every 0.5 s → 21 strip(s) in factory/films/a-bell-from-dice/frames; 1.115 s/frame; purity identical at 24.6, 61.5, 98.4 s; errors 0"
+ }
+}

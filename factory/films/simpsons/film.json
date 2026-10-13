@@ -1,0 +1,271 @@
+{
+ "id": "simpsons",
+ "title": "Worse Overall",
+ "eyebrow": "CETI · the 75-second case · Simpson's paradox",
+ "lede": "A new sales process converts worse overall, so it gets killed. Berkeley, 1973 shows how a group can do worse overall and better in most of the parts: count the applicants, then split them by department.",
+ "dur": 75,
+ "seed": 1973,
+ "palette": {
+  "paper": "#E8DCC2",
+  "ink": "#1E3A5C",
+  "accent": "#C8452E",
+  "muted": "#8E887C",
+  "chalk": "#F2ECDD",
+  "dark": "#0A0D12",
+  "soft": "#B9A277"
+ },
+ "type": {
+  "disp": "Big Shoulders Display",
+  "mono": "IBM Plex Mono"
+ },
+ "fonts": [
+  {
+   "family": "Big Shoulders Display",
+   "weight": 600,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 400,
+   "style": "normal"
+  },
+  {
+   "family": "IBM Plex Mono",
+   "weight": 500,
+   "style": "normal"
+  }
+ ],
+ "params": {
+  "mA": 825,
+  "mAa": 512,
+  "wA": 108,
+  "wAa": 89,
+  "mB": 560,
+  "mBa": 353,
+  "wB": 25,
+  "wBa": 17,
+  "mC": 325,
+  "mCa": 120,
+  "wC": 593,
+  "wCa": 202,
+  "mD": 417,
+  "mDa": 138,
+  "wD": 375,
+  "wDa": 131,
+  "mE": 191,
+  "mEa": 53,
+  "wE": 393,
+  "wEa": 94,
+  "mF": 373,
+  "mFa": 22,
+  "wF": 341,
+  "wFa": 24,
+  "campusMen": 8442,
+  "campusWomen": 4321,
+  "campusMenPct": 44,
+  "campusWomenPct": 35,
+  "guessDefault": 5,
+  "holdSeconds": 8,
+  "year": 1973,
+  "perMark": 1
+ },
+ "commit": {
+  "at": 11.5,
+  "title": "YOUR GUESS",
+  "prompt": "Women got in less often overall. In how many of the 6 departments did they do worse?",
+  "unit": "of 6 departments",
+  "default": 5,
+  "min": 0,
+  "max": 6,
+  "step": 1
+ },
+ "count": {
+  "at": 17
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 8,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · THE HOOK",
+   "title": "The review"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 8,
+   "t1": 16.5,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · YOUR NUMBER",
+   "title": "Seal a number"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 16.5,
+   "t1": 36,
+   "eyebrow": "CASE · BERKELEY · FALL 1973",
+   "title": "One mark, one applicant"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 36,
+   "t1": 62,
+   "eyebrow": "CASE · BERKELEY · THE COUNT",
+   "title": "Split by department"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 62,
+   "t1": 72,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · MONDAY",
+   "title": "Before you kill it"
+  }
+ ],
+ "captions": [
+  [
+   0.6,
+   4.2,
+   "Our new sales process converts worse overall."
+  ],
+  [
+   4.4,
+   8.0,
+   "So we killed it. Case closed?"
+  ],
+  [
+   8.2,
+   11.2,
+   "Berkeley, 1973: women got in less often overall."
+  ],
+  [
+   11.3,
+   16.2,
+   "In how many of 6 departments did women do worse?"
+  ],
+  [
+   16.6,
+   24.4,
+   "Fall 1973, six departments: 4,526 applicants."
+  ],
+  [
+   24.6,
+   29.8,
+   "Admitted: 1,198 of 2,691 men, 557 of 1,835 women."
+  ],
+  [
+   30.0,
+   35.8,
+   "Fewer women got in. The headline writes itself."
+  ],
+  [
+   36.2,
+   39.6,
+   "Overall: 45 % of men admitted, 30 % of women."
+  ],
+  [
+   39.8,
+   45.6,
+   "Now split the same marks by department."
+  ],
+  [
+   45.8,
+   51.8,
+   "Same marks, same rules. Compare each department."
+  ],
+  [
+   52.0,
+   55.8,
+   "Women did worse in 2 of 6, by 3 and 4 points."
+  ],
+  [
+   56.0,
+   61.8,
+   "51 % of men applied to A or B, the easy two. 7 % of women."
+  ],
+  [
+   62.2,
+   66.6,
+   "Monday: did the new process get the same mix of leads?"
+  ],
+  [
+   66.8,
+   71.6,
+   "Splitting explains this gap. It does not prove fairness."
+  ]
+ ],
+ "ledger": [
+  [
+   0.8,
+   "REV A · SALES REVIEW · KILLED"
+  ],
+  [
+   16.0,
+   "REV B · GUESS SEALED"
+  ],
+  [
+   29.0,
+   "REV C · APPLICANTS COUNTED"
+  ],
+  [
+   44.6,
+   "REV D · SPLIT BY DEPARTMENT"
+  ],
+  [
+   63.0,
+   "REV E · KILL REVOKED"
+  ]
+ ],
+ "brand": {
+  "takeaway": "Split by segment before you call it worse."
+ },
+ "sources": [
+  [
+   "BHO75",
+   "Bickel, P. J., Hammel, E. A., & O'Connell, J. W. (1975). Sex bias in graduate admissions: Data from Berkeley. Science, 187(4175), 398–404. doi:10.1126/science.187.4175.398"
+  ],
+  [
+   "RDS",
+   "R Core Team. UCBAdmissions: Student Admissions at UC Berkeley (R datasets package; 4,526 applicants, six largest departments, 1973; counts from Bickel et al. 1975)."
+  ],
+  [
+   "FPP07",
+   "Freedman, D., Pisani, R., & Purves, R. (2007). Statistics (4th ed.), ch. 2 §4: the six largest majors, Berkeley 1973. W. W. Norton."
+  ],
+  [
+   "SIM51",
+   "Simpson, E. H. (1951). The interpretation of interaction in contingency tables. Journal of the Royal Statistical Society, Series B, 13(2), 238–241."
+  ],
+  [
+   "PEA14",
+   "Pearl, J. (2014). Comment: Understanding Simpson's paradox. The American Statistician, 68(1), 8–13. doi:10.1080/00031305.2014.876829"
+  ],
+  [
+   "FMT",
+   "factory/FORMAT.md and docs/DECISIONS.md Q13: the 8-second commit hold and the film-mode default guess (5)."
+  ]
+ ],
+ "honest": [
+  "Splitting explains this gap. It does not prove fairness. The film counts the six largest departments of one year; why women applied mostly to the crowded departments is a question the split cannot answer.",
+  "Campus-wide the gap was about 44 % of 8,442 men against 35 % of 4,321 women (Bickel et al. 1975); pooled over the six departments shown it is 45 % against 30 %.",
+  "A split can mislead too: split on what came before the decision (the department, the segment), not on something the decision caused (Pearl 2014). The sales hook is a situation, not data."
+ ],
+ "tryit": {
+  "title": "Try it",
+  "note": "Change how many women applied to A or B (out of 1,835) and keep every department's admission rates as they were. The overall rate follows the mix.",
+  "seek": 59.5,
+  "inputs": [
+   {
+    "id": "ab",
+    "label": "Women applying to A or B",
+    "min": 0,
+    "max": 1835,
+    "step": 5,
+    "value": 133,
+    "unit": "of 1,835"
+   }
+  ]
+ }
+}

@@ -1,0 +1,14 @@
+[
+ {"t": 48.0, "frame": "strip-08.png cells 4-11, strip-09.png cells 0-9 (thumbs/t-0044.00.jpg .. t-0052.50.jpg)", "severity": "major",
+  "what": "Side effect of round 1's camObliqueAz 0: the plan crane still sweeps +18 deg, so the plan view now lies on a diagonal (row and stage plane tilted 42-52.5 s) and every later pose inherits the extra 18 deg.",
+  "why": "The sweeps add up: round 1 had -18 then +18 = 0 in plan. With the oblique at 0, a plan sweep of 0 restores the square plan row and the round-1 azimuths after it. Not a reversal: a different knob from round 1.",
+  "knob": "camPlanAz", "proposed_value": 0},
+ {"t": 36.0, "frame": "strip-06.png cell 10, strip-07.png cells 0-7 (thumbs/t-0035.00.jpg .. t-0039.50.jpg)", "severity": "major",
+  "what": "fdGap 50 helped by half: four of six pins now (16,736, 16,653, 16,665, 16,797), but 16,630 and 16,519 are still missing and two pins overprint their stacks.",
+  "why": "The last step of the same knob (top of its range) widens the row by about 11 % more; camObliqueZoom stays at 1.15 so the caption band stays clear at 29-31.5 s. If the pins stay at four, the cause is the label solver (film.js) and it is parked.",
+  "knob": "fdGap", "proposed_value": 60},
+ {"t": 71.5, "frame": "strip-12.png cells 10-11, strip-13.png cells 0-1 (thumbs/t-0071.00.jpg .. t-0072.50.jpg)", "severity": "minor",
+  "what": "camWideZoom 0.85 brought the cut readout into frame from 73 s, but its number is still clipped by the top edge at 71-72.5 s.",
+  "why": "A further step on the same knob, which acted on the problem; the 1,655 and tail cells at 77 s were well clear at 0.85, so there is room.",
+  "knob": "camWideZoom", "proposed_value": 0.75}
+]

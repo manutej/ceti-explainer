@@ -1,0 +1,94 @@
+{
+ "A": {
+  "orbits": 300,
+  "perOrbit": 100,
+  "states": 30000,
+  "lShells": 6,
+  "eLevels": 5
+ },
+ "B": {
+  "libraryTerms": 22,
+  "blindFound": 4,
+  "maxResid": 1.180082809858111e-15
+ },
+ "C": {
+  "neurons": 8,
+  "runs": 60,
+  "recSteps": 50,
+  "dots": 24000,
+  "laws": 8,
+  "lrSmall": 0.005,
+  "lrBig": 0.4,
+  "stepsSmall": 3920,
+  "stepsBig": 49,
+  "driftSmallMedian": 0.0005121637242781196,
+  "driftSmallMax": 0.007143606627092569,
+  "driftBigMedian": 0.10039988960105534,
+  "driftBigMax": 1.7388748447028477,
+  "travelMedian": 0.3001163458127972,
+  "lossFirst": 2.3188199584256597,
+  "lossLast": 0.0018742701855999455,
+  "rankJ": 8
+ },
+ "D": {
+  "questions": 3,
+  "orders": 6,
+  "a": 4,
+  "b": 7,
+  "c": 9,
+  "total": 20,
+  "distinctSums": 1,
+  "distinctToyModel": 6,
+  "toyModelValues": [
+   15.0,
+   15.4,
+   15.6,
+   16.6,
+   16.4,
+   17.0
+  ],
+  "orderList": [
+   [
+    4,
+    7,
+    9
+   ],
+   [
+    4,
+    9,
+    7
+   ],
+   [
+    7,
+    4,
+    9
+   ],
+   [
+    7,
+    9,
+    4
+   ],
+   [
+    9,
+    4,
+    7
+   ],
+   [
+    9,
+    7,
+    4
+   ]
+  ]
+ },
+ "E": {
+  "modules": 9,
+  "questions": 19,
+  "level1": 4,
+  "level2": 8,
+  "level3": 7,
+  "sources": 22,
+  "thesisSections": 12,
+  "wikiEntriesNeverShown": 19,
+  "noetherBranchNodes": 7
+ }
+}

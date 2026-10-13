@@ -1,0 +1,12 @@
+{
+  "id": "agent-loop-wield",
+  "concept": { "claim": "Where you put a limited number of checks matters when steps differ.", "claimId": "agent-loop.placement", "audience": "manager", "level": "wield" },
+  "params": { "N": 120, "k": 10, "p": 0.95, "c": 0.8, "retry": 1, "seed": 1 },
+  "waivers": [ { "law": "P12", "reason": "library smoke test of WE and INV in isolation; a real Wield runs after the Grasp graph (PCR + TW) so the learner has a model to invert" } ],
+  "nodes": [
+    { "id": "engine", "module": "agentLoop" },
+    { "id": "we",  "module": "workedExampleFade", "in": { "ens": "engine.ens" } },
+    { "id": "inv", "module": "inverseProblemWield",
+      "params": { "key": "inv", "NInv": 120, "budget": 3, "sample": 60, "pSteps": [0.99, 0.97, 0.88, 0.98, 0.95, 0.84, 0.99, 0.92, 0.97, 0.9] } }
+  ]
+}

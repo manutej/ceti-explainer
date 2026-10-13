@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>gl-stack-city</title>
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="./pattern.js"></script></head><body><main></main><div id="junk" hidden></div>
+<script>
+/* demo host: ?brand=<id> (default ceti-dark), ?variant=<name>, ?t=<s>, ?p=<json params override>, ?aa=0 */
+const Q=new URLSearchParams(location.search), PAT=ARSENAL.patterns['gl-stack-city'], TK=ARSENAL.brands[Q.get('brand')||'ceti-dark']||ARSENAL.brands['ceti-dark'];
+document.body.style.background=TK.color.bg;
+const NAMES=PAT.variants.map(v=>v.name), cache={}; let cur=null, P=null, last=null;
+const paramsOf=n=>Object.assign({},PAT.params,PAT.variants.find(v=>v.name===n).params,Q.get('p')?JSON.parse(Q.get('p')):{});
+let resolveReady; const readyP=new Promise(r=>resolveReady=r);
+new p5(p=>{
+  P=p;
+  p.setup=async()=>{ if(Q.get('aa')==='0')p.setAttributes('antialias',false); await p.createCanvas(960,540,p.WEBGL); p.pixelDensity(2); p.noLoop();
+    for(const v of NAMES){ const params=paramsOf(v), t0=performance.now(); cache[v]={params,st:await PAT.setup(P,{seed:7,w:960,h:540,tokens:TK},params)}; cache[v].setup_ms=performance.now()-t0; }
+    resolveReady(); };
+  p.draw=()=>{};
+},document.querySelector('main'));
+/* p5 2.x WEBGL text inserts a hidden 1x1 canvas ahead of the real one; park it so querySelector('canvas') stays the film canvas */
+function tidy(){ document.querySelectorAll('canvas:not(.p5Canvas)').forEach(c=>document.getElementById('junk').appendChild(c)); }
+/* one pixel read after each frame: the GPU has finished, so shoot.mjs ms_per_frame is the real cost */
+function sync(){ const gl=P.drawingContext, b=new Uint8Array(4); gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,b); }
+function seek(t,v){ v=v||Q.get('variant')||NAMES[0]; const c=cache[v]; cur=v; P.resetMatrix(); last=PAT.draw(P,t,c.st,c.params,TK); sync(); tidy(); return last; }
+window.__film={ ready:()=>readyP.then(()=>{ if(Q.has('t')) seek(+Q.get('t')); }), seek,
+  info:{variants:NAMES,dur:PAT.params.dur,brand:TK.id,renderer:'webgl'},
+  check:(t,v)=>{ v=v||cur||NAMES[0]; return PAT.check(t,cache[v].st,cache[v].params); },
+  /* congruence sweep: check(t) at n+1 evenly spaced times (densest through the move); all must be ok */
+  checkSweep(v,n){ n=n||48; const c=cache[v], d=c.params.dur, rows=[]; for(let i=0;i<=n;i++) rows.push(PAT.check(i/n*d,c.st,c.params));
+    const bad=rows.filter(r=>!r.ok); return {v,samples:rows.length,ok:!bad.length,fails:bad.slice(0,3),maxInFlight:Math.max(...rows.map(r=>r.travelling)),unitsResidual:rows[0].unitsResidual,k:rows[0].k,homes:rows[0].homes}; },
+  count:(t,v)=>{ v=v||cur||NAMES[0]; return PAT.count(t,cache[v].st,cache[v].params); },
+  stats:(v)=>{ v=v||cur||NAMES[0]; const s=cache[v].st; return {boxes:s.boxes,verts:s.verts,k:s.k,units:s.units,G:s.G,C:s.C,rev:s.rev&&s.rev.count,faceNote:s.faceNote,setup_ms:Math.round(cache[v].setup_ms)}; },
+  bench(v,n){ n=n||6; const ms=[]; seek(0.5*PAT.params.dur,v); for(let i=0;i<n;i++){ const t=(i+0.5)/n*PAT.params.dur, a=performance.now(); seek(t,v); ms.push(performance.now()-a); } return {v,ms:ms.map(x=>Math.round(x)),mean_s:+(ms.reduce((a,b)=>a+b,0)/ms.length/1000).toFixed(3),max_s:+(Math.max(...ms)/1000).toFixed(3)}; },
+};
+</script></body></html>

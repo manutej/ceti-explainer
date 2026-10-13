@@ -1,0 +1,6 @@
+# goodhart · draft "ledger"
+Register: the ledger. Paper, ruled columns, one straightedge ruler that travels (under the household row, to 6.13, down the grid as the metric's scan, parked as a total line, under the ratio, under the Monday question).
+Look: ceti-dark, chrome ledger, ink, level exec, renderer 2d, format case. Page build/goodhart.ceti-dark.ledger.html 1,245,430 B; film code 57.7 KB; 23 knobs; 0.011 s/frame.
+Chain: structures (grid layout, gather transition, highlight), reveal (ledger ruling, guess outline), data-marks (true-zero bar on a 0..8 scale, clipped to the slots; its canvas labels blanked because the words are SVG). No swaps. No module copy patched; lib/assemble.py CUTS only drop demo code (reveal LAYOUTS, data-marks demos).
+Gate: VERDICT FAIL on G5a only: claims conduct-years and review-years have array values, the gate compares +array = NaN. Topic claims.json left unchanged. G5c WARN: running tallies (7 / 8, 40..640 as rows land).
+Deviations from beats.md: ledger chrome maps the film box by 0.784 so geometry is re-laid (grid pitch 11.25, size 8.75; ledger text split in 4 lines); commit box fades in at 11 s (kit), 4 s ring not 8 s; caption 11 static ("Your guess, outlined."); chrome caption wraps to two lines on long captions; flagged red = pack accent2 (3:1 on dark, large text only).

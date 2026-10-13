@@ -1,0 +1,51 @@
+{
+ "id": "a-bell-from-dice",
+ "verdict": "SHIP",
+ "seat": "director, after two evaluator rounds; frames read at 480x270; commit beat off (D11)",
+ "truth": [
+  {
+   "claim": "100,000 rolls of five dice (mulberry32 seed 1733); six piles by first die between 16,519 and 16,797; 1,655 sums above 25 (1.7 %)",
+   "status": "ok",
+   "note": "Node and Python regenerate the same rolls; the film refuses to start unless every checkpoint matches the claims"
+  },
+  {
+   "claim": "equal odds would give 19,231 above 25; the exact count (126 of 7,776 ways) predicts 1,620; all 26 sums agree with the exact bell within 0.09 points; mean 17.5, SD 3.82",
+   "status": "ok",
+   "note": "seen: six flat piles at 36 s (counts before any ratio), the tail counted pile by pile at 64 s, the equal-odds box over the counted tail at 90 s, the exact outline on the bars at 104 s"
+  }
+ ],
+ "craft": 4,
+ "originality": 4,
+ "stop": 4,
+ "legibility_phone": "ok",
+ "format": {
+  "counts_first": true,
+  "commit_before_number": "n/a (D11)",
+  "brand_card": true,
+  "honest_line": true,
+  "exec_clean": "n/a (level manager)"
+ },
+ "defects": [
+  {
+   "t": 36,
+   "what": "only 4 of 6 first-die pins show (label solver in film.js)",
+   "severity": "low"
+  },
+  {
+   "t": 24,
+   "what": "the 100,000 readout at the count landing is in a small face",
+   "severity": "low"
+  },
+  {
+   "t": 104,
+   "what": "the agreement lines are in the smallest face",
+   "severity": "low"
+  },
+  {
+   "t": 108,
+   "what": "the honest line is a caption only",
+   "severity": "low"
+  }
+ ],
+ "note": "the fixture is a seeded simulation plus exact combinatorics, not a published table; brief caption said 1.6 % where 1,655/100,000 is 1.7 %, the film shows 1.7 %"
+}

@@ -1,0 +1,58 @@
+{
+ "film": "noether-symmetry",
+ "findings": "factory/films/noether-symmetry/findings.r2.json",
+ "applied": [
+  {
+   "n": 0,
+   "target": "knob:cutTop",
+   "old": 230,
+   "new": 170,
+   "finding": {
+    "t": 79.0,
+    "frame": "strip-14.png cells 2-3 (thumbs/t-0079.00.jpg, t-0079.50.jpg)",
+    "severity": "minor",
+    "what": "With the higher cut view (camM3El 38) the cut plane now enters as a wide disc. At 78.5-80 s it is clipped by the top edge of the canvas and runs over the colour legend.",
+    "why": "Starting the plane at 170 instead of 230 world units keeps the whole disc inside the frame as it enters. It only changes where the plane starts; the place it stops (the equator) and the lit count stay the same.",
+    "knob": "cutTop",
+    "proposed_value": 170
+   }
+  },
+  {
+   "n": 1,
+   "target": "knob:tReveal0",
+   "old": 14.0,
+   "new": 15.2,
+   "finding": {
+    "t": 15.0,
+    "frame": "strip-03.png cells 4-6 (thumbs/t-0014.50.jpg .. t-0015.00.jpg)",
+    "severity": "minor",
+    "what": "The first orbit's dots count in at 14.0 s right on top of the fading plate 'Emmy Noether · 1918', so the year is overprinted by marks for about 1 s.",
+    "why": "Starting the count-in at 15.2 s lets the plate clear first. The 3,000th dot still lands at 26.0 s (count.at unchanged).",
+    "knob": "tReveal0",
+    "proposed_value": 15.2
+   }
+  }
+ ],
+ "rejected": [],
+ "look": {
+  "brand": "ceti-coastal-dark",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dry_run": false,
+ "build": {
+  "ok": true,
+  "page": "factory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html",
+  "log": "note: claims.json is the object form {film, claims}; the canonical shape is a bare array\nfactory/films/noether-symmetry/build/noether-symmetry.ceti-coastal-dark.none.html  1287853 bytes  sha256 f5f20b2dd9a1a47df4adebbf5379b81dde99699492e14c834386f403be42e8bf  (film code 95764 bytes; brand ceti-coastal-dark, chrome none, material ink from arsenal/materials/drawn/materials.js; faces DM Sans 400, DM Sans 600, Fraunces 300, Space Mono 400, Space Mono 700)\ncontrast on paper: ink 16.0  muted 10.9  accent 13.7  onDark/dark 16.0\nrenderer webgl; knobs 158; fonts3d none; libs none\ncommit: off (D11): no commit box, hold, countdown or try-it panel; the film plays straight through"
+ },
+ "gate": {
+  "pass": true,
+  "verdict": "PASS",
+  "json": "factory/films/noether-symmetry/gate.json",
+  "log": "ue or render\n  G5c claims · on-screen digits  WARN  1 visible number(s) not in claims (chrome?): 20 @86s \"ORBITS LIT · 620 OF 3,000 DOTS\"\n  G6 legibility                  PASS  8 must-read / 11 secondary / 0 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 553/390 OVERFLOW\n  G7 counts first                PASS  count at 26 s (count.at); first ratio \"Only 0.011 % apart.\" at 53.6 s (caption); commit disabled (D11): no seal, counts-before-ratios only\n  G8 size                        PASS  film code 110.3 KB (film.js 70.6, film.json 22.9, claims.json 16.8) < 120 KB; page 1.288 MB < 1.3 MB\n  G9 tics                        PASS  0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring\n  G10 axes                       PASS  brand ceti-coastal-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes\n  G11 text overlap               PASS  307 samples every 0.5 s, 65 distinct texts (texts with data-role), caption showing at 231; no overlap, no text off the stage, nothing across the caption band. Canvas-drawn text (p5 / WEBGL) is not visible to this row.\n  VERDICT                        PASS"
+ },
+ "frames": {
+  "ok": true,
+  "log": "frames noether-symmetry: 307 frames every 0.5 s → 26 strip(s) in factory/films/noether-symmetry/frames; 0.136 s/frame; purity identical at 30.6, 76.5, 122.4 s; errors 0"
+ }
+}

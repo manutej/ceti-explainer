@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/morph-type/demo.html",
+ "errors": [],
+ "variants": {
+  "word-to-word": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/word-to-word-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/word-to-word-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/word-to-word-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/word-to-word-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "number-ticker": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/number-ticker-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/number-ticker-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/number-ticker-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/number-ticker-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "weight-rise": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/weight-rise-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/weight-rise-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/weight-rise-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/weight-rise-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "mono-dots": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/mono-dots-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/mono-dots-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/mono-dots-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/mono-dots-t6.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 7.9,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/morph-type/shots/contact.png"
+}

@@ -1,0 +1,287 @@
+{
+ "id": "pass-every-time",
+ "title": "Pass every time",
+ "eyebrow": "CETI \u00b7 agent reliability, one try versus every try",
+ "lede": "A board of 460 tries, lit 60 % of the time, is stood up, re-sorted by passes and cut by 'every try': only 44 of 115 tasks pass all four.",
+ "format": "feature-long",
+ "level": "manager",
+ "renderer": "webgl",
+ "look": {
+  "brand": "midnight-ink",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "dur": 153,
+ "seed": 20261010,
+ "params": {
+  "tasks": 115,
+  "triesPer": 4,
+  "n0": 22,
+  "n1": 18,
+  "n2": 9,
+  "n3": 22,
+  "n4": 44,
+  "modelTries": 4,
+  "seed": 20261010,
+  "modelAll8": 36,
+  "paperPass8Upper": 25,
+  "prs": 296,
+  "maintainers": 4,
+  "swe": 80.9,
+  "h50h": 4,
+  "h50m": 49,
+  "h80": 27,
+  "perCubeMin": 1,
+  "perMark": 1,
+  "year": 2024,
+  "r50": 50,
+  "r80": 80
+ },
+ "commit": {
+  "enabled": false
+ },
+ "count": {
+  "at": 21.0
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 12,
+   "eyebrow": "HOOK",
+   "title": "Usually right"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 12,
+   "t1": 60,
+   "eyebrow": "CASE",
+   "title": "The board"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 60,
+   "t1": 135,
+   "eyebrow": "COUNT",
+   "title": "Every try"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 135,
+   "t1": 150,
+   "eyebrow": "MONDAY",
+   "title": "Ask for every time"
+  }
+ ],
+ "captions": [
+  [
+   0.8,
+   5.8,
+   "An agent that is usually right does most of the work."
+  ],
+  [
+   6.2,
+   11.6,
+   "Or does it? Count every try, task by task."
+  ],
+  [
+   12.4,
+   20.6,
+   "A customer-service test: GPT-4o on tau-bench retail."
+  ],
+  [
+   21.0,
+   23.4,
+   "115 tasks. One tile each."
+  ],
+  [
+   23.6,
+   28.4,
+   "Four tries per task. One cube per try."
+  ],
+  [
+   28.6,
+   30.9,
+   "That is 460 cubes."
+  ],
+  [
+   31.0,
+   33.9,
+   "Light every cube that passed."
+  ],
+  [
+   34.0,
+   36.4,
+   "278 passed. A lit cube is a pass."
+  ],
+  [
+   36.8,
+   39.8,
+   "Tries that pass: 60.4 %."
+  ],
+  [
+   40.2,
+   46.8,
+   "Stand the board up. Each task becomes a column."
+  ],
+  [
+   47.5,
+   51.8,
+   "Four tries stacked. Some lit all the way, some not."
+  ],
+  [
+   52.2,
+   59.5,
+   "Judge a task by all its tries, not by one."
+  ],
+  [
+   60.4,
+   66.5,
+   "Sort the columns by how many tries passed."
+  ],
+  [
+   68.0,
+   70.4,
+   "44 tasks pass all four tries."
+  ],
+  [
+   70.6,
+   72.9,
+   "22 never pass."
+  ],
+  [
+   73.2,
+   77.4,
+   "Same tasks, new question: pass every try, not one."
+  ],
+  [
+   77.7,
+   80.2,
+   "Two tries, both pass: 49.1 %."
+  ],
+  [
+   80.5,
+   83.0,
+   "Three tries, all pass: 43.0 %."
+  ],
+  [
+   83.3,
+   85.6,
+   "Four tries: 44 of 115 tasks pass them all."
+  ],
+  [
+   85.8,
+   88.4,
+   "All four tries pass: 38.3 %."
+  ],
+  [
+   88.7,
+   93.5,
+   "The paper's own run at eight tries: under 25 %."
+  ],
+  [
+   93.8,
+   99.5,
+   "A one-try score hides what every try shows."
+  ],
+  [
+   100.2,
+   104.8,
+   "Passing a benchmark is not the same as shipping."
+  ],
+  [
+   105.0,
+   107.3,
+   "296 PRs pass the tests."
+  ],
+  [
+   107.5,
+   110.3,
+   "Top SWE-bench Verified score: 80.9 %."
+  ],
+  [
+   110.6,
+   117.8,
+   "4 maintainers read them. Would they merge?"
+  ],
+  [
+   118.0,
+   120.9,
+   "About half would not be merged."
+  ],
+  [
+   121.2,
+   123.9,
+   "One more yardstick: how long a task can it do?"
+  ],
+  [
+   124.0,
+   126.4,
+   "27 minutes at the 80 % bar."
+  ],
+  [
+   126.6,
+   129.4,
+   "Another agent, same idea: one cube per minute."
+  ],
+  [
+   129.5,
+   131.9,
+   "4 h 49 min at the 50 % bar."
+  ],
+  [
+   132.0,
+   134.8,
+   "About 10 times longer."
+  ],
+  [
+   135.3,
+   140.8,
+   "On Monday, ask for the every-time number."
+  ]
+ ],
+ "brand": {
+  "takeaway": "A pass is not a pass every time.",
+  "at": 150
+ },
+ "sources": [
+  [
+   "S1",
+   "tau-bench README leaderboard, retail, TC (gpt-4o): Pass^1..4 = 0.604 / 0.491 / 0.430 / 0.383 (opened and read 2026-10-10) ; model GPT-4o, 2024 \u2014 https://github.com/sierra-research/tau-bench"
+  ],
+  [
+   "S2",
+   "tau-bench historical_trajectories/gpt-4o-retail.json: 460 rows = 115 tasks x 4 trials, per-task reward 0/1; tasks_test.py has 115 retail tasks (downloaded and recomputed 2026-10-10) \u2014 https://raw.githubusercontent.com/sierra-research/tau-bench/main/historical_trajectories/gpt-4o-retail.json"
+  ],
+  [
+   "S3",
+   "Yao, Shinn, Razavi, Narasimhan 2024, tau-bench, abstract: about 61 % pass^1 on retail, 'as low as ~25 % for pass^8'; paper PDF blocked by egress (403), abstract seen as quoted in search results \u2014 https://arxiv.org/abs/2406.12045"
+  ],
+  [
+   "S4",
+   "METR note 2026-03-10: 4 active maintainers, 3 SWE-bench Verified repos, 296 AI PRs, roughly half of test-passing PRs would not be merged; agents could not iterate on feedback (METR page blocked by egress; read through search-result text of the note and four outlets quoting it) \u2014 https://metr.org/notes/2026-03-10-many-swe-bench-passing-prs-would-not-be-merged-into-main/"
+  ],
+  [
+   "S5",
+   "METR time-horizon measurement for Claude Opus 4.5: 50 % horizon about 4 h 49 min (95 % CI 1 h 49 min to 20 h 25 min), 80 % horizon 27 min \u2014 https://x.com/metr_evals (Dec 2025 post; reported by https://www.techmeme.com/251221/p1 and https://the-decoder.com/anthropics-claude-opus-4-5-can-tackle-some-tasks-lasting-nearly-five-hours/)"
+  ],
+  [
+   "S6",
+   "Anthropic, Claude Opus 4.5 announcement 2025-11-24: 80.9 % on SWE-bench Verified (vendor-reported; read through secondary coverage, announcement page not opened) \u2014 https://www.anthropic.com/news/claude-opus-4-5"
+  ],
+  [
+   "S7",
+   "recompute.py: beta model of the published curve, mulberry32 seed 20261010 (simulation claim) \u2014 factory/topics/pass-every-time/recompute.py"
+  ]
+ ],
+ "honest": [
+  "One 2024 model, and agents that could not revise: newer ones may do better."
+ ],
+ "libs": [
+  "lib/arsenal.gen.js"
+ ]
+}

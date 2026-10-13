@@ -1,0 +1,393 @@
+{
+  "film": "winners-curse",
+  "params": {
+    "V": 10,
+    "N": 10,
+    "E": 0.3,
+    "A": 40,
+    "seed": 1971,
+    "guess": 10.5,
+    "ns_year": 1969,
+    "ns_win": 900,
+    "ns_second": 370,
+    "jar_value": 8,
+    "jar_est": 5.13,
+    "jar_winbid": 10.01,
+    "jar_classes": 12,
+    "jar_per_class": 4,
+    "yr_ccc": 1971,
+    "yr_thaler": 1988,
+    "yr_bs": 1983
+  },
+  "note": "value = exact recomputation (6 dp); shown = on-screen string, rounded to dp decimals. All formulas evaluate under node vm with params (and Math) as globals.",
+  "claims": [
+    {
+      "id": "true_value",
+      "text": "$10M (block worth)",
+      "value": 10,
+      "shown": "$10M",
+      "dp": 0,
+      "formula": "V",
+      "source": "SIM",
+      "where": "COMMIT caption 2; COUNT truth line label; COUNT caption 12; COUNT ruler"
+    },
+    {
+      "id": "n_bidders",
+      "text": "10 bidders",
+      "value": 10,
+      "shown": "10",
+      "dp": 0,
+      "formula": "N",
+      "source": "SIM",
+      "where": "COMMIT caption 2; COUNT caption 9"
+    },
+    {
+      "id": "error_pct",
+      "text": "±30 % error",
+      "value": 30,
+      "shown": "±30 %",
+      "dp": 0,
+      "formula": "E*100",
+      "source": "SIM",
+      "where": "COMMIT caption 2; COMMIT box sub-line"
+    },
+    {
+      "id": "error_abs",
+      "text": "each guess off by up to $3M either way (30 % of $10M)",
+      "value": 3,
+      "shown": "$3M",
+      "dp": 0,
+      "formula": "V*E",
+      "source": "SIM",
+      "where": "COMMIT caption 2; COMMIT premise line"
+    },
+    {
+      "id": "ruler_lo",
+      "text": "$7M (ruler left end)",
+      "value": 7,
+      "shown": "$7M",
+      "dp": 0,
+      "formula": "V*(1-E)",
+      "source": "SIM",
+      "where": "COUNT ruler tick"
+    },
+    {
+      "id": "ruler_hi",
+      "text": "$13M (ruler right end)",
+      "value": 13,
+      "shown": "$13M",
+      "dp": 0,
+      "formula": "V*(1+E)",
+      "source": "SIM",
+      "where": "COUNT ruler tick"
+    },
+    {
+      "id": "guess_default",
+      "text": "film-mode default guess $10.5M",
+      "value": 10.5,
+      "shown": "$10.5M",
+      "dp": 1,
+      "formula": "guess",
+      "source": "film.json defaultGuess (editorial stand-in for the viewer; replaced by the viewer's answer on the live page)",
+      "where": "COUNT viewer mark label (film mode)"
+    },
+    {
+      "id": "ns_year",
+      "text": "1969 (Alaska North Slope lease sale)",
+      "value": 1969,
+      "shown": "1969",
+      "dp": 0,
+      "formula": "ns_year",
+      "source": "TH88",
+      "where": "CASE caption 4; CASE eyebrow"
+    },
+    {
+      "id": "ns_win",
+      "text": "Winning bids summed: $900M",
+      "value": 900,
+      "shown": "$900M",
+      "dp": 0,
+      "formula": "ns_win",
+      "source": "TH88",
+      "where": "CASE caption 5; CASE bar label"
+    },
+    {
+      "id": "ns_second",
+      "text": "Second-highest bids summed: $370M",
+      "value": 370,
+      "shown": "$370M",
+      "dp": 0,
+      "formula": "ns_second",
+      "source": "TH88",
+      "where": "CASE caption 5; CASE bar label"
+    },
+    {
+      "id": "ns_gap",
+      "text": "Gap between winners and runners-up: $530M",
+      "value": 530,
+      "shown": "$530M",
+      "dp": 0,
+      "formula": "ns_win-ns_second",
+      "source": "TH88",
+      "where": "CASE bracket between the two bars"
+    },
+    {
+      "id": "ns_ratio",
+      "text": "2.4 times the next-best bids (900 ÷ 370)",
+      "value": 2.432432,
+      "shown": "2.4×",
+      "dp": 1,
+      "formula": "ns_win/ns_second",
+      "source": "TH88",
+      "where": "CASE sub-label under bracket, shown with \"900 ÷ 370\""
+    },
+    {
+      "id": "jar_value",
+      "text": "Jar worth $8.00",
+      "value": 8,
+      "shown": "$8.00",
+      "dp": 2,
+      "formula": "jar_value",
+      "source": "BS83",
+      "where": "CASE caption 7; CASE jar truth bar"
+    },
+    {
+      "id": "jar_est",
+      "text": "Average estimate $5.13 (estimate, not bid)",
+      "value": 5.13,
+      "shown": "$5.13",
+      "dp": 2,
+      "formula": "jar_est",
+      "source": "BS83",
+      "where": "CASE caption 7; CASE jar bar"
+    },
+    {
+      "id": "jar_winbid",
+      "text": "Average winning bid $10.01",
+      "value": 10.01,
+      "shown": "$10.01",
+      "dp": 2,
+      "formula": "jar_winbid",
+      "source": "BS83",
+      "where": "CASE caption 8; CASE jar bar"
+    },
+    {
+      "id": "jar_loss",
+      "text": "Average loss to the winner $2.01",
+      "value": 2.01,
+      "shown": "$2.01",
+      "dp": 2,
+      "formula": "jar_winbid-jar_value",
+      "source": "BS83",
+      "where": "CASE caption 8"
+    },
+    {
+      "id": "jar_auctions",
+      "text": "48 classroom auctions (12 classes × 4)",
+      "value": 48,
+      "shown": "48",
+      "dp": 0,
+      "formula": "jar_classes*jar_per_class",
+      "source": "BS83",
+      "where": "CASE jar eyebrow (chrome)"
+    },
+    {
+      "id": "seed",
+      "text": "seed 1971",
+      "value": 1971,
+      "shown": "1971",
+      "dp": 0,
+      "formula": "seed",
+      "source": "SIM",
+      "where": "COUNT ledger (chrome, 12-14 units)"
+    },
+    {
+      "id": "n_auctions",
+      "text": "40 auctions",
+      "value": 40,
+      "shown": "40",
+      "dp": 0,
+      "formula": "A",
+      "source": "SIM",
+      "where": "COUNT caption 10; COUNT counter"
+    },
+    {
+      "id": "n_marks",
+      "text": "400 guesses",
+      "value": 400,
+      "shown": "400",
+      "dp": 0,
+      "formula": "A*N",
+      "source": "SIM",
+      "where": "COUNT caption 11; COUNT counter"
+    },
+    {
+      "id": "a1_above",
+      "text": "Auction 1: 5 of 10 guesses above $10M",
+      "value": 5,
+      "shown": "5",
+      "dp": 0,
+      "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return R[0].filter(x=>x>V).length})()",
+      "source": "SIM",
+      "where": "COUNT caption 9; COUNT phase B counter"
+    },
+    {
+      "id": "a1_win",
+      "text": "Auction 1 winner guessed $13.0M",
+      "value": 12.976577,
+      "shown": "$13.0M",
+      "dp": 1,
+      "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return W[0]})()",
+      "source": "SIM",
+      "where": "COUNT phase B winner label"
+    },
+    {
+      "id": "marks_above",
+      "text": "198 of 400 guesses above $10M",
+      "value": 198,
+      "shown": "198",
+      "dp": 0,
+      "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return L.filter(x=>x>V).length})()",
+      "source": "SIM",
+      "where": "COUNT caption 11; COUNT counter"
+    },
+    {
+      "id": "winners_above",
+      "text": "40 of 40 winners above $10M",
+      "value": 40,
+      "shown": "40",
+      "dp": 0,
+      "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return W.filter(x=>x>V).length})()",
+      "source": "SIM",
+      "where": "COUNT caption 11; COUNT counter (running k of k)"
+    },
+    {
+      "id": "crowd_mean",
+      "text": "Average guess $10.0M",
+      "value": 9.9598,
+      "shown": "$10.0M",
+      "dp": 1,
+      "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return L.reduce((s,x)=>s+x,0)/L.length})()",
+      "source": "SIM",
+      "where": "COUNT phase D counter"
+    },
+    {
+      "id": "mean_win",
+      "text": "Average winning price $12.4M",
+      "value": 12.364083,
+      "shown": "$12.4M",
+      "dp": 1,
+      "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return W.reduce((s,x)=>s+x,0)/A})()",
+      "source": "SIM",
+      "where": "COUNT caption 12; COUNT red average line label; brief"
+    },
+    {
+      "id": "overpay",
+      "text": "Overpay $2.4M a deal",
+      "value": 2.364083,
+      "shown": "+$2.4M",
+      "dp": 1,
+      "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return W.reduce((s,x)=>s+x,0)/A-V})()",
+      "source": "SIM",
+      "where": "COUNT bracket label"
+    },
+    {
+      "id": "overpay_pct",
+      "text": "24 % over (2.4 ÷ 10)",
+      "value": 23.640829,
+      "shown": "24 %",
+      "dp": 0,
+      "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return (W.reduce((s,x)=>s+x,0)/A-V)/V*100})()",
+      "source": "SIM",
+      "where": "COUNT bracket sub-label, last thing drawn, with \"2.4 ÷ 10\""
+    },
+    {
+      "id": "min_win",
+      "text": "Lowest winning price $10.9M",
+      "value": 10.90217,
+      "shown": "$10.9M",
+      "dp": 1,
+      "formula": "(()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return Math.min(...W)})()",
+      "source": "SIM",
+      "where": "try-it panel only"
+    },
+    {
+      "id": "yr_ccc",
+      "text": "Capen, Clapp & Campbell 1971 (source line)",
+      "value": 1971,
+      "shown": "1971",
+      "dp": 0,
+      "formula": "yr_ccc",
+      "source": "CCC71",
+      "where": "MONDAY sources footnote"
+    },
+    {
+      "id": "yr_thaler",
+      "text": "Thaler 1988 (source line)",
+      "value": 1988,
+      "shown": "1988",
+      "dp": 0,
+      "formula": "yr_thaler",
+      "source": "Thaler 1988, JEP 2(1) 191-202",
+      "where": "MONDAY sources footnote"
+    },
+    {
+      "id": "yr_bs",
+      "text": "Bazerman & Samuelson 1983 (source line)",
+      "value": 1983,
+      "shown": "1983",
+      "dp": 0,
+      "formula": "yr_bs",
+      "source": "BS83",
+      "where": "MONDAY sources footnote"
+    },
+    {
+      "id": "x_avgwin",
+      "text": "layout: x of the average-win line (not shown as text)",
+      "value": 660.049124,
+      "shown": "660",
+      "dp": 0,
+      "formula": "70+((()=>{const m=a=>()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};const r=m(seed);const R=[];for(let a=0;a<A;a++){const w=[];for(let b=0;b<N;b++)w.push(V*(1+E*(2*r()-1)));R.push(w)}const W=R.map(w=>Math.max(...w));const L=R.flat();return W.reduce((s,x)=>s+x,0)/A})()-7)*110",
+      "source": "SIM",
+      "where": "COUNT geometry only"
+    },
+    {
+      "id": "exp_win",
+      "text": "Expected winning price $12.5M (theory)",
+      "value": 12.454545,
+      "shown": "$12.5M",
+      "dp": 1,
+      "formula": "V*(1+E*(N-1)/(N+1))",
+      "source": "SIM",
+      "where": "try-it panel; brief"
+    },
+    {
+      "id": "p_above_num",
+      "text": "winner above truth in 1,023 of 1,024 auctions (theory)",
+      "value": 1023,
+      "shown": "1,023",
+      "dp": 0,
+      "formula": "Math.pow(2,N)-1",
+      "source": "SIM",
+      "where": "try-it panel; brief"
+    },
+    {
+      "id": "p_above_den",
+      "text": "... of 1,024",
+      "value": 1024,
+      "shown": "1,024",
+      "dp": 0,
+      "formula": "Math.pow(2,N)",
+      "source": "SIM",
+      "where": "try-it panel; brief"
+    }
+  ],
+  "quotes": [
+    {
+      "id": "gulf_credit_union",
+      "text": "In the Gulf of Mexico, winners earned less than a credit union paid (paraphrase of \"the Gulf has paid off at something less than the local credit union\")",
+      "source": "CCC71; verified via secondary excerpt only, primary paywalled at OnePetro",
+      "where": "CASE caption 6 (no digits)"
+    }
+  ]
+}

@@ -1,0 +1,215 @@
+{
+  "film": "simpsons-3d",
+  "page": "factory/films/simpsons-3d/drafts/b/build/simpsons-3d.ceti-boardwalk-dark.none.html",
+  "filmDir": "factory/films/simpsons-3d/drafts/b",
+  "date": "2026-10-09T22:00:02.182Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1815 ms; stage sd 15s:20.0 37.5s:32.9 60s:33.0",
+      "data": {
+        "readyMs": 1815,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 45.146155343363674,
+            "sd": 19.972148544781874
+          },
+          {
+            "t": 37.5,
+            "mean": 51.60916385995106,
+            "sd": 32.93319724095569
+          },
+          {
+            "t": 60,
+            "mean": 51.85211516203613,
+            "sd": 33.00972540097413
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75, format case) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16.5 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 11.5 s (want 8–16); film-mode default 5"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Worse overall can be better in most parts. Split first.\"; frame at 74 s sd 15.8; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Six departments of one year, split once: it explains this gap and does not prove\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "6 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "50 claims, 50 with formula, 50 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 13 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "24 visible number(s) not in claims (chrome?): 300 @18s \"300\"; 253 @18s \"253\"; 480 @18.5s \"480\"; 433 @18.5s \"433\"; 660 @19s \"660\"; 613 @19s \"613\"",
+      "data": {
+        "unknown": [
+          "300 @18s \"300\"",
+          "253 @18s \"253\"",
+          "480 @18.5s \"480\"",
+          "433 @18.5s \"433\"",
+          "660 @19s \"660\"",
+          "613 @19s \"613\"",
+          "786 @19.5s \"786\"",
+          "1,005 @20s \"1,005\"",
+          "966 @20s \"966\"",
+          "1,185 @20.5s \"1,185\"",
+          "1,101 @20.5s \"1,101\"",
+          "1,365 @21s \"1,365\"",
+          "1,281 @21s \"1,281\"",
+          "1,505 @21.5s \"1,505\"",
+          "1,461 @21.5s \"1,461\"",
+          "1,685 @22s \"1,685\"",
+          "1,614 @22s \"1,614\"",
+          "1,770 @22.5s \"1,770\"",
+          "1,734 @22.5s \"1,734\"",
+          "1,950 @23s \"1,950\"",
+          "2,127 @23.5s \"2,127\"",
+          "2,307 @24s \"2,307\"",
+          "2,438 @24.5s \"2,438\"",
+          "2,618 @25s \"2,618\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "29 must-read / 16 secondary / 0 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot factory/films/simpsons-3d/drafts/b/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 29,
+          "secondary": 16,
+          "chrome": 0
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 36 s (count.at); first ratio \"Overall: 45 % of men admitted, 30 % of w\" at 36.2 s (caption)"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 75.1 KB (film.js 47.2, film.json 12.7, claims.json 15.1) < 120 KB; page 1.252 MB < 1.3 MB",
+      "data": {
+        "code": 76864,
+        "page": 1251776
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand ceti-boardwalk-dark, chrome none, material ink, texture none; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "ceti-boardwalk-dark",
+          "chrome": "none",
+          "material": "ink",
+          "texture": "none",
+          "texture_declared": "none",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 10.87, 20.73, 30.6, 40.47, 50.33, 60.2, 75 s → factory/films/simpsons-3d/drafts/b/shots"
+    }
+  ]
+}

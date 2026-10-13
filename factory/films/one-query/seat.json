@@ -1,0 +1,21 @@
+{
+ "id": "one-query",
+ "verdict": "SHIP",
+ "seat": "director, after two tier-1 rounds (knobs, captions) and one tier-2 film.js revision; before/after sheet and strips read at 480x270; commit beat off (D11)",
+ "truth": [
+  {"claim": "one median text prompt: 0.24 Wh (Google, 2025); the ladder 1 to 100,000 queries in microwave time 0.86 s to 24 h at a stated 1,000 W", "status": "ok", "note": "every rung readout is now a claim with its formula; the microwave and the 10-a-day are labelled assumptions on the honest line"},
+  {"claim": "data centres (all kinds) 415 TWh in 2024, about 1.5 % of world electricity; US 45 %, China 25 %, Europe 15 % (187, 104, 62, 62 TWh, = 415)", "status": "ok", "note": "IEA Energy and AI 2025; the regional TWh are our products of the shares and are labelled derived; the check line '= 415 TWh' lands before the shares"},
+  {"claim": "Ireland 7,663 GWh metered in 2025, 23 % of its electricity, 15 times the world share; US data centres about half of 2025's 2.1 % demand growth", "status": "ok", "note": "CSO Ireland (A); IEA Electricity 2026 read through coverage (B): the +2.1 % slab is drawn to the mesas' scale and half-inked; flag for re-verification"}
+ ],
+ "craft": 4, "originality": 4, "stop": 4,
+ "legibility_phone": "ok (readouts at or above 16 units; G6 overflow is the kit shell)",
+ "format": {"counts_first": true, "commit_before_number": "n/a (D11)", "brand_card": true, "honest_line": true, "exec_clean": "n/a (level manager)"},
+ "moves_3d": ["the ladder zoom with a true scale bar (34-60 s)", "the swap into the world grid and the tilt to plan (55-78 s)", "the regroup by region (83-96 s)", "the tilt to elevation at the Ireland cut (104-112 s)", "the US swing with the growth slab (121-135 s)"],
+ "defects": [
+  {"t": 67, "what": "G5c reads the 1 to 415 count-in as unclaimed digits (kit defect 7)", "severity": "low"},
+  {"t": 99, "what": "a cut lands 0.2 s before the regroup begins", "severity": "low"},
+  {"t": 108, "what": "depth squashes during the tilt (zStretch 0.2 keeps Ireland tall); the plan view is now seven equal footprints", "severity": "low"},
+  {"t": 128, "what": "+2.1 % US demand growth is grade B (snippet); the page was not opened", "severity": "medium"}
+ ],
+ "notes": "Numbers were read from search snippets (egress blocked); re-verify Google 2025, IEA 2025/2026, LBNL 2024, CSO 2025 before public use. What it buys a viewer: the same energy block is a nothing per query, 1.5 % of the world, and 23 % of Ireland; the picture depends on the denominator."
+}

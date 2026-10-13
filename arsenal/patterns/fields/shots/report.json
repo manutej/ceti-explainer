@@ -1,0 +1,44 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/fields/demo.html",
+ "errors": [],
+ "variants": {
+  "streamlines": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/streamlines-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/streamlines-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/streamlines-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/streamlines-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "gridwave": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/gridwave-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/gridwave-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/gridwave-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/gridwave-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "drift": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/drift-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/drift-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/drift-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/drift-t6.00.png"
+   ],
+   "purity": "identical"
+  },
+  "breath": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/breath-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/breath-t1.98.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/breath-t4.02.png",
+    "/home/user/ceti-explainer/arsenal/patterns/fields/shots/breath-t6.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 9.8,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/fields/shots/contact.png"
+}

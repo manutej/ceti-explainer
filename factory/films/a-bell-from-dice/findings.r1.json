@@ -1,0 +1,92 @@
+[
+ {
+  "t": 35.5,
+  "frame": "strip-06.png cell 11, strip-07.png cells 0-7 (thumbs/t-0035.50.jpg, t-0038.00.jpg)",
+  "severity": "major",
+  "what": "Only two of the six first-die pins (16,736 and 16,665) are placed 34-39.5 s; the caption names 16,519 and 16,797, which never appear on stage, so the flat claim's extremes are told, not shown.",
+  "why": "The 28-unit pins are wider than the stack pitch, so the label solver hides four of them. More air between the six stacks (pitch 64 -> 90 world units) gives every pin its own column; draft b's 34 s frame shows all six pinned on the 16,667 line. Round 2: count six pins at 35.5 s and check the row still fits the frame.",
+  "knob": "fdGap",
+  "proposed_value": 50
+ },
+ {
+  "t": 35.5,
+  "frame": "strip-06.png cell 11 (thumbs/t-0035.50.jpg)",
+  "severity": "major",
+  "what": "The six equal stacks recede on a diagonal (camera swept -18 deg), so their tops climb left to right like a staircase; at thumb size 'flat' reads as 'rising'.",
+  "why": "No azimuth sweep keeps the row square to the camera, so equal heights sit on one level line, as in draft b's front view (34-39 s), while the 24 deg elevation keeps the boxes' tops. Round 2: tops level at 35.5 s, and the plan crane at 40-43 s still reads as one move.",
+  "knob": "camObliqueAz",
+  "proposed_value": 0
+ },
+ {
+  "t": 30.0,
+  "frame": "strip-05.png cells 10-11, strip-06.png cells 0-3 (thumbs/t-0029.00.jpg .. t-0031.50.jpg)",
+  "severity": "major",
+  "what": "During the first-die shuffle the field of 100,000 marks fills the lower third at 1.5x and runs under the caption: 'Sort the same rolls' is white-on-white and unreadable 29-31.5 s.",
+  "why": "A smaller oblique magnification keeps the field above the caption band while it orbits; fdGap 50 offsets the narrower stacks for the pins. Round 2: caption clear at 29-31.5 s; stacks at 35.5 s still at least half the frame wide.",
+  "knob": "camObliqueZoom",
+  "proposed_value": 1.15
+ },
+ {
+  "t": 52.5,
+  "frame": "strip-09.png cells 8-11 (thumbs/t-0052.00.jpg .. t-0053.50.jpg)",
+  "severity": "major",
+  "what": "Caption 10 'From above, every sum looks just as likely' is up 50-53.8 s while the camera is already coming down: by 53 s the bell stands at full height under a caption that denies it.",
+  "why": "Starting the side orbit at 52 s holds the plan view under caption 10 and lands the side view at 55 s under caption 11 'From the side', so the camera move is the turn, not a step ahead of it. Round 2: 52.5 s still plan; 55-58 s side view held 3 s.",
+  "knob": "camSideT0",
+  "proposed_value": 52
+ },
+ {
+  "t": 74.0,
+  "frame": "strip-13.png cells 0-7 (thumbs/t-0072.00.jpg .. t-0075.50.jpg)",
+  "severity": "major",
+  "what": "The cut's readout ('ROLLS IN THE SUM THE CUT IS ON' and its number) rides the top of the cut plane and is cut by the canvas edge 72-76 s; the count the caption says is 'counting as it goes' cannot be read.",
+  "why": "A wider pose before the cut (the tilt key holds the wide magnification) brings the plane top and its readout inside the frame. Round 2: readout fully in frame at 74 s; tail cells at 77 s still distinguishable.",
+  "knob": "camWideZoom",
+  "proposed_value": 0.85
+ },
+ {
+  "t": 89.5,
+  "frame": "strip-15.png cells 5-11, strip-16.png cells 0-3 (thumbs/t-0086.50.jpg .. t-0091.50.jpg)",
+  "severity": "major",
+  "what": "The answer 1,655 is set the same size as the belief label 'EQUAL ODDS: 19,231' beside it (89.5 s), and smaller than the 100,000 counter shown earlier; the result is not the largest thing on its frame.",
+  "why": "The tail count's own size knob, raised toward draft b's display size, makes 1,655 the focal number of COUNT. Round 2: 1,655 dominant at 80 and 89.5 s, and '= 1.7 %' beneath it does not collide.",
+  "knob": "readSize",
+  "proposed_value": 76
+ },
+ {
+  "t": 62.5,
+  "frame": "strip-11.png cells 5-8 (thumbs/t-0062.50.jpg, t-0064.00.jpg)",
+  "severity": "minor",
+  "what": "On the push into the tail only four of the five tail pins show (939, 176, 63, 15); 462 at sum 27 is hidden and 939 overprints its stack.",
+  "why": "A closer push spreads the five thin stacks, giving the solver room for the 462 pin. Round 2: five pins at 62.5 s; the tallest middle stacks still do not fill the screen (cost).",
+  "knob": "camTailZoom",
+  "proposed_value": 2.3
+ },
+ {
+  "t": 55.5,
+  "frame": "strip-10.png cells 2-7 (thumbs/t-0055.00.jpg .. t-0057.50.jpg)",
+  "severity": "minor",
+  "what": "Caption 11 (55 chars) wraps to two lines and its first line sits on the floor of the bars 54-57.8 s.",
+  "why": "Shorter text, same digits (17, 18), fits one line (<= 50 chars stay on one line in this face).",
+  "caption_index": 11,
+  "proposed_value": "From the side: 17 and 18 tower; the ends vanish."
+ },
+ {
+  "t": 110.0,
+  "frame": "strip-19.png cells 2-11 (thumbs/t-0109.00.jpg .. t-0113.50.jpg)",
+  "severity": "minor",
+  "what": "The Monday question (58 chars) wraps and the second line drops to the stage foot, 108.2-113.8 s.",
+  "why": "One line, same question, no digits.",
+  "caption_index": 21,
+  "proposed_value": "Monday: is your total many small, separate parts?"
+ },
+ {
+  "t": 116.0,
+  "frame": "strip-20.png cells 0-11 (thumbs/t-0114.00.jpg .. t-0119.50.jpg)",
+  "severity": "minor",
+  "what": "The honest line (58 chars) wraps to 'break it.' on a second line for the last 6 s of material.",
+  "why": "One line keeps the honest limit a single line, as the law asks; 'linked parts' borrows draft b's wording.",
+  "caption_index": 22,
+  "proposed_value": "Fair, independent dice. Linked parts break it."
+ }
+]

@@ -1,0 +1,1722 @@
+{
+ "id": "a-bell-from-dice",
+ "title": "A bell from dice",
+ "eyebrow": "CETI · the central limit theorem, with dice · draft B (the rain)",
+ "lede": "100,000 rolls of five dice fall as marks into six flat bins by the first die; the same marks re-sort into 26 columns by sum and a bell rises like a skyline. The tail above 25 holds 1,655 rolls, not the 19,231 that equal odds predict, and the exact count of ways agrees.",
+ "format": "feature",
+ "level": "manager",
+ "renderer": "webgl",
+ "dur": 123,
+ "seed": 1733,
+ "look": {
+  "brand": "midnight-ink",
+  "chrome": "none",
+  "material": "ink"
+ },
+ "type": {
+  "disp": "Newsreader",
+  "mono": "DM Mono"
+ },
+ "libs": [
+  "lib/arsenal.gen.js"
+ ],
+ "commit": {
+  "enabled": false
+ },
+ "count": {
+  "at": 24.0
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 12,
+   "eyebrow": "THE CENTRAL LIMIT THEOREM, WITH DICE",
+   "title": "The throw"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 12,
+   "t1": 58,
+   "eyebrow": "THE CASE · 100,000 ROLLS, ONE MARK EACH",
+   "title": "The rain"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 58,
+   "t1": 108,
+   "eyebrow": "THE COUNT · ABOVE 25",
+   "title": "The last lit street"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 108,
+   "t1": 120,
+   "eyebrow": "MONDAY",
+   "title": "Plan for the middle"
+  }
+ ],
+ "captions": [
+  [
+   0.4,
+   3.8,
+   "Random means anything can happen. Right?"
+  ],
+  [
+   4.0,
+   7.8,
+   "Roll five dice and add them. This roll makes 18."
+  ],
+  [
+   8.0,
+   11.8,
+   "Is a sum above 25 as likely as one in the middle?"
+  ],
+  [
+   12.2,
+   17.8,
+   "Now roll them 100,000 times. One mark is one roll."
+  ],
+  [
+   18.0,
+   23.8,
+   "Every roll counted in, in the order it was thrown."
+  ],
+  [
+   24.0,
+   27.8,
+   "100,000 rolls. Nothing smoothed, nothing left out."
+  ],
+  [
+   28.0,
+   33.8,
+   "Each roll fell into the bin of its first die."
+  ],
+  [
+   34.0,
+   39.8,
+   "Six piles, each between 16,519 and 16,797. Flat."
+  ],
+  [
+   40.0,
+   43.8,
+   "One die really is anything-can-happen."
+  ],
+  [
+   44.0,
+   49.8,
+   "Now sort by the sum: 26 piles, from 5 to 30."
+  ],
+  [
+   50.0,
+   53.8,
+   "From above, every sum looks just as likely."
+  ],
+  [
+   54.0,
+   57.8,
+   "From the side: 17 and 18 tower, the ends almost vanish."
+  ],
+  [
+   58.2,
+   62.8,
+   "Push in on the right edge: sums from 26 to 30."
+  ],
+  [
+   63.0,
+   67.8,
+   "Five thin piles. Now count every roll in them."
+  ],
+  [
+   68.0,
+   75.8,
+   "A cut travels along the sums, counting as it goes."
+  ],
+  [
+   76.0,
+   81.8,
+   "Above 25: 1,655 rolls out of 100,000."
+  ],
+  [
+   82.0,
+   87.8,
+   "That is 1.7 %. Equal odds would put 19,231 there."
+  ],
+  [
+   88.0,
+   91.8,
+   "Equal odds over-count the tail about 12 times."
+  ],
+  [
+   92.0,
+   97.8,
+   "Count the ways instead: 126 of 7,776 outcomes."
+  ],
+  [
+   98.0,
+   101.8,
+   "That predicts 1,620. The dice gave 1,655."
+  ],
+  [
+   102.0,
+   107.8,
+   "All 26 sums agree within 0.09 points. Mean 17.5."
+  ],
+  [
+   108.2,
+   113.8,
+   "Monday: is your total a sum of many small, separate parts?"
+  ],
+  [
+   114.0,
+   119.8,
+   "Fair, independent dice. Linked parts break the bell."
+  ]
+ ],
+ "brand": {
+  "takeaway": "Add many small chances and the middle wins.",
+  "at": 120
+ },
+ "sources": [
+  [
+   "S1",
+   "Abraham de Moivre, The Doctrine of Chances (2nd ed., with the 1733 approximation of the binomial by the normal curve) (1738). London: Woodfall."
+  ],
+  [
+   "S2",
+   "Pierre-Simon Laplace, Theorie analytique des probabilites (sums of many independent errors tend to the normal law) (1812). Paris: Courcier."
+  ],
+  [
+   "S3",
+   "Charles M. Grinstead, J. Laurie Snell, Introduction to Probability, 2nd rev. ed.: ch. 7 (sums of independent random variables, convolution of dice), ch. 9 (central limit theorem) (1997). American Mathematical Society; free PDF (GNU FDL)."
+  ],
+  [
+   "S4",
+   "Tommy Ettinger, Mulberry32, a 32-bit state PRNG (public domain) (2017). gist by tommyettinger; the arsenal's copy in arsenal/patterns/*/pattern.js."
+  ],
+  [
+   "S5",
+   "this package, factory/topics/a-bell-from-dice/recompute.py (the simulation; seed 1733) (2026). python3 factory/topics/a-bell-from-dice/recompute.py."
+  ]
+ ],
+ "honest": [
+  "Fair dice rolled independently; parts that move together, or one part that dwarfs the rest, do not make this bell."
+ ],
+ "params": {
+  "rolls": 100000,
+  "dice": 5,
+  "faces": 6,
+  "seed": 1733,
+  "tailCut": 25,
+  "outcomes": 7776,
+  "sumMin": 5,
+  "sumMax": 30,
+  "nSums": 26,
+  "modeLo": 17,
+  "modeHi": 18,
+  "midLo": 14,
+  "midHi": 21,
+  "waysTail": 126,
+  "expTailRound": 1620,
+  "simTail": 1655,
+  "tailPctSim": 1.7,
+  "tailPctExact": 1.6,
+  "beliefTail": 19231,
+  "beliefEach": 3846,
+  "beliefTimes": 12,
+  "firstExpect": 16666.666666666668,
+  "firstMin": 16519,
+  "firstMax": 16797,
+  "meanExact": 17.5,
+  "sdExact": 3.8188130791298667,
+  "simMean": 17.50158,
+  "simSd": 3.8074949118285106,
+  "maxGapPts": 0.09,
+  "maxGapSum": 14,
+  "simMidPct": 69.8,
+  "roll0Sum": 18,
+  "ways5": 1,
+  "ways6": 5,
+  "ways7": 15,
+  "ways8": 35,
+  "ways9": 70,
+  "ways10": 126,
+  "ways11": 205,
+  "ways12": 305,
+  "ways13": 420,
+  "ways14": 540,
+  "ways15": 651,
+  "ways16": 735,
+  "ways17": 780,
+  "ways18": 780,
+  "ways19": 735,
+  "ways20": 651,
+  "ways21": 540,
+  "ways22": 420,
+  "ways23": 305,
+  "ways24": 205,
+  "ways25": 126,
+  "ways26": 70,
+  "ways27": 35,
+  "ways28": 15,
+  "ways29": 5,
+  "ways30": 1,
+  "sim5": 21,
+  "sim6": 62,
+  "sim7": 173,
+  "sim8": 460,
+  "sim9": 872,
+  "sim10": 1571,
+  "sim11": 2603,
+  "sim12": 3925,
+  "sim13": 5429,
+  "sim14": 7031,
+  "sim15": 8345,
+  "sim16": 9419,
+  "sim17": 10034,
+  "sim18": 10091,
+  "sim19": 9517,
+  "sim20": 8340,
+  "sim21": 6996,
+  "sim22": 5404,
+  "sim23": 3936,
+  "sim24": 2555,
+  "sim25": 1561,
+  "sim26": 939,
+  "sim27": 462,
+  "sim28": 176,
+  "sim29": 63,
+  "sim30": 15,
+  "first1": 16736,
+  "first2": 16653,
+  "first3": 16665,
+  "first4": 16797,
+  "first5": 16630,
+  "first6": 16519
+ },
+ "checks": {
+  "what": "in-film assertion (film.js setup throws on any mismatch): data/checkpoints.json of the topic, by k",
+  "at": {
+   "1": {
+    "tail": 0,
+    "first6": 0,
+    "sumOfSums": 18
+   },
+   "10": {
+    "tail": 0,
+    "first6": 2,
+    "sumOfSums": 197
+   },
+   "100": {
+    "tail": 1,
+    "first6": 22,
+    "sumOfSums": 1784
+   },
+   "1000": {
+    "tail": 16,
+    "first6": 178,
+    "sumOfSums": 17618
+   },
+   "10000": {
+    "tail": 149,
+    "first6": 1694,
+    "sumOfSums": 175229
+   },
+   "50000": {
+    "tail": 835,
+    "first6": 8275,
+    "sumOfSums": 875740
+   },
+   "100000": {
+    "tail": 1655,
+    "first6": 16519,
+    "sumOfSums": 1750158
+   }
+  },
+  "first10": [
+   {
+    "faces": [
+     2,
+     3,
+     2,
+     5,
+     6
+    ],
+    "first": 2,
+    "sum": 18
+   }
+  ]
+ },
+ "rig": {
+  "proj": "persp",
+  "dur": 123,
+  "near": 10,
+  "far": 9000,
+  "start": {
+   "eye": [
+    -345,
+    -384,
+    949
+   ],
+   "center": [
+    0,
+    -95,
+    0
+   ],
+   "fov": 30
+  },
+  "moves": [
+   {
+    "id": "front",
+    "move": "orbit",
+    "t0": 28,
+    "t1": 33,
+    "az": 20,
+    "el": 5,
+    "r": 1,
+    "ease": "inout"
+   },
+   {
+    "id": "plan",
+    "move": "orbit",
+    "t0": 40,
+    "t1": 43,
+    "az": 0,
+    "el": 89,
+    "r": 2.0,
+    "fov": 14,
+    "ease": "inout"
+   },
+   {
+    "id": "side",
+    "move": "orbit",
+    "t0": 50,
+    "t1": 55,
+    "around": [
+     -30,
+     -70,
+     0
+    ],
+    "az": -18,
+    "el": 6,
+    "r": 0.45,
+    "fov": 30,
+    "ease": "inout"
+   },
+   {
+    "id": "tail",
+    "move": "lookat",
+    "t0": 58,
+    "t1": 63,
+    "target": 19,
+    "dist": 520,
+    "ease": "inout"
+   },
+   {
+    "id": "pull",
+    "move": "key",
+    "t0": 66,
+    "t1": 70,
+    "eye": [
+     -727,
+     -788,
+     1250
+    ],
+    "center": [
+     -170,
+     -60,
+     0
+    ],
+    "ease": "inout"
+   },
+   {
+    "id": "aside",
+    "move": "key",
+    "t0": 86,
+    "t1": 90,
+    "eye": [
+     -327,
+     -1208,
+     1943
+    ],
+    "center": [
+     380,
+     -200,
+     0
+    ],
+    "ease": "inout"
+   },
+   {
+    "id": "drift",
+    "move": "orbit",
+    "t0": 90,
+    "t1": 106,
+    "az": 8,
+    "ease": "inout"
+   }
+  ]
+ },
+ "knobs": {
+  "rainT0": 12.4,
+  "rainT1": 23.6,
+  "rainWin": 0.02,
+  "rainDrop": 420,
+  "landAt": 24,
+  "cube": 1.6,
+  "pitch": 2,
+  "binFX": 16,
+  "binFZ": 12,
+  "binGap": 100,
+  "colFX": 10,
+  "colFZ": 10,
+  "colGap": 10,
+  "facesAt": 28.6,
+  "pinFirstAt": 34,
+  "pinFirstOut": 40,
+  "sortT0": 44,
+  "sortT1": 47,
+  "sortStagger": 0.55,
+  "sortLift": 40,
+  "beliefAt": 47,
+  "beliefOut": 58,
+  "pinColAt": 55.2,
+  "pinColOut": 58,
+  "tailLitAt": 58.4,
+  "pinTailAt": 61,
+  "pinTailOut": 65.4,
+  "stackOut0": 65.4,
+  "stackOut1": 66.2,
+  "volBuild0": 66.6,
+  "volBuild1": 70,
+  "volCutIn": 70,
+  "volCutEnd": 76,
+  "volCutTo": 0.8065,
+  "volTail": 25.5,
+  "volCutDim": 0.35,
+  "volH": 210,
+  "volZ": 200,
+  "volGap": 0.16,
+  "volAlpha": 0.55,
+  "ratioAt": 82,
+  "insetAt": 86,
+  "glassT0": 92,
+  "glassT1": 94,
+  "fillT0": 94,
+  "fillT1": 96.5,
+  "waysAt": 96,
+  "expTailAt": 98,
+  "agreeAt": 102,
+  "volOut0": 107,
+  "volOut1": 108.2,
+  "diceAt": 2,
+  "sumAt": 4.2,
+  "hookLineAt": 8.2,
+  "hookOut": 11.6,
+  "mondayAt": 108.3,
+  "countSize": 56,
+  "pinSize": 28,
+  "subSize": 14,
+  "noteSize": 16,
+  "insetX": 576,
+  "insetW": 352,
+  "insetY": 100,
+  "insetH": 316,
+  "labHold": 4,
+  "labLeader": 20,
+  "litAmb": 0.55,
+  "litKey": 0.45,
+  "camStartEyeX": -345,
+  "camStartEyeY": -384,
+  "camStartEyeZ": 949,
+  "camStartCenterX": 0,
+  "camStartCenterY": -95,
+  "camStartCenterZ": 0,
+  "camStartFov": 30,
+  "camFrontT0": 28,
+  "camFrontT1": 33,
+  "camFrontEase": "inout",
+  "camFrontAz": 20,
+  "camFrontEl": 5,
+  "camFrontR": 1,
+  "camPlanT0": 40,
+  "camPlanT1": 43,
+  "camPlanEase": "inout",
+  "camPlanAz": 0,
+  "camPlanEl": 89,
+  "camPlanR": 2,
+  "camPlanFov": 14,
+  "camSideT0": 50,
+  "camSideT1": 55,
+  "camSideEase": "inout",
+  "camSideAz": -18,
+  "camSideEl": 6,
+  "camSideR": 0.45,
+  "camSideFov": 30,
+  "camTailT0": 58,
+  "camTailT1": 63,
+  "camTailEase": "inout",
+  "camTailTarget": 19,
+  "camTailDist": 520,
+  "camPullT0": 66,
+  "camPullT1": 70,
+  "camPullEase": "inout",
+  "camPullEyeX": -727,
+  "camPullEyeY": -788,
+  "camPullEyeZ": 1250,
+  "camPullCenterX": -170,
+  "camPullCenterY": -60,
+  "camPullCenterZ": 0,
+  "camAsideT0": 86,
+  "camAsideT1": 90,
+  "camAsideEase": "inout",
+  "camAsideEyeX": -327,
+  "camAsideEyeY": -1208,
+  "camAsideEyeZ": 1943,
+  "camAsideCenterX": 380,
+  "camAsideCenterY": -200,
+  "camAsideCenterZ": 0,
+  "camDriftT0": 90,
+  "camDriftT1": 106,
+  "camDriftEase": "inout",
+  "camDriftAz": 8
+ },
+ "knobs_doc": [
+  {
+   "name": "rainT0",
+   "range": [
+    12.2,
+    13
+   ],
+   "step": 0.1,
+   "what": "s: the first roll falls (the rain starts; HOOK ends at 12)"
+  },
+  {
+   "name": "rainT1",
+   "range": [
+    21,
+    23.8
+   ],
+   "step": 0.1,
+   "what": "s: the last of the 100,000 rolls has landed (before the count lands at 24)"
+  },
+  {
+   "name": "rainWin",
+   "range": [
+    0.005,
+    0.06
+   ],
+   "step": 0.005,
+   "what": "share of the 100,000 marks in the air at once (longer = slower, denser rain)"
+  },
+  {
+   "name": "rainDrop",
+   "range": [
+    150,
+    700
+   ],
+   "step": 10,
+   "what": "world units: height a mark falls from into its first-die bin"
+  },
+  {
+   "name": "landAt",
+   "range": [
+    24,
+    25
+   ],
+   "step": 0.1,
+   "what": "s: the count lands: '100,000 ROLLS' replaces the running counter (count.at is 24)"
+  },
+  {
+   "name": "cube",
+   "range": [
+    1,
+    1.9
+   ],
+   "step": 0.05,
+   "what": "world units: edge of one mark (one roll); must stay under pitch"
+  },
+  {
+   "name": "pitch",
+   "range": [
+    1.6,
+    3
+   ],
+   "step": 0.1,
+   "what": "world units: slot pitch of the marks in a bin or a column (scales every stack)"
+  },
+  {
+   "name": "binFX",
+   "range": [
+    10,
+    40
+   ],
+   "step": 2,
+   "what": "marks across one first-die bin (footprint width)"
+  },
+  {
+   "name": "binFZ",
+   "range": [
+    4,
+    16
+   ],
+   "step": 1,
+   "what": "marks deep in one first-die bin"
+  },
+  {
+   "name": "binGap",
+   "range": [
+    40,
+    120
+   ],
+   "step": 5,
+   "what": "world units: air between the six bins"
+  },
+  {
+   "name": "colFX",
+   "range": [
+    8,
+    16
+   ],
+   "step": 1,
+   "what": "marks across one sum column (footprint width)"
+  },
+  {
+   "name": "colFZ",
+   "range": [
+    4,
+    14
+   ],
+   "step": 1,
+   "what": "marks deep in one sum column"
+  },
+  {
+   "name": "colGap",
+   "range": [
+    2,
+    20
+   ],
+   "step": 1,
+   "what": "world units: air between the 26 columns (the streets of the skyline)"
+  },
+  {
+   "name": "facesAt",
+   "range": [
+    28,
+    33
+   ],
+   "step": 0.1,
+   "what": "s: the pip faces appear under the six bins"
+  },
+  {
+   "name": "pinFirstAt",
+   "range": [
+    33.5,
+    36
+   ],
+   "step": 0.1,
+   "what": "s: the six first-die counts are pinned and the a-sixth line drawn"
+  },
+  {
+   "name": "pinFirstOut",
+   "range": [
+    39,
+    41
+   ],
+   "step": 0.1,
+   "what": "s: the first-die pins and line leave (the crane up starts at 40)"
+  },
+  {
+   "name": "sortT0",
+   "range": [
+    43.5,
+    45
+   ],
+   "step": 0.1,
+   "what": "s: the same marks leave their first-die bins for their sum columns"
+  },
+  {
+   "name": "sortT1",
+   "range": [
+    46,
+    48
+   ],
+   "step": 0.1,
+   "what": "s: the last mark reaches its sum column"
+  },
+  {
+   "name": "sortStagger",
+   "range": [
+    0,
+    0.9
+   ],
+   "step": 0.05,
+   "what": "share of the re-sort spent staggering by layer (0 = all marks move at once; bottom layers first)"
+  },
+  {
+   "name": "sortLift",
+   "range": [
+    0,
+    160
+   ],
+   "step": 5,
+   "what": "world units: arc height of a mark travelling to its sum column"
+  },
+  {
+   "name": "beliefAt",
+   "range": [
+    46.5,
+    49
+   ],
+   "step": 0.1,
+   "what": "s: the equal-odds line (3,846 per sum) and its label appear"
+  },
+  {
+   "name": "beliefOut",
+   "range": [
+    56,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: the equal-odds line leaves"
+  },
+  {
+   "name": "pinColAt",
+   "range": [
+    54.5,
+    56.5
+   ],
+   "step": 0.1,
+   "what": "s: peak and end pins (17, 18, 5, 30) appear in the side view"
+  },
+  {
+   "name": "pinColOut",
+   "range": [
+    57.5,
+    59
+   ],
+   "step": 0.1,
+   "what": "s: peak and end pins leave as the push into the tail starts"
+  },
+  {
+   "name": "tailLitAt",
+   "range": [
+    58,
+    60
+   ],
+   "step": 0.1,
+   "what": "s: the five tail columns (sums above 25) turn accent"
+  },
+  {
+   "name": "pinTailAt",
+   "range": [
+    59.5,
+    63
+   ],
+   "step": 0.1,
+   "what": "s: the five tail counts are pinned"
+  },
+  {
+   "name": "pinTailOut",
+   "range": [
+    64.5,
+    66
+   ],
+   "step": 0.1,
+   "what": "s: the tail pins leave"
+  },
+  {
+   "name": "stackOut0",
+   "range": [
+    64.5,
+    66
+   ],
+   "step": 0.1,
+   "what": "s: the 100,000 marks start to fade into the ground"
+  },
+  {
+   "name": "stackOut1",
+   "range": [
+    65.8,
+    66.6
+   ],
+   "step": 0.1,
+   "what": "s: the marks are gone; the counted cells take over"
+  },
+  {
+   "name": "volBuild0",
+   "range": [
+    66.2,
+    68
+   ],
+   "step": 0.1,
+   "what": "s: the counted cells start to grow (left to right by sum)"
+  },
+  {
+   "name": "volBuild1",
+   "range": [
+    68.5,
+    70.5
+   ],
+   "step": 0.1,
+   "what": "s: the last cell has grown"
+  },
+  {
+   "name": "volCutIn",
+   "range": [
+    69,
+    71
+   ],
+   "step": 0.1,
+   "what": "s (volCutIn): the cut starts travelling from sum 5"
+  },
+  {
+   "name": "volCutEnd",
+   "range": [
+    75.5,
+    77
+   ],
+   "step": 0.1,
+   "what": "s: the cut reaches the 25 | 26 edge and the tail count lands (count 2)"
+  },
+  {
+   "name": "volCutTo",
+   "range": [
+    0.8,
+    0.8076
+   ],
+   "step": 0.0005,
+   "what": "volCutTo: where the cut stops along the sum axis (stays on the 25 | 26 edge, so RIGHT = the tail count)"
+  },
+  {
+   "name": "volTail",
+   "range": [
+    25,
+    25.9
+   ],
+   "step": 0.1,
+   "what": "volTail: tail threshold on the sum axis; snapped to the 25 | 26 bin edge (lit cells sum to the tail count)"
+  },
+  {
+   "name": "volCutDim",
+   "range": [
+    0.1,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "volCutDim: opacity of the cells the cut has passed (lower = the tail street stands out more)"
+  },
+  {
+   "name": "volH",
+   "range": [
+    140,
+    300
+   ],
+   "step": 5,
+   "what": "world units: height of the densest cell (cell height = count)"
+  },
+  {
+   "name": "volZ",
+   "range": [
+    120,
+    260
+   ],
+   "step": 5,
+   "what": "world units: depth of the six first-die rows of cells"
+  },
+  {
+   "name": "volGap",
+   "range": [
+    0.05,
+    0.35
+   ],
+   "step": 0.01,
+   "what": "share of a cell left as street between slabs"
+  },
+  {
+   "name": "volAlpha",
+   "range": [
+    0.3,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "opacity of a counted cell (sorted transparency)"
+  },
+  {
+   "name": "ratioAt",
+   "range": [
+    81,
+    84
+   ],
+   "step": 0.1,
+   "what": "s: the ratio '= 1.7 %' appears under the tail count (always after the count)"
+  },
+  {
+   "name": "insetAt",
+   "range": [
+    85,
+    88
+   ],
+   "step": 0.1,
+   "what": "s: the flat inset of the 26 sums appears with the equal-odds line"
+  },
+  {
+   "name": "glassT0",
+   "range": [
+    91,
+    93
+   ],
+   "step": 0.1,
+   "what": "s: the exact bell (glass) starts drawing left to right"
+  },
+  {
+   "name": "glassT1",
+   "range": [
+    93,
+    95
+   ],
+   "step": 0.1,
+   "what": "s: the glass is complete"
+  },
+  {
+   "name": "fillT0",
+   "range": [
+    93,
+    95.5
+   ],
+   "step": 0.1,
+   "what": "s: the counted bars start to rise into the glass"
+  },
+  {
+   "name": "fillT1",
+   "range": [
+    95.5,
+    98
+   ],
+   "step": 0.1,
+   "what": "s: the counted bars are full"
+  },
+  {
+   "name": "waysAt",
+   "range": [
+    95,
+    97.5
+   ],
+   "step": 0.1,
+   "what": "s: the ways row (1 · 5 · 15 … 780 · 780 … 15 · 5 · 1) appears"
+  },
+  {
+   "name": "expTailAt",
+   "range": [
+    97.5,
+    100
+   ],
+   "step": 0.1,
+   "what": "s: '126 OF 7,776 WAYS' and expected against counted appear"
+  },
+  {
+   "name": "agreeAt",
+   "range": [
+    101,
+    104
+   ],
+   "step": 0.1,
+   "what": "s: the agreement lines (largest gap, mean, sd) and the mean line appear"
+  },
+  {
+   "name": "volOut0",
+   "range": [
+    106,
+    107.6
+   ],
+   "step": 0.1,
+   "what": "s: the cells start to fade (MONDAY at 108)"
+  },
+  {
+   "name": "volOut1",
+   "range": [
+    107.8,
+    108.6
+   ],
+   "step": 0.1,
+   "what": "s: the cells are gone"
+  },
+  {
+   "name": "diceAt",
+   "range": [
+    1,
+    3
+   ],
+   "step": 0.1,
+   "what": "s: the first of the five dice lands (0.4 s apart)"
+  },
+  {
+   "name": "sumAt",
+   "range": [
+    4,
+    5
+   ],
+   "step": 0.1,
+   "what": "s: the sum 18 appears"
+  },
+  {
+   "name": "hookLineAt",
+   "range": [
+    8,
+    9.5
+   ],
+   "step": 0.1,
+   "what": "s: the empty 5-30 axis and the flat 'anything can happen' line appear"
+  },
+  {
+   "name": "hookOut",
+   "range": [
+    11,
+    12
+   ],
+   "step": 0.1,
+   "what": "s: the throw fades out (the rain starts at rainT0)"
+  },
+  {
+   "name": "mondayAt",
+   "range": [
+    108,
+    109.5
+   ],
+   "step": 0.1,
+   "what": "s: the throw returns with the 14-21 band"
+  },
+  {
+   "name": "countSize",
+   "range": [
+    44,
+    72
+   ],
+   "step": 2,
+   "what": "units: the count in the display face (must-read floor 28)"
+  },
+  {
+   "name": "pinSize",
+   "range": [
+    28,
+    36
+   ],
+   "step": 1,
+   "what": "units: pinned counts in the display face (must-read floor 28)"
+  },
+  {
+   "name": "subSize",
+   "range": [
+    14,
+    18
+   ],
+   "step": 1,
+   "what": "units: lines under a count (secondary floor 14)"
+  },
+  {
+   "name": "noteSize",
+   "range": [
+    14,
+    20
+   ],
+   "step": 1,
+   "what": "units: the exact-against-counted lines in the COUNT left column (secondary floor 14)"
+  },
+  {
+   "name": "insetX",
+   "range": [
+    540,
+    620
+   ],
+   "step": 2,
+   "what": "units: left edge of the flat inset of the 26 sums"
+  },
+  {
+   "name": "insetW",
+   "range": [
+    300,
+    380
+   ],
+   "step": 2,
+   "what": "units: width of the inset"
+  },
+  {
+   "name": "insetY",
+   "range": [
+    90,
+    130
+   ],
+   "step": 2,
+   "what": "units: top of the inset"
+  },
+  {
+   "name": "insetH",
+   "range": [
+    280,
+    330
+   ],
+   "step": 2,
+   "what": "units: height of the inset (keep its bottom above the captions at 440)"
+  },
+  {
+   "name": "labHold",
+   "range": [
+    0,
+    15
+   ],
+   "step": 1,
+   "what": "frames a pin must be pushed before it hides (gl-labels hold)"
+  },
+  {
+   "name": "labLeader",
+   "range": [
+    12,
+    40
+   ],
+   "step": 2,
+   "what": "units: pin leader length (gl-labels leader)"
+  },
+  {
+   "name": "litAmb",
+   "range": [
+    0.3,
+    0.8
+   ],
+   "step": 0.05,
+   "what": "ambient light on the marks (higher = flatter, brighter fronts)"
+  },
+  {
+   "name": "litKey",
+   "range": [
+    0.2,
+    0.7
+   ],
+   "step": 0.05,
+   "what": "key light on the marks (higher = brighter tops)"
+  },
+  {
+   "name": "camStartEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye x"
+  },
+  {
+   "name": "camStartEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye y"
+  },
+  {
+   "name": "camStartEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: eye z"
+  },
+  {
+   "name": "camStartCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point x"
+  },
+  {
+   "name": "camStartCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point y"
+  },
+  {
+   "name": "camStartCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · start pose: aim point z"
+  },
+  {
+   "name": "camStartFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · start pose: vertical field of view (deg)"
+  },
+  {
+   "name": "camFrontT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · front (orbit): start (s)"
+  },
+  {
+   "name": "camFrontT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · front (orbit): end (s)"
+  },
+  {
+   "name": "camFrontEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · front (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camFrontAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · front (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "camFrontEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · front (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "camFrontR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "camera rig · front (orbit): end radius as a factor of the start"
+  },
+  {
+   "name": "camPlanT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · plan (orbit): start (s)"
+  },
+  {
+   "name": "camPlanT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · plan (orbit): end (s)"
+  },
+  {
+   "name": "camPlanEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · plan (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camPlanAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · plan (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "camPlanEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · plan (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "camPlanR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "camera rig · plan (orbit): end radius as a factor of the start"
+  },
+  {
+   "name": "camPlanFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · plan (orbit): vertical field of view (deg)"
+  },
+  {
+   "name": "camSideT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · side (orbit): start (s)"
+  },
+  {
+   "name": "camSideT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · side (orbit): end (s)"
+  },
+  {
+   "name": "camSideEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · side (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camSideAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · side (orbit): degrees swept round the centre"
+  },
+  {
+   "name": "camSideEl",
+   "range": [
+    -10,
+    89
+   ],
+   "step": 1,
+   "what": "camera rig · side (orbit): end elevation (deg above the centre)"
+  },
+  {
+   "name": "camSideR",
+   "range": [
+    0.2,
+    5
+   ],
+   "step": 0.05,
+   "what": "camera rig · side (orbit): end radius as a factor of the start"
+  },
+  {
+   "name": "camSideFov",
+   "range": [
+    5,
+    120
+   ],
+   "step": 1,
+   "what": "camera rig · side (orbit): vertical field of view (deg)"
+  },
+  {
+   "name": "camTailT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · tail (lookat): start (s)"
+  },
+  {
+   "name": "camTailT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · tail (lookat): end (s)"
+  },
+  {
+   "name": "camTailEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · tail (lookat): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camTailTarget",
+   "range": [
+    0,
+    25
+   ],
+   "step": 1,
+   "what": "camera rig · tail (lookat): data index the camera aims or focuses at (19 = sum 24: the push centres just left of the tail so sum 18 stays at the left edge for scale)"
+  },
+  {
+   "name": "camTailDist",
+   "range": [
+    0,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · tail (lookat): distance to the centre / target (world units; lookat 0 = pan from the eye)"
+  },
+  {
+   "name": "camPullT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · pull (key): start (s)"
+  },
+  {
+   "name": "camPullT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · pull (key): end (s)"
+  },
+  {
+   "name": "camPullEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · pull (key): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camPullEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): eye x"
+  },
+  {
+   "name": "camPullEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): eye y"
+  },
+  {
+   "name": "camPullEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): eye z"
+  },
+  {
+   "name": "camPullCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): aim point x"
+  },
+  {
+   "name": "camPullCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): aim point y"
+  },
+  {
+   "name": "camPullCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · pull (key): aim point z"
+  },
+  {
+   "name": "camAsideT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · aside (key): start (s)"
+  },
+  {
+   "name": "camAsideT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · aside (key): end (s)"
+  },
+  {
+   "name": "camAsideEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · aside (key): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camAsideEyeX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): eye x"
+  },
+  {
+   "name": "camAsideEyeY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): eye y"
+  },
+  {
+   "name": "camAsideEyeZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): eye z"
+  },
+  {
+   "name": "camAsideCenterX",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): aim point x"
+  },
+  {
+   "name": "camAsideCenterY",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): aim point y"
+  },
+  {
+   "name": "camAsideCenterZ",
+   "range": [
+    -6000,
+    6000
+   ],
+   "step": 10,
+   "what": "camera rig · aside (key): aim point z"
+  },
+  {
+   "name": "camDriftT0",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): start (s)"
+  },
+  {
+   "name": "camDriftT1",
+   "range": [
+    0,
+    123
+   ],
+   "step": 0.1,
+   "what": "camera rig · drift (orbit): end (s)"
+  },
+  {
+   "name": "camDriftEase",
+   "options": [
+    "linear",
+    "smooth",
+    "in",
+    "out",
+    "inout",
+    "expo",
+    "back",
+    "step"
+   ],
+   "what": "camera rig · drift (orbit): ease (arsenal/core/timeline curves)"
+  },
+  {
+   "name": "camDriftAz",
+   "range": [
+    -720,
+    720
+   ],
+   "step": 5,
+   "what": "camera rig · drift (orbit): degrees swept round the centre (volOrbit: the slow orbit over the counted cells)"
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "volatility-drag",
+  "title": "The average is not your outcome",
+  "eyebrow": "CETI explainer · volatility drag · 75 seconds",
+  "lede": "A coin flip that adds 50 % or takes 40 % has a positive expected value. Played over and over with everything reinvested, the typical player is all but wiped out. One hundred players, one hundred rounds, counted.",
+  "dur": 75,
+  "seed": 23,
+  "palette": { "paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "muted": "#8E887C", "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277" },
+  "type": { "disp": "Big Shoulders Display", "mono": "IBM Plex Mono" },
+  "fonts": [
+    { "family": "Big Shoulders Display", "weight": 600, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 400, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 500, "style": "normal" }
+  ],
+  "params": { "start": 100, "up": 1.5, "down": 0.6, "p": 0.5, "rounds": 100, "players": 100, "seed": 1, "guess": 150 },
+  "commit": { "at": 10, "title": "YOUR £", "prompt": "What is left of £100 for the typical player after 100 rounds, everything reinvested?", "unit": "£ LEFT OF £100", "default": 150, "min": 0, "max": 1000000, "step": 0.01 },
+  "count": { "at": 36.4 },
+  "chapters": [
+    { "id": "hook", "beat": "HOOK", "t0": 0, "t1": 8, "eyebrow": "VOLATILITY DRAG · THE HOOK", "title": "Positive expected value" },
+    { "id": "commit", "beat": "COMMIT", "t0": 8, "t1": 16, "eyebrow": "VOLATILITY DRAG · THE COMMIT", "title": "Seal a number" },
+    { "id": "case", "beat": "CASE", "t0": 16, "t1": 36, "eyebrow": "VOLATILITY DRAG · THE CASE", "title": "One player, one coin" },
+    { "id": "count", "beat": "COUNT", "t0": 36, "t1": 62, "eyebrow": "VOLATILITY DRAG · THE COUNT", "title": "A hundred players" },
+    { "id": "monday", "beat": "MONDAY", "t0": 62, "t1": 72, "eyebrow": "VOLATILITY DRAG · MONDAY", "title": "Monday" }
+  ],
+  "captions": [
+    [0.4, 3.9, "The bet: heads turns £100 into £150; tails, into £60."],
+    [3.9, 7.8, "“It averages £105. Positive expected value: keep going.”"],
+    [8.2, 11.9, "Play it 100 times. Everything stays in the pot."],
+    [11.9, 15.8, "What is left of £100 for the typical player?"],
+    [16.2, 20.4, "Win, then lose: £100, then £150, then £90."],
+    [20.4, 25.4, "Every win-loss pair multiplies by 0.9, in either order."],
+    [25.4, 31.0, "The typical run: 50 heads, 50 tails. × 0.9, fifty times."],
+    [31.0, 35.8, "£100 becomes 52p. At true scale, a hairline."],
+    [36.2, 41.0, "Now 100 players, £100 each, the same coin."],
+    [41.0, 49.6, "The line is the expected value. The bars are the players."],
+    [51.8, 55.6, "87 of 100 lost money. 55 have less than £1 left."],
+    [55.6, 61.8, "The middle player has 52p. The line says £13,150."],
+    [62.2, 67.4, "Monday: what does one of us end with if we repeat it?"],
+    [67.4, 71.8, "Limit: a coin game. Bet a fixed sum and the average holds."]
+  ],
+  "ledger": [[0.6, "BET · HEADS ×1.5 · TAILS ×0.6"], [8.4, "PLAY · 100 ROUNDS · REINVESTED"], [16.4, "CASE · PETERS 2019"], [36.4, "COUNT · 100 PLAYERS · SEED 1"], [62.4, "MONDAY · ONE OF US"]],
+  "brand": { "takeaway": "The average is not your outcome." },
+  "monday": {
+    "q": "IF WE REPEAT THIS AND REINVEST EVERYTHING, WHAT DOES ONE OF US END WITH?",
+    "limit": "A coin game, not a market. Bet a fixed sum, or a fraction, and the result changes."
+  },
+  "sources": [
+    ["P19", "Peters, O. (2019). The ergodicity problem in economics. Nature Physics 15, 1216–1221. doi:10.1038/s41567-019-0732-0"],
+    ["PGM16", "Peters, O. & Gell-Mann, M. (2016). Evaluating gambles using dynamics. Chaos 26, 023103. doi:10.1063/1.4940236 (arXiv:1405.0585)"],
+    ["P23", "Peters, O. (2023). Insurance as an ergodicity problem. Annals of Actuarial Science 17, 215–218. doi:10.1017/S1748499523000131 (Fig. 2: 100 realisations of the same coin toss under the expected-wealth curve)"],
+    ["K56", "Kelly, J. L. Jr. (1956). A new interpretation of information rate. Bell System Technical Journal 35(4), 917–926. doi:10.1002/j.1538-7305.1956.tb03809.x"],
+    ["DWW20", "Doctor, J. N., Wakker, P. P. & Wang, T. V. (2020). Economists' views on the ergodicity problem. Nature Physics 16, 1168. doi:10.1038/s41567-020-01106-x"],
+    ["SIM", "This film's seeded simulation: 100 players × 100 rounds, mulberry32(seed 1), draws round by round (for each round, for each player), heads iff the draw < 0.5. Seed 1 is the first seed; its counts sit near the exact binomial expectations (87 vs 86.4 lost money; 55 vs 54.0 under £1)."]
+  ],
+  "honest": [
+    "The coin game is a thought experiment: independent fair flips with fixed payoffs. Real returns are not coin flips, and this is not investment advice.",
+    "The drag needs compounding: everything reinvested every round. Bet a fixed sum each round and the average is a fair guide; bet a fraction of the pot and the typical outcome changes (here a quarter of the pot each round makes the typical player grow about 0.6 % a round, Kelly 1956).",
+    "The rising line is the expected value, an infinitely large crowd. A real group of 1,000 players does not reach it: across 2,000 seeds the realised average of 1,000 players after 100 rounds had a median of 24×, not 131.5×.",
+    "Whether this overturns expected-utility economics is disputed (Doctor, Wakker & Wang 2020). The film claims only the arithmetic of the coin game."
+  ],
+  "tryit": { "title": "Try it", "note": "Change the number of rounds or bet only part of the pot each round. Same coin, same 100 seeded players.", "seek": null,
+    "inputs": [
+      { "id": "rounds", "label": "Rounds", "min": 10, "max": 200, "step": 10, "value": 100, "unit": "" },
+      { "id": "share", "label": "Share of the pot bet each round", "min": 25, "max": 100, "step": 25, "value": 100, "unit": "%" }
+    ] }
+}

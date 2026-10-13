@@ -1,0 +1,85 @@
+{
+  "id": "amdahl",
+  "title": "Ten Times Faster",
+  "eyebrow": "CETI · Case · Amdahl's law",
+  "lede": "AI will make one step ten times faster. The customer waits for the whole process. Seal a number, then count the hours that never moved.",
+  "dur": 75,
+  "seed": 23,
+  "palette": { "paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "muted": "#8E887C", "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277" },
+  "type": { "disp": "Big Shoulders Display", "mono": "IBM Plex Mono" },
+  "fonts": [
+    { "family": "Big Shoulders Display", "weight": 600, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 400, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 500, "style": "normal" }
+  ],
+  "params": {
+    "h1": 4, "h2": 12, "h3": 6, "h4": 10, "h5": 30, "h6": 14, "h7": 6, "h8": 10, "h9": 3, "h10": 5,
+    "nSteps": 10, "s": 10, "gDefault": 4, "ring": 4,
+    "ibmDays": 7, "ibmWorkMinutes": 90, "ibmAfterHours": 4, "ibmDesks": 5, "workdayHours": 8, "stripUnits": 588,
+    "amdahlYear": 1967, "hcYear": 1993, "dnYear": 1994, "pHalf": 0.5, "pHigh": 0.8
+  },
+  "steps": [
+    { "name": "intake", "h": 4, "kind": "work" }, { "name": "queue", "h": 12, "kind": "queue" },
+    { "name": "check", "h": 6, "kind": "work" }, { "name": "queue", "h": 10, "kind": "queue" },
+    { "name": "drafting", "h": 30, "kind": "ai" }, { "name": "queue", "h": 14, "kind": "queue" },
+    { "name": "review", "h": 6, "kind": "work" }, { "name": "queue", "h": 10, "kind": "queue" },
+    { "name": "sign-off", "h": 3, "kind": "work" }, { "name": "send", "h": 5, "kind": "work" }
+  ],
+  "commit": { "at": 9.0, "title": "HOW MUCH FASTER", "prompt": "Drafting is 30 of the 100 hours. AI makes it 10× faster. How much faster is the whole process, start to done?", "unit": "× faster", "default": 4, "min": 1, "max": 100, "step": 0.01 },
+  "count": { "at": 36 },
+  "chapters": [
+    { "id": "hook", "beat": "HOOK", "t0": 0, "t1": 8, "eyebrow": "CASE · THE CLAIM", "title": "Ten times faster" },
+    { "id": "commit", "beat": "COMMIT", "t0": 8, "t1": 16, "eyebrow": "CASE · YOUR NUMBER", "title": "Seal a number" },
+    { "id": "case", "beat": "CASE", "t0": 16, "t1": 36, "eyebrow": "CASE · IBM CREDIT", "title": "Where the days went" },
+    { "id": "count", "beat": "COUNT", "t0": 36, "t1": 62, "eyebrow": "CASE · THE COUNT", "title": "One mark per hour" },
+    { "id": "monday", "beat": "MONDAY", "t0": 62, "t1": 72, "eyebrow": "CASE · MONDAY", "title": "Ask for the hours" }
+  ],
+  "captions": [
+    [0.6, 3.8, "“AI will make this 10× faster.”"],
+    [4.0, 7.8, "A 10-step process: 100 hours from request to done."],
+    [8.2, 11.8, "AI takes drafting: 30 of the 100 hours, made 10× faster."],
+    [12.0, 15.8, "How much faster is the whole process? Type a number."],
+    [16.3, 21.8, "IBM Credit: a financing quote took 7 days, across 5 desks."],
+    [22.0, 27.8, "Two managers walked one through. The work took 90 minutes."],
+    [28.0, 31.8, "The rest was waiting. Instant work would save 90 minutes."],
+    [32.0, 35.8, "IBM cut the handoffs instead: 7 days became 4 hours."],
+    [36.3, 41.8, "Back to our process: 100 hours, one mark per hour."],
+    [42.0, 47.8, "AI makes drafting 10× faster: 30 hours become 3."],
+    [48.0, 53.8, "70 hours untouched. The whole process now takes 73."],
+    [54.0, 57.8, "100 ÷ 73 = 1.37× faster. Not 10×."],
+    [58.0, 61.8, "Even instant drafting caps it at 100 ÷ 70 = 1.43×."],
+    [62.3, 71.8, "Monday: of every 100 hours, how many does AI touch?"]
+  ],
+  "ledger": [
+    [0.8, "CLAIM · AI · TEN TIMES FASTER"],
+    [8.4, "STEP · DRAFTING"],
+    [16.4, "CASE · IBM CREDIT"],
+    [16.9, "SRC · HAMMER & CHAMPY 1993"],
+    [17.4, "SRC · DAVENPORT & NOHRIA 1994"],
+    [36.4, "COUNT · ONE MARK PER HOUR"],
+    [55.0, "RATIO · ONLY AFTER THE COUNT"],
+    [59.8, "LAW · AMDAHL, AFIPS 1967"],
+    [62.4, "MONDAY · ASK FOR THE HOURS"]
+  ],
+  "brand": { "takeaway": "The hours you don't speed up set the limit." },
+  "sources": [
+    ["AMD67", "Amdahl, G. M. (1967). Validity of the single processor approach to achieving large scale computing capabilities. AFIPS Conference Proceedings 30 (Spring Joint Computer Conference, Atlantic City, NJ, 18–20 April 1967), 483–485. doi:10.1145/1465482.1465560"],
+    ["HC93", "Hammer, M., & Champy, J. (1993). Reengineering the Corporation: A Manifesto for Business Revolution. New York: HarperBusiness. Chapter 3, IBM Credit Corporation: six days on average, more than seven after a control desk was added; 90 minutes of actual work; turnaround cut to four hours."],
+    ["DN94", "Davenport, T. H., & Nohria, N. (1994). Case management and the integration of labor. Sloan Management Review 35(2), 11–23. IBM Credit: five business functions, seven days on average."],
+    ["H90", "Hammer, M. (1990). Reengineering work: don't automate, obliterate. Harvard Business Review 68(4), 104–112. An insurer's application: 22 days in process, 17 minutes of work."],
+    ["GUS88", "Gustafson, J. L. (1988). Reevaluating Amdahl's law. Communications of the ACM 31(5), 532–533. doi:10.1145/42411.42415"],
+    ["VAU20", "Vaughan, T. S. (2020). IBM Credit revisited. Journal of Applied Business and Economics (North American Business Press). A critical reappraisal of the case."],
+    ["MODEL", "Teaching object: the 10-step, 100-hour process on this page is constructed (intake 4, queue 12, check 6, queue 10, drafting 30, queue 14, review 6, queue 10, sign-off 3, send 5 hours)."],
+    ["FMT", "factory/FORMAT.md and docs/DECISIONS.md Q13: the commit hold and the film-mode default guess."]
+  ],
+  "honest": [
+    "The 100-hour process is a constructed teaching model, not a measured process; the hours were chosen so that drafting is 30 of 100 and four of the ten steps are queues.",
+    "The IBM Credit figures (7 days, 90 minutes of work, 4 hours after the redesign) are Hammer and Champy's account, repeated by Davenport and Nohria; they are not an audited study, and Vaughan (2020) argues other factors contributed. The 90-minute sliver is drawn against 7 working days of 8 hours; on the calendar it would be thinner still.",
+    "Amdahl's law holds the untouched hours fixed. In a real process a faster step can shrink a queue (fewer handoffs) or grow one (more work arriving at review). And if the work grows to fill the faster step, the limit moves (Gustafson 1988)."
+  ],
+  "tryit": { "title": "Try it", "note": "Of 100 hours, how many does the AI touch, and how much faster does it make them? The rest stays.", "seek": 57,
+    "inputs": [
+      { "id": "touched", "label": "Hours the AI touches", "min": 0, "max": 100, "step": 1, "value": 30, "unit": "of 100" },
+      { "id": "speed", "label": "How much faster", "min": 1, "max": 1000, "step": 1, "value": 10, "unit": "×" }
+    ] }
+}

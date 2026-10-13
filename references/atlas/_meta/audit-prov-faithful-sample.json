@@ -1,0 +1,304 @@
+{
+"sample": [
+[
+"video-export-pipeline",
+81,
+"This relies on the Promise-returning redraw(). **[2.x]** [S338][S9]"
+],
+[
+"explainer-engine-blueprint",
+23,
+"- The p5-native Manim-style projects (p5.teach.js, Manim.js, pirelaurent's scenario/journey framework) document neither seekable playback nor audio sync, and a 2020 forum request for a p5 timeline went unanswered. [S325][S328][S302][S304]"
+],
+[
+"capability-map",
+51,
+"- v2.3.1 renamed `HDR` to `P3` (RGBP3, P2DP3; see [[p3-hdr-color]]); v2.3.3 added `MAX_GIF_PIXELS` (16,000,000) [S10]."
+],
+[
+"mastery-ladder",
+29,
+"7. **Custom geometry** \u2014 beginShape kinds, contours, 2.x B\u00e9zier (`bezierOrder`) and spline semantics **[changed in 2.x]**. Pages: [[shape-custom-shapes]], [[bezier-vertex]], [[spline-vertex]], [[begin-contour]] [S3][S4]."
+],
+[
+"mastery-ladder",
+48,
+"- Timing primitives are observations, not controls: `frameRate()` sets a target only, so reproducible export means stepping frames with `noLoop()` + `redraw()` (a Promise in 2.x) [S18][S9]."
+],
+[
+"open-questions",
+47,
+"- Kjetil Golid's p5 use comes from a crypto news site while the Art Blocks interview mentions only Processing; see [[kjetil-golid]], [[archetype]] [S380][S379]."
+],
+[
+"mastery-ladder",
+61,
+"- related_to [[hub-explainer-production]] \u2014 shipping and export [S143]"
+],
+[
+"capability-map",
+27,
+"- [[module-shape]] (51 global): 2D Primitives 9 ([[shape-2d-primitives]]), Attributes 7 ([[shape-attributes]]), Curves 6 ([[shape-curves]]), Custom Shapes 12 ([[shape-custom-shapes]]), 3D Primitives 14 ([[shape-3d-primitives]]), 3D Models 3 ([[shape-3d-models]]) [S357]."
+],
+[
+"open-questions",
+75,
+"- No rigorous learning-outcome study comparing p5 explainers with video or text; see [[p5-education-research]] [S204]."
+],
+[
+"mastery-ladder",
+36,
+"12. **Shaders via p5.strands** \u2014 filter and material hooks for post-effects; strands gained control flow (2.1) and math built-ins (2.3) **[beta]**. Pages: [[p5-strands]], [[shader-hooks]], [[filter-shaders]] [S351][S47][S274]."
+],
+[
+"open-questions",
+28,
+"- Add-on Events API (2.1) vs lifecycle hooks via `registerAddon` already in 2.0; see [[addon-events-api]] [S47][S117]."
+],
+[
+"explainer-engine-blueprint",
+97,
+"When to use: zooming into a diagram region; treat the camera as tracks cam.x, cam.y, cam.zoom on the same timeline. [S302]"
+],
+[
+"bezier-order",
+22,
+"- New entry in the 2.x Custom Shapes reference group [S357]."
+],
+[
+"create-canvas",
+23,
+"- In 2.0, `createCanvas()` moves inside the async setup [S27]."
+],
+[
+"p5-svg-main-branch",
+27,
+"- part_of [[module-shape]] \u2014 new Shape/p5.svg submodule [S360]"
+],
+[
+"p5-font",
+25,
+"Sample once per string in setup and reuse the arrays; this is the basis for text morphs and draw-on text (see [[shape-morph]]) [S357][S32]."
+],
+[
+"color-mode",
+22,
+"- The 2.0 notes list the new modes as RGBHDR, HWB, LAB, LCH, OKLAB, OKLCH; RGBP3 appears only in the reference (timing unverified) [S4]."
+],
+[
+"load-font",
+26,
+"Load the display and body fonts in `setup`, then call `textFont(f)`; for variable fonts pair with [[text-weight]] [S33][S34]."
+],
+[
+"create-canvas",
+34,
+"- depends_on [[webgpu-renderer]] \u2014 WEBGPU mode requires add-on and await [S14]"
+],
+[
+"setup",
+31,
+"- enables [[draw]] \u2014 draw loop starts after setup resolves [S2]"
+],
+[
+"p5-media-element",
+21,
+"- `onended` does not fire while the media loops; `connect` is intended for use with the p5.sound add-on [S103]."
+],
+[
+"collision-curve-packing",
+19,
+"- Fidenza's curves avoid overlapping by default, with Relaxed (partial overlap) and Anything Goes (no collision checks) variants [S365]."
+],
+[
+"random",
+20,
+"- `randomGaussian` uses the polar Box-Muller method with rejection, returning one value and caching the second for the next call; one argument sets the mean only; there is no fixed min or max [S77][S66]."
+],
+[
+"events-keyboard",
+40,
+"- depends_on [[p5js-compatibility]] \u2014 `events.js` restores 1.x behaviour [S11]"
+],
+[
+"hi-res-render",
+19,
+"- Community example: `createCanvas(1920,1080)` with `pixelDensity(2)` as a 4K-equivalent render, then FFmpeg with libx264, `yuv420p`, `crf 18` [S131]."
+],
+[
+"seeded-determinism",
+38,
+"- part_of [[hub-motion-rendering]] \u2014 determinism pattern [S374]"
+],
+[
+"seeded-determinism",
+24,
+"- canvas-sketch suggests recording a git commit hash or seed in export filenames [S140]."
+],
+[
+"random-seed",
+44,
+"- conflicts_with [[noise]] \u2014 `randomSeed` does not seed noise [S72][S77]"
+],
+[
+"collision-curve-packing",
+22,
+"> **Conflict:** the reviewer says the original source is \"Quill\" (presumably Quil), Hobbs says he works in Clojure, and which p5 version Fidenza's script type declares could not be confirmed; describe it as shipping p5-style JS and authored in Clojure/Quil (reported) [S367] vs [S373]."
+],
+[
+"random-seed",
+22,
+"- `randomSeed` covers `random()` and `randomGaussian()` only [S128]."
+],
+[
+"p5js-libraries-directory",
+22,
+"- The two 2.x mentions are p5.tree (\"render pipeline for p5.js v2\") and a 2.0 VS Code project generator. [S156]"
+],
+[
+"p5-capture",
+22,
+"- It works with global mode; instance mode supports only one instance and module bundlers are unsupported. [S145]"
+],
+[
+"audio-post-mux",
+47,
+"- depends_on [[png-sequence-ffmpeg]] \u2014 requires a rendered silent video first [S137]"
+],
+[
+"genart-mcp",
+21,
+"- p5.js is one of five renderers it supports, with headless screenshot capture. [S284]"
+],
+[
+"audio-post-mux",
+26,
+"- Mediabunny's audio-source API was not verified, and the old mp4-muxer handled video and audio muxing. [S147]"
+],
+[
+"p5-videorecorder",
+17,
+"p5.videorecorder (Caleb Foss) is a real-time MediaRecorder canvas recorder that includes p5.sound output by default. [S310]"
+],
+[
+"typescript-types",
+21,
+"- The generation refactor (PR #8114) emits p5.d.ts and global.d.ts with integration tests in test/types; p5.strands GLSL methods are typed as any and length(vec) is omitted. **[2.x]** [S245]"
+],
+[
+"cdn-version-pinning",
+53,
+"- part_of [[hub-explainer-production]] \u2014 catalogued in the explainer-production hub [S404]"
+],
+[
+"manim",
+17,
+"Manim is the Python math-animation engine built on Scene.construct with play() and wait(), and Animation.interpolate(alpha) with run_time and rate_func; it is the dominant render target in LLM explainer-video research. [S322][S323][S285]"
+],
+[
+"p5-education-research",
+21,
+"- A Waterloo/Manitoba course (49 students) had students build p5 interactive stories; individual assignments rated 4.6 vs 3.4 of 7 for collaborative ones [S206]."
+],
+[
+"craig-kaplan",
+18,
+"- His Genuary 2024 run was written in p5.js and shared via the p5 web editor [S388]."
+],
+[
+"release-2-3",
+20,
+"- 2.3.0 requires blank vectors to declare dimension, e.g. `createVector(0,0)` for 2D **[changed in 2.x]** [S274][S11]."
+],
+[
+"coding-train-episode-package",
+32,
+"**When to use:** publishing any p5 explainer that viewers should be able to remix [S386]."
+],
+[
+"saskia-freeke",
+31,
+"- related_to [[coding-train]] \u2014 recommends it to beginners [S195]"
+],
+[
+"jazon-jiao",
+28,
+"- related_to [[manim]] \u2014 Manim.js imitates 3Blue1Brown's engine [S328]"
+],
+[
+"release-2-4",
+25,
+"- Native SVG export would give vector stills for print and thumbnails (see [[p5-svg-main-branch]]) [S357]."
+],
+[
+"dave-pagurek",
+38,
+"- related_to [[hub-people-community]] \u2014 listed in the C4 hub [S47]"
+],
+[
+"coding-train",
+27,
+"- It is a live-coding show rather than post-produced explainer animation, yet its episode package is the most reusable p5 explainer distribution model; see [[coding-train-episode-package]] [S386][S142]."
+],
+[
+"site-lacma-unframed",
+21,
+"- Tyler Hobbs: Generative artist and former software engineer; author of Fidenza and of widely read craft essays [S373]"
+],
+[
+"site-jsdelivr",
+43,
+"- Noted gap: Version discrepancy to note: p5js.org Download/Tutorials pages still pin 2.3.3 in snippets while npm, jsDelivr and cdnjs show 2.3.4 ; the Download page's `p5@2` link gives the newest 2.x. I could not read jsDelivr's or cdnjs's raw API (permission request withdrawn, proxy 403), so the \"latest\" claim rests on their (abridged) [S406]"
+],
+[
+"site-motioncanvas",
+14,
+"**Motion Canvas docs** \u2014 the documentation of Motion Canvas, a TypeScript animation library with a generator-based timeline; operated by Motion Canvas. [S231]"
+],
+[
+"site-easings-net",
+20,
+"- Easing function: Function mapping progress 0..1 to eased progress, applied before lerp [S80]"
+],
+[
+"site-github-p5-wrapper-react",
+16,
+"Kind: **primary**; 1 registered source, 1 rated primary. It is one of the source sites indexed in [[hub-sites]]. [S249]"
+],
+[
+"site-chainwire",
+14,
+"**Chainwire** \u2014 a primary source at chainwire.org, credited to Chainwire press release; the wiki uses it for \u201cProcessing Foundation and Tezos Foundation partner on p5.js 2.0 educational prog\u201d. [S298]"
+],
+[
+"site-hermes-agent-skill-mirrors",
+82,
+"- Noted gap: The Hermes p5js skill doc is an unattributed third-party/agent-written document; treat its recipes as plausible community practice, not authoritative . [S137]"
+],
+[
+"site-p5js-beta-and-v1",
+70,
+"- Noted gap: **Renderer architecture internals in 2.x** (the \"state machines and renderer refactoring\" changelog line) are undocumented on the pages I fetched . Renderer registration for addons is not covered in the Creating Libraries doc . [S350]"
+],
+[
+"site-bit101",
+19,
+"- Dividing by total frames rather than total minus one avoids a duplicated frame at the loop point [S135]"
+],
+[
+"site-jsdelivr",
+14,
+"**jsDelivr** \u2014 the CDN that serves npm package files and READMEs for p5 add-ons; operated by jsDelivr. [S169]"
+],
+[
+"site-beginnersinai",
+37,
+"- Treat this as secondary, community-grade evidence; prefer the primary p5.js documentation where the two disagree. [S229]"
+],
+[
+"site-makershed",
+34,
+"- Coverage: 1 source (1 rated primary, 0 secondary by the researchers); year range 2015\u20132015, 0 without a recorded date. [S353]"
+]
+]
+}

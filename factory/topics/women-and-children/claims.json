@@ -1,0 +1,1437 @@
+{
+ "film": "women-and-children",
+ "data": "factory/topics/women-and-children/data/titanic.json",
+ "verified": false,
+ "warning": "The 32 cells were transcribed from memory of Dawson (1995); verify against the published table before any public use.",
+ "rounding": "cells are claims (source S1); formulas use claim ids only, so the gate scope needs no film.params; rates are round(100*y/n) half-up as the gate's round()",
+ "params": {},
+ "sources": [
+  {
+   "tag": "S1",
+   "author": "Dawson, Robert J. MacG.",
+   "title": "The 'Unusual Episode' Data Revisited",
+   "year": 1995,
+   "where": "Journal of Statistics Education 3(3); cells transcribed from memory, NOT verified against the published table"
+  },
+  {
+   "tag": "S2",
+   "author": "British Board of Trade (Wreck Commissioner's inquiry, Lord Mersey)",
+   "title": "Report on the Loss of the 'Titanic' (S.S.)",
+   "year": 1912,
+   "where": "London: HMSO; reprinted 1990, Gloucester: Allan Sutton. The counts Dawson's table is based on."
+  },
+  {
+   "tag": "S3",
+   "author": "R Core Team",
+   "title": "Titanic: Survival of passengers on the Titanic (datasets package)",
+   "year": 2024,
+   "where": "R documentation ?Titanic: 4-d table of 2,201 observations, source Dawson (1995); notes primary sources disagree on exact numbers"
+  },
+  {
+   "tag": "S4",
+   "author": "Arel-Bundock, V. (Rdatasets) via pydataset 0.2.0",
+   "title": "csv/datasets/Titanic.csv",
+   "year": 2016,
+   "where": "a secondary copy found in a local scratch folder; 32 of 32 cells agree with S1-from-memory; untrusted, not a substitute for S1"
+  },
+  {
+   "tag": "S5",
+   "author": "Simonoff, Jeffrey S.",
+   "title": "The 'Unusual Episode' and a Second Statistics Course",
+   "year": 1997,
+   "where": "Journal of Statistics Education 5(1); analyses the same table (citation from memory, verify)"
+  }
+ ],
+ "claims": [
+  {
+   "id": "p1MAy",
+   "text": "1st class, male, adult, survived Yes: cell count",
+   "value": 57,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1MAy",
+   "expect": "57",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p1MAn",
+   "text": "1st class, male, adult, survived No: cell count",
+   "value": 118,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1MAn",
+   "expect": "118",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p1MCy",
+   "text": "1st class, male, child, survived Yes: cell count",
+   "value": 5,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1MCy",
+   "expect": "5",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p1MCn",
+   "text": "1st class, male, child, survived No: cell count",
+   "value": 0,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1MCn",
+   "expect": "0",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p1FAy",
+   "text": "1st class, female, adult, survived Yes: cell count",
+   "value": 140,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1FAy",
+   "expect": "140",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p1FAn",
+   "text": "1st class, female, adult, survived No: cell count",
+   "value": 4,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1FAn",
+   "expect": "4",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p1FCy",
+   "text": "1st class, female, child, survived Yes: cell count",
+   "value": 1,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1FCy",
+   "expect": "1",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p1FCn",
+   "text": "1st class, female, child, survived No: cell count",
+   "value": 0,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1FCn",
+   "expect": "0",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p2MAy",
+   "text": "2nd class, male, adult, survived Yes: cell count",
+   "value": 14,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2MAy",
+   "expect": "14",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p2MAn",
+   "text": "2nd class, male, adult, survived No: cell count",
+   "value": 154,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2MAn",
+   "expect": "154",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p2MCy",
+   "text": "2nd class, male, child, survived Yes: cell count",
+   "value": 11,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2MCy",
+   "expect": "11",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p2MCn",
+   "text": "2nd class, male, child, survived No: cell count",
+   "value": 0,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2MCn",
+   "expect": "0",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p2FAy",
+   "text": "2nd class, female, adult, survived Yes: cell count",
+   "value": 80,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2FAy",
+   "expect": "80",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p2FAn",
+   "text": "2nd class, female, adult, survived No: cell count",
+   "value": 13,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2FAn",
+   "expect": "13",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p2FCy",
+   "text": "2nd class, female, child, survived Yes: cell count",
+   "value": 13,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2FCy",
+   "expect": "13",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p2FCn",
+   "text": "2nd class, female, child, survived No: cell count",
+   "value": 0,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2FCn",
+   "expect": "0",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p3MAy",
+   "text": "3rd class, male, adult, survived Yes: cell count",
+   "value": 75,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3MAy",
+   "expect": "75",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p3MAn",
+   "text": "3rd class, male, adult, survived No: cell count",
+   "value": 387,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3MAn",
+   "expect": "387",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p3MCy",
+   "text": "3rd class, male, child, survived Yes: cell count",
+   "value": 13,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3MCy",
+   "expect": "13",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p3MCn",
+   "text": "3rd class, male, child, survived No: cell count",
+   "value": 35,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3MCn",
+   "expect": "35",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p3FAy",
+   "text": "3rd class, female, adult, survived Yes: cell count",
+   "value": 76,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3FAy",
+   "expect": "76",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p3FAn",
+   "text": "3rd class, female, adult, survived No: cell count",
+   "value": 89,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3FAn",
+   "expect": "89",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p3FCy",
+   "text": "3rd class, female, child, survived Yes: cell count",
+   "value": 14,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3FCy",
+   "expect": "14",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p3FCn",
+   "text": "3rd class, female, child, survived No: cell count",
+   "value": 17,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3FCn",
+   "expect": "17",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "crMAy",
+   "text": "Crew class, male, adult, survived Yes: cell count",
+   "value": 192,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crMAy",
+   "expect": "192",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "crMAn",
+   "text": "Crew class, male, adult, survived No: cell count",
+   "value": 670,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crMAn",
+   "expect": "670",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "crMCy",
+   "text": "Crew class, male, child, survived Yes: cell count",
+   "value": 0,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crMCy",
+   "expect": "0",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "crMCn",
+   "text": "Crew class, male, child, survived No: cell count",
+   "value": 0,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crMCn",
+   "expect": "0",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "crFAy",
+   "text": "Crew class, female, adult, survived Yes: cell count",
+   "value": 20,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crFAy",
+   "expect": "20",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "crFAn",
+   "text": "Crew class, female, adult, survived No: cell count",
+   "value": 3,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crFAn",
+   "expect": "3",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "crFCy",
+   "text": "Crew class, female, child, survived Yes: cell count",
+   "value": 0,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crFCy",
+   "expect": "0",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "crFCn",
+   "text": "Crew class, female, child, survived No: cell count",
+   "value": 0,
+   "formula": null,
+   "source": "S1",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crFCn",
+   "expect": "0",
+   "where": "data only (gl-stack-city n/hit matrix)"
+  },
+  {
+   "id": "p1MenN",
+   "text": "first-class men aboard",
+   "value": 175,
+   "formula": "p1MAy + p1MAn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1MenN",
+   "expect": "175",
+   "where": "slab pin; callout + c14 (76.0 s)"
+  },
+  {
+   "id": "p1MenY",
+   "text": "first-class men who lived",
+   "value": 57,
+   "formula": "p1MAy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1MenY",
+   "expect": "57",
+   "where": "slab pin; callout + caption c14 (76.0 s)"
+  },
+  {
+   "id": "p1MenRate",
+   "text": "first-class men who lived, %",
+   "value": 33,
+   "formula": "round(100 * p1MenY / p1MenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1MenRate",
+   "expect": "33",
+   "where": "slab pin % (60 s); reveal result + caption c15 (84.0 s)"
+  },
+  {
+   "id": "p1WomenN",
+   "text": "first-class women aboard",
+   "value": 144,
+   "formula": "p1FAy + p1FAn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1WomenN",
+   "expect": "144",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p1WomenY",
+   "text": "first-class women who lived",
+   "value": 140,
+   "formula": "p1FAy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1WomenY",
+   "expect": "140",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p1WomenRate",
+   "text": "first-class women who lived, %",
+   "value": 97,
+   "formula": "round(100 * p1WomenY / p1WomenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1WomenRate",
+   "expect": "97",
+   "where": "slab pin % (+1.5 s after its count)"
+  },
+  {
+   "id": "p1BoysN",
+   "text": "first-class boys aboard",
+   "value": 5,
+   "formula": "p1MCy + p1MCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1BoysN",
+   "expect": "5",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1BoysY",
+   "text": "first-class boys who lived",
+   "value": 5,
+   "formula": "p1MCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1BoysY",
+   "expect": "5",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1BoysRate",
+   "text": "first-class boys who lived, %",
+   "value": 100,
+   "formula": "round(100 * p1BoysY / p1BoysN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1BoysRate",
+   "expect": "100",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1GirlsN",
+   "text": "first-class girls aboard",
+   "value": 1,
+   "formula": "p1FCy + p1FCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1GirlsN",
+   "expect": "1",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1GirlsY",
+   "text": "first-class girls who lived",
+   "value": 1,
+   "formula": "p1FCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1GirlsY",
+   "expect": "1",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1GirlsRate",
+   "text": "first-class girls who lived, %",
+   "value": 100,
+   "formula": "round(100 * p1GirlsY / p1GirlsN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1GirlsRate",
+   "expect": "100",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1ChildN",
+   "text": "first-class children aboard (boys and girls)",
+   "value": 6,
+   "formula": "p1MCy + p1MCn + p1FCy + p1FCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1ChildN",
+   "expect": "6",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p1ChildY",
+   "text": "first-class children who lived",
+   "value": 6,
+   "formula": "p1MCy + p1FCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1ChildY",
+   "expect": "6",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p1ChildRate",
+   "text": "first-class children who lived, %",
+   "value": 100,
+   "formula": "round(100 * p1ChildY / p1ChildN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1ChildRate",
+   "expect": "100",
+   "where": "slab pin % (+1.5 s after its count)"
+  },
+  {
+   "id": "p1WcN",
+   "text": "first-class women and children aboard",
+   "value": 150,
+   "formula": "p1WomenN + p1ChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1WcN",
+   "expect": "150",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1WcY",
+   "text": "first-class women and children who lived",
+   "value": 146,
+   "formula": "p1WomenY + p1ChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1WcY",
+   "expect": "146",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1WcRate",
+   "text": "first-class women and children who lived, %",
+   "value": 97,
+   "formula": "round(100 * p1WcY / p1WcN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1WcRate",
+   "expect": "97",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1N",
+   "text": "first-class people aboard",
+   "value": 325,
+   "formula": "p1MenN + p1WomenN + p1ChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1N",
+   "expect": "325",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1Y",
+   "text": "first-class people who lived",
+   "value": 203,
+   "formula": "p1MenY + p1WomenY + p1ChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1Y",
+   "expect": "203",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p1Rate",
+   "text": "first-class people who lived, %",
+   "value": 62,
+   "formula": "round(100 * p1Y / p1N)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1Rate",
+   "expect": "62",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2MenN",
+   "text": "second-class men aboard",
+   "value": 168,
+   "formula": "p2MAy + p2MAn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2MenN",
+   "expect": "168",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p2MenY",
+   "text": "second-class men who lived",
+   "value": 14,
+   "formula": "p2MAy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2MenY",
+   "expect": "14",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p2MenRate",
+   "text": "second-class men who lived, %",
+   "value": 8,
+   "formula": "round(100 * p2MenY / p2MenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2MenRate",
+   "expect": "8",
+   "where": "slab pin % (+1.5 s after its count)"
+  },
+  {
+   "id": "p2WomenN",
+   "text": "second-class women aboard",
+   "value": 93,
+   "formula": "p2FAy + p2FAn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2WomenN",
+   "expect": "93",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p2WomenY",
+   "text": "second-class women who lived",
+   "value": 80,
+   "formula": "p2FAy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2WomenY",
+   "expect": "80",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p2WomenRate",
+   "text": "second-class women who lived, %",
+   "value": 86,
+   "formula": "round(100 * p2WomenY / p2WomenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2WomenRate",
+   "expect": "86",
+   "where": "slab pin % (+1.5 s after its count)"
+  },
+  {
+   "id": "p2BoysN",
+   "text": "second-class boys aboard",
+   "value": 11,
+   "formula": "p2MCy + p2MCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2BoysN",
+   "expect": "11",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2BoysY",
+   "text": "second-class boys who lived",
+   "value": 11,
+   "formula": "p2MCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2BoysY",
+   "expect": "11",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2BoysRate",
+   "text": "second-class boys who lived, %",
+   "value": 100,
+   "formula": "round(100 * p2BoysY / p2BoysN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2BoysRate",
+   "expect": "100",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2GirlsN",
+   "text": "second-class girls aboard",
+   "value": 13,
+   "formula": "p2FCy + p2FCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2GirlsN",
+   "expect": "13",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2GirlsY",
+   "text": "second-class girls who lived",
+   "value": 13,
+   "formula": "p2FCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2GirlsY",
+   "expect": "13",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2GirlsRate",
+   "text": "second-class girls who lived, %",
+   "value": 100,
+   "formula": "round(100 * p2GirlsY / p2GirlsN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2GirlsRate",
+   "expect": "100",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2ChildN",
+   "text": "second-class children aboard (boys and girls)",
+   "value": 24,
+   "formula": "p2MCy + p2MCn + p2FCy + p2FCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2ChildN",
+   "expect": "24",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p2ChildY",
+   "text": "second-class children who lived",
+   "value": 24,
+   "formula": "p2MCy + p2FCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2ChildY",
+   "expect": "24",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p2ChildRate",
+   "text": "second-class children who lived, %",
+   "value": 100,
+   "formula": "round(100 * p2ChildY / p2ChildN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2ChildRate",
+   "expect": "100",
+   "where": "slab pin % (+1.5 s after its count)"
+  },
+  {
+   "id": "p2WcN",
+   "text": "second-class women and children aboard",
+   "value": 117,
+   "formula": "p2WomenN + p2ChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2WcN",
+   "expect": "117",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2WcY",
+   "text": "second-class women and children who lived",
+   "value": 104,
+   "formula": "p2WomenY + p2ChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2WcY",
+   "expect": "104",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2WcRate",
+   "text": "second-class women and children who lived, %",
+   "value": 89,
+   "formula": "round(100 * p2WcY / p2WcN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2WcRate",
+   "expect": "89",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2N",
+   "text": "second-class people aboard",
+   "value": 285,
+   "formula": "p2MenN + p2WomenN + p2ChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2N",
+   "expect": "285",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2Y",
+   "text": "second-class people who lived",
+   "value": 118,
+   "formula": "p2MenY + p2WomenY + p2ChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2Y",
+   "expect": "118",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p2Rate",
+   "text": "second-class people who lived, %",
+   "value": 41,
+   "formula": "round(100 * p2Y / p2N)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p2Rate",
+   "expect": "41",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3MenN",
+   "text": "third-class men aboard",
+   "value": 462,
+   "formula": "p3MAy + p3MAn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3MenN",
+   "expect": "462",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p3MenY",
+   "text": "third-class men who lived",
+   "value": 75,
+   "formula": "p3MAy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3MenY",
+   "expect": "75",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p3MenRate",
+   "text": "third-class men who lived, %",
+   "value": 16,
+   "formula": "round(100 * p3MenY / p3MenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3MenRate",
+   "expect": "16",
+   "where": "slab pin % (+1.5 s after its count)"
+  },
+  {
+   "id": "p3WomenN",
+   "text": "third-class women aboard",
+   "value": 165,
+   "formula": "p3FAy + p3FAn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3WomenN",
+   "expect": "165",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p3WomenY",
+   "text": "third-class women who lived",
+   "value": 76,
+   "formula": "p3FAy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3WomenY",
+   "expect": "76",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "p3WomenRate",
+   "text": "third-class women who lived, %",
+   "value": 46,
+   "formula": "round(100 * p3WomenY / p3WomenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3WomenRate",
+   "expect": "46",
+   "where": "slab pin % (+1.5 s after its count)"
+  },
+  {
+   "id": "p3BoysN",
+   "text": "third-class boys aboard",
+   "value": 48,
+   "formula": "p3MCy + p3MCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3BoysN",
+   "expect": "48",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3BoysY",
+   "text": "third-class boys who lived",
+   "value": 13,
+   "formula": "p3MCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3BoysY",
+   "expect": "13",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3BoysRate",
+   "text": "third-class boys who lived, %",
+   "value": 27,
+   "formula": "round(100 * p3BoysY / p3BoysN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3BoysRate",
+   "expect": "27",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3GirlsN",
+   "text": "third-class girls aboard",
+   "value": 31,
+   "formula": "p3FCy + p3FCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3GirlsN",
+   "expect": "31",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3GirlsY",
+   "text": "third-class girls who lived",
+   "value": 14,
+   "formula": "p3FCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3GirlsY",
+   "expect": "14",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3GirlsRate",
+   "text": "third-class girls who lived, %",
+   "value": 45,
+   "formula": "round(100 * p3GirlsY / p3GirlsN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3GirlsRate",
+   "expect": "45",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3ChildN",
+   "text": "third-class children aboard (boys and girls)",
+   "value": 79,
+   "formula": "p3MCy + p3MCn + p3FCy + p3FCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3ChildN",
+   "expect": "79",
+   "where": "slab pin; callout + c13 (70.0 s)"
+  },
+  {
+   "id": "p3ChildY",
+   "text": "third-class children who lived",
+   "value": 27,
+   "formula": "p3MCy + p3FCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3ChildY",
+   "expect": "27",
+   "where": "slab pin (58.4 s); callout + caption c13 (70.0 s)"
+  },
+  {
+   "id": "p3ChildRate",
+   "text": "third-class children who lived, %",
+   "value": 34,
+   "formula": "round(100 * p3ChildY / p3ChildN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3ChildRate",
+   "expect": "34",
+   "where": "slab pin % (60 s); reveal result + caption c15 (84.0 s)"
+  },
+  {
+   "id": "p3WcN",
+   "text": "third-class women and children aboard",
+   "value": 244,
+   "formula": "p3WomenN + p3ChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3WcN",
+   "expect": "244",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3WcY",
+   "text": "third-class women and children who lived",
+   "value": 103,
+   "formula": "p3WomenY + p3ChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3WcY",
+   "expect": "103",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3WcRate",
+   "text": "third-class women and children who lived, %",
+   "value": 42,
+   "formula": "round(100 * p3WcY / p3WcN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3WcRate",
+   "expect": "42",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3N",
+   "text": "third-class people aboard",
+   "value": 706,
+   "formula": "p3MenN + p3WomenN + p3ChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3N",
+   "expect": "706",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3Y",
+   "text": "third-class people who lived",
+   "value": 178,
+   "formula": "p3MenY + p3WomenY + p3ChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3Y",
+   "expect": "178",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "p3Rate",
+   "text": "third-class people who lived, %",
+   "value": 25,
+   "formula": "round(100 * p3Y / p3N)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3Rate",
+   "expect": "25",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "crMenN",
+   "text": "crew men aboard",
+   "value": 862,
+   "formula": "crMAy + crMAn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crMenN",
+   "expect": "862",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "crMenY",
+   "text": "crew men who lived",
+   "value": 192,
+   "formula": "crMAy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crMenY",
+   "expect": "192",
+   "where": "slab pin count (58.4 s on)"
+  },
+  {
+   "id": "crMenRate",
+   "text": "crew men who lived, %",
+   "value": 22,
+   "formula": "round(100 * crMenY / crMenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crMenRate",
+   "expect": "22",
+   "where": "slab pin % (+1.5 s after its count)"
+  },
+  {
+   "id": "crWomenN",
+   "text": "crew women aboard",
+   "value": 23,
+   "formula": "crFAy + crFAn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crWomenN",
+   "expect": "23",
+   "where": "slab pin; callout sub (98 s)"
+  },
+  {
+   "id": "crWomenY",
+   "text": "crew women who lived",
+   "value": 20,
+   "formula": "crFAy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crWomenY",
+   "expect": "20",
+   "where": "slab pin (58.4 s); callout sub (98 s)"
+  },
+  {
+   "id": "crWomenRate",
+   "text": "crew women who lived, %",
+   "value": 87,
+   "formula": "round(100 * crWomenY / crWomenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crWomenRate",
+   "expect": "87",
+   "where": "slab pin % (+1.5 s after its count)"
+  },
+  {
+   "id": "crChildN",
+   "text": "crew children aboard (boys and girls)",
+   "value": 0,
+   "formula": "crMCy + crMCn + crFCy + crFCn",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crChildN",
+   "expect": "0",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "crChildY",
+   "text": "crew children who lived",
+   "value": 0,
+   "formula": "crMCy + crFCy",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crChildY",
+   "expect": "0",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "crWcN",
+   "text": "crew women and children aboard",
+   "value": 23,
+   "formula": "crWomenN + crChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crWcN",
+   "expect": "23",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "crWcY",
+   "text": "crew women and children who lived",
+   "value": 20,
+   "formula": "crWomenY + crChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crWcY",
+   "expect": "20",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "crWcRate",
+   "text": "crew women and children who lived, %",
+   "value": 87,
+   "formula": "round(100 * crWcY / crWcN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crWcRate",
+   "expect": "87",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "crN",
+   "text": "crew people aboard",
+   "value": 885,
+   "formula": "crMenN + crWomenN + crChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crN",
+   "expect": "885",
+   "where": "callout + caption c17 (96.0 s)"
+  },
+  {
+   "id": "crY",
+   "text": "crew people who lived",
+   "value": 212,
+   "formula": "crMenY + crWomenY + crChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crY",
+   "expect": "212",
+   "where": "callout + caption c17 (96.0 s)"
+  },
+  {
+   "id": "crRate",
+   "text": "crew people who lived, %",
+   "value": 24,
+   "formula": "round(100 * crY / crN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crRate",
+   "expect": "24",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "people",
+   "text": "people aboard, one box each",
+   "value": 2201,
+   "formula": "p1N + p2N + p3N + crN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value people",
+   "expect": "2201",
+   "where": "readout + caption c5 (24.0 s, count.at); c9 (48.0 s)"
+  },
+  {
+   "id": "survived",
+   "text": "people who lived",
+   "value": 711,
+   "formula": "p1Y + p2Y + p3Y + crY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value survived",
+   "expect": "711",
+   "where": "readout + caption c6 (30.0 s)"
+  },
+  {
+   "id": "lost",
+   "text": "people who did not",
+   "value": 1490,
+   "formula": "people - survived",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value lost",
+   "expect": "1490",
+   "where": "caption c6 (30.0 s)"
+  },
+  {
+   "id": "survivedRate",
+   "text": "everyone aboard who lived, %",
+   "value": 32,
+   "formula": "round(100 * survived / people)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value survivedRate",
+   "expect": "32",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "menN",
+   "text": "men aboard (adult males, all classes and crew)",
+   "value": 1667,
+   "formula": "p1MenN + p2MenN + p3MenN + crMenN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value menN",
+   "expect": "1667",
+   "where": "pooled pin + caption c7 (36.0 s); c18 (102 s)"
+  },
+  {
+   "id": "menY",
+   "text": "men who lived",
+   "value": 338,
+   "formula": "p1MenY + p2MenY + p3MenY + crMenY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value menY",
+   "expect": "338",
+   "where": "pooled pin + caption c7 (36.0 s)"
+  },
+  {
+   "id": "menRate",
+   "text": "men who lived, %",
+   "value": 20,
+   "formula": "round(100 * menY / menN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value menRate",
+   "expect": "20",
+   "where": "pooled pin % (37.5 s); caption c8 (42.0 s); c18"
+  },
+  {
+   "id": "womenN",
+   "text": "women aboard (adult females)",
+   "value": 425,
+   "formula": "p1WomenN + p2WomenN + p3WomenN + crWomenN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value womenN",
+   "expect": "425",
+   "where": "pooled pin + caption c7 (36.0 s)"
+  },
+  {
+   "id": "womenY",
+   "text": "women who lived",
+   "value": 316,
+   "formula": "p1WomenY + p2WomenY + p3WomenY + crWomenY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value womenY",
+   "expect": "316",
+   "where": "pooled pin + caption c7 (36.0 s)"
+  },
+  {
+   "id": "womenRate",
+   "text": "women who lived, %",
+   "value": 74,
+   "formula": "round(100 * womenY / womenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value womenRate",
+   "expect": "74",
+   "where": "pooled pin % (37.5 s, ratioDelay 1.5)"
+  },
+  {
+   "id": "childN",
+   "text": "children aboard",
+   "value": 109,
+   "formula": "p1ChildN + p2ChildN + p3ChildN + crChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value childN",
+   "expect": "109",
+   "where": "pooled pin + caption c7 (36.0 s)"
+  },
+  {
+   "id": "childY",
+   "text": "children who lived",
+   "value": 57,
+   "formula": "p1ChildY + p2ChildY + p3ChildY + crChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value childY",
+   "expect": "57",
+   "where": "pooled pin + caption c7 (36.0 s)"
+  },
+  {
+   "id": "childRate",
+   "text": "children who lived, %",
+   "value": 52,
+   "formula": "round(100 * childY / childN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value childRate",
+   "expect": "52",
+   "where": "pooled pin % (37.5 s)"
+  },
+  {
+   "id": "wcN",
+   "text": "women and children aboard",
+   "value": 534,
+   "formula": "womenN + childN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value wcN",
+   "expect": "534",
+   "where": "caption c8 (42.0 s)"
+  },
+  {
+   "id": "wcY",
+   "text": "women and children who lived",
+   "value": 373,
+   "formula": "womenY + childY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value wcY",
+   "expect": "373",
+   "where": "caption c8 (42.0 s)"
+  },
+  {
+   "id": "wcRate",
+   "text": "women and children who lived, %",
+   "value": 70,
+   "formula": "round(100 * wcY / wcN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value wcRate",
+   "expect": "70",
+   "where": "caption c8 (42.0 s)"
+  },
+  {
+   "id": "p12ChildN",
+   "text": "children in first and second class",
+   "value": 30,
+   "formula": "p1ChildN + p2ChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p12ChildN",
+   "expect": "30",
+   "where": "caption c12 (64.0 s)"
+  },
+  {
+   "id": "p12ChildY",
+   "text": "of them, lived",
+   "value": 30,
+   "formula": "p1ChildY + p2ChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p12ChildY",
+   "expect": "30",
+   "where": "caption c12 (64.0 s)"
+  },
+  {
+   "id": "p3ChildLost",
+   "text": "third-class children who did not live",
+   "value": 52,
+   "formula": "p3ChildN - p3ChildY",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3ChildLost",
+   "expect": "52",
+   "where": "caption c13 (70.0 s)"
+  },
+  {
+   "id": "p3ChildPer10",
+   "text": "third-class children who lived, per 10",
+   "value": 3,
+   "formula": "round(10 * p3ChildY / p3ChildN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p3ChildPer10",
+   "expect": "3",
+   "where": "reveal result '3 IN 10' + caption c16 (90.0 s)"
+  },
+  {
+   "id": "p1MenPer10",
+   "text": "first-class men who lived, per 10",
+   "value": 3,
+   "formula": "round(10 * p1MenY / p1MenN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value p1MenPer10",
+   "expect": "3",
+   "where": "reveal result + c16 (90.0 s)"
+  },
+  {
+   "id": "crShare",
+   "text": "crew as a share of everyone aboard, %",
+   "value": 40,
+   "formula": "round(100 * crN / people)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crShare",
+   "expect": "40",
+   "where": "caption c17 (96.0 s)"
+  },
+  {
+   "id": "menP3CrN",
+   "text": "men who were crew or third class",
+   "value": 1324,
+   "formula": "p3MenN + crMenN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value menP3CrN",
+   "expect": "1324",
+   "where": "caption c18 (102.0 s)"
+  },
+  {
+   "id": "menP3CrShare",
+   "text": "share of all men who were crew or third class, %",
+   "value": 79,
+   "formula": "round(100 * menP3CrN / menN)",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value menP3CrShare",
+   "expect": "79",
+   "where": "not on screen (available)"
+  },
+  {
+   "id": "year",
+   "text": "the sinking, April 1912",
+   "value": 1912,
+   "formula": "1912",
+   "source": "S2",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value year",
+   "expect": "1912",
+   "where": "caption c3 (12.4 s)"
+  },
+  {
+   "id": "perBox",
+   "text": "one box = one person (k = 1, no batching)",
+   "value": 1,
+   "formula": "1",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value perBox",
+   "expect": "1",
+   "where": "readout '1 BOX = 1 PERSON' (12.4 s on)"
+  },
+  {
+   "id": "groups",
+   "text": "pooled groups: women, children, men",
+   "value": 3,
+   "formula": "3",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value groups",
+   "expect": "3",
+   "where": "none (layout)"
+  },
+  {
+   "id": "slabs",
+   "text": "split slabs: 3 groups x 4 classes (crew children: 0 boxes)",
+   "value": 12,
+   "formula": "groups * 4",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value slabs",
+   "expect": "12",
+   "where": "none (layout)"
+  },
+  {
+   "id": "crChildN0",
+   "text": "crew children aboard",
+   "value": 0,
+   "formula": "crChildN",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value crChildN0",
+   "expect": "0",
+   "where": "none (empty slab, see NOTES)"
+  },
+  {
+   "id": "perTen",
+   "text": "the natural-frequency base: 'in 10'",
+   "value": 10,
+   "formula": "10",
+   "source": "derived",
+   "recompute": "python3 factory/topics/women-and-children/recompute.py --value perTen",
+   "expect": "10",
+   "where": "reveal result '3 IN 10' + caption c16 (90.0 s)"
+  }
+ ]
+}

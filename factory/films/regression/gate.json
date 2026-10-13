@@ -1,0 +1,177 @@
+{
+  "film": "regression",
+  "page": "factory/films/regression/build/regression.html",
+  "filmDir": "factory/films/regression",
+  "date": "2026-10-08T10:23:52.410Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 232 ms; stage sd 15s:26.0 37.5s:22.8 60s:25.8",
+      "data": {
+        "readyMs": 232,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 212.14396942515754,
+            "sd": 26.008997855470625
+          },
+          {
+            "t": 37.5,
+            "mean": 213.00406518132715,
+            "sd": 22.820575788293617
+          },
+          {
+            "t": 60,
+            "mean": 210.95532558835103,
+            "sd": 25.844276522949716
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 9 s (want 8–16); film-mode default 3"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"The extremes drift back on their own. Credit needs a compari\"; frame at 74 s sd 26.1; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"The hundred pilots are a constructed sample from a declared model, not flight-sc\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "6 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "42 claims, 39 with formula, 39 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 14 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "6 visible number(s) not in claims (chrome?): 27 @37.5s \"27\"; 45 @38s \"45\"; 63 @38.5s \"63\"; 81 @39s \"81\"; 99 @39.5s \"99\"; 7 @46.5s \"WORSE 7\"",
+      "data": {
+        "unknown": [
+          "27 @37.5s \"27\"",
+          "45 @38s \"45\"",
+          "63 @38.5s \"63\"",
+          "81 @39s \"81\"",
+          "99 @39.5s \"99\"",
+          "7 @46.5s \"WORSE 7\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "25 must-read / 28 secondary / 50 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/regression/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 25,
+          "secondary": 28,
+          "chrome": 50
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 36 s (count.at); no percentage or ratio found"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 41.2 KB (film.js 18.1, film.json 5.8, claims.json 17.3) < 120 KB; page 1.115 MB < 1.3 MB",
+      "data": {
+        "code": 42236,
+        "page": 1114715
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 10.87, 20.73, 30.6, 40.47, 50.33, 60.2, 75 s → /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/regression/shots"
+    }
+  ]
+}

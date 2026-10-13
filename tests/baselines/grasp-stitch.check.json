@@ -1,0 +1,100 @@
+{
+  "graph": "agent-loop-grasp",
+  "material": "stitch",
+  "pass": true,
+  "errors": [],
+  "warnings": [],
+  "waived": [
+    {
+      "law": "MAX",
+      "msg": "5 content structures (CF, PCR, ENS, TW, TRF) at \"grasp\" (≤4)",
+      "reason": "INTERVIEW F1: the brief asks for Trace → ensemble → twins → truth → cost → honesty → transfer at Grasp; that is five content structures (CF, PCR, ENS, TW, TRF) against the map's [inf] budget of four. Kept on purpose as the proof graph; Q-M2 asks Manu which beat to drop."
+    }
+  ],
+  "schedule": [
+    {
+      "id": "engine",
+      "module": "agentLoop",
+      "start": 0,
+      "end": 0,
+      "layer": "none"
+    },
+    {
+      "id": "trace",
+      "module": "traceOpener",
+      "start": 0,
+      "end": 22.019999999999996,
+      "layer": "stage"
+    },
+    {
+      "id": "camTrace",
+      "module": "frameFocus",
+      "start": 0,
+      "end": 20,
+      "layer": "camera"
+    },
+    {
+      "id": "fade",
+      "module": "concretenessFade",
+      "start": 22.019999999999996,
+      "end": 29.019999999999996,
+      "layer": "stage"
+    },
+    {
+      "id": "camPull",
+      "module": "pullBack",
+      "start": 22.019999999999996,
+      "end": 27.619999999999997,
+      "layer": "camera"
+    },
+    {
+      "id": "guess",
+      "module": "predictCommitReveal",
+      "start": 29.019999999999996,
+      "end": 37.019999999999996,
+      "layer": "overlay"
+    },
+    {
+      "id": "ens",
+      "module": "ensembleRun",
+      "start": 37.019999999999996,
+      "end": 49.62,
+      "layer": "stage"
+    },
+    {
+      "id": "truth",
+      "module": "truthUnderEvidence",
+      "start": 49.62,
+      "end": 62.62,
+      "layer": "stage"
+    },
+    {
+      "id": "twins",
+      "module": "contrastingTwins",
+      "start": 62.62,
+      "end": 78.62,
+      "layer": "stage"
+    },
+    {
+      "id": "cost",
+      "module": "costOfCheck",
+      "start": 78.62,
+      "end": 87.62,
+      "layer": "overlay"
+    },
+    {
+      "id": "caveat",
+      "module": "correlatedCaveat",
+      "start": 87.62,
+      "end": 99.62,
+      "layer": "stage"
+    },
+    {
+      "id": "transfer",
+      "module": "transferQuestion",
+      "start": 99.62,
+      "end": 118.62,
+      "layer": "stage"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+ "verlet_1e9": {
+  "mode": 0,
+  "orbits": 10000000,
+  "steps": 1000000000,
+  "lines": [
+   "steps=100000000 orbits=1000000 dE/E=-3.117e-05 dL/L=6.940e-14",
+   "steps=200000000 orbits=2000000 dE/E=-6.758e-05 dL/L=3.622e-13",
+   "steps=300000000 orbits=3000000 dE/E=-5.610e-05 dL/L=4.797e-13",
+   "steps=400000000 orbits=4000000 dE/E=-1.156e-05 dL/L=7.680e-13",
+   "steps=500000000 orbits=5000000 dE/E=-7.181e-06 dL/L=2.069e-12",
+   "steps=600000000 orbits=6000000 dE/E=-5.124e-05 dL/L=1.054e-12",
+   "steps=700000000 orbits=7000000 dE/E=-6.908e-05 dL/L=5.069e-13",
+   "steps=800000000 orbits=8000000 dE/E=-3.725e-05 dL/L=1.359e-12",
+   "steps=900000000 orbits=9000000 dE/E=-6.221e-07 dL/L=1.286e-12",
+   "steps=1000000000 orbits=10000000 dE/E=-2.512e-05 dL/L=2.790e-12",
+   "max|dE/E| at checkpoints=6.908e-05  max|dL/L|=2.790e-12"
+  ]
+ },
+ "verlet_1e7": {
+  "mode": 0,
+  "orbits": 100000,
+  "steps": 10000000,
+  "lines": [
+   "steps=1000000 orbits=10000 dE/E=-2.099e-05 dL/L=7.995e-15",
+   "steps=2000000 orbits=20000 dE/E=-5.640e-05 dL/L=5.252e-14",
+   "steps=3000000 orbits=30000 dE/E=-6.959e-05 dL/L=9.216e-14",
+   "steps=4000000 orbits=40000 dE/E=-5.054e-05 dL/L=-1.854e-14",
+   "steps=5000000 orbits=50000 dE/E=-1.439e-05 dL/L=-2.033e-13",
+   "steps=6000000 orbits=60000 dE/E=-8.960e-07 dL/L=-2.161e-13",
+   "steps=7000000 orbits=70000 dE/E=-2.813e-05 dL/L=-2.552e-13",
+   "steps=8000000 orbits=80000 dE/E=-6.134e-05 dL/L=-2.355e-13",
+   "steps=9000000 orbits=90000 dE/E=-6.833e-05 dL/L=-2.592e-13",
+   "steps=10000000 orbits=100000 dE/E=-4.395e-05 dL/L=-2.473e-13",
+   "max|dE/E| at checkpoints=6.959e-05  max|dL/L|=2.592e-13"
+  ]
+ },
+ "rk4_1e6": {
+  "mode": 1,
+  "orbits": 10000,
+  "steps": 1000000,
+  "lines": [
+   "steps=100000 orbits=1000 dE/E=1.728e-04 dL/L=-8.610e-05",
+   "steps=200000 orbits=2000 dE/E=3.458e-04 dL/L=-1.723e-04",
+   "steps=300000 orbits=3000 dE/E=5.192e-04 dL/L=-2.587e-04",
+   "steps=400000 orbits=4000 dE/E=6.928e-04 dL/L=-3.452e-04",
+   "steps=500000 orbits=5000 dE/E=8.668e-04 dL/L=-4.318e-04",
+   "steps=600000 orbits=6000 dE/E=1.041e-03 dL/L=-5.185e-04",
+   "steps=700000 orbits=7000 dE/E=1.216e-03 dL/L=-6.053e-04",
+   "steps=800000 orbits=8000 dE/E=1.390e-03 dL/L=-6.923e-04",
+   "steps=900000 orbits=9000 dE/E=1.566e-03 dL/L=-7.794e-04",
+   "steps=1000000 orbits=10000 dE/E=1.741e-03 dL/L=-8.667e-04",
+   "max|dE/E| at checkpoints=1.741e-03  max|dL/L|=8.667e-04"
+  ]
+ },
+ "rk4_1e7": {
+  "mode": 1,
+  "orbits": 100000,
+  "steps": 10000000,
+  "lines": [
+   "steps=1000000 orbits=10000 dE/E=1.741e-03 dL/L=-8.667e-04",
+   "steps=2000000 orbits=20000 dE/E=3.513e-03 dL/L=-1.746e-03",
+   "steps=3000000 orbits=30000 dE/E=5.316e-03 dL/L=-2.639e-03",
+   "steps=4000000 orbits=40000 dE/E=7.151e-03 dL/L=-3.546e-03",
+   "steps=5000000 orbits=50000 dE/E=9.021e-03 dL/L=-4.467e-03",
+   "steps=6000000 orbits=60000 dE/E=1.093e-02 dL/L=-5.402e-03",
+   "steps=7000000 orbits=70000 dE/E=1.287e-02 dL/L=-6.353e-03",
+   "steps=8000000 orbits=80000 dE/E=1.484e-02 dL/L=-7.319e-03",
+   "steps=9000000 orbits=90000 dE/E=1.686e-02 dL/L=-8.302e-03",
+   "steps=10000000 orbits=100000 dE/E=1.892e-02 dL/L=-9.301e-03",
+   "max|dE/E| at checkpoints=1.892e-02  max|dL/L|=9.301e-03"
+  ]
+ }
+}

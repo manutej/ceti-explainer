@@ -1,0 +1,195 @@
+{
+  "film": "simpsons-3d",
+  "page": "factory/films/simpsons-3d/build/simpsons-3d.swiss-grid.none.html",
+  "filmDir": "factory/films/simpsons-3d",
+  "date": "2026-10-09T22:28:54.018Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 1551 ms; stage sd 15s:26.0 37.5s:52.7 60s:47.5",
+      "data": {
+        "readyMs": 1551,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 251.0471582465276,
+            "sd": 25.974526962148357
+          },
+          {
+            "t": 37.5,
+            "mean": 233.21424250578013,
+            "sd": 52.70865442716009
+          },
+          {
+            "t": 60,
+            "mean": 233.63033979551471,
+            "sd": 47.54402107528963
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit2.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75, format case) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16.5 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 11.5 s (want 8–16); film-mode default 5"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Split by segment before you call it worse.\"; frame at 74 s sd 21.8; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"Splitting explains this gap. It does not prove fairness. The film counts the six\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "6 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "65 claims, 65 with formula, 65 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 14 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "10 visible number(s) not in claims (chrome?): 462 @18s \"462\"; 846 @19s \"846\"; 1,231 @20s \"1,231\"; 1,615 @21s \"1,615\"; 2,000 @22s \"2,000\"; 2,384 @23s \"2,384\"",
+      "data": {
+        "unknown": [
+          "462 @18s \"462\"",
+          "846 @19s \"846\"",
+          "1,231 @20s \"1,231\"",
+          "1,615 @21s \"1,615\"",
+          "2,000 @22s \"2,000\"",
+          "2,384 @23s \"2,384\"",
+          "240 @25s \"240\"",
+          "111 @25s \"111\"",
+          "839 @26s \"839\"",
+          "390 @26s \"390\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "18 must-read / 42 secondary / 8 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 18,
+          "secondary": 42,
+          "chrome": 8
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 16.6 s (count.at); first ratio \"45 %\" at 36 s (svg)"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 80.2 KB (film.js 54.2, film.json 12.8, claims.json 13.3) < 120 KB; page 1.210 MB < 1.3 MB",
+      "data": {
+        "code": 82146,
+        "page": 1209531
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "G10",
+      "name": "axes",
+      "status": "PASS",
+      "evidence": "brand swiss-grid, chrome none, material ink, texture none; level manager; via window.__film.info.axes",
+      "data": {
+        "axes": {
+          "brand": "swiss-grid",
+          "chrome": "none",
+          "material": "ink",
+          "texture": "none",
+          "texture_declared": "none",
+          "level": "manager",
+          "renderer": "webgl",
+          "box": null
+        },
+        "level": "manager",
+        "bad": []
+      }
+    }
+  ]
+}

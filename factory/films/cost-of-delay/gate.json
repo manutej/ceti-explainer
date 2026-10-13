@@ -1,0 +1,186 @@
+{
+  "film": "cost-of-delay",
+  "page": "factory/films/cost-of-delay/build/cost-of-delay.html",
+  "filmDir": "factory/films/cost-of-delay",
+  "date": "2026-10-08T10:08:57.902Z",
+  "pass": true,
+  "rows": [
+    {
+      "id": "G1",
+      "name": "load",
+      "status": "PASS",
+      "evidence": "film errors 0; live errors 0; charset utf-8; ready 323 ms; stage sd 15s:25.5 37.5s:26.1 60s:32.8",
+      "data": {
+        "readyMs": 323,
+        "stats": [
+          {
+            "t": 15,
+            "mean": 212.34284144482749,
+            "sd": 25.450815825372363
+          },
+          {
+            "t": 37.5,
+            "mean": 211.4838927565558,
+            "sd": 26.08848743499138
+          },
+          {
+            "t": 60,
+            "mean": 207.75216630980054,
+            "sd": 32.78667555062561
+          }
+        ],
+        "filmErrs": [],
+        "liveErrs": []
+      }
+    },
+    {
+      "id": "G2a",
+      "name": "purity · canvas",
+      "status": "PASS",
+      "evidence": "1 canvas; re-seek at 7.5, 22.5, 37.5, 52.5, 67.5 identical; order A→B = B→A (2 pairs)"
+    },
+    {
+      "id": "G2b",
+      "name": "purity · SVG",
+      "status": "PASS",
+      "evidence": "1 svg; re-seek identical; order identical (2 pairs)",
+      "data": {
+        "badS": [],
+        "ordS": [],
+        "diffNote": ""
+      }
+    },
+    {
+      "id": "G3",
+      "name": "clock scan",
+      "status": "PASS",
+      "evidence": "clean: film.js, kit.js, player.js (player: rAF/Date/perf allowed)",
+      "data": {
+        "hits": []
+      }
+    },
+    {
+      "id": "G4a",
+      "name": "format · duration",
+      "status": "PASS",
+      "evidence": "total 75 s; material 72 s (want 60–75) + brand 3 s; total ≤ 78"
+    },
+    {
+      "id": "G4b",
+      "name": "format · five beats",
+      "status": "PASS",
+      "evidence": "order HOOK → COMMIT → CASE → COUNT → MONDAY; t0 H0 C8 C16 C36 M62"
+    },
+    {
+      "id": "G4c",
+      "name": "format · commit time",
+      "status": "PASS",
+      "evidence": "commit at 9 s (want 8–16); film-mode default 500"
+    },
+    {
+      "id": "G4d",
+      "name": "format · brand card",
+      "status": "PASS",
+      "evidence": "takeaway \"Do first what loses the most per month of work.\"; frame at 74 s sd 23.1; takeaway text visible in SVG"
+    },
+    {
+      "id": "G4e",
+      "name": "format · honest line",
+      "status": "PASS",
+      "evidence": "\"The three features are a declared teaching object: stated values (£200k, £100k a\""
+    },
+    {
+      "id": "G4f",
+      "name": "format · sources",
+      "status": "PASS",
+      "evidence": "5 sources (want ≥ 3)"
+    },
+    {
+      "id": "G5a",
+      "name": "claims · formulas",
+      "status": "PASS",
+      "evidence": "37 claims, 36 with formula, 36 recompute",
+      "data": {
+        "bad": [],
+        "unsourced": []
+      }
+    },
+    {
+      "id": "G5b",
+      "name": "claims · caption digits",
+      "status": "PASS",
+      "evidence": "every number in 14 captions is a claim value or render",
+      "data": {
+        "unknown": []
+      }
+    },
+    {
+      "id": "G5c",
+      "name": "claims · on-screen digits",
+      "status": "WARN",
+      "evidence": "15 visible number(s) not in claims (chrome?): 12 @27.5s \"12\"; 17 @28s \"17\"; 22 @28.5s \"22\"; 27 @29s \"27\"; 32 @29.5s \"32\"; 37 @30s \"37\"",
+      "data": {
+        "unknown": [
+          "12 @27.5s \"12\"",
+          "17 @28s \"17\"",
+          "22 @28.5s \"22\"",
+          "27 @29s \"27\"",
+          "32 @29.5s \"32\"",
+          "37 @30s \"37\"",
+          "11 @39.5s \"11\"",
+          "14 @40s \"14\"",
+          "21 @41s \"21\"",
+          "13 @49s \"13\"",
+          "18 @49.5s \"18\"",
+          "26 @50.5s \"26\"",
+          "9 @54s \"9\"",
+          "15 @54.5s \"15\"",
+          "23 @55.5s \"23\""
+        ]
+      }
+    },
+    {
+      "id": "G6",
+      "name": "legibility",
+      "status": "PASS",
+      "evidence": "31 must-read / 74 secondary / 53 chrome text reads at 6 times (data-role); phone 390: stage 358px (1 unit = 0.37 px), scrollWidth 390/390, shot /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/cost-of-delay/shots/phone-390.png",
+      "data": {
+        "fails": [],
+        "warns": [],
+        "counts": {
+          "must-read": 31,
+          "secondary": 74,
+          "chrome": 53
+        }
+      }
+    },
+    {
+      "id": "G7",
+      "name": "counts first",
+      "status": "PASS",
+      "evidence": "count at 36 s (count.at); no percentage or ratio found"
+    },
+    {
+      "id": "G8",
+      "name": "size",
+      "status": "PASS",
+      "evidence": "film code 31.4 KB (film.js 14.7, film.json 7.1, claims.json 9.6) < 120 KB; page 1.113 MB < 1.3 MB",
+      "data": {
+        "code": 32126,
+        "page": 1112568
+      }
+    },
+    {
+      "id": "G9",
+      "name": "tics",
+      "status": "PASS",
+      "evidence": "0 full-screen card(s) (0 chapters with card:true; want ≤ 2); no countdown ring"
+    },
+    {
+      "id": "SHOTS",
+      "name": "stills",
+      "status": "INFO",
+      "evidence": "8 stills at 1, 10.87, 20.73, 30.6, 40.47, 50.33, 60.2, 75 s → /tmp/claude-0/-home-user-ceti-explainer/6930f3f9-c0aa-53bb-b023-bfc602f4df5e/scratchpad/factory/cost-of-delay/shots"
+    }
+  ]
+}

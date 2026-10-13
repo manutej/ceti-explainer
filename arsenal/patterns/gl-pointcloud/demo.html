@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>gl-pointcloud</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="./pattern.js"></script></head><body><main></main><div id="junk" hidden></div>
+<script>
+/* ?brand=<id> (packs.js), ?variant=<name>, ?t=<s>, ?only=<name> (restricts info.variants: per-variant timing with shoot.mjs),
+   ?p=<json> (param overrides). seek() ends with a 1x1 readPixels so shoot.mjs ms_per_frame includes the GPU work. */
+const Q = new URLSearchParams(location.search), PAT = ARSENAL.patterns['gl-pointcloud'];
+const TK = ARSENAL.brands[Q.get('brand') || 'ceti-dark'] || ARSENAL.brands['ceti-dark'];
+document.documentElement.style.background = document.body.style.background = TK.color.bg;
+const ALL = PAT.variants.map(v => v.name), NAMES = Q.get('only') ? Q.get('only').split(',') : ALL;
+const cache = {}; let P = null, fonts = null, cur = null, last = null;
+const paramsOf = n => Object.assign({}, PAT.params, PAT.variants.find(v => v.name === n).params, Q.get('p') ? JSON.parse(Q.get('p')) : {});
+let resolveReady; const readyP = new Promise(r => (resolveReady = r));
+new p5(p => {
+  P = p;
+  p.setup = async () => {
+    await p.createCanvas(960, 540, p.WEBGL); p.pixelDensity(2); p.noLoop();
+    p.describe('A 3D scatter of data points with depth cues; a brushed subset lights up and named points carry pinned labels.');
+    fonts = await PAT.load(p, TK);
+    for (const n of NAMES) { const params = paramsOf(n); cache[n] = { params, st: await PAT.setup(p, { seed: 7, tokens: TK, fonts }, params) }; }
+    resolveReady();
+  };
+  p.draw = () => {};
+}, document.querySelector('main'));
+/* p5 2.x WEBGL text inserts a hidden 1x1 canvas ahead of the real one; park it so querySelector('canvas') is the film canvas */
+function tidy() { document.querySelectorAll('canvas:not(.p5Canvas)').forEach(c => document.getElementById('junk').appendChild(c)); }
+const px = new Uint8Array(4);
+function seek(t, v) {
+  v = v || cur || Q.get('variant') || NAMES[0]; cur = v; const c = cache[v];
+  P.resetMatrix(); last = PAT.draw(P, t, c.st, c.params, TK); tidy();
+  const gl = P.drawingContext; gl.readPixels(0, 0, 1, 1, gl.RGBA, gl.UNSIGNED_BYTE, px);   // GPU sync for honest timing
+  return last;
+}
+window.__film = {
+  ready: () => readyP.then(() => { tidy(); if (Q.has('t')) seek(+Q.get('t')); }),
+  seek, info: { variants: NAMES, dur: PAT.params.dur, brand: TK.id, atlas: PAT.atlas, renderer: 'webgl' },
+  stats: () => ({ last, fonts: fonts && fonts.keys, fallback: fonts && fonts.fallback }),
+};
+</script></body></html>

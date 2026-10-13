@@ -1,0 +1,45 @@
+{
+  "id": "neg-degenerate-wield",
+  "concept": {
+    "claim": "x",
+    "level": "wield"
+  },
+  "params": {
+    "N": 48,
+    "k": 20,
+    "p": 0.95,
+    "c": 0.8,
+    "seed": 1
+  },
+  "nodes": [
+    {
+      "id": "inv",
+      "module": "inverseProblemWield",
+      "params": {
+        "pSteps": [
+          0.95,
+          0.95,
+          0.95,
+          0.95,
+          0.95,
+          0.95,
+          0.95,
+          0.95,
+          0.95,
+          0.95
+        ],
+        "budget": 10
+      }
+    },
+    {
+      "id": "trf",
+      "module": "transferQuestion",
+      "params": {
+        "farLines": [
+          "An AI agent with 14 tool calls"
+        ],
+        "far": "An AI agent with 14 tool calls"
+      }
+    }
+  ]
+}

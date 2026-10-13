@@ -1,0 +1,21 @@
+{
+  "id": "sample-size",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "Literary Digest 1936: 10,000,000 mailed, 2,376,523 returned, Landon 57 % / Roosevelt 43 %, Gallup 50,000 -> 56 %, result 61 %, 18 points off, 48x", "status": "ok", "note": "1,293,669 / (1,293,669 + 972,897) = 57.1 %; 60.8 - 42.9 = 17.9; 2,376,523 / 50,000 = 47.5"},
+    {"claim": "95 % margins: n = 30 ±18, 100 ±10, 1,000 ±3.1, 2,376,523 ±0.06", "status": "ok", "note": "1.96 x sqrt(0.25/n) x 100 = 17.9, 9.8, 3.1, 0.064"},
+    {"claim": "18 of 30: plausible 42 % to 78 %; Wilson lower also 42 %", "status": "ok", "note": "Wald 60 ± 17.5; Wilson lower 42.3 %; the honest limits note the exact (Clopper-Pearson) lower is 40.6 %"},
+    {"claim": "a 50 % market gives 18+ of 30 in 18 % of surveys; seeded 20 surveys range 10 to 20 of 30, 4 at 18+; 1,000-surveys within 3 points (474 to 527)", "status": "ok", "note": "all 42 formulas recompute; binomial tail P(X >= 18 | 30, 0.5) = 0.181"}
+  ],
+  "craft": 4,
+  "originality": 3,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 60.2, "what": "The closing frame carries seven text items (18 of 30, AS LOW AS 42 %, YOU 55 %, PLAUSIBLE 42 % TO 78 %, BELOW HALF IS INSIDE, the ± ledger, the dot strip) around one short rail; the answer (42 %) is not the largest thing on it", "severity": "med"},
+    {"t": 5.0, "what": "'60 %' is the first big number on screen (hook, 4 to 8 s); the 18-of-30 dots precede it, so the letter of counts-first holds, but the film opens on a percentage and the commit is asked in percent", "severity": "low"},
+    {"t": 30.6, "what": "The Digest/Gallup/result rail stacks four labels (DIGEST 43, LANDON 57, GALLUP 56, RESULT 61) in two sizes over three ticks within 20 units; readable at 1080, cramped", "severity": "low"}
+  ],
+  "one_line": "Twenty surveys of thirty from a market you know is 50/50 is the right count, and the Digest case is told straight; the last frame tries to say five things at once."
+}

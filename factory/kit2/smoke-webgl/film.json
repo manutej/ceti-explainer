@@ -1,0 +1,41 @@
+{
+ "id": "smoke-webgl",
+ "title": "Smoke: WEBGL renderer",
+ "eyebrow": "CETI · kit2 infrastructure test · renderer webgl",
+ "lede": "A 10-second infrastructure film: 120 boxes on a WEBGL canvas, a keyed camera swing, an extruded headline and a neon post pass, under the kit's SVG captions and brand card; the commit beat is off (D11), so it plays straight through.",
+ "format": "smoke",
+ "renderer": "webgl",
+ "level": "manager",
+ "dur": 13,
+ "seed": 7,
+ "fonts3d": [{"key": "Big Shoulders Display|600", "text": "0123456789,"}],
+ "params": {"rows": 10, "cols": 12},
+ "knobs": {"camSwing": 0.8, "boxGap": 2, "neonGain": 1.0, "neonAt": 6.2, "headTurn": 0.5},
+ "knobs_doc": [
+  {"name": "camSwing", "range": [0, 1], "step": 0.05, "what": "how far the camera swings from the front view to the side (1 = a quarter turn)"},
+  {"name": "boxGap", "range": [0.5, 4], "step": 0.25, "what": "gap between boxes in world units"},
+  {"name": "neonGain", "range": [0, 2], "step": 0.1, "what": "strength of the neon post glow on the reveal (0 = off)"},
+  {"name": "neonAt", "range": [5, 8], "step": 0.1, "what": "second at which the neon reveal peaks"},
+  {"name": "headTurn", "range": [0, 1], "step": 0.05, "what": "how far the extruded headline turns (1 = a half turn)"}
+ ],
+ "commit": {"enabled": false},
+ "count": {"at": 9.4},
+ "chapters": [
+  {"id": "hook", "beat": "HOOK", "t0": 0, "t1": 4, "eyebrow": "SMOKE · HOOK", "title": "Front view"},
+  {"id": "case", "beat": "CASE", "t0": 4, "t1": 9.4, "eyebrow": "SMOKE · CASE", "title": "Side view"},
+  {"id": "count", "beat": "COUNT", "t0": 9.4, "t1": 9.8, "eyebrow": "SMOKE · COUNT", "title": "Count"},
+  {"id": "monday", "beat": "MONDAY", "t0": 9.8, "t1": 10, "eyebrow": "SMOKE · MONDAY", "title": "Monday"}
+ ],
+ "captions": [
+  [0.3, 3.8, "120 boxes, seen from the front."],
+  [4.0, 7.6, "The camera swings to the side."],
+  [7.8, 9.9, "The headline is extruded type."]
+ ],
+ "brand": {"takeaway": "The kit draws on WEBGL now."},
+ "sources": [
+  ["KIT2", "factory/kit2/README.md: renderer webgl and the knobs contract."],
+  ["WGL", "arsenal/patterns/webgl-scene/card.md: keyed cameras, baked boxes, textToModel."],
+  ["SHD", "arsenal/materials/shader/card.md: the neon post pass over a framebuffer."]
+ ],
+ "honest": ["An infrastructure test, not a film: its numbers are the scene's own construction (10 rows of 12 boxes)."]
+}

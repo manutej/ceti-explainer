@@ -1,0 +1,6 @@
+[
+ {"t": 89.0, "frame": "strip-15.png cell 10 (thumbs/t-0089.00.jpg)", "severity": "minor",
+  "what": "After round 1 the agents row is dim and clear of the readout, but a brown stub of the lowest fifth stays cut by the left canvas edge in every thumb 77-101 s.",
+  "why": "Shifting the developers view further from the agents row takes the stub out of frame; check the developers wall stays centred and the +26 % pin stays clear of the right edge.",
+  "knob": "devLookDz", "proposed_value": -45}
+]

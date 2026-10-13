@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "arsenal/brands/schema.json",
+  "title": "ARSENAL brand pack",
+  "description": "A brand pack is tokens only: colour ROLES, type ROLES (vendored family + weight), texture, tempo, voice. Modules read roles, never hex. Optional: ramps (named OKLCH ramps derived by arsenal/patterns/palette) and weights (role weights for the seeded probabilistic sampler).",
+  "type": "object",
+  "required": ["id", "name", "color", "type", "texture", "tempo", "voice"],
+  "additionalProperties": false,
+  "$defs": {
+    "colour": {
+      "description": "#RGB, #RRGGBB, #RRGGBBAA or rgb()/rgba() with 0-255 channels. Ramps and contrast checks need an opaque value; only `line` is expected to carry alpha.",
+      "type": "string",
+      "pattern": "^(#[0-9A-Fa-f]{3}|#[0-9A-Fa-f]{6}|#[0-9A-Fa-f]{8}|rgba?\\(\\s*\\d{1,3}\\s*,\\s*\\d{1,3}\\s*,\\s*\\d{1,3}\\s*(,\\s*(0|1|0?\\.\\d+)\\s*)?\\))$"
+    },
+    "opaque": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "role": { "enum": ["bg", "ink", "accent", "accent2", "muted", "line", "panel", "chalk"] },
+    "face": {
+      "type": "object",
+      "required": ["family", "weight"],
+      "additionalProperties": false,
+      "properties": {
+        "family": { "type": "string", "minLength": 1, "description": "CSS family exactly as vendor/fonts.lock.json spells it." },
+        "weight": { "type": "integer", "minimum": 100, "maximum": 900, "multipleOf": 100 },
+        "style": { "enum": ["normal", "italic"], "default": "normal" }
+      }
+    }
+  },
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(-{1,2}[a-z0-9]+)*$", "description": "File name stem: arsenal/brands/<id>.json. A double hyphen marks a derived pack (<base>--<transforms>, arsenal/tools/tweak.py)." },
+    "name": { "type": "string", "minLength": 1 },
+    "notes": { "type": "array", "items": { "type": "string" }, "description": "Optional provenance: every deliberate departure from a source palette (e.g. a lightness nudge to reach a contrast gate)." },
+    "color": {
+      "type": "object",
+      "description": "Colour roles. bg: the ground. ink: body and numerals on bg (>= 4.5:1). accent: the one live colour (>= 3:1 on bg). accent2: the second voice (the 'wrong' or 'other' colour). muted: secondary text and rules on bg (>= 3:1). line: hairlines (alpha allowed). panel: raised surface. chalk: highest-emphasis text ON panel (>= 4.5:1 on panel); same polarity as bg, so on a light pack chalk is darker than ink.",
+      "required": ["bg", "ink", "accent", "accent2", "muted", "line", "panel", "chalk"],
+      "additionalProperties": false,
+      "properties": {
+        "bg": { "$ref": "#/$defs/opaque" },
+        "ink": { "$ref": "#/$defs/opaque" },
+        "accent": { "$ref": "#/$defs/opaque" },
+        "accent2": { "$ref": "#/$defs/opaque" },
+        "muted": { "$ref": "#/$defs/opaque" },
+        "line": { "$ref": "#/$defs/colour" },
+        "panel": { "$ref": "#/$defs/opaque" },
+        "chalk": { "$ref": "#/$defs/opaque" }
+      }
+    },
+    "type": {
+      "type": "object",
+      "description": "Type roles. disp: headlines and big numerals. mono: labels, ledger, digits. body: running text.",
+      "required": ["disp", "mono", "body"],
+      "additionalProperties": false,
+      "properties": {
+        "disp": { "$ref": "#/$defs/face" },
+        "mono": { "$ref": "#/$defs/face" },
+        "body": { "$ref": "#/$defs/face" }
+      }
+    },
+    "texture": { "enum": ["paper", "none", "grain", "halftone"] },
+    "tempo": {
+      "type": "object",
+      "required": ["ease", "beat_s"],
+      "additionalProperties": false,
+      "properties": {
+        "ease": { "enum": ["linear", "quad", "cubic", "expo", "sine"], "description": "Ease-out family used by this brand's moves." },
+        "beat_s": { "type": "number", "exclusiveMinimum": 0, "maximum": 10, "description": "Seconds per beat; one move takes one beat." }
+      }
+    },
+    "voice": {
+      "type": "object",
+      "required": ["register", "end_card"],
+      "additionalProperties": true,
+      "properties": {
+        "register": { "type": "string", "minLength": 1 },
+        "end_card": { "type": "string", "minLength": 1 }
+      }
+    },
+    "ramps": {
+      "type": "object",
+      "description": "Optional named ramps; each runs between two colour roles in OKLCH. When absent the palette pattern derives bgInk and accentBg.",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["from", "to"],
+        "additionalProperties": false,
+        "properties": {
+          "from": { "$ref": "#/$defs/role" },
+          "to": { "$ref": "#/$defs/role" },
+          "steps": { "type": "array", "items": { "type": "integer", "minimum": 2, "maximum": 33 }, "minItems": 1, "default": [5, 9] }
+        }
+      }
+    },
+    "weights": {
+      "type": "object",
+      "description": "Optional role weights for the seeded probabilistic palette sampler (relative, any positive scale).",
+      "propertyNames": { "$ref": "#/$defs/role" },
+      "additionalProperties": { "type": "number", "minimum": 0 }
+    }
+  }
+}

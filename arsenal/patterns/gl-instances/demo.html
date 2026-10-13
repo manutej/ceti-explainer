@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>gl-instances</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{margin:0;background:#0F1115}canvas{display:block}</style>
+<script src="../../../vendor/p5-2.3.4.min.js"></script>
+<script src="../../fonts/fonts.js"></script>
+<script src="../../brands/packs.js"></script>
+<script src="./pattern.js"></script></head><body><main></main><div id="junk" hidden></div>
+<script>
+/* ?brand=<id> (default ceti-dark) · ?variant=<name> · ?only=<name> (shoot one variant: per-variant s/frame) · ?t=<s> · ?p=<json params> */
+const Q=new URLSearchParams(location.search), PAT=ARSENAL.patterns['gl-instances'], TK=ARSENAL.brands[Q.get('brand')||'ceti-dark']||ARSENAL.brands['ceti-dark'];
+document.body.style.background=TK.color.bg;
+const ALL=PAT.variants.map(v=>v.name), NAMES=Q.get('only')?[Q.get('only')]:ALL, cache={}; let cur=null, fonts=null, P=null, last=null;
+const paramsOf=n=>Object.assign({},PAT.params,PAT.variants.find(v=>v.name===n).params,Q.get('p')?JSON.parse(Q.get('p')):{});
+let resolveReady; const readyP=new Promise(r=>resolveReady=r);
+new p5(p=>{
+  P=p;
+  p.setup=async()=>{ await p.createCanvas(960,540,p.WEBGL); if(Q.get('aa')==='0') await p.setAttributes('antialias',false); p.pixelDensity(2); p.noLoop(); fonts=await PAT.load(p,TK); resolveReady(); };
+  p.draw=()=>{};
+},document.querySelector('main'));
+/* p5 2.x WEBGL text inserts a hidden 1x1 canvas ahead of the real one; park it so querySelector('canvas') is the film canvas */
+function tidy(){ document.querySelectorAll('canvas:not(.p5Canvas)').forEach(c=>document.getElementById('junk').appendChild(c)); }
+const px=new Uint8Array(4);
+function seek(t,v){ v=v||Q.get('variant')||NAMES[0];
+  if(!cache[v]){ const params=paramsOf(v), t0=performance.now(); cache[v]={params,st:PAT.setup(P,{seed:7,fonts,tokens:TK},params)}; cache[v].setupMs=performance.now()-t0; }
+  cur=v; P.resetMatrix(); last=PAT.draw(P,t,cache[v].st,cache[v].params,TK); tidy();
+  const gl=P._renderer.GL; gl.readPixels(0,0,1,1,gl.RGBA,gl.UNSIGNED_BYTE,px);   // sync: the GPU has finished this frame, so shoot.mjs times are true
+  return last; }
+window.__film={ ready:()=>readyP.then(()=>{ if(Q.has('t')) seek(+Q.get('t')); }), seek, info:{variants:NAMES,dur:PAT.params.dur,brand:TK.id,renderer:'webgl'} };
+window.__film.stats=()=>({variant:cur,last,setupMs:cache[cur]&&cache[cur].setupMs,fonts:fonts&&fonts.keys,fontFallback:fonts&&fonts.fallback});
+</script></body></html>

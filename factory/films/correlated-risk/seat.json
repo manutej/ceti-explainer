@@ -1,0 +1,23 @@
+{
+  "id": "correlated-risk",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "P(5+ of 10 fail) = 0.16 % independent, 3.2 % at rho 0.3, 6.9 % at rho 0.6; about 42x", "status": "ok", "note": "independent numerical integration of the one-factor Gaussian copula (Vasicek) gives 0.163 %, 3.218 %, 6.925 %; 6.925/0.1635 = 42.4"},
+    {"claim": "seeded 100-year grid: 100 / 98 / 99 failures; 0 / 3 / 7 bad years; 37 and 65 zero-failure years", "status": "ok", "note": "all 26 formulas recompute from seed 630; a single draw, said so in the honest limits"},
+    {"claim": "senior slice of two 10 % loans: 1 of 100 years independent, 10 of 100 if they fail together", "status": "ok", "note": "0.1 x 0.1 = 0.01; perfect correlation = 0.1 (Coval, Jurek & Stafford 2009)"},
+    {"claim": "Moody's 2006 triple-A mortgage securities: 83 of 100 later downgraded", "status": "ok", "note": "FCIC 2011 conclusions as cited"},
+    {"claim": "Monte Carlo cross-check 0.14 / 3.41 / 7.11", "status": "ok", "note": "page only"}
+  ],
+  "craft": 4,
+  "originality": 4,
+  "stop": 4,
+  "legibility_phone": "weak",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 60.2, "what": "The scale frame stacks '0 / rho 0 / YOU' in one corner with the 1-year marker, three mini-grids, three percentages and the '42x' bracket; the viewer's number (1) is nearly invisible against the 0 and the first red percentage", "severity": "med"},
+    {"t": 50.3, "what": "The 100 x 10 grids (1,000 cells each, three side by side) are the count, and at phone width they become texture; the clumping is visible at 1080 but the row-per-year reading is lost on a phone", "severity": "med"},
+    {"t": 20.7, "what": "The CASE beat shows '1 of 100 years' and then '10 of 100 years' for the senior slice before the count beat; natural frequencies, not percentages, but a ratio reading in the case", "severity": "low"},
+    {"t": 1.0, "what": "Hook is a headline and five empty boxes filling; carried by the caption", "severity": "low"}
+  ],
+  "one_line": "A hundred years of ten, three times, with the clumps visible, is the honest way to show a copula without saying the word; thin out the final scale frame."
+}

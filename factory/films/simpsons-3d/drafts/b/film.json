@@ -1,0 +1,683 @@
+{
+ "id": "simpsons-3d",
+ "title": "Worse Overall, in Three Dimensions",
+ "eyebrow": "CETI · the 75-second case · Simpson's paradox · draft B, the exhibit",
+ "lede": "A new sales process converts worse overall, so it gets killed. Berkeley 1973 as a gallery: two sculptures of 4,526 boxes, one box per applicant. Walk the camera around them and the same boxes read the other way.",
+ "dur": 75,
+ "seed": 1973,
+ "renderer": "webgl",
+ "level": "manager",
+ "palette": {
+  "paper": "#1C1821",
+  "ink": "#FBF7EE",
+  "accent": "#E6D8FD",
+  "muted": "#D0C4DE",
+  "chalk": "#282235",
+  "dark": "#120F16",
+  "soft": "#F9AE9F"
+ },
+ "type": {
+  "disp": "Fraunces",
+  "mono": "Space Mono"
+ },
+ "params": {
+  "mA": 825,
+  "mAa": 512,
+  "wA": 108,
+  "wAa": 89,
+  "mB": 560,
+  "mBa": 353,
+  "wB": 25,
+  "wBa": 17,
+  "mC": 325,
+  "mCa": 120,
+  "wC": 593,
+  "wCa": 202,
+  "mD": 417,
+  "mDa": 138,
+  "wD": 375,
+  "wDa": 131,
+  "mE": 191,
+  "mEa": 53,
+  "wE": 393,
+  "wEa": 94,
+  "mF": 373,
+  "mFa": 22,
+  "wF": 341,
+  "wFa": 24,
+  "campusMen": 8442,
+  "campusWomen": 4321,
+  "campusMenPct": 44,
+  "campusWomenPct": 35,
+  "guessDefault": 5,
+  "holdSeconds": 8,
+  "year": 1973,
+  "perMark": 1
+ },
+ "commit": {
+  "at": 11.5,
+  "title": "YOUR GUESS",
+  "prompt": "Women got in less often overall. In how many of the 6 departments did they do worse?",
+  "unit": "of 6 departments",
+  "default": 5,
+  "min": 0,
+  "max": 6,
+  "step": 1
+ },
+ "count": {
+  "at": 36
+ },
+ "chapters": [
+  {
+   "id": "hook",
+   "beat": "HOOK",
+   "t0": 0,
+   "t1": 8,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · THE HOOK",
+   "title": "The review"
+  },
+  {
+   "id": "commit",
+   "beat": "COMMIT",
+   "t0": 8,
+   "t1": 16.5,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · YOUR NUMBER",
+   "title": "Seal a number"
+  },
+  {
+   "id": "case",
+   "beat": "CASE",
+   "t0": 16.5,
+   "t1": 36,
+   "eyebrow": "CASE · BERKELEY · FALL 1973",
+   "title": "One box, one applicant"
+  },
+  {
+   "id": "count",
+   "beat": "COUNT",
+   "t0": 36,
+   "t1": 62,
+   "eyebrow": "CASE · BERKELEY · THE COUNT",
+   "title": "Walk the rail"
+  },
+  {
+   "id": "monday",
+   "beat": "MONDAY",
+   "t0": 62,
+   "t1": 72,
+   "eyebrow": "CASE · SIMPSON'S PARADOX · MONDAY",
+   "title": "Before you kill it"
+  }
+ ],
+ "captions": [
+  [
+   0.6,
+   4.2,
+   "Our new sales process converts worse overall."
+  ],
+  [
+   4.4,
+   8.0,
+   "So we killed it. Case closed?"
+  ],
+  [
+   8.2,
+   11.2,
+   "Berkeley, 1973: women got in less often overall."
+  ],
+  [
+   11.3,
+   16.2,
+   "In how many of 6 departments did women do worse?"
+  ],
+  [
+   16.6,
+   24.4,
+   "Fall 1973, six departments: 4,526 applicants."
+  ],
+  [
+   24.6,
+   29.8,
+   "Admitted: 1,198 of 2,691 men, 557 of 1,835 women."
+  ],
+  [
+   30.0,
+   35.8,
+   "Fewer women got in. The headline writes itself."
+  ],
+  [
+   36.2,
+   39.8,
+   "Overall: 45 % of men admitted, 30 % of women."
+  ],
+  [
+   40.0,
+   45.8,
+   "Now unstack the same boxes by department."
+  ],
+  [
+   46.0,
+   56.8,
+   "Same boxes, same rules. Compare each department."
+  ],
+  [
+   57.4,
+   61.8,
+   "Women did worse in 2 of 6, and ahead in 4."
+  ],
+  [
+   62.2,
+   66.6,
+   "Monday: did the new process get the same mix of leads?"
+  ],
+  [
+   66.8,
+   71.6,
+   "Splitting explains this gap. It does not prove fairness."
+  ]
+ ],
+ "brand": {
+  "takeaway": "Worse overall can be better in most parts. Split first."
+ },
+ "sources": [
+  [
+   "BHO75",
+   "Bickel, P. J., Hammel, E. A., & O'Connell, J. W. (1975). Sex bias in graduate admissions: Data from Berkeley. Science, 187(4175), 398–404. doi:10.1126/science.187.4175.398"
+  ],
+  [
+   "RDS",
+   "R Core Team. UCBAdmissions: Student Admissions at UC Berkeley (R datasets package; 4,526 applicants, six largest departments, 1973; counts from Bickel et al. 1975)."
+  ],
+  [
+   "FPP07",
+   "Freedman, D., Pisani, R., & Purves, R. (2007). Statistics (4th ed.), ch. 2 §4: the six largest majors, Berkeley 1973. W. W. Norton."
+  ],
+  [
+   "SIM51",
+   "Simpson, E. H. (1951). The interpretation of interaction in contingency tables. Journal of the Royal Statistical Society, Series B, 13(2), 238–241."
+  ],
+  [
+   "PEA14",
+   "Pearl, J. (2014). Comment: Understanding Simpson's paradox. The American Statistician, 68(1), 8–13. doi:10.1080/00031305.2014.876829"
+  ],
+  [
+   "FMT",
+   "factory/FORMAT.md and docs/DECISIONS.md Q13: the 8-second commit hold and the film-mode default guess (5)."
+  ]
+ ],
+ "honest": "Six departments of one year, split once: it explains this gap and does not prove fairness, and it cannot say why women applied mostly to the crowded departments.",
+ "knobs": {
+  "camFrontAz": 0,
+  "camFrontEl": 7,
+  "camFrontDist": 900,
+  "camHookDist": 700,
+  "camSideAz": 82,
+  "camSideEl": 13,
+  "camSideDist": 380,
+  "camWideDist": 950,
+  "camFov": 0.78,
+  "tHookEnd": 8.0,
+  "tDollyStart": 40.0,
+  "tDollyEnd": 46.0,
+  "trackStart": 46.2,
+  "pairStep": 1.9,
+  "pairHold": 1.15,
+  "tWide": 57.0,
+  "tWideEnd": 59.0,
+  "dollyEase": "cubic",
+  "morphDur": 0.7,
+  "morphLead": 0.45,
+  "lightAz": 42,
+  "lightEl": 38,
+  "lightReach": 1300,
+  "keyStrength": 1.25,
+  "ambient": 0.14,
+  "fogDensity": 0.00018,
+  "reflect": 0.5,
+  "roomSize": 760,
+  "boxSize": 8.4,
+  "slabGap": 170,
+  "towerX": 85,
+  "splitX": 62,
+  "liftArc": 70,
+  "railX": 330,
+  "tBuild0": 17.0,
+  "buildRate": 5.8,
+  "tAdmit0": 24.8,
+  "tAdmitDur": 3.2,
+  "glowStrength": 0.8,
+  "tUnstack0": 40.0,
+  "unstackStagger": 0.45,
+  "unstackDur": 1.9,
+  "headSize": 84,
+  "headX": 22,
+  "headY": 36,
+  "tReveal": 57.2,
+  "neonStrength": 1.0,
+  "neonRadius": 16,
+  "neonThresh": 0.55,
+  "neonCore": 0.25,
+  "neonT0": 57.4,
+  "neonT1": 60.6
+ },
+ "knobs_doc": [
+  {
+   "name": "camFrontAz",
+   "what": "azimuth (deg) of the front view held while the towers build; 0 = square on, positive = from the viewer's right",
+   "range": [
+    -30,
+    30
+   ]
+  },
+  {
+   "name": "camFrontEl",
+   "what": "elevation (deg) of the front view; low = monumental, high = plan-like",
+   "range": [
+    0,
+    30
+   ]
+  },
+  {
+   "name": "camFrontDist",
+   "what": "distance (units) of the front view; smaller = the towers fill more of the frame",
+   "range": [
+    600,
+    1600
+   ]
+  },
+  {
+   "name": "camHookDist",
+   "what": "distance at t = 0; the HOOK pulls back from here (close on the two pads) toward the front view",
+   "range": [
+    500,
+    2200
+   ]
+  },
+  {
+   "name": "camSideAz",
+   "what": "azimuth (deg) of the rail view; 90 = square on to the department row",
+   "range": [
+    60,
+    100
+   ]
+  },
+  {
+   "name": "camSideEl",
+   "what": "elevation (deg) of the rail view",
+   "range": [
+    4,
+    35
+   ]
+  },
+  {
+   "name": "camSideDist",
+   "what": "distance (units) of the tracking shot along the rail; smaller = one pair fills the frame",
+   "range": [
+    150,
+    600
+   ]
+  },
+  {
+   "name": "camWideDist",
+   "what": "distance (units) of the pull-back that shows all six pairs (the reveal frame)",
+   "range": [
+    700,
+    1900
+   ]
+  },
+  {
+   "name": "camFov",
+   "what": "vertical field of view (radians); larger = more depth, more distortion",
+   "range": [
+    0.5,
+    1.2
+   ]
+  },
+  {
+   "name": "tHookEnd",
+   "what": "time (s) at which the HOOK push-in ends",
+   "range": [
+    6,
+    10
+   ]
+  },
+  {
+   "name": "tDollyStart",
+   "what": "time (s) the dolly from the front view to the side starts (the towers start to unstack here)",
+   "range": [
+    36,
+    44
+   ]
+  },
+  {
+   "name": "tDollyEnd",
+   "what": "time (s) the dolly arrives beside pair A",
+   "range": [
+    42,
+    50
+   ]
+  },
+  {
+   "name": "trackStart",
+   "what": "time (s) the camera leaves pair A along the rail",
+   "range": [
+    44,
+    50
+   ]
+  },
+  {
+   "name": "pairStep",
+   "what": "seconds per department pair along the rail (dolly speed along the rail = slabGap / pairStep)",
+   "range": [
+    1.2,
+    2.6
+   ]
+  },
+  {
+   "name": "pairHold",
+   "what": "seconds the camera rests on each pair before sliding on (must be below pairStep)",
+   "range": [
+    0.6,
+    2.0
+   ]
+  },
+  {
+   "name": "tWide",
+   "what": "time (s) the camera starts to pull back from pair F",
+   "range": [
+    54,
+    60
+   ]
+  },
+  {
+   "name": "tWideEnd",
+   "what": "time (s) the pull-back lands on the wide shot",
+   "range": [
+    56,
+    61
+   ]
+  },
+  {
+   "name": "dollyEase",
+   "what": "easing of the front-to-side dolly: quad, cubic, sine, expo",
+   "options": [
+    "quad",
+    "cubic",
+    "sine",
+    "expo"
+   ]
+  },
+  {
+   "name": "morphDur",
+   "what": "seconds one headline number takes to morph into the next",
+   "range": [
+    0.3,
+    1.4
+   ]
+  },
+  {
+   "name": "morphLead",
+   "what": "seconds before the camera arrives at a pair that its headline numbers start to morph",
+   "range": [
+    0,
+    1.2
+   ]
+  },
+  {
+   "name": "lightAz",
+   "what": "azimuth (deg) of the key light, 0 = from the front, 90 = from the right side",
+   "range": [
+    0,
+    90
+   ]
+  },
+  {
+   "name": "lightEl",
+   "what": "elevation (deg) of the key light",
+   "range": [
+    10,
+    80
+   ]
+  },
+  {
+   "name": "lightReach",
+   "what": "distance (units) at which the key light has fallen to half; smaller = a tighter pool",
+   "range": [
+    600,
+    3000
+   ]
+  },
+  {
+   "name": "keyStrength",
+   "what": "brightness of the key light",
+   "range": [
+    0.5,
+    2.2
+   ]
+  },
+  {
+   "name": "ambient",
+   "what": "ambient fill; 0 = the shadow side is black",
+   "range": [
+    0,
+    0.5
+   ]
+  },
+  {
+   "name": "fogDensity",
+   "what": "depth fog toward the background colour",
+   "range": [
+    0,
+    0.002
+   ]
+  },
+  {
+   "name": "reflect",
+   "what": "strength of the floor reflection; 0 turns it off (and its draw cost)",
+   "range": [
+    0,
+    1
+   ]
+  },
+  {
+   "name": "roomSize",
+   "what": "distance (units) from the centre to the back and side walls",
+   "range": [
+    400,
+    1400
+   ]
+  },
+  {
+   "name": "boxSize",
+   "what": "edge of a box in a 10-unit cell; the gap between boxes is 10 minus this",
+   "range": [
+    6,
+    9.8
+   ]
+  },
+  {
+   "name": "slabGap",
+   "what": "pitch (units) between department pairs along the rail; the gap between slabs is this minus 132",
+   "range": [
+    150,
+    260
+   ]
+  },
+  {
+   "name": "towerX",
+   "what": "x of each pooled tower from the centre line",
+   "range": [
+    60,
+    130
+   ]
+  },
+  {
+   "name": "splitX",
+   "what": "x of the men's and women's columns after the unstack",
+   "range": [
+    50,
+    90
+   ]
+  },
+  {
+   "name": "liftArc",
+   "what": "height (units) of the hop each slab makes while the towers unstack",
+   "range": [
+    0,
+    200
+   ]
+  },
+  {
+   "name": "railX",
+   "what": "x of the rail the camera rides (a thin lit track on the floor)",
+   "range": [
+    200,
+    500
+   ]
+  },
+  {
+   "name": "tBuild0",
+   "what": "time (s) the towers start to rise",
+   "range": [
+    14,
+    20
+   ]
+  },
+  {
+   "name": "buildRate",
+   "what": "layers per second while the towers rise (same for both, so the men's column ends taller)",
+   "range": [
+    3,
+    9
+   ]
+  },
+  {
+   "name": "tAdmit0",
+   "what": "time (s) the admitted boxes start to light, bottom to top",
+   "range": [
+    22,
+    28
+   ]
+  },
+  {
+   "name": "tAdmitDur",
+   "what": "seconds the admit light takes to climb the towers",
+   "range": [
+    1.5,
+    5
+   ]
+  },
+  {
+   "name": "glowStrength",
+   "what": "emissive strength of the admitted boxes",
+   "range": [
+    0,
+    2
+   ]
+  },
+  {
+   "name": "tUnstack0",
+   "what": "time (s) department A starts to lift off the tower; keep equal to tDollyStart",
+   "range": [
+    36,
+    44
+   ]
+  },
+  {
+   "name": "unstackStagger",
+   "what": "seconds between departments lifting off",
+   "range": [
+    0,
+    1
+   ]
+  },
+  {
+   "name": "unstackDur",
+   "what": "seconds one slab takes to hop to its place",
+   "range": [
+    0.8,
+    3
+   ]
+  },
+  {
+   "name": "headSize",
+   "what": "cap height (units) of the headline numbers",
+   "range": [
+    60,
+    170
+   ]
+  },
+  {
+   "name": "headX",
+   "what": "inset (units) of the headline numbers from the left and right edges",
+   "range": [
+    8,
+    60
+   ]
+  },
+  {
+   "name": "headY",
+   "what": "top (units) of the headline numbers",
+   "range": [
+    20,
+    300
+   ]
+  },
+  {
+   "name": "tReveal",
+   "what": "time (s) of the reveal: the higher column of each pair glows, the tally and YOU/TRUTH appear",
+   "range": [
+    54,
+    60
+   ]
+  },
+  {
+   "name": "neonStrength",
+   "what": "neon post strength on the reveal frames only; 0 turns the post off",
+   "range": [
+    0,
+    2
+   ]
+  },
+  {
+   "name": "neonRadius",
+   "what": "neon glow reach (units of the 960 sheet)",
+   "range": [
+    6,
+    30
+   ]
+  },
+  {
+   "name": "neonThresh",
+   "what": "brightness above which a pixel glows",
+   "range": [
+    0.2,
+    0.8
+   ]
+  },
+  {
+   "name": "neonCore",
+   "what": "white-hot core of the neon",
+   "range": [
+    0,
+    1
+   ]
+  },
+  {
+   "name": "neonT0",
+   "what": "time (s) the neon post fades in",
+   "range": [
+    54,
+    60
+   ]
+  },
+  {
+   "name": "neonT1",
+   "what": "time (s) the neon post is gone",
+   "range": [
+    58,
+    63
+   ]
+  }
+ ]
+}

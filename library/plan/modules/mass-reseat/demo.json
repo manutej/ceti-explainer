@@ -1,0 +1,110 @@
+{
+  "demos": [
+    {
+      "meta": {
+        "id": "mass-reseat-ai", "short": "AI · constrained decoding", "demo": true,
+        "title": "mass-reseat · constrained decoding", "chrome": "dark", "level": "novice", "vo": false,
+        "eyebrow": "Explainer modules · mass-reseat · 1 of 2",
+        "titleHTML": "Only the <em>open</em> tracks",
+        "lede": "One junction of a constrained decoder. 1,000 marks carry the model’s odds; the schema closes four tracks, and their weight re-seats on the open ones with every ratio intact.",
+        "synthTitle": "What the module carries",
+        "synthesis": "Mass-reseat makes a conserved quantity visible: the marks are counted, never drawn as bars, and the closed bins’ marks travel to the kept ones instead of vanishing. The printed p′ is the same function the marks obey (p ÷ Σkept). Generalised from the type-safe film’s M3 throat.",
+        "sources": [["SB M3", "archive/films/typesafe — the switchyard throat (the production cut this module generalises)", "../../../archive/films/typesafe/STORYBOARD.md"], ["S2/S3", "Outlines · XGrammar — masks precomputed per grammar state", "https://arxiv.org/abs/2411.15100"]]
+      },
+      "type": { "primary": "T1", "secondary": "T5" },
+      "roles": { "mass": "neutral", "kept": "machine", "dropped": "neutral", "answer": "machine" },
+      "po": { "kind": "track", "id": "junction", "n": 8, "context": "{\"customer\": \"Marisol Ortega\", \"amount\": 1200.00, \"currency\": \"" },
+      "example": { "marks": 1000, "draw": 0.55 },
+      "given": { "flags": ["gap", "parts", "instance"] },
+      "modules": [
+        {
+          "use": "mass-reseat",
+          "head": { "eyebrow": "MASS-RESEAT · CONSTRAINED DECODING", "title": "Only the open tracks", "chapter": "The mask" },
+          "params": {
+            "variant": "renormalize", "N": "@example.marks", "u": "@example.draw", "focus": "USD",
+            "bins": [
+              { "id": "USD", "label": "USD", "p": 0.42 }, { "id": "dollar-sign", "label": "$", "p": 0.18 },
+              { "id": "dollars", "label": "dollars", "p": 0.12 }, { "id": "US", "label": "US", "p": 0.09 },
+              { "id": "EUR", "label": "EUR", "p": 0.07 }, { "id": "usd", "label": "usd", "p": 0.05 },
+              { "id": "MXN", "label": "MXN", "p": 0.04 }, { "id": "quote", "label": "\"", "p": 0.03 }
+            ],
+            "keep": ["USD", "US", "EUR", "MXN"],
+            "means": "each mark is 1/1,000 of the probability mass",
+            "foot": {
+              "queue": "each mark is 1/1,000 of the model’s odds · illustrative logits, real method",
+              "close": "the schema closes {dropped} tracks · together they held {droppedPct}",
+              "reseat": "their marks ride back through the junction to the {kept} open tracks",
+              "count": "p′ = p ÷ {mass} · ratios kept · the draw u = {u} takes “{drawn}”",
+              "countOff": "no mask · the same draw u = {u} takes “{drawn}”, which the schema never allowed"
+            },
+            "principle": { "term": "renormalise", "line": "p′ = p ÷ Σ kept" },
+            "control": { "label": "Constrain", "question": "Mask off: which token does the same draw take?", "on": "mask on", "off": "mask off" }
+          },
+          "captions": {
+            "queue": "Before each token, the model scores every candidate. Here, after “currency”.",
+            "close": "The schema allows USD, EUR or MXN, so four tracks close.",
+            "reseat": "Their weight does not vanish. It rides back and re-seats on the open tracks.",
+            "count": "Ratios survive: 0.42 becomes 0.677, and the same draw takes USD.",
+            "hold": "Nothing new for a moment: the odds have moved, none were lost.",
+            "name": "Mask, then renormalise: each kept p is divided by the kept mass."
+          }
+        }
+      ]
+    },
+    {
+      "meta": {
+        "id": "mass-reseat-cabs", "short": "Behavioural · the cab problem", "demo": true,
+        "title": "mass-reseat · the cab problem", "chrome": "notebook", "level": "novice", "vo": false,
+        "eyebrow": "Explainer modules · mass-reseat · 2 of 2",
+        "titleHTML": "Which cabs <em>count</em>",
+        "lede": "Kahneman’s cab problem as conditioning: 1,000 cabs, a witness who is right 80 % of the time. The evidence does not change the city; it picks the denominator.",
+        "synthTitle": "What the module carries",
+        "synthesis": "In condition mode nothing is erased: the 710 cabs the witness would call Green stay on the page, faint, so the denominator stays visible. The 290 the witness would call Blue gather into one new whole, and the answer is counted from it: 120 of 290.",
+        "sources": [["K16", "Kahneman, Thinking, Fast and Slow, ch. 16 (Causes Trump Statistics)", "https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow"], ["GH95", "Gigerenzer & Hoffrage 1995 — natural frequencies", "https://doi.org/10.1037/0033-295X.102.4.684"]]
+      },
+      "type": { "primary": "T5", "secondary": "T8" },
+      "roles": { "mass": "neutral", "kept": "person", "dropped": "neutral", "answer": "machine", "evidence": "person", "blueCab": "shape:filled", "greenCab": "shape:hollow" },
+      "po": { "kind": "grid", "id": "city", "n": 1000, "cols": 40, "pitch": 9, "x0": 64, "y0": 176, "label": "A cab hit someone at night. A witness says it was Blue." },
+      "example": { "cabs": 1000, "blue": 150, "green": 850, "reliability": 0.8 },
+      "given": { "flags": ["gap", "parts", "instance"] },
+      "modules": [
+        {
+          "use": "mass-reseat",
+          "head": { "eyebrow": "FIELD NOTEBOOK · MASS-RESEAT · KAHNEMAN CH. 16", "title": "Which cabs count", "chapter": "The cab problem" },
+          "params": {
+            "variant": "condition", "N": "@example.cabs", "focus": "blue-saysBlue",
+            "bins": [
+              { "id": "blue-saysBlue", "label": "Blue, called Blue", "short": "Blue", "p": 0.12, "group": "blueCab" },
+              { "id": "blue-saysGreen", "label": "Blue, called Green", "p": 0.03, "group": "blueCab" },
+              { "id": "green-saysBlue", "label": "Green, called Blue", "p": 0.17, "group": "greenCab" },
+              { "id": "green-saysGreen", "label": "Green, called Green", "p": 0.68, "group": "greenCab" }
+            ],
+            "keep": ["blue-saysBlue", "green-saysBlue"],
+            "means": "each mark is one cab",
+            "legend": [{ "group": "blueCab", "label": "{n} Blue cabs" }, { "group": "greenCab", "label": "{n} Green cabs" }],
+            "keepLabel": "ringed · the witness would say Blue",
+            "answerLabel": "Blue, given “Blue”",
+            "foot": {
+              "queue": "each dot is one cab · only {groupPct} of the city’s cabs are Blue",
+              "close": "right 80 % of the time: {n:blue-saysBlue} Blue cabs called Blue, and {n:green-saysBlue} Green cabs called Blue too",
+              "reseat": "the other {droppedN} stay, faint: still in the city, no longer in the question",
+              "count": "of the {keptN} cabs the witness would call Blue, {focusN} are Blue",
+              "countOff": "no witness: the answer is the base rate, {groupN} of {N}"
+            },
+            "principle": { "term": "the base rate", "line": "the denominator decides" },
+            "control": { "label": "Use the witness", "question": "Without the witness, what is the chance the cab was Blue?", "on": "witness on", "off": "no witness" },
+            "notes": ["the 80 % reliability is the textbook’s, tested at night"]
+          },
+          "captions": {
+            "queue": "A city of 1,000 cabs: 150 Blue, 850 Green. One of them hit someone.",
+            "close": "Test the witness on every cab. 290 of them would be called Blue.",
+            "reseat": "Only those 290 are still in question. The rest stay, faint, on the page.",
+            "count": "Count the Blue ones among them: 120 of 290. About 41 %, not 80 %.",
+            "hold": "Look at the block: most cabs called Blue are Green.",
+            "name": "The base rate decides: the evidence only picks the denominator."
+          }
+        }
+      ]
+    }
+  ]
+}

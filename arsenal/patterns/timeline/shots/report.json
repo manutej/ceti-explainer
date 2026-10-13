@@ -1,0 +1,35 @@
+{
+ "html": "/home/user/ceti-explainer/arsenal/patterns/timeline/demo.html",
+ "errors": [],
+ "variants": {
+  "slow-pedagogic": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/slow-pedagogic-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/slow-pedagogic-t4.62.png",
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/slow-pedagogic-t9.38.png",
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/slow-pedagogic-t14.00.png"
+   ],
+   "purity": "identical"
+  },
+  "fast-reel": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/fast-reel-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/fast-reel-t4.62.png",
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/fast-reel-t9.38.png",
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/fast-reel-t14.00.png"
+   ],
+   "purity": "identical"
+  },
+  "stagger-heavy": {
+   "stills": [
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/stagger-heavy-t0.00.png",
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/stagger-heavy-t4.62.png",
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/stagger-heavy-t9.38.png",
+    "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/stagger-heavy-t14.00.png"
+   ],
+   "purity": "identical"
+  }
+ },
+ "ms_per_frame": 23,
+ "contact": "/home/user/ceti-explainer/arsenal/patterns/timeline/shots/contact.png"
+}

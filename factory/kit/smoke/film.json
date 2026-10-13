@@ -1,0 +1,40 @@
+{
+  "id": "kit-smoke",
+  "title": "Kit smoke test",
+  "eyebrow": "Factory kit · smoke film",
+  "lede": "Twenty seconds that touch every helper in the kit: the sheet, a dimension line, the sealed commit, a question card, a count of marks, a caption and the CETI brand card.",
+  "dur": 20,
+  "seed": 7,
+  "palette": { "paper": "#E8DCC2", "ink": "#1E3A5C", "accent": "#C8452E", "muted": "#8E887C", "chalk": "#F2ECDD", "dark": "#0A0D12", "soft": "#B9A277" },
+  "type": { "disp": "Big Shoulders Display", "mono": "IBM Plex Mono" },
+  "fonts": [
+    { "family": "Big Shoulders Display", "weight": 600, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 400, "style": "normal" },
+    { "family": "IBM Plex Mono", "weight": 500, "style": "normal" }
+  ],
+  "commit": { "at": 5, "title": "YOUR GUESS", "prompt": "How many of 100 marks are red?", "unit": "of 100", "default": 40, "min": 0, "max": 100 },
+  "chapters": [
+    { "id": "hook", "t0": 0, "t1": 5, "eyebrow": "SMOKE · THE HOOK", "title": "A plan of twelve months" },
+    { "id": "commit", "t0": 5, "t1": 9.6, "eyebrow": "SMOKE · THE COMMIT", "title": "Seal a number" },
+    { "id": "count", "t0": 12, "t1": 17, "eyebrow": "SMOKE · THE COUNT", "title": "One hundred marks" }
+  ],
+  "cards": [
+    { "id": "card-q", "label": "card", "t0": 9.6, "t1": 11.6, "q": ["How many are red?"], "sub": "COUNT BEFORE YOU DIVIDE", "subAt": 0.6 }
+  ],
+  "captions": [
+    [0.6, 4.8, "The plan says twelve months. Everyone signed it."],
+    [5.0, 9.5, "Before the count: how many of a hundred marks are red?"],
+    [12.3, 16.8, "Count them one by one. Thirty of a hundred are red."]
+  ],
+  "ledger": [[1.0, "REV A · PLAN · 12 MO"], [5.2, "REV B · SEALED"], [12.4, "REV C · COUNTED"]],
+  "count": { "n": 100, "red": 30, "p": 0.3 },
+  "brand": { "takeaway": "Count the marks before you trust the ratio." },
+  "sources": [
+    ["S1", "Synthetic smoke fixture: 100 marks, 30 red (this folder's claims.json)."],
+    ["S2", "Acklam, An algorithm for computing the inverse normal cumulative distribution function (2003)."],
+    ["S3", "films/opera-house: the Tender Set chrome this kit is derived from."]
+  ],
+  "honest": ["This is a smoke test of the kit, not a case: the hundred marks and the thirty red ones are made up to exercise the helpers."],
+  "tryit": { "title": "Try it", "note": "Move the share; the count on the sheet follows.", "seek": 16.5,
+             "inputs": [ { "id": "red", "label": "Red marks", "min": 0, "max": 100, "step": 1, "value": 30, "unit": "of 100" } ] }
+}

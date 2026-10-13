@@ -1,0 +1,23 @@
+{
+  "id": "amdahl",
+  "verdict": "SHIP",
+  "truth": [
+    {"claim": "100 hours = 4+12+6+10+30+14+6+10+3+5; 30 -> 3; 70 untouched; 73 total", "status": "ok", "note": "recomputed; declared teaching model"},
+    {"claim": "speed-up 1.37x = 100/73 = 1/((1-0.3)+0.3/10)", "status": "ok", "note": "1.3699 both ways"},
+    {"claim": "ceiling 1.43x = 100/70; half the hours -> never more than 2x", "status": "ok", "note": "1.4286; 1/(1-0.5) = 2"},
+    {"claim": "IBM Credit: 7 days, 5 desks, 90 minutes of work, 4 hours after", "status": "ok", "note": "Hammer & Champy 1993 ch. 3 and Davenport & Nohria 1994 as cited; the honest limits say it is the authors' account, not an audit; strip geometry 15.75 and 42 of 588 units recompute"},
+    {"claim": "80 of 100 hours at 10x: 3.57x, 28 hours", "status": "ok", "note": "1/(0.2+0.08) = 3.571; try-it only"}
+  ],
+  "craft": 4,
+  "originality": 3,
+  "stop": 4,
+  "legibility_phone": "ok",
+  "format": {"counts_first": true, "commit_before_number": true, "brand_card": true, "honest_line": true, "exec_clean": true},
+  "defects": [
+    {"t": 60.2, "what": "The pin labelled TRUE reads '1.43x / HOUR 70' once the ceiling is drawn; the answer to the committed question is 1.37x (hour 73) and the ceiling is a different quantity (instant drafting). Labelled 'THE CEILING' above, but the TRUE pin changes value under the viewer", "severity": "med"},
+    {"t": 50.3, "what": "'UNTOUCHED 45' is a mid-tick counter while the caption already says '70 hours untouched'", "severity": "low"},
+    {"t": 69.5, "what": "The honest line ('A teaching model, not IBM's numbers. Faster work can also move the queues.') is on the stage only; the captions and transcript carry only the Monday question", "severity": "low"},
+    {"t": 30.6, "what": "'90 MINUTES OF WORK' is set in a pale tint above the strip while the strip itself is a hatched block; the sliver that is the point is hard to find at a glance", "severity": "low"}
+  ],
+  "one_line": "One row of 100 hours that closes up to 73 is exactly the right count, and the pins put promise, guess and truth on one axis; just do not let the TRUE pin move to the ceiling."
+}
