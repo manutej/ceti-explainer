@@ -1,77 +1,126 @@
-# GA storyboard reward · proof workflow
+# Workflow · GA storyboard reward ↔ factory pipeline
 
-How this proof pack was produced and how to reproduce it.
+How the pilot in `factory/tools/evolve_sequence.py` maps onto the explainer factory and Atelier seats.
+
+## 1 · GA pipeline (bounded clock window)
 
 ```mermaid
 flowchart LR
   subgraph inputs
+    B[brief / beats / findings]
     F[film.json knobs + captions]
-    G[gate.json PASS snapshot]
-    W[window 36-58s]
+    G0[shipped gate.json + seat.json]
   end
-  subgraph ga
-    E[evolve_sequence.py evolve]
-    B[best.genome.json]
+
+  subgraph genotype
+    W[window t0,t1]
+    GN[sequence genome v0]
+    K[timing knob genes]
+    W --> GN
+    F --> K
+    K --> GN
   end
-  subgraph ship
-    K[kit2 build.py]
-    V[export.mjs --from/--to]
-    A[/opt/cursor/artifacts/*.mp4]
+
+  subgraph evaluate["evaluate (--evaluate)"]
+    M[mutate / crossover]
+    A[apply genome → film.json]
+    BD[kit2 build.py]
+    GT[gate.mjs]
+    FT[fitness_from_gate]
+    M --> A --> BD --> GT --> FT
   end
-  F --> E
-  G --> E
-  W --> E
-  E --> B
-  F --> K
-  B --> K
-  K --> V
-  V --> A
+
+  subgraph dry["dry-run (default)"]
+    M2[mutate / crossover]
+    FT2[fitness vs shipped gate.json]
+    M2 --> FT2
+  end
+
+  B --> F
+  G0 --> FT2
+  GN --> M
+  GN --> M2
+  FT --> EL[elite + children]
+  FT2 --> EL
+  EL --> OUT[best.genome.json · history.json · recipe.json]
 ```
 
-## End-to-end GA loop (workers)
+**Fitness terms** (see `docs/GA-STORYBOARD-REWARD.md`):
+
+- Weighted gate rows (FAIL → −∞; WARN → half credit).
+- Anchor penalty on knob drift from shipped baseline.
+- Findings alignment (knob time vs caption beat).
+- Optional seat.json craft / truth / defects.
+
+## 2 · Factory worker mapping (who does what)
 
 ```mermaid
 flowchart TB
-  subgraph seeds["Population seeds"]
-    S1[Shipped film.json]
-    S2[Drafts a / b / c]
-    S3[Findings knob hints]
+  subgraph human_atelier["Atelier seats (human / Opus)"]
+    BR[atelier-brief · brief.md claims]
+    DR[atelier-draft · film.js + knobs]
+    SL[atelier-select · frames strips]
+    AP[apply_findings.py · film.json only]
   end
-  subgraph tier1["Tier-1 genotype (v0)"]
-    K[knobs + captions + chapter t0]
+
+  subgraph automated["GA pilot (automated)"]
+    EV[evolve_sequence.py]
+    SC[score · no build]
+    EG[evolve · dry-run or --evaluate]
   end
-  subgraph eval["Evaluate (script orchestrator)"]
-    B[kit2 build.py]
-    G[gate.mjs G1–G12]
-    F[frames.mjs window strip optional]
-    R[evolve_sequence fitness R]
+
+  subgraph factory_tools["Existing factory tools"]
+    K2[kit2/build.py]
+    GA[gate.mjs G1–G12]
+    FR[frames.mjs contact strips]
+    CAT[catalogue.py ship]
   end
-  subgraph workers["Lower workers (future / parallel)"]
-    D[Sonnet draft lanes]
-    H[Haiku caption tune cards]
-    O[Opus blind SELECT / seat]
-  end
-  seeds --> K
-  K --> B --> G --> R
-  G --> F --> R
-  D -.->|distinct registers| seeds
-  H -.->|residual captions| K
-  O -.->|rank strips not code| R
-  R -->|select mutate crossover| K
+
+  BR --> DR
+  DR --> K2
+  K2 --> GA
+  GA --> FR
+  FR --> SL
+  SL --> AP
+  AP --> DR
+
+  DR --> EV
+  EV --> SC
+  EV --> EG
+  EG --> K2
+  EG --> GA
+  GA --> EV
+
+  GA --> CAT
+  AP --> CAT
 ```
 
-Production path (not this proof): offline GA → `best.genome.json` → optional Opus findings → one `apply_findings.py` round → SHIP.
+| Atelier / factory step | GA pilot analogue |
+|------------------------|-------------------|
+| Draft knobs in `film.json` | Genotype `genes.knobs` |
+| Blind select on strips | Fitness replaces pairwise preference (gate + seat + alignment) |
+| `apply_findings.py` | Findings-aggregate seed genome + alignment penalty |
+| Two tool-applied rounds | `--generations` / `--population` (offline; ship still via findings + NOTES) |
+| Gate before ship | `--evaluate` runs full gate per individual |
+| Seat.json | Soft term in fitness (not a hard gate) |
 
-## Steps
+## 3 · Recommended proof commands (copy-paste)
 
-1. **Doctor** — `sh scripts/doctor.sh` (Playwright Chromium for export/gate).
-2. **Score / evolve** — `factory/tools/evolve_sequence.py` on `factory/films/simpsons-3d` with `--window 36,58`. Use `--evaluate` only when you need per-individual rebuilds (slow on WebGL).
-3. **Sandbox** — `docs/proofs/ga-storyboard-reward/sandbox/{baseline,evolved}/` hold film sources + built HTML for audit.
-4. **Build** — `python3 factory/kit2/build.py factory/films/simpsons-3d --brand ceti-boardwalk-dark --chrome none --material ink`.
-5. **Gate** — Trust shipped `gate.json` on the branch for proof; full re-gate may fail G11 until overlap is fixed.
-6. **Export** — `arsenal/tools/export.mjs` with `--sel '#stage'`, `--query '?film=1'`, `--from 36 --to 58`, shard for wall time.
-7. **Artifacts** — Copy MP4s to `/opt/cursor/artifacts/ga-proof-{baseline,evolved,window}.mp4`; document sizes in `PROOF.md`.
+```sh
+# Baseline score only
+python3 factory/tools/evolve_sequence.py score factory/films/simpsons-3d --window 36,58
 
-## PR
+# Fast GA logic check
+python3 factory/tools/evolve_sequence.py evolve factory/films/simpsons-3d \
+  --window 36,58 --population 4 --generations 2 --dry-run
 
-Post artifact names on PR #8 after push so reviewers can download the clips without building WebGL locally.
+# Full loop (WebGL ~2 min on this VM)
+python3 factory/tools/evolve_sequence.py evolve factory/films/simpsons-3d \
+  --window 36,58 --population 4 --generations 2 --evaluate
+
+# Full loop (2D ledger ~30 s)
+python3 factory/tools/evolve_sequence.py evolve factory/films/goodhart/drafts/ledger \
+  --window 36,58 --population 4 --generations 2 --evaluate
+```
+
+Outputs land in `<film-dir>/evolve/`; this proof copies the simpsons artifacts into `docs/proofs/ga-storyboard-reward/`.

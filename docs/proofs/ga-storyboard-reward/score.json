@@ -1,0 +1,68 @@
+{
+  "genome": {
+    "schema": "ceti.sequence_genome/v0",
+    "film": "simpsons-3d",
+    "window": [
+      36.0,
+      58.0
+    ],
+    "seed": 1973,
+    "baseline": "factory/films/simpsons-3d/film.json",
+    "genes": {
+      "knobs": {
+        "dv0": 45.5,
+        "dvStep": 1.4,
+        "elev0": 20,
+        "elev1": 11,
+        "hlMorph": 38.1,
+        "hlMorphDur": 0.6,
+        "hlStart": 36.4,
+        "idleDeg": 3.0,
+        "lit0": 24.6,
+        "lit1": 26.6,
+        "lookY0": -96,
+        "lookY1": -128,
+        "mixPct": 60.6,
+        "mixT": 58.8,
+        "neonGain": 0.45,
+        "pinCount": 28,
+        "pinRate": 24,
+        "platterR": 240,
+        "revealDur": 2.6,
+        "revealSize": 90,
+        "revealT": 54.4,
+        "revealX": 480,
+        "revealY": 104,
+        "slabGap": 26,
+        "split0": 40.3,
+        "split1": 45.4,
+        "splitLift": 22,
+        "splitStagger": 0.55,
+        "turn0": 40.0,
+        "turn1": 46.0,
+        "turnDeg": 90,
+        "zoom0": 0.6,
+        "zoom1": 0.83
+      },
+      "captions": {},
+      "chapters": {}
+    },
+    "meta": {
+      "parents": [
+        "shipped"
+      ],
+      "generation": 0
+    }
+  },
+  "fitness": 108.9,
+  "detail": {
+    "gate": "/workspace/factory/films/simpsons-3d/gate.json",
+    "terms": {
+      "gate_weighted": 106.5,
+      "anchor_penalty": 0.0,
+      "alignment_penalty": 0.0,
+      "seat": 12.0
+    },
+    "total": 108.9
+  }
+}
