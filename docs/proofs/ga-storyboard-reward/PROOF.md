@@ -79,12 +79,14 @@ python3 factory/tools/evolve_sequence.py evolve factory/films/goodhart/drafts/le
   --window 36,58 --population 4 --generations 2 --evaluate --seed 1973
 ```
 
-| Metric | Before (shipped gate score) | After (best `--evaluate`) |
-|--------|----------------------------:|--------------------------:|
+| Metric | `score` (frozen `gate.json`) | `--evaluate` elite (fresh gate) |
+|--------|-----------------------------:|--------------------------------:|
 | Fitness | **106.50** | **123.00** |
-| Wall time | ~0.2 s score | **~26 s** evolve |
-| Timing genes | 13 | 13 |
-| Gate on best | — | **PASS** |
+| Knob vector vs shipped | same | **same** (GA did not beat shipped) |
+| Wall time | ~0.2 s | **~26 s** evolve |
+| Gate on elite | — | **PASS** |
+
+The **106.50 → 123.00** gap is **not** evolutionary improvement: it compares **old gate file weights** vs **live re-gate** (`--overlap-warn`, `--quick`). See `history.goodhart-ledger.json` — best individual remains shipped. For a visible delta, use `wow-demo/` (`WOW.md`).
 
 Artifacts: `best.genome.goodhart-ledger.json`, `history.goodhart-ledger.json` in this directory.
 
@@ -124,8 +126,8 @@ Window clip **36–58 s** from the shipped simpsons-3d build (see commit `7b3515
 | Evolved (GA best on dry-run) | `/opt/cursor/artifacts/ga-proof-evolved.mp4` (identical to baseline — elite unchanged) |
 | Window alias | `/opt/cursor/artifacts/ga-proof-window.mp4` |
 
-Export recipe: `docs/proofs/ga-storyboard-reward/export/ga-baseline.export.json`. For a **visible** before/after clip, export from `goodhart/drafts/ledger` after applying `best.genome.goodhart-ledger.json` (fitness **106.50 → 123.00** under `--evaluate`).
+Export recipe: `docs/proofs/ga-storyboard-reward/export/ga-baseline.export.json`. For **different** clips, see **`wow-demo/BUILD.md`** (degraded vs shipped goodhart genomes) — not the identical simpsons pair.
 
 ## Verdict
 
-The GA storyboard reward pilot **works end-to-end**: genomes mutate, kit2 builds, gate runs, fitness aggregates gate rows + anchor + findings alignment + seat, and evolution improves fitness on the 2D ledger run (**106.50 → 123.00**) while holding a passing WebGL elite on simpsons-3d with live gate (**125.40**, PASS).
+The pilot **proves the machinery**: genomes → build → gate → fitness → history, on WebGL and 2D. It does **not** prove GA beat shipped simpsons or ledger on this run (elites unchanged). Real wins to pursue next: seed from **draft-only** or **degraded** baselines, caption genes, and the goodhart wow MP4 pair documented in **`WOW.md`**.

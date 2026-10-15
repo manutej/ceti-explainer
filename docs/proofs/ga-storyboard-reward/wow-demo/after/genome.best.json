@@ -1,0 +1,31 @@
+{
+  "schema": "ceti.sequence_genome/v0",
+  "film": "goodhart",
+  "window": [36.0, 58.0],
+  "seed": 2017,
+  "baseline": "factory/films/goodhart/drafts/ledger/film.json",
+  "genes": {
+    "knobs": {
+      "flagStep": 0.2,
+      "flagT0": 44.0,
+      "floorT0": 57,
+      "gatherDur": 1.6,
+      "gatherT0": 48.6,
+      "guessDur": 2,
+      "guessT0": 51,
+      "hookStep": 0.5,
+      "hookT0": 0.6,
+      "ratioT0": 54,
+      "scanDur": 2.0,
+      "scanT0": 40.2,
+      "typeCps": 40
+    },
+    "captions": {},
+    "chapters": {}
+  },
+  "meta": {
+    "parents": ["shipped"],
+    "generation": 0,
+    "source": "docs/proofs/ga-storyboard-reward/best.genome.goodhart-ledger.json"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "ceti.sequence_genome/v0",
+  "film": "goodhart",
+  "window": [36.0, 58.0],
+  "seed": 2017,
+  "baseline": "factory/films/goodhart/drafts/ledger/film.json",
+  "genes": {
+    "knobs": {
+      "flagStep": 0.3,
+      "flagT0": 44.6,
+      "floorT0": 57,
+      "gatherDur": 2.0,
+      "gatherT0": 49.0,
+      "guessDur": 2.6,
+      "guessT0": 50.8,
+      "hookStep": 0.5,
+      "hookT0": 0.6,
+      "ratioT0": 54,
+      "scanDur": 2.6,
+      "scanT0": 40.6,
+      "typeCps": 40
+    },
+    "captions": {},
+    "chapters": {}
+  },
+  "meta": {
+    "parents": ["shipped", "wow-degrade-manual"],
+    "generation": 0,
+    "note": "Intentionally mis-synced COUNT-beat timing for visible before clip; still gates PASS."
+  }
+}

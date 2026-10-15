@@ -1,0 +1,13 @@
+# Rebuild from genomes + factory/films/goodhart/drafts/ledger (see BUILD.md)
+before/build/
+after/build/
+before/lib/
+after/lib/
+before/film.js
+after/film.js
+before/film.json
+after/film.json
+before/claims.json
+after/claims.json
+before/gate.json
+after/gate.json
