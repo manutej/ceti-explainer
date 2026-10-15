@@ -48,6 +48,9 @@ chromes/*/out/
 factory/**/frames/*
 !factory/**/frames/frames.json
 
+# GA pilot output from factory/tools/evolve_sequence.py (regenerated locally)
+factory/**/evolve/
+
 # the generated film gallery is committed (published as the gallery artifact)
 !factory/gallery.html
 !arsenal/gallery-gl.html

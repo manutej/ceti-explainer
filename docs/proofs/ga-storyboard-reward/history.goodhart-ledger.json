@@ -1,0 +1,335 @@
+[
+  {
+    "gen": 0,
+    "i": 0,
+    "fitness": 123.0,
+    "detail": {
+      "gate": "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g0-i0/gate.json",
+      "terms": {
+        "gate_weighted": 123.0,
+        "anchor_penalty": 0.0,
+        "alignment_penalty": 0.0
+      },
+      "total": 123.0,
+      "build_ok": true,
+      "gate_exit": 0,
+      "gate_argv": [
+        "node",
+        "/workspace/factory/tools/gate.mjs",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g0-i0/build/goodhart.ceti-dark.ledger.html",
+        "--film",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g0-i0",
+        "--json",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g0-i0/gate.json",
+        "--kit",
+        "/workspace/factory/kit2/kit2.js",
+        "--kit",
+        "/workspace/factory/kit2/player.js",
+        "--overlap-warn",
+        "--quick"
+      ]
+    },
+    "genome": {
+      "schema": "ceti.sequence_genome/v0",
+      "film": "goodhart",
+      "window": [
+        36.0,
+        58.0
+      ],
+      "seed": 2017,
+      "baseline": "factory/films/goodhart/drafts/ledger/film.json",
+      "genes": {
+        "knobs": {
+          "flagStep": 0.2,
+          "flagT0": 44.0,
+          "floorT0": 57,
+          "gatherDur": 1.6,
+          "gatherT0": 48.6,
+          "guessDur": 2,
+          "guessT0": 51,
+          "hookStep": 0.5,
+          "hookT0": 0.6,
+          "ratioT0": 54,
+          "scanDur": 2.0,
+          "scanT0": 40.2,
+          "typeCps": 40
+        },
+        "captions": {},
+        "chapters": {}
+      },
+      "meta": {
+        "parents": [
+          "shipped"
+        ],
+        "generation": 0
+      }
+    }
+  },
+  {
+    "gen": 1,
+    "i": 0,
+    "fitness": 123.0,
+    "detail": {
+      "gate": "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i0/gate.json",
+      "terms": {
+        "gate_weighted": 123.0,
+        "anchor_penalty": 0.0,
+        "alignment_penalty": 0.0
+      },
+      "total": 123.0,
+      "build_ok": true,
+      "gate_exit": 0,
+      "gate_argv": [
+        "node",
+        "/workspace/factory/tools/gate.mjs",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i0/build/goodhart.ceti-dark.ledger.html",
+        "--film",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i0",
+        "--json",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i0/gate.json",
+        "--kit",
+        "/workspace/factory/kit2/kit2.js",
+        "--kit",
+        "/workspace/factory/kit2/player.js",
+        "--overlap-warn",
+        "--quick"
+      ]
+    },
+    "genome": {
+      "schema": "ceti.sequence_genome/v0",
+      "film": "goodhart",
+      "window": [
+        36.0,
+        58.0
+      ],
+      "seed": 2017,
+      "baseline": "factory/films/goodhart/drafts/ledger/film.json",
+      "genes": {
+        "knobs": {
+          "flagStep": 0.2,
+          "flagT0": 44.0,
+          "floorT0": 57,
+          "gatherDur": 1.6,
+          "gatherT0": 48.6,
+          "guessDur": 2,
+          "guessT0": 51,
+          "hookStep": 0.5,
+          "hookT0": 0.6,
+          "ratioT0": 54,
+          "scanDur": 2.0,
+          "scanT0": 40.2,
+          "typeCps": 40
+        },
+        "captions": {},
+        "chapters": {}
+      },
+      "meta": {
+        "parents": [
+          "shipped"
+        ],
+        "generation": 0
+      }
+    }
+  },
+  {
+    "gen": 1,
+    "i": 1,
+    "fitness": 122.998,
+    "detail": {
+      "gate": "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i1/gate.json",
+      "terms": {
+        "gate_weighted": 123.0,
+        "anchor_penalty": 0.0020000000000000035,
+        "alignment_penalty": 0.0
+      },
+      "total": 122.998,
+      "build_ok": true,
+      "gate_exit": 0,
+      "gate_argv": [
+        "node",
+        "/workspace/factory/tools/gate.mjs",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i1/build/goodhart.ceti-dark.ledger.html",
+        "--film",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i1",
+        "--json",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i1/gate.json",
+        "--kit",
+        "/workspace/factory/kit2/kit2.js",
+        "--kit",
+        "/workspace/factory/kit2/player.js",
+        "--overlap-warn",
+        "--quick"
+      ]
+    },
+    "genome": {
+      "schema": "ceti.sequence_genome/v0",
+      "film": "goodhart",
+      "window": [
+        36.0,
+        58.0
+      ],
+      "seed": 2017,
+      "baseline": "factory/films/goodhart/drafts/ledger/film.json",
+      "genes": {
+        "knobs": {
+          "flagStep": 0.2,
+          "flagT0": 44.0,
+          "floorT0": 57,
+          "gatherDur": 1.6,
+          "gatherT0": 48.6,
+          "guessDur": 2.2,
+          "guessT0": 51,
+          "hookStep": 0.5,
+          "hookT0": 0.6,
+          "ratioT0": 54,
+          "scanDur": 2.0,
+          "scanT0": 40.2,
+          "typeCps": 40
+        },
+        "captions": {},
+        "chapters": {}
+      },
+      "meta": {
+        "parents": [
+          "shipped",
+          "mutate"
+        ],
+        "generation": 1
+      }
+    }
+  },
+  {
+    "gen": 1,
+    "i": 2,
+    "fitness": 122.9995,
+    "detail": {
+      "gate": "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i2/gate.json",
+      "terms": {
+        "gate_weighted": 123.0,
+        "anchor_penalty": 0.0005000000000000142,
+        "alignment_penalty": 0.0
+      },
+      "total": 122.9995,
+      "build_ok": true,
+      "gate_exit": 0,
+      "gate_argv": [
+        "node",
+        "/workspace/factory/tools/gate.mjs",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i2/build/goodhart.ceti-dark.ledger.html",
+        "--film",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i2",
+        "--json",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i2/gate.json",
+        "--kit",
+        "/workspace/factory/kit2/kit2.js",
+        "--kit",
+        "/workspace/factory/kit2/player.js",
+        "--overlap-warn",
+        "--quick"
+      ]
+    },
+    "genome": {
+      "schema": "ceti.sequence_genome/v0",
+      "film": "goodhart",
+      "window": [
+        36.0,
+        58.0
+      ],
+      "seed": 2017,
+      "baseline": "factory/films/goodhart/drafts/ledger/film.json",
+      "genes": {
+        "knobs": {
+          "flagStep": 0.2,
+          "flagT0": 44.0,
+          "floorT0": 57,
+          "gatherDur": 1.6,
+          "gatherT0": 48.7,
+          "guessDur": 2,
+          "guessT0": 51,
+          "hookStep": 0.5,
+          "hookT0": 0.6,
+          "ratioT0": 54,
+          "scanDur": 2.0,
+          "scanT0": 40.2,
+          "typeCps": 40
+        },
+        "captions": {},
+        "chapters": {}
+      },
+      "meta": {
+        "parents": [
+          "shipped",
+          "mutate"
+        ],
+        "generation": 1
+      }
+    }
+  },
+  {
+    "gen": 1,
+    "i": 3,
+    "fitness": 122.998,
+    "detail": {
+      "gate": "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i3/gate.json",
+      "terms": {
+        "gate_weighted": 123.0,
+        "anchor_penalty": 0.002000000000000057,
+        "alignment_penalty": 0.0
+      },
+      "total": 122.998,
+      "build_ok": true,
+      "gate_exit": 0,
+      "gate_argv": [
+        "node",
+        "/workspace/factory/tools/gate.mjs",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i3/build/goodhart.ceti-dark.ledger.html",
+        "--film",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i3",
+        "--json",
+        "/workspace/factory/films/goodhart/drafts/ledger/evolve/run-g1-i3/gate.json",
+        "--kit",
+        "/workspace/factory/kit2/kit2.js",
+        "--kit",
+        "/workspace/factory/kit2/player.js",
+        "--overlap-warn",
+        "--quick"
+      ]
+    },
+    "genome": {
+      "schema": "ceti.sequence_genome/v0",
+      "film": "goodhart",
+      "window": [
+        36.0,
+        58.0
+      ],
+      "seed": 2017,
+      "baseline": "factory/films/goodhart/drafts/ledger/film.json",
+      "genes": {
+        "knobs": {
+          "flagStep": 0.2,
+          "flagT0": 44.0,
+          "floorT0": 57,
+          "gatherDur": 1.6,
+          "gatherT0": 48.6,
+          "guessDur": 2,
+          "guessT0": 51.2,
+          "hookStep": 0.5,
+          "hookT0": 0.6,
+          "ratioT0": 54,
+          "scanDur": 2.0,
+          "scanT0": 40.2,
+          "typeCps": 40
+        },
+        "captions": {},
+        "chapters": {}
+      },
+      "meta": {
+        "parents": [
+          "shipped",
+          "mutate"
+        ],
+        "generation": 1
+      }
+    }
+  }
+]
