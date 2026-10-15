@@ -146,10 +146,11 @@ Parse row `status`: PASS=1, WARN=0.5, FAIL=−∞.
 
 Without a full `measure.mjs` (SWARM-DESIGN §2), v0 uses **knob–caption slack** inside the window:
 
-For each caption *c* in window and each timing knob *k* referenced in shipped `findings.r*.json` for that beat:
+For each finding in window with a **clock-time knob** (knob value within 3 s of the finding’s *t*; excludes rates,
+zooms, gaps in world units):
 
 ```
-penalty += max(0, |c.t0 - knob_time(k)| - τ)²   with τ = 0.35 s
+penalty += max(0, |caption.t0 - knob_value| - τ)²   with τ = 0.35 s
 ```
 
 simpsons-3d shipped findings already encode the correct pairing (`revealT` vs caption 10 at 54.2 s, etc.). Using
