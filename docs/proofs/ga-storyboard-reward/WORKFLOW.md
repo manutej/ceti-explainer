@@ -28,6 +28,40 @@ flowchart LR
   V --> A
 ```
 
+## End-to-end GA loop (workers)
+
+```mermaid
+flowchart TB
+  subgraph seeds["Population seeds"]
+    S1[Shipped film.json]
+    S2[Drafts a / b / c]
+    S3[Findings knob hints]
+  end
+  subgraph tier1["Tier-1 genotype (v0)"]
+    K[knobs + captions + chapter t0]
+  end
+  subgraph eval["Evaluate (script orchestrator)"]
+    B[kit2 build.py]
+    G[gate.mjs G1–G12]
+    F[frames.mjs window strip optional]
+    R[evolve_sequence fitness R]
+  end
+  subgraph workers["Lower workers (future / parallel)"]
+    D[Sonnet draft lanes]
+    H[Haiku caption tune cards]
+    O[Opus blind SELECT / seat]
+  end
+  seeds --> K
+  K --> B --> G --> R
+  G --> F --> R
+  D -.->|distinct registers| seeds
+  H -.->|residual captions| K
+  O -.->|rank strips not code| R
+  R -->|select mutate crossover| K
+```
+
+Production path (not this proof): offline GA → `best.genome.json` → optional Opus findings → one `apply_findings.py` round → SHIP.
+
 ## Steps
 
 1. **Doctor** — `sh scripts/doctor.sh` (Playwright Chromium for export/gate).
