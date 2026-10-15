@@ -1,48 +1,84 @@
-# What is actually “new” on this branch
+# WOW · GA storyboard reward (goodhart ledger)
 
-This page separates **machinery we built** from **proof that was overstated** in early PR comments.
+The simpsons-3d pilot exported **byte-identical** baseline and “evolved” MP4s because the GA elite never beat shipped knobs. The credible demo is the **2D goodhart ledger COUNT window** (36–58 s): same film, two genomes, **two different MP4s**.
 
-## Shipped on the branch (merge-worthy)
+## Watch these clips (proof VM)
+
+| Clip | Path |
+|------|------|
+| **Before** (mis-timed knobs) | `/opt/cursor/artifacts/ga-wow-goodhart-before.mp4` |
+| **After** (GA best genome) | `/opt/cursor/artifacts/ga-wow-goodhart-after.mp4` |
+
+Still at film time **t ≈ 45 s** (9 s into the window clip; use `-ss 9` on the MP4):
+
+| | Path |
+|---|------|
+| Before | `/opt/cursor/artifacts/screenshots/ga-wow-before.png` |
+| After | `/opt/cursor/artifacts/screenshots/ga-wow-after.png` |
+
+Rebuild from committed genomes: [`wow-demo/BUILD.md`](wow-demo/BUILD.md).
+
+## What was broken in “before”
+
+Captions in the COUNT beat are fixed in `film.json`; only **timing knobs** move the ruler scan, red-flag reveal, gather, and guess outline.
+
+In the degraded genome, motion lands **after** (or fights) the caption that describes it:
+
+- **t ≈ 41–44 s** — Caption: *“The metric counted every one as a product sold.”* **Before:** the ruler scan starts late (`scanT0` 40.6 s) and runs slowly (`scanDur` 2.6 s), so the grid is still empty or mid-scan while the caption already claims counting.
+- **t ≈ 44–49 s** — Caption: *“The review flagged 21…”* **Before:** red flags start at `flagT0` 44.6 s with a wide `flagStep` 0.3 s, so almost no flags are visible when that line is on screen; **after:** flags begin at 44.0 s with 0.2 s steps — the red marks match the “21 flagged” story.
+- **t ≈ 51 s** — Caption: *“Your guess, outlined…”* **Before:** gather is late (`gatherT0` 49.0 s) while the guess outline starts early (`guessT0` 50.8 s); **after:** gather at 48.6 s, guess at 51 s — outline lands on the caption beat.
+
+Both builds **gate PASS** (G11/G12 WARN only, same as the live `--evaluate` path).
+
+## What GA optimized
+
+The pilot’s `--evaluate` run on `factory/films/goodhart/drafts/ledger` held the **shipped timing elite** (`best.genome.goodhart-ledger.json`). The large fitness jump in the proof is mostly **re-gating with G11/G12** on a fresh build, not a new knob vector discovered by mutation:
+
+| Stage | Fitness | Notes |
+|-------|--------:|-------|
+| Shipped score vs **committed** `gate.json` (no G11/G12) | **106.50** | `evolve_sequence.py score` |
+| Best after **`--evaluate`** (live gate, G11/G12) | **123.00** | `best.genome.goodhart-ledger.json` |
+| **WOW before** (degraded, live gate) | **122.92** | `wow-demo/before/genome.degraded.json` |
+| **WOW after** (best, live gate) | **123.00** | `wow-demo/after/genome.best.json` |
+| Delta (WOW before → after, live gate) | **+0.08** | Anchor penalty on mis-set knobs |
+
+**Knob deltas (before → after):**
+
+| Knob | Before | After | Role |
+|------|-------:|------:|------|
+| `scanT0` | 40.6 | 40.2 | Ruler scan start |
+| `scanDur` | 2.6 | 2.0 | Scan length |
+| `flagT0` | 44.6 | 44.0 | First red flag |
+| `flagStep` | 0.3 | 0.2 | Flag stagger |
+| `gatherT0` | 49.0 | 48.6 | Gather into slots |
+| `gatherDur` | 2.0 | 1.6 | Gather travel |
+| `guessT0` | 50.8 | 51.0 | Guess outline start |
+| `guessDur` | 2.6 | 2.0 | Outline draw time |
+
+The **visible WOW** is sync you can see in the MP4s; the **106.50 → 123.00** headline is the GA loop proving live gate + fitness on 2D (~**26 s** wall for 8 individuals vs simpsons **~110 s** WebGL).
+
+## Wall time: why 2D leads
+
+| Film | `--evaluate` (pop 4 × gen 2) | Per-individual (typical) |
+|------|---------------------------:|-------------------------:|
+| goodhart ledger 2D | **~26 s** | ~3 s build+gate |
+| simpsons-3d WebGL | **~110 s** | ~14 s build+gate |
+
+Use goodhart for iteration; use WebGL to show the same machinery scales.
+
+## Machinery shipped on this branch (merge-worthy)
 
 | Piece | What it does |
 |-------|----------------|
-| `factory/tools/evolve_sequence.py` | Offline GA over **timing knobs** in a clock window: seed → mutate/crossover → (optional) kit2 build + gate → scalar fitness → `best.genome.json`. |
-| `docs/GA-STORYBOARD-REWARD.md` | Design for bounded storyboard sequences, reward terms, and how this could plug into Atelier workers later. |
-| `gate_extra_flags()` | Makes `--evaluate` usable on legacy films (`--overlap-warn`, `--quick`) without false G11 FAIL. |
+| `factory/tools/evolve_sequence.py` | Offline GA over timing knobs: seed → mutate → kit2 + gate → fitness. |
+| `docs/GA-STORYBOARD-REWARD.md` | Design for bounded sequences and reward terms. |
+| `gate_extra_flags()` | `--evaluate` on legacy films (`--overlap-warn`, `--quick`). |
 
-**Not implemented yet:** caption/chapter genes, neural reward model, module-chain evolution (design only).
+**Not implemented:** caption/chapter genes, neural reward, module-chain evolution.
 
-## What the proof runs demonstrated
+## Honest limits
 
-1. **Pipeline works:** genomes → build → gate → fitness → history JSON (simpsons WebGL ~110 s for pop 4 × gen 2 evaluate).
-2. **simpsons-3d:** Best genome = **shipped** (no knob change). MP4 “baseline” and “evolved” are **the same clip** — correct for that run, not a product win.
-3. **goodhart ledger:** Fitness **106.50** (score against **frozen** `gate.json`) vs **123.00** (**fresh** gate under `--overlap-warn` + `--quick`) is mostly **re-scoring**, not GA discovering new knobs. History shows elite = shipped at **123.0**; mutants score slightly lower.
-
-## Visual demo (goodhart COUNT window)
-
-To show **visible** before/after without duplicating whole film trees in git:
-
-- **Before:** `wow-demo/before/genome.degraded.json` — manually mis-synced COUNT timing (`scanT0`, `gatherT0`, etc.); fitness **~122.92**, gate **PASS**.
-- **After:** `wow-demo/after/genome.best.json` — shipped ledger knobs; fitness **123.0**.
-
-Rebuild and export (MP4 not committed):
-
-```sh
-# See wow-demo/BUILD.md
-```
-
-Artifacts when built on a proof VM:
-
-- `/opt/cursor/artifacts/ga-wow-goodhart-before.mp4` (~512 KB, 22 s window)
-- `/opt/cursor/artifacts/ga-wow-goodhart-after.mp4` (export after running BUILD.md step 2)
-
-That pair is the intended **“you can see the beat land differently”** story — separate from simpsons WebGL exports.
-
-## Duplicate work removed from the branch
-
-Earlier agent passes committed **~6.5 MB** of duplicated simpsons `sandbox/baseline` + `sandbox/evolved` (identical knobs). Those trees were **removed**; regenerate from `factory/films/simpsons-3d` using commands in `PROOF.md`.
-
-## Honest “WOW” for reviewers
-
-- **Today:** a **research orchestrator** + **gate-shaped fitness** + **documented path** to combine Sonnet/Haiku workers — not an automatic quality leap on already-shipped films.
-- **Next:** run GA on a **degraded or draft-only** baseline, or expand genotype (captions); use goodhart wow pair as the acceptance clip for timing sync.
+- **Tier-1 knobs only** — captions and claims are not mutated by this pilot.
+- **GA did not beat shipped knobs** on goodhart in this seed run; the elite matches authored timing.
+- **Not replacing Opus select** — this automates timing alignment inside a passing gate, not brief-to-film authoring.
+- **simpsons MP4s** — baseline and “evolved” exports were the same file; do not use them as a before/after story.

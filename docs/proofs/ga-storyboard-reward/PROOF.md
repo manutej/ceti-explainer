@@ -118,15 +118,24 @@ Saved under `/opt/cursor/artifacts/screenshots/`:
 
 ## 8 · Video proof (MP4)
 
-Window clip **36–58 s** from the shipped simpsons-3d build (see commit `7b35155`). Artifacts on the proof VM:
+**Primary WOW (goodhart ledger, two different files):** **[WOW.md](WOW.md)** · rebuild via **`wow-demo/BUILD.md`**.
+
+| Clip | Path |
+|------|------|
+| Before (degraded timing) | `/opt/cursor/artifacts/ga-wow-goodhart-before.mp4` |
+| After (GA best genome) | `/opt/cursor/artifacts/ga-wow-goodhart-after.mp4` |
+| Screenshots @ *t* ≈ 45 s | `/opt/cursor/artifacts/screenshots/ga-wow-before.png`, `ga-wow-after.png` |
+
+WOW pair fitness (live gate): **122.92 → 123.00**; pilot headline **106.50 → 123.00** = frozen `gate.json` vs `--evaluate` (G11/G12).
+
+**Legacy simpsons-3d** (same clip — not a GA win):
 
 | File | Path |
 |------|------|
 | Baseline | `/opt/cursor/artifacts/ga-proof-baseline.mp4` |
-| Evolved (GA best on dry-run) | `/opt/cursor/artifacts/ga-proof-evolved.mp4` (identical to baseline — elite unchanged) |
-| Window alias | `/opt/cursor/artifacts/ga-proof-window.mp4` |
+| “Evolved” dry-run | `/opt/cursor/artifacts/ga-proof-evolved.mp4` (**byte-identical** to baseline) |
 
-Export recipe: `docs/proofs/ga-storyboard-reward/export/ga-baseline.export.json`. For **different** clips, see **`wow-demo/BUILD.md`** (degraded vs shipped goodhart genomes) — not the identical simpsons pair.
+Export recipe: `docs/proofs/ga-storyboard-reward/export/ga-baseline.export.json`.
 
 ## Verdict
 

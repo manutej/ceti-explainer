@@ -44,8 +44,8 @@ Artifacts (not committed): `/opt/cursor/artifacts/ga-wow-goodhart-before.mp4`, `
 
 ```sh
 mkdir -p /opt/cursor/artifacts/screenshots
-ffmpeg -y -ss 45 -i /opt/cursor/artifacts/ga-wow-goodhart-before.mp4 -frames:v 1 \
+ffmpeg -y -ss 9 -i /opt/cursor/artifacts/ga-wow-goodhart-before.mp4 -frames:v 1 \
   /opt/cursor/artifacts/screenshots/ga-wow-before.png
-ffmpeg -y -ss 45 -i /opt/cursor/artifacts/ga-wow-goodhart-after.mp4 -frames:v 1 \
+ffmpeg -y -ss 9 -i /opt/cursor/artifacts/ga-wow-goodhart-after.mp4 -frames:v 1 \
   /opt/cursor/artifacts/screenshots/ga-wow-after.png
 ```
