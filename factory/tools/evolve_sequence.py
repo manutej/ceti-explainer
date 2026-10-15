@@ -308,6 +308,20 @@ def apply_genome_to_film(film: dict, genome: dict) -> dict:
     return film
 
 
+def gate_extra_flags(fdir: str, *, quick: bool = False) -> list[str]:
+    """Match shipped gate era: legacy films without G11 need --overlap-warn to pass re-gate."""
+    flags: list[str] = []
+    gate_path = os.path.join(fdir, "gate.json")
+    if os.path.isfile(gate_path):
+        gate = load_json(gate_path)
+        row_ids = {r.get("id") for r in gate.get("rows") or []}
+        if "G11" not in row_ids:
+            flags.append("--overlap-warn")
+    if quick:
+        flags.append("--quick")
+    return flags
+
+
 def recorded_look(fdir: str, film: dict) -> dict[str, str]:
     look = dict(film.get("look") or {})
     look.setdefault("brand", "film")
@@ -333,7 +347,13 @@ def recorded_look(fdir: str, film: dict) -> dict[str, str]:
     return look  # type: ignore[return-value]
 
 
-def evaluate_genome(fdir: str, genome: dict, run_dir: str) -> tuple[float, dict]:
+def evaluate_genome(
+    fdir: str,
+    genome: dict,
+    run_dir: str,
+    *,
+    gate_quick: bool = True,
+) -> tuple[float, dict]:
     """Build + gate a genome in run_dir (film.json copy)."""
     os.makedirs(run_dir, exist_ok=True)
     src_film = load_json(os.path.join(fdir, "film.json"))
@@ -364,16 +384,25 @@ def evaluate_genome(fdir: str, genome: dict, run_dir: str) -> tuple[float, dict]
         os.path.join(ROOT, "factory", "kit2", "kit2.js"),
         os.path.join(ROOT, "factory", "kit2", "player.js"),
     ]
+    gate_argv = (
+        ["node", GATE, page_abs, "--film", run_dir, "--json", gate_json]
+        + sum([["--kit", k] for k in kits], [])
+        + gate_extra_flags(fdir, quick=gate_quick)
+    )
     g = subprocess.run(
-        ["node", GATE, page_abs, "--film", run_dir, "--json", gate_json] + sum([["--kit", k] for k in kits], []),
+        gate_argv,
         cwd=ROOT,
         capture_output=True,
         text=True,
     )
+    detail_gate_log = (g.stdout + g.stderr)[-1200:]
     baseline_knobs = (src_film.get("knobs") or {})
     score, detail = fitness_from_gate(gate_json, genome, baseline_knobs, fdir)
     detail["build_ok"] = b.returncode == 0
     detail["gate_exit"] = g.returncode
+    detail["gate_argv"] = gate_argv
+    if g.returncode != 0 and score <= -1e8:
+        detail["gate_log_tail"] = detail_gate_log
     return score, detail
 
 
@@ -431,6 +460,8 @@ def cmd_evolve(args: argparse.Namespace) -> int:
     t0, t1 = parse_window(args.window)
     rng = random.Random(args.seed)
     pop = seed_population(fdir, (t0, t1))
+    if len(pop) > args.population:
+        pop = pop[: args.population]
     film = load_json(os.path.join(fdir, "film.json"))
     baseline_knobs = film.get("knobs") or {}
     out_dir = os.path.join(fdir, "evolve")
@@ -441,12 +472,14 @@ def cmd_evolve(args: argparse.Namespace) -> int:
     best_score = -1e9
     history = []
 
+    gate_quick = not args.gate_full
+
     for gen in range(args.generations):
         scored: list[tuple[float, dict]] = []
         for i, g in enumerate(pop):
             if args.evaluate and not args.dry_run:
                 run_dir = os.path.join(out_dir, "run-g%d-i%d" % (gen, i))
-                sc, det = evaluate_genome(fdir, g, run_dir)
+                sc, det = evaluate_genome(fdir, g, run_dir, gate_quick=gate_quick)
             else:
                 sc, det = fitness_from_gate(os.path.join(fdir, "gate.json"), g, baseline_knobs, fdir)
             scored.append((sc, g))
@@ -509,6 +542,11 @@ def main() -> int:
     pe.add_argument("--seed", type=int, default=1973)
     pe.add_argument("--dry-run", action="store_true", help="mutate only; score against existing gate.json")
     pe.add_argument("--evaluate", action="store_true", help="build+gate each individual (slow)")
+    pe.add_argument(
+        "--gate-full",
+        action="store_true",
+        help="gate with full overlap sampling (default: --quick during --evaluate)",
+    )
 
     args = p.parse_args()
     if args.cmd == "score":
