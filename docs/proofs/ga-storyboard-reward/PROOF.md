@@ -114,6 +114,18 @@ Saved under `/opt/cursor/artifacts/screenshots/`:
 | `best.genome.goodhart-ledger.json` | Best 2D ledger genome |
 | `history.goodhart-ledger.json` | Ledger evolve history |
 
+## 8 · Video proof (MP4)
+
+Window clip **36–58 s** from the shipped simpsons-3d build (see commit `7b35155`). Artifacts on the proof VM:
+
+| File | Path |
+|------|------|
+| Baseline | `/opt/cursor/artifacts/ga-proof-baseline.mp4` |
+| Evolved (GA best on dry-run) | `/opt/cursor/artifacts/ga-proof-evolved.mp4` (identical to baseline — elite unchanged) |
+| Window alias | `/opt/cursor/artifacts/ga-proof-window.mp4` |
+
+Export recipe: `docs/proofs/ga-storyboard-reward/export/ga-baseline.export.json`. For a **visible** before/after clip, export from `goodhart/drafts/ledger` after applying `best.genome.goodhart-ledger.json` (fitness **106.50 → 123.00** under `--evaluate`).
+
 ## Verdict
 
 The GA storyboard reward pilot **works end-to-end**: genomes mutate, kit2 builds, gate runs, fitness aggregates gate rows + anchor + findings alignment + seat, and evolution improves fitness on the 2D ledger run (**106.50 → 123.00**) while holding a passing WebGL elite on simpsons-3d with live gate (**125.40**, PASS).
